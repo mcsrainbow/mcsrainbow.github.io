@@ -1,4 +1,4 @@
-baseURL: "https://heylinux.com"
+baseURL: "https://blog.heylinux.com"
 title: Hey! Linux.
 paginate: 10
 theme: hugo-PaperMod
