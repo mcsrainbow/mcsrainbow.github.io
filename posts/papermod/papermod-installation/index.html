@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Papermod - Installation | Hey! Linux.</title>
+
+<meta name="keywords" content="PaperMod" />
+<meta name="description" content="Read Install and Update instructions here">
+<meta name="author" content="Aditya Telange">
+<link rel="canonical" href="https://heylinux.com/posts/papermod/papermod-installation/" />
+<link href="https://heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="Papermod - Installation" />
+<meta property="og:description" content="Read Install and Update instructions here" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://heylinux.com/posts/papermod/papermod-installation/" />
+<meta property="article:published_time" content="2020-09-15T11:30:03+05:30" />
+<meta property="article:modified_time" content="2020-09-15T11:30:03+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Papermod - Installation"/>
+<meta name="twitter:description" content="Read Install and Update instructions here"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Papermod - Installation",
+  "name": "Papermod - Installation",
+  "description": "Read Install and Update instructions here",
+  "keywords": [
+    "PaperMod"
+  ],
+  "articleBody": "Guide Follow this guide to setup hugo and create a new site. Make sure you install latest version of hugo(=0.74.0).\nAfter you have created a new site, at Step 3 follow the steps:\nInside the folder of your Hugo site, run:\n git clone https://github.com/adityatelange/hugo-PaperMod themes/hugo-PaperMod --depth=1  Updating theme :\ncd themes/hugo-PaperMod git pull   or you can use as submodule with\n git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/hugo-PaperMod git submodule update --init --recursive  Updating theme with submodule :\ngit submodule update --remote --merge Then change in config.yml:\n  theme: \"hugo-PaperMod\" Example Site Structure is present here: exampleSite\n Sample config.yml baseURL: \"https://examplesite.com\" title: ExampleSite paginate: 5 theme: hugo-PaperMod enableRobotsTXT: true buildDrafts: false buildFuture: false buildExpired: false googleAnalytics: UA-123-45 minify: disableXML: true minifyOutput: true params: env: production # to enable google analytics, opengraph, twitter-cards and schema. title: ExampleSite description: \"ExampleSite description\" author: Me # author: [\"Me\", \"You\"] # multiple authors images: \"\" ShowReadingTime: true ShowShareButtons: true comments: false defaultTheme: auto disableThemeToggle: false disableSpecial1stPost: false assets: favicon: \"\" favicon16x16: \"\" favicon32x32: \"\" apple_touch_icon: \"\" safari_pinned_tab: \"\" label: text: \"Home\" icon: /apple-touch-icon.png iconHeight: 35 # profile-mode profileMode: enabled: false # needs to be explicitly set title: ExampleSite # imageUrl: '' # imageTitle: my image buttons: - name: Posts url: posts - name: Tags url: tags # home-info mode homeInfoParams: Title: \"Hi there \\U0001F44B\" Content: Welcome to my blog socialIcons: - name: twitter url: \"https://twitter.com/\" - name: stackoverflow url: \"https://stackoverflow.com\" - name: github url: \"https://github.com/\" analytics: google: SiteVerificationTag: \"XYZabc\" menu: main: - identifier: categories name: categories url: /categories/ weight: 10 - identifier: tags name: tags url: /tags/ weight: 20 - identifier: example name: example.org url: https://example.org weight: 30  Sample Page.md --- title: \"My 1st post\" date: 2020-09-15T11:30:03+00:00 weight: 1 aliases: [\"/first\"] tags: [\"first\"] author: \"Me\" # author: [\"Me\", \"You\"] # multiple authors showToc: true TocOpen: false draft: false hidemeta: false disableShare: false cover: image: \"\" alt: \"\" caption: \"\" relative: false comments: false ---  Papermod - Features Papermod - How to Guide Papermod - Icons ",
+  "wordCount" : "351",
+  "inLanguage": "en",
+  "datePublished": "2020-09-15T11:30:03+05:30",
+  "dateModified": "2020-09-15T11:30:03+05:30",
+  "author":{
+    "@type": "Person",
+    "name": "Aditya Telange"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://heylinux.com/posts/papermod/papermod-installation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      Papermod - Installation
+    </h1>
+    <div class="post-meta">
+
+September 15, 2020&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Aditya Telange
+
+    </div>
+  </header> 
+
+  <div class="toc">
+    <details  open>
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <blockquote><ul><li>
+        <a href="#guide" aria-label="Guide">Guide</a><ul>
+            <li>
+        <a href="#sample-configyml" aria-label="Sample config.yml">Sample <code>config.yml</code></a></li><li>
+        <a href="#sample-pagemd" aria-label="Sample Page.md">Sample <code>Page.md</code></a></li><li>
+        <a href="#papermod---featurespapermod-features" aria-label="Papermod - Features"><a href="../papermod-features">Papermod - Features</a></a></li><li>
+        <a href="#papermod---how-to-guidepapermod-how-to" aria-label="Papermod - How to Guide"><a href="../papermod-how-to">Papermod - How to Guide</a></a></li><li>
+        <a href="#papermod---iconspapermod-icons" aria-label="Papermod - Icons"><a href="../papermod-icons">Papermod - Icons</a></a></li></ul>
+</li></ul>
+      </blockquote>
+    </details>
+  </div>
+  <div class="post-content">
+<h2 id="guide">Guide<a hidden class="anchor" aria-hidden="true" href="#guide">#</a></h2>
+<p>Follow <a href="https://gohugo.io/getting-started/quick-start/">this</a> guide to setup hugo and create a new site.
+Make sure you install latest version of <code>hugo</code>(&gt;=0.74.0).</p>
+<p>After you have created a new site, at <a href="https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme">Step 3</a> follow the steps:</p>
+<p>Inside the folder of your Hugo site, run:</p>
+<blockquote>
+<pre><code class="language-console" data-lang="console">git clone https://github.com/adityatelange/hugo-PaperMod themes/hugo-PaperMod --depth=1
+</code></pre><blockquote>
+<p>Updating theme :</p>
+<pre><code class="language-console" data-lang="console">cd themes/hugo-PaperMod
+git pull
+</code></pre></blockquote>
+</blockquote>
+<p><strong>or</strong> you can use as <a href="https://www.atlassian.com/git/tutorials/git-submodule">submodule</a> with</p>
+<blockquote>
+<pre><code class="language-console" data-lang="console">git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/hugo-PaperMod
+git submodule update --init --recursive
+</code></pre><blockquote>
+<p>Updating theme with submodule :</p>
+<pre><code class="language-console" data-lang="console">git submodule update --remote --merge
+</code></pre><p>Then change in <code>config.yml</code>:</p>
+</blockquote>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">theme</span>: <span style="color:#e6db74">&#34;hugo-PaperMod&#34;</span>
+</code></pre></div><p>Example Site Structure is present here: <a href="https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/">exampleSite</a></p>
+<hr>
+<h3 id="sample-configyml">Sample <code>config.yml</code><a hidden class="anchor" aria-hidden="true" href="#sample-configyml">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">baseURL</span>: <span style="color:#e6db74">&#34;https://examplesite.com&#34;</span>
+<span style="color:#f92672">title</span>: <span style="color:#ae81ff">ExampleSite</span>
+<span style="color:#f92672">paginate</span>: <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">theme</span>: <span style="color:#ae81ff">hugo-PaperMod</span>
+
+<span style="color:#f92672">enableRobotsTXT</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">buildDrafts</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#f92672">buildFuture</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#f92672">buildExpired</span>: <span style="color:#66d9ef">false</span>
+
+<span style="color:#f92672">googleAnalytics</span>: <span style="color:#ae81ff">UA-123-45</span>
+
+<span style="color:#f92672">minify</span>:
+    <span style="color:#f92672">disableXML</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">minifyOutput</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#f92672">params</span>:
+    <span style="color:#f92672">env</span>: <span style="color:#ae81ff">production</span> <span style="color:#75715e"># to enable google analytics, opengraph, twitter-cards and schema.</span>
+    <span style="color:#f92672">title</span>: <span style="color:#ae81ff">ExampleSite</span>
+    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;ExampleSite description&#34;</span>
+    <span style="color:#f92672">author</span>: <span style="color:#ae81ff">Me</span>
+    <span style="color:#75715e"># author: [&#34;Me&#34;, &#34;You&#34;] # multiple authors</span>
+
+    <span style="color:#f92672">images</span>: <span style="color:#e6db74">&#34;&lt;link or path of image for opengraph, twitter-cards&gt;&#34;</span>
+
+    <span style="color:#f92672">ShowReadingTime</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">ShowShareButtons</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">comments</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#f92672">defaultTheme</span>: <span style="color:#ae81ff">auto</span>
+    <span style="color:#f92672">disableThemeToggle</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#f92672">disableSpecial1stPost</span>: <span style="color:#66d9ef">false</span>
+
+    <span style="color:#f92672">assets</span>:
+        <span style="color:#f92672">favicon</span>: <span style="color:#e6db74">&#34;&lt;link / abs url&gt;&#34;</span>
+        <span style="color:#f92672">favicon16x16</span>: <span style="color:#e6db74">&#34;&lt;link / abs url&gt;&#34;</span>
+        <span style="color:#f92672">favicon32x32</span>: <span style="color:#e6db74">&#34;&lt;link / abs url&gt;&#34;</span>
+        <span style="color:#f92672">apple_touch_icon</span>: <span style="color:#e6db74">&#34;&lt;link / abs url&gt;&#34;</span>
+        <span style="color:#f92672">safari_pinned_tab</span>: <span style="color:#e6db74">&#34;&lt;link / abs url&gt;&#34;</span>
+
+    <span style="color:#f92672">label</span>:
+        <span style="color:#f92672">text</span>: <span style="color:#e6db74">&#34;Home&#34;</span>
+        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">/apple-touch-icon.png</span>
+        <span style="color:#f92672">iconHeight</span>: <span style="color:#ae81ff">35</span>
+
+    <span style="color:#75715e"># profile-mode</span>
+    <span style="color:#f92672">profileMode</span>:
+        <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">false</span> <span style="color:#75715e"># needs to be explicitly set</span>
+        <span style="color:#f92672">title</span>: <span style="color:#ae81ff">ExampleSite</span>
+        <span style="color:#75715e"># imageUrl: &#39;&lt;img location&gt;&#39;</span>
+        <span style="color:#75715e"># imageTitle: my image</span>
+        <span style="color:#f92672">buttons</span>:
+            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Posts</span>
+              <span style="color:#f92672">url</span>: <span style="color:#ae81ff">posts</span>
+            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Tags</span>
+              <span style="color:#f92672">url</span>: <span style="color:#ae81ff">tags</span>
+
+    <span style="color:#75715e"># home-info mode</span>
+    <span style="color:#f92672">homeInfoParams</span>:
+        <span style="color:#f92672">Title</span>: <span style="color:#e6db74">&#34;Hi there \U0001F44B&#34;</span>
+        <span style="color:#f92672">Content</span>: <span style="color:#ae81ff">Welcome to my blog</span>
+
+    <span style="color:#f92672">socialIcons</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">twitter</span>
+          <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;https://twitter.com/&#34;</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stackoverflow</span>
+          <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;https://stackoverflow.com&#34;</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">github</span>
+          <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;https://github.com/&#34;</span>
+
+    <span style="color:#f92672">analytics</span>:
+        <span style="color:#f92672">google</span>:
+            <span style="color:#f92672">SiteVerificationTag</span>: <span style="color:#e6db74">&#34;XYZabc&#34;</span>
+
+<span style="color:#f92672">menu</span>:
+    <span style="color:#f92672">main</span>:
+        - <span style="color:#f92672">identifier</span>: <span style="color:#ae81ff">categories</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">categories</span>
+          <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/categories/</span>
+          <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">10</span>
+        - <span style="color:#f92672">identifier</span>: <span style="color:#ae81ff">tags</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tags</span>
+          <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/tags/</span>
+          <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">20</span>
+        - <span style="color:#f92672">identifier</span>: <span style="color:#ae81ff">example</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example.org</span>
+          <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://example.org</span>
+          <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">30</span>
+</code></pre></div><hr>
+<h3 id="sample-pagemd">Sample <code>Page.md</code><a hidden class="anchor" aria-hidden="true" href="#sample-pagemd">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">---
+<span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;My 1st post&#34;</span>
+<span style="color:#f92672">date</span>: <span style="color:#e6db74">2020-09-15T11:30:03</span><span style="color:#ae81ff">+00</span>:<span style="color:#ae81ff">00</span>
+<span style="color:#f92672">weight</span>: <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">aliases</span>: [<span style="color:#e6db74">&#34;/first&#34;</span>]
+<span style="color:#f92672">tags</span>: [<span style="color:#e6db74">&#34;first&#34;</span>]
+<span style="color:#f92672">author</span>: <span style="color:#e6db74">&#34;Me&#34;</span>
+<span style="color:#75715e"># author: [&#34;Me&#34;, &#34;You&#34;] # multiple authors</span>
+<span style="color:#f92672">showToc</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">TocOpen</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#f92672">draft</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#f92672">hidemeta</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#f92672">disableShare</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#f92672">cover</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#e6db74">&#34;&lt;image path/url&gt;&#34;</span>
+    <span style="color:#f92672">alt</span>: <span style="color:#e6db74">&#34;&lt;alt text&gt;&#34;</span>
+    <span style="color:#f92672">caption</span>: <span style="color:#e6db74">&#34;&lt;text&gt;&#34;</span>
+    <span style="color:#f92672">relative</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#f92672">comments</span>: <span style="color:#66d9ef">false</span>
+---
+
+</code></pre></div><hr>
+<h3 id="papermod---featurespapermod-features"><a href="../papermod-features">Papermod - Features</a><a hidden class="anchor" aria-hidden="true" href="#papermod---featurespapermod-features">#</a></h3>
+<h3 id="papermod---how-to-guidepapermod-how-to"><a href="../papermod-how-to">Papermod - How to Guide</a><a hidden class="anchor" aria-hidden="true" href="#papermod---how-to-guidepapermod-how-to">#</a></h3>
+<h3 id="papermod---iconspapermod-icons"><a href="../papermod-icons">Papermod - Icons</a><a hidden class="anchor" aria-hidden="true" href="#papermod---iconspapermod-icons">#</a></h3>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://heylinux.com/tags/papermod/">PaperMod</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2020 <a href="https://heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
