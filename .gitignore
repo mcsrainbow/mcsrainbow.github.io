@@ -1,0 +1,5 @@
+.DS_Store
+*.swp
+
+public/
+resources/_gen/

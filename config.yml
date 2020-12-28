@@ -1,0 +1,106 @@
+baseURL: "https://heylinux.com"
+title: Hey! Linux.
+paginate: 10
+theme: hugo-PaperMod
+enableInlineShortcodes: true
+enableRobotsTXT: true
+
+# googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+languages:
+    en:
+        languageName: "English"
+        weight: 1
+        menu:
+            main:
+                - name: Search
+                  url: search
+                  weight: 1
+                - name: Categories
+                  url: categories
+                  weight: 2
+                - name: Posts
+                  url: posts
+                  weight: 3
+                - name: Archives
+                  url: archives
+                  weight: 4
+                - name: Tags
+                  url: tags
+                  weight: 5
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production
+    description: "A SRE Lead, a Solution Architect and a Troubleshooter."
+    author: mcsrainbow
+    ShowReadingTime: true
+    defaultTheme: auto
+    ShowShareButtons: false
+    displayFullLangName: false
+    # images: ""
+    # assets:
+    #   favicon: '<path / external url>'
+
+    profileMode:
+        enabled: true
+        title: Dong Guo | Damon
+        subtitle: "### A SRE Lead, a Solution Architect and a Troubleshooter."
+        imageUrl: "img/avatar.png"
+        imageTitle: My Avatar
+        buttons:
+            - name: Posts
+              url: posts
+            - name: Tags
+              url: tags
+
+    homeInfoParams:
+        Title: "Hi! Welcome \U0001F44B"
+        Content: >
+            This is **Dong** **Guo**, English name is **Damon**.
+
+            - A SRE Lead, a Solution Architect and a Troubleshooter.
+
+    socialIcons:
+        - name: linkedin
+          url: "https://www.linkedin.com/in/damondguo"
+        - name: github
+          url: "https://github.com/mcsrainbow"
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
+privacy:
+    vimeo:
+        disabled: true
+        simple: true
+
+    twitter:
+        disabled: true
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: true
+        simple: true
+
+    youtube:
+        disabled: true
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true
