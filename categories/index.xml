@@ -5,22 +5,31 @@
     <link>https://blog.heylinux.com/categories/</link>
     <description>Recent content in Categories on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Mar 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>syntax</title>
-      <link>https://blog.heylinux.com/categories/syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Management</title>
+      <link>https://blog.heylinux.com/categories/management/</link>
+      <pubDate>Thu, 22 Mar 2007 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.heylinux.com/categories/syntax/</guid>
+      <guid>https://blog.heylinux.com/categories/management/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>themes</title>
-      <link>https://blog.heylinux.com/categories/themes/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Thinking</title>
+      <link>https://blog.heylinux.com/categories/thinking/</link>
+      <pubDate>Thu, 22 Mar 2007 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.heylinux.com/categories/themes/</guid>
+      <guid>https://blog.heylinux.com/categories/thinking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://blog.heylinux.com/categories/devops/</link>
+      <pubDate>Tue, 13 Mar 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/categories/devops/</guid>
       <description></description>
     </item>
     

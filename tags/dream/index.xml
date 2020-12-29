@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dream on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/dream/</link>
+    <description>Recent content in Dream on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 08 Jan 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/dream/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开始我的技术博客生涯</title>
+      <link>https://blog.heylinux.com/2007/01/%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E7%94%9F%E6%B6%AF/</link>
+      <pubDate>Mon, 08 Jan 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/01/%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E7%94%9F%E6%B6%AF/</guid>
+      <description>&lt;p&gt;从离开学校到现在已经工作6个多月，开始想作为一名专业的IT人，于是开始了自己的技术博客生涯。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
