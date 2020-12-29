@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Idea on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/idea/</link>
+    <description>Recent content in Idea on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 30 Mar 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学点黑客技术</title>
+      <link>https://blog.heylinux.com/2007/03/%E5%AD%A6%E7%82%B9%E9%BB%91%E5%AE%A2%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 30 Mar 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/03/%E5%AD%A6%E7%82%B9%E9%BB%91%E5%AE%A2%E6%8A%80%E6%9C%AF/</guid>
+      <description>&lt;p&gt;最近常常听到有认识的人和同学问我：你会黑客技术么？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

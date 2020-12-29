@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Archives | Hey! Linux.</title>
+<title>最简单快速的Apache二级域名实现方法 | Hey! Linux.</title>
 
-<meta name="keywords" content="" />
-<meta name="description" content="archives">
+<meta name="keywords" content="Linux, Apache" />
+<meta name="description" content="首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。">
 <meta name="author" content="mcsrainbow">
-<link rel="canonical" href="https://blog.heylinux.com/archives/" />
+<link rel="canonical" href="https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" />
 <link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
     as="style">
 
@@ -24,37 +24,38 @@
 <meta name="generator" content="Hugo 0.79.1" />
 
 
-<meta property="og:title" content="Archives" />
-<meta property="og:description" content="archives" />
+<meta property="og:title" content="最简单快速的Apache二级域名实现方法" />
+<meta property="og:description" content="首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.heylinux.com/archives/" />
-
+<meta property="og:url" content="https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" />
+<meta property="article:published_time" content="2007-05-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2007-05-04T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Archives"/>
-<meta name="twitter:description" content="archives"/>
+<meta name="twitter:title" content="最简单快速的Apache二级域名实现方法"/>
+<meta name="twitter:description" content="首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。"/>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Archives",
-  "name": "Archives",
-  "description": "archives",
+  "headline": "最简单快速的Apache二级域名实现方法",
+  "name": "最简单快速的Apache二级域名实现方法",
+  "description": "首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。\n",
   "keywords": [
-    
+    "Linux", "Apache"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。\n然后，在httpd.conf中打开mod_rewrite模块支持：打开Apache的配置文件httpd.conf，去掉LoadModule rewrite_module modules/mod_rewrite.so前面的#号；\n其次，在 httpd.conf 的最后，添加以下内容：\nRewriteEngine on RewriteMap lowercase int:tolower RewriteMap vhost txt:/usr/local/etc/apache/vhost.map #定义映像文件 RewriteCond ${lowercase:%{SERVER_NAME}} ^(.+)$ RewriteCond ${vhost:%1} ^(/.*)$ RewriteRule ^/(.*)$ %1/$1 其中的/usr/local/etc/apache是你的Apache服务器配置文件所在路径，请根据实际情况更改。\n然后，在这个所在路径的目录下创建一个文件：vhost.map，内容为：\nbbs.domain.com /usr/local/www/data-dist/bbs anyname.domain.com /usr/local/www/data-dist/anyname 以上部分都是：“域名+空格+绝对路径” 的形式。\n最后，在你的网站根目录/usr/local/www/data-dist下，创建对应目录：bbs，anyname 等等，理论上可以无限。\n这样通过访问bbs.domain.com实际上访问的就是/usr/local/www/data-dist/bbs目录下的文件。\n而且，你可以随时更改vhost.map来增加、删除、修改你的二级域名和所指向的实际路径，且不用重启Apache。\n",
+  "wordCount" : "37",
   "inLanguage": "en",
-  "datePublished": "0001-01-01T00:00:00Z",
-  "dateModified": "0001-01-01T00:00:00Z",
+  "datePublished": "2007-05-04T00:00:00Z",
+  "dateModified": "2007-05-04T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "mcsrainbow"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://blog.heylinux.com/archives/"
+    "@id": "https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
   },
   "publisher": {
     "@type": "Organization",
@@ -71,7 +72,7 @@
 
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -139,7 +140,7 @@
             </li>
             <li>
                 <a href="https://blog.heylinux.com/archives" title="Archives">
-                    <span class="active">Archives</span>
+                    <span>Archives</span>
                 </a>
             </li>
             <li>
@@ -152,137 +153,44 @@
 
     <main class="main">
 
-<header class="page-header">
-  <h1>Archives</h1>
-</header>
-<div class="archive-year">
-  <h2 class="archive-year-header">2007<sup class="archive-count">&nbsp;&nbsp;11</sup>
-  </h2>
-  <div class="archive-month">
-    <h3 class="archive-month-header">May<sup class="archive-count">&nbsp;&nbsp;1</sup></h3>
-    <div class="archive-posts">
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">最简单快速的Apache二级域名实现方法
-        </h3>
-        <div class="archive-meta">
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      最简单快速的Apache二级域名实现方法
+    </h1>
+    <div class="post-meta">
 
 May 4, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 最简单快速的Apache二级域名实现方法" href="https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"></a>
-      </div>
+
     </div>
-  </div>
-  <div class="archive-month">
-    <h3 class="archive-month-header">April<sup class="archive-count">&nbsp;&nbsp;1</sup></h3>
-    <div class="archive-posts">
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">在梦里我是那么的脆弱
-        </h3>
-        <div class="archive-meta">
+  </header> 
 
-April 1, 2007&nbsp;·&nbsp;mcsrainbow
+  <div class="post-content">
+<p>首先，你要拥有一个有泛域名解析的顶级域名，例如：<code>domain.com</code>，并你的域名控制面板中添加一个范解析<code>*.domain.com</code>到你的服务器IP。</p>
+<p>然后，在httpd.conf中打开mod_rewrite模块支持：打开Apache的配置文件httpd.conf，去掉<code>LoadModule rewrite_module modules/mod_rewrite.so</code>前面的<code>#</code>号；</p>
+<p>其次，在 httpd.conf 的最后，添加以下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RewriteEngine on
+RewriteMap lowercase int:tolower
+RewriteMap vhost txt:/usr/local/etc/apache/vhost.map <span style="color:#75715e">#定义映像文件</span>
+RewriteCond <span style="color:#e6db74">${</span>lowercase:%{SERVER_NAME<span style="color:#e6db74">}</span><span style="color:#f92672">}</span> ^<span style="color:#f92672">(</span>.+<span style="color:#f92672">)</span>$
+RewriteCond <span style="color:#e6db74">${</span>vhost:%1<span style="color:#e6db74">}</span> ^<span style="color:#f92672">(</span>/.*<span style="color:#f92672">)</span>$
+RewriteRule ^/<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ %1/$1
+</code></pre></div><p>其中的<code>/usr/local/etc/apache</code>是你的Apache服务器配置文件所在路径，请根据实际情况更改。</p>
+<p>然后，在这个所在路径的目录下创建一个文件：vhost.map，内容为：</p>
+<pre><code>bbs.domain.com /usr/local/www/data-dist/bbs
+anyname.domain.com /usr/local/www/data-dist/anyname
+</code></pre><p>以上部分都是：“域名+空格+绝对路径” 的形式。</p>
+<p>最后，在你的网站根目录<code>/usr/local/www/data-dist</code>下，创建对应目录：bbs，anyname 等等，理论上可以无限。</p>
+<p>这样通过访问<code>bbs.domain.com</code>实际上访问的就是<code>/usr/local/www/data-dist/bbs</code>目录下的文件。</p>
+<p>而且，你可以随时更改vhost.map来增加、删除、修改你的二级域名和所指向的实际路径，且不用重启Apache。</p>
 </div>
-        <a class="entry-link" aria-label="post link to 在梦里我是那么的脆弱" href="https://blog.heylinux.com/2007/04/%E5%9C%A8%E6%A2%A6%E9%87%8C%E6%88%91%E6%98%AF%E9%82%A3%E4%B9%88%E7%9A%84%E8%84%86%E5%BC%B1/"></a>
-      </div>
-    </div>
-  </div>
-  <div class="archive-month">
-    <h3 class="archive-month-header">March<sup class="archive-count">&nbsp;&nbsp;5</sup></h3>
-    <div class="archive-posts">
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">LFS: 一个菜鸟变成高手的捷径
-        </h3>
-        <div class="archive-meta">
-
-March 30, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to LFS: 一个菜鸟变成高手的捷径" href="https://blog.heylinux.com/2007/03/lfs-%E4%B8%80%E4%B8%AA%E8%8F%9C%E9%B8%9F%E5%8F%98%E6%88%90%E9%AB%98%E6%89%8B%E7%9A%84%E6%8D%B7%E5%BE%84/"></a>
-      </div>
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">学点黑客技术
-        </h3>
-        <div class="archive-meta">
-
-March 30, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 学点黑客技术" href="https://blog.heylinux.com/2007/03/%E5%AD%A6%E7%82%B9%E9%BB%91%E5%AE%A2%E6%8A%80%E6%9C%AF/"></a>
-      </div>
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">与王龙图 持恒共展
-        </h3>
-        <div class="archive-meta">
-
-March 22, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 与王龙图 持恒共展" href="https://blog.heylinux.com/2007/03/%E4%B8%8E%E7%8E%8B%E9%BE%99%E5%9B%BE-%E6%8C%81%E6%81%92%E5%85%B1%E5%B1%95/"></a>
-      </div>
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">让自己的思维活跃一点
-        </h3>
-        <div class="archive-meta">
-
-March 22, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 让自己的思维活跃一点" href="https://blog.heylinux.com/2007/03/%E8%AE%A9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%9D%E7%BB%B4%E6%B4%BB%E8%B7%83%E4%B8%80%E7%82%B9/"></a>
-      </div>
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">如何给你的Linux增加交换分区
-        </h3>
-        <div class="archive-meta">
-
-March 13, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 如何给你的Linux增加交换分区" href="https://blog.heylinux.com/2007/03/%E5%A6%82%E4%BD%95%E7%BB%99%E4%BD%A0%E7%9A%84linux%E5%A2%9E%E5%8A%A0%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/"></a>
-      </div>
-    </div>
-  </div>
-  <div class="archive-month">
-    <h3 class="archive-month-header">February<sup class="archive-count">&nbsp;&nbsp;1</sup></h3>
-    <div class="archive-posts">
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">新的一年 新的蜕变
-        </h3>
-        <div class="archive-meta">
-
-February 26, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 新的一年 新的蜕变" href="https://blog.heylinux.com/2007/02/%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4-%E6%96%B0%E7%9A%84%E8%9C%95%E5%8F%98/"></a>
-      </div>
-    </div>
-  </div>
-  <div class="archive-month">
-    <h3 class="archive-month-header">January<sup class="archive-count">&nbsp;&nbsp;3</sup></h3>
-    <div class="archive-posts">
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">突破极其菜鸟的自我
-        </h3>
-        <div class="archive-meta">
-
-January 29, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 突破极其菜鸟的自我" href="https://blog.heylinux.com/2007/01/%E7%AA%81%E7%A0%B4%E6%9E%81%E5%85%B6%E8%8F%9C%E9%B8%9F%E7%9A%84%E8%87%AA%E6%88%91/"></a>
-      </div>
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">决定你人生的49个细节
-        </h3>
-        <div class="archive-meta">
-
-January 21, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 决定你人生的49个细节" href="https://blog.heylinux.com/2007/01/%E5%86%B3%E5%AE%9A%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%8449%E4%B8%AA%E7%BB%86%E8%8A%82/"></a>
-      </div>
-      <div class="archive-entry">
-        <h3 class="archive-entry-title">开始我的技术博客生涯
-        </h3>
-        <div class="archive-meta">
-
-January 8, 2007&nbsp;·&nbsp;mcsrainbow
-</div>
-        <a class="entry-link" aria-label="post link to 开始我的技术博客生涯" href="https://blog.heylinux.com/2007/01/%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E7%94%9F%E6%B6%AF/"></a>
-      </div>
-    </div>
-  </div>
-</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/apache/">Apache</a></li>
+    </ul>
+  </footer>
+</article>
     </main><footer class="footer">
     <span>&copy; 2020 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
     <span>&middot;</span>
@@ -301,6 +209,8 @@ January 8, 2007&nbsp;·&nbsp;mcsrainbow
 
 
 
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
         if (localStorage.getItem("menu-scroll-position")) {

@@ -50,8 +50,8 @@
   "keywords": [
     "Linux"
   ],
-  "articleBody": " 创建交换分区文件，例如大小为4G  cd /opt touch swapfile dd if=/dev/zero of=/opt/swapfile bs=1024 count=4096000 4096000+0 records in 4096000+0 records out 4194304000 bytes (4.2 GB) copied, 146.071 s, 28.7 MB/s ls -lh total 4.0G -rw-r–r– 1 root root 4.0G 2007-3-13 15:04 swapfile 说明：从/dev/zero设备读取字节到/opt/swapfile文件。bs代表每块大小以k为单位，bs=1024表示每块1M，count=4096000表示总共4G（该过程大约需要10分钟时间）。\n格式化交换分区文件  mkswap -c /opt/swapfile sync 说明：-c代表检查分区物理损坏的区域，标记后绕过坏道，sync确保格式化信息被写入物理文件/opt/swapfile里。\n激活交换分区  swapon /opt/swapfile 修改配置文件使开机自动激活交换分区  vim /etc/fstab 增加以下一条记录：\n/opt/swapfile swap swap defaults 0 1 最后通过free -m指令可查看现有交换分区的使用情况 ",
-  "wordCount" : "59",
+  "articleBody": " 创建交换分区文件，例如大小为4G  cd /opt touch swapfile dd if=/dev/zero of=/opt/swapfile bs=1024 count=4194304 4194304+0 records in 4194304+0 records out 4294967296 bytes (4.2 GB) copied, 146.071 s, 28.7 MB/s ls -lh total 4.0G -rw-r–r– 1 root root 4.0G 2007-3-13 15:04 swapfile 说明：从/dev/zero设备读取字节到/opt/swapfile文件，bs代表每块大小以k为单位，bs=1024表示每块1M，count=4194304表示4096*1024总共4G。\n对于文件系统ext4和xfs，还可以使用fallocate -l 4g /opt/swapfile通过文件预留的方式来快速创建。\n格式化交换分区文件  mkswap -c /opt/swapfile sync 说明：mkswap -c /opt/swapfile代表检查/opt/swapfile文件物理损坏的区域，标记后绕过坏道并进行格式化，sync确保格式化信息被写入物理文件/opt/swapfile里。\n激活交换分区  swapon /opt/swapfile 修改配置文件使开机自动激活交换分区  vim /etc/fstab 增加以下一条记录：\n/opt/swapfile swap swap defaults 0 1 最后通过free -m指令可查看现有交换分区的使用情况 ",
+  "wordCount" : "65",
   "inLanguage": "en",
   "datePublished": "2007-03-13T00:00:00Z",
   "dateModified": "2007-03-13T00:00:00Z",
@@ -177,20 +177,21 @@ March 13, 2007&nbsp;·&nbsp;mcsrainbow
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt
 touch swapfile
-dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>/opt/swapfile bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">4096000</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">4096000+0 records in
-4096000+0 records out
-4194304000 bytes (4.2 GB) copied, 146.071 s, 28.7 MB/s
+dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>/opt/swapfile bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">4194304</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">4194304+0 records in
+4194304+0 records out
+4294967296 bytes (4.2 GB) copied, 146.071 s, 28.7 MB/s
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ls -lh
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">total 4.0G
 -rw-r–r– 1 root root 4.0G 2007-3-13 15:04 swapfile
-</code></pre></div><p>说明：从/dev/zero设备读取字节到/opt/swapfile文件。bs代表每块大小以k为单位，bs=1024表示每块1M，count=4096000表示总共4G（该过程大约需要10分钟时间）。</p>
+</code></pre></div><p>说明：从/dev/zero设备读取字节到/opt/swapfile文件，bs代表每块大小以k为单位，<code>bs=1024</code>表示每块1M，<code>count=4194304</code>表示<code>4096*1024</code>总共4G。</p>
+<p>对于文件系统ext4和xfs，还可以使用<code>fallocate -l 4g /opt/swapfile</code>通过文件预留的方式来快速创建。</p>
 <ol start="2">
 <li>格式化交换分区文件</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkswap -c /opt/swapfile
 sync
-</code></pre></div><p>说明：-c代表检查分区物理损坏的区域，标记后绕过坏道，sync确保格式化信息被写入物理文件/opt/swapfile里。</p>
+</code></pre></div><p>说明：<code>mkswap -c /opt/swapfile</code>代表检查/opt/swapfile文件物理损坏的区域，标记后绕过坏道并进行格式化，sync确保格式化信息被写入物理文件/opt/swapfile里。</p>
 <ol start="3">
 <li>激活交换分区</li>
 </ol>
