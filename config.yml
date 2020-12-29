@@ -7,6 +7,9 @@ enableRobotsTXT: true
 
 # googleAnalytics: UA-123-45
 
+permalinks:
+  posts: /:year/:month/:title/
+
 minify:
     disableXML: true
     # minifyOutput: true
@@ -41,9 +44,9 @@ outputs:
 
 params:
     env: production
-    description: "A SRE Lead, a Solution Architect and a Troubleshooter."
+    description: "A SRE Lead, a Solution Architect and a Troubleshooter"
     author: mcsrainbow
-    ShowReadingTime: true
+    ShowReadingTime: false
     defaultTheme: auto
     ShowShareButtons: false
     displayFullLangName: false
@@ -54,7 +57,7 @@ params:
     profileMode:
         enabled: true
         title: Dong Guo | Damon
-        subtitle: "### A SRE Lead, a Solution Architect and a Troubleshooter."
+        subtitle: "A **SRE** **Lead**, a **Solution** **Architect** and a **Troubleshooter**"
         imageUrl: "img/avatar.png"
         imageTitle: My Avatar
         buttons:
@@ -68,7 +71,7 @@ params:
         Content: >
             This is **Dong** **Guo**, English name is **Damon**.
 
-            - A SRE Lead, a Solution Architect and a Troubleshooter.
+            - A **SRE** **Lead**, a **Solution** **Architect** and a **Troubleshooter**.
 
     socialIcons:
         - name: linkedin
