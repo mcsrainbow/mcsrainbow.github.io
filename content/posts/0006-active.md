@@ -1,6 +1,6 @@
 ---
 title: "让自己的思维活跃一点"
-date: "2007-03-22"
+date: "2007-03-22T13:05:00+08:00"
 tags: ["Work"]
 categories: ["Thinking", "Management"]
 ---
