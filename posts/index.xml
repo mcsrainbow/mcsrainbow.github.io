@@ -5,14 +5,50 @@
     <link>https://blog.heylinux.com/posts/</link>
     <description>Recent content in Posts on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 May 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Oct 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在Linux下用Shell写的俄罗斯方块程序</title>
+      <link>https://blog.heylinux.com/2007/10/%E5%9C%A8linux%E4%B8%8B%E7%94%A8shell%E5%86%99%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 10 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/10/%E5%9C%A8linux%E4%B8%8B%E7%94%A8shell%E5%86%99%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E7%A8%8B%E5%BA%8F/</guid>
+      <description>&lt;p&gt;注：该文章转载自&lt;a href=&#34;http://bbs.chinaunix.net/thread-184858-1-1.html&#34;&gt;ChinaUnix BBS&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>宜锐科技面试的前后感动</title>
+      <link>https://blog.heylinux.com/2007/09/%E5%AE%9C%E9%94%90%E7%A7%91%E6%8A%80%E9%9D%A2%E8%AF%95%E7%9A%84%E5%89%8D%E5%90%8E%E6%84%9F%E5%8A%A8/</link>
+      <pubDate>Fri, 21 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/09/%E5%AE%9C%E9%94%90%E7%A7%91%E6%8A%80%E9%9D%A2%E8%AF%95%E7%9A%84%E5%89%8D%E5%90%8E%E6%84%9F%E5%8A%A8/</guid>
+      <description>&lt;p&gt;在9月14日星期五，我收到了宜锐科技（成都）有限公司的面试通知。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>共享一个iptables数据转发与端口映射的脚本</title>
+      <link>https://blog.heylinux.com/2007/07/%E5%85%B1%E4%BA%AB%E4%B8%80%E4%B8%AAiptables%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Tue, 17 Jul 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/07/%E5%85%B1%E4%BA%AB%E4%B8%80%E4%B8%AAiptables%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;p&gt;将商用通设备的80端口转发到后端的Web服务器，并作为网关允许所有内网网段的服务器上网。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux服务器优化策略之PHP的加密与加速</title>
+      <link>https://blog.heylinux.com/2007/06/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5%E4%B9%8Bphp%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Sat, 30 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/06/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5%E4%B9%8Bphp%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E5%8A%A0%E9%80%9F/</guid>
+      <description>&lt;p&gt;Zend Optimizer是由Zend技术公司所开发的免费PHP优化软件。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>最简单快速的Apache二级域名实现方法</title>
       <link>https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</link>
       <pubDate>Fri, 04 May 2007 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</guid>
-      <description>&lt;p&gt;首先，你要拥有一个有泛域名解析的顶级域名，例如：&lt;code&gt;domain.com&lt;/code&gt;，并你的域名控制面板中添加一个范解析&lt;code&gt;*.domain.com&lt;/code&gt;到你的服务器IP。&lt;/p&gt;</description>
+      <description>&lt;p&gt;首先，要拥有一个有泛域名解析的顶级域名，例如：&lt;code&gt;domain.com&lt;/code&gt;，并在域名控制面板中添加一个范解析&lt;code&gt;*.domain.com&lt;/code&gt;到服务器IP。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -21,7 +57,7 @@
       <pubDate>Sun, 01 Apr 2007 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2007/04/%E5%9C%A8%E6%A2%A6%E9%87%8C%E6%88%91%E6%98%AF%E9%82%A3%E4%B9%88%E7%9A%84%E8%84%86%E5%BC%B1/</guid>
-      <description>&lt;p&gt;想想现在的自己，其实是很快乐的，工作是自己喜爱而且积极的，是融入了自己梦想的；&lt;/p&gt;</description>
+      <description>&lt;p&gt;想想现在的自己，其实是很快乐的，工作是自己喜爱而且积极的，是融入了自己梦想的。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -48,8 +84,7 @@
       <pubDate>Thu, 22 Mar 2007 15:05:00 +0800</pubDate>
       
       <guid>https://blog.heylinux.com/2007/03/%E4%B8%8E%E7%8E%8B%E9%BE%99%E5%9B%BE-%E6%8C%81%E6%81%92%E5%85%B1%E5%B1%95/</guid>
-      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
-&lt;p&gt;如果我把自己定位到一个其它的不关心，安安稳稳的只管做好自己事情，我是不会有这些想法的。&lt;/p&gt;</description>
+      <description>&lt;p&gt;如果我把自己定位到一个其它的不关心，安安稳稳的只管做好自己事情，我是不会有这些想法的。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -96,7 +131,7 @@
       <pubDate>Sun, 21 Jan 2007 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2007/01/%E5%86%B3%E5%AE%9A%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%8449%E4%B8%AA%E7%BB%86%E8%8A%82/</guid>
-      <description>&lt;p&gt;危机往往是一个人在不经意间积累的，成功也是由许多细节累积而成的。很多时候，成败就取决于一些不为人知的细节。&lt;/p&gt;</description>
+      <description>&lt;p&gt;注：该文章转载自互联网。&lt;/p&gt;</description>
     </item>
     
     <item>

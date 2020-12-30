@@ -5,14 +5,32 @@
     <link>https://blog.heylinux.com/tags/linux/</link>
     <description>Recent content in Linux on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 May 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Jul 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>共享一个iptables数据转发与端口映射的脚本</title>
+      <link>https://blog.heylinux.com/2007/07/%E5%85%B1%E4%BA%AB%E4%B8%80%E4%B8%AAiptables%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Tue, 17 Jul 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/07/%E5%85%B1%E4%BA%AB%E4%B8%80%E4%B8%AAiptables%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;p&gt;将商用通设备的80端口转发到后端的Web服务器，并作为网关允许所有内网网段的服务器上网。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux服务器优化策略之PHP的加密与加速</title>
+      <link>https://blog.heylinux.com/2007/06/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5%E4%B9%8Bphp%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Sat, 30 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/06/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5%E4%B9%8Bphp%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E5%8A%A0%E9%80%9F/</guid>
+      <description>&lt;p&gt;Zend Optimizer是由Zend技术公司所开发的免费PHP优化软件。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>最简单快速的Apache二级域名实现方法</title>
       <link>https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</link>
       <pubDate>Fri, 04 May 2007 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</guid>
-      <description>&lt;p&gt;首先，你要拥有一个有泛域名解析的顶级域名，例如：&lt;code&gt;domain.com&lt;/code&gt;，并你的域名控制面板中添加一个范解析&lt;code&gt;*.domain.com&lt;/code&gt;到你的服务器IP。&lt;/p&gt;</description>
+      <description>&lt;p&gt;首先，要拥有一个有泛域名解析的顶级域名，例如：&lt;code&gt;domain.com&lt;/code&gt;，并在域名控制面板中添加一个范解析&lt;code&gt;*.domain.com&lt;/code&gt;到服务器IP。&lt;/p&gt;</description>
     </item>
     
     <item>

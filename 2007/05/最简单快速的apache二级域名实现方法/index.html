@@ -8,7 +8,7 @@
 <title>最简单快速的Apache二级域名实现方法 | Hey! Linux.</title>
 
 <meta name="keywords" content="Linux, Apache" />
-<meta name="description" content="首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。">
+<meta name="description" content="首先，要拥有一个有泛域名解析的顶级域名，例如：domain.com，并在域名控制面板中添加一个范解析*.domain.com到服务器IP。">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" />
 <link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
@@ -25,14 +25,14 @@
 
 
 <meta property="og:title" content="最简单快速的Apache二级域名实现方法" />
-<meta property="og:description" content="首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。" />
+<meta property="og:description" content="首先，要拥有一个有泛域名解析的顶级域名，例如：domain.com，并在域名控制面板中添加一个范解析*.domain.com到服务器IP。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.heylinux.com/2007/05/%E6%9C%80%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84apache%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" />
 <meta property="article:published_time" content="2007-05-04T00:00:00+00:00" />
 <meta property="article:modified_time" content="2007-05-04T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="最简单快速的Apache二级域名实现方法"/>
-<meta name="twitter:description" content="首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。"/>
+<meta name="twitter:description" content="首先，要拥有一个有泛域名解析的顶级域名，例如：domain.com，并在域名控制面板中添加一个范解析*.domain.com到服务器IP。"/>
 
 <script type="application/ld+json">
 {
@@ -40,12 +40,12 @@
   "@type": "BlogPosting",
   "headline": "最简单快速的Apache二级域名实现方法",
   "name": "最简单快速的Apache二级域名实现方法",
-  "description": "首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。\n",
+  "description": "首先，要拥有一个有泛域名解析的顶级域名，例如：domain.com，并在域名控制面板中添加一个范解析*.domain.com到服务器IP。\n",
   "keywords": [
     "Linux", "Apache"
   ],
-  "articleBody": "首先，你要拥有一个有泛域名解析的顶级域名，例如：domain.com，并你的域名控制面板中添加一个范解析*.domain.com到你的服务器IP。\n然后，在httpd.conf中打开mod_rewrite模块支持：打开Apache的配置文件httpd.conf，去掉LoadModule rewrite_module modules/mod_rewrite.so前面的#号；\n其次，在 httpd.conf 的最后，添加以下内容：\nRewriteEngine on RewriteMap lowercase int:tolower RewriteMap vhost txt:/usr/local/etc/apache/vhost.map #定义映像文件 RewriteCond ${lowercase:%{SERVER_NAME}} ^(.+)$ RewriteCond ${vhost:%1} ^(/.*)$ RewriteRule ^/(.*)$ %1/$1 其中的/usr/local/etc/apache是你的Apache服务器配置文件所在路径，请根据实际情况更改。\n然后，在这个所在路径的目录下创建一个文件：vhost.map，内容为：\nbbs.domain.com /usr/local/www/data-dist/bbs anyname.domain.com /usr/local/www/data-dist/anyname 以上部分都是：“域名+空格+绝对路径” 的形式。\n最后，在你的网站根目录/usr/local/www/data-dist下，创建对应目录：bbs，anyname 等等，理论上可以无限。\n这样通过访问bbs.domain.com实际上访问的就是/usr/local/www/data-dist/bbs目录下的文件。\n而且，你可以随时更改vhost.map来增加、删除、修改你的二级域名和所指向的实际路径，且不用重启Apache。\n",
-  "wordCount" : "37",
+  "articleBody": "首先，要拥有一个有泛域名解析的顶级域名，例如：domain.com，并在域名控制面板中添加一个范解析*.domain.com到服务器IP。\n然后，在httpd.conf中打开mod_rewrite模块支持，编辑配置文件httpd.conf，去掉LoadModule rewrite_module modules/mod_rewrite.so前面的#号；\n其次，在httpd.conf的最后，添加以下内容：\nRewriteEngine on RewriteMap lowercase int:tolower RewriteMap vhost txt:/usr/local/etc/apache/vhost.map #定义映像文件 RewriteCond ${lowercase:%{SERVER_NAME}} ^(.+)$ RewriteCond ${vhost:%1} ^(/.*)$ RewriteRule ^/(.*)$ %1/$1 其中的/usr/local/etc/apache是Apache服务器配置文件所在路径，请根据实际情况更改。\n然后，在这个所在路径的目录下创建一个文件：vhost.map，内容为：\nbbs.domain.com /usr/local/www/data-dist/bbs anyname.domain.com /usr/local/www/data-dist/anyname 以上部分都是：“域名+空格+绝对路径” 的形式。\n最后，在网站根目录/usr/local/www/data-dist下，创建对应目录：bbs，anyname 等等，理论上可以无限。\n这样通过访问bbs.domain.com实际上访问的就是/usr/local/www/data-dist/bbs目录下的文件。\n而且，可以随时更改vhost.map来增加、删除、修改二级域名和所指向的实际路径，且不用重启Apache。\n",
+  "wordCount" : "35",
   "inLanguage": "en",
   "datePublished": "2007-05-04T00:00:00Z",
   "dateModified": "2007-05-04T00:00:00Z",
@@ -166,23 +166,23 @@ May 4, 2007&nbsp;·&nbsp;mcsrainbow
   </header> 
 
   <div class="post-content">
-<p>首先，你要拥有一个有泛域名解析的顶级域名，例如：<code>domain.com</code>，并你的域名控制面板中添加一个范解析<code>*.domain.com</code>到你的服务器IP。</p>
-<p>然后，在httpd.conf中打开mod_rewrite模块支持：打开Apache的配置文件httpd.conf，去掉<code>LoadModule rewrite_module modules/mod_rewrite.so</code>前面的<code>#</code>号；</p>
-<p>其次，在 httpd.conf 的最后，添加以下内容：</p>
+<p>首先，要拥有一个有泛域名解析的顶级域名，例如：<code>domain.com</code>，并在域名控制面板中添加一个范解析<code>*.domain.com</code>到服务器IP。</p>
+<p>然后，在httpd.conf中打开<code>mod_rewrite</code>模块支持，编辑配置文件httpd.conf，去掉<code>LoadModule rewrite_module modules/mod_rewrite.so</code>前面的<code>#</code>号；</p>
+<p>其次，在httpd.conf的最后，添加以下内容：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RewriteEngine on
 RewriteMap lowercase int:tolower
 RewriteMap vhost txt:/usr/local/etc/apache/vhost.map <span style="color:#75715e">#定义映像文件</span>
 RewriteCond <span style="color:#e6db74">${</span>lowercase:%{SERVER_NAME<span style="color:#e6db74">}</span><span style="color:#f92672">}</span> ^<span style="color:#f92672">(</span>.+<span style="color:#f92672">)</span>$
 RewriteCond <span style="color:#e6db74">${</span>vhost:%1<span style="color:#e6db74">}</span> ^<span style="color:#f92672">(</span>/.*<span style="color:#f92672">)</span>$
 RewriteRule ^/<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ %1/$1
-</code></pre></div><p>其中的<code>/usr/local/etc/apache</code>是你的Apache服务器配置文件所在路径，请根据实际情况更改。</p>
+</code></pre></div><p>其中的<code>/usr/local/etc/apache</code>是Apache服务器配置文件所在路径，请根据实际情况更改。</p>
 <p>然后，在这个所在路径的目录下创建一个文件：vhost.map，内容为：</p>
-<pre><code>bbs.domain.com /usr/local/www/data-dist/bbs
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">bbs.domain.com /usr/local/www/data-dist/bbs
 anyname.domain.com /usr/local/www/data-dist/anyname
-</code></pre><p>以上部分都是：“域名+空格+绝对路径” 的形式。</p>
-<p>最后，在你的网站根目录<code>/usr/local/www/data-dist</code>下，创建对应目录：bbs，anyname 等等，理论上可以无限。</p>
+</code></pre></div><p>以上部分都是：“域名+空格+绝对路径” 的形式。</p>
+<p>最后，在网站根目录<code>/usr/local/www/data-dist</code>下，创建对应目录：bbs，anyname 等等，理论上可以无限。</p>
 <p>这样通过访问<code>bbs.domain.com</code>实际上访问的就是<code>/usr/local/www/data-dist/bbs</code>目录下的文件。</p>
-<p>而且，你可以随时更改vhost.map来增加、删除、修改你的二级域名和所指向的实际路径，且不用重启Apache。</p>
+<p>而且，可以随时更改vhost.map来增加、删除、修改二级域名和所指向的实际路径，且不用重启Apache。</p>
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
