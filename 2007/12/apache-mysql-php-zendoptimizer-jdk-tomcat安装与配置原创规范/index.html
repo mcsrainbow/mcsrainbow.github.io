@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux, Apache, PHP, MySQL, Tomcat, Zend" />
+<meta name="description" content="所需文件的下载地址">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」" />
+<meta property="og:description" content="所需文件的下载地址" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/" />
+<meta property="article:published_time" content="2007-12-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2007-12-26T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」"/>
+<meta name="twitter:description" content="所需文件的下载地址"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Apache+Mysql+Php+ZendOptimizer+JDK+Tomcat安装与配置「原创规范」",
+  "name": "Apache\u002bMysql\u002bPhp\u002bZendOptimizer\u002bJDK\u002bTomcat安装与配置「原创规范」",
+  "description": "所需文件的下载地址",
+  "keywords": [
+    "Linux", "Apache", "PHP", "MySQL", "Tomcat", "Zend"
+  ],
+  "articleBody": "所需文件的下载地址 Mysql：http://dev.mysql.com/downloads/mysql/ Apache：http://httpd.apache.org/download.cgi Php：http://www.php.net/downloads.php Zlib：http://www.zlib.net/zlib-1.2.3.tar.gz Freetype：http://sourceforge.net/project/showfiles.php?group_id=3157 Libpng：http://sourceforge.net/search/?type_of_search=soft\u0026type_of_search=soft\u0026words=libpng Jpeg-6b：http://www.ijg.org/files/jpegsrc.v6b.tar.gz GD Library：http://www.boutell.com/gd/http/gd-2.0.33.tar.gz Zend Optimizer：http://www.zend.com/en/products/guard/downloads JDK：http://java.sun.com/j2se/1.4.2/download.html Tomcat：http://archive.apache.org/dist/jakarta/tomcat-5/ Tomcat-connectors：http://archive.apache.org/dist/jakarta/tomcat-connectors/jk2/source/ 安装配置Mysql (Mysql4.x.xx 与 Mysql5.x.xx 版本皆可) 打开并进入Mysql编译环境：\ntar xzvf mysql-x.x.xx.tar.gz cd mysql-x.x.xx/ 修改编译所需配置文件sql/mysqld.cc中的最大连接数：\n搜索：\u0026max_connections, 0, GET_ULONG, REQUIRED_ARG, 100, 1, 16384, 0, 1,\n修改：\u0026max_connections, 0, GET_ULONG, REQUIRED_ARG, 200, 1, 16384, 0, 1,\ngroupadd mysql useradd -g mysql mysql 如果是Debian或Ubuntu系统的话可能需要，安装系统默认缺少的curses/termcap 库：\napt-cache search curses | grep lib apt-get install libncurses5-dev mkdir -p /opt/mysql/data mkdir -p /opt/mysql/var ./configure –prefix=/opt/mysql –with-mysqld-user=mysql –with-extra-charsets=all –with-unix-socket-path=/opt/mysql/var/mysql.sock –localstatedir=/opt/mysql/data –with-client-ldflags=-all-static –with-mysqld-ldflags=-all-static –enable-assembler 注：--prefix=/opt/mysql把mysql-x.x.xx指定安装到/opt/mysql目录中；\n--with-extra-charsets=all对多语言的支持；\n--with-unix-socket-path=/opt/mysql/var/mysql.sock这个是指定mysql服务器启动后，联机套接字文件所处的位置和文件名，避免mysql无法启动的情况发生；\n--with-mysqld-user=username这个是让mysql服务器也能让系统中普通用户username也能启动mysql服务器，避免死掉但无法推出的情况；\n--localstatedir=/opt/mysql/data指定数据库文件存放的目录；\nmake make install 待MySQL安装完毕.剩下的就是配置了；\ncp /opt/mysql/share/mysql/my-medium.cnf /etc/my.cnf 注：将配置文件拷贝到/etc目录下成为my.cnf,大家可以根据自己的需要选择配置文件(配置文件在/opt/mysql/share/mysql/目录下,有my-huge.cnf my-medium.cnf my-large.cnf my-small.cnf这些)。\n修改mysql各系统文件权限与属主，以避免启动时造成错误；\nchmod 755 /opt/mysql/var/ # 设置/opt/mysql/var的目录权限为755 chown -R mysql:mysql /opt/mysql/ # 把/opt/mysql目录归属到mysql这个用户下 创建MySQL的授权表；\n/opt/mysql/bin/mysql_install_db –user=mysql 配置并启动Mysql服务；\n/opt/mysql/bin/mysqld_safe \u0026 cp /opt/mysql/share/mysql/mysql.server /etc/init.d/mysqld cd /opt/mysql/libexec cp mysqld mysqld.old strip mysqld ln -s /opt/mysql/bin/mysql /usr/bin/mysql ln -s /opt/mysql/bin/mysqladmin /usr/sbin/mysqladmin netstat -atln # 查看3306端口是否打开 /etc/init.d/mysqld restart # 如果重启mysql顺利则说明mysql安装成功 mysqladmin -u root password 123456 # 设置mysql的root密码 mysql -uroot –p123456 # 使用root用户进入mysql命令行 mysqluse mysql; mysqldelete from user where password=””; # 删除用于本机匿名连接的空密码帐号 mysqlflush privileges; mysqlquit; 进入/etc目录下的rc2.d rc3.d rc4.d rc5.d 目录建立开机自启动服务的软链接文件；\nln -s ../init.d/mysqld S20mysql 进入/etc目录下的rc0.d rc1.d rc6.d 目录建立关机自停止服务的软链接文件；\nln -s ../init.d/mysqld K20mysql 安装配置Apache (Apache2.x.x 版本) 打开并进入Apache编译环境：\ntar xzvf httpd-2.x.x.tar.gz cd httpd-2.x.x/ ./configure –prefix=/opt/apache –enable-so –enable-rewrite –enable-cgi –with-config-file-path=/opt/apache/conf –enable-track-vars –with-mpm=worker 注：--prefix=/opt/apache指定安装到/opt/apache目录中；\n--enable-cgi支持CGI；\n--with-config-file-path=/opt/apache/conf指定把配制文件放在/opt/apache/conf目录中；\n--enable参数告诉设置脚本，我们需要启动so和rewrite模块，so模块是用来提供DSO支持的apache核心模块，而rewrite模块则是用意实现地址重写的模块，由于rewrite模块需要DBM支持，如果在初次安装时没有编译进apache，以后需要用到时需要重新编译整个apache才可以实现。\nmake make install 修改配置文件/opt/apache/conf/httpd.conf：\nServerName 127.0.0.1:80 DirectoryIndex index.html index.html.var index.htm index.php  # If the AddEncoding directives above are commented-out, then you # probably should define those extensions to indicate media types: AddType application/x-compress .Z AddType application/x-gzip .gz .tgz AddType application/x-httpd-php .php AddType application/x-httpd-php-source .phps cp /opt/apache/bin/apachectl /etc/init.d/apachectl ln -s /opt/apache/bin/apachectl /usr/bin/apachectl 进入/etc目录下的rc2.d rc3.d rc4.d rc5.d 目录建立开机自启动服务的软链接文件；\nln -s ../init.d/apachectl S20apache 进入/etc目录下的rc0.d rc1.d rc6.d 目录建立关机自停止服务的软链接文件；\nln -s ../init.d/apachectl K20apache apachectl start 在浏览器的地址栏中输入商用通IP，若看到It works!字样或 Apache羽毛页面则说明安装成功！\n安装Php以及相关常用组件 (Php4.x.x 与 Php5.x.x 版本皆可) 编译安装GD库相关套件：\nzlib：进入解压后的zlib目录并执行以下命令：\n./configure make make install freetype：进入解压后的freetype目录并执行以下命令：\n./configure --prefix=/usr/local/freetype make make install libpng：进入解压后的libpng目录并执行以下命令：\n./configure make make install jpeg-6b：进入解压后的jpeg-6b目录并执行以下命令：\n$ mkdir -p /usr/local/jpeg/bin $ mkdir /usr/local/jpeg/lib $ mkdir /usr/local/jpeg/include $ mkdir -p /usr/local/jpeg/man/man1 $ ./configure –prefix=/usr/local/jpeg –enable-shared –enable-static $ make $ make install GD Library：进入解压后的gd目录并执行以下命令：\n./configure –prefix=/usr/local/gd –with-jpeg=/usr/local/jpeg –with-freetype=/usr/local/freetype –with-png –with-zlib make make install 打开并进入Php编译环境：\ntar xzvf php-x.x.x.tar.gz cd php-x.x.x/ 如果是Debian或Ubuntu系统的话可能需要，安装系统默认缺少的lex 组件：\napt-get install flex 编译并安装php：\n./configure –prefix=/opt/php –with-apxs2=/opt/apache/bin/apxs –with-gd=/usr/local/gd –enable-gd –enable-gd-native-ttf –with-jpeg-dir=/usr/local/jpeg –with-png –with-ttf –with-zlib –with-freetype-dir=/usr/local/freetype –enable-magic-quotes –with-mysql=/opt/mysql –with-mysql-sock=/opt/mysql/var/mysql.sock –with-iconv –with-mbstring –enable-mbstring –enable-track-vars –enable-force-cgi-redirect –enable-ftp –with-config-file-path=/opt/php/etc –with-pear=/opt/php/pear –enable-sockets –with-mail –with-xml make make install cp php-x.x.x/php.ini-dist /opt/php/etc/php.ini 修改配置文件/opt/php/etc/php.ini：\nregister_globals = On 然后编写php测试页info.php内容如下：\nphp phpinfo(); ?查看/opt/apache/conf/httpd.conf文件，看是否存在语句(如果安装的Php5)：\nLoadModule php5_module modules/libphp5.so 如果存在，即说明apache已经成功加载了php模块；\napachectl restart 将info.php放置到/opt/apache/htdocs 目录下；\nchmod 755 info.php 在浏览器中能在该页面中看到php的信息则说明安装成功！\n注：启用了SELinux的FC或RedHat会提示权限问题并导致Php无法正常工作，禁用SELinux后重启系统即可解决问题。\n安装配置ZendOptimizer (各个版本皆可) tar xzvf ZendOptimizer-x.x.x-linux-x-i386.tar.gz cd ZendOptimizer-x.x.x/ ./install.sh 接着依照安装向导的提示信息完成整个安装配置过程；\n此刻，LAMP环境已经安装完毕，不需要Tomcat服务的话到这里就算结束了。\n安装配置JDK ( j2sdk-1.4.2.xx 版本皆可) chmod a+x j2sdk-1_4_2_09-linux-i586.bin # 本文中安装的版本为1.4.2_09 ./j2sdk-1_4_2_09-linux-i586.bin 安装后会生成文件夹j2sdk1.4.2_09，将文件夹j2sdk1.4.2_09移动（或复制）到你想要存放的JDK的位置（本文中是/opt/j2sdk1.4.2_09/）；\n接下来编辑/etc/profile文件加入JDK环境变量，在文件末尾处加入以下内容：\nvi /etc/profile export JAVA_HOME=/opt/j2sdk1.4.2_09 export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar export PATH=$PATH:$JAVA_HOME/bin export JRE_HOME=$JAVA_HOME/jre source /etc/profile 这样可以使配置文件的内容立刻生效；\nset 在这里你可以看见当前所有的环境变量；\njava --version 如果JDK配置正确的话，运行上面的命令将会出现JDK的相应版本。\n安装配置Tomcat以及相关组件 (jakarta-tomcat-5.x.xx版本皆可) tar xzfv jakarta-tomcat-5.0.28.tar.gz # 本文安装的版本是:jakarta-tomcat-5.0.28 cp -rf jakarta-tomcat-5.0.28 /opt/tomcat cd /opt/tomcat/ 现在来测试一下tomcat是否安装成功：\n./bin/startup.sh # 启动tomcat服务 访问http://127.0.0.1:8080/ 看能否看到tomcat的默认页面，能看到说明tomcat服务已经在运行了。\n./bin/shutdown.sh # 停止tomcat服务 注意观察停止服务的时候有无报错信息。\n开始安装jakarta-tomcat-connectors-jk2，用来整合apache和tomcat，编译生成的mod_jk2.so模块被apache加载之后，就能将不属于自己的请求转发给tomcat：\ntar xzfv jakarta-tomcat-connectors-jk2-2.0.4-src.tar.gz cd jakarta-tomcat-connectors-jk2-2.0.4-src/jk/native2/ ./configure –with-apxs2=/home/www/apache/bin/apxs make cd ../build/jk2/apache2/ /opt/apache/bin/apxs -n jk2 -i mod_jk2.so # 将mod_jk2.so添加到apache2的modules中 上面就完成了Tomcat和Connectors的安装.接下来进行与Apache的整合。\nTomcat与Apache的整合：\ncd /opt/apache/conf/ vi httpd.conf 编辑配置文件在其中加入这个模块，保存退出；\nLoadModule jk2_module modules/mod_jk2.so 然后在这个目录新建一文件workers2.properties\nvi workers2.properties [channel.socket: localhost:8009] port=8009 host=localhost [ajp13: localhost:8009] channel=channel.socket: localhost:8009 [uri:/*.jsp] worker=ajp13: localhost:8009 [uri:/examples/*.jsp] worker=ajp13: localhost:8009 cd /opt/tomcat/conf/ vi server.xml 找到其中的中的项，修改相关参数如下，保存退出；\n path=\"\" docBase=\"/opt/apache/htdocs\" debug=\"0″ reloadable=\"true\" crossContext=\"true\"/ /opt/tomcat/bin/startup.sh apachectl restart 重启Apache和Tomcat后即可查看到整合后的效果。\n参考资料 RedHatAS4下Apache2+MySQL+Php+Tomcat整合及虚拟主机配置 http://bbs.chinaunix.net/viewthread.php?tid=770898\nLinux+Apache+Mysql+PHP典型配置 http://www.5ilinux.com/blog/archives/000013.html\nDebian+Apache2+MySQL5+PHP5+GD http://www.pmal.net/viewthread.php?tid=8849\n",
+  "wordCount" : "527",
+  "inLanguage": "en",
+  "datePublished": "2007-12-26T00:00:00Z",
+  "dateModified": "2007-12-26T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」
+    </h1>
+    <div class="post-meta">
+
+December 26, 2007&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="toc">
+    <details  open>
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <blockquote><ul><li>
+        <a href="#%e6%89%80%e9%9c%80%e6%96%87%e4%bb%b6%e7%9a%84%e4%b8%8b%e8%bd%bd%e5%9c%b0%e5%9d%80" aria-label="所需文件的下载地址">所需文件的下载地址</a></li><li>
+        <a href="#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%aemysql-mysql4xxx-%e4%b8%8e-mysql5xxx-%e7%89%88%e6%9c%ac%e7%9a%86%e5%8f%af" aria-label="安装配置Mysql (Mysql4.x.xx 与 Mysql5.x.xx 版本皆可)">安装配置Mysql (Mysql4.x.xx 与 Mysql5.x.xx 版本皆可)</a></li><li>
+        <a href="#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%aeapache-apache2xx-%e7%89%88%e6%9c%ac" aria-label="安装配置Apache (Apache2.x.x 版本)">安装配置Apache (Apache2.x.x 版本)</a></li><li>
+        <a href="#%e5%ae%89%e8%a3%85php%e4%bb%a5%e5%8f%8a%e7%9b%b8%e5%85%b3%e5%b8%b8%e7%94%a8%e7%bb%84%e4%bb%b6-php4xx-%e4%b8%8e-php5xx-%e7%89%88%e6%9c%ac%e7%9a%86%e5%8f%af" aria-label="安装Php以及相关常用组件 (Php4.x.x 与 Php5.x.x 版本皆可)">安装Php以及相关常用组件 (Php4.x.x 与 Php5.x.x 版本皆可)</a></li><li>
+        <a href="#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%aezendoptimizer-%e5%90%84%e4%b8%aa%e7%89%88%e6%9c%ac%e7%9a%86%e5%8f%af" aria-label="安装配置ZendOptimizer (各个版本皆可)">安装配置ZendOptimizer (各个版本皆可)</a></li><li>
+        <a href="#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%aejdk--j2sdk-142xx-%e7%89%88%e6%9c%ac%e7%9a%86%e5%8f%af" aria-label="安装配置JDK ( j2sdk-1.4.2.xx 版本皆可)">安装配置JDK ( j2sdk-1.4.2.xx 版本皆可)</a></li><li>
+        <a href="#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%aetomcat%e4%bb%a5%e5%8f%8a%e7%9b%b8%e5%85%b3%e7%bb%84%e4%bb%b6-jakarta-tomcat-5xxx%e7%89%88%e6%9c%ac%e7%9a%86%e5%8f%af" aria-label="安装配置Tomcat以及相关组件 (jakarta-tomcat-5.x.xx版本皆可)">安装配置Tomcat以及相关组件 (jakarta-tomcat-5.x.xx版本皆可)</a></li><li>
+        <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" aria-label="参考资料">参考资料</a></li></ul>
+      </blockquote>
+    </details>
+  </div>
+  <div class="post-content">
+<h3 id="所需文件的下载地址">所需文件的下载地址<a hidden class="anchor" aria-hidden="true" href="#所需文件的下载地址">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Mysql：http://dev.mysql.com/downloads/mysql/
+Apache：http://httpd.apache.org/download.cgi
+Php：http://www.php.net/downloads.php
+Zlib：http://www.zlib.net/zlib-1.2.3.tar.gz
+Freetype：http://sourceforge.net/project/showfiles.php?group_id=3157
+Libpng：http://sourceforge.net/search/?type_of_search=soft&amp;type_of_search=soft&amp;words=libpng
+Jpeg-6b：http://www.ijg.org/files/jpegsrc.v6b.tar.gz
+GD Library：http://www.boutell.com/gd/http/gd-2.0.33.tar.gz
+Zend Optimizer：http://www.zend.com/en/products/guard/downloads
+JDK：http://java.sun.com/j2se/1.4.2/download.html
+Tomcat：http://archive.apache.org/dist/jakarta/tomcat-5/
+Tomcat-connectors：http://archive.apache.org/dist/jakarta/tomcat-connectors/jk2/source/
+</code></pre></div><h3 id="安装配置mysql-mysql4xxx-与-mysql5xxx-版本皆可">安装配置Mysql (Mysql4.x.xx 与 Mysql5.x.xx 版本皆可)<a hidden class="anchor" aria-hidden="true" href="#安装配置mysql-mysql4xxx-与-mysql5xxx-版本皆可">#</a></h3>
+<p>打开并进入Mysql编译环境：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzvf mysql-x.x.xx.tar.gz
+cd mysql-x.x.xx/
+</code></pre></div><p>修改编译所需配置文件<code>sql/mysqld.cc</code>中的最大连接数：</p>
+<p>搜索：<code>&amp;max_connections, 0, GET_ULONG, REQUIRED_ARG, 100, 1, 16384, 0, 1,</code></p>
+<p>修改：<code>&amp;max_connections, 0, GET_ULONG, REQUIRED_ARG, 200, 1, 16384, 0, 1,</code></p>
+<pre><code>groupadd mysql
+useradd -g mysql mysql
+</code></pre><p>如果是Debian或Ubuntu系统的话可能需要，安装系统默认缺少的curses/termcap 库：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-cache search curses | grep lib
+apt-get install libncurses5-dev
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /opt/mysql/data
+mkdir -p /opt/mysql/var
+
+./configure –prefix<span style="color:#f92672">=</span>/opt/mysql –with-mysqld-user<span style="color:#f92672">=</span>mysql –with-extra-charsets<span style="color:#f92672">=</span>all –with-unix-socket-path<span style="color:#f92672">=</span>/opt/mysql/var/mysql.sock –localstatedir<span style="color:#f92672">=</span>/opt/mysql/data –with-client-ldflags<span style="color:#f92672">=</span>-all-static –with-mysqld-ldflags<span style="color:#f92672">=</span>-all-static –enable-assembler
+</code></pre></div><p>注：<code>--prefix=/opt/mysql</code>把<code>mysql-x.x.xx</code>指定安装到/opt/mysql目录中；</p>
+<p><code>--with-extra-charsets=all</code>对多语言的支持；</p>
+<p><code>--with-unix-socket-path=/opt/mysql/var/mysql.sock</code>这个是指定mysql服务器启动后，联机套接字文件所处的位置和文件名，避免mysql无法启动的情况发生；</p>
+<p><code>--with-mysqld-user=username</code>这个是让mysql服务器也能让系统中普通用户username也能启动mysql服务器，避免死掉但无法推出的情况；</p>
+<p><code>--localstatedir=/opt/mysql/data</code>指定数据库文件存放的目录；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make
+make install
+</code></pre></div><p>待MySQL安装完毕.剩下的就是配置了；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /opt/mysql/share/mysql/my-medium.cnf /etc/my.cnf
+</code></pre></div><p>注：将配置文件拷贝到/etc目录下成为my.cnf,大家可以根据自己的需要选择配置文件(配置文件在/opt/mysql/share/mysql/目录下,有my-huge.cnf my-medium.cnf my-large.cnf my-small.cnf这些)。</p>
+<p>修改mysql各系统文件权限与属主，以避免启动时造成错误；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod <span style="color:#ae81ff">755</span> /opt/mysql/var/             <span style="color:#75715e"># 设置/opt/mysql/var的目录权限为755</span>
+chown -R mysql:mysql /opt/mysql/      <span style="color:#75715e"># 把/opt/mysql目录归属到mysql这个用户下</span>
+</code></pre></div><p>创建MySQL的授权表；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/opt/mysql/bin/mysql_install_db –user<span style="color:#f92672">=</span>mysql
+</code></pre></div><p>配置并启动Mysql服务；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/opt/mysql/bin/mysqld_safe &amp;
+cp /opt/mysql/share/mysql/mysql.server /etc/init.d/mysqld
+cd /opt/mysql/libexec
+cp mysqld mysqld.old
+strip mysqld
+ln -s /opt/mysql/bin/mysql /usr/bin/mysql
+ln -s /opt/mysql/bin/mysqladmin /usr/sbin/mysqladmin
+
+netstat -atln                           <span style="color:#75715e"># 查看3306端口是否打开</span>
+/etc/init.d/mysqld restart              <span style="color:#75715e"># 如果重启mysql顺利则说明mysql安装成功</span>
+mysqladmin -u root password <span style="color:#ae81ff">123456</span>      <span style="color:#75715e"># 设置mysql的root密码</span>
+
+mysql -uroot –p123456                   <span style="color:#75715e"># 使用root用户进入mysql命令行</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql&gt;use mysql;
+mysql&gt;delete from user where password<span style="color:#f92672">=</span>””; <span style="color:#75715e"># 删除用于本机匿名连接的空密码帐号</span>
+mysql&gt;flush privileges;
+mysql&gt;quit;
+</code></pre></div><p>进入/etc目录下的rc2.d rc3.d rc4.d rc5.d 目录建立开机自启动服务的软链接文件；</p>
+<pre><code>ln -s ../init.d/mysqld S20mysql
+</code></pre><p>进入/etc目录下的rc0.d rc1.d rc6.d 目录建立关机自停止服务的软链接文件；</p>
+<pre><code>ln -s ../init.d/mysqld K20mysql
+</code></pre><h3 id="安装配置apache-apache2xx-版本">安装配置Apache (Apache2.x.x 版本)<a hidden class="anchor" aria-hidden="true" href="#安装配置apache-apache2xx-版本">#</a></h3>
+<p>打开并进入Apache编译环境：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzvf httpd-2.x.x.tar.gz
+cd httpd-2.x.x/
+
+./configure –prefix<span style="color:#f92672">=</span>/opt/apache –enable-so –enable-rewrite –enable-cgi –with-config-file-path<span style="color:#f92672">=</span>/opt/apache/conf –enable-track-vars –with-mpm<span style="color:#f92672">=</span>worker
+</code></pre></div><p>注：<code>--prefix=/opt/apache</code>指定安装到/opt/apache目录中；</p>
+<p><code>--enable-cgi</code>支持CGI；</p>
+<p><code>--with-config-file-path=/opt/apache/conf</code>指定把配制文件放在/opt/apache/conf目录中；</p>
+<p><code>--enable</code>参数告诉设置脚本，我们需要启动so和rewrite模块，so模块是用来提供DSO支持的apache核心模块，而rewrite模块则是用意实现地址重写的模块，由于rewrite模块需要DBM支持，如果在初次安装时没有编译进apache，以后需要用到时需要重新编译整个apache才可以实现。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make
+make install
+</code></pre></div><p>修改配置文件<code>/opt/apache/conf/httpd.conf</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ServerName 127.0.0.1:80
+
+&lt;IfModule dir_module&gt;
+DirectoryIndex index.html index.html.var index.htm index.php
+&lt;/IfModule&gt;
+
+<span style="color:#75715e"># If the AddEncoding directives above are commented-out, then you</span>
+
+<span style="color:#75715e"># probably should define those extensions to indicate media types:</span>
+
+AddType application/x-compress .Z
+AddType application/x-gzip .gz .tgz
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /opt/apache/bin/apachectl /etc/init.d/apachectl
+ln -s /opt/apache/bin/apachectl /usr/bin/apachectl
+</code></pre></div><p>进入/etc目录下的rc2.d rc3.d rc4.d rc5.d 目录建立开机自启动服务的软链接文件；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -s ../init.d/apachectl S20apache
+</code></pre></div><p>进入/etc目录下的rc0.d rc1.d rc6.d 目录建立关机自停止服务的软链接文件；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -s ../init.d/apachectl K20apache
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apachectl start
+</code></pre></div><p>在浏览器的地址栏中输入商用通IP，若看到<code>It works!</code>字样或 Apache羽毛页面则说明安装成功！</p>
+<h3 id="安装php以及相关常用组件-php4xx-与-php5xx-版本皆可">安装Php以及相关常用组件 (Php4.x.x 与 Php5.x.x 版本皆可)<a hidden class="anchor" aria-hidden="true" href="#安装php以及相关常用组件-php4xx-与-php5xx-版本皆可">#</a></h3>
+<p>编译安装GD库相关套件：</p>
+<p>zlib：进入解压后的zlib目录并执行以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure
+make
+make install
+</code></pre></div><p>freetype：进入解压后的freetype目录并执行以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure --prefix<span style="color:#f92672">=</span>/usr/local/freetype
+make
+make install
+</code></pre></div><p>libpng：进入解压后的libpng目录并执行以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure
+make
+make install
+</code></pre></div><p>jpeg-6b：进入解压后的jpeg-6b目录并执行以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p /usr/local/jpeg/bin
+$ mkdir /usr/local/jpeg/lib
+$ mkdir /usr/local/jpeg/include
+$ mkdir -p /usr/local/jpeg/man/man1
+$ ./configure –prefix<span style="color:#f92672">=</span>/usr/local/jpeg –enable-shared –enable-static
+$ make
+$ make install
+</code></pre></div><p>GD Library：进入解压后的gd目录并执行以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure –prefix<span style="color:#f92672">=</span>/usr/local/gd –with-jpeg<span style="color:#f92672">=</span>/usr/local/jpeg –with-freetype<span style="color:#f92672">=</span>/usr/local/freetype –with-png –with-zlib
+make
+make install
+</code></pre></div><p>打开并进入Php编译环境：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzvf php-x.x.x.tar.gz
+cd php-x.x.x/
+</code></pre></div><p>如果是Debian或Ubuntu系统的话可能需要，安装系统默认缺少的lex 组件：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install flex
+</code></pre></div><p>编译并安装php：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure –prefix<span style="color:#f92672">=</span>/opt/php –with-apxs2<span style="color:#f92672">=</span>/opt/apache/bin/apxs –with-gd<span style="color:#f92672">=</span>/usr/local/gd –enable-gd –enable-gd-native-ttf –with-jpeg-dir<span style="color:#f92672">=</span>/usr/local/jpeg –with-png –with-ttf –with-zlib –with-freetype-dir<span style="color:#f92672">=</span>/usr/local/freetype –enable-magic-quotes –with-mysql<span style="color:#f92672">=</span>/opt/mysql –with-mysql-sock<span style="color:#f92672">=</span>/opt/mysql/var/mysql.sock –with-iconv –with-mbstring –enable-mbstring –enable-track-vars –enable-force-cgi-redirect –enable-ftp –with-config-file-path<span style="color:#f92672">=</span>/opt/php/etc –with-pear<span style="color:#f92672">=</span>/opt/php/pear –enable-sockets –with-mail –with-xml
+
+make
+make install
+
+cp php-x.x.x/php.ini-dist /opt/php/etc/php.ini
+</code></pre></div><p>修改配置文件/opt/php/etc/php.ini：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">register_globals <span style="color:#f92672">=</span> On
+</code></pre></div><p>然后编写php测试页<code>info.php</code>内容如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+    <span style="color:#a6e22e">phpinfo</span>();
+<span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>查看/opt/apache/conf/httpd.conf文件，看是否存在语句(如果安装的Php5)：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">LoadModule php5_module        modules/libphp5.so
+</code></pre></div><p>如果存在，即说明apache已经成功加载了php模块；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apachectl restart
+</code></pre></div><p>将<code>info.php</code>放置到/opt/apache/htdocs 目录下；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod <span style="color:#ae81ff">755</span> info.php
+</code></pre></div><p>在浏览器中能在该页面中看到php的信息则说明安装成功！</p>
+<p>注：启用了SELinux的FC或RedHat会提示权限问题并导致Php无法正常工作，禁用SELinux后重启系统即可解决问题。</p>
+<h3 id="安装配置zendoptimizer-各个版本皆可">安装配置ZendOptimizer (各个版本皆可)<a hidden class="anchor" aria-hidden="true" href="#安装配置zendoptimizer-各个版本皆可">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzvf ZendOptimizer-x.x.x-linux-x-i386.tar.gz
+cd ZendOptimizer-x.x.x/
+./install.sh
+</code></pre></div><p>接着依照安装向导的提示信息完成整个安装配置过程；</p>
+<p>此刻，LAMP环境已经安装完毕，不需要Tomcat服务的话到这里就算结束了。</p>
+<h3 id="安装配置jdk--j2sdk-142xx-版本皆可">安装配置JDK ( j2sdk-1.4.2.xx 版本皆可)<a hidden class="anchor" aria-hidden="true" href="#安装配置jdk--j2sdk-142xx-版本皆可">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod a+x j2sdk-1_4_2_09-linux-i586.bin <span style="color:#75715e"># 本文中安装的版本为1.4.2_09</span>
+./j2sdk-1_4_2_09-linux-i586.bin
+</code></pre></div><p>安装后会生成文件夹<code>j2sdk1.4.2_09</code>，将文件夹<code>j2sdk1.4.2_09</code>移动（或复制）到你想要存放的JDK的位置（本文中是<code>/opt/j2sdk1.4.2_09/</code>）；</p>
+<p>接下来编辑/etc/profile文件加入JDK环境变量，在文件末尾处加入以下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vi /etc/profile
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export JAVA_HOME<span style="color:#f92672">=</span>/opt/j2sdk1.4.2_09
+export CLASSPATH<span style="color:#f92672">=</span>.:$CLASSPATH:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH<span style="color:#f92672">=</span>$PATH:$JAVA_HOME/bin
+export JRE_HOME<span style="color:#f92672">=</span>$JAVA_HOME/jre
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source /etc/profile
+</code></pre></div><p>这样可以使配置文件的内容立刻生效；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">set
+</code></pre></div><p>在这里你可以看见当前所有的环境变量；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java --version
+</code></pre></div><p>如果JDK配置正确的话，运行上面的命令将会出现JDK的相应版本。</p>
+<h3 id="安装配置tomcat以及相关组件-jakarta-tomcat-5xxx版本皆可">安装配置Tomcat以及相关组件 (jakarta-tomcat-5.x.xx版本皆可)<a hidden class="anchor" aria-hidden="true" href="#安装配置tomcat以及相关组件-jakarta-tomcat-5xxx版本皆可">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzfv jakarta-tomcat-5.0.28.tar.gz <span style="color:#75715e"># 本文安装的版本是:jakarta-tomcat-5.0.28</span>
+
+cp -rf jakarta-tomcat-5.0.28 /opt/tomcat
+cd /opt/tomcat/
+</code></pre></div><p>现在来测试一下tomcat是否安装成功：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./bin/startup.sh      <span style="color:#75715e"># 启动tomcat服务</span>
+</code></pre></div><p>访问http://127.0.0.1:8080/ 看能否看到tomcat的默认页面，能看到说明tomcat服务已经在运行了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./bin/shutdown.sh     <span style="color:#75715e"># 停止tomcat服务</span>
+</code></pre></div><p>注意观察停止服务的时候有无报错信息。</p>
+<p>开始安装jakarta-tomcat-connectors-jk2，用来整合apache和tomcat，编译生成的mod_jk2.so模块被apache加载之后，就能将不属于自己的请求转发给tomcat：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzfv jakarta-tomcat-connectors-jk2-2.0.4-src.tar.gz
+
+cd jakarta-tomcat-connectors-jk2-2.0.4-src/jk/native2/
+
+./configure –with-apxs2<span style="color:#f92672">=</span>/home/www/apache/bin/apxs
+make
+
+cd ../build/jk2/apache2/
+/opt/apache/bin/apxs -n jk2 -i mod_jk2.so   <span style="color:#75715e"># 将mod_jk2.so添加到apache2的modules中</span>
+</code></pre></div><p>上面就完成了Tomcat和Connectors的安装.接下来进行与Apache的整合。</p>
+<p>Tomcat与Apache的整合：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt/apache/conf/
+
+vi httpd.conf
+</code></pre></div><p>编辑配置文件在其中加入这个模块，保存退出；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">LoadModule jk2_module modules/mod_jk2.so
+</code></pre></div><p>然后在这个目录新建一文件<code>workers2.properties</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vi workers2.properties
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[channel.socket: localhost:8009]</span>
+<span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#e6db74">8009</span>
+<span style="color:#a6e22e">host</span><span style="color:#f92672">=</span><span style="color:#e6db74">localhost</span>
+<span style="color:#66d9ef">[ajp13: localhost:8009]</span>
+<span style="color:#a6e22e">channel</span><span style="color:#f92672">=</span><span style="color:#e6db74">channel.socket: localhost:8009</span>
+<span style="color:#66d9ef">[uri:/*.jsp]</span>
+<span style="color:#a6e22e">worker</span><span style="color:#f92672">=</span><span style="color:#e6db74">ajp13: localhost:8009</span>
+<span style="color:#66d9ef">[uri:/examples/*.jsp]</span>
+<span style="color:#a6e22e">worker</span><span style="color:#f92672">=</span><span style="color:#e6db74">ajp13: localhost:8009</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt/tomcat/conf/
+
+vi server.xml
+</code></pre></div><p>找到其中的<code>&lt;Host&gt;</code>中的<code>&lt;Contest&gt;</code>项，修改相关参数如下，保存退出；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;Context</span> <span style="color:#a6e22e">path=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">docBase=</span><span style="color:#e6db74">&#34;/opt/apache/htdocs&#34;</span> <span style="color:#a6e22e">debug=</span><span style="color:#e6db74">&#34;0″ reloadable=&#34;</span><span style="color:#960050;background-color:#1e0010">true&#34;</span> <span style="color:#a6e22e">crossContext=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/opt/tomcat/bin/startup.sh
+apachectl restart
+</code></pre></div><p>重启Apache和Tomcat后即可查看到整合后的效果。</p>
+<h3 id="参考资料">参考资料<a hidden class="anchor" aria-hidden="true" href="#参考资料">#</a></h3>
+<p>RedHatAS4下Apache2+MySQL+Php+Tomcat整合及虚拟主机配置 <a href="http://bbs.chinaunix.net/viewthread.php?tid=770898">http://bbs.chinaunix.net/viewthread.php?tid=770898</a></p>
+<p>Linux+Apache+Mysql+PHP典型配置 <a href="http://www.5ilinux.com/blog/archives/000013.html">http://www.5ilinux.com/blog/archives/000013.html</a></p>
+<p>Debian+Apache2+MySQL5+PHP5+GD <a href="http://www.pmal.net/viewthread.php?tid=8849">http://www.pmal.net/viewthread.php?tid=8849</a></p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/apache/">Apache</a></li>
+      <li><a href="https://blog.heylinux.com/tags/php/">PHP</a></li>
+      <li><a href="https://blog.heylinux.com/tags/mysql/">MySQL</a></li>
+      <li><a href="https://blog.heylinux.com/tags/tomcat/">Tomcat</a></li>
+      <li><a href="https://blog.heylinux.com/tags/zend/">Zend</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

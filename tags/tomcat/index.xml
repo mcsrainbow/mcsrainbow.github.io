@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tomcat on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/tomcat/</link>
+    <description>Recent content in Tomcat on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 26 Dec 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」</title>
+      <link>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Wed, 26 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/</guid>
+      <description>&lt;h3 id=&#34;所需文件的下载地址&#34;&gt;所需文件的下载地址&lt;/h3&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

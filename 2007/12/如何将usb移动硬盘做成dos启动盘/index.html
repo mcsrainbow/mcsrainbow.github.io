@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>如何将USB移动硬盘做成DOS启动盘 | Hey! Linux.</title>
+
+<meta name="keywords" content="Windows&#34;" />
+<meta name="description" content="准备工具：
+
+
+一把螺丝刀；
+
+
+一台带有光驱的台式电脑；
+
+
+一张带有DOS工具的windows安装/恢复光盘；
+
+
+一个带有USB接口的移动硬盘。
+
+">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2007/12/%E5%A6%82%E4%BD%95%E5%B0%86usb%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%81%9A%E6%88%90dos%E5%90%AF%E5%8A%A8%E7%9B%98/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="如何将USB移动硬盘做成DOS启动盘" />
+<meta property="og:description" content="准备工具：
+
+
+一把螺丝刀；
+
+
+一台带有光驱的台式电脑；
+
+
+一张带有DOS工具的windows安装/恢复光盘；
+
+
+一个带有USB接口的移动硬盘。
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2007/12/%E5%A6%82%E4%BD%95%E5%B0%86usb%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%81%9A%E6%88%90dos%E5%90%AF%E5%8A%A8%E7%9B%98/" />
+<meta property="article:published_time" content="2007-12-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2007-12-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何将USB移动硬盘做成DOS启动盘"/>
+<meta name="twitter:description" content="准备工具：
+
+
+一把螺丝刀；
+
+
+一台带有光驱的台式电脑；
+
+
+一张带有DOS工具的windows安装/恢复光盘；
+
+
+一个带有USB接口的移动硬盘。
+
+"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何将USB移动硬盘做成DOS启动盘",
+  "name": "如何将USB移动硬盘做成DOS启动盘",
+  "description": "准备工具：\n  一把螺丝刀；\n  一台带有光驱的台式电脑；\n  一张带有DOS工具的windows安装/恢复光盘；\n  一个带有USB接口的移动硬盘。\n ",
+  "keywords": [
+    "Windows\""
+  ],
+  "articleBody": "准备工具：\n  一把螺丝刀；\n  一台带有光驱的台式电脑；\n  一张带有DOS工具的windows安装/恢复光盘；\n  一个带有USB接口的移动硬盘。\n  注：安装/恢复光盘推荐 GhostXP系列或番茄花园系列，它们的官方ISO文件分别在 http://www.tomatolei.com 和 http://www.doshome.com 有下载。\n分区的创建\n  将USB移动硬盘接到台式电脑上（建议接到主机后方靠近网口或键盘鼠标接口的USB接口，这样供电比较充足和稳定）。\n  将移动硬盘分割为两个分区：第一个分区为主分区，大小≤2GB，分区类型为FAT；第二个分区为逻辑分区，分区类型为FAT32。\n  将已经分割好的两个分区进行格式化：注意，第一个分区不采用“快速格式化”选项，而第二个分区则采用“快速格式化”选项；\n  注：进行2、3步时可通过Windows自带的分区功能（“我的电脑”-“管理”-“磁盘管理”）或比较流行的PQ。\n待格式化完成之后，取下USB移动硬盘，然后关闭电脑；  分区的激活\n 拿起你的螺丝刀，拆开主机箱的外壳并将主机上的硬盘线暂时拔掉；\n  将USB移动硬盘接到台式电脑上，开启主机，进入BIOS，将第一启动项更改为光盘启动，第二启动项更改为USB移动硬盘启动；\n  保存BIOS设置重启后，进入光盘的DOS环境中；\n  执行fdisk命令，这时会出现一个向导，选择“…激活…”的一项，然后激活USB移动硬盘的第一个大小为2GB的分区。\n  推出fdisk命令，这时候会返回到DOS命令环境；\n  系统的传输\n 执行 sys c: 命令\n  等待其提示“系统文件传输完毕”时，DOS的系统就已经成功安装到第一个主分区了；\n  但是，这样的一个纯粹的DOS系统几乎是不能做任何事情的，因为它只包含为数不多的几个内部命令。像FIND.EXE,CHKDSK.EXE,XCOPY.EXE,FDISK.EXE等命令都是没有的。像GHOST.EXE这样的系统恢复工具更是缺乏。\n  通过dir /w 查看出A: 盘跟目录的各个命令文件，选取有用的直接 copy file c: 就可以了，当然，这个操作也可以在进入Windows后挂接移动硬盘然后直接拖进去。\n  到这里，整个制作过程就算是完成了。\n  平时的应用\n 之后，每次需要进入移动硬盘的DOS的话，只需要先修改BIOS的第一启动为移动硬盘启动（USB-HDD），然后在有DOS提示列表的时候按F5即可。\n  在我的工作中，我用到的最多的其实也就是，将需要用到的.GHO镜像文件和I386安装目录拷贝到第二个分区，然后通过DOS环境中执行GHOST.EXE或winnt.exe进行恢复和硬盘安装系统。\n  以上，是我的整个全手工制作过程，当然，网络上还有流传的更广泛的使用“USBBOOT”软件安装的制作方法（不过仍然有软件注册、过期以及不稳定的情况）。\n一款强大的USB启动盘制作软件 下载地址： http://www.downbank.cn/soft/1/8/2007/200702263508.htm\n",
+  "wordCount" : "46",
+  "inLanguage": "en",
+  "datePublished": "2007-12-30T00:00:00Z",
+  "dateModified": "2007-12-30T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2007/12/%E5%A6%82%E4%BD%95%E5%B0%86usb%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%81%9A%E6%88%90dos%E5%90%AF%E5%8A%A8%E7%9B%98/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      如何将USB移动硬盘做成DOS启动盘
+    </h1>
+    <div class="post-meta">
+
+December 30, 2007&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><strong>准备工具</strong>：</p>
+<ul>
+<li>
+<p>一把螺丝刀；</p>
+</li>
+<li>
+<p>一台带有光驱的台式电脑；</p>
+</li>
+<li>
+<p>一张带有DOS工具的windows安装/恢复光盘；</p>
+</li>
+<li>
+<p>一个带有USB接口的移动硬盘。</p>
+</li>
+</ul>
+<p>注：安装/恢复光盘推荐 GhostXP系列或番茄花园系列，它们的官方ISO文件分别在 <a href="http://www.tomatolei.com/">http://www.tomatolei.com</a> 和 <a href="http://www.doshome.com/">http://www.doshome.com</a> 有下载。</p>
+<p><strong>分区的创建</strong></p>
+<ol>
+<li>
+<p>将USB移动硬盘接到台式电脑上（建议接到主机后方靠近网口或键盘鼠标接口的USB接口，这样供电比较充足和稳定）。</p>
+</li>
+<li>
+<p>将移动硬盘分割为两个分区：第一个分区为主分区，大小≤2GB，分区类型为FAT；第二个分区为逻辑分区，分区类型为FAT32。</p>
+</li>
+<li>
+<p>将已经分割好的两个分区进行格式化：注意，第一个分区不采用“快速格式化”选项，而第二个分区则采用“快速格式化”选项；</p>
+</li>
+</ol>
+<p>注：进行2、3步时可通过Windows自带的分区功能（“我的电脑”-“管理”-“磁盘管理”）或比较流行的PQ。</p>
+<ol start="4">
+<li>待格式化完成之后，取下USB移动硬盘，然后关闭电脑；</li>
+</ol>
+<p><strong>分区的激活</strong></p>
+<ol start="5">
+<li>
+<p>拿起你的螺丝刀，拆开主机箱的外壳并将主机上的硬盘线暂时拔掉；</p>
+</li>
+<li>
+<p>将USB移动硬盘接到台式电脑上，开启主机，进入BIOS，将第一启动项更改为光盘启动，第二启动项更改为USB移动硬盘启动；</p>
+</li>
+<li>
+<p>保存BIOS设置重启后，进入光盘的DOS环境中；</p>
+</li>
+<li>
+<p>执行fdisk命令，这时会出现一个向导，选择“…激活…”的一项，然后激活USB移动硬盘的第一个大小为2GB的分区。</p>
+</li>
+<li>
+<p>推出fdisk命令，这时候会返回到DOS命令环境；</p>
+</li>
+</ol>
+<p><strong>系统的传输</strong></p>
+<ol start="10">
+<li>
+<p>执行 sys c: 命令</p>
+</li>
+<li>
+<p>等待其提示“系统文件传输完毕”时，DOS的系统就已经成功安装到第一个主分区了；</p>
+</li>
+<li>
+<p>但是，这样的一个纯粹的DOS系统几乎是不能做任何事情的，因为它只包含为数不多的几个内部命令。像FIND.EXE,CHKDSK.EXE,XCOPY.EXE,FDISK.EXE等命令都是没有的。像GHOST.EXE这样的系统恢复工具更是缺乏。</p>
+</li>
+<li>
+<p>通过dir /w 查看出A: 盘跟目录的各个命令文件，选取有用的直接 copy file c: 就可以了，当然，这个操作也可以在进入Windows后挂接移动硬盘然后直接拖进去。</p>
+</li>
+<li>
+<p>到这里，整个制作过程就算是完成了。</p>
+</li>
+</ol>
+<p><strong>平时的应用</strong></p>
+<ol start="15">
+<li>
+<p>之后，每次需要进入移动硬盘的DOS的话，只需要先修改BIOS的第一启动为移动硬盘启动（USB-HDD），然后在有DOS提示列表的时候按F5即可。</p>
+</li>
+<li>
+<p>在我的工作中，我用到的最多的其实也就是，将需要用到的.GHO镜像文件和I386安装目录拷贝到第二个分区，然后通过DOS环境中执行GHOST.EXE或winnt.exe进行恢复和硬盘安装系统。</p>
+</li>
+</ol>
+<p>以上，是我的整个全手工制作过程，当然，网络上还有流传的更广泛的使用“USBBOOT”软件安装的制作方法（不过仍然有软件注册、过期以及不稳定的情况）。</p>
+<p>一款强大的USB启动盘制作软件 下载地址： <a href="http://www.downbank.cn/soft/1/8/2007/200702263508.htm">http://www.downbank.cn/soft/1/8/2007/200702263508.htm</a></p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/windows/">Windows</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

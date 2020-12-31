@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/reading/</link>
+    <description>Recent content in Reading on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 12 Dec 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>推荐一篇北师大本科生的论文：高并发高流量网站架构</title>
+      <link>https://blog.heylinux.com/2007/12/%E6%8E%A8%E8%8D%90%E4%B8%80%E7%AF%87%E5%8C%97%E5%B8%88%E5%A4%A7%E6%9C%AC%E7%A7%91%E7%94%9F%E7%9A%84%E8%AE%BA%E6%96%87%E9%AB%98%E5%B9%B6%E5%8F%91%E9%AB%98%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Wed, 12 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/12/%E6%8E%A8%E8%8D%90%E4%B8%80%E7%AF%87%E5%8C%97%E5%B8%88%E5%A4%A7%E6%9C%AC%E7%A7%91%E7%94%9F%E7%9A%84%E8%AE%BA%E6%96%87%E9%AB%98%E5%B9%B6%E5%8F%91%E9%AB%98%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/</guid>
+      <description>&lt;p&gt;原文及作者网站地址：http://www.fulin.org&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

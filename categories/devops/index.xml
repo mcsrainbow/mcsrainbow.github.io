@@ -5,7 +5,66 @@
     <link>https://blog.heylinux.com/categories/devops/</link>
     <description>Recent content in DevOps on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Oct 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Dec 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何将USB移动硬盘做成DOS启动盘</title>
+      <link>https://blog.heylinux.com/2007/12/%E5%A6%82%E4%BD%95%E5%B0%86usb%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%81%9A%E6%88%90dos%E5%90%AF%E5%8A%A8%E7%9B%98/</link>
+      <pubDate>Sun, 30 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/12/%E5%A6%82%E4%BD%95%E5%B0%86usb%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%81%9A%E6%88%90dos%E5%90%AF%E5%8A%A8%E7%9B%98/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;准备工具&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一把螺丝刀；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一台带有光驱的台式电脑；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一张带有DOS工具的windows安装/恢复光盘；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个带有USB接口的移动硬盘。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」</title>
+      <link>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Wed, 26 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/</guid>
+      <description>&lt;h3 id=&#34;所需文件的下载地址&#34;&gt;所需文件的下载地址&lt;/h3&gt;</description>
+    </item>
+    
+    <item>
+      <title>推荐一篇北师大本科生的论文：高并发高流量网站架构</title>
+      <link>https://blog.heylinux.com/2007/12/%E6%8E%A8%E8%8D%90%E4%B8%80%E7%AF%87%E5%8C%97%E5%B8%88%E5%A4%A7%E6%9C%AC%E7%A7%91%E7%94%9F%E7%9A%84%E8%AE%BA%E6%96%87%E9%AB%98%E5%B9%B6%E5%8F%91%E9%AB%98%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Wed, 12 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/12/%E6%8E%A8%E8%8D%90%E4%B8%80%E7%AF%87%E5%8C%97%E5%B8%88%E5%A4%A7%E6%9C%AC%E7%A7%91%E7%94%9F%E7%9A%84%E8%AE%BA%E6%96%87%E9%AB%98%E5%B9%B6%E5%8F%91%E9%AB%98%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/</guid>
+      <description>&lt;p&gt;原文及作者网站地址：http://www.fulin.org&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>系统实时监控程序（基于TOP指令优化）</title>
+      <link>https://blog.heylinux.com/2007/11/%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E7%A8%8B%E5%BA%8F%E5%9F%BA%E4%BA%8Etop%E6%8C%87%E4%BB%A4%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Wed, 28 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/11/%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E7%A8%8B%E5%BA%8F%E5%9F%BA%E4%BA%8Etop%E6%8C%87%E4%BB%A4%E4%BC%98%E5%8C%96/</guid>
+      <description>&lt;p&gt;TOP相当于Linux下的资源管理器，我们公司有一部分重要的服务器便是通过该命令直接实时监控的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>突如其来的一个想法</title>
+      <link>https://blog.heylinux.com/2007/10/%E7%AA%81%E5%A6%82%E5%85%B6%E6%9D%A5%E7%9A%84%E4%B8%80%E4%B8%AA%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Mon, 29 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/10/%E7%AA%81%E5%A6%82%E5%85%B6%E6%9D%A5%E7%9A%84%E4%B8%80%E4%B8%AA%E6%83%B3%E6%B3%95/</guid>
+      <description>&lt;p&gt;相信很多人都有这样的困惑：我还是个新手，因为工作和学习中遇到了技术上的困惑，需要查找资料来弥补。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>在Linux下用Shell写的俄罗斯方块程序</title>
       <link>https://blog.heylinux.com/2007/10/%E5%9C%A8linux%E4%B8%8B%E7%94%A8shell%E5%86%99%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E7%A8%8B%E5%BA%8F/</link>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>系统实时监控程序（基于TOP指令优化） | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux&#34;, Bash" />
+<meta name="description" content="TOP相当于Linux下的资源管理器，我们公司有一部分重要的服务器便是通过该命令直接实时监控的。">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2007/11/%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E7%A8%8B%E5%BA%8F%E5%9F%BA%E4%BA%8Etop%E6%8C%87%E4%BB%A4%E4%BC%98%E5%8C%96/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="系统实时监控程序（基于TOP指令优化）" />
+<meta property="og:description" content="TOP相当于Linux下的资源管理器，我们公司有一部分重要的服务器便是通过该命令直接实时监控的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2007/11/%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E7%A8%8B%E5%BA%8F%E5%9F%BA%E4%BA%8Etop%E6%8C%87%E4%BB%A4%E4%BC%98%E5%8C%96/" />
+<meta property="article:published_time" content="2007-11-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2007-11-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="系统实时监控程序（基于TOP指令优化）"/>
+<meta name="twitter:description" content="TOP相当于Linux下的资源管理器，我们公司有一部分重要的服务器便是通过该命令直接实时监控的。"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "系统实时监控程序（基于TOP指令优化）",
+  "name": "系统实时监控程序（基于TOP指令优化）",
+  "description": "TOP相当于Linux下的资源管理器，我们公司有一部分重要的服务器便是通过该命令直接实时监控的。\n",
+  "keywords": [
+    "Linux\"", "Bash"
+  ],
+  "articleBody": "TOP相当于Linux下的资源管理器，我们公司有一部分重要的服务器便是通过该命令直接实时监控的。\n但是，TOP虽然十分强大，对我们监控却并不是很适合，不能很直观的立刻锁定到重点的数据，更不能利用程序自动完成一些判断了。\n因此，我花了一个晚上的时间，完成了下面的这个脚本，只要安装了TOP命令的Linux主机都可以正常使用该脚本！\n它目前还是很初级的版本，所以很简单，但它也实现了以下一些功能：\n 更亲和的人机界面，将重要的数据如CPU，负载，内存百分比等直接输出到平面上； 实现了对前一秒的流量统计； 更自由的用户自定义选项，可以通过变量来和直接修改脚本来调整排盘和自己的偏好； 自动判断功能，当某一项数值出现异常时（依赖于你的预设值），将会现在在顶部有警告信息。  我会继续把这个脚本进行完善，并完成另一份不依赖于TOP指令的脚本（主要通过其它常用命令以及/proc目录下的文件中获取）。\n大家任何有需要的可以直接粘贴过去使用，另外，有任何完善的建议的可以直接向我提出来，谢谢！\n#!/bin/bash ############################################# #### System information listen tool v0.2 #### #### powered by mcsrainbow #### ############################################# while true do ###Copy the top's content to top.info### top -b1 -n1 top.info sleep 2 ###Check the flow### typeset in in_old dif_in typeset out out_old dif_out function FLOW(){ in_flow1=$(cat /proc/net/dev |grep eth0 |sed -e \"s/(.*):(.*)/[1]/g\" |awk ' { print $1 }' |cut -d: -f2) in_flow2=$(cat /proc/net/dev |grep eth1 |sed -e \"s/(.*):(.*)/[1]/g\" |awk ' { print $1 }' |cut -d: -f2) in_flow_byte=$(expr $in_flow1 + $in_flow2) in_flow=$(expr $in_flow_byte / 1024) out_flow1=$(cat /proc/net/dev |grep eth0 |sed -e \"s/(.*):(.*)/[1]/g\" |awk ' { print $9 }') out_flow2=$(cat /proc/net/dev |grep eth1 |sed -e \"s/(.*):(.*)/[1]/g\" |awk ' { print $9 }') out_flow_byte=$(expr $out_flow1 + $out_flow2) out_flow=$(expr $out_flow_byte / 1024) } FLOW in_old=$in_flow out_old=$out_flow sleep 1 FLOW in=$in_flow out=$out_flow dif_in=$(expr $in - $in_old ) dif_out=$(expr $out - $out_old ) ###Clear the Screen### clear ###Define the safe number### servername=Server #The server's name which you running the scripts maxload=5 #Warning if the load average bigger than this number maxcpu=50 #Warning if the cpu bigger than is percent minmem=120 #Warning if the memory less than this number (MB) minswap=120 #Warning if the swap less than this number (MB) maxusers=3 #Warning if the user online more than 3 maxzombie=2 #Warning if the zombie process more than 2 ###Check the CPU### cpuinfo=$(grep \"Cpu(s)\" top.info|awk '{print $2}'|cut -d, -f1) cpuinfonumber=$(echo $cpuinfo |awk -F \"%\" '{print $1}'|awk -F \".\" '{print $1}') if [ ${maxcpu} -lt ${cpuinfonumber} ]; then echo \"!!!!WARNING:The CPU used too much!!!!\" fi ###Check the Mem### meminfo=$(grep \"Mem:\" top.info|awk '{print $4 \"/\" $2}') usedmem_kb=$(grep \"Mem:\" top.info|awk '{print $4}'|awk -F \"k\" '{print $1}') usedmem_mb=$(expr $usedmem_kb / 1024) totalmem_kb=$(grep \"Mem:\" top.info|awk '{print $2}'|awk -F \"k\" '{print $1}') totalmem_mb=$(expr $totalmem_kb / 1024) freemem_mb=$(expr $totalmem_mb - $usedmem_mb) if [ ${freemem_mb} -lt ${minmem} ]; then echo \"!!!!WARNING:The Memory used too much!!!!\" fi totalmem_kb_percent=$(expr $totalmem_kb / 100) percentmem=$(expr $usedmem_kb / $totalmem_kb_percent) ###Check the Swap### swapinfo=$(grep \"Swap:\" top.info |awk '{print $4 \"/\" $2}') usedswap_kb=$(grep \"Swap:\" top.info |awk '{print $4}'|awk -F \"k\" '{print $1}') usedswap_mb=$(expr $usedswap_kb / 1024) totalswap_kb=$(grep \"Swap:\" top.info |awk '{print $2}'|awk -F \"k\" '{print $1}') totalswap_mb=$(expr $totalswap_kb / 1024) freeswap_mb=$(expr $totalswap_mb - $usedswap_mb) if [ ${freeswap_mb} -lt ${minswap} ]; then echo \"!!!!WARNING:The Swap used too much!!!!\" fi totalswap_kb_percent=$(expr $totalswap_kb / 100) percentswap=$(expr $usedswap_kb / $totalswap_kb_percent) ###Check the users online### useronl=$(grep \"load average:\" top.info |sed 's/user.*//'|awk '{print $(NF)}') if [ ${maxusers} -lt ${useronl} ]; then echo \"!!!!WARNING:The User online is more than 3!!!!\" fi ###Check the load average### loadavg=$(grep \"load average:\" top.info |sed 's/.*load average: //'|awk -F \",\" '{print $(NF-2)}') loadavgnumber=$(grep \"load average:\" top.info |sed 's/.*load average: //'|awk -F \",\" '{print $(NF-2)}'|awk -F \".\" '{print $1}') if [ ${maxload} -lt ${loadavgnumber} ]; then echo \"!!!!WARNING:The Load Average is more than 5!!!!\" fi ###Check the zombie### zombie=$(grep \"Tasks:\" top.info |awk '{print $(NF-1)}') if [ ${maxzombie} -lt ${zombie} ]; then echo \"!!!!WARNING:The Zombie Process is more than 2!!!!\" fi ###Check the most process### processtitle=$(grep \"TIME+\" top.info) processinfo=$(sed -n 8,17p top.info) ###Show me the number just have counted### echo \"Server CPU LOAD ZOMBIE USER IN OUT MEM SWAP \" echo \"${servername}${cpuinfo}${loadavg}${zombie}${useronl}${dif_in}KB/s ${dif_out}KB/s ${usedmem_mb}MB/${totalmem_mb}MB ${percentmem}% ${usedswap_mb}MB/${totalswap_mb}MB ${percentswap}% \" echo \"--------------------------------------------------------------------\" echo \"${processtitle}\" echo \"${processinfo}\" done ",
+  "wordCount" : "527",
+  "inLanguage": "en",
+  "datePublished": "2007-11-28T00:00:00Z",
+  "dateModified": "2007-11-28T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2007/11/%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E7%A8%8B%E5%BA%8F%E5%9F%BA%E4%BA%8Etop%E6%8C%87%E4%BB%A4%E4%BC%98%E5%8C%96/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      系统实时监控程序（基于TOP指令优化）
+    </h1>
+    <div class="post-meta">
+
+November 28, 2007&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>TOP相当于Linux下的资源管理器，我们公司有一部分重要的服务器便是通过该命令直接实时监控的。</p>
+<p>但是，TOP虽然十分强大，对我们监控却并不是很适合，不能很直观的立刻锁定到重点的数据，更不能利用程序自动完成一些判断了。</p>
+<p>因此，我花了一个晚上的时间，完成了下面的这个脚本，只要安装了TOP命令的Linux主机都可以正常使用该脚本！</p>
+<p>它目前还是很初级的版本，所以很简单，但它也实现了以下一些功能：</p>
+<ul>
+<li>更亲和的人机界面，将重要的数据如CPU，负载，内存百分比等直接输出到平面上；</li>
+<li>实现了对前一秒的流量统计；</li>
+<li>更自由的用户自定义选项，可以通过变量来和直接修改脚本来调整排盘和自己的偏好；</li>
+<li>自动判断功能，当某一项数值出现异常时（依赖于你的预设值），将会现在在顶部有警告信息。</li>
+</ul>
+<p>我会继续把这个脚本进行完善，并完成另一份不依赖于TOP指令的脚本（主要通过其它常用命令以及/proc目录下的文件中获取）。</p>
+<p>大家任何有需要的可以直接粘贴过去使用，另外，有任何完善的建议的可以直接向我提出来，谢谢！</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e">#############################################</span>
+<span style="color:#75715e">#### System information listen tool v0.2 ####</span>
+<span style="color:#75715e">####               powered by mcsrainbow ####</span>
+<span style="color:#75715e">#############################################</span>
+<span style="color:#66d9ef">while</span> true
+<span style="color:#66d9ef">do</span>
+  <span style="color:#75715e">###Copy the top&#39;s content to top.info###</span>
+  top -b1 -n1 &gt;top.info
+  sleep <span style="color:#ae81ff">2</span>
+  
+  <span style="color:#75715e">###Check the flow###</span>
+  typeset in in_old dif_in
+  typeset out out_old dif_out
+
+  <span style="color:#66d9ef">function</span> FLOW<span style="color:#f92672">(){</span>
+    in_flow1<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /proc/net/dev |grep eth0 |sed -e <span style="color:#e6db74">&#34;s/(.*):(.*)/[1]/g&#34;</span> |awk <span style="color:#e6db74">&#39; { print $1 }&#39;</span> |cut -d: -f2<span style="color:#66d9ef">)</span>
+    in_flow2<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /proc/net/dev |grep eth1 |sed -e <span style="color:#e6db74">&#34;s/(.*):(.*)/[1]/g&#34;</span> |awk <span style="color:#e6db74">&#39; { print $1 }&#39;</span> |cut -d: -f2<span style="color:#66d9ef">)</span>
+    in_flow_byte<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $in_flow1 + $in_flow2<span style="color:#66d9ef">)</span>
+    in_flow<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $in_flow_byte / 1024<span style="color:#66d9ef">)</span>
+    out_flow1<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /proc/net/dev |grep eth0 |sed -e <span style="color:#e6db74">&#34;s/(.*):(.*)/[1]/g&#34;</span> |awk <span style="color:#e6db74">&#39; { print $9 }&#39;</span><span style="color:#66d9ef">)</span>
+    out_flow2<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /proc/net/dev |grep eth1 |sed -e <span style="color:#e6db74">&#34;s/(.*):(.*)/[1]/g&#34;</span> |awk <span style="color:#e6db74">&#39; { print $9 }&#39;</span><span style="color:#66d9ef">)</span>
+    out_flow_byte<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $out_flow1 + $out_flow2<span style="color:#66d9ef">)</span>
+    out_flow<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $out_flow_byte / 1024<span style="color:#66d9ef">)</span>
+  <span style="color:#f92672">}</span>
+
+  FLOW
+  in_old<span style="color:#f92672">=</span>$in_flow
+  out_old<span style="color:#f92672">=</span>$out_flow
+
+  sleep <span style="color:#ae81ff">1</span>
+
+  FLOW
+  in<span style="color:#f92672">=</span>$in_flow
+  out<span style="color:#f92672">=</span>$out_flow
+  dif_in<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $in - $in_old <span style="color:#66d9ef">)</span>
+  dif_out<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $out - $out_old <span style="color:#66d9ef">)</span>
+
+  <span style="color:#75715e">###Clear the Screen###</span>
+  clear
+
+  <span style="color:#75715e">###Define the safe number###</span>
+  servername<span style="color:#f92672">=</span>Server      <span style="color:#75715e">#The server&#39;s name which you running the scripts</span>
+  maxload<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>              <span style="color:#75715e">#Warning if the load average bigger than this number</span>
+  maxcpu<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>              <span style="color:#75715e">#Warning if the cpu bigger than is percent</span>
+  minmem<span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>             <span style="color:#75715e">#Warning if the memory less than this number (MB)</span>
+  minswap<span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>            <span style="color:#75715e">#Warning if the swap less than this number (MB)</span>
+  maxusers<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>             <span style="color:#75715e">#Warning if the user online more than 3</span>
+  maxzombie<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>            <span style="color:#75715e">#Warning if the zombie process more than 2</span>
+
+  <span style="color:#75715e">###Check the CPU###</span>
+  cpuinfo<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Cpu(s)&#34;</span> top.info|awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>|cut -d, -f1<span style="color:#66d9ef">)</span>
+  cpuinfonumber<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo $cpuinfo |awk -F <span style="color:#e6db74">&#34;%&#34;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span>|awk -F <span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>maxcpu<span style="color:#e6db74">}</span> -lt <span style="color:#e6db74">${</span>cpuinfonumber<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;!!!!WARNING:The CPU used too much!!!!&#34;</span>
+  <span style="color:#66d9ef">fi</span>
+
+  <span style="color:#75715e">###Check the Mem###</span>
+  meminfo<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Mem:&#34;</span> top.info|awk <span style="color:#e6db74">&#39;{print $4 &#34;/&#34; $2}&#39;</span><span style="color:#66d9ef">)</span>
+  usedmem_kb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Mem:&#34;</span> top.info|awk <span style="color:#e6db74">&#39;{print $4}&#39;</span>|awk -F <span style="color:#e6db74">&#34;k&#34;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+  usedmem_mb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $usedmem_kb / 1024<span style="color:#66d9ef">)</span>
+  totalmem_kb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Mem:&#34;</span> top.info|awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>|awk -F <span style="color:#e6db74">&#34;k&#34;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+  totalmem_mb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $totalmem_kb / 1024<span style="color:#66d9ef">)</span>
+  freemem_mb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $totalmem_mb - $usedmem_mb<span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>freemem_mb<span style="color:#e6db74">}</span> -lt <span style="color:#e6db74">${</span>minmem<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;!!!!WARNING:The Memory used too much!!!!&#34;</span>
+  <span style="color:#66d9ef">fi</span>
+  totalmem_kb_percent<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $totalmem_kb / 100<span style="color:#66d9ef">)</span>
+  percentmem<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $usedmem_kb / $totalmem_kb_percent<span style="color:#66d9ef">)</span>
+
+  <span style="color:#75715e">###Check the Swap###</span>
+  swapinfo<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Swap:&#34;</span> top.info |awk <span style="color:#e6db74">&#39;{print $4 &#34;/&#34; $2}&#39;</span><span style="color:#66d9ef">)</span>
+  usedswap_kb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Swap:&#34;</span> top.info |awk <span style="color:#e6db74">&#39;{print $4}&#39;</span>|awk -F <span style="color:#e6db74">&#34;k&#34;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+  usedswap_mb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $usedswap_kb / 1024<span style="color:#66d9ef">)</span>
+  totalswap_kb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Swap:&#34;</span> top.info |awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>|awk -F <span style="color:#e6db74">&#34;k&#34;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+  totalswap_mb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $totalswap_kb / 1024<span style="color:#66d9ef">)</span>
+  freeswap_mb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $totalswap_mb - $usedswap_mb<span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>freeswap_mb<span style="color:#e6db74">}</span> -lt <span style="color:#e6db74">${</span>minswap<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;!!!!WARNING:The Swap used too much!!!!&#34;</span>
+  <span style="color:#66d9ef">fi</span>
+  totalswap_kb_percent<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $totalswap_kb / 100<span style="color:#66d9ef">)</span>
+  percentswap<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr $usedswap_kb / $totalswap_kb_percent<span style="color:#66d9ef">)</span>
+
+  <span style="color:#75715e">###Check the users online###</span>
+  useronl<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;load average:&#34;</span> top.info |sed <span style="color:#e6db74">&#39;s/user.*//&#39;</span>|awk <span style="color:#e6db74">&#39;{print $(NF)}&#39;</span><span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>maxusers<span style="color:#e6db74">}</span> -lt <span style="color:#e6db74">${</span>useronl<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;!!!!WARNING:The User online is more than 3!!!!&#34;</span> 
+  <span style="color:#66d9ef">fi</span>
+
+  <span style="color:#75715e">###Check the load average###</span>
+  loadavg<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;load average:&#34;</span> top.info |sed <span style="color:#e6db74">&#39;s/.*load average: //&#39;</span>|awk -F <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#e6db74">&#39;{print $(NF-2)}&#39;</span><span style="color:#66d9ef">)</span>
+  loadavgnumber<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;load average:&#34;</span> top.info |sed <span style="color:#e6db74">&#39;s/.*load average: //&#39;</span>|awk -F <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#e6db74">&#39;{print $(NF-2)}&#39;</span>|awk -F <span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>maxload<span style="color:#e6db74">}</span> -lt <span style="color:#e6db74">${</span>loadavgnumber<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;!!!!WARNING:The Load Average is more than 5!!!!&#34;</span>
+  <span style="color:#66d9ef">fi</span>
+
+  <span style="color:#75715e">###Check the zombie###</span>
+  zombie<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;Tasks:&#34;</span> top.info |awk <span style="color:#e6db74">&#39;{print $(NF-1)}&#39;</span><span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>maxzombie<span style="color:#e6db74">}</span> -lt <span style="color:#e6db74">${</span>zombie<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;!!!!WARNING:The Zombie Process is more than 2!!!!&#34;</span> 
+  <span style="color:#66d9ef">fi</span>
+
+  <span style="color:#75715e">###Check the most process###</span>
+  processtitle<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep <span style="color:#e6db74">&#34;TIME+&#34;</span> top.info<span style="color:#66d9ef">)</span>
+  processinfo<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -n 8,17p top.info<span style="color:#66d9ef">)</span>
+
+  <span style="color:#75715e">###Show me the number just have counted###</span>
+  echo <span style="color:#e6db74">&#34;Server     CPU   LOAD ZOMBIE   USER   IN     OUT             MEM             SWAP    &#34;</span>
+  echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>servername<span style="color:#e6db74">}</span><span style="color:#e6db74">  </span><span style="color:#e6db74">${</span>cpuinfo<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>loadavg<span style="color:#e6db74">}</span><span style="color:#e6db74">    </span><span style="color:#e6db74">${</span>zombie<span style="color:#e6db74">}</span><span style="color:#e6db74">        </span><span style="color:#e6db74">${</span>useronl<span style="color:#e6db74">}</span><span style="color:#e6db74">   </span><span style="color:#e6db74">${</span>dif_in<span style="color:#e6db74">}</span><span style="color:#e6db74">KB/s </span><span style="color:#e6db74">${</span>dif_out<span style="color:#e6db74">}</span><span style="color:#e6db74">KB/s   </span><span style="color:#e6db74">${</span>usedmem_mb<span style="color:#e6db74">}</span><span style="color:#e6db74">MB/</span><span style="color:#e6db74">${</span>totalmem_mb<span style="color:#e6db74">}</span><span style="color:#e6db74">MB </span><span style="color:#e6db74">${</span>percentmem<span style="color:#e6db74">}</span><span style="color:#e6db74">%   </span><span style="color:#e6db74">${</span>usedswap_mb<span style="color:#e6db74">}</span><span style="color:#e6db74">MB/</span><span style="color:#e6db74">${</span>totalswap_mb<span style="color:#e6db74">}</span><span style="color:#e6db74">MB </span><span style="color:#e6db74">${</span>percentswap<span style="color:#e6db74">}</span><span style="color:#e6db74">% &#34;</span>
+  echo <span style="color:#e6db74">&#34;--------------------------------------------------------------------&#34;</span>
+  echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>processtitle<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+  echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>processinfo<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#66d9ef">done</span>
+</code></pre></div>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/bash/">Bash</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
