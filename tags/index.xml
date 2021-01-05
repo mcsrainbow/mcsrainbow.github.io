@@ -5,31 +5,175 @@
     <link>https://blog.heylinux.com/tags/</link>
     <description>Recent content in Tags on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 30 Dec 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://blog.heylinux.com/tags/linux/</link>
+      <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle</title>
+      <link>https://blog.heylinux.com/tags/oracle/</link>
+      <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PPTP</title>
+      <link>https://blog.heylinux.com/tags/pptp/</link>
+      <pubDate>Mon, 21 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/pptp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RoseHA</title>
+      <link>https://blog.heylinux.com/tags/roseha/</link>
+      <pubDate>Mon, 17 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/roseha/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>YUM</title>
+      <link>https://blog.heylinux.com/tags/yum/</link>
+      <pubDate>Tue, 26 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/yum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NFS</title>
+      <link>https://blog.heylinux.com/tags/nfs/</link>
+      <pubDate>Sat, 11 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/nfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVS</title>
+      <link>https://blog.heylinux.com/tags/cvs/</link>
+      <pubDate>Wed, 24 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/cvs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iptables</title>
+      <link>https://blog.heylinux.com/tags/iptables/</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/iptables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>L7-filter</title>
+      <link>https://blog.heylinux.com/tags/l7-filter/</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/l7-filter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://blog.heylinux.com/tags/network/</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsFTPd</title>
+      <link>https://blog.heylinux.com/tags/vsftpd/</link>
+      <pubDate>Thu, 06 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/vsftpd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Life</title>
+      <link>https://blog.heylinux.com/tags/life/</link>
+      <pubDate>Mon, 04 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/life/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Windows</title>
       <link>https://blog.heylinux.com/tags/windows/</link>
-      <pubDate>Sun, 30 Dec 2007 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 31 Jul 2008 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/tags/windows/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Family</title>
+      <link>https://blog.heylinux.com/tags/family/</link>
+      <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/family/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reading</title>
+      <link>https://blog.heylinux.com/tags/reading/</link>
+      <pubDate>Sun, 16 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/reading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dream</title>
+      <link>https://blog.heylinux.com/tags/dream/</link>
+      <pubDate>Thu, 13 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/dream/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Apache</title>
       <link>https://blog.heylinux.com/tags/apache/</link>
-      <pubDate>Wed, 26 Dec 2007 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 29 Feb 2008 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/tags/apache/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://blog.heylinux.com/tags/linux/</link>
-      <pubDate>Wed, 26 Dec 2007 00:00:00 +0000</pubDate>
+      <title>Work</title>
+      <link>https://blog.heylinux.com/tags/work/</link>
+      <pubDate>Fri, 15 Feb 2008 23:10:00 +0800</pubDate>
       
-      <guid>https://blog.heylinux.com/tags/linux/</guid>
+      <guid>https://blog.heylinux.com/tags/work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Idea</title>
+      <link>https://blog.heylinux.com/tags/idea/</link>
+      <pubDate>Fri, 15 Feb 2008 23:06:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/tags/idea/</guid>
       <description></description>
     </item>
     
@@ -70,42 +214,6 @@
     </item>
     
     <item>
-      <title>Dream</title>
-      <link>https://blog.heylinux.com/tags/dream/</link>
-      <pubDate>Sat, 22 Dec 2007 02:47:00 +0800</pubDate>
-      
-      <guid>https://blog.heylinux.com/tags/dream/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Family</title>
-      <link>https://blog.heylinux.com/tags/family/</link>
-      <pubDate>Sat, 22 Dec 2007 02:47:00 +0800</pubDate>
-      
-      <guid>https://blog.heylinux.com/tags/family/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life</title>
-      <link>https://blog.heylinux.com/tags/life/</link>
-      <pubDate>Sat, 22 Dec 2007 02:47:00 +0800</pubDate>
-      
-      <guid>https://blog.heylinux.com/tags/life/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reading</title>
-      <link>https://blog.heylinux.com/tags/reading/</link>
-      <pubDate>Wed, 12 Dec 2007 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heylinux.com/tags/reading/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Bash</title>
       <link>https://blog.heylinux.com/tags/bash/</link>
       <pubDate>Wed, 28 Nov 2007 00:00:00 +0000</pubDate>
@@ -124,15 +232,6 @@
     </item>
     
     <item>
-      <title>Idea</title>
-      <link>https://blog.heylinux.com/tags/idea/</link>
-      <pubDate>Mon, 29 Oct 2007 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heylinux.com/tags/idea/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Friendship</title>
       <link>https://blog.heylinux.com/tags/friendship/</link>
       <pubDate>Fri, 21 Sep 2007 00:00:00 +0000</pubDate>
@@ -142,29 +241,11 @@
     </item>
     
     <item>
-      <title>iptables</title>
-      <link>https://blog.heylinux.com/tags/iptables/</link>
-      <pubDate>Tue, 17 Jul 2007 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heylinux.com/tags/iptables/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>eAccelerator</title>
       <link>https://blog.heylinux.com/tags/eaccelerator/</link>
       <pubDate>Sat, 30 Jun 2007 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/tags/eaccelerator/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Work</title>
-      <link>https://blog.heylinux.com/tags/work/</link>
-      <pubDate>Thu, 22 Mar 2007 15:05:00 +0800</pubDate>
-      
-      <guid>https://blog.heylinux.com/tags/work/</guid>
       <description></description>
     </item>
     

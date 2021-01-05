@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CVS on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/cvs/</link>
+    <description>Recent content in CVS on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 24 Dec 2008 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/cvs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CVS服务器的安装配置与SSH隧道传输配置</title>
+      <link>https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 24 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;一、CVS的安装&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查看是否安装了CVS（系统默认自带CVS）&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

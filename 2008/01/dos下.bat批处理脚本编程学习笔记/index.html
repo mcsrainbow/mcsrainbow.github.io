@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>DOS下.bat批处理脚本编程学习笔记 | Hey! Linux.</title>
+
+<meta name="keywords" content="Windows" />
+<meta name="description" content="需要理解的一些概念：
+
+什么是脚本？
+">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="DOS下.bat批处理脚本编程学习笔记" />
+<meta property="og:description" content="需要理解的一些概念：
+
+什么是脚本？
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2008-01-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2008-01-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DOS下.bat批处理脚本编程学习笔记"/>
+<meta name="twitter:description" content="需要理解的一些概念：
+
+什么是脚本？
+"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DOS下.bat批处理脚本编程学习笔记",
+  "name": "DOS下.bat批处理脚本编程学习笔记",
+  "description": "需要理解的一些概念：\n 什么是脚本？ ",
+  "keywords": [
+    "Windows"
+  ],
+  "articleBody": "需要理解的一些概念：\n 什么是脚本？  脚本可以理解为是一种简单的程序（它的语法相对简单，不需要编译，是解释执行的）。\n这一点和Linux下的shell是类似的，并且像php,Python这样流行的语言也属于脚本语言。\n他们共同的特点是，不需要像C,Java那样需要经过编译成二进制文件后才可以运行，它们需要的，仅仅是一个专属的解释器。\n什么是批处理？  我们可以理解为“批量处理”，将一些命令保存到一个文件中，然后一条条一次运行。当然，批处理的功能并不局限于此。\n如何建立批处理程序？  新建一个文本文档，将代码写入后更改其扩展名为bat或cmd(NT中的另一种批处理文件)即可。\n如何运行批处理程序？  无需编译等操作，直接在Windows下双击或DOS下输入批处理文件名即可运行。\n批处理都有那些命令？  我们可以这样想，除了批处理专属的命令外，任何可以在DOS下使用的命令批处理都是可以使用的。\n学习一门语言的最好的方法是：\n  有一本系统的、全面的、实用的、循序渐进的阶段性教程来进行指导：《批处理阶段教程[英雄出品]》\n  有大量的源代码可供参考，通过对这些代码的分析、修改与借鉴来编写出属于自己的程序：《70个批处理实用程序源码》\n  有一本相当实用的参考手册，可以在实际的代码编写中快速查阅所有命令的参数和实用方法等：《DOS命令全集(中英文对照)》\n  还有，大家始终要记得批处理脚本的能力真的很有限，我们只需要用它来方便我们处理一些简单的问题就好了！\n例如：以下代码便是我根据日常工作需要编写的一个网速检测的脚本\nWindows XP版本\n@echo off @echo 该程序用于对ping的返回结果进行分析判断 @echo 测试发送包大小为默认的32bytes @echo ...................................... set /p SITE=请自定义测试网站地址(如www.baidu.com)： set /p TIMES=请自定义ping的次数(如10)： set /p MAX=请自定义可接受的最大延迟数，默认单位ms(如200)： set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于%TIMES%)： @echo ...................................... goto FLUX :FLUX ::定义模块，用于计算出当前电脑ping结果的最小值与掉包次数 ping -n %TIMES% %SITE% ping.txt find \"Minimum\" ping.txt pingmin.txt find \"Lost\" ping.txt pingtimeout.txt for /f \"skip=2 tokens=3\" %%M in (pingmin.txt) do set PING=%%M echo %PING% pingminnum.txt for /f \"tokens=1 delims=m\" %%I in (pingminnum.txt) do set NUM=%%I for /f \"skip=2 tokens=10\" %%J in (pingtimeout.txt) do set TIMEOUT=%%J echo 最短:%NUM%ms 丢失:%TIMEOUT%/%TIMES% if %TIMEOUT% GEQ %TIMEOUTMAX% (goto WARNING) if %NUM% GEQ %MAX% (goto WARNING) else goto CONTINUE :WARNING mshta vbscript:msgbox(\"网络已经差于预设值！请立刻采取相应措施！\",64,\"警告窗口\")(window.close) goto CONTINUE :CONTINUE goto FLUX ::从这里开始再次回到FLUX模块进行循环 Windows 7版本\n@echo off @echo 该程序用于对ping的返回结果进行分析判断 @echo 测试发送包大小为默认的32bytes @echo ...................................... set /p SITE=请自定义测试网站地址(如www.baidu.com)： set /p TIMES=请自定义ping的次数(如10)： set /p MAX=请自定义可接受的最大延迟数，默认单位ms(如200)： set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于%TIMES%)： @echo ...................................... goto FLUX :FLUX ::定义模块，用于计算出当前电脑ping结果的最小值与掉包次数 ping -n %TIMES% %SITE% ping.txt find \"最短\" ping.txt pingmin.txt find \"丢失\" ping.txt pingtimeout.txt for /f \"skip=2 tokens=3\" %%M in (pingmin.txt) do set PING=%%M echo %PING% pingminnum.txt for /f \"tokens=1 delims=m\" %%I in (pingminnum.txt) do set NUM=%%I for /f \"skip=2 tokens=8\" %%J in (pingtimeout.txt) do set TIMEOUT=%%J echo 最短:%NUM%ms 丢失:%TIMEOUT%/%TIMES% if %TIMEOUT% GEQ %TIMEOUTMAX% (goto WARNING) if %NUM% GEQ %MAX% (goto WARNING) else goto CONTINUE :WARNING mshta vbscript:msgbox(\"网络已经差于预设值！请立刻采取相应措施！\",64,\"警告窗口\")(window.close) goto CONTINUE :CONTINUE goto FLUX ::从这里开始再次回到FLUX模块进行循环 ",
+  "wordCount" : "221",
+  "inLanguage": "en",
+  "datePublished": "2008-01-04T00:00:00Z",
+  "dateModified": "2008-01-04T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      DOS下.bat批处理脚本编程学习笔记
+    </h1>
+    <div class="post-meta">
+
+January 4, 2008&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><strong>需要理解的一些概念：</strong></p>
+<ol>
+<li>什么是脚本？</li>
+</ol>
+<p>脚本可以理解为是一种简单的程序（它的语法相对简单，不需要编译，是解释执行的）。</p>
+<p>这一点和Linux下的shell是类似的，并且像php,Python这样流行的语言也属于脚本语言。</p>
+<p>他们共同的特点是，不需要像C,Java那样需要经过编译成二进制文件后才可以运行，它们需要的，仅仅是一个专属的解释器。</p>
+<ol start="2">
+<li>什么是批处理？</li>
+</ol>
+<p>我们可以理解为“批量处理”，将一些命令保存到一个文件中，然后一条条一次运行。当然，批处理的功能并不局限于此。</p>
+<ol start="3">
+<li>如何建立批处理程序？</li>
+</ol>
+<p>新建一个文本文档，将代码写入后更改其扩展名为bat或cmd(NT中的另一种批处理文件)即可。</p>
+<ol start="4">
+<li>如何运行批处理程序？</li>
+</ol>
+<p>无需编译等操作，直接在Windows下双击或DOS下输入批处理文件名即可运行。</p>
+<ol start="5">
+<li>批处理都有那些命令？</li>
+</ol>
+<p>我们可以这样想，除了批处理专属的命令外，任何可以在DOS下使用的命令批处理都是可以使用的。</p>
+<p><strong>学习一门语言的最好的方法是：</strong></p>
+<ol>
+<li>
+<p>有一本系统的、全面的、实用的、循序渐进的阶段性教程来进行指导：《批处理阶段教程[英雄出品]》</p>
+</li>
+<li>
+<p>有大量的源代码可供参考，通过对这些代码的分析、修改与借鉴来编写出属于自己的程序：《70个批处理实用程序源码》</p>
+</li>
+<li>
+<p>有一本相当实用的参考手册，可以在实际的代码编写中快速查阅所有命令的参数和实用方法等：《DOS命令全集(中英文对照)》</p>
+</li>
+</ol>
+<p>还有，大家始终要记得批处理脚本的能力真的很有限，我们只需要用它来方便我们处理一些简单的问题就好了！</p>
+<p>例如：以下代码便是我根据日常工作需要编写的一个网速检测的脚本</p>
+<p>Windows XP版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@echo off
+@echo 该程序用于对ping的返回结果进行分析判断
+@echo 测试发送包大小为默认的32bytes
+@echo ......................................
+set /p SITE=请自定义测试网站地址(如www.baidu.com)<span style="color:#960050;background-color:#1e0010">：</span>
+set /p TIMES=请自定义ping的次数(如10)<span style="color:#960050;background-color:#1e0010">：</span>
+set /p MAX=请自定义可接受的最大延迟数<span style="color:#960050;background-color:#1e0010">，</span>默认单位ms(如200)<span style="color:#960050;background-color:#1e0010">：</span>
+set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于<span style="color:#66d9ef">%</span>TIMES%)<span style="color:#960050;background-color:#1e0010">：</span>
+@echo ......................................
+
+goto FLUX
+
+<span style="color:#960050;background-color:#1e0010">:</span>FLUX ::定义模块<span style="color:#960050;background-color:#1e0010">，</span>用于计算出当前电脑ping结果的最小值与掉包次数
+ping -n <span style="color:#66d9ef">%</span>TIMES% <span style="color:#66d9ef">%</span>SITE% &gt;ping.txt
+find <span style="color:#e6db74">&#34;Minimum&#34;</span> ping.txt &gt;pingmin.txt
+find <span style="color:#e6db74">&#34;Lost&#34;</span> ping.txt &gt;pingtimeout.txt
+<span style="color:#66d9ef">for</span> /f <span style="color:#e6db74">&#34;skip=2 tokens=3&#34;</span> %<span style="color:#66d9ef">%</span>M <span style="color:#66d9ef">in</span> (pingmin.txt) <span style="color:#66d9ef">do</span> set PING=%<span style="color:#66d9ef">%</span>M
+echo <span style="color:#66d9ef">%</span>PING% &gt;pingminnum.txt
+<span style="color:#66d9ef">for</span> /f <span style="color:#e6db74">&#34;tokens=1 delims=m&#34;</span> %<span style="color:#66d9ef">%</span>I <span style="color:#66d9ef">in</span> (pingminnum.txt) <span style="color:#66d9ef">do</span> set NUM=%<span style="color:#66d9ef">%</span>I
+<span style="color:#66d9ef">for</span> /f <span style="color:#e6db74">&#34;skip=2 tokens=10&#34;</span> %<span style="color:#66d9ef">%</span>J <span style="color:#66d9ef">in</span> (pingtimeout.txt) <span style="color:#66d9ef">do</span> set TIMEOUT=%<span style="color:#66d9ef">%</span>J
+echo 最短<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">%</span>NUM<span style="color:#66d9ef">%</span>ms 丢失<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">%</span>TIMEOUT%/<span style="color:#66d9ef">%</span>TIMES%
+<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">%</span>TIMEOUT% GEQ <span style="color:#66d9ef">%</span>TIMEOUTMAX% (goto WARNING) 
+<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">%</span>NUM% GEQ <span style="color:#66d9ef">%</span>MAX% (goto WARNING) <span style="color:#66d9ef">else</span> goto <span style="color:#66d9ef">CONTINUE</span>
+
+<span style="color:#960050;background-color:#1e0010">:</span>WARNING
+mshta vbscript<span style="color:#960050;background-color:#1e0010">:</span>msgbox(<span style="color:#e6db74">&#34;网络已经差于预设值！请立刻采取相应措施！&#34;</span>,64,<span style="color:#e6db74">&#34;警告窗口&#34;</span>)(window.close)
+goto <span style="color:#66d9ef">CONTINUE</span>
+
+<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">CONTINUE</span>
+goto FLUX ::从这里开始再次回到FLUX模块进行循环
+</code></pre></div><p>Windows 7版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">@echo off
+@echo 该程序用于对ping的返回结果进行分析判断
+@echo 测试发送包大小为默认的32bytes
+@echo ......................................
+set /p SITE=请自定义测试网站地址(如www.baidu.com)<span style="color:#960050;background-color:#1e0010">：</span>
+set /p TIMES=请自定义ping的次数(如10)<span style="color:#960050;background-color:#1e0010">：</span>
+set /p MAX=请自定义可接受的最大延迟数<span style="color:#960050;background-color:#1e0010">，</span>默认单位ms(如200)<span style="color:#960050;background-color:#1e0010">：</span>
+set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于<span style="color:#66d9ef">%</span>TIMES%)<span style="color:#960050;background-color:#1e0010">：</span>
+@echo ......................................
+
+goto FLUX
+
+<span style="color:#960050;background-color:#1e0010">:</span>FLUX ::定义模块<span style="color:#960050;background-color:#1e0010">，</span>用于计算出当前电脑ping结果的最小值与掉包次数
+ping -n <span style="color:#66d9ef">%</span>TIMES% <span style="color:#66d9ef">%</span>SITE% &gt;ping.txt
+find <span style="color:#e6db74">&#34;最短&#34;</span> ping.txt &gt;pingmin.txt
+find <span style="color:#e6db74">&#34;丢失&#34;</span> ping.txt &gt;pingtimeout.txt
+<span style="color:#66d9ef">for</span> /f <span style="color:#e6db74">&#34;skip=2 tokens=3&#34;</span> %<span style="color:#66d9ef">%</span>M <span style="color:#66d9ef">in</span> (pingmin.txt) <span style="color:#66d9ef">do</span> set PING=%<span style="color:#66d9ef">%</span>M
+echo <span style="color:#66d9ef">%</span>PING% &gt;pingminnum.txt
+<span style="color:#66d9ef">for</span> /f <span style="color:#e6db74">&#34;tokens=1 delims=m&#34;</span> %<span style="color:#66d9ef">%</span>I <span style="color:#66d9ef">in</span> (pingminnum.txt) <span style="color:#66d9ef">do</span> set NUM=%<span style="color:#66d9ef">%</span>I
+<span style="color:#66d9ef">for</span> /f <span style="color:#e6db74">&#34;skip=2 tokens=8&#34;</span> %<span style="color:#66d9ef">%</span>J <span style="color:#66d9ef">in</span> (pingtimeout.txt) <span style="color:#66d9ef">do</span> set TIMEOUT=%<span style="color:#66d9ef">%</span>J
+echo 最短<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">%</span>NUM<span style="color:#66d9ef">%</span>ms 丢失<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">%</span>TIMEOUT%/<span style="color:#66d9ef">%</span>TIMES%
+<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">%</span>TIMEOUT% GEQ <span style="color:#66d9ef">%</span>TIMEOUTMAX% (goto WARNING) 
+<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">%</span>NUM% GEQ <span style="color:#66d9ef">%</span>MAX% (goto WARNING) <span style="color:#66d9ef">else</span> goto <span style="color:#66d9ef">CONTINUE</span>
+
+<span style="color:#960050;background-color:#1e0010">:</span>WARNING
+mshta vbscript<span style="color:#960050;background-color:#1e0010">:</span>msgbox(<span style="color:#e6db74">&#34;网络已经差于预设值！请立刻采取相应措施！&#34;</span>,64,<span style="color:#e6db74">&#34;警告窗口&#34;</span>)(window.close)
+goto <span style="color:#66d9ef">CONTINUE</span>
+
+<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">CONTINUE</span>
+goto FLUX ::从这里开始再次回到FLUX模块进行循环
+</code></pre></div>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/windows/">Windows</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

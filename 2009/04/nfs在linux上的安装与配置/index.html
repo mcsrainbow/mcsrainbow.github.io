@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>NFS在Linux上的安装与配置 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux, NFS" />
+<meta name="description" content="NFS是Network File System的简写，即网络文件系统。
+NFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="NFS在Linux上的安装与配置" />
+<meta property="og:description" content="NFS是Network File System的简写，即网络文件系统。
+NFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" />
+<meta property="article:published_time" content="2009-04-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2009-04-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NFS在Linux上的安装与配置"/>
+<meta name="twitter:description" content="NFS是Network File System的简写，即网络文件系统。
+NFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "NFS在Linux上的安装与配置",
+  "name": "NFS在Linux上的安装与配置",
+  "description": "NFS是Network File System的简写，即网络文件系统。\nNFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。\n",
+  "keywords": [
+    "Linux", "NFS"
+  ],
+  "articleBody": "NFS是Network File System的简写，即网络文件系统。\nNFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。\n但根据我过去的经验，NFS在访问量不大的时候，采用配置比较好的服务器能够满足使用需求，可一旦日PV量达到百万级别以后，NFS就成为了整个系统最大的性能瓶颈和单点故障。\n因此，强烈建议在访问量达到一定程度以后，采用分布式文件系统如moosefs、lustre等；如果不考虑成本的话，可采用IBM或HP等公司昂贵的NAS设备。\n下面开始对NFS在Linux上的安装与配置进行讲解：\n 配置NFS服务器共享  安装NFS所需软件包\nCentOS:\nyum install nfs-utils nfs4-acl-tools portmap Ubuntu:\napt-get install nfs-common nfs-kernel-server portmap 输出服务器端的某些目录，以便NFS客户端能挂载和访问到\nvi /etc/exports /data/nfshome/common 192.168.10.0/255.255.255.0(rw,sync) /data/nfshome/private 192.168.10.4(rw,sync,no_root_squash) 192.168.10.5(rw,sync,no_root_squash) /data/nfshome/public *(ro,sync) 相关注解如下：\n第1条规则 /data/nfshome/common 目录对所有192.168.10.x的主机都开放，权限为 rw 可读写，sync 文件同步；\n第2条规则 /data/nfshome/private 目录对192.168.10.4与192.168.10.5两台主机开放，权限为 rw 可读写，sync 文件同步，no_root_squash 使root用户具有根目录的完全管理访问权限；\n第3条规则 /data/nfshome/public 目录对所有主机开放，权限为 ro 可读写，sync文件同步。\n下面是一些NFS共享的常用参数：\nro #只读访问 rw #读写访问 sync #所有数据在请求时写入共享 async #NFS在写入数据前可以响应请求 wdelay #如果多个用户要写入NFS目录，则归组写入（默认） no_wdelay #如果多个用户要写入NFS目录，则立即写入，当使用async时，无需此设置 hide #在NFS共享目录中不共享其子目录 no_hide #共享NFS目录的子目录 no_subtree_check #和上面相对，不检查父目录权限 all_squash #共享文件的UID和GID映射匿名用户anonymous，适合公用目录 no_root_squash #root用户具有根目录的完全管理访问权限 设置NFS服务开机自启动\nchkconfig nfs on chkconfig portmap on 启动NFS相关服务\n/etc/init.d/rpcbind start /etc/init.d/nfslock start /etc/init.d/nfs start 配置NFS客户端远程访问  安装NFS所需软件包\nCentOS:\nyum install nfs-utils nfs4-acl-tools portmap Ubuntu:\napt-get install nfs-common nfs-kernel-server portmap 启动NFS客户端服务\n/etc/init.d/rpcbind start /etc/init.d/nfslock start 检查NFS服务器端是否有目录共享（假设服务器IP为192.168.10.3）\nshowmount -e 192.168.10.3 /data/nfshome/public * /data/nfshome/private 192.168.10.4 192.168.10.5 /data/nfshome/common 192.168.10.0/255.255.255.0 挂载NFS共享目录\nmount -t nfs -o rw,tcp,intr 192.168.10.3:/data/nfshome/private /mnt/nfs 查看是否挂载成功\ndf -h 设置/etc/fstab实现开机自动挂载\nvi /etc/fstab 192.168.10.3:/data/nfshome/private /mnt/nfs nfs rw,tcp,intr ",
+  "wordCount" : "135",
+  "inLanguage": "en",
+  "datePublished": "2009-04-11T00:00:00Z",
+  "dateModified": "2009-04-11T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      NFS在Linux上的安装与配置
+    </h1>
+    <div class="post-meta">
+
+April 11, 2009&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>NFS是Network File System的简写，即网络文件系统。</p>
+<p>NFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。</p>
+<p>但根据我过去的经验，NFS在访问量不大的时候，采用配置比较好的服务器能够满足使用需求，可一旦日PV量达到百万级别以后，NFS就成为了整个系统最大的性能瓶颈和单点故障。</p>
+<p>因此，强烈建议在访问量达到一定程度以后，采用分布式文件系统如moosefs、lustre等；如果不考虑成本的话，可采用IBM或HP等公司昂贵的NAS设备。</p>
+<p>下面开始对NFS在Linux上的安装与配置进行讲解：</p>
+<ol>
+<li><strong>配置NFS服务器共享</strong></li>
+</ol>
+<p>安装NFS所需软件包</p>
+<p>CentOS:</p>
+<pre><code>yum install nfs-utils nfs4-acl-tools portmap
+</code></pre><p>Ubuntu:</p>
+<pre><code>apt-get install nfs-common nfs-kernel-server portmap
+</code></pre><p>输出服务器端的某些目录，以便NFS客户端能挂载和访问到</p>
+<pre><code>vi /etc/exports
+</code></pre><pre><code>/data/nfshome/common 192.168.10.0/255.255.255.0(rw,sync)
+/data/nfshome/private 192.168.10.4(rw,sync,no_root_squash) 192.168.10.5(rw,sync,no_root_squash)
+/data/nfshome/public *(ro,sync)
+</code></pre><p>相关注解如下：</p>
+<p>第1条规则 /data/nfshome/common 目录对所有192.168.10.x的主机都开放，权限为 rw 可读写，sync 文件同步；</p>
+<p>第2条规则 /data/nfshome/private 目录对192.168.10.4与192.168.10.5两台主机开放，权限为 rw 可读写，sync 文件同步，no_root_squash 使root用户具有根目录的完全管理访问权限；</p>
+<p>第3条规则 /data/nfshome/public 目录对所有主机开放，权限为 ro 可读写，sync文件同步。</p>
+<p>下面是一些NFS共享的常用参数：</p>
+<pre><code>ro                #只读访问 
+rw                #读写访问 
+sync              #所有数据在请求时写入共享 
+async             #NFS在写入数据前可以响应请求 
+wdelay            #如果多个用户要写入NFS目录，则归组写入（默认） 
+no_wdelay         #如果多个用户要写入NFS目录，则立即写入，当使用async时，无需此设置 
+hide              #在NFS共享目录中不共享其子目录 
+no_hide           #共享NFS目录的子目录 
+no_subtree_check  #和上面相对，不检查父目录权限 
+all_squash        #共享文件的UID和GID映射匿名用户anonymous，适合公用目录 
+no_root_squash    #root用户具有根目录的完全管理访问权限 
+</code></pre><p>设置NFS服务开机自启动</p>
+<pre><code>chkconfig nfs on
+chkconfig portmap on
+</code></pre><p>启动NFS相关服务</p>
+<pre><code>/etc/init.d/rpcbind start
+/etc/init.d/nfslock start
+/etc/init.d/nfs start
+</code></pre><ol start="2">
+<li><strong>配置NFS客户端远程访问</strong></li>
+</ol>
+<p>安装NFS所需软件包</p>
+<p>CentOS:</p>
+<pre><code>yum install nfs-utils nfs4-acl-tools portmap
+</code></pre><p>Ubuntu:</p>
+<pre><code>apt-get install nfs-common nfs-kernel-server portmap
+</code></pre><p>启动NFS客户端服务</p>
+<pre><code>/etc/init.d/rpcbind start
+/etc/init.d/nfslock start
+</code></pre><p>检查NFS服务器端是否有目录共享（假设服务器IP为192.168.10.3）</p>
+<pre><code>showmount -e 192.168.10.3
+</code></pre><pre><code>/data/nfshome/public *
+/data/nfshome/private 192.168.10.4 192.168.10.5
+/data/nfshome/common 192.168.10.0/255.255.255.0
+</code></pre><p>挂载NFS共享目录</p>
+<pre><code>mount -t nfs -o rw,tcp,intr 192.168.10.3:/data/nfshome/private /mnt/nfs
+</code></pre><p>查看是否挂载成功</p>
+<pre><code>df -h
+</code></pre><p>设置/etc/fstab实现开机自动挂载</p>
+<pre><code>vi /etc/fstab
+</code></pre><pre><code>192.168.10.3:/data/nfshome/private /mnt/nfs nfs rw,tcp,intr
+</code></pre>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/nfs/">NFS</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

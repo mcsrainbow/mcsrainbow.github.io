@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>2008-8-7工作笔记–LVM磁盘管理 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux" />
+<meta name="description" content="如何挂载一块从别的机器上取下的做了LVM的硬盘">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="2008-8-7工作笔记–LVM磁盘管理" />
+<meta property="og:description" content="如何挂载一块从别的机器上取下的做了LVM的硬盘" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" />
+<meta property="article:published_time" content="2008-08-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2008-08-07T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2008-8-7工作笔记–LVM磁盘管理"/>
+<meta name="twitter:description" content="如何挂载一块从别的机器上取下的做了LVM的硬盘"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2008-8-7工作笔记–LVM磁盘管理",
+  "name": "2008-8-7工作笔记–LVM磁盘管理",
+  "description": "如何挂载一块从别的机器上取下的做了LVM的硬盘\n",
+  "keywords": [
+    "Linux"
+  ],
+  "articleBody": "如何挂载一块从别的机器上取下的做了LVM的硬盘\nfdisk -l #查看新增的硬盘是否已经被识别 vgscan #扫描LVM卷 vgchange -ay lvscan #如果正常则会显示出硬盘的LV状态都是 active mount -t ext3 /dev/VGname/LVname /mnt/lvmdisk/ 如何将一块新硬盘添加到现有的LVM中，以达到扩容目的\nfdisk -l #查看新增的硬盘是否已经被识别 fdisk /dev/sdb #创建一个新的分区sdb1，并使用t参数标记为8e(即Linux LVM) n t 8e pvcreate #建立物理卷 vgextend VolGroup00 /dev/sdb1 #将新增的屋里卷加入到卷组中去 lvextend -L +800G /dev/VolGroup00/LogVol00 #将新增的80G硬盘的所有空间都加到逻辑卷中去 RHEL4: ext2online /dev/VolGroup00/LogVol00 #激活新增的空间 RHEL5: resize2fs -p /dev/VolGroup00/LogVol00 #激活新增的空间 df -h #此时便可以看到新增的空间了 如何删除一个现有的LVM\numount #所有vg0下的lv lvremove /dev/vg0/lv0 vgchange -an /dev/vg0 #休眠vg0,-ay是激活 vgremove vg0 #移除vg0 如何删除一个现有LVM中的物理卷，以取出新增的硬盘\n转移数据pvmove /dev/sdb1 [sdc1]如果想指定转移的物理卷则在后面输入\npvreduce vg0 /dev/sdb1把sdb1从卷组中删除\n一些常用的LVM管理命令\n扩展VG： vgextend vg0(卷组名) /dev/sdb1(PV名)\n扩展LV： lvextend -L +10G(空间大小) /dev/vg0/lv0(LV名)\n查看信息： vgdisplay /dev/vg0 , lvdisplay /dev/vg0/lv0\n数据迁移： pvmove /dev/sdb1 /dev/sdc1\n所有命令列表\nextendfs #扩展一个离线文件系统 lvchange #改变一个逻辑卷的的属性 lvcreate #在卷组中创建一个逻辑卷 lvdisplay #显示逻辑卷的信息 lvextend #增加分配给逻辑卷的物理区域数 lvlnboot #将逻辑卷设为启动，交换或内存映像卷 lvmerge #将以前镜像的卷合并成一个逻辑镜像卷 lvreduce #减少分配给逻辑卷的物理区域数 lvremove #从卷组中删除一个或多个逻辑卷 lvrmboot #删除联接到启动，交换或内存映像卷的逻辑卷 lvsplit #将镜像的逻辑卷分成两个逻辑卷 lvsync #同步在一个或多少失效逻辑卷上的逻辑卷镜像 pvchange #改变卷组中的物理卷的属性 pvcreate #创建一个可以被卷组使用的物理卷 pvdisplay #显示卷组中一个或多个物理卷的信息 pvmove #将分配的物理区域从一个物理卷转移鲐其他物理卷 vgcfgbackup #保存卷组LVM配置 vgcfgrestore #将LVM配置恢复　到卷组 vgchange #开关卷组的一些状态 vgcreate #创建一个卷组 vgdisplay #显示卷组信息 vgextend #通过添加物理卷扩展一个卷组 vgexport #从系统输出一个卷组 vgimport #向系统输入一个卷组 vgscan #扫描卷组的系统物理卷 vgreduce #通过删除一个或多个物理卷减小卷组 vgremove #从系统上删除一个或多个卷组的定义 vgsync #同步在一个或多个失效卷组上的逻辑镜像 ",
+  "wordCount" : "147",
+  "inLanguage": "en",
+  "datePublished": "2008-08-07T00:00:00Z",
+  "dateModified": "2008-08-07T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      2008-8-7工作笔记–LVM磁盘管理
+    </h1>
+    <div class="post-meta">
+
+August 7, 2008&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><strong>如何挂载一块从别的机器上取下的做了LVM的硬盘</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdisk -l <span style="color:#75715e">#查看新增的硬盘是否已经被识别</span>
+vgscan <span style="color:#75715e">#扫描LVM卷</span>
+vgchange -ay
+lvscan <span style="color:#75715e">#如果正常则会显示出硬盘的LV状态都是 active</span>
+mount -t ext3 /dev/VGname/LVname /mnt/lvmdisk/
+</code></pre></div><p><strong>如何将一块新硬盘添加到现有的LVM中，以达到扩容目的</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdisk -l <span style="color:#75715e">#查看新增的硬盘是否已经被识别</span>
+
+fdisk /dev/sdb <span style="color:#75715e">#创建一个新的分区sdb1，并使用t参数标记为8e(即Linux LVM)</span>
+n
+t
+8e
+
+pvcreate <span style="color:#75715e">#建立物理卷</span>
+
+vgextend VolGroup00 /dev/sdb1 <span style="color:#75715e">#将新增的屋里卷加入到卷组中去</span>
+
+lvextend -L +800G /dev/VolGroup00/LogVol00 <span style="color:#75715e">#将新增的80G硬盘的所有空间都加到逻辑卷中去</span>
+
+RHEL4: ext2online /dev/VolGroup00/LogVol00   <span style="color:#75715e">#激活新增的空间</span>
+RHEL5: resize2fs -p /dev/VolGroup00/LogVol00 <span style="color:#75715e">#激活新增的空间</span>
+
+df -h <span style="color:#75715e">#此时便可以看到新增的空间了</span>
+</code></pre></div><p><strong>如何删除一个现有的LVM</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">umount <span style="color:#75715e">#所有vg0下的lv</span>
+lvremove /dev/vg0/lv0
+vgchange -an /dev/vg0 <span style="color:#75715e">#休眠vg0,-ay是激活</span>
+vgremove vg0 <span style="color:#75715e">#移除vg0</span>
+</code></pre></div><p><strong>如何删除一个现有LVM中的物理卷，以取出新增的硬盘</strong></p>
+<p>转移数据<code>pvmove /dev/sdb1 [sdc1]</code>如果想指定转移的物理卷则在后面输入</p>
+<p><code>pvreduce vg0 /dev/sdb1</code>把sdb1从卷组中删除</p>
+<p><strong>一些常用的LVM管理命令</strong></p>
+<p>扩展VG： <code>vgextend vg0(卷组名) /dev/sdb1(PV名)</code></p>
+<p>扩展LV： <code>lvextend -L +10G(空间大小) /dev/vg0/lv0(LV名)</code></p>
+<p>查看信息：<code> vgdisplay /dev/vg0</code> , <code>lvdisplay /dev/vg0/lv0</code></p>
+<p>数据迁移： <code>pvmove /dev/sdb1 /dev/sdc1</code></p>
+<p><strong>所有命令列表</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">extendfs <span style="color:#75715e">#扩展一个离线文件系统</span>
+lvchange <span style="color:#75715e">#改变一个逻辑卷的的属性</span>
+lvcreate <span style="color:#75715e">#在卷组中创建一个逻辑卷</span>
+lvdisplay <span style="color:#75715e">#显示逻辑卷的信息</span>
+lvextend <span style="color:#75715e">#增加分配给逻辑卷的物理区域数</span>
+lvlnboot <span style="color:#75715e">#将逻辑卷设为启动，交换或内存映像卷</span>
+lvmerge <span style="color:#75715e">#将以前镜像的卷合并成一个逻辑镜像卷</span>
+lvreduce <span style="color:#75715e">#减少分配给逻辑卷的物理区域数</span>
+lvremove <span style="color:#75715e">#从卷组中删除一个或多个逻辑卷</span>
+lvrmboot <span style="color:#75715e">#删除联接到启动，交换或内存映像卷的逻辑卷</span>
+lvsplit <span style="color:#75715e">#将镜像的逻辑卷分成两个逻辑卷</span>
+lvsync <span style="color:#75715e">#同步在一个或多少失效逻辑卷上的逻辑卷镜像</span>
+pvchange <span style="color:#75715e">#改变卷组中的物理卷的属性</span>
+pvcreate <span style="color:#75715e">#创建一个可以被卷组使用的物理卷</span>
+pvdisplay <span style="color:#75715e">#显示卷组中一个或多个物理卷的信息</span>
+pvmove <span style="color:#75715e">#将分配的物理区域从一个物理卷转移鲐其他物理卷</span>
+vgcfgbackup <span style="color:#75715e">#保存卷组LVM配置</span>
+vgcfgrestore <span style="color:#75715e">#将LVM配置恢复　到卷组</span>
+vgchange <span style="color:#75715e">#开关卷组的一些状态</span>
+vgcreate <span style="color:#75715e">#创建一个卷组</span>
+vgdisplay <span style="color:#75715e">#显示卷组信息</span>
+vgextend <span style="color:#75715e">#通过添加物理卷扩展一个卷组</span>
+vgexport <span style="color:#75715e">#从系统输出一个卷组</span>
+vgimport <span style="color:#75715e">#向系统输入一个卷组</span>
+vgscan <span style="color:#75715e">#扫描卷组的系统物理卷</span>
+vgreduce <span style="color:#75715e">#通过删除一个或多个物理卷减小卷组</span>
+vgremove <span style="color:#75715e">#从系统上删除一个或多个卷组的定义</span>
+vgsync <span style="color:#75715e">#同步在一个或多个失效卷组上的逻辑镜像</span>
+</code></pre></div>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

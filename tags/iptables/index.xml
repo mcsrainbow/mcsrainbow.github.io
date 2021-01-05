@@ -5,7 +5,16 @@
     <link>https://blog.heylinux.com/tags/iptables/</link>
     <description>Recent content in iptables on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Jul 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Nov 2008 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安装L7filter使iptables支持对七层应用进行过滤</title>
+      <link>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</guid>
+      <description>&lt;p&gt;重新编译内核，使iptables支持L7filter，对七层应用进行过滤。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>共享一个iptables数据转发与端口映射的脚本</title>
       <link>https://blog.heylinux.com/2007/07/%E5%85%B1%E4%BA%AB%E4%B8%80%E4%B8%AAiptables%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E7%9A%84%E8%84%9A%E6%9C%AC/</link>

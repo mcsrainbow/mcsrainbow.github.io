@@ -5,7 +5,384 @@
     <link>https://blog.heylinux.com/posts/</link>
     <description>Recent content in Posts on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 30 Dec 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在RedHat Enterprise Linux上Oracle 9i的安装配置与调优[原创全面规范]</title>
+      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-enterprise-linux%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98%E5%8E%9F%E5%88%9B%E5%85%A8%E9%9D%A2%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-enterprise-linux%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98%E5%8E%9F%E5%88%9B%E5%85%A8%E9%9D%A2%E8%A7%84%E8%8C%83/</guid>
+      <description>&lt;p&gt;本文带有图片的完整文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0064/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 安装配置Oracle 9i数据库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本章描述内容如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1 安装前的准备工作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;介绍在安装Oracle之前所需的准备工作&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Redhat Linux上PPTP VPN Server的安装配置</title>
+      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 21 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;1. 安装前的准备工作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1 获取PPTP VPN Server安装包&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RoseHA for Linux安装与配置</title>
+      <link>https://blog.heylinux.com/2009/08/roseha-for-linux%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 17 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/08/roseha-for-linux%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;一、安装RoseHA&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将光驱挂载到mnt文件夹&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用DVD安装光盘构建属于自己的RHEL YUM安装源</title>
+      <link>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</link>
+      <pubDate>Tue, 26 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</guid>
+      <description>&lt;p&gt;相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。&lt;/p&gt;
+&lt;p&gt;但是我相信大家一定有很多也和我一样仍然喜欢使用正统的RHEL吧，但是目前免费的 RHEL YUM源 真的是很难找，如果用CentOS的源的话，感觉又很别扭。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NFS在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 11 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;NFS是Network File System的简写，即网络文件系统。&lt;/p&gt;
+&lt;p&gt;NFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CVS服务器的安装配置与SSH隧道传输配置</title>
+      <link>https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 24 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;一、CVS的安装&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查看是否安装了CVS（系统默认自带CVS）&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装L7filter使iptables支持对七层应用进行过滤</title>
+      <link>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</guid>
+      <description>&lt;p&gt;重新编译内核，使iptables支持L7filter，对七层应用进行过滤。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>工作笔记—基于本地用户方式的vsFTPd高级设置</title>
+      <link>https://blog.heylinux.com/2008/11/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%96%B9%E5%BC%8F%E7%9A%84vsftpd%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Thu, 06 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/11/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%96%B9%E5%BC%8F%E7%9A%84vsftpd%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE/</guid>
+      <description>&lt;p&gt;创建一个专用的FTP数据存储目录&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何在端口过滤后通过pasv模式连接FTP服务器</title>
+      <link>https://blog.heylinux.com/2008/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AB%AF%E5%8F%A3%E8%BF%87%E6%BB%A4%E5%90%8E%E9%80%9A%E8%BF%87pasv%E6%A8%A1%E5%BC%8F%E8%BF%9E%E6%8E%A5ftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Wed, 22 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AB%AF%E5%8F%A3%E8%BF%87%E6%BB%A4%E5%90%8E%E9%80%9A%E8%BF%87pasv%E6%A8%A1%E5%BC%8F%E8%BF%9E%E6%8E%A5ftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;p&gt;了解下FTP协议原理，对我们深入理解和排查问题都是有好处的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>分分钟搞定局域网内Linux服务器时间同步</title>
+      <link>https://blog.heylinux.com/2008/09/%E5%88%86%E5%88%86%E9%92%9F%E6%90%9E%E5%AE%9A%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Thu, 11 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/09/%E5%88%86%E5%88%86%E9%92%9F%E6%90%9E%E5%AE%9A%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/</guid>
+      <description>&lt;p&gt;当有多台服务器共同工作时，有时候时间的不同步会带来不小的麻烦，最近，我就遇到了这样的情况。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux下自动启动和关闭Oracle数据库</title>
+      <link>https://blog.heylinux.com/2008/09/linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E5%92%8C%E5%85%B3%E9%97%ADoracle%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Mon, 01 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/09/linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E5%92%8C%E5%85%B3%E9%97%ADoracle%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>&lt;p&gt;自动启动oracle9i&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux下Oracle数据库的启动、关闭和数据字典的利用</title>
+      <link>https://blog.heylinux.com/2008/08/linux%E4%B8%8Boracle%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%AF%E5%8A%A8%E5%85%B3%E9%97%AD%E5%92%8C%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E7%9A%84%E5%88%A9%E7%94%A8/</link>
+      <pubDate>Wed, 27 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/08/linux%E4%B8%8Boracle%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%AF%E5%8A%A8%E5%85%B3%E9%97%AD%E5%92%8C%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E7%9A%84%E5%88%A9%E7%94%A8/</guid>
+      <description>&lt;p&gt;注：该文章系网上多篇文档和资料的查询，并结合实际操作而完成，未能一一列举出处，仅在此表示感谢。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>“File Size Limit Exceeded” 问题处理</title>
+      <link>https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</link>
+      <pubDate>Tue, 19 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</guid>
+      <description>&lt;p&gt;File Size Limit Exceeded&lt;/p&gt;
+&lt;p&gt;今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2008-8-7工作笔记–LVM磁盘管理</title>
+      <link>https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Thu, 07 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;如何挂载一块从别的机器上取下的做了LVM的硬盘&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>每个人都不能同时挑选两种不同的价值观</title>
+      <link>https://blog.heylinux.com/2008/08/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E6%8C%91%E9%80%89%E4%B8%A4%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%B7%E5%80%BC%E8%A7%82/</link>
+      <pubDate>Mon, 04 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/08/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E6%8C%91%E9%80%89%E4%B8%A4%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%B7%E5%80%BC%E8%A7%82/</guid>
+      <description>&lt;p&gt;手表定理是指一个人有一只表时，可以知道现在是几点钟，而当他同时拥有两只表时却无法确定。两只表并不能告诉一个人更准确的时间，反而会让看表的人失去对准确时间的信心。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2008年7月30日工作札记</title>
+      <link>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</link>
+      <pubDate>Thu, 31 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Windows下双网卡设置默认路由的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；&lt;/p&gt;
+&lt;p&gt;在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux操作系统中的内存简单计算介绍</title>
+      <link>https://blog.heylinux.com/2008/07/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 17 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;p&gt;Linux的基本原则是没有资源应该被浪费。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>强大的PuTTY–利用PuTTY将你手里的主机作为代理服务器</title>
+      <link>https://blog.heylinux.com/2008/07/%E5%BC%BA%E5%A4%A7%E7%9A%84putty%E5%88%A9%E7%94%A8putty%E5%B0%86%E4%BD%A0%E6%89%8B%E9%87%8C%E7%9A%84%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 03 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/%E5%BC%BA%E5%A4%A7%E7%9A%84putty%E5%88%A9%E7%94%A8putty%E5%B0%86%E4%BD%A0%E6%89%8B%E9%87%8C%E7%9A%84%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;p&gt;今天，阿钊告诉我了PuTTY的一个很酷的功能。&lt;/p&gt;
+&lt;p&gt;那就是，只要你手里有一台能够登陆的Linux或Unix主机，那么你就可以把这台主机用来作为你上网的代理服务器，这台服务器所能访问的任何网站（包括和它在一个局域网内的网站）你都可以访问到。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>懑敦儿猫猫流浪记</title>
+      <link>https://blog.heylinux.com/2008/06/%E6%87%91%E6%95%A6%E5%84%BF%E7%8C%AB%E7%8C%AB%E6%B5%81%E6%B5%AA%E8%AE%B0/</link>
+      <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/06/%E6%87%91%E6%95%A6%E5%84%BF%E7%8C%AB%E7%8C%AB%E6%B5%81%E6%B5%AA%E8%AE%B0/</guid>
+      <description>&lt;p&gt;前几天的下午，我们的懑敦儿猫猫离家出走了。&lt;/p&gt;
+&lt;p&gt;它从小是在屋里长大的咯，从来不敢跑出去，就算偶尔在门口溜达一下，看见门开的小了就又会匆忙冲回来。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>回忆我在汶川大地震中的经历</title>
+      <link>https://blog.heylinux.com/2008/05/%E5%9B%9E%E5%BF%86%E6%88%91%E5%9C%A8%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87%E4%B8%AD%E7%9A%84%E7%BB%8F%E5%8E%86/</link>
+      <pubDate>Thu, 29 May 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/05/%E5%9B%9E%E5%BF%86%E6%88%91%E5%9C%A8%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87%E4%B8%AD%E7%9A%84%E7%BB%8F%E5%8E%86/</guid>
+      <description>&lt;p&gt;在地震发生的两周以前，在屋里，女友说：“最近好像有点地震，但是很小很小”。&lt;/p&gt;
+&lt;p&gt;“呵呵……”一笑过后，我只是觉得她太过于敏感了，是原因在屋里呆的太久了。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于冲压模具的中英文对照论文</title>
+      <link>https://blog.heylinux.com/2008/05/%E5%85%B3%E4%BA%8E%E5%86%B2%E5%8E%8B%E6%A8%A1%E5%85%B7%E7%9A%84%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7%E8%AE%BA%E6%96%87/</link>
+      <pubDate>Thu, 01 May 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/05/%E5%85%B3%E4%BA%8E%E5%86%B2%E5%8E%8B%E6%A8%A1%E5%85%B7%E7%9A%84%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7%E8%AE%BA%E6%96%87/</guid>
+      <description>&lt;p&gt;女友前面一段时间比较繁忙，所以没功夫弄她的毕业论文翻译，即：&lt;/p&gt;
+&lt;p&gt;“寻找一篇冲压模具相关的国外全英文文章，然后将其翻译成中文，要求翻译后字数在3000字以上。”&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>人心本善良，让我们重拾一些善心吧</title>
+      <link>https://blog.heylinux.com/2008/04/%E4%BA%BA%E5%BF%83%E6%9C%AC%E5%96%84%E8%89%AF%E8%AE%A9%E6%88%91%E4%BB%AC%E9%87%8D%E6%8B%BE%E4%B8%80%E4%BA%9B%E5%96%84%E5%BF%83%E5%90%A7/</link>
+      <pubDate>Wed, 30 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/04/%E4%BA%BA%E5%BF%83%E6%9C%AC%E5%96%84%E8%89%AF%E8%AE%A9%E6%88%91%E4%BB%AC%E9%87%8D%E6%8B%BE%E4%B8%80%E4%BA%9B%E5%96%84%E5%BF%83%E5%90%A7/</guid>
+      <description>&lt;p&gt;…………&lt;/p&gt;
+&lt;p&gt;Ｒainbow 17:43:18&lt;/p&gt;
+&lt;p&gt;秦哥，您知道，火车对撞不？还有“我的团长我的团”，桥断事件。&lt;/p&gt;
+&lt;p&gt;Ｒainbow 17:43:31&lt;/p&gt;
+&lt;p&gt;奥运年啊，多磨啊。&lt;/p&gt;
+&lt;p&gt;Qin 17:44:54&lt;/p&gt;
+&lt;p&gt;这些事情，不太知道，但知道最近几年会灾难有点多&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux平台上可以学什么？</title>
+      <link>https://blog.heylinux.com/2008/04/linux%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%8F%AF%E4%BB%A5%E5%AD%A6%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Tue, 29 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/04/linux%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%8F%AF%E4%BB%A5%E5%AD%A6%E4%BB%80%E4%B9%88/</guid>
+      <description>&lt;p&gt;Linux平台上可以学什么？&lt;/p&gt;
+&lt;p&gt;通过uplooking尚观科技的培训课程中，可以了解到Linux平台上可以有哪些技术、以及我们还欠缺了多少？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>每个人都有属于自己的成功之路</title>
+      <link>https://blog.heylinux.com/2008/04/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E6%9C%89%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E8%B7%AF/</link>
+      <pubDate>Tue, 29 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/04/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E6%9C%89%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E8%B7%AF/</guid>
+      <description>&lt;p&gt;每个人都有属于自己的成功之路。&lt;/p&gt;
+&lt;p&gt;从幼儿园到小学到中学，再到大学，我们差不多都有1+6+3+3=13年的求学经历。&lt;/p&gt;
+&lt;p&gt;在这13年里，我们攀比的都是彼此的学习成绩，大人们相互炫耀的也是我们彼此的学习成绩。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>今天剪头我选了一个光头的理发师</title>
+      <link>https://blog.heylinux.com/2008/04/%E4%BB%8A%E5%A4%A9%E5%89%AA%E5%A4%B4%E6%88%91%E9%80%89%E4%BA%86%E4%B8%80%E4%B8%AA%E5%85%89%E5%A4%B4%E7%9A%84%E7%90%86%E5%8F%91%E5%B8%88/</link>
+      <pubDate>Mon, 21 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/04/%E4%BB%8A%E5%A4%A9%E5%89%AA%E5%A4%B4%E6%88%91%E9%80%89%E4%BA%86%E4%B8%80%E4%B8%AA%E5%85%89%E5%A4%B4%E7%9A%84%E7%90%86%E5%8F%91%E5%B8%88/</guid>
+      <description>&lt;p&gt;我之所以今天剪头选了一个光头的理发师，就是因为只有他不会把我的头剪得和他一样，这让我对自己的发型还抱有一丝希望，结果证明我的选择是明智而且幸运的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>译 李彦宏博客 “读网笔记”</title>
+      <link>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 16 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;李彦宏 2008-03-12 “读网笔记”：&lt;/p&gt;
+&lt;p&gt;原文地址：http://hi.baidu.com/liyanhong/blog/item/2984e950a8967f581038c2a0.html&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>只要路是对的，就不怕路远</title>
+      <link>https://blog.heylinux.com/2008/03/%E5%8F%AA%E8%A6%81%E8%B7%AF%E6%98%AF%E5%AF%B9%E7%9A%84%E5%B0%B1%E4%B8%8D%E6%80%95%E8%B7%AF%E8%BF%9C/</link>
+      <pubDate>Thu, 13 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/03/%E5%8F%AA%E8%A6%81%E8%B7%AF%E6%98%AF%E5%AF%B9%E7%9A%84%E5%B0%B1%E4%B8%8D%E6%80%95%E8%B7%AF%E8%BF%9C/</guid>
+      <description>&lt;p&gt;从年初开始，我便开始了关注新浪播客系统工程师张宴的博客，一是因为其一些文章非常的优秀，二是因为其与自己同龄甚至还小几个月。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>换位思考真的是一个很好的习惯</title>
+      <link>https://blog.heylinux.com/2008/03/%E6%8D%A2%E4%BD%8D%E6%80%9D%E8%80%83%E7%9C%9F%E7%9A%84%E6%98%AF%E4%B8%80%E4%B8%AA%E5%BE%88%E5%A5%BD%E7%9A%84%E4%B9%A0%E6%83%AF/</link>
+      <pubDate>Sat, 01 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/03/%E6%8D%A2%E4%BD%8D%E6%80%9D%E8%80%83%E7%9C%9F%E7%9A%84%E6%98%AF%E4%B8%80%E4%B8%AA%E5%BE%88%E5%A5%BD%E7%9A%84%E4%B9%A0%E6%83%AF/</guid>
+      <description>&lt;p&gt;换位思考真的是一个很好的习惯。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Apache的日志中记录访问者的IP信息</title>
+      <link>https://blog.heylinux.com/2008/02/%E5%9C%A8apache%E7%9A%84%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%B0%E5%BD%95%E8%AE%BF%E9%97%AE%E8%80%85%E7%9A%84ip%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Fri, 29 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E5%9C%A8apache%E7%9A%84%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%B0%E5%BD%95%E8%AE%BF%E9%97%AE%E8%80%85%E7%9A%84ip%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;p&gt;关于Apache 的 access.log 日志中记录访问的 client IP 解决方法入如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>曾经的文采：《心中的女孩》</title>
+      <link>https://blog.heylinux.com/2008/02/%E6%9B%BE%E7%BB%8F%E7%9A%84%E6%96%87%E9%87%87%E5%BF%83%E4%B8%AD%E7%9A%84%E5%A5%B3%E5%AD%A9/</link>
+      <pubDate>Wed, 20 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E6%9B%BE%E7%BB%8F%E7%9A%84%E6%96%87%E9%87%87%E5%BF%83%E4%B8%AD%E7%9A%84%E5%A5%B3%E5%AD%A9/</guid>
+      <description>&lt;p&gt;曾经的文采：高中时代一次灵感袭来时的瞬间创作。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>“鲑鱼”悲壮的一生</title>
+      <link>https://blog.heylinux.com/2008/02/%E9%B2%91%E9%B1%BC%E6%82%B2%E5%A3%AE%E7%9A%84%E4%B8%80%E7%94%9F/</link>
+      <pubDate>Tue, 19 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E9%B2%91%E9%B1%BC%E6%82%B2%E5%A3%AE%E7%9A%84%E4%B8%80%E7%94%9F/</guid>
+      <description>&lt;p&gt;过年回家的时候，无意间看了“动物世界”中讲述“鲑鱼”的一集。看完之后，我惊讶了，它的一生是那样的悲壮和凄凉，又像是宿命的安排。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>通过转正申请表来看企业偏爱哪些人才</title>
+      <link>https://blog.heylinux.com/2008/02/%E9%80%9A%E8%BF%87%E8%BD%AC%E6%AD%A3%E7%94%B3%E8%AF%B7%E8%A1%A8%E6%9D%A5%E7%9C%8B%E4%BC%81%E4%B8%9A%E5%81%8F%E7%88%B1%E5%93%AA%E4%BA%9B%E4%BA%BA%E6%89%8D/</link>
+      <pubDate>Fri, 15 Feb 2008 23:10:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E9%80%9A%E8%BF%87%E8%BD%AC%E6%AD%A3%E7%94%B3%E8%AF%B7%E8%A1%A8%E6%9D%A5%E7%9C%8B%E4%BC%81%E4%B8%9A%E5%81%8F%E7%88%B1%E5%93%AA%E4%BA%9B%E4%BA%BA%E6%89%8D/</guid>
+      <description>&lt;p&gt;曾记得几个月前在转正时按公司的规定需要领取一张“转正申请表”，于是我便领了一份。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于台资企业的特点以及一些讨论</title>
+      <link>https://blog.heylinux.com/2008/02/%E5%85%B3%E4%BA%8E%E5%8F%B0%E8%B5%84%E4%BC%81%E4%B8%9A%E7%9A%84%E7%89%B9%E7%82%B9%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E8%AE%A8%E8%AE%BA/</link>
+      <pubDate>Fri, 15 Feb 2008 23:08:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E5%85%B3%E4%BA%8E%E5%8F%B0%E8%B5%84%E4%BC%81%E4%B8%9A%E7%9A%84%E7%89%B9%E7%82%B9%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E8%AE%A8%E8%AE%BA/</guid>
+      <description>&lt;p&gt;对于台资企业，之前我是有听说而没有真正接触的，但是，在周围环境的影响下，却对台资有那么一种向往之情–我周围的人亦是如此。因为大家普遍认为台资的企业比较有钱，比较大，也能够开的起薪水。有谁说自己在台资企业上班，那么周围的人便会觉得你公司还不错。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>开始我的虚拟公司生涯</title>
+      <link>https://blog.heylinux.com/2008/02/%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E8%99%9A%E6%8B%9F%E5%85%AC%E5%8F%B8%E7%94%9F%E6%B6%AF/</link>
+      <pubDate>Fri, 15 Feb 2008 23:06:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E8%99%9A%E6%8B%9F%E5%85%AC%E5%8F%B8%E7%94%9F%E6%B6%AF/</guid>
+      <description>&lt;p&gt;往往听到周围的同事有抱怨公司与自我消极的话语。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>曾经的文采：《今生赋》</title>
+      <link>https://blog.heylinux.com/2008/01/%E6%9B%BE%E7%BB%8F%E7%9A%84%E6%96%87%E9%87%87%E4%BB%8A%E7%94%9F%E8%B5%8B/</link>
+      <pubDate>Sat, 19 Jan 2008 20:48:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/01/%E6%9B%BE%E7%BB%8F%E7%9A%84%E6%96%87%E9%87%87%E4%BB%8A%E7%94%9F%E8%B5%8B/</guid>
+      <description>&lt;p&gt;一生如一梦，一日有一梦，此生如一梦，梦到头方醒，偏是明日方醒悟来世，多悲切！人生既如此，何来不珍惜？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>曾经的文采：《冬夏缘》</title>
+      <link>https://blog.heylinux.com/2008/01/%E6%9B%BE%E7%BB%8F%E7%9A%84%E6%96%87%E9%87%87%E5%86%AC%E5%A4%8F%E7%BC%98/</link>
+      <pubDate>Sat, 19 Jan 2008 20:42:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/01/%E6%9B%BE%E7%BB%8F%E7%9A%84%E6%96%87%E9%87%87%E5%86%AC%E5%A4%8F%E7%BC%98/</guid>
+      <description>&lt;p&gt;“惜冬夏不相连，叹春秋不相牵”。&lt;/p&gt;
+&lt;p&gt;一年既分为四季，春夏秋冬，如此叹息，便显得多余。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>经典的Stephen Bourne的Bourne-Again Shell双关语</title>
+      <link>https://blog.heylinux.com/2008/01/%E7%BB%8F%E5%85%B8%E7%9A%84stephen-bourne%E7%9A%84bourne-again-shell%E5%8F%8C%E5%85%B3%E8%AF%AD/</link>
+      <pubDate>Mon, 07 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/01/%E7%BB%8F%E5%85%B8%E7%9A%84stephen-bourne%E7%9A%84bourne-again-shell%E5%8F%8C%E5%85%B3%E8%AF%AD/</guid>
+      <description>&lt;p&gt;Linux之父Linus对BASH的描述：&lt;/p&gt;
+&lt;p&gt;我下载了一个叫Borne Shell的外壳程序。它是UNIX的初始外壳程序之一，可以从互联网上免费下载，名字来源于一个难听的双关语。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>DOS下.bat批处理脚本编程学习笔记</title>
+      <link>https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 04 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;需要理解的一些概念：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是脚本？&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
     <item>
       <title>如何将USB移动硬盘做成DOS启动盘</title>
       <link>https://blog.heylinux.com/2007/12/%E5%A6%82%E4%BD%95%E5%B0%86usb%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%81%9A%E6%88%90dos%E5%90%AF%E5%8A%A8%E7%9B%98/</link>

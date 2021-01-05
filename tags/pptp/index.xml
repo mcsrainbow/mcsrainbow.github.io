@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PPTP on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/pptp/</link>
+    <description>Recent content in PPTP on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 21 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/pptp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在Redhat Linux上PPTP VPN Server的安装配置</title>
+      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 21 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;1. 安装前的准备工作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1 获取PPTP VPN Server安装包&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

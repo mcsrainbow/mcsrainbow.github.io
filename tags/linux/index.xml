@@ -5,7 +5,142 @@
     <link>https://blog.heylinux.com/tags/linux/</link>
     <description>Recent content in Linux on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 26 Dec 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在RedHat Enterprise Linux上Oracle 9i的安装配置与调优[原创全面规范]</title>
+      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-enterprise-linux%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98%E5%8E%9F%E5%88%9B%E5%85%A8%E9%9D%A2%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-enterprise-linux%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98%E5%8E%9F%E5%88%9B%E5%85%A8%E9%9D%A2%E8%A7%84%E8%8C%83/</guid>
+      <description>&lt;p&gt;本文带有图片的完整文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0064/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 安装配置Oracle 9i数据库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本章描述内容如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1 安装前的准备工作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;介绍在安装Oracle之前所需的准备工作&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Redhat Linux上PPTP VPN Server的安装配置</title>
+      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 21 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;1. 安装前的准备工作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1 获取PPTP VPN Server安装包&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RoseHA for Linux安装与配置</title>
+      <link>https://blog.heylinux.com/2009/08/roseha-for-linux%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 17 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/08/roseha-for-linux%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;一、安装RoseHA&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将光驱挂载到mnt文件夹&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用DVD安装光盘构建属于自己的RHEL YUM安装源</title>
+      <link>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</link>
+      <pubDate>Tue, 26 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</guid>
+      <description>&lt;p&gt;相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。&lt;/p&gt;
+&lt;p&gt;但是我相信大家一定有很多也和我一样仍然喜欢使用正统的RHEL吧，但是目前免费的 RHEL YUM源 真的是很难找，如果用CentOS的源的话，感觉又很别扭。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NFS在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 11 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;NFS是Network File System的简写，即网络文件系统。&lt;/p&gt;
+&lt;p&gt;NFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CVS服务器的安装配置与SSH隧道传输配置</title>
+      <link>https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 24 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;一、CVS的安装&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查看是否安装了CVS（系统默认自带CVS）&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装L7filter使iptables支持对七层应用进行过滤</title>
+      <link>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</guid>
+      <description>&lt;p&gt;重新编译内核，使iptables支持L7filter，对七层应用进行过滤。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>“File Size Limit Exceeded” 问题处理</title>
+      <link>https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</link>
+      <pubDate>Tue, 19 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</guid>
+      <description>&lt;p&gt;File Size Limit Exceeded&lt;/p&gt;
+&lt;p&gt;今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2008-8-7工作笔记–LVM磁盘管理</title>
+      <link>https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Thu, 07 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;如何挂载一块从别的机器上取下的做了LVM的硬盘&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2008年7月30日工作札记</title>
+      <link>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</link>
+      <pubDate>Thu, 31 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Windows下双网卡设置默认路由的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；&lt;/p&gt;
+&lt;p&gt;在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux操作系统中的内存简单计算介绍</title>
+      <link>https://blog.heylinux.com/2008/07/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 17 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;p&gt;Linux的基本原则是没有资源应该被浪费。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>强大的PuTTY–利用PuTTY将你手里的主机作为代理服务器</title>
+      <link>https://blog.heylinux.com/2008/07/%E5%BC%BA%E5%A4%A7%E7%9A%84putty%E5%88%A9%E7%94%A8putty%E5%B0%86%E4%BD%A0%E6%89%8B%E9%87%8C%E7%9A%84%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 03 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/%E5%BC%BA%E5%A4%A7%E7%9A%84putty%E5%88%A9%E7%94%A8putty%E5%B0%86%E4%BD%A0%E6%89%8B%E9%87%8C%E7%9A%84%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;p&gt;今天，阿钊告诉我了PuTTY的一个很酷的功能。&lt;/p&gt;
+&lt;p&gt;那就是，只要你手里有一台能够登陆的Linux或Unix主机，那么你就可以把这台主机用来作为你上网的代理服务器，这台服务器所能访问的任何网站（包括和它在一个局域网内的网站）你都可以访问到。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>经典的Stephen Bourne的Bourne-Again Shell双关语</title>
+      <link>https://blog.heylinux.com/2008/01/%E7%BB%8F%E5%85%B8%E7%9A%84stephen-bourne%E7%9A%84bourne-again-shell%E5%8F%8C%E5%85%B3%E8%AF%AD/</link>
+      <pubDate>Mon, 07 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/01/%E7%BB%8F%E5%85%B8%E7%9A%84stephen-bourne%E7%9A%84bourne-again-shell%E5%8F%8C%E5%85%B3%E8%AF%AD/</guid>
+      <description>&lt;p&gt;Linux之父Linus对BASH的描述：&lt;/p&gt;
+&lt;p&gt;我下载了一个叫Borne Shell的外壳程序。它是UNIX的初始外壳程序之一，可以从互联网上免费下载，名字来源于一个难听的双关语。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」</title>
       <link>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/</link>

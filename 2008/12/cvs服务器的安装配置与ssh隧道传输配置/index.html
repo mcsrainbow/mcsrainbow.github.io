@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CVS服务器的安装配置与SSH隧道传输配置 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux, CVS" />
+<meta name="description" content="一、CVS的安装
+
+查看是否安装了CVS（系统默认自带CVS）
+">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="CVS服务器的安装配置与SSH隧道传输配置" />
+<meta property="og:description" content="一、CVS的安装
+
+查看是否安装了CVS（系统默认自带CVS）
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/" />
+<meta property="article:published_time" content="2008-12-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2008-12-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CVS服务器的安装配置与SSH隧道传输配置"/>
+<meta name="twitter:description" content="一、CVS的安装
+
+查看是否安装了CVS（系统默认自带CVS）
+"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CVS服务器的安装配置与SSH隧道传输配置",
+  "name": "CVS服务器的安装配置与SSH隧道传输配置",
+  "description": "一、CVS的安装\n 查看是否安装了CVS（系统默认自带CVS） ",
+  "keywords": [
+    "Linux", "CVS"
+  ],
+  "articleBody": "一、CVS的安装\n 查看是否安装了CVS（系统默认自带CVS）  rpm -qa|grep cvs 如果没有cvs可以在RHEL的安装盘上找到，也可以直接到www.cvshome.org下载。\n建立cvs用户组  groupadd cvs 建立cvs组的cvsroot用户和所属目录  useradd -g cvs -d /cvs cvsroot useradd -g cvs -M cvssuper 创建/cvs目录并改变其属性  mkdir /cvs chmod -R 774 /cvs 用cvsroot用户登录  su – cvsroot 创建项目目录  cd /cvs mkdir Project 建立项目仓库  cvs -d /cvs/Project init chmod -R 774 Project 这里可根据实际情况修改Project名称，重复该步骤来添加多个不同的仓库。\n建立CVS服务启动文件，推荐采用xinetd方式  su – root cd /etc/xinetd.d vi cvs service cvspserver { disable = no flags = REUSE socket_type = stream wait = no user = root server = /usr/bin/cvs server_args = -f --allow-root=/cvs/Project --allow-root=/cvs/Doc pserver log_on_failure += USERID only_from = 192.168.0.0/16 } 其中，only_from是用来限制访问的，可以根据实际情况删除或者修改；\n--allow-root是允许的仓库列表，可以根据实际情况添加。\n添加CVS服务  vi /etc/services cvspserver 2401/tcp #pserver cvs service cvspserver 2401/udp #pserver cvs service 先确认该文件里面是否存在上面两行的内容，如果已经有了，就不要再重复增加了，避免出错。\n启动CVS服务  /etc/init.d/xinetd restart 检查cvspserver服务是否已经启动  netstat -l | grep cvspserver 如果有以下内容，说明已经安装成功并正常启动\ntcp 0 0 *:cvspserver *:* LISTEN 二、CVS服务的用户管理\n 为Project仓库创建用户名和密码  cd /cvs/Project/CVSROOT/ htpasswd -m passwd superuser1 New password: 输入密码 Re-type new password: 确认密码 可根据实际情况重复以上步骤来创建其它用户，以及更改用户的密码；\n这里用到的htpasswd命令是包含在apache的软件包httpd-*.rpm中的。\n为Project仓库的用户添加身份  su - cvsroot vi /cvs/Project/CVSROOT/passwd superuser1: ******:cvssuper superuser2: ******:cvssuper user1:******:cvsroot user2:******:cvsroot 这里的cvs用户和系统用户是不同的，这里假设只有默认的cvsroot和特殊权限的cvssuper两种不同的用户身份，具体可根据实际情况重复第一章节的第3个步骤添加用户，然后再在这里指定身份。\n登录测试（假设CVS服务器IP为192.168.1.2）  cvs -d :pserver:user1@192.168.1.2:/cvs/Project login 回车后，提示输入user1的密码，如果没有什么提示错误，说明就是成功了。\n如果想在一个项目中设定某一个文件夹仅允许特定用户访问  可以配合chmod来实现，具体方法是，在/cvs/Project/CVSROOT/passwd中将有权限的用户身份设定为cvssuper而不是cvsroot（因为默认所有的文件都是cvsroot身份，且具有rwx权限），然后将文件夹的所有者改为cvssuper，并设定权限为700即可。\n如果涉及到更加复杂的权限设计  例如不同子目录不同用户或组的权限区分，那么最好的也是唯一的解决方案就是弃用CVS并使用SVN，其实如果不是因为某些特殊原因必须使用CVS，都应该转到目前最优秀的SVN平台上来。\n三、在SSH通道下使用CVS\nSSH（Secure Shell）是一种比较安全的连接方式，如果对代码的安全性要求比较高，可以考虑在SSH通道下使用CVS。\n这种方式需要客户端也同样使用Linux操作系统，然后通过创建SSH证书与服务器建立信任的方式来通过SSH通道使用CVS，存在一定的局限性。\n 配置密钥认证  在Linux客户端主机上执行以下操作\ncd $HOME ssh-keygen -t rsa 在提示保存私钥（key）和公钥（public key）的位置时，使用默认值；\n在提示是否需要私钥密码（passphrase）时，直接敲回车，即不使用私钥密码。\n之后，将生成一对密钥，id_rsa（私钥文件）和id_rsa.pub（公钥文件），保存在$HOME的.ssh目录下。\n将公钥添加到CVS服务器的 authorized_keys 文件中\n将文件上传到CVS服务器（假设CVS服务器IP为192.168.1.2）\nscp ~/.ssh/id_rsa.pub cvsroot@192.168.1.2:/root 使用cvsroot用户登陆到CVS服务器，并将公钥添加到 authorized_keys 文件中\ncd $HOME mkdir .ssh chmod 700 .ssh mv ~/id_rsa.pub ~/.ssh/authorized_keys 访问CVS代码仓库  设置客户端环境变量如下\nexport CVS_RSH=ssh export CVSROOT=:ext:cvsroot@192.168.0.252:/cvs/Project 这里192.168.1.2是CVS的服务器地址，cvsroot是服务器上的用户名，具有读写源代码库的权限。\n配置SSH通道下的pserver方式  以上方式有一个缺点，就是直接通过SSH的方式来访问CVS代码仓库，更好的方式是将二者结合，访问代码仓库用pserver方式，而传输的数据使用SSH方法加密。\n登陆CVS服务器，修改/etc/xinetd.d/cvs文件如下：\nvi /etc/xinetd.d/cvs service cvspserver { disable = no flags = REUSE socket_type = stream wait = no user = root server = /usr/bin/cvs server_args = -f --allow-root=/cvs/Project --allow-root=/cvs/Doc pserver log_on_failure += USERID only_from = 127.0.0.1 bind = 127.0.0.1 } 修改完成之后启动CVS服务  /etc/init.d/xinetd restart 在户端主机上建立SSH数据转发通道  ssh -v -a -e none -N -o‘KeepAlive=yes’-o ‘BatchMode=yes’-L 2401:localhost:2401 cvsroot@192.168.1.2 设置客户端环境变量如下  export CVS_RSH=ssh export CVSROOT=:pserver:cvsroot@192.168.1.2:/cvs/Project 这里192.168.1.2是CVS的服务器地址，/cvs/Project是指定的代码仓库，cvsroot是服务器上的用户名，具有读写源代码库的权限。\n需要注意的是  如果用到了cvssuper等其他特殊权限的用户身份，就需要重复以上步骤，将密钥添加到cvssuper用户的authorized_keys 文件中，然后在进行第5,6步骤的时候，将cvsroot用户修改为cvssuper用户。\n",
+  "wordCount" : "268",
+  "inLanguage": "en",
+  "datePublished": "2008-12-24T00:00:00Z",
+  "dateModified": "2008-12-24T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2008/12/cvs%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8Essh%E9%9A%A7%E9%81%93%E4%BC%A0%E8%BE%93%E9%85%8D%E7%BD%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      CVS服务器的安装配置与SSH隧道传输配置
+    </h1>
+    <div class="post-meta">
+
+December 24, 2008&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><strong>一、CVS的安装</strong></p>
+<ol>
+<li>查看是否安装了CVS（系统默认自带CVS）</li>
+</ol>
+<pre><code>rpm -qa|grep cvs
+</code></pre><p>如果没有cvs可以在RHEL的安装盘上找到，也可以直接到www.cvshome.org下载。</p>
+<ol start="2">
+<li>建立cvs用户组</li>
+</ol>
+<pre><code>groupadd cvs
+</code></pre><ol start="3">
+<li>建立cvs组的cvsroot用户和所属目录</li>
+</ol>
+<pre><code>useradd -g cvs -d /cvs cvsroot
+useradd -g cvs -M cvssuper
+</code></pre><ol start="4">
+<li>创建/cvs目录并改变其属性</li>
+</ol>
+<pre><code>mkdir /cvs
+chmod -R 774 /cvs
+</code></pre><ol start="5">
+<li>用cvsroot用户登录</li>
+</ol>
+<pre><code>su – cvsroot
+</code></pre><ol start="6">
+<li>创建项目目录</li>
+</ol>
+<pre><code>cd /cvs
+mkdir Project
+</code></pre><ol start="7">
+<li>建立项目仓库</li>
+</ol>
+<pre><code>cvs -d /cvs/Project init
+chmod -R 774 Project
+</code></pre><p>这里可根据实际情况修改Project名称，重复该步骤来添加多个不同的仓库。</p>
+<ol start="8">
+<li>建立CVS服务启动文件，推荐采用xinetd方式</li>
+</ol>
+<pre><code>su – root
+cd /etc/xinetd.d
+</code></pre><pre><code>vi cvs
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">service cvspserver
+<span style="color:#f92672">{</span>
+  disable <span style="color:#f92672">=</span> no
+  flags <span style="color:#f92672">=</span> REUSE
+  socket_type <span style="color:#f92672">=</span> stream
+  wait <span style="color:#f92672">=</span> no
+  user <span style="color:#f92672">=</span> root
+  server <span style="color:#f92672">=</span> /usr/bin/cvs
+  server_args <span style="color:#f92672">=</span> -f --allow-root<span style="color:#f92672">=</span>/cvs/Project --allow-root<span style="color:#f92672">=</span>/cvs/Doc pserver
+  log_on_failure <span style="color:#f92672">+=</span> USERID
+  only_from <span style="color:#f92672">=</span> 192.168.0.0/16
+<span style="color:#f92672">}</span>
+</code></pre></div><p>其中，<code>only_from</code>是用来限制访问的，可以根据实际情况删除或者修改；</p>
+<p><code>--allow-root</code>是允许的仓库列表，可以根据实际情况添加。</p>
+<ol start="9">
+<li>添加CVS服务</li>
+</ol>
+<pre><code>vi /etc/services
+</code></pre><pre><code>cvspserver 2401/tcp #pserver cvs service
+cvspserver 2401/udp #pserver cvs service
+</code></pre><p>先确认该文件里面是否存在上面两行的内容，如果已经有了，就不要再重复增加了，避免出错。</p>
+<ol start="10">
+<li>启动CVS服务</li>
+</ol>
+<pre><code>/etc/init.d/xinetd restart
+</code></pre><ol start="11">
+<li>检查cvspserver服务是否已经启动</li>
+</ol>
+<pre><code>netstat -l | grep cvspserver
+</code></pre><p>如果有以下内容，说明已经安装成功并正常启动</p>
+<pre><code>tcp 0 0 *:cvspserver *:* LISTEN
+</code></pre><p><strong>二、CVS服务的用户管理</strong></p>
+<ol>
+<li>为Project仓库创建用户名和密码</li>
+</ol>
+<pre><code>cd /cvs/Project/CVSROOT/
+htpasswd -m passwd superuser1
+</code></pre><pre><code>New password: 输入密码
+Re-type new password: 确认密码
+</code></pre><p>可根据实际情况重复以上步骤来创建其它用户，以及更改用户的密码；</p>
+<p>这里用到的htpasswd命令是包含在apache的软件包httpd-*.rpm中的。</p>
+<ol start="2">
+<li>为Project仓库的用户添加身份</li>
+</ol>
+<pre><code>su - cvsroot
+vi /cvs/Project/CVSROOT/passwd
+</code></pre><pre><code>superuser1: ******:cvssuper
+superuser2: ******:cvssuper
+user1:******:cvsroot
+user2:******:cvsroot
+</code></pre><p>这里的cvs用户和系统用户是不同的，这里假设只有默认的cvsroot和特殊权限的cvssuper两种不同的用户身份，具体可根据实际情况重复第一章节的第3个步骤添加用户，然后再在这里指定身份。</p>
+<ol start="3">
+<li>登录测试（假设CVS服务器IP为192.168.1.2）</li>
+</ol>
+<pre><code>cvs -d :pserver:user1@192.168.1.2:/cvs/Project login
+</code></pre><p>回车后，提示输入user1的密码，如果没有什么提示错误，说明就是成功了。</p>
+<ol start="4">
+<li>如果想在一个项目中设定某一个文件夹仅允许特定用户访问</li>
+</ol>
+<p>可以配合chmod来实现，具体方法是，在/cvs/Project/CVSROOT/passwd中将有权限的用户身份设定为cvssuper而不是cvsroot（因为默认所有的文件都是cvsroot身份，且具有rwx权限），然后将文件夹的所有者改为cvssuper，并设定权限为700即可。</p>
+<ol start="5">
+<li>如果涉及到更加复杂的权限设计</li>
+</ol>
+<p>例如不同子目录不同用户或组的权限区分，那么最好的也是唯一的解决方案就是弃用CVS并使用SVN，其实如果不是因为某些特殊原因必须使用CVS，都应该转到目前最优秀的SVN平台上来。</p>
+<p><strong>三、在SSH通道下使用CVS</strong></p>
+<p>SSH（Secure Shell）是一种比较安全的连接方式，如果对代码的安全性要求比较高，可以考虑在SSH通道下使用CVS。</p>
+<p>这种方式需要客户端也同样使用Linux操作系统，然后通过创建SSH证书与服务器建立信任的方式来通过SSH通道使用CVS，存在一定的局限性。</p>
+<ol>
+<li>配置密钥认证</li>
+</ol>
+<p>在Linux客户端主机上执行以下操作</p>
+<pre><code>cd $HOME
+ssh-keygen -t rsa
+</code></pre><p>在提示保存私钥（key）和公钥（public key）的位置时，使用默认值；</p>
+<p>在提示是否需要私钥密码（passphrase）时，直接敲回车，即不使用私钥密码。</p>
+<p>之后，将生成一对密钥，id_rsa（私钥文件）和id_rsa.pub（公钥文件），保存在$HOME的.ssh目录下。</p>
+<p>将公钥添加到CVS服务器的 authorized_keys 文件中</p>
+<p>将文件上传到CVS服务器（假设CVS服务器IP为192.168.1.2）</p>
+<pre><code>scp ~/.ssh/id_rsa.pub cvsroot@192.168.1.2:/root
+</code></pre><p>使用cvsroot用户登陆到CVS服务器，并将公钥添加到 authorized_keys 文件中</p>
+<pre><code>cd $HOME
+mkdir .ssh
+chmod 700 .ssh
+mv ~/id_rsa.pub ~/.ssh/authorized_keys
+</code></pre><ol start="2">
+<li>访问CVS代码仓库</li>
+</ol>
+<p>设置客户端环境变量如下</p>
+<pre><code>export CVS_RSH=ssh
+export CVSROOT=:ext:cvsroot@192.168.0.252:/cvs/Project
+</code></pre><p>这里192.168.1.2是CVS的服务器地址，cvsroot是服务器上的用户名，具有读写源代码库的权限。</p>
+<ol start="3">
+<li>配置SSH通道下的pserver方式</li>
+</ol>
+<p>以上方式有一个缺点，就是直接通过SSH的方式来访问CVS代码仓库，更好的方式是将二者结合，访问代码仓库用pserver方式，而传输的数据使用SSH方法加密。</p>
+<p>登陆CVS服务器，修改/etc/xinetd.d/cvs文件如下：</p>
+<pre><code>vi /etc/xinetd.d/cvs
+</code></pre><pre><code>service cvspserver
+{
+  disable = no
+  flags = REUSE
+  socket_type = stream
+  wait = no
+  user = root
+  server = /usr/bin/cvs
+  server_args = -f --allow-root=/cvs/Project --allow-root=/cvs/Doc pserver
+  log_on_failure += USERID
+  only_from = 127.0.0.1
+  bind = 127.0.0.1
+}
+</code></pre><ol start="4">
+<li>修改完成之后启动CVS服务</li>
+</ol>
+<pre><code>/etc/init.d/xinetd restart
+</code></pre><ol start="5">
+<li>在户端主机上建立SSH数据转发通道</li>
+</ol>
+<pre><code>ssh -v -a -e none -N -o‘KeepAlive=yes’-o ‘BatchMode=yes’-L 2401:localhost:2401 cvsroot@192.168.1.2
+</code></pre><ol start="6">
+<li>设置客户端环境变量如下</li>
+</ol>
+<pre><code>export CVS_RSH=ssh
+export CVSROOT=:pserver:cvsroot@192.168.1.2:/cvs/Project
+</code></pre><p>这里192.168.1.2是CVS的服务器地址，/cvs/Project是指定的代码仓库，cvsroot是服务器上的用户名，具有读写源代码库的权限。</p>
+<ol start="7">
+<li>需要注意的是</li>
+</ol>
+<p>如果用到了cvssuper等其他特殊权限的用户身份，就需要重复以上步骤，将密钥添加到cvssuper用户的authorized_keys 文件中，然后在进行第5,6步骤的时候，将cvsroot用户修改为cvssuper用户。</p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/cvs/">CVS</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

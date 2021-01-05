@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>YUM on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/yum/</link>
+    <description>Recent content in YUM on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 26 May 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/yum/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用DVD安装光盘构建属于自己的RHEL YUM安装源</title>
+      <link>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</link>
+      <pubDate>Tue, 26 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</guid>
+      <description>&lt;p&gt;相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。&lt;/p&gt;
+&lt;p&gt;但是我相信大家一定有很多也和我一样仍然喜欢使用正统的RHEL吧，但是目前免费的 RHEL YUM源 真的是很难找，如果用CentOS的源的话，感觉又很别扭。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

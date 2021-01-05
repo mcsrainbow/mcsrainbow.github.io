@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>“File Size Limit Exceeded” 问题处理 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux" />
+<meta name="description" content="File Size Limit Exceeded
+今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="“File Size Limit Exceeded” 问题处理" />
+<meta property="og:description" content="File Size Limit Exceeded
+今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/" />
+<meta property="article:published_time" content="2008-08-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2008-08-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="“File Size Limit Exceeded” 问题处理"/>
+<meta name="twitter:description" content="File Size Limit Exceeded
+今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "“File Size Limit Exceeded” 问题处理",
+  "name": "“File Size Limit Exceeded” 问题处理",
+  "description": "File Size Limit Exceeded\n今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。\n",
+  "keywords": [
+    "Linux"
+  ],
+  "articleBody": "File Size Limit Exceeded\n今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。\n而重启了RoseHA服务之后，这一台server上的hasvrd还是不能启动。于是我直接单独运行hasvrd，结果出现了File Size Limit Exceeded 的错误。“文件大小超过限制”，奇怪！因为该程序文件大小还不到300KB！\n在网络上借鉴了多位前辈的经验教训之后，我估计应该是该程序启动后会打开RoseHA的日志文件，而该日志的大小已经达到了2G多。于是立刻手动清空该日志文件，再次重启RoseHA，结果hasvrd进程成功启动，双机重新恢复了正常。\n最后，为了避免以后再次出现该问题，我在两台双机Server中添加了“每天自动清除一次日志”的计划任务。\ncrontab -e 30 1 * * * cat /dev/null  /opt/roseha/etc/*.log ",
+  "wordCount" : "23",
+  "inLanguage": "en",
+  "datePublished": "2008-08-19T00:00:00Z",
+  "dateModified": "2008-08-19T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      “File Size Limit Exceeded” 问题处理
+    </h1>
+    <div class="post-meta">
+
+August 19, 2008&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>File Size Limit Exceeded</p>
+<p>今天，RoseHA双机软件出现了故障，其中一台上的hasvrd进程挂掉，在双机管理程序中看到这台server的状态都是error。</p>
+<p>而重启了RoseHA服务之后，这一台server上的hasvrd还是不能启动。于是我直接单独运行hasvrd，结果出现了File Size Limit Exceeded 的错误。“文件大小超过限制”，奇怪！因为该程序文件大小还不到300KB！</p>
+<p>在网络上借鉴了多位前辈的经验教训之后，我估计应该是该程序启动后会打开RoseHA的日志文件，而该日志的大小已经达到了2G多。于是立刻手动清空该日志文件，再次重启RoseHA，结果hasvrd进程成功启动，双机重新恢复了正常。</p>
+<p>最后，为了避免以后再次出现该问题，我在两台双机Server中添加了“每天自动清除一次日志”的计划任务。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">crontab -e
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">30 1 * * * cat /dev/null &gt; /opt/roseha/etc/*.log
+</code></pre></div>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>安装L7filter使iptables支持对七层应用进行过滤 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux, iptables, L7-filter, Network" />
+<meta name="description" content="重新编译内核，使iptables支持L7filter，对七层应用进行过滤。">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="安装L7filter使iptables支持对七层应用进行过滤" />
+<meta property="og:description" content="重新编译内核，使iptables支持L7filter，对七层应用进行过滤。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/" />
+<meta property="article:published_time" content="2008-11-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2008-11-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安装L7filter使iptables支持对七层应用进行过滤"/>
+<meta name="twitter:description" content="重新编译内核，使iptables支持L7filter，对七层应用进行过滤。"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "安装L7filter使iptables支持对七层应用进行过滤",
+  "name": "安装L7filter使iptables支持对七层应用进行过滤",
+  "description": "重新编译内核，使iptables支持L7filter，对七层应用进行过滤。\n",
+  "keywords": [
+    "Linux", "iptables", "L7-filter", "Network"
+  ],
+  "articleBody": "重新编译内核，使iptables支持L7filter，对七层应用进行过滤。\niptables对于七层上面的应用过滤本身不支持，需要安装第三方的模块方可支持。L7-filter是一个iptables的外挂模块，它可以过滤很多种的L7协议，这样能够封杀如P2P、IM等应用。\n 适用编译环境  操作系统：RedHat Enterprise Linux AS4 U4以上且带有GCC编译工具\n软件下载  kernel 2.6.25: http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.tar.bz2\niptables: http://www.netfilter.org/projects/iptables/files/iptables-1.4.0.tar.bz2\nl7-filter: http://sourceforge.net/projects/l7-filter\nnetfilter-layer7-v2.20.tar.gz\nl7-protocols-2008-04-23.tar.gz\n给内核打L7-filter补丁  将以上各软件包都解压到 /usr/src 目录\ncd /usr/src tar xzvf netfilter-layer7-v2.20.tar.gz tar xjvf linux-2.6.25.tar.bz2 cd linux-2.6.25 patch -p1 编译内核  使用make oldconfig可以继承老的kernel的配置，为自己的配置省去很多麻烦\nmake oldconfig make menuconfig是文字界面下推荐一种方式，在这里可以选择你需要编译到核心的模块\nmake menuconfig 因为前面make oldconfig已经很多都继承老的配置，所以一般配置不要动。\n有两项需要注意：\n第一项：在我的版本里面默认就是选上的\nGeneral setup - features - Prompt for development and/or incomplete code/drivers 第二项：选择iptables里面关于L7filter的\n里面有很多的选项，推荐将其全部选择\nNetworking - Networking options - — Network packet filtering framework (Netfilter) [ ] Network packet filtering debugging Advanced netfilter configuration Bridged IP/ARP packets filtering- Core Netfilter Configuration - IP: Netfilter Configuration - Bridge: Netfilter Configuration - Core Netfilter Configuration - 该项必须选择，其它项可根据需要选择，不过同样推荐将其全部选择\nIP: Netfilter Configuration - IP tables support (required for filtering/masq/NAT) make make modules make modules_install make install 修改默认以新的内核启动\nvi /boot/grub/grub.conf default=0 将新的内核配置文件复制到/boot目录\ncp /usr/src/linux-2.6.25/.config /boot/config-2.6.25 重启服务器\nreboot 重启完成后确认内核版本是否正确\nuname –r 2.6.25 给iptables打补丁并升级  卸载系统中的旧版本iptables\nrpm -qa |grep iptables rpm -e –nodeps iptables1.x.x 打补丁并升级\ncd /usr/src tar xjvf iptables-1.4.0.tar.bz2 tar xzvf netfilter-layer7-v2.20.tar.gz cd iptables-1.4.0 patch p1 =/usr/src/linux-2.6.25 export IPTABLES_DIR=/usr/src/iptables-1.4.0 make BINDIR=/sbin LIBDIR=/lib MANDIR=/usr/share/man install 确认版本\niptables -V iptables v1.4.0 安装l7-protocol  cd /usr/src/ tar xzvf l7-protocols-2008-11-23.tar.gz cd l7-protocols-2008-11-23 make install 其实就是把相应的目录copy到 /etc/l7-protocols/\n真正调用的是/etc/l7-protocols/protocols/下面的文件\n可以打开下面具体的文件，里面是一些L7程序特征码的正则表达式形式\n这样自己也可以按照这样的样子，写自己的特征码\n该特征码软件包一直在不停的更新，其后面的日期就是更新的日期，推荐定期选择最新的包进行更新\n测试  iptables -I FORWARD -p udp –dport 53 -m string –string “tencent” –algo bm -j DROP iptables -I FORWARD -p tcp -m multiport –dport 80,443 -m layer7 –l7proto qq -j DROP iptables -I FORWARD -p udp –dport 8000 -j DROP iptables -I FORWARD -p tcp -m layer7 –l7proto socks -j DROP iptables -I FORWARD -p udp –dport 53 -m string –string “messenger” –algo bm -j DROP iptables -I FORWARD -p tcp -m multiport –dport 80,443 -m layer7 –l7proto msnmessenger -j DROP iptables -I FORWARD -p udp –dport 1863 -j DROP iptables -t mangle -A PREROUTING -m layer7 –l7proto qq -j DROP iptables -t mangle -A PREROUTING -m layer7 –l7proto msnmessenger -j DROP 可通过上面的策略表达式测试是否成功禁止掉qq和msn\n附注：\n使用-j MARK 参数与TC搭配：http://cha.homeip.net/blog/archives/2005/07/cbqinit.html\nlsmod可以查看当前加载的模块\nmodprobe可以加载模块\n与iptables相关的模块在下面两个目录：/lib/modules/2.6.25/kernel/net/netfilter/和/lib/modules/2.6.25/kernel/net/ipv4/netfilter/\n相关网址：\n下载与说明：http://l7-filter.sourceforge.net/HOWTO#Get\n支持协议：http://l7-filter.sourceforge.net/protocols\n其它：\nApplication Layer Packet Classifier for Linux\nL7-filter Supported Protocols\nNetfilter Packet Traversal\n流程图：\n",
+  "wordCount" : "330",
+  "inLanguage": "en",
+  "datePublished": "2008-11-28T00:00:00Z",
+  "dateModified": "2008-11-28T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      安装L7filter使iptables支持对七层应用进行过滤
+    </h1>
+    <div class="post-meta">
+
+November 28, 2008&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>重新编译内核，使iptables支持L7filter，对七层应用进行过滤。</p>
+<p>iptables对于七层上面的应用过滤本身不支持，需要安装第三方的模块方可支持。L7-filter是一个iptables的外挂模块，它可以过滤很多种的L7协议，这样能够封杀如P2P、IM等应用。</p>
+<ol>
+<li><strong>适用编译环境</strong></li>
+</ol>
+<p>操作系统：<code>RedHat Enterprise Linux AS4 U4</code>以上且带有GCC编译工具</p>
+<ol start="2">
+<li><strong>软件下载</strong></li>
+</ol>
+<p>kernel 2.6.25: <a href="http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.tar.bz2">http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.tar.bz2</a></p>
+<p>iptables: <a href="http://www.netfilter.org/projects/iptables/files/iptables-1.4.0.tar.bz2">http://www.netfilter.org/projects/iptables/files/iptables-1.4.0.tar.bz2</a></p>
+<p>l7-filter: <a href="http://sourceforge.net/projects/l7-filter">http://sourceforge.net/projects/l7-filter</a></p>
+<p>netfilter-layer7-v2.20.tar.gz</p>
+<p>l7-protocols-2008-04-23.tar.gz</p>
+<ol start="3">
+<li><strong>给内核打L7-filter补丁</strong></li>
+</ol>
+<p>将以上各软件包都解压到 /usr/src 目录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /usr/src
+tar xzvf netfilter-layer7-v2.20.tar.gz
+tar xjvf linux-2.6.25.tar.bz2
+cd linux-2.6.25
+patch -p1 &lt; /usr/src/netfilter-layer7-v2.20/kernel-2.6.25-layer7-2.20.patch
+</code></pre></div><ol start="4">
+<li><strong>编译内核</strong></li>
+</ol>
+<p>使用make oldconfig可以继承老的kernel的配置，为自己的配置省去很多麻烦</p>
+<pre><code>make oldconfig
+</code></pre><p><code>make menuconfig</code>是文字界面下推荐一种方式，在这里可以选择你需要编译到核心的模块</p>
+<pre><code>make menuconfig
+</code></pre><p>因为前面make oldconfig已经很多都继承老的配置，所以一般配置不要动。</p>
+<p>有两项需要注意：</p>
+<p>第一项：在我的版本里面默认就是选上的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">General setup -&gt; features -&gt;
+Prompt for development and/or incomplete code/drivers
+</code></pre></div><p>第二项：选择iptables里面关于L7filter的</p>
+<p>里面有很多的选项，推荐将其全部选择</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Networking -&gt; Networking options -&gt;
+— Network packet filtering framework (Netfilter)
+[ ] Network packet filtering debugging
+
+Advanced netfilter configuration&gt;
+
+Bridged IP/ARP packets filtering-&gt;
+Core Netfilter Configuration -&gt;
+IP: Netfilter Configuration -&gt;
+Bridge: Netfilter Configuration -&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Core Netfilter Configuration -&gt;
+</code></pre></div><p>该项必须选择，其它项可根据需要选择，不过同样推荐将其全部选择</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">IP: Netfilter Configuration -&gt;
+IP tables support (required for filtering/masq/NAT)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make
+make modules
+make modules_install
+make install
+</code></pre></div><p>修改默认以新的内核启动</p>
+<pre><code>vi /boot/grub/grub.conf
+</code></pre><pre><code>default=0
+</code></pre><p>将新的内核配置文件复制到/boot目录</p>
+<pre><code>cp /usr/src/linux-2.6.25/.config /boot/config-2.6.25
+</code></pre><p>重启服务器</p>
+<pre><code>reboot
+</code></pre><p>重启完成后确认内核版本是否正确</p>
+<pre><code>uname –r
+</code></pre><pre><code>2.6.25
+</code></pre><ol start="5">
+<li><strong>给iptables打补丁并升级</strong></li>
+</ol>
+<p>卸载系统中的旧版本iptables</p>
+<pre><code>rpm -qa |grep iptables
+rpm -e –nodeps iptables1.x.x
+</code></pre><p>打补丁并升级</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /usr/src
+tar xjvf iptables-1.4.0.tar.bz2
+
+tar xzvf netfilter-layer7-v2.20.tar.gz
+cd iptables-1.4.0
+patch p1 &lt; /usr/src/netfilter-layer7-v2.20/iptables-1.4-for-kernel-2.6.20forward-layer7-2.20.patch
+
+chmod +x extensions/ .layer7-test
+export KERNEL_DIR<span style="color:#f92672">=</span>/usr/src/linux-2.6.25
+export IPTABLES_DIR<span style="color:#f92672">=</span>/usr/src/iptables-1.4.0
+make BINDIR<span style="color:#f92672">=</span>/sbin LIBDIR<span style="color:#f92672">=</span>/lib MANDIR<span style="color:#f92672">=</span>/usr/share/man install
+</code></pre></div><p>确认版本</p>
+<pre><code>iptables -V
+</code></pre><pre><code>iptables v1.4.0
+</code></pre><ol start="6">
+<li><strong>安装l7-protocol</strong></li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /usr/src/
+tar xzvf l7-protocols-2008-11-23.tar.gz
+cd l7-protocols-2008-11-23
+make install
+</code></pre></div><p>其实就是把相应的目录copy到 /etc/l7-protocols/</p>
+<p>真正调用的是/etc/l7-protocols/protocols/下面的文件</p>
+<p>可以打开下面具体的文件，里面是一些L7程序特征码的正则表达式形式</p>
+<p>这样自己也可以按照这样的样子，写自己的特征码</p>
+<p>该特征码软件包一直在不停的更新，其后面的日期就是更新的日期，推荐定期选择最新的包进行更新</p>
+<ol start="7">
+<li><strong>测试</strong></li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">iptables -I FORWARD -p udp –dport <span style="color:#ae81ff">53</span> -m string –string “tencent” –algo bm -j DROP
+iptables -I FORWARD -p tcp -m multiport –dport 80,443 -m layer7 –l7proto qq -j DROP
+iptables -I FORWARD -p udp –dport <span style="color:#ae81ff">8000</span> -j DROP
+iptables -I FORWARD -p tcp -m layer7 –l7proto socks -j DROP
+iptables -I FORWARD -p udp –dport <span style="color:#ae81ff">53</span> -m string –string “messenger” –algo bm -j DROP
+iptables -I FORWARD -p tcp -m multiport –dport 80,443 -m layer7 –l7proto msnmessenger -j DROP
+iptables -I FORWARD -p udp –dport <span style="color:#ae81ff">1863</span> -j DROP
+iptables -t mangle -A PREROUTING -m layer7 –l7proto qq -j DROP
+iptables -t mangle -A PREROUTING -m layer7 –l7proto msnmessenger -j DROP
+</code></pre></div><p>可通过上面的策略表达式测试是否成功禁止掉qq和msn</p>
+<p><strong>附注：</strong></p>
+<p>使用-j MARK 参数与TC搭配：http://cha.homeip.net/blog/archives/2005/07/cbqinit.html</p>
+<p><code>lsmod</code>可以查看当前加载的模块</p>
+<p><code>modprobe</code>可以加载模块</p>
+<p>与iptables相关的模块在下面两个目录：<code>/lib/modules/2.6.25/kernel/net/netfilter/</code>和<code>/lib/modules/2.6.25/kernel/net/ipv4/netfilter/</code></p>
+<p><strong>相关网址：</strong></p>
+<p>下载与说明：http://l7-filter.sourceforge.net/HOWTO#Get</p>
+<p>支持协议：http://l7-filter.sourceforge.net/protocols</p>
+<p><strong>其它：</strong></p>
+<p>Application Layer Packet Classifier for Linux</p>
+<p>L7-filter Supported Protocols</p>
+<p>Netfilter Packet Traversal</p>
+<p><strong>流程图：</strong></p>
+<p><img src="/attachments/0058/nfk-traversal.png" alt="nfk-traversal"></p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/iptables/">iptables</a></li>
+      <li><a href="https://blog.heylinux.com/tags/l7-filter/">L7-filter</a></li>
+      <li><a href="https://blog.heylinux.com/tags/network/">Network</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

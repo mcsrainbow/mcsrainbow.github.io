@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>2008年7月30日工作札记 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux, Windows, Network" />
+<meta name="description" content="Windows下双网卡设置默认路由的方法
+在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；
+在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/" />
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="2008年7月30日工作札记" />
+<meta property="og:description" content="Windows下双网卡设置默认路由的方法
+在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；
+在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/" />
+<meta property="article:published_time" content="2008-07-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2008-07-31T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2008年7月30日工作札记"/>
+<meta name="twitter:description" content="Windows下双网卡设置默认路由的方法
+在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；
+在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2008年7月30日工作札记",
+  "name": "2008年7月30日工作札记",
+  "description": "Windows下双网卡设置默认路由的方法\n在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；\n在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；\n",
+  "keywords": [
+    "Linux", "Windows", "Network"
+  ],
+  "articleBody": "Windows下双网卡设置默认路由的方法\n在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；\n在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；\n在DOS命令行添加以下语句：\nroute -p ADD 10.0.0.0 MASK 255.0.0.0 10.10.10.1 METRIC 2 IF 2 或建立一个routeadd.bat文件，写入以下内容，然后放到“开始”菜单的“启动”文件夹中开机自动运行：\nroute -p ADD 10.0.0.0 MASK 255.0.0.0 10.10.10.1 METRIC 2 IF 2 route ADD 10.0.0.0 MASK 255.0.0.0 10.10.10.1 METRIC 2 IF 2 如此，便以外网的网关为默认网关，所有线路都会从默认网关出去，而10.x.x.x的内网线路则会从网关10.10.10.1出去，METRIC设置为2是因为其跃点数(可理解为优先级)最好低于默认网关的1，IF 2 是指定系统的网卡，也可以不加，一般系统会默认检测到其网段是在哪一张网卡上。\nLinux下双网卡设置默认路由的方法\n在外网网口的配置文件中 设置 外网的IP地址、掩码和网关；\n在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；\n在Linux终端中执行以下命令：\nroute add default gw 192.168.1.1 添加默认网关(如果在外网网卡的配置文件中设置了这里会默认为外网网关，不需要再设置)；\nroute add -net 10.0.0.0 netmask 255.0.0.0 gw 10.10.10.1 dev eth1 metric 2 将该指令也添加到 /etc/rc.local文件中以便每次开启系统自动添加该路由；\n如此，便以外网的网关为默认网关，所有线路都会从默认网关出去，而10.x.x.x的内网线路则会从网关10.10.10.1出去，METRIC设置为2是因为其跃点数(可理解为优先级)最好低于默认网关的1，dev eth1 是指定系统的网卡。\nWindows 2000 Advanced Server 开机时报错“系统日志文件已被写满”\n然后发现已经装好的VNC server不能再通过客户端以“NT服务验证”的方式登陆，错误为在输入密码后提示有一个验证错误，请查看系统日志文件；\n接着打开日志查看器，发现“应用程序日志”的确已经被写满，且点击该日志准备查看具体内容是，日志查看器突然自动关闭；\n后来才发现是因为安装了FTP服务器Serv-U所导致的，卸载了Serv-U之后即恢复正常，VNC无法通过验证是因为其每一次以NT服务验证方式登陆都会在系统日志中记录，而日志被写满后无法再写入任何信息所以出错；\n建议将系统日志文件的大小由默认的512K增大到10M左右，512K实在太小了，7天的清理时间也可根据需要修改。\n因为Serv-U与系统冲突，所以开始寻找一个其它的FTP服务器软件\n无意间发现了一个好东西：\n一个大小仅为27KB的，完全绿色的FTP服务器软件，仅一个exe文件，很方便好用，下载地址：http://d.download.csdn.net/down/449212/daxingge\n如何将一个Windows的exe程序成功转换（用“注册”更贴切）为系统服务呢？\n在网上查找了很多方法，下载了一些工具和软件，但是，很不幸，很多exe转换为服务之后都不能正确启动，那些用 service.exe、sc.exe以及SRVINSTW.EXE的都不能正确执行。\n最后，终于在茫茫网络中找到了一位前辈的“批处理+工具”搞定了。\n其软件下载地址：http://cpiz.com/blog/archives/174\n反省，以后给公司项目组搭环境的时候，要做得更专业些：\n 在搭建项目的前期，要提出合理的架构设计，考虑到之后的扩充性；更关键的是，在架构设计出来之后一定要通过局方的人同意再实施，否则后期返工带来的麻烦就相当大了； 在项目实施中，一定要考虑到如何让他人使用和维护起来很方便，一方面要提供完善的、包括了整个系统的搭建过程、后期如何维护和使用 的文档；一方面要 编写好一系列的shell脚本，以用途命名以方便开发人员和维护人员 的使用 以及 建立备份目录来存放备份文件，写好备份的shell脚本并加入到计划任务中进行定时备份和清理； 一定要考虑到系统监控和维护工具的安装，例如磁盘阵列柜，在开始就要安装好磁盘阵列的管理工具，以方便之后能够直接检查到盘阵中的磁盘健康程度以及是否有坏盘等，否则在后期因为一些商用软件的注册都需要机器码，而安装这些管理工具时会装一些驱动，导致其商用软件的机器码改变，从而无法使用，很是麻烦。 ",
+  "wordCount" : "99",
+  "inLanguage": "en",
+  "datePublished": "2008-07-31T00:00:00Z",
+  "dateModified": "2008-07-31T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      2008年7月30日工作札记
+    </h1>
+    <div class="post-meta">
+
+July 31, 2008&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><strong>Windows下双网卡设置默认路由的方法</strong></p>
+<p>在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；</p>
+<p>在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；</p>
+<p>在DOS命令行添加以下语句：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">route -p ADD 10.0.0.0 MASK 255.0.0.0 10.10.10.1 METRIC 2 <span style="color:#66d9ef">IF</span> 2
+</code></pre></div><p>或建立一个routeadd.bat文件，写入以下内容，然后放到“开始”菜单的“启动”文件夹中开机自动运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">route -p ADD 10.0.0.0 MASK 255.0.0.0 10.10.10.1 METRIC 2 <span style="color:#66d9ef">IF</span> 2
+route ADD 10.0.0.0 MASK 255.0.0.0 10.10.10.1 METRIC 2 <span style="color:#66d9ef">IF</span> 2
+</code></pre></div><p>如此，便以外网的网关为默认网关，所有线路都会从默认网关出去，而10.x.x.x的内网线路则会从网关10.10.10.1出去，METRIC设置为2是因为其跃点数(可理解为优先级)最好低于默认网关的1，IF 2 是指定系统的网卡，也可以不加，一般系统会默认检测到其网段是在哪一张网卡上。</p>
+<p><strong>Linux下双网卡设置默认路由的方法</strong></p>
+<p>在外网网口的配置文件中 设置 外网的IP地址、掩码和网关；</p>
+<p>在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；</p>
+<p>在Linux终端中执行以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">route add <span style="color:#66d9ef">default</span> gw 192.168.1.1
+</code></pre></div><p>添加默认网关(如果在外网网卡的配置文件中设置了这里会默认为外网网关，不需要再设置)；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">route add -net 10.0.0.0 netmask 255.0.0.0 gw 10.10.10.1 dev eth1 metric 2
+</code></pre></div><p>将该指令也添加到 /etc/rc.local文件中以便每次开启系统自动添加该路由；</p>
+<p>如此，便以外网的网关为默认网关，所有线路都会从默认网关出去，而10.x.x.x的内网线路则会从网关10.10.10.1出去，METRIC设置为2是因为其跃点数(可理解为优先级)最好低于默认网关的1，dev eth1 是指定系统的网卡。</p>
+<p><strong>Windows 2000 Advanced Server 开机时报错“系统日志文件已被写满”</strong></p>
+<p>然后发现已经装好的VNC server不能再通过客户端以“NT服务验证”的方式登陆，错误为在输入密码后提示有一个验证错误，请查看系统日志文件；</p>
+<p>接着打开日志查看器，发现“应用程序日志”的确已经被写满，且点击该日志准备查看具体内容是，日志查看器突然自动关闭；</p>
+<p>后来才发现是因为安装了FTP服务器Serv-U所导致的，卸载了Serv-U之后即恢复正常，VNC无法通过验证是因为其每一次以NT服务验证方式登陆都会在系统日志中记录，而日志被写满后无法再写入任何信息所以出错；</p>
+<p>建议将系统日志文件的大小由默认的512K增大到10M左右，512K实在太小了，7天的清理时间也可根据需要修改。</p>
+<p><strong>因为Serv-U与系统冲突，所以开始寻找一个其它的FTP服务器软件</strong></p>
+<p>无意间发现了一个好东西：</p>
+<p>一个大小仅为27KB的，完全绿色的FTP服务器软件，仅一个exe文件，很方便好用，下载地址：http://d.download.csdn.net/down/449212/daxingge</p>
+<p><strong>如何将一个Windows的exe程序成功转换（用“注册”更贴切）为系统服务呢？</strong></p>
+<p>在网上查找了很多方法，下载了一些工具和软件，但是，很不幸，很多exe转换为服务之后都不能正确启动，那些用 service.exe、sc.exe以及SRVINSTW.EXE的都不能正确执行。</p>
+<p>最后，终于在茫茫网络中找到了一位前辈的“批处理+工具”搞定了。</p>
+<p>其软件下载地址：http://cpiz.com/blog/archives/174</p>
+<p><strong>反省，以后给公司项目组搭环境的时候，要做得更专业些：</strong></p>
+<ol>
+<li>在搭建项目的前期，要提出合理的架构设计，考虑到之后的扩充性；更关键的是，在架构设计出来之后一定要通过局方的人同意再实施，否则后期返工带来的麻烦就相当大了；</li>
+<li>在项目实施中，一定要考虑到如何让他人使用和维护起来很方便，一方面要提供完善的、包括了整个系统的搭建过程、后期如何维护和使用 的文档；一方面要 编写好一系列的shell脚本，以用途命名以方便开发人员和维护人员 的使用 以及 建立备份目录来存放备份文件，写好备份的shell脚本并加入到计划任务中进行定时备份和清理；</li>
+<li>一定要考虑到系统监控和维护工具的安装，例如磁盘阵列柜，在开始就要安装好磁盘阵列的管理工具，以方便之后能够直接检查到盘阵中的磁盘健康程度以及是否有坏盘等，否则在后期因为一些商用软件的注册都需要机器码，而安装这些管理工具时会装一些驱动，导致其商用软件的机器码改变，从而无法使用，很是麻烦。</li>
+</ol>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/windows/">Windows</a></li>
+      <li><a href="https://blog.heylinux.com/tags/network/">Network</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top">
+    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
+        accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

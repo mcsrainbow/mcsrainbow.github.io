@@ -5,7 +5,26 @@
     <link>https://blog.heylinux.com/tags/reading/</link>
     <description>Recent content in Reading on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 12 Dec 2007 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/reading/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Mar 2008 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>译 李彦宏博客 “读网笔记”</title>
+      <link>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 16 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;李彦宏 2008-03-12 “读网笔记”：&lt;/p&gt;
+&lt;p&gt;原文地址：http://hi.baidu.com/liyanhong/blog/item/2984e950a8967f581038c2a0.html&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>“鲑鱼”悲壮的一生</title>
+      <link>https://blog.heylinux.com/2008/02/%E9%B2%91%E9%B1%BC%E6%82%B2%E5%A3%AE%E7%9A%84%E4%B8%80%E7%94%9F/</link>
+      <pubDate>Tue, 19 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E9%B2%91%E9%B1%BC%E6%82%B2%E5%A3%AE%E7%9A%84%E4%B8%80%E7%94%9F/</guid>
+      <description>&lt;p&gt;过年回家的时候，无意间看了“动物世界”中讲述“鲑鱼”的一集。看完之后，我惊讶了，它的一生是那样的悲壮和凄凉，又像是宿命的安排。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>推荐一篇北师大本科生的论文：高并发高流量网站架构</title>
       <link>https://blog.heylinux.com/2007/12/%E6%8E%A8%E8%8D%90%E4%B8%80%E7%AF%87%E5%8C%97%E5%B8%88%E5%A4%A7%E6%9C%AC%E7%A7%91%E7%94%9F%E7%9A%84%E8%AE%BA%E6%96%87%E9%AB%98%E5%B9%B6%E5%8F%91%E9%AB%98%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/</link>

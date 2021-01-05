@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NFS on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/nfs/</link>
+    <description>Recent content in NFS on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 11 Apr 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/nfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NFS在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 11 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/04/nfs%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;NFS是Network File System的简写，即网络文件系统。&lt;/p&gt;
+&lt;p&gt;NFS允许一个系统在网络上与它人共享目录和文件，通过远程挂载NFS，用户和程序可以象访问本地文件一样访问远端系统上的文件。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Corporation on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/categories/corporation/</link>
+    <description>Recent content in Corporation on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 31 Jul 2008 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/corporation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2008年7月30日工作札记</title>
+      <link>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</link>
+      <pubDate>Thu, 31 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Windows下双网卡设置默认路由的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；&lt;/p&gt;
+&lt;p&gt;在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>译 李彦宏博客 “读网笔记”</title>
+      <link>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 16 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;李彦宏 2008-03-12 “读网笔记”：&lt;/p&gt;
+&lt;p&gt;原文地址：http://hi.baidu.com/liyanhong/blog/item/2984e950a8967f581038c2a0.html&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>通过转正申请表来看企业偏爱哪些人才</title>
+      <link>https://blog.heylinux.com/2008/02/%E9%80%9A%E8%BF%87%E8%BD%AC%E6%AD%A3%E7%94%B3%E8%AF%B7%E8%A1%A8%E6%9D%A5%E7%9C%8B%E4%BC%81%E4%B8%9A%E5%81%8F%E7%88%B1%E5%93%AA%E4%BA%9B%E4%BA%BA%E6%89%8D/</link>
+      <pubDate>Fri, 15 Feb 2008 23:10:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E9%80%9A%E8%BF%87%E8%BD%AC%E6%AD%A3%E7%94%B3%E8%AF%B7%E8%A1%A8%E6%9D%A5%E7%9C%8B%E4%BC%81%E4%B8%9A%E5%81%8F%E7%88%B1%E5%93%AA%E4%BA%9B%E4%BA%BA%E6%89%8D/</guid>
+      <description>&lt;p&gt;曾记得几个月前在转正时按公司的规定需要领取一张“转正申请表”，于是我便领了一份。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于台资企业的特点以及一些讨论</title>
+      <link>https://blog.heylinux.com/2008/02/%E5%85%B3%E4%BA%8E%E5%8F%B0%E8%B5%84%E4%BC%81%E4%B8%9A%E7%9A%84%E7%89%B9%E7%82%B9%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E8%AE%A8%E8%AE%BA/</link>
+      <pubDate>Fri, 15 Feb 2008 23:08:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E5%85%B3%E4%BA%8E%E5%8F%B0%E8%B5%84%E4%BC%81%E4%B8%9A%E7%9A%84%E7%89%B9%E7%82%B9%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E8%AE%A8%E8%AE%BA/</guid>
+      <description>&lt;p&gt;对于台资企业，之前我是有听说而没有真正接触的，但是，在周围环境的影响下，却对台资有那么一种向往之情–我周围的人亦是如此。因为大家普遍认为台资的企业比较有钱，比较大，也能够开的起薪水。有谁说自己在台资企业上班，那么周围的人便会觉得你公司还不错。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>开始我的虚拟公司生涯</title>
+      <link>https://blog.heylinux.com/2008/02/%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E8%99%9A%E6%8B%9F%E5%85%AC%E5%8F%B8%E7%94%9F%E6%B6%AF/</link>
+      <pubDate>Fri, 15 Feb 2008 23:06:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/02/%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E8%99%9A%E6%8B%9F%E5%85%AC%E5%8F%B8%E7%94%9F%E6%B6%AF/</guid>
+      <description>&lt;p&gt;往往听到周围的同事有抱怨公司与自我消极的话语。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>与王龙图 持恒共展</title>
+      <link>https://blog.heylinux.com/2007/03/%E4%B8%8E%E7%8E%8B%E9%BE%99%E5%9B%BE-%E6%8C%81%E6%81%92%E5%85%B1%E5%B1%95/</link>
+      <pubDate>Thu, 22 Mar 2007 15:05:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/03/%E4%B8%8E%E7%8E%8B%E9%BE%99%E5%9B%BE-%E6%8C%81%E6%81%92%E5%85%B1%E5%B1%95/</guid>
+      <description>&lt;p&gt;如果我把自己定位到一个其它的不关心，安安稳稳的只管做好自己事情，我是不会有这些想法的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>让自己的思维活跃一点</title>
+      <link>https://blog.heylinux.com/2007/03/%E8%AE%A9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%9D%E7%BB%B4%E6%B4%BB%E8%B7%83%E4%B8%80%E7%82%B9/</link>
+      <pubDate>Thu, 22 Mar 2007 13:05:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2007/03/%E8%AE%A9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%9D%E7%BB%B4%E6%B4%BB%E8%B7%83%E4%B8%80%E7%82%B9/</guid>
+      <description>&lt;p&gt;让自己的思维活跃一点，几乎周围所有困扰你的事情都会得到很好的解决！&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

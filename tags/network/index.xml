@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/network/</link>
+    <description>Recent content in Network on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 28 Nov 2008 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安装L7filter使iptables支持对七层应用进行过滤</title>
+      <link>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/11/%E5%AE%89%E8%A3%85l7filter%E4%BD%BFiptables%E6%94%AF%E6%8C%81%E5%AF%B9%E4%B8%83%E5%B1%82%E5%BA%94%E7%94%A8%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/</guid>
+      <description>&lt;p&gt;重新编译内核，使iptables支持L7filter，对七层应用进行过滤。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2008年7月30日工作札记</title>
+      <link>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</link>
+      <pubDate>Thu, 31 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2008/07/2008%E5%B9%B47%E6%9C%8830%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Windows下双网卡设置默认路由的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在外网网口的TCP/IP属性中设置 外网的IP地址、掩码和网关；&lt;/p&gt;
+&lt;p&gt;在内网网口的TCP/IP属性中设置 内网的IP地址、掩码，而不设置网关；&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
