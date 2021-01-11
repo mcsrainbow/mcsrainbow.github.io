@@ -51,7 +51,7 @@ Red Hat Enterprise Linux Server release 5.2 (Tikanga)
 
 **2.1 基于RHEL AS 4.7的安装步骤**
 
-1）更新PPP组件
+2.1.1 更新PPP组件
 
 PPTP需要PPP支持，虽然系统本身具备PPP，但它并不支持MPPE，因此需要更新。
 
@@ -59,7 +59,7 @@ PPTP需要PPP支持，虽然系统本身具备PPP，但它并不支持MPPE，因
 rpm -Uvh ppp-2.4.3-5.rhel4.i386.rpm
 ```
 
-2）安装内核MPPE补丁
+2.1.2 安装内核MPPE补丁
 
 MPPE是Microsoft Point to Point Encryption，微软点对点加密，因为PPTP VPN协议是由微软主导开发的，因此必须添加该协议补丁。
 
@@ -76,13 +76,13 @@ modprobe ppp-compress-18 && echo 'ok! MPPE was found!'
 
 若结果显示`ok! MPPE was found!`则表示成功。
 
-3）安装PPTPD
+2.1.3 安装PPTPD
 
 ```
 rpm -ivh pptpd-1.3.3-1.rhel4.i386.rpm
 ```
 
-4）检查PPP是否支持MPPE
+2.1.4 检查PPP是否支持MPPE
 
 ```
 strings '/usr/sbin/pppd'|grep -i mppe|wc -l
@@ -94,7 +94,7 @@ strings '/usr/sbin/pppd'|grep -i mppe|wc -l
 
 因为RHEL 5.2的内核已经集成了MPPE和高版本的PPP，因此可以跳过安装配置MPPE和PPP的过程直接安装PPTP。
 
-1）检查内核MPPE补丁
+2.2.1 检查内核MPPE补丁
 
 用以下命令检查内核是否支持MPPE补丁：
 
@@ -104,7 +104,7 @@ modprobe ppp-compress-18 && echo 'ok! MPPE was found!'
 
 若结果显示`ok! MPPE was found!`则表示支持。
 
-2）检查PPP是否支持MPPE
+2.2.2 检查PPP是否支持MPPE
 
 ```
 strings '/usr/sbin/pppd'|grep -i mppe|wc -l
@@ -112,7 +112,7 @@ strings '/usr/sbin/pppd'|grep -i mppe|wc -l
 
 若结果显示`0`则表示不支持，而`30`或更大的数字就表示支持。
 
-3）安装PPTPD
+2.2.3 安装PPTPD
 
 ```
 rpm -ivh pptpd-1.3.3-1.i386.rpm
