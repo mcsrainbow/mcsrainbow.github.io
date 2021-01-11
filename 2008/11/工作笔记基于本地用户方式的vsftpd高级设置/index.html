@@ -11,7 +11,7 @@
 <meta name="description" content="创建一个专用的FTP数据存储目录">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/2008/11/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%96%B9%E5%BC%8F%E7%9A%84vsftpd%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE/" />
-<link href="https://blog.heylinux.com/assets/css/stylesheet.min.c67f61ce2add05cf1690a03e10f394ed97d680c36fc4d7e53203318142a5ab6c.css" integrity="sha256-xn9hzirdBc8WkKA&#43;EPOU7ZfWgMNvxNflMgMxgUKlq2w=" rel="preload stylesheet"
+<link href="https://blog.heylinux.com/assets/css/stylesheet.min.7f4d9412aeb47e596cf2b17d383b3b6c2f895eae5ee11362bf54ba945a1b83e2.css" integrity="sha256-f02UEq60flls8rF9ODs7bC&#43;JXq5e4RNiv1S6lFobg&#43;I=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="https://blog.heylinux.com/favicon.ico">
@@ -44,8 +44,8 @@
   "keywords": [
     "vsFTPd"
   ],
-  "articleBody": "创建一个专用的FTP数据存储目录\nmkdir /ftpserver vi /etc/vsftpd/vsftpd.conf 设置vsFTPd为standalone工作模式\nlisten=YES tcp_wrappers=YES 启用本地用户\nlocal_enable=YES 禁用匿名用户\nanonymous_enable=NO #anon_upload_enable=YES #anon_mkdir_write_enable=YES 更改FTP默认监听端口21\nListen_port=5200 设置FTP的PASV模式传输端口，以配合防火墙通过PASV模式传输数据\nport_enable=NO pasv_enable=YES pasv_min_port=10021 pasv_max_port=10025 设置FTP服务器最大的并发连接数,默认值为0，表示不限最大连接数\nmax_clients=1000 设置每个IP地址最大的并发连接数目，默认值为0，表示不限制\nmax_per_ip=10 启用锁定主目录用户名单功能\nchroot_list_enable=YES chroot_list_file=/etc/vsftpd.chroot_list touch /etc/vsftpd.chroot_list 启用特定用户独立配置文件功能\nuser_config_dir=/etc/vsftpd/user_config/ mkdir /etc/vsftpd/user_config 创建一个FTP用户，将该用户的主目录指向到/ftpserver，并使其不能登陆shell\nuseradd jacky -d /ftpserver/jacky -s /sbin/nologin passwd jacky 锁定jacky用户的主目录\nvi /etc/vsftpd.chroot_list jacky 创建jacky用户的独立配置文件\ncd /etc/vsftpd/user_config/ vi jacky ##Allow this user download? #download_enable=YES ##Uncomment this to enable any form of FTP write command,such as “STOR,DELE,RNFR,RNTO,MKD,RMD,APPE,SITE …” #write_enable=YES ##If you set the “write_enable=YES”,but don’t want to allow “rename or delete …” ##You can open “cmds_allowed”,and remove the command which you don’t allow. ##”delete” = “DELE,RMD” ; “rename” = “RNFR,RNTO” ; “mkdir” = “MKD” #cmds_allowed=ABOR,ACCT,ALLO,APPE,CDUP,CWD,DELE,EPRT,EPSV,FEAT,HELP,LIST,MDTM,MKD,MODE,NLST,NOOP,OPTS,PASS,PASV,PORT,PWD,QUIT,REIN,REST,RETR,RMD,RNFR,RNTO,SITE,SIZE,SMNT,STAT,STOR,STOU,STRU,SYST,TYPE,USER,XCUP,XCWD,XMKD,XPWD,XRMD,BYE ##Set the max rate for this user,”Bytes/s”. #local_max_rate=204800 ##Set the root directory for this user. #local_root= 使jacky用户仅具有下载、上传和创建目录的权限，而没有删除和重命名的权限\ndownload_enable=YES write_enable=YES cmds_allowed=ABOR,ACCT,ALLO,APPE,CDUP,CWD,EPRT,EPSV,FEAT,HELP,LIST,MDTM,MKD,MODE,NLST,NOOP,OPTS,PASS,PASV,PORT,PWD,QUIT,REIN,REST,RETR,SITE,SIZE,SMNT,STAT,STOR,STOU,STRU,SYST,TYPE,USER,XCUP,XCWD,XMKD,XPWD,XRMD,BYE 限制jacky用户的最大下载速度为200KB左右\nlocal_max_rate=204800 重启vsftpd以使配置生效\n/etc/init.d/vsftpd restart 修改防火墙以使FTP通过\nvi /etc/sysconfig/iptables -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 5200 -j ACCEPT -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10021 -j ACCEPT -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10022 -j ACCEPT -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10023 -j ACCEPT -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10024 -j ACCEPT -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10025 -j ACCEPT 重启防火墙以使策略生效\n/etc/init.d/iptables restart OK! The end.\nPS（根据实际需要）:\n开放root用户的FTP权限\nvi /etc/vsftpd.ftpusers #root vi /etc/vsftpd.user_list #root 禁止jacky用户的FTP权限\nvi /etc/vsftpd.ftpusers jacky vi /etc/vsftpd.user_list jacky ",
-  "wordCount" : "240",
+  "articleBody": "创建一个专用的FTP数据存储目录\nmkdir /ftpserver vi /etc/vsftpd/vsftpd.conf 设置vsFTPd为standalone工作模式\nlisten=YES tcp_wrappers=YES 启用本地用户\nlocal_enable=YES 禁用匿名用户\nanonymous_enable=NO #anon_upload_enable=YES #anon_mkdir_write_enable=YES 更改FTP默认监听端口21\nListen_port=5200 设置FTP的PASV模式传输端口，以配合防火墙通过PASV模式传输数据\nport_enable=NO pasv_enable=YES pasv_min_port=10021 pasv_max_port=10025 设置FTP服务器最大的并发连接数,默认值为0，表示不限最大连接数\nmax_clients=1000 设置每个IP地址最大的并发连接数目，默认值为0，表示不限制\nmax_per_ip=10 启用锁定主目录用户名单功能\nchroot_list_enable=YES chroot_list_file=/etc/vsftpd.chroot_list touch /etc/vsftpd.chroot_list 启用特定用户独立配置文件功能\nuser_config_dir=/etc/vsftpd/user_config/ mkdir /etc/vsftpd/user_config 创建一个FTP用户，将该用户的主目录指向到/ftpserver，并使其不能登陆shell\nuseradd jacky -d /ftpserver/jacky -s /sbin/nologin passwd jacky 锁定jacky用户的主目录\nvi /etc/vsftpd.chroot_list jacky 创建jacky用户的独立配置文件\ncd /etc/vsftpd/user_config/ vi jacky ##Allow this user download? #download_enable=YES ##Uncomment this to enable any form of FTP write command,such as \"STOR,DELE,RNFR,RNTO,MKD,RMD,APPE,SITE …\" #write_enable=YES ##If you set the \"write_enable=YES\",but don’t want to allow \"rename or delete …\" ##You can open \"cmds_allowed\",and remove the command which you don't allow. ##\"delete\" = \"DELE,RMD\"; \"rename\" = \"RNFR,RNTO\"; \"mkdir\" = \"MKD\" #cmds_allowed=ABOR,ACCT,ALLO,APPE,CDUP,CWD,DELE,EPRT,EPSV,FEAT,HELP,LIST,MDTM,MKD,MODE,NLST,NOOP,OPTS,PASS,PASV,PORT,PWD,QUIT,REIN,REST,RETR,RMD,RNFR,RNTO,SITE,SIZE,SMNT,STAT,STOR,STOU,STRU,SYST,TYPE,USER,XCUP,XCWD,XMKD,XPWD,XRMD,BYE ##Set the max rate for this user,\"Bytes/s\". #local_max_rate=204800 ##Set the root directory for this user. #local_root= 使jacky用户仅具有下载、上传和创建目录的权限，而没有删除和重命名的权限\ndownload_enable=YES write_enable=YES cmds_allowed=ABOR,ACCT,ALLO,APPE,CDUP,CWD,EPRT,EPSV,FEAT,HELP,LIST,MDTM,MKD,MODE,NLST,NOOP,OPTS,PASS,PASV,PORT,PWD,QUIT,REIN,REST,RETR,SITE,SIZE,SMNT,STAT,STOR,STOU,STRU,SYST,TYPE,USER,XCUP,XCWD,XMKD,XPWD,XRMD,BYE 限制jacky用户的最大下载速度为200KB左右\nlocal_max_rate=204800 重启vsftpd以使配置生效\n/etc/init.d/vsftpd restart 修改防火墙以使FTP通过\nvi /etc/sysconfig/iptables -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 5200 -j ACCEPT -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 10021:10025 -j ACCEPT 重启防火墙以使策略生效\n/etc/init.d/iptables restart OK! The end.\nPS（根据实际需要）:\n开放root用户的FTP权限\nvi /etc/vsftpd.ftpusers #root vi /etc/vsftpd.user_list #root 禁止jacky用户的FTP权限\nvi /etc/vsftpd.ftpusers jacky vi /etc/vsftpd.user_list jacky ",
+  "wordCount" : "182",
   "inLanguage": "en",
   "datePublished": "2008-11-06T00:00:00Z",
   "dateModified": "2008-11-06T00:00:00Z",
@@ -207,13 +207,13 @@ passwd jacky
 vi jacky
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">##Allow this user download?</span>
 <span style="color:#75715e">#download_enable=YES</span>
-<span style="color:#75715e">##Uncomment this to enable any form of FTP write command,such as “STOR,DELE,RNFR,RNTO,MKD,RMD,APPE,SITE …”</span>
+<span style="color:#75715e">##Uncomment this to enable any form of FTP write command,such as &#34;STOR,DELE,RNFR,RNTO,MKD,RMD,APPE,SITE …&#34;</span>
 <span style="color:#75715e">#write_enable=YES</span>
-<span style="color:#75715e">##If you set the “write_enable=YES”,but don’t want to allow “rename or delete …”</span>
-<span style="color:#75715e">##You can open “cmds_allowed”,and remove the command which you don’t allow.</span>
-<span style="color:#75715e">##”delete” = “DELE,RMD” ; “rename” = “RNFR,RNTO” ; “mkdir” = “MKD”</span>
+<span style="color:#75715e">##If you set the &#34;write_enable=YES&#34;,but don’t want to allow &#34;rename or delete …&#34;</span>
+<span style="color:#75715e">##You can open &#34;cmds_allowed&#34;,and remove the command which you don&#39;t allow.</span>
+<span style="color:#75715e">##&#34;delete&#34; = &#34;DELE,RMD&#34;; &#34;rename&#34; = &#34;RNFR,RNTO&#34;; &#34;mkdir&#34; = &#34;MKD&#34;</span>
 <span style="color:#75715e">#cmds_allowed=ABOR,ACCT,ALLO,APPE,CDUP,CWD,DELE,EPRT,EPSV,FEAT,HELP,LIST,MDTM,MKD,MODE,NLST,NOOP,OPTS,PASS,PASV,PORT,PWD,QUIT,REIN,REST,RETR,RMD,RNFR,RNTO,SITE,SIZE,SMNT,STAT,STOR,STOU,STRU,SYST,TYPE,USER,XCUP,XCWD,XMKD,XPWD,XRMD,BYE</span>
-<span style="color:#75715e">##Set the max rate for this user,”Bytes/s”.</span>
+<span style="color:#75715e">##Set the max rate for this user,&#34;Bytes/s&#34;.</span>
 <span style="color:#75715e">#local_max_rate=204800</span>
 <span style="color:#75715e">##Set the root directory for this user.</span>
 <span style="color:#75715e">#local_root=</span>
@@ -227,12 +227,8 @@ cmds_allowed<span style="color:#f92672">=</span>ABOR,ACCT,ALLO,APPE,CDUP,CWD,EPR
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/etc/init.d/vsftpd restart
 </code></pre></div><p>修改防火墙以使FTP通过</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vi /etc/sysconfig/iptables
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport <span style="color:#ae81ff">5200</span> -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport <span style="color:#ae81ff">10021</span> -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport <span style="color:#ae81ff">10022</span> -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport <span style="color:#ae81ff">10023</span> -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport <span style="color:#ae81ff">10024</span> -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport <span style="color:#ae81ff">10025</span> -j ACCEPT
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport <span style="color:#ae81ff">5200</span> -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 10021:10025 -j ACCEPT
 </code></pre></div><p>重启防火墙以使策略生效</p>
 <pre><code>/etc/init.d/iptables restart
 </code></pre><p>OK! The end.</p>
