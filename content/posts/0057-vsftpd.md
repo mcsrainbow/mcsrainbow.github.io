@@ -112,7 +112,7 @@ vi jacky
 #download_enable=YES
 ##Uncomment this to enable any form of FTP write command,such as "STOR,DELE,RNFR,RNTO,MKD,RMD,APPE,SITE …"
 #write_enable=YES
-##If you set the "write_enable=YES",but don’t want to allow "rename or delete …"
+##If you set the "write_enable=YES",but don't want to allow "rename or delete …"
 ##You can open "cmds_allowed",and remove the command which you don't allow.
 ##"delete" = "DELE,RMD"; "rename" = "RNFR,RNTO"; "mkdir" = "MKD"
 #cmds_allowed=ABOR,ACCT,ALLO,APPE,CDUP,CWD,DELE,EPRT,EPSV,FEAT,HELP,LIST,MDTM,MKD,MODE,NLST,NOOP,OPTS,PASS,PASV,PORT,PWD,QUIT,REIN,REST,RETR,RMD,RNFR,RNTO,SITE,SIZE,SMNT,STAT,STOR,STOU,STRU,SYST,TYPE,USER,XCUP,XCWD,XMKD,XPWD,XRMD,BYE
