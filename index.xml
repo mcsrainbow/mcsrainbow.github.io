@@ -7,16 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 25 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>在RedHat Enterprise Linux上Oracle 9i的安装配置与调优[原创全面规范]</title>
-      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-enterprise-linux%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98%E5%8E%9F%E5%88%9B%E5%85%A8%E9%9D%A2%E8%A7%84%E8%8C%83/</link>
+      <title>在RHEL上Oracle 9i的安装配置与调优</title>
+      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98/</link>
       <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-enterprise-linux%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98%E5%8E%9F%E5%88%9B%E5%85%A8%E9%9D%A2%E8%A7%84%E8%8C%83/</guid>
-      <description>&lt;p&gt;本文带有图片的完整文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0064/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. 安装配置Oracle 9i数据库&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本章描述内容如下所示：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.1 安装前的准备工作&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;介绍在安装Oracle之前所需的准备工作&lt;/p&gt;</description>
+      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98/</guid>
+      <description>&lt;p&gt;本文带有图片的完整规范文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0064/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -47,8 +43,7 @@
       <pubDate>Tue, 26 May 2009 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</guid>
-      <description>&lt;p&gt;相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。&lt;/p&gt;
-&lt;p&gt;但是我相信大家一定有很多也和我一样仍然喜欢使用正统的RHEL吧，但是目前免费的 RHEL YUM源 真的是很难找，如果用CentOS的源的话，感觉又很别扭。&lt;/p&gt;</description>
+      <description>&lt;p&gt;相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。&lt;/p&gt;</description>
     </item>
     
     <item>

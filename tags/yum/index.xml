@@ -12,8 +12,7 @@
       <pubDate>Tue, 26 May 2009 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/</guid>
-      <description>&lt;p&gt;相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。&lt;/p&gt;
-&lt;p&gt;但是我相信大家一定有很多也和我一样仍然喜欢使用正统的RHEL吧，但是目前免费的 RHEL YUM源 真的是很难找，如果用CentOS的源的话，感觉又很别扭。&lt;/p&gt;</description>
+      <description>&lt;p&gt;相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。&lt;/p&gt;</description>
     </item>
     
   </channel>
