@@ -110,13 +110,13 @@ vi jacky
 ```bash
 ##Allow this user download?
 #download_enable=YES
-##Uncomment this to enable any form of FTP write command,such as “STOR,DELE,RNFR,RNTO,MKD,RMD,APPE,SITE …”
+##Uncomment this to enable any form of FTP write command,such as "STOR,DELE,RNFR,RNTO,MKD,RMD,APPE,SITE …"
 #write_enable=YES
-##If you set the “write_enable=YES”,but don’t want to allow “rename or delete …”
-##You can open “cmds_allowed”,and remove the command which you don’t allow.
-##”delete” = “DELE,RMD” ; “rename” = “RNFR,RNTO” ; “mkdir” = “MKD”
+##If you set the "write_enable=YES",but don’t want to allow "rename or delete …"
+##You can open "cmds_allowed",and remove the command which you don't allow.
+##"delete" = "DELE,RMD"; "rename" = "RNFR,RNTO"; "mkdir" = "MKD"
 #cmds_allowed=ABOR,ACCT,ALLO,APPE,CDUP,CWD,DELE,EPRT,EPSV,FEAT,HELP,LIST,MDTM,MKD,MODE,NLST,NOOP,OPTS,PASS,PASV,PORT,PWD,QUIT,REIN,REST,RETR,RMD,RNFR,RNTO,SITE,SIZE,SMNT,STAT,STOR,STOU,STRU,SYST,TYPE,USER,XCUP,XCWD,XMKD,XPWD,XRMD,BYE
-##Set the max rate for this user,”Bytes/s”.
+##Set the max rate for this user,"Bytes/s".
 #local_max_rate=204800
 ##Set the root directory for this user.
 #local_root=
@@ -149,12 +149,8 @@ vi /etc/sysconfig/iptables
 ```
 
 ```bash
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 5200 -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10021 -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10022 -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10023 -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10024 -j ACCEPT
--A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10025 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 5200 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 10021:10025 -j ACCEPT
 ```
 
 重启防火墙以使策略生效

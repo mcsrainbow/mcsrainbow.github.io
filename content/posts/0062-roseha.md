@@ -88,7 +88,7 @@ cd /opt/roseha/bin
 
 4. 创建socket 私网
 
-进入`PrivateNet` - `reate Socket`, 选择主机用于私网的地址，用来作为两台机器通讯用的IP地址（心跳IP）。
+进入`PrivateNet` - `Create Socket`, 选择主机用于私网的地址，用来作为两台机器通讯用的IP地址（心跳IP）。
 
 注：该操作在两台主机上都要做。
 
