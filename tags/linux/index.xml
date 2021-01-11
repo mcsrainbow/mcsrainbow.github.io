@@ -16,11 +16,11 @@
     </item>
     
     <item>
-      <title>在Redhat Linux上PPTP VPN Server的安装配置</title>
-      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <title>在RHEL上PPTP VPN Server的安装配置</title>
+      <link>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Mon, 21 Sep 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8redhat-linux%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Apptp-vpn-server%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;p&gt;&lt;strong&gt;1. 安装前的准备工作&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.1 获取PPTP VPN Server安装包&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
@@ -31,10 +31,8 @@
       <pubDate>Mon, 17 Aug 2009 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2009/08/roseha-for-linux%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;一、安装RoseHA&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;将光驱挂载到mnt文件夹&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;1. 安装RoseHA&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1.1 将光驱挂载到mnt文件夹&lt;/p&gt;</description>
     </item>
     
     <item>
