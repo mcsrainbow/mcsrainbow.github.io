@@ -11,24 +11,17 @@ Linux平台上可以学什么？
 
 <!--more-->
 
-Linux平台上可以学什么？
+**方向A:**
 
-通过uplooking尚观科技的培训课程中，可以了解到Linux平台上可以有哪些技术、以及我们还欠缺了多少？
-
-方向A:
 ULP-S UNIX-Linux主机、安全、集群、数据库专家
 
 hotLinux培训专家－Linux高端培训，Linux集群培训，RHCE培训，Red Hat认证工程师，Linux嵌入式开发培训，UNIX-Linux驱动-内核开发培训，C++…
 
-http://www.uplooking.com/content/view/530/
-
-方向B:
+**方向B:**
 
 ULP-D UNIX-Linux 系统嵌入式开发、ARM内核驱动
 
 hotLinux培训专家－Linux高端培训，Linux集群培训，RHCE培训，Red Hat认证工程师，Linux嵌入式开发培训，UNIX-Linux驱动-内核开发培训…
-
-http://www.uplooking.com/content/view/701/
 
 实话，如果我现在有2W元钱，我一定会参加尚观的培训，这是最快的学习方式。
 
