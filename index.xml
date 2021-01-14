@@ -12,7 +12,7 @@
       <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98/</guid>
-      <description>&lt;p&gt;本文带有图片的完整规范文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0064/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;本文带有图片的完整规范文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0600/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -259,8 +259,7 @@
       <pubDate>Sun, 16 Mar 2008 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;p&gt;李彦宏 2008-03-12 “读网笔记”：&lt;/p&gt;
-&lt;p&gt;原文地址：http://hi.baidu.com/liyanhong/blog/item/2984e950a8967f581038c2a0.html&lt;/p&gt;</description>
+      <description>&lt;p&gt;李彦宏博客 2008-03-12 “读网笔记”&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -400,21 +399,12 @@
     </item>
     
     <item>
-      <title>Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」</title>
-      <link>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/</link>
+      <title>Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置</title>
+      <link>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 26 Dec 2007 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/</guid>
+      <guid>https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;h3 id=&#34;所需文件的下载地址&#34;&gt;所需文件的下载地址&lt;/h3&gt;</description>
-    </item>
-    
-    <item>
-      <title>CSDN 的Blog真让我伤心</title>
-      <link>https://blog.heylinux.com/2007/12/csdn-%E7%9A%84blog%E7%9C%9F%E8%AE%A9%E6%88%91%E4%BC%A4%E5%BF%83/</link>
-      <pubDate>Sat, 22 Dec 2007 04:31:00 +0800</pubDate>
-      
-      <guid>https://blog.heylinux.com/2007/12/csdn-%E7%9A%84blog%E7%9C%9F%E8%AE%A9%E6%88%91%E4%BC%A4%E5%BF%83/</guid>
-      <description>&lt;p&gt;当初我选择了你而没有选择CU，而现在我屡次被你伤害后仍未抛弃你，是因为我相信你能做的很好！&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -478,15 +468,6 @@
       
       <guid>https://blog.heylinux.com/2007/10/%E7%AA%81%E5%A6%82%E5%85%B6%E6%9D%A5%E7%9A%84%E4%B8%80%E4%B8%AA%E6%83%B3%E6%B3%95/</guid>
       <description>&lt;p&gt;相信很多人都有这样的困惑：我还是个新手，因为工作和学习中遇到了技术上的困惑，需要查找资料来弥补。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>在Linux下用Shell写的俄罗斯方块程序</title>
-      <link>https://blog.heylinux.com/2007/10/%E5%9C%A8linux%E4%B8%8B%E7%94%A8shell%E5%86%99%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E7%A8%8B%E5%BA%8F/</link>
-      <pubDate>Wed, 10 Oct 2007 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heylinux.com/2007/10/%E5%9C%A8linux%E4%B8%8B%E7%94%A8shell%E5%86%99%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E7%A8%8B%E5%BA%8F/</guid>
-      <description>&lt;p&gt;注：该文章转载自&lt;a href=&#34;http://bbs.chinaunix.net/thread-184858-1-1.html&#34;&gt;ChinaUnix BBS&lt;/a&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -597,15 +578,6 @@
       
       <guid>https://blog.heylinux.com/2007/01/%E7%AA%81%E7%A0%B4%E6%9E%81%E5%85%B6%E8%8F%9C%E9%B8%9F%E7%9A%84%E8%87%AA%E6%88%91/</guid>
       <description>&lt;p&gt;我是个菜的不能再菜的人！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>决定你人生的49个细节</title>
-      <link>https://blog.heylinux.com/2007/01/%E5%86%B3%E5%AE%9A%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%8449%E4%B8%AA%E7%BB%86%E8%8A%82/</link>
-      <pubDate>Sun, 21 Jan 2007 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heylinux.com/2007/01/%E5%86%B3%E5%AE%9A%E4%BD%A0%E4%BA%BA%E7%94%9F%E7%9A%8449%E4%B8%AA%E7%BB%86%E8%8A%82/</guid>
-      <description>&lt;p&gt;注：该文章转载自互联网。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -12,7 +12,7 @@
 1.1 将光驱挂载到mnt文件夹">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/2009/08/roseha-for-linux%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" />
-<link href="https://blog.heylinux.com/assets/css/stylesheet.min.7f4d9412aeb47e596cf2b17d383b3b6c2f895eae5ee11362bf54ba945a1b83e2.css" integrity="sha256-f02UEq60flls8rF9ODs7bC&#43;JXq5e4RNiv1S6lFobg&#43;I=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="https://blog.heylinux.com/favicon.ico">
@@ -47,7 +47,7 @@
   "keywords": [
     "Linux", "RoseHA"
   ],
-  "articleBody": "1. 安装RoseHA\n1.1 将光驱挂载到mnt文件夹\nsu - root mount /dev/cdrom /mnt cd /mnt 1.2 安装RoseHA\nsh install.sh 1.3 检查 /opt/roseha/bin 目录中是否有文件存在\ncd /opt/roseha/bin ls 1.4 执行 NewPass 修改密码（第一次运行需要修改密码）\n./NewPass 按照提示操作\nUser: ha ( 管理员的用户名 ) New password: 密码 Re-enter new password: 重新输入密码 2. 配置RoseHA\n2.1 配置hosts文件\n修改文件/etc/hosts（设置内容请依照实际情况）两边的服务器都需要做相同的设置。\n127.0.0.1 localhost 192.168.0.11 serverA 192.168.0.12 serverB 设置完毕后重启系统\nsync reboot 2.2 运行 RoseHA 的UI管理界面\ncd /opt/roseha/bin ./hacon 进入控制界面，选择Connect，输入刚刚设置的用户名和密码，进入系统\n出现如下界面则说明连接正常\n2.3 配置licence授权\n移动 Tab 键在HostName处将本机的主机名和对端主机名填写正确就可以了OK。\n并且注意，两边机器都需要进行设置。\n2.4 创建socket私网\n进入PrivateNet - Create Socket, 选择主机用于私网的地址，用来作为两台机器通讯用的IP地址（心跳IP）。\n注：该操作在两台主机上都要做。\n2.5 获取对方主机信息\n进入 Tools - Network，直接选中AutoGet - OK，这样就会得到对方主机信息。\n2.6 创建Oracle服务\n进入Services - Create，\n配置说明：\nService Name: Oracle Type: ORACLE SID: 输入Oracle服务的SID Active Server: 指定哪一台Server为该服务的主机 Standby Server: 指定哪一台Server为该服务的备机 IP Holding NIC: 分别选择两台主机所提供外界服务的网卡设备名，注意不能与心跳网卡在同一个设备上。 Active IP Address: Oracle服务的IP（虚拟IP）地址，必须与上面所选择的网卡的IP在同一网段上。 Active SubnetMask: 虚拟IP的子网掩码。 Agent Script: 相应的监控脚本，ha_ag_oracle.x （保持默认） Start Script: 相应的启动脚本，ora_start.sh（保持默认） Stop Script: 相应的停止脚本，ora_stop.sh（保持默认） Active Volume: 磁盘阵列两台主机共用的文件系统的设备名，这里我们设置为/dev/sda1。 Backup Volume: 通常Active Volume应与Backup Volume的值相同。 Mount Point: 与Active Volume,Backup Volume值所对应的mount 点，这里我们设置为/data。 SwitchBack: NO 2.7 创建Tomcat服务\n进入Services - Create，\nService Name: Tomcat Type: USERDEF Active Server: 指定哪一台Server为该服务的主机 Standby Server: 指定哪一台Server为该服务的备机 IP Holding NIC: 分别选择两台主机所提供外界服务的网卡设备名，不能与心跳网卡在同一个设备上。 Active IP Address: Tomcat服务的IP（虚拟IP）地址，必须与上面所选择的网卡的IP在同一网段上。 Active SubnetMask: 虚拟IP的子网掩码。 Agent Script: 相应的监控脚本，如：ha_ag_tomcat.sh （自定义脚本） Start Script: 相应的启动脚本，如：tomcat_start.sh（自定义脚本） Stop Script: 相应的停止脚本，如：tomcat_stop.sh（自定义脚本） Active Volume: 磁盘阵列两台主机共用的文件系统的设备名，这里我们设置为/dev/sda2 Backup Volume: 通常Active Volume应与Backup Volume的值相同。 Mount Point: 与Active Volume,Backup Volume 值所对应的mount 点，这里我们设置为/tomcat SwitchBack: NO 创建文件tomcat所需的三个脚本，放置在两台Server的/opt/roseha/bin 目录下，并给予执行权限：\n监控脚本ha_ag_tomcat.sh：\n#!/bin/sh # This file: ha_ag_tomcat.sh # Version: 4.0.2 # Return\t0 ok # 1 error # # IMPORTANT NOTE: # IN COMMENT MEANS THERE ARE SOME VALUES (MUST) NEED TO BE CHANGED # IN FOLLOWING LINES BEFORE YOU RUN THIS AGENT PROGRAM if test ! \"$1\" -o ! \"$2\" then echo Usage: $0 SERVICENAME CHECKTIME exit fi HAHOME=`cat /etc/init.d/HAHOME` export HAHOME SERVICENAME=$1 CHECKTIME=$2 while test \"1\" do RETURN=0 echo \"Message: [`date`] ha_ag_tomcat.sh Check $SERVICENAME.\"  $HAHOME/etc/tomcat_agent.log # Check the Tomcat process status # Check java Process JDK=`ps ax |grep java |grep tomcat|grep -v grep |wc -l` if [ $JDK -ne 0 ]; then echo \"Message: Tomcat is OK\" $HAOME/etc/tomcat_agent.log else $HAHOME/bin/apierror.x $SERVICENAME tomcatError echo \"Error: [`date`] Tomcat is MISS.\" echo \"Error: [`date`] Tomcat is MISS.\" $HAHOME/etc/tomcat_agent.log RETURN=1 fi # End of Check the Tomcat process # Report the result to HA daemon if test $CHECKTIME -eq 0 then if test $RETURN -eq 0 then exit 0 else exit 1 fi fi if test $RETURN -eq 0 then $HAHOME/bin/APIOK.x $SERVICENAME # Clear the tomcat_agent.log  $HAHOME/etc/tomcat_agent.log fi sleep $CHECKTIME continue done echo $0 exit 启动脚本tomcat_start.sh\n#!/bin/sh # This file: tomcat_start.sh # Version: 4.0.1 HAHOME=`cat /etc/init.d/HAHOME` export HAHOME out=$HAHOME/bin/APIOUT.x JOBNAME=$2 # When Another Server are Down, You MUST sleep awhile. # You can change this value to meet your requirement if need. if [ \"$1\" = \"anotherdown\" ] then /bin/sleep 30 fi #DISKDEV=/dev/sda5 #MOUNTPOINT=/var/lib/mysql #$HAHOME/bin/dflush $DISKDEV #fsck -a $DISKDEV #if test $? -ne 0 #then #\t${out} \"[INFO] fsck ${DISKDEV}......\" #\tfsck -yf $DISKDEV #fi #mount $DISKDEV $MOUNTPOINT #mount | grep \"${DISKDEV} on ${MOUNTPOINT} \" /dev/null 2\u00261 #if test $? -ne 0 #then # ${out} \"[INFO] Cannot mount ${DISKDEV}.\" #\texit #fi ${out} \"[INFO] Start Tomcat server....\" export JAVA_HOME=/usr/java/jdk1.5.0_20 export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib/:$JAVA_HOME/jre/lib/ export PATH=$PATH:$JAVA_HOME/bin export JRE_HOME=$JAVA_HOME/jre /tomcat/bin/catalina.sh start ${out} \"[INFO] Start shell $0 finished.\" 停止脚本tomcat_stop.sh\n#!/bin/sh # This file: tomcat_stop.sh # Version: 4.0.1 HAHOME=`cat /etc/init.d/HAHOME` export HAHOME out=$HAHOME/bin/APIOUT.x JOBNAME=$2 #DISKDEV=/dev/sda5 #MOUNTPOINT=/var/lib/mysql ERRORNUMBER=$3 ${out} \"[INFO] The service ${JOBNAME} stop because of {$ERRORNUMBER}.\" ${out} \"[INFO] Stop Tomcat server....\" /tomcat/bin/catalina.sh stop sync #$HAHOME/bin/UMOUNT $DISKDEV $MOUNTPOINT #mount | grep \"${DISKDEV} on ${MOUNTPOINT} \" /dev/null 2\u00261 #if test $? -eq 0 #then #\t${out} \"[WARNING] Cannot umount ${DISKDEV}.\" #\t/sbin/reboot #fi ${out} \"[INFO] Stop shell $0 finished.\" 为脚本加上执行权限\nchmod +x *.sh 2.8 载入Oracle与Tomcat服务\n在Oracle主机上的RoseHA 图形管理工具中\nServices - Bring in - Oracle\n在Tomcat主机上的RoseHA图形管理工具中\nServices - Bring in - Tomcat\n此时，即实现了Oracle与Tomcat的双机双活应用。\n3. 维护RoseHA\n3.1 RoseHA常用命令\n查询RoseHA进程的命令\nps –ef | grep ha 可以看到四个进程hamond、hasysd、hachkd、hasvrd\n停止RoseHA：/opt/roseha/bin/ha_kill ha\n手工启动RoseHA进程：/opt/roseha/bin/hamond\n进入RoseHA图形管理工具：/opt/roseha/bin/hacon\n重启RoseHA服务：\n/opt/roseha/bin/roseha stop /opt/roseha/bin/roseha start 3.2 双机软件的开关机顺序\n开机：先后依次开磁盘阵列，主机，备机\n关机：先后依次关备机，主机，磁盘阵列\n3.3 双机软件中的术语\nBring in：把服务带入双机，受双机软件管理\nBring out：把服务带出双机，不受双机软件管理\nTake over：手工切换服务。在备机动作，来接管主机服务\nFail over：手工切换服务。在主机动作，来提交主机服务给备机\n",
+  "articleBody": "1. 安装RoseHA\n1.1 将光驱挂载到mnt文件夹\nsu - root mount /dev/cdrom /mnt cd /mnt 1.2 安装RoseHA\nsh install.sh 1.3 检查 /opt/roseha/bin 目录中是否有文件存在\ncd /opt/roseha/bin ls 1.4 执行 NewPass 修改密码（第一次运行需要修改密码）\n./NewPass 按照提示操作\nUser: ha ( 管理员的用户名 ) New password: 密码 Re-enter new password: 重新输入密码 2. 配置RoseHA\n2.1 配置hosts文件\n修改文件/etc/hosts（设置内容请依照实际情况）两边的服务器都需要做相同的设置。\n127.0.0.1 localhost 192.168.0.11 serverA 192.168.0.12 serverB 设置完毕后重启系统\nsync reboot 2.2 运行 RoseHA 的UI管理界面\ncd /opt/roseha/bin ./hacon 进入控制界面，选择Connect，输入刚刚设置的用户名和密码，进入系统\n出现如下界面则说明连接正常\n2.3 配置licence授权\n移动 Tab 键在HostName处将本机的主机名和对端主机名填写正确就可以了OK。\n并且注意，两边机器都需要进行设置。\n2.4 创建socket私网\n进入PrivateNet - Create Socket, 选择主机用于私网的地址，用来作为两台机器通讯用的IP地址（心跳IP）。\n注：该操作在两台主机上都要做。\n2.5 获取对方主机信息\n进入 Tools - Network，直接选中AutoGet - OK，这样就会得到对方主机信息。\n2.6 创建Oracle服务\n进入Services - Create，\n配置说明：\nService Name: Oracle Type: ORACLE SID: 输入Oracle服务的SID Active Server: 指定哪一台Server为该服务的主机 Standby Server: 指定哪一台Server为该服务的备机 IP Holding NIC: 分别选择两台主机所提供外界服务的网卡设备名，注意不能与心跳网卡在同一个设备上。 Active IP Address: Oracle服务的IP（虚拟IP）地址，必须与上面所选择的网卡的IP在同一网段上。 Active SubnetMask: 虚拟IP的子网掩码。 Agent Script: 相应的监控脚本，ha_ag_oracle.x （保持默认） Start Script: 相应的启动脚本，ora_start.sh（保持默认） Stop Script: 相应的停止脚本，ora_stop.sh（保持默认） Active Volume: 磁盘阵列两台主机共用的文件系统的设备名，这里我们设置为/dev/sda1。 Backup Volume: 通常Active Volume应与Backup Volume的值相同。 Mount Point: 与Active Volume,Backup Volume值所对应的mount 点，这里我们设置为/data。 SwitchBack: NO 2.7 创建Tomcat服务\n进入Services - Create，\nService Name: Tomcat Type: USERDEF Active Server: 指定哪一台Server为该服务的主机 Standby Server: 指定哪一台Server为该服务的备机 IP Holding NIC: 分别选择两台主机所提供外界服务的网卡设备名，不能与心跳网卡在同一个设备上。 Active IP Address: Tomcat服务的IP（虚拟IP）地址，必须与上面所选择的网卡的IP在同一网段上。 Active SubnetMask: 虚拟IP的子网掩码。 Agent Script: 相应的监控脚本，如：ha_ag_tomcat.sh （自定义脚本） Start Script: 相应的启动脚本，如：tomcat_start.sh（自定义脚本） Stop Script: 相应的停止脚本，如：tomcat_stop.sh（自定义脚本） Active Volume: 磁盘阵列两台主机共用的文件系统的设备名，这里我们设置为/dev/sda2 Backup Volume: 通常Active Volume应与Backup Volume的值相同。 Mount Point: 与Active Volume,Backup Volume 值所对应的mount 点，这里我们设置为/tomcat SwitchBack: NO 创建文件tomcat所需的三个脚本，放置在两台Server的/opt/roseha/bin 目录下，并给予执行权限：\n监控脚本ha_ag_tomcat.sh：\n#!/bin/sh # This file: ha_ag_tomcat.sh # Version: 4.0.2 # Return\t0 ok # 1 error # # IMPORTANT NOTE: # IN COMMENT MEANS THERE ARE SOME VALUES (MUST) NEED TO BE CHANGED # IN FOLLOWING LINES BEFORE YOU RUN THIS AGENT PROGRAM if test ! \"$1\" -o ! \"$2\" then echo Usage: $0 SERVICENAME CHECKTIME exit fi HAHOME=`cat /etc/init.d/HAHOME` export HAHOME SERVICENAME=$1 CHECKTIME=$2 while test \"1\" do RETURN=0 echo \"Message: [`date`] ha_ag_tomcat.sh Check $SERVICENAME.\"  $HAHOME/etc/tomcat_agent.log # Check the Tomcat process status # Check java Process JDK=`ps ax |grep java |grep tomcat|grep -v grep |wc -l` if [ $JDK -ne 0 ]; then echo \"Message: Tomcat is OK\" $HAOME/etc/tomcat_agent.log else $HAHOME/bin/apierror.x $SERVICENAME tomcatError echo \"Error: [`date`] Tomcat is MISS.\" echo \"Error: [`date`] Tomcat is MISS.\" $HAHOME/etc/tomcat_agent.log RETURN=1 fi # End of Check the Tomcat process # Report the result to HA daemon if test $CHECKTIME -eq 0 then if test $RETURN -eq 0 then exit 0 else exit 1 fi fi if test $RETURN -eq 0 then $HAHOME/bin/APIOK.x $SERVICENAME # Clear the tomcat_agent.log  $HAHOME/etc/tomcat_agent.log fi sleep $CHECKTIME continue done echo $0 exit 启动脚本tomcat_start.sh\n#!/bin/sh # This file: tomcat_start.sh # Version: 4.0.1 HAHOME=`cat /etc/init.d/HAHOME` export HAHOME out=$HAHOME/bin/APIOUT.x JOBNAME=$2 # When Another Server are Down, You MUST sleep awhile. # You can change this value to meet your requirement if need. if [ \"$1\" = \"anotherdown\" ] then /bin/sleep 30 fi #DISKDEV=/dev/sda5 #MOUNTPOINT=/var/lib/mysql #$HAHOME/bin/dflush $DISKDEV #fsck -a $DISKDEV #if test $? -ne 0 #then #\t${out} \"[INFO] fsck ${DISKDEV}......\" #\tfsck -yf $DISKDEV #fi #mount $DISKDEV $MOUNTPOINT #mount | grep \"${DISKDEV} on ${MOUNTPOINT} \" /dev/null 2\u00261 #if test $? -ne 0 #then # ${out} \"[INFO] Cannot mount ${DISKDEV}.\" #\texit #fi ${out} \"[INFO] Start Tomcat server....\" export JAVA_HOME=/usr/java/jdk1.5.0_20 export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib/:$JAVA_HOME/jre/lib/ export PATH=$PATH:$JAVA_HOME/bin export JRE_HOME=$JAVA_HOME/jre /tomcat/bin/catalina.sh start ${out} \"[INFO] Start shell $0 finished.\" 停止脚本tomcat_stop.sh\n#!/bin/sh # This file: tomcat_stop.sh # Version: 4.0.1 HAHOME=`cat /etc/init.d/HAHOME` export HAHOME out=$HAHOME/bin/APIOUT.x JOBNAME=$2 #DISKDEV=/dev/sda5 #MOUNTPOINT=/var/lib/mysql ERRORNUMBER=$3 ${out} \"[INFO] The service ${JOBNAME} stop because of {$ERRORNUMBER}.\" ${out} \"[INFO] Stop Tomcat server....\" /tomcat/bin/catalina.sh stop sync #$HAHOME/bin/UMOUNT $DISKDEV $MOUNTPOINT #mount | grep \"${DISKDEV} on ${MOUNTPOINT} \" /dev/null 2\u00261 #if test $? -eq 0 #then #\t${out} \"[WARNING] Cannot umount ${DISKDEV}.\" #\t/sbin/reboot #fi ${out} \"[INFO] Stop shell $0 finished.\" 为脚本加上执行权限\nchmod +x *.sh 2.8 载入Oracle与Tomcat服务\n在Oracle主机上的RoseHA 图形管理工具中\nServices - Bring in - Oracle\n在Tomcat主机上的RoseHA图形管理工具中\nServices - Bring in - Tomcat\n此时，即实现了Oracle与Tomcat的双机双活应用。\n3. 维护RoseHA\n3.1 RoseHA常用命令\n查询RoseHA进程的命令\nps -ef | grep ha 可以看到四个进程hamond、hasysd、hachkd、hasvrd\n停止RoseHA：/opt/roseha/bin/ha_kill ha\n手工启动RoseHA进程：/opt/roseha/bin/hamond\n进入RoseHA图形管理工具：/opt/roseha/bin/hacon\n重启RoseHA服务：\n/opt/roseha/bin/roseha stop /opt/roseha/bin/roseha start 3.2 双机软件的开关机顺序\n开机：先后依次开磁盘阵列，主机，备机\n关机：先后依次关备机，主机，磁盘阵列\n3.3 双机软件中的术语\nBring in：把服务带入双机，受双机软件管理\nBring out：把服务带出双机，不受双机软件管理\nTake over：手工切换服务。在备机动作，来接管主机服务\nFail over：手工切换服务。在主机动作，来提交主机服务给备机\n",
   "wordCount" : "624",
   "inLanguage": "en",
   "datePublished": "2009-08-17T00:00:00Z",
@@ -161,6 +161,9 @@
     <h1 class="post-title">
       RoseHA for Linux安装与配置
     </h1>
+    <div class="post-description">
+      
+    </div>
     <div class="post-meta">
 
 August 17, 2009&nbsp;·&nbsp;mcsrainbow
@@ -198,17 +201,17 @@ reboot
 <pre><code>cd /opt/roseha/bin
 ./hacon
 </code></pre><p>进入控制界面，选择<code>Connect</code>，输入刚刚设置的用户名和密码，进入系统</p>
-<p><img src="/attachments/0062/roseha_011.jpg" alt="roseha_011"></p>
+<p><img src="/attachments/0580/roseha_011.jpg" alt="roseha_011"></p>
 <p>出现如下界面则说明连接正常</p>
-<p><img src="/attachments/0062/roseha_021.jpg" alt="roseha_021"></p>
+<p><img src="/attachments/0580/roseha_021.jpg" alt="roseha_021"></p>
 <p>2.3 配置licence授权</p>
 <p>移动 Tab 键在<code>HostName</code>处将本机的主机名和对端主机名填写正确就可以了<code>OK</code>。</p>
 <p>并且注意，两边机器都需要进行设置。</p>
-<p><img src="/attachments/0062/roseha_04.jpg" alt="roseha_04"></p>
+<p><img src="/attachments/0580/roseha_04.jpg" alt="roseha_04"></p>
 <p>2.4 创建socket私网</p>
 <p>进入<code>PrivateNet</code> - <code>Create Socket</code>, 选择主机用于私网的地址，用来作为两台机器通讯用的IP地址（心跳IP）。</p>
 <p>注：该操作在两台主机上都要做。</p>
-<p><img src="/attachments/0062/roseha_06.jpg" alt="roseha_06"></p>
+<p><img src="/attachments/0580/roseha_06.jpg" alt="roseha_06"></p>
 <p>2.5 获取对方主机信息</p>
 <p>进入 <code>Tools</code> - <code>Network</code>，直接选中<code>AutoGet</code> - <code>OK</code>，这样就会得到对方主机信息。</p>
 <p>2.6 创建Oracle服务</p>
@@ -396,7 +399,7 @@ sync
 <p><strong>3. 维护RoseHA</strong></p>
 <p>3.1 RoseHA常用命令</p>
 <p>查询RoseHA进程的命令</p>
-<pre><code>ps –ef | grep ha
+<pre><code>ps -ef | grep ha
 </code></pre><p>可以看到四个进程<code>hamond</code>、<code>hasysd</code>、<code>hachkd</code>、<code>hasvrd</code></p>
 <p>停止RoseHA：<code>/opt/roseha/bin/ha_kill ha</code></p>
 <p>手工启动RoseHA进程：<code>/opt/roseha/bin/hamond</code></p>
@@ -427,10 +430,9 @@ sync
     <span>&middot;</span>
     <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top">
-    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
-        accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
             <path d="M12 6H0l6-6z" />
         </svg>
     </button>
@@ -438,7 +440,7 @@ sync
 
 
 
-<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
@@ -450,9 +452,13 @@ sync
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {

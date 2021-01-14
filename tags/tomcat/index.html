@@ -11,7 +11,7 @@
 <meta name="description" content="A SRE Lead, a Solutions Architect and a Troubleshooter">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/tags/tomcat/" />
-<link href="https://blog.heylinux.com/assets/css/stylesheet.min.7f4d9412aeb47e596cf2b17d383b3b6c2f895eae5ee11362bf54ba945a1b83e2.css" integrity="sha256-f02UEq60flls8rF9ODs7bC&#43;JXq5e4RNiv1S6lFobg&#43;I=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="https://blog.heylinux.com/favicon.ico">
@@ -128,7 +128,7 @@
 
   <header class="entry-header">
     <h2>
-      Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」
+      Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置
     </h2>
   </header>
   <section class="entry-content">
@@ -138,7 +138,7 @@
 
 December 26, 2007&nbsp;·&nbsp;mcsrainbow
 </footer>
-  <a class="entry-link" aria-label="post link to Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置「原创规范」" href="https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%9B%E8%A7%84%E8%8C%83/"></a>
+  <a class="entry-link" aria-label="post link to Apache&#43;Mysql&#43;Php&#43;ZendOptimizer&#43;JDK&#43;Tomcat安装与配置" href="https://blog.heylinux.com/2007/12/apache-mysql-php-zendoptimizer-jdk-tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"></a>
 </article>
 
     </main><footer class="footer">
@@ -148,10 +148,9 @@ December 26, 2007&nbsp;·&nbsp;mcsrainbow
     <span>&middot;</span>
     <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top">
-    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
-        accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
             <path d="M12 6H0l6-6z" />
         </svg>
     </button>
@@ -169,9 +168,13 @@ December 26, 2007&nbsp;·&nbsp;mcsrainbow
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {

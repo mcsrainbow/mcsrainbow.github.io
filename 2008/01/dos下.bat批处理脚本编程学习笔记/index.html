@@ -14,7 +14,7 @@
 ">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-<link href="https://blog.heylinux.com/assets/css/stylesheet.min.7f4d9412aeb47e596cf2b17d383b3b6c2f895eae5ee11362bf54ba945a1b83e2.css" integrity="sha256-f02UEq60flls8rF9ODs7bC&#43;JXq5e4RNiv1S6lFobg&#43;I=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="https://blog.heylinux.com/favicon.ico">
@@ -53,7 +53,7 @@
   "keywords": [
     "Windows"
   ],
-  "articleBody": "需要理解的一些概念：\n 什么是脚本？  脚本可以理解为是一种简单的程序（它的语法相对简单，不需要编译，是解释执行的）。\n这一点和Linux下的shell是类似的，并且像php,Python这样流行的语言也属于脚本语言。\n他们共同的特点是，不需要像C,Java那样需要经过编译成二进制文件后才可以运行，它们需要的，仅仅是一个专属的解释器。\n什么是批处理？  我们可以理解为“批量处理”，将一些命令保存到一个文件中，然后一条条一次运行。当然，批处理的功能并不局限于此。\n如何建立批处理程序？  新建一个文本文档，将代码写入后更改其扩展名为bat或cmd(NT中的另一种批处理文件)即可。\n如何运行批处理程序？  无需编译等操作，直接在Windows下双击或DOS下输入批处理文件名即可运行。\n批处理都有那些命令？  我们可以这样想，除了批处理专属的命令外，任何可以在DOS下使用的命令批处理都是可以使用的。\n学习一门语言的最好的方法是：\n  有一本系统的、全面的、实用的、循序渐进的阶段性教程来进行指导：《批处理阶段教程[英雄出品]》\n  有大量的源代码可供参考，通过对这些代码的分析、修改与借鉴来编写出属于自己的程序：《70个批处理实用程序源码》\n  有一本相当实用的参考手册，可以在实际的代码编写中快速查阅所有命令的参数和实用方法等：《DOS命令全集(中英文对照)》\n  还有，大家始终要记得批处理脚本的能力真的很有限，我们只需要用它来方便我们处理一些简单的问题就好了！\n例如：以下代码便是我根据日常工作需要编写的一个网速检测的脚本\nWindows XP版本\n@echo off @echo 该程序用于对ping的返回结果进行分析判断 @echo 测试发送包大小为默认的32bytes @echo ...................................... set /p SITE=请自定义测试网站地址(如www.baidu.com)： set /p TIMES=请自定义ping的次数(如10)： set /p MAX=请自定义可接受的最大延迟数，默认单位ms(如200)： set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于%TIMES%)： @echo ...................................... goto FLUX :FLUX ::定义模块，用于计算出当前电脑ping结果的最小值与掉包次数 ping -n %TIMES% %SITE% ping.txt find \"Minimum\" ping.txt pingmin.txt find \"Lost\" ping.txt pingtimeout.txt for /f \"skip=2 tokens=3\" %%M in (pingmin.txt) do set PING=%%M echo %PING% pingminnum.txt for /f \"tokens=1 delims=m\" %%I in (pingminnum.txt) do set NUM=%%I for /f \"skip=2 tokens=10\" %%J in (pingtimeout.txt) do set TIMEOUT=%%J echo 最短:%NUM%ms 丢失:%TIMEOUT%/%TIMES% if %TIMEOUT% GEQ %TIMEOUTMAX% (goto WARNING) if %NUM% GEQ %MAX% (goto WARNING) else goto CONTINUE :WARNING mshta vbscript:msgbox(\"网络已经差于预设值！请立刻采取相应措施！\",64,\"警告窗口\")(window.close) goto CONTINUE :CONTINUE goto FLUX ::从这里开始再次回到FLUX模块进行循环 Windows 7版本\n@echo off @echo 该程序用于对ping的返回结果进行分析判断 @echo 测试发送包大小为默认的32bytes @echo ...................................... set /p SITE=请自定义测试网站地址(如www.baidu.com)： set /p TIMES=请自定义ping的次数(如10)： set /p MAX=请自定义可接受的最大延迟数，默认单位ms(如200)： set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于%TIMES%)： @echo ...................................... goto FLUX :FLUX ::定义模块，用于计算出当前电脑ping结果的最小值与掉包次数 ping -n %TIMES% %SITE% ping.txt find \"最短\" ping.txt pingmin.txt find \"丢失\" ping.txt pingtimeout.txt for /f \"skip=2 tokens=3\" %%M in (pingmin.txt) do set PING=%%M echo %PING% pingminnum.txt for /f \"tokens=1 delims=m\" %%I in (pingminnum.txt) do set NUM=%%I for /f \"skip=2 tokens=8\" %%J in (pingtimeout.txt) do set TIMEOUT=%%J echo 最短:%NUM%ms 丢失:%TIMEOUT%/%TIMES% if %TIMEOUT% GEQ %TIMEOUTMAX% (goto WARNING) if %NUM% GEQ %MAX% (goto WARNING) else goto CONTINUE :WARNING mshta vbscript:msgbox(\"网络已经差于预设值！请立刻采取相应措施！\",64,\"警告窗口\")(window.close) goto CONTINUE :CONTINUE goto FLUX ::从这里开始再次回到FLUX模块进行循环 ",
+  "articleBody": "需要理解的一些概念：\n 什么是脚本？  脚本可以理解为是一种简单的程序（它的语法相对简单，不需要编译，是解释执行的）。\n这一点和Linux下的Shell是类似的，并且像PHP,Python这样流行的语言也属于脚本语言。\n他们共同的特点是，不需要像C,Java那样需要经过编译成二进制文件后才可以运行，它们需要的，仅仅是一个专属的解释器。\n什么是批处理？  我们可以理解为“批量处理”，将一些命令保存到一个文件中，然后一条条一次运行。当然，批处理的功能并不局限于此。\n如何建立批处理程序？  新建一个文本文档，将代码写入后更改其扩展名为bat或cmd(NT中的另一种批处理文件)即可。\n如何运行批处理程序？  无需编译等操作，直接在Windows下双击或DOS下输入批处理文件名即可运行。\n批处理都有那些命令？  我们可以这样想，除了批处理专属的命令外，任何可以在DOS下使用的命令批处理都是可以使用的。\n学习一门语言的最好的方法是：\n  有一本系统的、全面的、实用的、循序渐进的阶段性教程来进行指导：《批处理阶段教程[英雄出品]》\n  有大量的源代码可供参考，通过对这些代码的分析、修改与借鉴来编写出属于自己的程序：《70个批处理实用程序源码》\n  有一本相当实用的参考手册，可以在实际的代码编写中快速查阅所有命令的参数和实用方法等：《DOS命令全集(中英文对照)》\n  还有，大家始终要记得批处理脚本的能力真的很有限，我们只需要用它来方便我们处理一些简单的问题就好了！\n例如：以下代码便是我根据日常工作需要编写的一个网速检测的脚本\nWindows XP版本\n@echo off @echo 该程序用于对ping的返回结果进行分析判断 @echo 测试发送包大小为默认的32bytes @echo ...................................... set /p SITE=请自定义测试网站地址(如www.baidu.com)： set /p TIMES=请自定义ping的次数(如10)： set /p MAX=请自定义可接受的最大延迟数，默认单位ms(如200)： set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于%TIMES%)： @echo ...................................... goto FLUX :FLUX ::定义模块，用于计算出当前电脑ping结果的最小值与掉包次数 ping -n %TIMES% %SITE% ping.txt find \"Minimum\" ping.txt pingmin.txt find \"Lost\" ping.txt pingtimeout.txt for /f \"skip=2 tokens=3\" %%M in (pingmin.txt) do set PING=%%M echo %PING% pingminnum.txt for /f \"tokens=1 delims=m\" %%I in (pingminnum.txt) do set NUM=%%I for /f \"skip=2 tokens=10\" %%J in (pingtimeout.txt) do set TIMEOUT=%%J echo 最短:%NUM%ms 丢失:%TIMEOUT%/%TIMES% if %TIMEOUT% GEQ %TIMEOUTMAX% (goto WARNING) if %NUM% GEQ %MAX% (goto WARNING) else goto CONTINUE :WARNING mshta vbscript:msgbox(\"网络已经差于预设值！请立刻采取相应措施！\",64,\"警告窗口\")(window.close) goto CONTINUE :CONTINUE goto FLUX ::从这里开始再次回到FLUX模块进行循环 Windows 7版本\n@echo off @echo 该程序用于对ping的返回结果进行分析判断 @echo 测试发送包大小为默认的32bytes @echo ...................................... set /p SITE=请自定义测试网站地址(如www.baidu.com)： set /p TIMES=请自定义ping的次数(如10)： set /p MAX=请自定义可接受的最大延迟数，默认单位ms(如200)： set /p TIMEOUTMAX=请自定义可接受的最大掉包次数(小于%TIMES%)： @echo ...................................... goto FLUX :FLUX ::定义模块，用于计算出当前电脑ping结果的最小值与掉包次数 ping -n %TIMES% %SITE% ping.txt find \"最短\" ping.txt pingmin.txt find \"丢失\" ping.txt pingtimeout.txt for /f \"skip=2 tokens=3\" %%M in (pingmin.txt) do set PING=%%M echo %PING% pingminnum.txt for /f \"tokens=1 delims=m\" %%I in (pingminnum.txt) do set NUM=%%I for /f \"skip=2 tokens=8\" %%J in (pingtimeout.txt) do set TIMEOUT=%%J echo 最短:%NUM%ms 丢失:%TIMEOUT%/%TIMES% if %TIMEOUT% GEQ %TIMEOUTMAX% (goto WARNING) if %NUM% GEQ %MAX% (goto WARNING) else goto CONTINUE :WARNING mshta vbscript:msgbox(\"网络已经差于预设值！请立刻采取相应措施！\",64,\"警告窗口\")(window.close) goto CONTINUE :CONTINUE goto FLUX ::从这里开始再次回到FLUX模块进行循环 ",
   "wordCount" : "221",
   "inLanguage": "en",
   "datePublished": "2008-01-04T00:00:00Z",
@@ -167,6 +167,9 @@
     <h1 class="post-title">
       DOS下.bat批处理脚本编程学习笔记
     </h1>
+    <div class="post-description">
+      
+    </div>
     <div class="post-meta">
 
 January 4, 2008&nbsp;·&nbsp;mcsrainbow
@@ -180,7 +183,7 @@ January 4, 2008&nbsp;·&nbsp;mcsrainbow
 <li>什么是脚本？</li>
 </ol>
 <p>脚本可以理解为是一种简单的程序（它的语法相对简单，不需要编译，是解释执行的）。</p>
-<p>这一点和Linux下的shell是类似的，并且像php,Python这样流行的语言也属于脚本语言。</p>
+<p>这一点和Linux下的Shell是类似的，并且像PHP,Python这样流行的语言也属于脚本语言。</p>
 <p>他们共同的特点是，不需要像C,Java那样需要经过编译成二进制文件后才可以运行，它们需要的，仅仅是一个专属的解释器。</p>
 <ol start="2">
 <li>什么是批处理？</li>
@@ -289,10 +292,9 @@ goto FLUX ::从这里开始再次回到FLUX模块进行循环
     <span>&middot;</span>
     <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top">
-    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
-        accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
             <path d="M12 6H0l6-6z" />
         </svg>
     </button>
@@ -300,7 +302,7 @@ goto FLUX ::从这里开始再次回到FLUX模块进行循环
 
 
 
-<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
@@ -312,9 +314,13 @@ goto FLUX ::从这里开始再次回到FLUX模块进行循环
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {

@@ -11,7 +11,7 @@
 <meta name="description" content="Zend Optimizer是由Zend技术公司所开发的免费PHP优化软件。">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/2007/06/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5%E4%B9%8Bphp%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E5%8A%A0%E9%80%9F/" />
-<link href="https://blog.heylinux.com/assets/css/stylesheet.min.7f4d9412aeb47e596cf2b17d383b3b6c2f895eae5ee11362bf54ba945a1b83e2.css" integrity="sha256-f02UEq60flls8rF9ODs7bC&#43;JXq5e4RNiv1S6lFobg&#43;I=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="https://blog.heylinux.com/favicon.ico">
@@ -44,7 +44,7 @@
   "keywords": [
     "Linux", "eAccelerator", "Zend", "PHP"
   ],
-  "articleBody": "Zend Optimizer是由Zend技术公司所开发的免费PHP优化软件。\n1. 安装Zend Optimizer优化PHP程序 据Zend公司透露使用这个软件某些情况下至少可以提高性能30%以上！现在我们来看看如何安装配置这套软件。打开http://www.zend.com/downloads官方网站下载最新的Zend Optimizer。\n1.1 执行tar命令解压该刚刚下载的Zend Optimizer\n1.2 进入解压后的程序目录，运行安装文件install.sh\n1.3 接下来很轻松的按照向导一步步执行\n  阅读许可协议并同意\n  安装向导会要求你确认当前使用的APACHE服务器\n  安装向导会提示您确认php.ini的位置，并提示备份php.ini\n  安装向导会提示你重新启动WEB服务\n  安装完毕后程序会自动根据你的选择来修改php.ini并帮助你启动这个引擎\n  这个时候，你的php执行效率已经得到了优化，且经过zend加密的php程序也可以执行了\n  2. 安装eAccelerator再度优化PHP程序并对其加密 2.1 eAccelerator介绍\n2.1.1 背景\neAccelerator 是一个免费开源的PHP加速、优化、编译和动态缓存的项目，它可以通过缓存PHP代码编译后的结果来提高PHP脚本的性能，使得一向很复杂和离我们很远的PHP脚本编译问题完全得到解决。 通过使用eAccelerator，可以优化PHP代码执行速度，降低服务器负载，可以提高PHP应用执行速度最高达10倍。\neAccelerator 项目诞生于2004年，当时它是作为Turck MMCache项目的一个分支提出并投入开发的。Turck MMCache由Dmitry Stogov开发，是个非常优秀的PHP内存缓存加速系统，如今仍然有很大部分 eAccelerator 的代码应用到该项目中，目前该项目有很长时间没有更新了，对于最新的PHP5.x的支持还未推出。\n2.1.2 原理\neAccelerator 通过把经过编译后的PHP代码缓存到共享内存中，并在用户访问的时候直接调用从而起到高效的加速作用。它的效率非常高，从创建共享内存到查找编译后的代码都在非常短的时间内完成，对于不能缓存到共享内存中的文件和代码，eAccelerator还可以把他们缓存到系统磁盘上。\neAccelerator 同样还支持PHP代码的编译和解释执行，可以通过encoder.php脚本来对php代码进行编译达到保护代码的目的，经过编译后的代码必须运行在安装了eAccelerator的环境下。eAccelerator编译后的代码不能被反编译，它不象其他一些编译工具那样可以进行反编译，这将使得代码更加安全和高效。\n2.2 eAccelerator安装配置\n2.2.1 系统要求\nphp4 php5 autoconf automake libtool m4 eAccelerator只支持使用mod_php或者fastcgi mode安装的PHP\n2.2.2 安装eAccelerator\n先去eAccelerator官方下载最新版的源码包如：eaccelerator-0.9.5-beta.tar.bz2\ntar -zxvf ./eaccelerator-0.9.5-beta2.tar.bz2 cd eaccelerator-0.9.5-beta2 export PHP_PREFIX=\"/usr/local/php/\" #把PHP安装目录导入到环境变量，如产用的/usr/local/php $PHP_PREFIX/bin/phpize ./configure –enable-eaccelerator=shared –with-php-config=$PHP_PREFIX/bin/php-config make make install 2.2.3 php.ini文件配置\n安装完成，下面开始配置php.ini文件\n注：将以下代码加入到[Zend]标签之前，否则不能启动APACHE服务器。\n[eAccelerator] extension=\"eaccelerator.so\" eaccelerator.shm_size=\"16\" eaccelerator.cache_dir=\"/tmp/eaccelerator\" eaccelerator.enable=\"1\" eaccelerator.optimizer=\"1\" eaccelerator.check_mtime=\"1\" eaccelerator.debug=\"0\" eaccelerator.log_file=\"/var/log/httpd/eaccelerator_log\" eaccelerator.filter=\"\" eaccelerator.shm_max=\"0\" eaccelerator.shm_ttl=\"0\" eaccelerator.shm_prune_period=\"0\" eaccelerator.shm_only=\"0\" eaccelerator.compress=\"1\" eaccelerator.compress_level=\"9\" 设置中需要注意的是：\n extension=\"eaccelerator.so\"这一项中的eaccelerator.so应该修改为实际的该文件的绝对路径； 接着在php.ini中搜寻extension_dir，并将extension_dir = \"./\"修改为extension_dir = \"/\"，即修改其为根目录；  2.2.4 完成安装配置后，我们最后要创建缓存目录：\nmkdir /tmp/eaccelerator chmod 777 /tmp/eaccelerator 2.2.5 重启apache使eaccelerator引擎生效\n2.2.6 验证安装结果\n通过浏览器访问您的phpinfo()页面或者运行php -i得到php配置信息，里面如果看到类似下面的信息就表示安装成功了。\nThis program makes use of the Zend Scripting Language Engine: Zend Engine, Copyright (c) 1998-2006 Zend Technologies with eAccelerator v0.9.5-beta2, Copyright (c) 2004-2006 eAccelerator, by eAccelerator. 2.2.7 使用引擎对PHP进行加密\n将eaccelerator安装目录下的encoder.php文件提取出来，首先备份准备加密的网站程序怒路，然后用该文件进行加密（如我对/var/www/admincp/这个目录下的所有PHP程序进行加密）；\n$PHP_PREFIX/bin/php encoder.php -rf -sphp /var/www/admincp/ -o /var/www/admincp/ 好了，一套完整的PHP优化与加密策略完成了！打开你的浏览器，体验其带来的暂新速度体验吧！\n",
+  "articleBody": "Zend Optimizer是由Zend技术公司所开发的免费PHP优化软件。\n1. 安装Zend Optimizer优化PHP程序 据Zend公司透露使用这个软件某些情况下至少可以提高性能30%以上！现在我们来看看如何安装配置这套软件。打开http://www.zend.com/downloads官方网站下载最新的Zend Optimizer。\n1.1 执行tar命令解压该刚刚下载的Zend Optimizer\n1.2 进入解压后的程序目录，运行安装文件install.sh\n1.3 接下来很轻松的按照向导一步步执行\n  阅读许可协议并同意\n  安装向导会要求你确认当前使用的APACHE服务器\n  安装向导会提示您确认php.ini的位置，并提示备份php.ini\n  安装向导会提示你重新启动WEB服务\n  安装完毕后程序会自动根据你的选择来修改php.ini并帮助你启动这个引擎\n  这个时候，你的php执行效率已经得到了优化，且经过zend加密的php程序也可以执行了\n  2. 安装eAccelerator再度优化PHP程序并对其加密 2.1 eAccelerator介绍\n2.1.1 背景\neAccelerator 是一个免费开源的PHP加速、优化、编译和动态缓存的项目，它可以通过缓存PHP代码编译后的结果来提高PHP脚本的性能，使得一向很复杂和离我们很远的PHP脚本编译问题完全得到解决。 通过使用eAccelerator，可以优化PHP代码执行速度，降低服务器负载，可以提高PHP应用执行速度最高达10倍。\neAccelerator 项目诞生于2004年，当时它是作为Turck MMCache项目的一个分支提出并投入开发的。Turck MMCache由Dmitry Stogov开发，是个非常优秀的PHP内存缓存加速系统，如今仍然有很大部分 eAccelerator 的代码应用到该项目中，目前该项目有很长时间没有更新了，对于最新的PHP5.x的支持还未推出。\n2.1.2 原理\neAccelerator 通过把经过编译后的PHP代码缓存到共享内存中，并在用户访问的时候直接调用从而起到高效的加速作用。它的效率非常高，从创建共享内存到查找编译后的代码都在非常短的时间内完成，对于不能缓存到共享内存中的文件和代码，eAccelerator还可以把他们缓存到系统磁盘上。\neAccelerator 同样还支持PHP代码的编译和解释执行，可以通过encoder.php脚本来对php代码进行编译达到保护代码的目的，经过编译后的代码必须运行在安装了eAccelerator的环境下。eAccelerator编译后的代码不能被反编译，它不象其他一些编译工具那样可以进行反编译，这将使得代码更加安全和高效。\n2.2 eAccelerator安装配置\n2.2.1 系统要求\nphp4 php5 autoconf automake libtool m4 eAccelerator只支持使用mod_php或者fastcgi mode安装的PHP\n2.2.2 安装eAccelerator\n先去eAccelerator官方下载最新版的源码包如：eaccelerator-0.9.5-beta.tar.bz2\ntar -zxvf ./eaccelerator-0.9.5-beta2.tar.bz2 cd eaccelerator-0.9.5-beta2 export PHP_PREFIX=\"/usr/local/php/\" #把PHP安装目录导入到环境变量，如产用的/usr/local/php $PHP_PREFIX/bin/phpize ./configure --enable-eaccelerator=shared --with-php-config=$PHP_PREFIX/bin/php-config make make install 2.2.3 php.ini文件配置\n安装完成，下面开始配置php.ini文件\n注：将以下代码加入到[Zend]标签之前，否则不能启动APACHE服务器。\n[eAccelerator] extension=\"eaccelerator.so\" eaccelerator.shm_size=\"16\" eaccelerator.cache_dir=\"/tmp/eaccelerator\" eaccelerator.enable=\"1\" eaccelerator.optimizer=\"1\" eaccelerator.check_mtime=\"1\" eaccelerator.debug=\"0\" eaccelerator.log_file=\"/var/log/httpd/eaccelerator_log\" eaccelerator.filter=\"\" eaccelerator.shm_max=\"0\" eaccelerator.shm_ttl=\"0\" eaccelerator.shm_prune_period=\"0\" eaccelerator.shm_only=\"0\" eaccelerator.compress=\"1\" eaccelerator.compress_level=\"9\" 设置中需要注意的是：\n extension=\"eaccelerator.so\"这一项中的eaccelerator.so应该修改为实际的该文件的绝对路径； 接着在php.ini中搜寻extension_dir，并将extension_dir = \"./\"修改为extension_dir = \"/\"，即修改其为根目录；  2.2.4 完成安装配置后，我们最后要创建缓存目录：\nmkdir /tmp/eaccelerator chmod 777 /tmp/eaccelerator 2.2.5 重启apache使eaccelerator引擎生效\n2.2.6 验证安装结果\n通过浏览器访问您的phpinfo()页面或者运行php -i得到php配置信息，里面如果看到类似下面的信息就表示安装成功了。\nThis program makes use of the Zend Scripting Language Engine: Zend Engine, Copyright (c) 1998-2006 Zend Technologies with eAccelerator v0.9.5-beta2, Copyright (c) 2004-2006 eAccelerator, by eAccelerator. 2.2.7 使用引擎对PHP进行加密\n将eaccelerator安装目录下的encoder.php文件提取出来，首先备份准备加密的网站程序怒路，然后用该文件进行加密（如我对/var/www/admincp/这个目录下的所有PHP程序进行加密）；\n$PHP_PREFIX/bin/php encoder.php -rf -sphp /var/www/admincp/ -o /var/www/admincp/ 好了，一套完整的PHP优化与加密策略完成了！打开你的浏览器，体验其带来的暂新速度体验吧！\n",
   "wordCount" : "149",
   "inLanguage": "en",
   "datePublished": "2007-06-30T00:00:00Z",
@@ -158,6 +158,9 @@
     <h1 class="post-title">
       Linux服务器优化策略之PHP的加密与加速
     </h1>
+    <div class="post-description">
+      
+    </div>
     <div class="post-meta">
 
 June 30, 2007&nbsp;·&nbsp;mcsrainbow
@@ -216,7 +219,7 @@ m4
 cd eaccelerator-0.9.5-beta2
 export PHP_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/php/&#34;</span> <span style="color:#75715e">#把PHP安装目录导入到环境变量，如产用的/usr/local/php</span>
 $PHP_PREFIX/bin/phpize
-./configure –enable-eaccelerator<span style="color:#f92672">=</span>shared –with-php-config<span style="color:#f92672">=</span>$PHP_PREFIX/bin/php-config
+./configure --enable-eaccelerator<span style="color:#f92672">=</span>shared --with-php-config<span style="color:#f92672">=</span>$PHP_PREFIX/bin/php-config
 make
 make install
 </code></pre></div><p>2.2.3 php.ini文件配置</p>
@@ -272,10 +275,9 @@ Zend Engine, Copyright (c) 1998-2006 Zend Technologies with eAccelerator v0.9.5-
     <span>&middot;</span>
     <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top">
-    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
-        accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
             <path d="M12 6H0l6-6z" />
         </svg>
     </button>
@@ -283,7 +285,7 @@ Zend Engine, Copyright (c) 1998-2006 Zend Technologies with eAccelerator v0.9.5-
 
 
 
-<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
@@ -295,9 +297,13 @@ Zend Engine, Copyright (c) 1998-2006 Zend Technologies with eAccelerator v0.9.5-
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {

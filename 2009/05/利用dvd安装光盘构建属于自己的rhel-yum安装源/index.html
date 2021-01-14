@@ -11,7 +11,7 @@
 <meta name="description" content="相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/2009/05/%E5%88%A9%E7%94%A8dvd%E5%AE%89%E8%A3%85%E5%85%89%E7%9B%98%E6%9E%84%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84rhel-yum%E5%AE%89%E8%A3%85%E6%BA%90/" />
-<link href="https://blog.heylinux.com/assets/css/stylesheet.min.7f4d9412aeb47e596cf2b17d383b3b6c2f895eae5ee11362bf54ba945a1b83e2.css" integrity="sha256-f02UEq60flls8rF9ODs7bC&#43;JXq5e4RNiv1S6lFobg&#43;I=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="https://blog.heylinux.com/favicon.ico">
@@ -44,8 +44,8 @@
   "keywords": [
     "Linux", "YUM"
   ],
-  "articleBody": "相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。\n但是我相信大家一定有很多也和我一样仍然喜欢使用正统的RHEL吧，但是目前免费的 RHEL YUM源 真的是很难找，如果用CentOS的源的话，感觉又很别扭。\n那么我们为什么不对自己好点，建立一个自己的RHEL YUM源呢？而且我从一位前辈那里得知，淘宝网的运维就是搭建了一个自己的yum源，然后将所有需要部署的自研软件都花费精力做成了rpm包，这样，每次部署软件的时候，一条yum install 就可以搞定了，听起来很过瘾咯。\n整个yum的搭建过程其实非常easy，按照以下步骤就可以很快的完成。\n我的环境：\ncat /etc/redhat-release Red Hat Enterprise Linux Server release 5.6 (Tikanga) uname -a Linux localhost.localdomain 2.6.18-238.el5 #1 SMP Sun Dec 19 14:22:44 EST 2010 x86_64 x86_64 x86_64 GNU/Linux 首先，使用rpm安装好以下软件包\nyum-3.2.22-33.el5\ncreaterepo-0.4.11-3.el5\nvsftpd-2.0.5-16.el5_5.1\n一、配置yum源服务端\n 从DVD光盘中复制软件包  mkdir /mnt/cdrom mount /dev/cdrom /mnt/cdrom cp -prfa /mnt/cdrom /var/ftp/rhel5.6-x86_64 如果是iso文件则执行mount -o loop rhel-server-5.6-x86_64-dvd.iso /mnt/cdrom\n创建repository信息库  cd /var/ftp/rhel5.6-x86_64/Server/ createrepo -g repodata/comps-rhel5-server-core.xml ./ cd ../Cluster/ createrepo -g repodata/comps-rhel5-cluster.xml ./ cd ../ClusterStorage createrepo -g repodata/comps-rhel5-cluster-st.xml ./ cd ../VT createrepo -g repodata/comps-rhel5-vt.xml ./ 配置vsFTPd服务  确认开启了匿名用户访问权限\ngrep anonymous_enable /etc/vsftpd/vsftpd.conf anonymous_enable=YES 启动vsftp服务\n/etc/init.d/vsftpd start 二、配置yum客户端\n 创建.repo配置文件（具体IP请根据实际情况进行修改）  vim /etc/yum.repos.d/rhel5-rpms-from-dvd.repo [Cluster] name=Cluster Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/Cluster enabled=1 gpgcheck=0 [ClusterStorage] name=ClusterStorage Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/ClusterStorage enabled=1 gpgcheck=0 [Server] name=Server Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/Server enabled=1 gpgcheck=0 [VT] name=VT Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/VT enabled=1 gpgcheck=0 清除旧的缓存数据  yum clean all 软件安装测试  yum install unzip Loaded plugins: rhnplugin, security This system is not registered with RHN. RHN support will be disabled. Cluster | 1.1 kB 00:00 Cluster/primary | 5.9 kB 00:00 Cluster 32/32 ClusterStorage | 1.1 kB 00:00 ClusterStorage/primary | 8.4 kB 00:00 ClusterStorage 39/39 Server | 1.1 kB 00:00 Server/primary | 1.1 MB 00:00 Server 3229/3229 VT | 1.1 kB 00:00 VT/primary | 18 kB 00:00 VT 57/57 Setting up Install Process Package unzip-5.52-3.el5.x86_64 already installed and latest version Nothing to do 证明成功检查出unzip已经被安装，yum源搭建成功。\n",
-  "wordCount" : "207",
+  "articleBody": "相信大家一定都非常喜欢CentOS上面的yum，安装软件不用考虑那些烦人的软件包依赖关系。\n但是我相信大家一定有很多也和我一样仍然喜欢使用正统的RHEL吧，但是目前免费的 RHEL YUM源 真的是很难找，如果用CentOS的源的话，感觉又很别扭。\n那么我们为什么不对自己好点，建立一个自己的RHEL YUM源呢？而且我从一位前辈那里得知，淘宝网的运维就是搭建了一个自己的yum源，然后将所有需要部署的自研软件都花费精力做成了rpm包，这样，每次部署软件的时候，一条yum install 就可以搞定了，听起来很过瘾咯。\n整个yum的搭建过程其实非常easy，按照以下步骤就可以很快的完成。\n我的环境：\ncat /etc/redhat-release Red Hat Enterprise Linux Server release 5.6 (Tikanga) uname -a Linux localhost.localdomain 2.6.18-238.el5 #1 SMP Sun Dec 19 14:22:44 EST 2010 x86_64 x86_64 x86_64 GNU/Linux 首先，使用rpm安装好以下软件包\nyum-3.2.22-33.el5\ncreaterepo-0.4.11-3.el5\nvsftpd-2.0.5-16.el5_5.1\n 配置yum源服务端  1.1 从DVD光盘中复制软件包\nmkdir /mnt/cdrom mount /dev/cdrom /mnt/cdrom cp -prfa /mnt/cdrom /var/ftp/rhel5.6-x86_64 如果是iso文件则执行mount -o loop rhel-server-5.6-x86_64-dvd.iso /mnt/cdrom\n1.2 创建repository信息库\ncd /var/ftp/rhel5.6-x86_64/Server/ createrepo -g repodata/comps-rhel5-server-core.xml ./ cd ../Cluster/ createrepo -g repodata/comps-rhel5-cluster.xml ./ cd ../ClusterStorage createrepo -g repodata/comps-rhel5-cluster-st.xml ./ cd ../VT createrepo -g repodata/comps-rhel5-vt.xml ./ 1.3 配置vsFTPd服务\n确认开启了匿名用户访问权限\ngrep anonymous_enable /etc/vsftpd/vsftpd.conf anonymous_enable=YES 启动vsftp服务\n/etc/init.d/vsftpd start 配置yum客户端  2.1 创建.repo配置文件（具体IP请根据实际情况进行修改）\nvim /etc/yum.repos.d/rhel5-rpms-from-dvd.repo [Cluster] name=Cluster Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/Cluster enabled=1 gpgcheck=0 [ClusterStorage] name=ClusterStorage Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/ClusterStorage enabled=1 gpgcheck=0 [Server] name=Server Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/Server enabled=1 gpgcheck=0 [VT] name=VT Directory baseurl=ftp://192.168.10.129/rhel5.6-x86_64/VT enabled=1 gpgcheck=0 2.2 清除旧的缓存数据\nyum clean all 2.3 软件安装测试\nyum install unzip Loaded plugins: rhnplugin, security This system is not registered with RHN. RHN support will be disabled. Cluster | 1.1 kB 00:00 Cluster/primary | 5.9 kB 00:00 Cluster 32/32 ClusterStorage | 1.1 kB 00:00 ClusterStorage/primary | 8.4 kB 00:00 ClusterStorage 39/39 Server | 1.1 kB 00:00 Server/primary | 1.1 MB 00:00 Server 3229/3229 VT | 1.1 kB 00:00 VT/primary | 18 kB 00:00 VT 57/57 Setting up Install Process Package unzip-5.52-3.el5.x86_64 already installed and latest version Nothing to do 证明成功检查出unzip已经被安装，yum源搭建成功。\n",
+  "wordCount" : "213",
   "inLanguage": "en",
   "datePublished": "2009-05-26T00:00:00Z",
   "dateModified": "2009-05-26T00:00:00Z",
@@ -158,6 +158,9 @@
     <h1 class="post-title">
       利用DVD安装光盘构建属于自己的RHEL YUM安装源
     </h1>
+    <div class="post-description">
+      
+    </div>
     <div class="post-meta">
 
 May 26, 2009&nbsp;·&nbsp;mcsrainbow
@@ -179,17 +182,15 @@ May 26, 2009&nbsp;·&nbsp;mcsrainbow
 <p>yum-3.2.22-33.el5</p>
 <p>createrepo-0.4.11-3.el5</p>
 <p>vsftpd-2.0.5-16.el5_5.1</p>
-<p>一、配置yum源服务端</p>
 <ol>
-<li>从DVD光盘中复制软件包</li>
+<li>配置yum源服务端</li>
 </ol>
+<p>1.1 从DVD光盘中复制软件包</p>
 <pre><code>mkdir /mnt/cdrom
 mount /dev/cdrom /mnt/cdrom
 cp -prfa /mnt/cdrom /var/ftp/rhel5.6-x86_64
 </code></pre><p>如果是iso文件则执行<code>mount -o loop rhel-server-5.6-x86_64-dvd.iso /mnt/cdrom</code></p>
-<ol start="2">
-<li>创建repository信息库</li>
-</ol>
+<p>1.2 创建repository信息库</p>
 <pre><code>cd /var/ftp/rhel5.6-x86_64/Server/
 createrepo -g repodata/comps-rhel5-server-core.xml ./
 
@@ -201,18 +202,16 @@ createrepo -g repodata/comps-rhel5-cluster-st.xml ./
 
 cd ../VT
 createrepo -g repodata/comps-rhel5-vt.xml ./
-</code></pre><ol start="3">
-<li>配置vsFTPd服务</li>
-</ol>
+</code></pre><p>1.3 配置vsFTPd服务</p>
 <p>确认开启了匿名用户访问权限</p>
 <pre><code>grep anonymous_enable /etc/vsftpd/vsftpd.conf
 </code></pre><pre><code>anonymous_enable=YES
 </code></pre><p>启动vsftp服务</p>
 <pre><code>/etc/init.d/vsftpd start
-</code></pre><p>二、配置yum客户端</p>
-<ol>
-<li>创建.repo配置文件（具体IP请根据实际情况进行修改）</li>
+</code></pre><ol start="2">
+<li>配置yum客户端</li>
 </ol>
+<p>2.1 创建.repo配置文件（具体IP请根据实际情况进行修改）</p>
 <pre><code>vim /etc/yum.repos.d/rhel5-rpms-from-dvd.repo
 </code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[Cluster]</span>
 <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">Cluster Directory</span>
@@ -237,13 +236,9 @@ createrepo -g repodata/comps-rhel5-vt.xml ./
 <span style="color:#a6e22e">baseurl</span><span style="color:#f92672">=</span><span style="color:#e6db74">ftp://192.168.10.129/rhel5.6-x86_64/VT</span>
 <span style="color:#a6e22e">enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
 <span style="color:#a6e22e">gpgcheck</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span>
-</code></pre></div><ol start="2">
-<li>清除旧的缓存数据</li>
-</ol>
+</code></pre></div><p>2.2 清除旧的缓存数据</p>
 <pre><code>yum clean all
-</code></pre><ol start="3">
-<li>软件安装测试</li>
-</ol>
+</code></pre><p>2.3 软件安装测试</p>
 <pre><code>yum install unzip
 </code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Loaded plugins: rhnplugin, security
 This system is not registered with RHN.
@@ -279,10 +274,9 @@ Nothing to do
     <span>&middot;</span>
     <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top">
-    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
-        accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
             <path d="M12 6H0l6-6z" />
         </svg>
     </button>
@@ -290,7 +284,7 @@ Nothing to do
 
 
 
-<script defer src="https://blog.heylinux.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
@@ -302,9 +296,13 @@ Nothing to do
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {

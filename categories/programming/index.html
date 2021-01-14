@@ -11,7 +11,7 @@
 <meta name="description" content="A SRE Lead, a Solutions Architect and a Troubleshooter">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/categories/programming/" />
-<link href="https://blog.heylinux.com/assets/css/stylesheet.min.7f4d9412aeb47e596cf2b17d383b3b6c2f895eae5ee11362bf54ba945a1b83e2.css" integrity="sha256-f02UEq60flls8rF9ODs7bC&#43;JXq5e4RNiv1S6lFobg&#43;I=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
     as="style">
 
 <link rel="icon" href="https://blog.heylinux.com/favicon.ico">
@@ -141,23 +141,6 @@ January 4, 2008&nbsp;·&nbsp;mcsrainbow
 </footer>
   <a class="entry-link" aria-label="post link to DOS下.bat批处理脚本编程学习笔记" href="https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"></a>
 </article>
-<article class="post-entry tag-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      在Linux下用Shell写的俄罗斯方块程序
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>注：该文章转载自ChinaUnix BBS。
-...</p>
-  </section>
-  <footer class="entry-footer">
-
-October 10, 2007&nbsp;·&nbsp;mcsrainbow
-</footer>
-  <a class="entry-link" aria-label="post link to 在Linux下用Shell写的俄罗斯方块程序" href="https://blog.heylinux.com/2007/10/%E5%9C%A8linux%E4%B8%8B%E7%94%A8shell%E5%86%99%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E7%A8%8B%E5%BA%8F/"></a>
-</article>
 
     </main><footer class="footer">
     <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
@@ -166,10 +149,9 @@ October 10, 2007&nbsp;·&nbsp;mcsrainbow
     <span>&middot;</span>
     <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top">
-    <button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top (Alt + G)"
-        accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
             <path d="M12 6H0l6-6z" />
         </svg>
     </button>
@@ -187,9 +169,13 @@ October 10, 2007&nbsp;·&nbsp;mcsrainbow
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {
