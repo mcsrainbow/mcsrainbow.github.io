@@ -71,7 +71,7 @@ startup pfile=E:Oracleadminoradbpfileinit.ora
 ```bash
 $ lsnrctl stop #关闭监听器，在这之前，应该先关闭应用程序
 $ sqlplus /nolog
-sql>shutdown
+sql> shutdown
 ```
 
 **`shutdown`有四个参数，四个参数的含义如下**
@@ -112,13 +112,13 @@ dict_column 全部数据字典表里字段名称和解释；
 如果我们想查询跟索引有关的数据字典时，可以用下面这条SQL语句:
 
 ```sql
-SQL>select * from dictionary where instr(comments,'index')>0;
+SQL> select * from dictionary where instr(comments,'index')>0;
 ```
 
 如果我们想知道user_indexes表各字段名称的详细含义，可以用下面这条SQL语句:
 
 ```sql
-SQL>select column_name,comments from dict_columns where table_name='USER_INDEXES';
+SQL> select column_name,comments from dict_columns where table_name='USER_INDEXES';
 ```
 
 依此类推，就可以轻松知道数据字典的详细名称和解释，不用查看ORACLE的其它文档资料了。
@@ -130,20 +130,20 @@ SQL>select column_name,comments from dict_columns where table_name='USER_INDEXES
 查看当前用户的缺省表空间
 
 ```sql
-SQL>select username,default_tablespace from user_users;
+SQL> select username,default_tablespace from user_users;
 ```
 
 查看当前用户的角色
 
 ```sql
-SQL>select * from user_role_privs;
+SQL> select * from user_role_privs;
 ```
 
 查看当前用户的系统权限和表级权限
 
 ```sql
-SQL>select * from user_sys_privs;
-SQL>select * from user_tab_privs;
+SQL> select * from user_sys_privs;
+SQL> select * from user_tab_privs;
 ```
 
 2、表
@@ -151,31 +151,31 @@ SQL>select * from user_tab_privs;
 查看用户下所有的表
 
 ```sql
-SQL>select * from user_tables;
+SQL> select * from user_tables;
 ```
 
 查看名称包含log字符的表
 
 ```sql
-SQL>select object_name,object_id from user_objects where instr(object_name,'LOG')>0;
+SQL> select object_name,object_id from user_objects where instr(object_name,'LOG')>0;
 ```
 
 查看某表的创建时间
 
 ```sql
-SQL>select object_name,created from user_objects where object_name=upper('&table_name');
+SQL> select object_name,created from user_objects where object_name=upper('&table_name');
 ```
 
 查看某表的大小
 
 ```sql
-SQL>select sum(bytes)/(1024*1024) as "size(M)" from user_segments where segment_name=upper('&table_name');
+SQL> select sum(bytes)/(1024*1024) as "size(M)" from user_segments where segment_name=upper('&table_name');
 ```
 
 查看放在ORACLE的内存区里的表
 
 ```sql
-SQL>select table_name,cache from user_tables where instr(cache,'Y')>0;
+SQL> select table_name,cache from user_tables where instr(cache,'Y')>0;
 ```
 
 3、索引
@@ -183,19 +183,19 @@ SQL>select table_name,cache from user_tables where instr(cache,'Y')>0;
 查看索引个数和类别
 
 ```sql
-SQL>select index_name,index_type,table_name from user_indexes order by table_name;
+SQL> select index_name,index_type,table_name from user_indexes order by table_name;
 ```
 
 查看索引被索引的字段
 
 ```sql
-SQL>select * from user_ind_columns where index_name=upper('&index_name');
+SQL> select * from user_ind_columns where index_name=upper('&index_name');
 ```
 
 查看索引的大小
 
 ```sql
-SQL>select sum(bytes)/(1024*1024) as "size(M)" from user_segments where segment_name=upper(''&index_name');
+SQL> select sum(bytes)/(1024*1024) as "size(M)" from user_segments where segment_name=upper(''&index_name');
 ```
 
 4、序列号
@@ -203,7 +203,7 @@ SQL>select sum(bytes)/(1024*1024) as "size(M)" from user_segments where segment_
 查看序列号，last_number是当前值
 
 ```sql
-SQL>select * from user_sequences;
+SQL> select * from user_sequences;
 ```
 
 5、视图
@@ -211,15 +211,15 @@ SQL>select * from user_sequences;
 查看视图的名称
 
 ```sql
-SQL>select view_name from user_views;
+SQL> select view_name from user_views;
 ```
 
 查看创建视图的select语句
 
 ```sql
-SQL>set view_name,text_length from user_views;
-SQL>set long 2000; 说明：可以根据视图的text_length值设定set long 的大小
-SQL>select text from user_views where view_name=upper('&view_name');
+SQL> set view_name,text_length from user_views;
+SQL> set long 2000; 说明：可以根据视图的text_length值设定set long的大小
+SQL> select text from user_views where view_name=upper('&view_name');
 ```
 
 6、同义词
@@ -227,7 +227,7 @@ SQL>select text from user_views where view_name=upper('&view_name');
 查看同义词的名称
 
 ```sql
-SQL>select * from user_synonyms;
+SQL> select * from user_synonyms;
 ```
 
 7、约束条件
@@ -235,9 +235,9 @@ SQL>select * from user_synonyms;
 查看某表的约束条件
 
 ```sql
-SQL>select constraint_name, constraint_type,search_condition, r_constraint_name from user_constraints where table_name = upper('&table_name');
+SQL> select constraint_name, constraint_type,search_condition, r_constraint_name from user_constraints where table_name = upper('&table_name');
 
-SQL>select c.constraint_name,c.constraint_type,cc.column_name
+SQL> select c.constraint_name,c.constraint_type,cc.column_name
 　　 from user_constraints c,user_cons_columns cc
 　　 where c.owner = upper(‘&table_owner’) and c.table_name = upper(‘&table_name’)
 　　 and c.owner = cc.owner and c.constraint_name = cc.constraint_name
@@ -249,14 +249,14 @@ SQL>select c.constraint_name,c.constraint_type,cc.column_name
 查看函数和过程的状态
 
 ```sql
-SQL>select object_name,status from user_objects where object_type='FUNCTION';
-SQL>select object_name,status from user_objects where object_type='PROCEDURE';
+SQL> select object_name,status from user_objects where object_type='FUNCTION';
+SQL> select object_name,status from user_objects where object_type='PROCEDURE';
 ```
 
 查看函数和过程的源代码
 
 ```sql
-SQL>select text from all_source where owner=user and name=upper('&plsql_name');
+SQL> select text from all_source where owner=user and name=upper('&plsql_name');
 ```
 
 **查看数据库的SQL**
@@ -264,26 +264,26 @@ SQL>select text from all_source where owner=user and name=upper('&plsql_name');
 1、查看表空间的名称及大小
 
 ```sql
-SQL>select t.tablespace_name, round(sum(bytes/(1024*1024)),0) ts_size
-　　 from dba_tablespaces t, dba_data_files d
-　　 where t.tablespace_name = d.tablespace_name
-　　 group by t.tablespace_name;*
+SQL> select t.tablespace_name, round(sum(bytes/(1024*1024)),0) ts_size
+　　  from dba_tablespaces t, dba_data_files d
+　　  where t.tablespace_name = d.tablespace_name
+　 　 group by t.tablespace_name;*
 ```
 
 2、查看表空间物理文件的名称及大小
 
 ```sql
-SQL>select tablespace_name, file_id, file_name,
-　　 round(bytes/(1024*1024),0) total_space
-　　 from dba_data_files
-　　 order by tablespace_name;
+SQL> select tablespace_name, file_id, file_name,
+　　  round(bytes/(1024*1024),0) total_space
+　　  from dba_data_files
+　　  order by tablespace_name;
 ```
 
 3、查看回滚段名称及大小
 
 ```sql
-SQL>select segment_name, tablespace_name, r.status,
-　　 (initial_extent/1024) InitialExtent,(next_extent/1024) NextExtent,
-　　 max_extents, v.curext CurExtent
-　　 From dba_rollback_segs r, v$ro
+SQL> select segment_name, tablespace_name, r.status,
+　　  (initial_extent/1024) InitialExtent,(next_extent/1024) NextExtent,
+　　  max_extents, v.curext CurExtent
+　　  From dba_rollback_segs r, v$ro
 ```

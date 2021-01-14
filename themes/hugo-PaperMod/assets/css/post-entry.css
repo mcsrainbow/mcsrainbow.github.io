@@ -45,11 +45,18 @@
     padding: var(--gap);
     background: var(--entry);
     border-radius: var(--radius);
-    transition: transform .1s
+    transition: transform .1s;
+    border: 1px solid var(--border);
 }
 
 .post-entry:active {
     transform: scale(.96)
+}
+
+@media (prefers-reduced-motion) {
+    .post-entry:active {
+        transform: none
+    }
 }
 
 .tag-entry .entry-cover {

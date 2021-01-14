@@ -61,7 +61,7 @@ chmod a+x StopOra.sh
 
 ```bash
 vi /etc/rc.local
-su – oracle -c “/home/oracle/StartOra.sh” ＃启动oracle
+su - oracle -c “/home/oracle/StartOra.sh” ＃启动oracle
 ```
 
 后续：其实这个脚本并不是最好的，最好的解决方案是通过调用Oracle自带的dbstart和dbshut来实现。

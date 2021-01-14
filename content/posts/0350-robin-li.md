@@ -5,14 +5,10 @@ tags: ["Reading"]
 categories: ["Corporation"]
 ---
 
-李彦宏 2008-03-12 “读网笔记”：
-
-原文地址：http://hi.baidu.com/liyanhong/blog/item/2984e950a8967f581038c2a0.html
+李彦宏博客 2008-03-12 “读网笔记”
 
 <!--more-->
 
->
->
 >People who win big in life are typically not driven by financial gain, they are driven by an internal spark that makes them want to win, compete, and solve problems with a community of like minded people.
 >
 >My job is to not be easy on people. My job is to make them better. My job is to pull things together from different parts of the company and clear the ways and get the resources for the key projects. And to take these great people we have and to push them and make them even better, coming up with more aggressive visions of how it could be.
@@ -30,5 +26,3 @@ categories: ["Corporation"]
 >但是我们选择我们的生活方式，它总是最好的，也是很值得的，我们这样认为。
 
 以上是我与我的女友翻译的，属于直译。:)
-
-更好的、更深层次理解的翻译结果：http://hi.baidu.com/narcisse/blog/item/5e02ac0f6c0732e9aa6457c9.html

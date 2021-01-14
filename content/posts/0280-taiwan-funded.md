@@ -58,19 +58,3 @@ categories: ["Corporation"]
 台资企业不是温室，甚至会比较难以适应，但是，出色的人只要能够表现出来，他们仍然会比较赞赏。“混口饭吃”的心里在这里只会受到打击，较低层次的员工在其它普通公司的待遇反而会高于这里。
 
 因此，我的观点，我们并没有必要对台资企业进行太多的批评和埋怨，重要的是自身的能力，在不得志和受到苛刻待遇的时候，想想自己，是不是真的做的不够优秀（是优秀而不是勉强交差）！是不是真的没有较强的能力！
-
-**以下是网络上关于对台资企业的热点讨论：**
-
-天涯社区：http://www.tianya.cn/publicforum/Content/no20/1/19529.shtml
-
-http://cache.tianya.cn/publicforum/content/free/1/1046760.shtml
-
-台资特点调查：http://www.kmeasy.net/qiyeguanli/guanlizhishi/qiyeguanli_4303.html
-
-经理人俱乐部：http://club.life365.com/bbs/244/bbs/599/244599.html
-
-雅虎论坛关于BenQ的讨论帖：http://cn.bbs.yahoo.com/message/read_-aXRjb21t_9095.html
-
-猫扑网：http://dzh.mop.com/topic/main/readSubMain_5270048_0.html
-
-通过对比看台资企业：http://jackymingtian.bokee.com/viewdiary.15658097.html

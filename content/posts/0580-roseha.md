@@ -72,11 +72,11 @@ cd /opt/roseha/bin
 
 进入控制界面，选择`Connect`，输入刚刚设置的用户名和密码，进入系统
 
-![roseha_011](/attachments/0062/roseha_011.jpg)
+![roseha_011](/attachments/0580/roseha_011.jpg)
 
 出现如下界面则说明连接正常
 
-![roseha_021](/attachments/0062/roseha_021.jpg)
+![roseha_021](/attachments/0580/roseha_021.jpg)
 
 2.3 配置licence授权
 
@@ -84,7 +84,7 @@ cd /opt/roseha/bin
 
 并且注意，两边机器都需要进行设置。
 
-![roseha_04](/attachments/0062/roseha_04.jpg)
+![roseha_04](/attachments/0580/roseha_04.jpg)
 
 2.4 创建socket私网
 
@@ -92,7 +92,7 @@ cd /opt/roseha/bin
 
 注：该操作在两台主机上都要做。
 
-![roseha_06](/attachments/0062/roseha_06.jpg)
+![roseha_06](/attachments/0580/roseha_06.jpg)
 
 2.5 获取对方主机信息
 
@@ -321,7 +321,7 @@ chmod +x *.sh
 查询RoseHA进程的命令
 
 ```
-ps –ef | grep ha
+ps -ef | grep ha
 ```
 
 可以看到四个进程`hamond`、`hasysd`、`hachkd`、`hasvrd`

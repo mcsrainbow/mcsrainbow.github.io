@@ -17,7 +17,7 @@ categories: ["English"]
 然后再由她自己修正几个小时，最后，论文终于完成了，而且老师还评价说翻译的不错。
 
 在此，我便把它贡献出来吧，以备以后需要的人参考。
-下载地址：[stampingdie.zip](/attachments/0043/stampingdie.zip)
+下载地址：[stampingdie.zip](/attachments/0400/stampingdie.zip)
 
 如果不能下载，请通过Email联系我，guosuiyu@gmail.com。
 

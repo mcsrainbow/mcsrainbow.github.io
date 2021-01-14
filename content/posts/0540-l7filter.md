@@ -17,15 +17,13 @@ iptables对于七层上面的应用过滤本身不支持，需要安装第三方
 
 2. **软件下载**
 
+```text
 kernel 2.6.25: http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.25.tar.bz2
-
 iptables: http://www.netfilter.org/projects/iptables/files/iptables-1.4.0.tar.bz2
-
 l7-filter: http://sourceforge.net/projects/l7-filter
-
 netfilter-layer7-v2.20.tar.gz
-
 l7-protocols-2008-04-23.tar.gz
+```
 
 3. **给内核打L7-filter补丁**
 
@@ -188,15 +186,15 @@ make install
 7. **测试**
 
 ```bash
-iptables -I FORWARD -p udp –dport 53 -m string –string “tencent” –algo bm -j DROP
-iptables -I FORWARD -p tcp -m multiport –dport 80,443 -m layer7 –l7proto qq -j DROP
-iptables -I FORWARD -p udp –dport 8000 -j DROP
-iptables -I FORWARD -p tcp -m layer7 –l7proto socks -j DROP
-iptables -I FORWARD -p udp –dport 53 -m string –string “messenger” –algo bm -j DROP
-iptables -I FORWARD -p tcp -m multiport –dport 80,443 -m layer7 –l7proto msnmessenger -j DROP
-iptables -I FORWARD -p udp –dport 1863 -j DROP
-iptables -t mangle -A PREROUTING -m layer7 –l7proto qq -j DROP
-iptables -t mangle -A PREROUTING -m layer7 –l7proto msnmessenger -j DROP
+iptables -I FORWARD -p udp --dport 53 -m string --string "tencent" --algo bm -j DROP
+iptables -I FORWARD -p tcp -m multiport --dport 80,443 -m layer7 --l7proto qq -j DROP
+iptables -I FORWARD -p udp --dport 8000 -j DROP
+iptables -I FORWARD -p tcp -m layer7 --l7proto socks -j DROP
+iptables -I FORWARD -p udp --dport 53 -m string --string "messenger" --algo bm -j DROP
+iptables -I FORWARD -p tcp -m multiport --dport 80,443 -m layer7 --l7proto msnmessenger -j DROP
+iptables -I FORWARD -p udp --dport 1863 -j DROP
+iptables -t mangle -A PREROUTING -m layer7 --l7proto qq -j DROP
+iptables -t mangle -A PREROUTING -m layer7 --l7proto msnmessenger -j DROP
 ```
 
 可通过上面的策略表达式测试是否成功禁止掉qq和msn
@@ -219,12 +217,14 @@ iptables -t mangle -A PREROUTING -m layer7 –l7proto msnmessenger -j DROP
 
 **其它：**
 
+```text
 Application Layer Packet Classifier for Linux
 
 L7-filter Supported Protocols
 
 Netfilter Packet Traversal
+```
 
 **流程图：**
 
-![nfk-traversal](/attachments/0058/nfk-traversal.png)
+![nfk-traversal](/attachments/0540/nfk-traversal.png)

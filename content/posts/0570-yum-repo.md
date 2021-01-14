@@ -42,9 +42,9 @@ createrepo-0.4.11-3.el5
 
 vsftpd-2.0.5-16.el5_5.1
 
-一、配置yum源服务端
+1. 配置yum源服务端
 
-1. 从DVD光盘中复制软件包
+1.1 从DVD光盘中复制软件包
 
 ```
 mkdir /mnt/cdrom
@@ -54,7 +54,7 @@ cp -prfa /mnt/cdrom /var/ftp/rhel5.6-x86_64
 
 如果是iso文件则执行`mount -o loop rhel-server-5.6-x86_64-dvd.iso /mnt/cdrom`
 
-2. 创建repository信息库
+1.2 创建repository信息库
 
 ```
 cd /var/ftp/rhel5.6-x86_64/Server/
@@ -70,7 +70,7 @@ cd ../VT
 createrepo -g repodata/comps-rhel5-vt.xml ./
 ```
 
-3. 配置vsFTPd服务
+1.3 配置vsFTPd服务
 
 确认开启了匿名用户访问权限
 
@@ -88,9 +88,9 @@ anonymous_enable=YES
 /etc/init.d/vsftpd start
 ```
 
-二、配置yum客户端
+2. 配置yum客户端
 
-1. 创建.repo配置文件（具体IP请根据实际情况进行修改）
+2.1 创建.repo配置文件（具体IP请根据实际情况进行修改）
 
 ```
 vim /etc/yum.repos.d/rhel5-rpms-from-dvd.repo
@@ -122,13 +122,13 @@ enabled=1
 gpgcheck=0
 ```
 
-2. 清除旧的缓存数据
+2.2 清除旧的缓存数据
 
 ```
 yum clean all
 ```
 
-3. 软件安装测试
+2.3 软件安装测试
 
 ```
 yum install unzip
