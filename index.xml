@@ -76,11 +76,11 @@
     </item>
     
     <item>
-      <title>工作笔记—基于本地用户方式的vsFTPd高级设置</title>
-      <link>https://blog.heylinux.com/2008/11/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%96%B9%E5%BC%8F%E7%9A%84vsftpd%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE/</link>
+      <title>基于本地用户方式的vsFTPd高级设置</title>
+      <link>https://blog.heylinux.com/2008/11/%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%96%B9%E5%BC%8F%E7%9A%84vsftpd%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Thu, 06 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.heylinux.com/2008/11/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%96%B9%E5%BC%8F%E7%9A%84vsftpd%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://blog.heylinux.com/2008/11/%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E6%96%B9%E5%BC%8F%E7%9A%84vsftpd%E9%AB%98%E7%BA%A7%E8%AE%BE%E7%BD%AE/</guid>
       <description>&lt;p&gt;创建一个专用的FTP数据存储目录&lt;/p&gt;</description>
     </item>
     
@@ -121,7 +121,7 @@
     </item>
     
     <item>
-      <title>“File Size Limit Exceeded” 问题处理</title>
+      <title>File Size Limit Exceeded 问题处理</title>
       <link>https://blog.heylinux.com/2008/08/file-size-limit-exceeded-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</link>
       <pubDate>Tue, 19 Aug 2008 00:00:00 +0000</pubDate>
       
@@ -254,7 +254,7 @@
     </item>
     
     <item>
-      <title>译 李彦宏博客 “读网笔记”</title>
+      <title>译 李彦宏博客 读网笔记</title>
       <link>https://blog.heylinux.com/2008/03/%E8%AF%91-%E6%9D%8E%E5%BD%A6%E5%AE%8F%E5%8D%9A%E5%AE%A2-%E8%AF%BB%E7%BD%91%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 16 Mar 2008 00:00:00 +0000</pubDate>
       
@@ -299,7 +299,7 @@
     </item>
     
     <item>
-      <title>“鲑鱼”悲壮的一生</title>
+      <title>鲑鱼悲壮的一生</title>
       <link>https://blog.heylinux.com/2008/02/%E9%B2%91%E9%B1%BC%E6%82%B2%E5%A3%AE%E7%9A%84%E4%B8%80%E7%94%9F/</link>
       <pubDate>Tue, 19 Feb 2008 00:00:00 +0000</pubDate>
       
