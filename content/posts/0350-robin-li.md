@@ -1,5 +1,5 @@
 ---
-title: "译 李彦宏博客 “读网笔记”"
+title: "译 李彦宏博客 读网笔记"
 date: "2008-03-16"
 tags: ["Reading"]
 categories: ["Corporation"]

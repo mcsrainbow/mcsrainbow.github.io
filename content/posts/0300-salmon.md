@@ -1,5 +1,5 @@
 ---
-title: "“鲑鱼”悲壮的一生"
+title: "鲑鱼悲壮的一生"
 date: "2008-02-19"
 tags: ["Reading"]
 categories: ["Thinking"]

@@ -1,5 +1,5 @@
 ---
-title: "工作笔记—基于本地用户方式的vsFTPd高级设置"
+title: "基于本地用户方式的vsFTPd高级设置"
 date: "2008-11-06"
 tags: ["vsFTPd"]
 categories: ["DevOps"]

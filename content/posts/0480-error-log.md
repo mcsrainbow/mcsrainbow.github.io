@@ -1,5 +1,5 @@
 ---
-title: "“File Size Limit Exceeded” 问题处理"
+title: "File Size Limit Exceeded 问题处理"
 date: "2008-08-19"
 tags: ["Linux"]
 categories: ["DevOps"]
