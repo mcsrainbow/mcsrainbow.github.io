@@ -47,8 +47,8 @@
   "keywords": [
     "Linux", "Windows"
   ],
-  "articleBody": "今天，阿钊告诉我了PuTTY的一个很酷的功能。\n那就是，只要你手里有一台能够登陆的Linux或Unix主机，那么你就可以把这台主机用来作为你上网的代理服务器，这台服务器所能访问的任何网站（包括和它在一个局域网内的网站）你都可以访问到。\n听起来是不是很酷？那就来感受一下吧！\n  在PuTTY的Connection-SSH-Tunnels中设置Source port为1080，然后选中Dynamic和 Auto，然后别忘了点击Add；\n如果你使用的是中文的PuTTY，选择连接-SSH-通道，设置源端口为1080，然后选中动态和自动；\n  选择Session并使用SSH登陆到你的服务器终端，并保持该终端一直开启直到你不想用它来代理上网；\n如果你使用的是中文的PuTTY，则选择会话；\n  在IE等浏览器中设置代理服务器为 套接字类型的127.0.0.1:1080；\n其中IE的具体操作为Internet 选项-连接-局域网设置-选中为LAN使用代理服务器-高级-在套接字选项中填写地址：127.0.0.1， 端口：1080，其它HTTP、安全、FTP都为空，然后点击确定-确定-确定，即OK。\n  如此一来，你就可以将刚刚登陆的这台服务器作为代理服务器使用了，你可以在浏览器中访问这台服务器可以访问的任何网站，其中包括和它在同一个网段的IP为192.168.x.x的网站。\n不错吧！不过，这样的操作仅在特殊情况下使用比较好（比如你客户的网站设置了只允许特定IP的人访问，或国家的GFW封闭了其网站，或其系统只能在内网中访问）。\n因为，你所有的流量都要通过其服务器中转了，包括你从网页上下载的网页、图片和一些软件，这可是会吃掉不少服务器流量和一定程度上影响服务器性能的咯。\n而PuTTY作为一个大小不到1M的绿色软件，其功能却是异常的强大，我发现周围的人很多喜欢用SSH Client和SecurCRT等软件，主要是因为其支持一些特定的功能，如“保存用户名密码”、“传输文件”“中文显示”等功能。\n但是，这些统统都是PuTTY可以搞定的，而且可以处理的很漂亮，只是需要一些简单的设置而已，因为默认的不是这些参数。\n下面是一篇PuTTY的中文教程：\nhttp://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt\n下面是PuTTY的下载地址：\n英文：http://www.chiark.greenend.org.uk/~sgtatham/putty/\n中文：http://wrc.gro.clinux.org/putty/\n",
-  "wordCount" : "25",
+  "articleBody": "今天，阿钊告诉我了PuTTY的一个很酷的功能。\n那就是，只要你手里有一台能够登陆的Linux或Unix主机，那么你就可以把这台主机用来作为你上网的代理服务器，这台服务器所能访问的任何网站（包括和它在一个局域网内的网站）你都可以访问到。\n听起来是不是很酷？那就来感受一下吧！\n 在PuTTY的Connection-SSH-Tunnels中设置Source port为1080，然后选中Dynamic和 Auto，然后别忘了点击Add； 如果你使用的是中文的PuTTY，选择连接-SSH-通道，设置源端口为1080，然后选中动态和自动； 选择Session并使用SSH登陆到你的服务器终端，并保持该终端一直开启直到你不想用它来代理上网； 如果你使用的是中文的PuTTY，则选择会话； 在IE等浏览器中设置代理服务器为 套接字类型的127.0.0.1:1080； 其中IE的具体操作为Internet 选项-连接-局域网设置-选中为LAN使用代理服务器-高级-在套接字选项中填写地址：127.0.0.1， 端口：1080，其它HTTP、安全、FTP都为空，然后点击确定-确定-确定，即OK。  如此一来，你就可以将刚刚登陆的这台服务器作为代理服务器使用了，你可以在浏览器中访问这台服务器可以访问的任何网站，其中包括和它在同一个网段的IP为192.168.x.x的网站。\n不错吧！不过，这样的操作仅在特殊情况下使用比较好（比如你客户的网站设置了只允许特定IP的人访问，或国家的GFW封闭了其网站，或其系统只能在内网中访问）。\n因为，你所有的流量都要通过其服务器中转了，包括你从网页上下载的网页、图片和一些软件，这可是会吃掉不少服务器流量和一定程度上影响服务器性能的咯。\n而PuTTY作为一个大小不到1M的绿色软件，其功能却是异常的强大，我发现周围的人很多喜欢用SSH Client和SecurCRT等软件，主要是因为其支持一些特定的功能，如“保存用户名密码”、“传输文件”、“中文显示”等功能。\n但是，这些统统都是PuTTY可以搞定的，而且可以处理的很漂亮，只是需要一些简单的设置而已，因为默认的不是这些参数。\nPuTTY的中文教程：http://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt\nPuTTY的下载地址：\n 英文：http://www.chiark.greenend.org.uk/~sgtatham/putty/ 中文：http://wrc.gro.clinux.org/putty/ ",
+  "wordCount" : "24",
   "inLanguage": "en",
   "datePublished": "2008-07-03T00:00:00Z",
   "dateModified": "2008-07-03T00:00:00Z",
@@ -175,31 +175,26 @@ July 3, 2008&nbsp;·&nbsp;mcsrainbow
 <p>今天，阿钊告诉我了PuTTY的一个很酷的功能。</p>
 <p>那就是，只要你手里有一台能够登陆的Linux或Unix主机，那么你就可以把这台主机用来作为你上网的代理服务器，这台服务器所能访问的任何网站（包括和它在一个局域网内的网站）你都可以访问到。</p>
 <p>听起来是不是很酷？那就来感受一下吧！</p>
-<ol>
-<li>
-<p>在PuTTY的<code>Connection</code>-<code>SSH</code>-<code>Tunnels</code>中设置<code>Source port</code>为<code>1080</code>，然后选中<code>Dynamic</code>和 <code>Auto</code>，然后别忘了点击<code>Add</code>；</p>
-<p>如果你使用的是中文的PuTTY，选择<code>连接</code>-<code>SSH</code>-<code>通道</code>，设置<code>源端口</code>为<code>1080</code>，然后选中<code>动态</code>和<code>自动</code>；</p>
-</li>
-<li>
-<p>选择<code>Session</code>并使用SSH登陆到你的服务器终端，并保持该终端一直开启直到你不想用它来代理上网；</p>
-<p>如果你使用的是中文的PuTTY，则选择<code>会话</code>；</p>
-</li>
-<li>
-<p>在IE等浏览器中设置代理服务器为 <code>套接字</code>类型的<code>127.0.0.1:1080</code>；</p>
-<p>其中IE的具体操作为<code>Internet 选项</code>-<code>连接</code>-<code>局域网设置</code>-选中<code>为LAN使用代理服务器</code>-<code>高级</code>-在<code>套接字</code>选项中填写<code>地址</code>：<code>127.0.0.1</code>，<code> 端口</code>：<code>1080</code>，其它<code>HTTP</code>、<code>安全</code>、<code>FTP</code>都为空，然后点击<code>确定</code>-<code>确定</code>-<code>确定</code>，即OK。</p>
-</li>
-</ol>
+<ul>
+<li>在PuTTY的<code>Connection</code>-<code>SSH</code>-<code>Tunnels</code>中设置<code>Source port</code>为<code>1080</code>，然后选中<code>Dynamic</code>和 <code>Auto</code>，然后别忘了点击<code>Add</code>；</li>
+<li>如果你使用的是中文的PuTTY，选择<code>连接</code>-<code>SSH</code>-<code>通道</code>，设置<code>源端口</code>为<code>1080</code>，然后选中<code>动态</code>和<code>自动</code>；</li>
+<li>选择<code>Session</code>并使用SSH登陆到你的服务器终端，并保持该终端一直开启直到你不想用它来代理上网；</li>
+<li>如果你使用的是中文的PuTTY，则选择<code>会话</code>；</li>
+<li>在IE等浏览器中设置代理服务器为 <code>套接字</code>类型的<code>127.0.0.1:1080</code>；</li>
+<li>其中IE的具体操作为<code>Internet 选项</code>-<code>连接</code>-<code>局域网设置</code>-选中<code>为LAN使用代理服务器</code>-<code>高级</code>-在<code>套接字</code>选项中填写<code>地址</code>：<code>127.0.0.1</code>，<code> 端口</code>：<code>1080</code>，其它<code>HTTP</code>、<code>安全</code>、<code>FTP</code>都为空，然后点击<code>确定</code>-<code>确定</code>-<code>确定</code>，即OK。</li>
+</ul>
 <p><img src="/attachments/0807/putty_proxy.jpg" alt="putty_proxy"></p>
 <p>如此一来，你就可以将刚刚登陆的这台服务器作为代理服务器使用了，你可以在浏览器中访问这台服务器可以访问的任何网站，其中包括和它在同一个网段的IP为<code>192.168.x.x</code>的网站。</p>
 <p>不错吧！不过，这样的操作仅在特殊情况下使用比较好（比如你客户的网站设置了只允许特定IP的人访问，或国家的GFW封闭了其网站，或其系统只能在内网中访问）。</p>
 <p>因为，你所有的流量都要通过其服务器中转了，包括你从网页上下载的网页、图片和一些软件，这可是会吃掉不少服务器流量和一定程度上影响服务器性能的咯。</p>
-<p>而PuTTY作为一个大小不到1M的绿色软件，其功能却是异常的强大，我发现周围的人很多喜欢用SSH Client和SecurCRT等软件，主要是因为其支持一些特定的功能，如“保存用户名密码”、“传输文件”“中文显示”等功能。</p>
+<p>而PuTTY作为一个大小不到1M的绿色软件，其功能却是异常的强大，我发现周围的人很多喜欢用SSH Client和SecurCRT等软件，主要是因为其支持一些特定的功能，如“保存用户名密码”、“传输文件”、“中文显示”等功能。</p>
 <p>但是，这些统统都是PuTTY可以搞定的，而且可以处理的很漂亮，只是需要一些简单的设置而已，因为默认的不是这些参数。</p>
-<p>下面是一篇PuTTY的中文教程：</p>
-<p><a href="http://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt">http://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt</a></p>
-<p>下面是PuTTY的下载地址：</p>
-<p>英文：http://www.chiark.greenend.org.uk/~sgtatham/putty/</p>
-<p>中文：http://wrc.gro.clinux.org/putty/</p>
+<p>PuTTY的中文教程：http://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt</p>
+<p>PuTTY的下载地址：</p>
+<ul>
+<li>英文：http://www.chiark.greenend.org.uk/~sgtatham/putty/</li>
+<li>中文：http://wrc.gro.clinux.org/putty/</li>
+</ul>
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
