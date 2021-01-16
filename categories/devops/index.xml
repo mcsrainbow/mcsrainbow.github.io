@@ -25,6 +25,16 @@
     </item>
     
     <item>
+      <title>双向同步软件Unison的安装与配置</title>
+      <link>https://blog.heylinux.com/2010/10/%E5%8F%8C%E5%90%91%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6unison%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 11 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/10/%E5%8F%8C%E5%90%91%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6unison%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;h3 id=&#34;1-unison简介&#34;&gt;1. Unison简介&lt;/h3&gt;
+&lt;p&gt;Unison是Windows、Linux以及其他Unix平台下都可以使用的文件同步工具，它能使两个文件夹（本地或网络上的）保持内容的一致。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>分分钟搞定Linux SNMP服务</title>
       <link>https://blog.heylinux.com/2010/09/%E5%88%86%E5%88%86%E9%92%9F%E6%90%9E%E5%AE%9Alinux-snmp%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Thu, 02 Sep 2010 11:43:00 +0800</pubDate>
