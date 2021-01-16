@@ -5,14 +5,191 @@
     <link>https://blog.heylinux.com/posts/</link>
     <description>Recent content in Posts on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 25 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Dec 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于RHEL 5的XEN安装与配置</title>
+      <link>https://blog.heylinux.com/2010/12/%E5%9F%BA%E4%BA%8Erhel-5%E7%9A%84xen%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 10 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/12/%E5%9F%BA%E4%BA%8Erhel-5%E7%9A%84xen%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;XEN作为目前口碑较佳的免费虚拟化软件，得到了众多SA的青睐，以及广泛的应用，例如众多的VPS厂商就采用了XEN，既能够降低实施成本，又可以保障系统的利用率与稳定性。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>通过Rsync&#43;inotify-tools&#43;SSH实现触发式远程实时同步</title>
+      <link>https://blog.heylinux.com/2010/11/%E9%80%9A%E8%BF%87rsync-inotify-tools-ssh%E5%AE%9E%E7%8E%B0%E8%A7%A6%E5%8F%91%E5%BC%8F%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Wed, 10 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/11/%E9%80%9A%E8%BF%87rsync-inotify-tools-ssh%E5%AE%9E%E7%8E%B0%E8%A7%A6%E5%8F%91%E5%BC%8F%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>&lt;p&gt;文件的同步镜像在很多地方都需要用到，因此Rsync这款免费软件得到了广泛的应用，包括在Windows平台上，都已经有了支持Rsync的&lt;code&gt;cwRsyncServer&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>分分钟搞定Linux SNMP服务</title>
+      <link>https://blog.heylinux.com/2010/09/%E5%88%86%E5%88%86%E9%92%9F%E6%90%9E%E5%AE%9Alinux-snmp%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Thu, 02 Sep 2010 11:43:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/09/%E5%88%86%E5%88%86%E9%92%9F%E6%90%9E%E5%AE%9Alinux-snmp%E6%9C%8D%E5%8A%A1/</guid>
+      <description>&lt;p&gt;首先，在安装盘里面找到snmp相关的rpm包，然后全部安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;net-snmp-utils
+net-snmp-libs
+net-snmp
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>通过Perl脚本实现邮件客户端</title>
+      <link>https://blog.heylinux.com/2010/09/%E9%80%9A%E8%BF%87perl%E8%84%9A%E6%9C%AC%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
+      <pubDate>Thu, 02 Sep 2010 11:29:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/09/%E9%80%9A%E8%BF%87perl%E8%84%9A%E6%9C%AC%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
+      <description>&lt;p&gt;由于公司目前采用的自建邮件系统部署在内部机房，在网络链路上与国外，以及联通等网络存在着通讯的稳定性问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Subversion在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2010/08/subversion%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 11 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/08/subversion%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;Subversion作为目前最优秀的开源版本控制系统，已经替代CVS成为了使用范围最广的软件。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2010年7月9日-11日工作札记</title>
+      <link>https://blog.heylinux.com/2010/07/2010%E5%B9%B47%E6%9C%889%E6%97%A5-11%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</link>
+      <pubDate>Mon, 12 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/07/2010%E5%B9%B47%E6%9C%889%E6%97%A5-11%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;中兴Corba接口程序&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在Windows下正常运行，但在Linux通过get方式取数据无问题，交互式却无返回数据信息（即由客户端push一个请求后由服务端主动将数据发送到给客户端的方式）。&lt;/p&gt;
+&lt;p&gt;期间中兴公司强势，仅提供了程序运行环境，不愿意配合调试，使问题的定位遇到了很大困难。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Samba在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 11 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;安装Samba&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;RHEL/SUSE:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;rpm -ivh samba-*
+rpm -ivh samba-common-*
+rpm -ivh samba-client-*
+rpm -ivh system-config-samba-*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>简单的Linux自动化远程FTP备份的脚本</title>
+      <link>https://blog.heylinux.com/2010/05/%E7%AE%80%E5%8D%95%E7%9A%84linux%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%9C%E7%A8%8Bftp%E5%A4%87%E4%BB%BD%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/05/%E7%AE%80%E5%8D%95%E7%9A%84linux%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%9C%E7%A8%8Bftp%E5%A4%87%E4%BB%BD%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;p&gt;脚本功能介绍：&lt;/p&gt;
+&lt;p&gt;每天自动备份本地MySQL数据库，并上传备份文件到远程FTP服务器，传输完成后删除本地一周以前旧的备份文件；&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>超五类线与六类线的线序以及特点</title>
+      <link>https://blog.heylinux.com/2010/05/%E8%B6%85%E4%BA%94%E7%B1%BB%E7%BA%BF%E4%B8%8E%E5%85%AD%E7%B1%BB%E7%BA%BF%E7%9A%84%E7%BA%BF%E5%BA%8F%E4%BB%A5%E5%8F%8A%E7%89%B9%E7%82%B9/</link>
+      <pubDate>Sun, 02 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/05/%E8%B6%85%E4%BA%94%E7%B1%BB%E7%BA%BF%E4%B8%8E%E5%85%AD%E7%B1%BB%E7%BA%BF%E7%9A%84%E7%BA%BF%E5%BA%8F%E4%BB%A5%E5%8F%8A%E7%89%B9%E7%82%B9/</guid>
+      <description>&lt;p&gt;整理了一下，算是一个笔记，过去我在做系统集成项目时，这些东西搞的还算明白。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>解决Sendmail: host map: lookup (domain): deferred问题</title>
+      <link>https://blog.heylinux.com/2010/03/%E8%A7%A3%E5%86%B3sendmail-host-map-lookup-domain-deferred%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 19 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/03/%E8%A7%A3%E5%86%B3sendmail-host-map-lookup-domain-deferred%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;大多数Linux系统都默认自带了Sendmail，最近想通过Sendmail将一些服务器信息直接发送到自己的邮箱里面，结果发送之后一直没什么反应，最后发现是因为我的服务器上没有合法的域名和MX解析记录，而Sendmail默认会进行反向解析，所以就一直堆在队列里面发布出去。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>各类光纤接口类型的区别与图示</title>
+      <link>https://blog.heylinux.com/2010/01/%E5%90%84%E7%B1%BB%E5%85%89%E7%BA%A4%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%9B%BE%E7%A4%BA/</link>
+      <pubDate>Mon, 25 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/01/%E5%90%84%E7%B1%BB%E5%85%89%E7%BA%A4%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E5%9B%BE%E7%A4%BA/</guid>
+      <description>&lt;p&gt;光纤的接口比较复杂，在项目的过程中有时候确实很容易弄错，特整理了以下资料：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>子网掩码的定义与计算</title>
+      <link>https://blog.heylinux.com/2009/12/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97/</link>
+      <pubDate>Tue, 15 Dec 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/12/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97/</guid>
+      <description>&lt;p&gt;按IP协议的子网标准规定，每一个使用子网的网点都选择一个&lt;code&gt;32位&lt;/code&gt;的位模式；&lt;/p&gt;
+&lt;p&gt;若位模式中的某位&lt;code&gt;置1&lt;/code&gt;，则对应IP地址中的网络地址（包括网络部分和子网掩码号）中的一位；&lt;/p&gt;
+&lt;p&gt;若位模式中的某位&lt;code&gt;置0&lt;/code&gt;，则对应IP地址中的主机地址中的一位。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CISCO3560 VLAN配置实例</title>
+      <link>https://blog.heylinux.com/2009/11/cisco3560-vlan%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Wed, 25 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/11/cisco3560-vlan%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B/</guid>
+      <description>&lt;h3 id=&#34;1-注意事项&#34;&gt;1. 注意事项&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;交换机启动需要大约4-5分钟；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Oracle9i与10g SGA及PGA参数调优设置</title>
+      <link>https://blog.heylinux.com/2009/10/oracle9i%E4%B8%8E10g-sga%E5%8F%8Apga%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Wed, 21 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/10/oracle9i%E4%B8%8E10g-sga%E5%8F%8Apga%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98%E8%AE%BE%E7%BD%AE/</guid>
+      <description>&lt;p&gt;关于Oracle的参数调优的文章很多，但是对于初学者来说要弄明白还是不容易的，下面是前辈提供的调优参数，让我们这些菜鸟们可以直接拿来用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Linux上基于源地址路由实现电信网通双线</title>
+      <link>https://blog.heylinux.com/2009/10/%E5%9C%A8linux%E4%B8%8A%E5%9F%BA%E4%BA%8E%E6%BA%90%E5%9C%B0%E5%9D%80%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0%E7%94%B5%E4%BF%A1%E7%BD%91%E9%80%9A%E5%8F%8C%E7%BA%BF/</link>
+      <pubDate>Wed, 21 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/10/%E5%9C%A8linux%E4%B8%8A%E5%9F%BA%E4%BA%8E%E6%BA%90%E5%9C%B0%E5%9D%80%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0%E7%94%B5%E4%BF%A1%E7%BD%91%E9%80%9A%E5%8F%8C%E7%BA%BF/</guid>
+      <description>&lt;p&gt;想要通过普通的静态策略路由来实现电信网通双线基本上是不可能的，因为那将需要维护相当大的一个IP段的数据库，而且还需要随时更新才能保证效果。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ORA-03113: end-of-file on communication channel 错误定位过程</title>
+      <link>https://blog.heylinux.com/2009/10/ora-03113-end-of-file-on-communication-channel-%E9%94%99%E8%AF%AF%E5%AE%9A%E4%BD%8D%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Sat, 10 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/10/ora-03113-end-of-file-on-communication-channel-%E9%94%99%E8%AF%AF%E5%AE%9A%E4%BD%8D%E8%BF%87%E7%A8%8B/</guid>
+      <description>&lt;p&gt;手动关闭Oracle之后打算再次启动Oracle：&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>在RHEL上Oracle 9i的安装配置与调优</title>
       <link>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98/</link>
       <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98/</guid>
-      <description>&lt;p&gt;本文带有图片的完整规范文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0600/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;本文带有图片的完整规范文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0909/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -226,7 +403,7 @@
     <item>
       <title>Linux平台上可以学什么？</title>
       <link>https://blog.heylinux.com/2008/04/linux%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%8F%AF%E4%BB%A5%E5%AD%A6%E4%BB%80%E4%B9%88/</link>
-      <pubDate>Tue, 29 Apr 2008 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 29 Apr 2008 23:27:00 +0800</pubDate>
       
       <guid>https://blog.heylinux.com/2008/04/linux%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%8F%AF%E4%BB%A5%E5%AD%A6%E4%BB%80%E4%B9%88/</guid>
       <description>&lt;p&gt;Linux平台上可以学什么？&lt;/p&gt;
@@ -236,7 +413,7 @@
     <item>
       <title>每个人都有属于自己的成功之路</title>
       <link>https://blog.heylinux.com/2008/04/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E6%9C%89%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E8%B7%AF/</link>
-      <pubDate>Tue, 29 Apr 2008 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 29 Apr 2008 20:04:00 +0800</pubDate>
       
       <guid>https://blog.heylinux.com/2008/04/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E9%83%BD%E6%9C%89%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E8%B7%AF/</guid>
       <description>&lt;p&gt;每个人都有属于自己的成功之路。&lt;/p&gt;

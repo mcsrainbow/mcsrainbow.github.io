@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CISCO3560 VLAN配置实例 | Hey! Linux.</title>
+
+<meta name="keywords" content="Network, Cisco" />
+<meta name="description" content="1. 注意事项
+
+
+交换机启动需要大约4-5分钟；
+
+
+网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；
+
+
+建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；
+
+
+请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。
+
+">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2009/11/cisco3560-vlan%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B/" />
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="CISCO3560 VLAN配置实例" />
+<meta property="og:description" content="1. 注意事项
+
+
+交换机启动需要大约4-5分钟；
+
+
+网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；
+
+
+建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；
+
+
+请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2009/11/cisco3560-vlan%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B/" />
+<meta property="article:published_time" content="2009-11-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2009-11-25T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CISCO3560 VLAN配置实例"/>
+<meta name="twitter:description" content="1. 注意事项
+
+
+交换机启动需要大约4-5分钟；
+
+
+网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；
+
+
+建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；
+
+
+请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。
+
+"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CISCO3560 VLAN配置实例",
+  "name": "CISCO3560 VLAN配置实例",
+  "description": "1. 注意事项   交换机启动需要大约4-5分钟；\n  网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；\n  建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；\n  请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。\n ",
+  "keywords": [
+    "Network", "Cisco"
+  ],
+  "articleBody": "1. 注意事项   交换机启动需要大约4-5分钟；\n  网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；\n  建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；\n  请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。\n  2. 准备工作 先保持交换机断电状态；\n使用调试串口线连接笔记本电脑的串口与交换机背面的CONSOLE接口；\n打开超级终端：开始-所有程序-附件-超级终端\n配置超级终端：\n名称-cisco-选择com1或com2（请依照实际情况进行选择）-修改每秒位数为9600-应用-确定-回车\n3. 初始配置 给交换机通电，片刻后会看到交换机的启动信息，直到出现以下配置选项：\nWould you like to terminate autoinstall? [yes]: no Would you like to enter the initial configuration dialog? [yes/no]:no Would you like to terminate autoinstall? [yes]: no 4. 出现命令窗口 Switch 5. 备份出厂配置 Switch en 进入特权模式 Switch# copy running-config sfbak-config Destination filename [sfbak-config]? 回车 1204 bytes copied in 0.529 secs (2276 bytes/sec) 表示文件备份成功。\n6. 配置账号密码 Switch# configure terminal 进入配置子模式 Switch(config)# enable password cisco 设置password密码为cisco Switch(config)# enable secret cisco 设置secret密码为cisco Switch(config)# exit 00:11:26: %SYS-5-CONFIG_I: Configured from console by console 表示将配置保存到了内存中，在后面的配置过程中会出现类似的信息，属于正常现象。\n7. 创建VLAN Switch# show vlan 查看VLAN信息，默认有一个VLAN 1，并且所有端口都属于它 Switch# vlan database 进入VLAN子模式 % Warning: It is recommended to configure VLAN from config mode, as VLAN database mode is being deprecated. Please consult user documentation for configuring VTP/VLAN in config mode. 属于正常的警告信息。\nSwitch(vlan)# vlan 2 创建VLAN2 VLAN 2 added: Name: VLAN0002 表示VLAN创建成功。\nSwitch(vlan)# vlan 3 创建VLAN3 Switch(vlan)# exit 8. 为VLAN设置IP地址 为VLAN2设置IP地址\nSwitch# configure terminal 进入配置子模式 Switch(config)# interface vlan 2 配置IP,VLAN2 Switch(config-if)# ip address 133.37.125.5 255.255.255.0 设置交换机IP（具体IP请依照实际情况设置） Switch(config-if)# exit 为VLAN3设置IP地址\nSwitch(config)# interface vlan 3 配置IP,VLAN3 Switch(config-if)# ip address 192.168.1.5 255.255.255.0 设置交换机IP（具体IP请依照实际情况设置） Switch(config-if)# exit 9. 为VLAN划分交换机接口 配置1-12号电口为VLAN2\nSwitch(config)# interface range fastEthernet 0/1 – 12 进入F0/1 到 F0/12 Switch(config-if)# switchport mode access 设成静态VLAN访问模式 Switch(config-if)# switchport access vlan 2 将此口分给VLAN2 Switch(config-if)# exit 配置13-24号电口为VLAN3\nSwitch(config)# interface range fastEthernet 0/13 – 24 进入F0/13 到 F0/24 Switch(config-if)# switchport mode access 设成静态VLAN访问模式 Switch(config-if)# switchport access vlan 3 将此口分给VLAN3 Switch(config-if)# exit 配置1号光口为VLAN-2\nSwitch(config)# interface GigabitEthernet 0/1 进入G0/1 Switch(config-if)# switchport mode access 设成静态VLAN访问模式 Switch(config-if)# switchport access vlan 2 将此口分给VLAN2 Switch(config-if)# exit 配置2号光口为VLAN-3\nSwitch(config)# interface GigabitEthernet 0/2 进入G0/2 Switch(config-if)# switchport mode access 设成静态VLAN访问模式 Switch(config-if)# switchport access vlan 3 将此口分给VLAN3 Switch(config-if)# exit Switch(config)# exit 10. 关闭VLAN1 Switch# configure terminal 进入配置子模式 Switch(config)# interface vlan 1 配置VLAN1 Switch(config-if)# shutdown 关闭VLAN1 Switch(config-if)# exit Switch(config)# exit Switch# show interface fastethernet0/1 status 查看F0/1网口状态 Switch# show interface fastethernet0/1 查看F0/1网口详细配置 Switch# show running-config 查看全局配置 11. 配置默认网关 Switch# configure terminal 进入配置子模式 Switch(config)# ip default-gateway 133.37.125.4 Switch(config)# exit 12. 设置使可以远程telnet登陆 Switch# configure terminal 进入配置子模式 Switch(config)# line vty 0 4 Switch(config-line)# password cisco Switch(config-line)# login Switch(config-line)# exit Switch(config)# exit 13.保存当前配置 Switch# copy running-config startup-config Destination filename [startup-config]? 回车 Building configuration… [OK] 表示当前配置保存成功。\n14.交换机配置情况图示 配置完成，目前整个交换机配置情况如下：\n15.其它相关知识 交换机与交换机/路由器间级联通信：\n当级联的设备端口设置了trunk或划分了VLAN等情况，可能需要修改级联端口的工作模式为trunk模式才能实现相互之间的通信。\n如果是与电口级联，可以修改1号网口为trunk工作模式，使用该接口进行级联：\nSwitch# configure terminal 进入配置子模式 Switch(config)# interface fastethernet0/1 进入F0/1口 Switch(config-if)# switchport trunk encapsulation dot1q Switch(config-if)# switchport mode trunk 设成TRUNK口 Switch(config-if)# switchport trunk allowed vlan all 允许所有VLAN从此口通过 Switch(config-if)# exit Switch(config)# exit 如果是与光纤接口级联，可以修改1号光纤接口为trunk工作模式，使用该接口进行级联：\nSwitch# configure terminal 进入配置子模式 Switch(config)# interface GigabitEthernet 0/1 进入G0/1 Switch(config-if)# switchport trunk encapsulation dot1q Switch(config-if)# switchport mode trunk 设成TRUNK口 Switch(config-if)# switchport trunk allowed vlan all 允许所有VLAN从此口通过 Switch(config-if)# exit Switch(config)# exit 执行后请按照第13步中的描述保存当前配置。\nWEB方式检查交换机状态：\n如果需要对交换机的状态进行实施查看，可以通过 URL：http://192.168.1.5 或 http://133.8.5.7\n账号：admin 密码：cisco，登陆后进行查看。\n恢复交换机出厂设置：\nSwitch en 进入特权模式 Switch# write erase Erasing the nvram filesystem will remove all configuration files! Continue? [confirm] 回车 [OK] Erase of nvram: complete 00:36:19: %SYS-7-NV_BLOCK_INIT: Initialized the geometry of nvram Switch# reload Proceed with reload? [confirm] 回车 00:36:59: %SYS-5-RELOAD: Reload requested by console. Reload Reason: Reload Command. 片刻之后，交换机会进行重启，并在重启后恢复为出厂设置。\n远程通过telnet登陆交换机终端：\n  将本机IP设置为与交换机VLAN2或VLAN3同一个网段；\n  开始-运行-cmd\n  执行telnet 133.37.125.5或telnet 192.168.1.5即可\n ",
+  "wordCount" : "480",
+  "inLanguage": "en",
+  "datePublished": "2009-11-25T00:00:00Z",
+  "dateModified": "2009-11-25T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2009/11/cisco3560-vlan%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      CISCO3560 VLAN配置实例
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">
+
+November 25, 2009&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="toc">
+    <details  open>
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <blockquote><ul><li>
+        <a href="#1-%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" aria-label="1. 注意事项">1. 注意事项</a></li><li>
+        <a href="#2-%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c" aria-label="2. 准备工作">2. 准备工作</a></li><li>
+        <a href="#3-%e5%88%9d%e5%a7%8b%e9%85%8d%e7%bd%ae" aria-label="3. 初始配置">3. 初始配置</a></li><li>
+        <a href="#4-%e5%87%ba%e7%8e%b0%e5%91%bd%e4%bb%a4%e7%aa%97%e5%8f%a3" aria-label="4. 出现命令窗口">4. 出现命令窗口</a></li><li>
+        <a href="#5-%e5%a4%87%e4%bb%bd%e5%87%ba%e5%8e%82%e9%85%8d%e7%bd%ae" aria-label="5. 备份出厂配置">5. 备份出厂配置</a></li><li>
+        <a href="#6-%e9%85%8d%e7%bd%ae%e8%b4%a6%e5%8f%b7%e5%af%86%e7%a0%81" aria-label="6. 配置账号密码">6. 配置账号密码</a></li><li>
+        <a href="#7-%e5%88%9b%e5%bb%bavlan" aria-label="7. 创建VLAN">7. 创建VLAN</a></li><li>
+        <a href="#8-%e4%b8%bavlan%e8%ae%be%e7%bd%aeip%e5%9c%b0%e5%9d%80" aria-label="8. 为VLAN设置IP地址">8. 为VLAN设置IP地址</a></li><li>
+        <a href="#9-%e4%b8%bavlan%e5%88%92%e5%88%86%e4%ba%a4%e6%8d%a2%e6%9c%ba%e6%8e%a5%e5%8f%a3" aria-label="9. 为VLAN划分交换机接口">9. 为VLAN划分交换机接口</a></li><li>
+        <a href="#10-%e5%85%b3%e9%97%advlan1" aria-label="10. 关闭VLAN1">10. 关闭VLAN1</a></li><li>
+        <a href="#11-%e9%85%8d%e7%bd%ae%e9%bb%98%e8%ae%a4%e7%bd%91%e5%85%b3" aria-label="11. 配置默认网关">11. 配置默认网关</a></li><li>
+        <a href="#12-%e8%ae%be%e7%bd%ae%e4%bd%bf%e5%8f%af%e4%bb%a5%e8%bf%9c%e7%a8%8btelnet%e7%99%bb%e9%99%86" aria-label="12. 设置使可以远程telnet登陆">12. 设置使可以远程telnet登陆</a></li><li>
+        <a href="#13%e4%bf%9d%e5%ad%98%e5%bd%93%e5%89%8d%e9%85%8d%e7%bd%ae" aria-label="13.保存当前配置">13.保存当前配置</a></li><li>
+        <a href="#14%e4%ba%a4%e6%8d%a2%e6%9c%ba%e9%85%8d%e7%bd%ae%e6%83%85%e5%86%b5%e5%9b%be%e7%a4%ba" aria-label="14.交换机配置情况图示">14.交换机配置情况图示</a></li><li>
+        <a href="#15%e5%85%b6%e5%ae%83%e7%9b%b8%e5%85%b3%e7%9f%a5%e8%af%86" aria-label="15.其它相关知识">15.其它相关知识</a></li></ul>
+      </blockquote>
+    </details>
+  </div>
+  <div class="post-content">
+<h3 id="1-注意事项">1. 注意事项<a hidden class="anchor" aria-hidden="true" href="#1-注意事项">#</a></h3>
+<ul>
+<li>
+<p>交换机启动需要大约4-5分钟；</p>
+</li>
+<li>
+<p>网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；</p>
+</li>
+<li>
+<p>建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；</p>
+</li>
+<li>
+<p>请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。</p>
+</li>
+</ul>
+<h3 id="2-准备工作">2. 准备工作<a hidden class="anchor" aria-hidden="true" href="#2-准备工作">#</a></h3>
+<p>先保持交换机断电状态；</p>
+<p>使用调试串口线连接笔记本电脑的串口与交换机背面的CONSOLE接口；</p>
+<p>打开超级终端：<code>开始</code>-<code>所有程序</code>-<code>附件</code>-<code>超级终端</code></p>
+<p>配置超级终端：</p>
+<p><code>名称</code>-<code>cisco</code>-选择<code>com1</code>或<code>com2</code>（请依照实际情况进行选择）-修改每秒位数为<code>9600</code>-<code>应用</code>-<code>确定</code>-<code>回车</code></p>
+<h3 id="3-初始配置">3. 初始配置<a hidden class="anchor" aria-hidden="true" href="#3-初始配置">#</a></h3>
+<p>给交换机通电，片刻后会看到交换机的启动信息，直到出现以下配置选项：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Would you like to terminate autoinstall? [yes]: no
+Would you like to enter the initial configuration dialog? [yes/no]:no
+Would you like to terminate autoinstall? [yes]: no
+</code></pre></div><h3 id="4-出现命令窗口">4. 出现命令窗口<a hidden class="anchor" aria-hidden="true" href="#4-出现命令窗口">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch&gt;
+</code></pre></div><h3 id="5-备份出厂配置">5. 备份出厂配置<a hidden class="anchor" aria-hidden="true" href="#5-备份出厂配置">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch&gt; en 进入特权模式
+Switch# copy running-config sfbak-config
+Destination filename [sfbak-config]? 回车
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">1204 bytes copied in 0.529 secs (2276 bytes/sec)
+</code></pre></div><p>表示文件备份成功。</p>
+<h3 id="6-配置账号密码">6. 配置账号密码<a hidden class="anchor" aria-hidden="true" href="#6-配置账号密码">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# configure terminal 进入配置子模式
+Switch(config)# enable password cisco 设置password密码为cisco
+Switch(config)# enable secret cisco 设置secret密码为cisco
+Switch(config)# exit
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">00:11:26: %SYS-5-CONFIG_I: Configured from console by console
+</code></pre></div><p>表示将配置保存到了内存中，在后面的配置过程中会出现类似的信息，属于正常现象。</p>
+<h3 id="7-创建vlan">7. 创建VLAN<a hidden class="anchor" aria-hidden="true" href="#7-创建vlan">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# show vlan 查看VLAN信息，默认有一个VLAN 1，并且所有端口都属于它
+Switch# vlan database 进入VLAN子模式
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">% Warning: It is recommended to configure VLAN from config mode,
+as VLAN database mode is being deprecated. Please consult user
+documentation for configuring VTP/VLAN in config mode.
+</code></pre></div><p>属于正常的警告信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch(vlan)# vlan 2 创建VLAN2
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">VLAN 2 added:
+Name: VLAN0002
+</code></pre></div><p>表示VLAN创建成功。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch(vlan)# vlan 3 创建VLAN3
+Switch(vlan)# exit
+</code></pre></div><h3 id="8-为vlan设置ip地址">8. 为VLAN设置IP地址<a hidden class="anchor" aria-hidden="true" href="#8-为vlan设置ip地址">#</a></h3>
+<p>为VLAN2设置IP地址</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# configure terminal 进入配置子模式
+Switch(config)# interface vlan 2 配置IP,VLAN2
+Switch(config-if)# ip address 133.37.125.5 255.255.255.0 设置交换机IP（具体IP请依照实际情况设置）
+Switch(config-if)# exit
+</code></pre></div><p>为VLAN3设置IP地址</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch(config)# interface vlan 3 配置IP,VLAN3
+Switch(config-if)# ip address 192.168.1.5 255.255.255.0 设置交换机IP（具体IP请依照实际情况设置）
+Switch(config-if)# exit
+</code></pre></div><h3 id="9-为vlan划分交换机接口">9. 为VLAN划分交换机接口<a hidden class="anchor" aria-hidden="true" href="#9-为vlan划分交换机接口">#</a></h3>
+<p>配置1-12号电口为VLAN2</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch(config)# interface range fastEthernet 0/1 – 12 进入F0/1 到 F0/12
+Switch(config-if)# switchport mode access 设成静态VLAN访问模式
+Switch(config-if)# switchport access vlan 2 将此口分给VLAN2
+Switch(config-if)# exit
+</code></pre></div><p>配置13-24号电口为VLAN3</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch(config)# interface range fastEthernet 0/13 – 24 进入F0/13 到 F0/24
+Switch(config-if)# switchport mode access 设成静态VLAN访问模式
+Switch(config-if)# switchport access vlan 3 将此口分给VLAN3
+Switch(config-if)# exit
+</code></pre></div><p>配置1号光口为VLAN-2</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch(config)# interface GigabitEthernet 0/1 进入G0/1
+Switch(config-if)# switchport mode access 设成静态VLAN访问模式
+Switch(config-if)# switchport access vlan 2 将此口分给VLAN2
+Switch(config-if)# exit
+</code></pre></div><p>配置2号光口为VLAN-3</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch(config)# interface GigabitEthernet 0/2 进入G0/2
+Switch(config-if)# switchport mode access 设成静态VLAN访问模式
+Switch(config-if)# switchport access vlan 3 将此口分给VLAN3
+Switch(config-if)# exit
+Switch(config)# exit
+</code></pre></div><h3 id="10-关闭vlan1">10. 关闭VLAN1<a hidden class="anchor" aria-hidden="true" href="#10-关闭vlan1">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# configure terminal 进入配置子模式
+Switch(config)# interface vlan 1 配置VLAN1
+Switch(config-if)# shutdown 关闭VLAN1
+Switch(config-if)# exit
+Switch(config)# exit
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# show interface fastethernet0/1 status 查看F0/1网口状态
+Switch# show interface fastethernet0/1 查看F0/1网口详细配置
+Switch# show running-config 查看全局配置
+</code></pre></div><h3 id="11-配置默认网关">11. 配置默认网关<a hidden class="anchor" aria-hidden="true" href="#11-配置默认网关">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# configure terminal 进入配置子模式
+Switch(config)# ip default-gateway 133.37.125.4
+Switch(config)# exit
+</code></pre></div><h3 id="12-设置使可以远程telnet登陆">12. 设置使可以远程telnet登陆<a hidden class="anchor" aria-hidden="true" href="#12-设置使可以远程telnet登陆">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# configure terminal 进入配置子模式
+Switch(config)# line vty 0 4
+Switch(config-line)# password cisco
+Switch(config-line)# login
+Switch(config-line)# exit
+Switch(config)# exit
+</code></pre></div><h3 id="13保存当前配置">13.保存当前配置<a hidden class="anchor" aria-hidden="true" href="#13保存当前配置">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# copy running-config startup-config
+Destination filename [startup-config]? 回车
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Building configuration…
+[OK]
+</code></pre></div><p>表示当前配置保存成功。</p>
+<h3 id="14交换机配置情况图示">14.交换机配置情况图示<a hidden class="anchor" aria-hidden="true" href="#14交换机配置情况图示">#</a></h3>
+<p>配置完成，目前整个交换机配置情况如下：</p>
+<p><img src="/attachments/0911/ciscovlan.jpg" alt="ciscovlan"></p>
+<h3 id="15其它相关知识">15.其它相关知识<a hidden class="anchor" aria-hidden="true" href="#15其它相关知识">#</a></h3>
+<p>交换机与交换机/路由器间级联通信：</p>
+<p>当级联的设备端口设置了trunk或划分了VLAN等情况，可能需要修改级联端口的工作模式为trunk模式才能实现相互之间的通信。</p>
+<p>如果是与电口级联，可以修改1号网口为trunk工作模式，使用该接口进行级联：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# configure terminal 进入配置子模式
+Switch(config)# interface fastethernet0/1 进入F0/1口
+Switch(config-if)# switchport trunk encapsulation dot1q
+Switch(config-if)# switchport mode trunk 设成TRUNK口
+Switch(config-if)# switchport trunk allowed vlan all 允许所有VLAN从此口通过
+Switch(config-if)# exit
+Switch(config)# exit
+</code></pre></div><p>如果是与光纤接口级联，可以修改1号光纤接口为trunk工作模式，使用该接口进行级联：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# configure terminal 进入配置子模式
+Switch(config)# interface GigabitEthernet 0/1 进入G0/1
+Switch(config-if)# switchport trunk encapsulation dot1q
+Switch(config-if)# switchport mode trunk 设成TRUNK口
+Switch(config-if)# switchport trunk allowed vlan all 允许所有VLAN从此口通过
+Switch(config-if)# exit
+Switch(config)# exit
+</code></pre></div><p>执行后请按照第13步中的描述保存当前配置。</p>
+<p>WEB方式检查交换机状态：</p>
+<p>如果需要对交换机的状态进行实施查看，可以通过 URL：http://192.168.1.5 或 http://133.8.5.7</p>
+<p>账号：<code>admin</code> 密码：<code>cisco</code>，登陆后进行查看。</p>
+<p>恢复交换机出厂设置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch&gt; en 进入特权模式
+Switch# write erase
+Erasing the nvram filesystem will remove all configuration files! Continue? [confirm] 回车
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[OK]
+Erase of nvram: complete
+00:36:19: %SYS-7-NV_BLOCK_INIT: Initialized the geometry of nvram
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Switch# reload
+Proceed with reload? [confirm] 回车
+</code></pre></div><pre><code>00:36:59: %SYS-5-RELOAD: Reload requested by console. Reload Reason: Reload Command.
+</code></pre><p>片刻之后，交换机会进行重启，并在重启后恢复为出厂设置。</p>
+<p>远程通过telnet登陆交换机终端：</p>
+<ol>
+<li>
+<p>将本机IP设置为与交换机VLAN2或VLAN3同一个网段；</p>
+</li>
+<li>
+<p><code>开始</code>-<code>运行</code>-<code>cmd</code></p>
+</li>
+<li>
+<p>执行<code>telnet 133.37.125.5</code>或<code>telnet 192.168.1.5</code>即可</p>
+</li>
+</ol>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/network/">Network</a></li>
+      <li><a href="https://blog.heylinux.com/tags/cisco/">Cisco</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

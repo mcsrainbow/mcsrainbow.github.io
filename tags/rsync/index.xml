@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rsync on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/rsync/</link>
+    <description>Recent content in Rsync on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Nov 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通过Rsync&#43;inotify-tools&#43;SSH实现触发式远程实时同步</title>
+      <link>https://blog.heylinux.com/2010/11/%E9%80%9A%E8%BF%87rsync-inotify-tools-ssh%E5%AE%9E%E7%8E%B0%E8%A7%A6%E5%8F%91%E5%BC%8F%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Wed, 10 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/11/%E9%80%9A%E8%BF%87rsync-inotify-tools-ssh%E5%AE%9E%E7%8E%B0%E8%A7%A6%E5%8F%91%E5%BC%8F%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>&lt;p&gt;文件的同步镜像在很多地方都需要用到，因此Rsync这款免费软件得到了广泛的应用，包括在Windows平台上，都已经有了支持Rsync的&lt;code&gt;cwRsyncServer&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

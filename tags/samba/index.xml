@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Samba on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/samba/</link>
+    <description>Recent content in Samba on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 11 Jun 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/samba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Samba在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 11 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;安装Samba&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;RHEL/SUSE:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;rpm -ivh samba-*
+rpm -ivh samba-common-*
+rpm -ivh samba-client-*
+rpm -ivh system-config-samba-*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

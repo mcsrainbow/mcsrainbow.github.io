@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sendmail on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/sendmail/</link>
+    <description>Recent content in Sendmail on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 19 Mar 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/sendmail/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决Sendmail: host map: lookup (domain): deferred问题</title>
+      <link>https://blog.heylinux.com/2010/03/%E8%A7%A3%E5%86%B3sendmail-host-map-lookup-domain-deferred%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 19 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/03/%E8%A7%A3%E5%86%B3sendmail-host-map-lookup-domain-deferred%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;大多数Linux系统都默认自带了Sendmail，最近想通过Sendmail将一些服务器信息直接发送到自己的邮箱里面，结果发送之后一直没什么反应，最后发现是因为我的服务器上没有合法的域名和MX解析记录，而Sendmail默认会进行反向解析，所以就一直堆在队列里面发布出去。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

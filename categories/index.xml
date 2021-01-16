@@ -5,20 +5,29 @@
     <link>https://blog.heylinux.com/categories/</link>
     <description>Recent content in Categories on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 25 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Dec 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DevOps</title>
       <link>https://blog.heylinux.com/categories/devops/</link>
-      <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Dec 2010 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/categories/devops/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Programming</title>
+      <link>https://blog.heylinux.com/categories/programming/</link>
+      <pubDate>Thu, 02 Sep 2010 11:29:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Thinking</title>
       <link>https://blog.heylinux.com/categories/thinking/</link>
-      <pubDate>Mon, 04 Aug 2008 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 12 Jul 2010 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/categories/thinking/</guid>
       <description></description>
@@ -39,15 +48,6 @@
       <pubDate>Thu, 01 May 2008 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/categories/english/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programming</title>
-      <link>https://blog.heylinux.com/categories/programming/</link>
-      <pubDate>Fri, 04 Jan 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heylinux.com/categories/programming/</guid>
       <description></description>
     </item>
     

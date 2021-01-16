@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FTP on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/ftp/</link>
+    <description>Recent content in FTP on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 16 May 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/ftp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>简单的Linux自动化远程FTP备份的脚本</title>
+      <link>https://blog.heylinux.com/2010/05/%E7%AE%80%E5%8D%95%E7%9A%84linux%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%9C%E7%A8%8Bftp%E5%A4%87%E4%BB%BD%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/05/%E7%AE%80%E5%8D%95%E7%9A%84linux%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%9C%E7%A8%8Bftp%E5%A4%87%E4%BB%BD%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;p&gt;脚本功能介绍：&lt;/p&gt;
+&lt;p&gt;每天自动备份本地MySQL数据库，并上传备份文件到远程FTP服务器，传输完成后删除本地一周以前旧的备份文件；&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

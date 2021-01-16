@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XEN on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/xen/</link>
+    <description>Recent content in XEN on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 10 Dec 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/xen/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于RHEL 5的XEN安装与配置</title>
+      <link>https://blog.heylinux.com/2010/12/%E5%9F%BA%E4%BA%8Erhel-5%E7%9A%84xen%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 10 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/12/%E5%9F%BA%E4%BA%8Erhel-5%E7%9A%84xen%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;XEN作为目前口碑较佳的免费虚拟化软件，得到了众多SA的青睐，以及广泛的应用，例如众多的VPS厂商就采用了XEN，既能够降低实施成本，又可以保障系统的利用率与稳定性。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

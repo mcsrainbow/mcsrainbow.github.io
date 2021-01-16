@@ -5,14 +5,76 @@
     <link>https://blog.heylinux.com/tags/linux/</link>
     <description>Recent content in Linux on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 25 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Dec 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于RHEL 5的XEN安装与配置</title>
+      <link>https://blog.heylinux.com/2010/12/%E5%9F%BA%E4%BA%8Erhel-5%E7%9A%84xen%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 10 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/12/%E5%9F%BA%E4%BA%8Erhel-5%E7%9A%84xen%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;XEN作为目前口碑较佳的免费虚拟化软件，得到了众多SA的青睐，以及广泛的应用，例如众多的VPS厂商就采用了XEN，既能够降低实施成本，又可以保障系统的利用率与稳定性。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>通过Rsync&#43;inotify-tools&#43;SSH实现触发式远程实时同步</title>
+      <link>https://blog.heylinux.com/2010/11/%E9%80%9A%E8%BF%87rsync-inotify-tools-ssh%E5%AE%9E%E7%8E%B0%E8%A7%A6%E5%8F%91%E5%BC%8F%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Wed, 10 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/11/%E9%80%9A%E8%BF%87rsync-inotify-tools-ssh%E5%AE%9E%E7%8E%B0%E8%A7%A6%E5%8F%91%E5%BC%8F%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>&lt;p&gt;文件的同步镜像在很多地方都需要用到，因此Rsync这款免费软件得到了广泛的应用，包括在Windows平台上，都已经有了支持Rsync的&lt;code&gt;cwRsyncServer&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Subversion在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2010/08/subversion%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 11 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/08/subversion%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;Subversion作为目前最优秀的开源版本控制系统，已经替代CVS成为了使用范围最广的软件。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Samba在Linux上的安装与配置</title>
+      <link>https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 11 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;安装Samba&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;RHEL/SUSE:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;rpm -ivh samba-*
+rpm -ivh samba-common-*
+rpm -ivh samba-client-*
+rpm -ivh system-config-samba-*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>解决Sendmail: host map: lookup (domain): deferred问题</title>
+      <link>https://blog.heylinux.com/2010/03/%E8%A7%A3%E5%86%B3sendmail-host-map-lookup-domain-deferred%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 19 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/03/%E8%A7%A3%E5%86%B3sendmail-host-map-lookup-domain-deferred%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;大多数Linux系统都默认自带了Sendmail，最近想通过Sendmail将一些服务器信息直接发送到自己的邮箱里面，结果发送之后一直没什么反应，最后发现是因为我的服务器上没有合法的域名和MX解析记录，而Sendmail默认会进行反向解析，所以就一直堆在队列里面发布出去。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Linux上基于源地址路由实现电信网通双线</title>
+      <link>https://blog.heylinux.com/2009/10/%E5%9C%A8linux%E4%B8%8A%E5%9F%BA%E4%BA%8E%E6%BA%90%E5%9C%B0%E5%9D%80%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0%E7%94%B5%E4%BF%A1%E7%BD%91%E9%80%9A%E5%8F%8C%E7%BA%BF/</link>
+      <pubDate>Wed, 21 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/10/%E5%9C%A8linux%E4%B8%8A%E5%9F%BA%E4%BA%8E%E6%BA%90%E5%9C%B0%E5%9D%80%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0%E7%94%B5%E4%BF%A1%E7%BD%91%E9%80%9A%E5%8F%8C%E7%BA%BF/</guid>
+      <description>&lt;p&gt;想要通过普通的静态策略路由来实现电信网通双线基本上是不可能的，因为那将需要维护相当大的一个IP段的数据库，而且还需要随时更新才能保证效果。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>在RHEL上Oracle 9i的安装配置与调优</title>
       <link>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98/</link>
       <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2009/09/%E5%9C%A8rhel%E4%B8%8Aoracle-9i%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B0%83%E4%BC%98/</guid>
-      <description>&lt;p&gt;本文带有图片的完整规范文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0600/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;本文带有图片的完整规范文档下载地址：&lt;a href=&#34;https://blog.heylinux.com/attachments/0909/Oracle9i.zip&#34;&gt;Oracle9i.zip&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -5,7 +5,16 @@
     <link>https://blog.heylinux.com/categories/programming/</link>
     <description>Recent content in Programming on Hey! Linux.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 Jan 2008 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Sep 2010 11:29:00 +0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通过Perl脚本实现邮件客户端</title>
+      <link>https://blog.heylinux.com/2010/09/%E9%80%9A%E8%BF%87perl%E8%84%9A%E6%9C%AC%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
+      <pubDate>Thu, 02 Sep 2010 11:29:00 +0800</pubDate>
+      
+      <guid>https://blog.heylinux.com/2010/09/%E9%80%9A%E8%BF%87perl%E8%84%9A%E6%9C%AC%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
+      <description>&lt;p&gt;由于公司目前采用的自建邮件系统部署在内部机房，在网络链路上与国外，以及联通等网络存在着通讯的稳定性问题。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>DOS下.bat批处理脚本编程学习笔记</title>
       <link>https://blog.heylinux.com/2008/01/dos%E4%B8%8B.bat%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>

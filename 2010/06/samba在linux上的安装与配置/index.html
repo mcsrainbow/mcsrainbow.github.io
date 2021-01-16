@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Samba在Linux上的安装与配置 | Hey! Linux.</title>
+
+<meta name="keywords" content="Linux, Windows, Samba" />
+<meta name="description" content="
+安装Samba
+
+RHEL/SUSE:
+rpm -ivh samba-*
+rpm -ivh samba-common-*
+rpm -ivh samba-client-*
+rpm -ivh system-config-samba-*
+">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" />
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="Samba在Linux上的安装与配置" />
+<meta property="og:description" content="
+安装Samba
+
+RHEL/SUSE:
+rpm -ivh samba-*
+rpm -ivh samba-common-*
+rpm -ivh samba-client-*
+rpm -ivh system-config-samba-*
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" />
+<meta property="article:published_time" content="2010-06-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2010-06-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Samba在Linux上的安装与配置"/>
+<meta name="twitter:description" content="
+安装Samba
+
+RHEL/SUSE:
+rpm -ivh samba-*
+rpm -ivh samba-common-*
+rpm -ivh samba-client-*
+rpm -ivh system-config-samba-*
+"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Samba在Linux上的安装与配置",
+  "name": "Samba在Linux上的安装与配置",
+  "description": " 安装Samba  RHEL/SUSE:\nrpm -ivh samba-* rpm -ivh samba-common-* rpm -ivh samba-client-* rpm -ivh system-config-samba-* ",
+  "keywords": [
+    "Linux", "Windows", "Samba"
+  ],
+  "articleBody": " 安装Samba  RHEL/SUSE:\nrpm -ivh samba-* rpm -ivh samba-common-* rpm -ivh samba-client-* rpm -ivh system-config-samba-* CentOS:\nyum install samba system-config-samba samba-client samba-common Ubuntu:\napt-get install samba smbfs 创建Samba配置文件  touch /etc/samba/smbpasswd mv -f /etc/samba/smb.conf /etc/samba/smb.conf.bak vi /etc/samba/smb.conf 输入以下内容：\n[global] server string = Samba Server Version %v security = user encrypt passwords = yes [tom] workgroup = tom netbios name = tom path = /home/tom browseable = yes writeable = yes [jack] workgroup = jack netbios name = jack path = /home/jack browseable = yes writeable = yes 为samba创建用户tom、jack并设置密码  useradd -m tom useradd -m jack smbpasswd -a tom smbpasswd -a jack 启动Samba  /sbin/service smb start 设置samba自启动  chkconfig smb on 在Windows上映射网络驱动盘  Windows访问Samba共享连接（假设服务器IP为192.168.10.3）\n在开始-运行中输入\\\\192.168.10.3\\\nWindows断开Samba共享连接，在开始-运行-cmd回车中输入net use * /del\n将Samba共享的Linux目录，映射成Windows的一个驱动器盘符\n在右键点击我的电脑-映射网络驱动器，选择驱动器盘符与文件夹地址，如Z与\\\\192.168.10.3\\tom，确认后在我的电脑中即可看到新创建的网络驱动器Z。\n注：具体的权限分配是由Linux的文件系统权限来控制的，主要通过useradd和groupadd创建不同的用户和分组，用chown和chmod来控制目录的访问权限来实现。如果需要根据项目来分类的话，可以在创建用户的时候加上-M参数使其不生成默认的home目录，而配置文件中[]方括号内也修改为项目的名称，path修改为项目的文件夹路径。\n",
+  "wordCount" : "116",
+  "inLanguage": "en",
+  "datePublished": "2010-06-11T00:00:00Z",
+  "dateModified": "2010-06-11T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2010/06/samba%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      Samba在Linux上的安装与配置
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">
+
+June 11, 2010&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<ol>
+<li>安装Samba</li>
+</ol>
+<p>RHEL/SUSE:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rpm -ivh samba-*
+rpm -ivh samba-common-*
+rpm -ivh samba-client-*
+rpm -ivh system-config-samba-*
+</code></pre></div><p>CentOS:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install samba system-config-samba samba-client samba-common
+</code></pre></div><p>Ubuntu:</p>
+<pre><code>apt-get install samba smbfs
+</code></pre><ol start="2">
+<li>创建Samba配置文件</li>
+</ol>
+<pre><code>touch /etc/samba/smbpasswd
+</code></pre><pre><code>mv -f /etc/samba/smb.conf /etc/samba/smb.conf.bak
+vi /etc/samba/smb.conf
+</code></pre><p>输入以下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[global]</span>
+<span style="color:#a6e22e">server string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">Samba Server Version %v</span>
+<span style="color:#a6e22e">security</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">user</span>
+<span style="color:#a6e22e">encrypt passwords</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">yes</span>
+
+<span style="color:#66d9ef">[tom]</span>
+<span style="color:#a6e22e">workgroup</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">tom</span>
+<span style="color:#a6e22e">netbios name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">tom</span>
+<span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/home/tom</span>
+<span style="color:#a6e22e">browseable</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">yes</span>
+<span style="color:#a6e22e">writeable</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">yes</span>
+
+<span style="color:#66d9ef">[jack]</span>
+<span style="color:#a6e22e">workgroup</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">jack</span>
+<span style="color:#a6e22e">netbios name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">jack</span>
+<span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/home/jack</span>
+<span style="color:#a6e22e">browseable</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">yes</span>
+<span style="color:#a6e22e">writeable</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">yes</span>
+</code></pre></div><ol start="3">
+<li>为samba创建用户tom、jack并设置密码</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">useradd -m tom
+useradd -m jack
+
+smbpasswd -a tom
+smbpasswd -a jack
+</code></pre></div><ol start="4">
+<li>启动Samba</li>
+</ol>
+<pre><code>/sbin/service smb start
+</code></pre><ol start="5">
+<li>设置samba自启动</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chkconfig smb on
+</code></pre></div><ol start="6">
+<li>在Windows上映射网络驱动盘</li>
+</ol>
+<p>Windows访问Samba共享连接（假设服务器IP为192.168.10.3）</p>
+<p>在<code>开始</code>-<code>运行</code>中输入<code>\\192.168.10.3\</code></p>
+<p>Windows断开Samba共享连接，在<code>开始</code>-<code>运行</code>-<code>cmd</code>回车中输入<code>net use * /del</code></p>
+<p>将Samba共享的Linux目录，映射成Windows的一个驱动器盘符</p>
+<p>在右键点击<code>我的电脑</code>-<code>映射网络驱动器</code>，选择<code>驱动器</code>盘符与<code>文件夹</code>地址，如<code>Z</code>与<code>\\192.168.10.3\tom</code>，确认后在<code>我的电脑</code>中即可看到新创建的网络驱动器<code>Z</code>。</p>
+<p>注：具体的权限分配是由Linux的文件系统权限来控制的，主要通过<code>useradd</code>和<code>groupadd</code>创建不同的用户和分组，用<code>chown</code>和<code>chmod</code>来控制目录的访问权限来实现。如果需要根据项目来分类的话，可以在创建用户的时候加上<code>-M</code>参数使其不生成默认的home目录，而配置文件中<code>[]</code>方括号内也修改为项目的名称，<code>path</code>修改为项目的文件夹路径。</p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/linux/">Linux</a></li>
+      <li><a href="https://blog.heylinux.com/tags/windows/">Windows</a></li>
+      <li><a href="https://blog.heylinux.com/tags/samba/">Samba</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

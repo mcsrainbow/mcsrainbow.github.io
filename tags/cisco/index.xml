@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cisco on Hey! Linux.</title>
+    <link>https://blog.heylinux.com/tags/cisco/</link>
+    <description>Recent content in Cisco on Hey! Linux.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 25 Nov 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/cisco/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CISCO3560 VLAN配置实例</title>
+      <link>https://blog.heylinux.com/2009/11/cisco3560-vlan%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Wed, 25 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heylinux.com/2009/11/cisco3560-vlan%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B/</guid>
+      <description>&lt;h3 id=&#34;1-注意事项&#34;&gt;1. 注意事项&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;交换机启动需要大约4-5分钟；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网线插入交换机接口从黄变为绿需要大约1-2分钟，即进入正常工作模式；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;建议使用XP系统进行操作，2003默认没有安装超级终端，需要使用安装光盘添加该工具才有；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;请严格按照以下步骤进行，背景灰色字体为交换机显示信息，蓝色字体为配置命令。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

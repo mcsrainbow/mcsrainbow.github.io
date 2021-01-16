@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>2010年7月9日-11日工作札记 | Hey! Linux.</title>
+
+<meta name="keywords" content="Work" />
+<meta name="description" content="
+中兴Corba接口程序
+
+在Windows下正常运行，但在Linux通过get方式取数据无问题，交互式却无返回数据信息（即由客户端push一个请求后由服务端主动将数据发送到给客户端的方式）。
+期间中兴公司强势，仅提供了程序运行环境，不愿意配合调试，使问题的定位遇到了很大困难。">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2010/07/2010%E5%B9%B47%E6%9C%889%E6%97%A5-11%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/" />
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="2010年7月9日-11日工作札记" />
+<meta property="og:description" content="
+中兴Corba接口程序
+
+在Windows下正常运行，但在Linux通过get方式取数据无问题，交互式却无返回数据信息（即由客户端push一个请求后由服务端主动将数据发送到给客户端的方式）。
+期间中兴公司强势，仅提供了程序运行环境，不愿意配合调试，使问题的定位遇到了很大困难。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2010/07/2010%E5%B9%B47%E6%9C%889%E6%97%A5-11%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/" />
+<meta property="article:published_time" content="2010-07-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2010-07-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2010年7月9日-11日工作札记"/>
+<meta name="twitter:description" content="
+中兴Corba接口程序
+
+在Windows下正常运行，但在Linux通过get方式取数据无问题，交互式却无返回数据信息（即由客户端push一个请求后由服务端主动将数据发送到给客户端的方式）。
+期间中兴公司强势，仅提供了程序运行环境，不愿意配合调试，使问题的定位遇到了很大困难。"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2010年7月9日-11日工作札记",
+  "name": "2010年7月9日-11日工作札记",
+  "description": " 中兴Corba接口程序  在Windows下正常运行，但在Linux通过get方式取数据无问题，交互式却无返回数据信息（即由客户端push一个请求后由服务端主动将数据发送到给客户端的方式）。\n期间中兴公司强势，仅提供了程序运行环境，不愿意配合调试，使问题的定位遇到了很大困难。\n",
+  "keywords": [
+    "Work"
+  ],
+  "articleBody": " 中兴Corba接口程序  在Windows下正常运行，但在Linux通过get方式取数据无问题，交互式却无返回数据信息（即由客户端push一个请求后由服务端主动将数据发送到给客户端的方式）。\n期间中兴公司强势，仅提供了程序运行环境，不愿意配合调试，使问题的定位遇到了很大困难。\n还好最终解决并找到了问题的原因，中兴Corbal程序会通过Linux客户端的hosts文件第一行返回的主机名和IP记录反解析后通过主机名回连客户端，但Linux的hosts文件默认第一行是127.0.0.1，解决办法是将127.0.0.1记录下移，而将133地址主机记录上移到第一行即可；\n心得： 当数据传输存在问题时，在排除了网络问题后，尽量思考程序的工作原理，从程序本身找原因。\n 开发人员误操作  将原有的共20多张Oracle表空间物理数据文件直接用rm命令删除了，使得数据库在关闭后，就再无法启动。\n最终解决办法：鉴于删除的表空间文件中的数据都不重要，因此重建整个数据库表空间结构，将已经删除的表空间文件所在结构删除，使数据库能够正常启动。\n心得： 通过几次出现的对Oracle直接删除数据文件、归档日志、REDO日志等问题来看，将基本的数据库维护注意事项要告之开发人员以及维护人员，是相当有必要的。 另外，在条件允许的情况下，尽量不要让开发人员与普通维护人员具有直接操作生产环境的权限。\n 系统中的MapInfo地图无法显示  使平台的重要功能完全不能使用，前期所有开发人员都怀疑是操作系统字符集编码问题，因为地图程序在Windows上运行正常，在Linux就无法显示，且后台日志没有任何错误提示。\n最后在通过各种方法尝试处理操作系统的字符集编码时，找到了软件上的一个漏洞，即地图文件存在与否都没有告警信息日志产生，借由这个漏洞配合程序员找到了代码中的问题，代码中针对操作系统的不同有不同的地图路径返回值，Linux默认返回值有问题，而该段代码又是没有日志抛出的，造成问题很难查找，最后通过修改代码后解决了问题。\n心得： Java是跨平台的，但是代码不一定是跨平台的，因此在面临平台迁移后的问题时，不要首先排除代码的问题，而把目光聚焦在操作系统层面。 在重要的程序代码处，一定要将错误与告警信息抛出到日志中，便于在出现问题时进行跟踪。\n",
+  "wordCount" : "18",
+  "inLanguage": "en",
+  "datePublished": "2010-07-12T00:00:00Z",
+  "dateModified": "2010-07-12T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2010/07/2010%E5%B9%B47%E6%9C%889%E6%97%A5-11%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%9C%AD%E8%AE%B0/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      2010年7月9日-11日工作札记
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">
+
+July 12, 2010&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<ol>
+<li>中兴Corba接口程序</li>
+</ol>
+<p>在Windows下正常运行，但在Linux通过get方式取数据无问题，交互式却无返回数据信息（即由客户端push一个请求后由服务端主动将数据发送到给客户端的方式）。</p>
+<p>期间中兴公司强势，仅提供了程序运行环境，不愿意配合调试，使问题的定位遇到了很大困难。</p>
+<p>还好最终解决并找到了问题的原因，中兴Corbal程序会通过Linux客户端的hosts文件第一行返回的主机名和IP记录反解析后通过主机名回连客户端，但Linux的hosts文件默认第一行是127.0.0.1，解决办法是将127.0.0.1记录下移，而将133地址主机记录上移到第一行即可；</p>
+<p><strong>心得：</strong> 当数据传输存在问题时，在排除了网络问题后，尽量思考程序的工作原理，从程序本身找原因。</p>
+<hr>
+<ol start="2">
+<li>开发人员误操作</li>
+</ol>
+<p>将原有的共20多张Oracle表空间物理数据文件直接用rm命令删除了，使得数据库在关闭后，就再无法启动。</p>
+<p>最终解决办法：鉴于删除的表空间文件中的数据都不重要，因此重建整个数据库表空间结构，将已经删除的表空间文件所在结构删除，使数据库能够正常启动。</p>
+<p><strong>心得：</strong> 通过几次出现的对Oracle直接删除数据文件、归档日志、REDO日志等问题来看，将基本的数据库维护注意事项要告之开发人员以及维护人员，是相当有必要的。
+另外，在条件允许的情况下，尽量不要让开发人员与普通维护人员具有直接操作生产环境的权限。</p>
+<hr>
+<ol start="3">
+<li>系统中的MapInfo地图无法显示</li>
+</ol>
+<p>使平台的重要功能完全不能使用，前期所有开发人员都怀疑是操作系统字符集编码问题，因为地图程序在Windows上运行正常，在Linux就无法显示，且后台日志没有任何错误提示。</p>
+<p>最后在通过各种方法尝试处理操作系统的字符集编码时，找到了软件上的一个漏洞，即地图文件存在与否都没有告警信息日志产生，借由这个漏洞配合程序员找到了代码中的问题，代码中针对操作系统的不同有不同的地图路径返回值，Linux默认返回值有问题，而该段代码又是没有日志抛出的，造成问题很难查找，最后通过修改代码后解决了问题。</p>
+<p><strong>心得：</strong> Java是跨平台的，但是代码不一定是跨平台的，因此在面临平台迁移后的问题时，不要首先排除代码的问题，而把目光聚焦在操作系统层面。
+在重要的程序代码处，一定要将错误与告警信息抛出到日志中，便于在出现问题时进行跟踪。</p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/work/">Work</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

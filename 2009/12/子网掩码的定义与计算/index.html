@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>子网掩码的定义与计算 | Hey! Linux.</title>
+
+<meta name="keywords" content="Network" />
+<meta name="description" content="按IP协议的子网标准规定，每一个使用子网的网点都选择一个32位的位模式；
+若位模式中的某位置1，则对应IP地址中的网络地址（包括网络部分和子网掩码号）中的一位；
+若位模式中的某位置0，则对应IP地址中的主机地址中的一位。">
+<meta name="author" content="mcsrainbow">
+<link rel="canonical" href="https://blog.heylinux.com/2009/12/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97/" />
+<link href="/assets/css/stylesheet.min.a60ca76cd4374a9e75589f7c8b6fc34a35d1e10e168a738019b1a283ab5c8c27.css" integrity="sha256-pgynbNQ3Sp51WJ98i2/DSjXR4Q4WinOAGbGig6tcjCc=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://blog.heylinux.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.heylinux.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.heylinux.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.heylinux.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.heylinux.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<meta property="og:title" content="子网掩码的定义与计算" />
+<meta property="og:description" content="按IP协议的子网标准规定，每一个使用子网的网点都选择一个32位的位模式；
+若位模式中的某位置1，则对应IP地址中的网络地址（包括网络部分和子网掩码号）中的一位；
+若位模式中的某位置0，则对应IP地址中的主机地址中的一位。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2009/12/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97/" />
+<meta property="article:published_time" content="2009-12-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2009-12-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="子网掩码的定义与计算"/>
+<meta name="twitter:description" content="按IP协议的子网标准规定，每一个使用子网的网点都选择一个32位的位模式；
+若位模式中的某位置1，则对应IP地址中的网络地址（包括网络部分和子网掩码号）中的一位；
+若位模式中的某位置0，则对应IP地址中的主机地址中的一位。"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "子网掩码的定义与计算",
+  "name": "子网掩码的定义与计算",
+  "description": "按IP协议的子网标准规定，每一个使用子网的网点都选择一个32位的位模式；\n若位模式中的某位置1，则对应IP地址中的网络地址（包括网络部分和子网掩码号）中的一位；\n若位模式中的某位置0，则对应IP地址中的主机地址中的一位。\n",
+  "keywords": [
+    "Network"
+  ],
+  "articleBody": "按IP协议的子网标准规定，每一个使用子网的网点都选择一个32位的位模式；\n若位模式中的某位置1，则对应IP地址中的网络地址（包括网络部分和子网掩码号）中的一位；\n若位模式中的某位置0，则对应IP地址中的主机地址中的一位。\n例如二进制位模式：11111111 11111111 11111111 00000000中，前三个字节全1，代表对应IP地址中最高的三个字节为网络地址；后一个字节全0，代表对应IP地址中最后的一个字节为主机地址；\n为了使用的方便，常常使用点分整数表示法来表示一个IP地址和子网掩码，例如C类地址子网掩码11111111 11111111 11111111 00000000为：255.255.255.0；\nIP协议关于子网掩码的定义提供一定的灵活性，允许子网掩码中的 0和1位不连续。但是，这样的子网掩码给分配主机地址和理解寻径表都带来一定困难。\n并且，极少的路由器支持在子网中使用低序或无序的位，因此在实际应用中通常各网点采用连续方式的子网掩码，像255.255.255.64和255.255.255.160等一类的子网掩码不推荐使用；\n所以，一般可用来使用的掩码数值就只有以下了：\n256-(128 64 32 16 8 4 2 1)=128,192,224,240,248,252,254,255\n这里面的(1 2 4 8 16 32 64 128)是我们的8个不同位数的1所计算出来的数值，可以用来作为主机数区间，意思就是，如果你需要60个IP，那么你就必须选择32-64的区间，那么掩码就是256-64=192，就是8+8+8+2=26位掩码了，即前24位+192的（11 00 0000 ）的2位1。\n关于位数的计算有个简单的方法，通过按照排列来计算：128 64 32 16 8 4 2 1；\n192就是128+64，那么就是2位1了咯，同样224=128+64+32，所以224就是3位1了，依次推理240就是4位1了；\n通过上面的方法，可以根据所需的IP个数来快速的选择所需的掩码。\n另外，很多时候需要通过已知的掩码，来计算IP所在的子网范围，方法其实也很简单：\n比如，已知网络地址是10.10.10.90/28，那么它的子网掩码就8+8+8+4，对应的掩码地址就是256-16(2的4次方)=240；\n将0-255以每16个地址来划分出区块，90这个IP位于16*5=80与16*6=96之间；\n而80为全0子网地址，95为全1广播地址，因此IP范围就是10.10.10.81-10.10.10.94。\n这里，再给大家分享一个Windows上的图形小工具，可以完成上面的计算。\n下载地址：SubnetMask.zip\n",
+  "wordCount" : "50",
+  "inLanguage": "en",
+  "datePublished": "2009-12-15T00:00:00Z",
+  "dateModified": "2009-12-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "mcsrainbow"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.heylinux.com/2009/12/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hey! Linux.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.heylinux.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.heylinux.com" accesskey="h" title="Hey! Linux. (Alt + H)">Hey! Linux.</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://blog.heylinux.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.heylinux.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      子网掩码的定义与计算
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">
+
+December 15, 2009&nbsp;·&nbsp;mcsrainbow
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>按IP协议的子网标准规定，每一个使用子网的网点都选择一个<code>32位</code>的位模式；</p>
+<p>若位模式中的某位<code>置1</code>，则对应IP地址中的网络地址（包括网络部分和子网掩码号）中的一位；</p>
+<p>若位模式中的某位<code>置0</code>，则对应IP地址中的主机地址中的一位。</p>
+<p>例如二进制位模式：<code>11111111 11111111 11111111 00000000</code>中，前三个字节<code>全1</code>，代表对应IP地址中最高的三个字节为网络地址；后一个字节<code>全0</code>，代表对应IP地址中最后的一个字节为主机地址；</p>
+<p>为了使用的方便，常常使用<code>点分整数表示法</code>来表示一个IP地址和子网掩码，例如C类地址子网掩码<code>11111111 11111111 11111111 00000000</code>为：<code>255.255.255.0</code>；</p>
+<p>IP协议关于子网掩码的定义提供一定的灵活性，允许子网掩码中的 <code>0</code>和<code>1</code>位不连续。但是，这样的子网掩码给分配主机地址和理解寻径表都带来一定困难。</p>
+<p>并且，极少的路由器支持在子网中使用低序或无序的位，因此在实际应用中通常各网点采用连续方式的子网掩码，像<code>255.255.255.64</code>和<code>255.255.255.160</code>等一类的子网掩码不推荐使用；</p>
+<p>所以，一般可用来使用的掩码数值就只有以下了：</p>
+<p><code>256</code>-<code>(128 64 32 16 8 4 2 1)</code>=<code>128,192,224,240,248,252,254,255</code></p>
+<p>这里面的<code>(1 2 4 8 16 32 64 128)</code>是我们的<code>8个</code>不同位数的<code>1</code>所计算出来的数值，可以用来作为主机数区间，意思就是，如果你需要<code>60</code>个IP，那么你就必须选择<code>32-64</code>的区间，那么掩码就是<code>256-64=192</code>，就是<code>8+8+8+2</code>=<code>26</code>位掩码了，即前<code>24位</code>+<code>192</code>的<code>（11 00 0000 ）</code>的<code>2位1</code>。</p>
+<p>关于位数的计算有个简单的方法，通过按照排列来计算：<code>128 64 32 16 8 4 2 1</code>；</p>
+<p><code>192</code>就是<code>128+64</code>，那么就是<code>2位1</code>了咯，同样<code>224</code>=<code>128+64+32</code>，所以<code>224</code>就是<code>3位1</code>了，依次推理<code>240</code>就是<code>4位1</code>了；</p>
+<p>通过上面的方法，可以根据所需的IP个数来快速的选择所需的掩码。</p>
+<p>另外，很多时候需要通过已知的掩码，来计算IP所在的子网范围，方法其实也很简单：</p>
+<p>比如，已知网络地址是<code>10.10.10.90/28</code>，那么它的子网掩码就<code>8+8+8+4</code>，对应的掩码地址就是<code>256</code>-<code>16(2的4次方)</code>=<code>240</code>；</p>
+<p>将<code>0-255</code>以每<code>16个</code>地址来划分出区块，<code>90</code>这个IP位于<code>16*5</code>=<code>80</code>与<code>16*6</code>=<code>96</code>之间；</p>
+<p>而<code>80</code>为<code>全0</code>子网地址，<code>95</code>为<code>全1</code>广播地址，因此IP范围就是<code>10.10.10.81</code>-<code>10.10.10.94</code>。</p>
+<p>这里，再给大家分享一个Windows上的图形小工具，可以完成上面的计算。</p>
+<p>下载地址：<a href="/attachments/0912/SubnetMask.zip">SubnetMask.zip</a></p>
+<p><img src="/attachments/0912/subnetmask.jpeg" alt="subnetmask"></p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.heylinux.com/tags/network/">Network</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://blog.heylinux.com">Hey! Linux.</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
