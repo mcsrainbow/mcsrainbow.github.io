@@ -44,8 +44,8 @@
   "keywords": [
     "Linux", "Rsync", "inotify"
   ],
-  "articleBody": "文件的同步镜像在很多地方都需要用到，因此Rsync这款免费软件得到了广泛的应用，包括在Windows平台上，都已经有了支持Rsync的cwRsyncServer。\n但是，我们一般都是通过结合crontab计划任务来实现文件同步的，这样做的缺点是效率低，不能做到实时同步。\n现在，在Linux平台下我们可以利用2.6内核的inotify监控文件系统机制，通过inotify-tools来实现实时同步了。\n具体操作如下：\n 安装所需软件  目前各大Linux发行版本都已经具有了rsync与inotify-tools的软件包，推荐通过rpm，yum，apt-get等方式进行安装。\nRHEL:\n[root@server1 ~]# rpm -ivh rsync-* [root@server1 ~]# rpm -ivh inotify-tools-* CentOS:\n[root@server1 ~]# yum install rsync inotify-tools Ubuntu:\n[root@server1 ~]# apt-get install rsync inotify-tools 采用源码方式安装的步骤如下：\n[root@server1 ~]# wget ftp://ftp.samba.org/pub/rsync/rsync-3.0.8.tar.gz [root@server1 ~]# tar xzvf rsync-3.0.8.tar.gz [root@server1 ~]# cd rsync-3.0.8 [root@server1 ~]# ./configure [root@server1 ~]# make [root@server1 ~]# make install [root@server1 ~]# wget http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz [root@server1 ~]# tar xzvf inotify-tools-3.14.tar.gz [root@server1 ~]# cd inotify-tools-3.14 [root@server1 ~]# ./configure [root@server1 ~]# make [root@server1 ~]# make install 配置ssh key信任  建议通过普通用户进行操作，理由是通过root操作本身就危险，免密码登陆的root就更危险了。\n在两台服务器上创建rsync用户\n[root@server1 ~]# useradd -m rsync [root@server1 ~]# passwd rsync [root@server2 ~]# useradd -m rsync [root@server2 ~]# passwd rsync [root@server1 ~]# su - rsync [rsync@server1 ~]$ ssh-keygen -t rsa 在提示保存私钥key和公钥public key的位置时，使用默认值；\n在提示是否需要私钥密码passphrase时，直接敲回车，即不使用私钥密码。\n之后，将生成一对密钥，id_rsa私钥文件和id_rsa.pub公钥文件，保存在/home/rsync/.ssh/目录下。\n将公钥添加到远程主机的authorized_keys文件中\n将文件上传到远程主机（假设远程主机IP为192.168.10.4）\n[rsync@server1 ~]$ scp ~/.ssh/id_rsa.pub rsync@192.168.10.4:/home/rsync/ 使用rsync用户SSH到登陆到远程主机，并将公钥添加到authorized_keys文件中\n[rsync@server2 ~]$ mkdir .ssh [rsync@server2 ~]$ chmod 700 .ssh [rsync@server2 ~]$ mv ~/id_rsa.pub ~/.ssh/authorized_keys 重启SSH服务\n[root@server1 ~]# /etc/init.d/sshd restart [root@server2 ~]# /etc/init.d/sshd restart 创建inotify_rsync.sh脚本  [root@server1 ~]# vim inotify_rsync.sh #!/bin/sh SRC=/home/rsync/test DST=rsync@192.168.10.4:/home/rsync/test su - rsync inotifywait -mrq -e modify,delete,create,attrib ${src} | while read D E F do /usr/bin/rsync -ahqzt --delete $SRC $DST done 相关注解如下：\n/usr/local/bin/inotifywait -mrq -e modify,delete,create,attrib ${src} -m 是保持一直监听 -r 是递归查看目录 -q 是打印出事件 -e create,move,delete,modify,attrib 是指监听 \"创建，移动，删除，写入，权限\"事件 /usr/bin/rsync -ahqzt --delete $SRC $DST -a 存档模式 -h 保存硬连接 -q 制止非错误信息 -z 压缩文件数据在传输 -t 维护修改时间 --delete 删除于多余文件 要排除同步某个目录时，为rsync添加--exculde=PATTERN参数，注意，路径是相对路径，具体查看man rsync。\n要排除某个目录的事件监听的处理时，为inotifywait添加--exclude或--excludei参数，具体查看man inotifywait。\ninotifywait命令产生三个返回值，分别是日期，时间，文件这3个返回值会做为参数传给read，因此脚本中的while read D E F写法细化了返回值。\n赋予脚本可执行权限\n[root@server1 ~]# chmod +x inotify_rsync.sh 执行脚本\n[root@server1 ~]# /root/inotify_rsync.sh \u0026 设置脚本开机自启动\n[root@server1 ~]# cat \"/root/inotify_rsync.sh \u0026\"  /etc/rc.local 4.测试\n首先在server1服务器的/home/rsync/test目录下创建文件或目录，然后再到server2的/home/rsync/test目录下查看，如果看到就说明成功了。\n[rsync@server1 ~]$ cd test [rsync@server1 test]$ touch a.txt 注意：第一次SSH连接的时候可能需要输入一次密码，之后就不需要输入了。\n[rsync@server2 ~]$ cd test [rsync@server2 test]$ ls a.txt 看到了a.txt文件，说明文件同步已经成功！\n",
-  "wordCount" : "255",
+  "articleBody": "文件的同步镜像在很多地方都需要用到，因此Rsync这款免费软件得到了广泛的应用，包括在Windows平台上，都已经有了支持Rsync的cwRsyncServer。\n但是，我们一般都是通过结合crontab计划任务来实现文件同步的，这样做的缺点是效率低，不能做到实时同步。\n现在，在Linux平台下我们可以利用2.6内核的inotify监控文件系统机制，通过inotify-tools来实现实时同步了。\n具体操作如下：\n1. 安装所需软件 目前各大Linux发行版本都已经具有了rsync与inotify-tools的软件包，推荐通过rpm，yum，apt-get等方式进行安装。\nRHEL:\n[root@server1 ~]# rpm -ivh rsync-* [root@server1 ~]# rpm -ivh inotify-tools-* CentOS:\n[root@server1 ~]# yum install rsync inotify-tools Ubuntu:\n[root@server1 ~]# apt-get install rsync inotify-tools 采用源码方式安装的步骤如下：\n[root@server1 ~]# wget ftp://ftp.samba.org/pub/rsync/rsync-3.0.8.tar.gz [root@server1 ~]# tar xzvf rsync-3.0.8.tar.gz [root@server1 ~]# cd rsync-3.0.8 [root@server1 ~]# ./configure [root@server1 ~]# make [root@server1 ~]# make install [root@server1 ~]# wget http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz [root@server1 ~]# tar xzvf inotify-tools-3.14.tar.gz [root@server1 ~]# cd inotify-tools-3.14 [root@server1 ~]# ./configure [root@server1 ~]# make [root@server1 ~]# make install 2. 配置ssh key信任 建议通过普通用户进行操作，理由是通过root操作本身就危险，免密码登陆的root就更危险了。\n在两台服务器上创建rsync用户\n[root@server1 ~]# useradd -m rsync [root@server1 ~]# passwd rsync [root@server2 ~]# useradd -m rsync [root@server2 ~]# passwd rsync [root@server1 ~]# su - rsync [rsync@server1 ~]$ ssh-keygen -t rsa 在提示保存私钥key和公钥public key的位置时，使用默认值；\n在提示是否需要私钥密码passphrase时，直接敲回车，即不使用私钥密码。\n之后，将生成一对密钥，id_rsa私钥文件和id_rsa.pub公钥文件，保存在/home/rsync/.ssh/目录下。\n将公钥添加到远程主机的authorized_keys文件中\n将文件上传到远程主机（假设远程主机IP为192.168.10.4）\n[rsync@server1 ~]$ scp ~/.ssh/id_rsa.pub rsync@192.168.10.4:/home/rsync/ 使用rsync用户SSH到登陆到远程主机，并将公钥添加到authorized_keys文件中\n[rsync@server2 ~]$ mkdir .ssh [rsync@server2 ~]$ chmod 700 .ssh [rsync@server2 ~]$ mv ~/id_rsa.pub ~/.ssh/authorized_keys 重启SSH服务\n[root@server1 ~]# /etc/init.d/sshd restart [root@server2 ~]# /etc/init.d/sshd restart 3. 创建inotify_rsync.sh脚本 [root@server1 ~]# vim inotify_rsync.sh #!/bin/sh SRC=/home/rsync/test DST=rsync@192.168.10.4:/home/rsync/test su - rsync inotifywait -mrq -e modify,delete,create,attrib ${src} | while read D E F do /usr/bin/rsync -ahqzt --delete $SRC $DST done 相关注解如下：\n/usr/local/bin/inotifywait -mrq -e modify,delete,create,attrib ${src} -m 是保持一直监听 -r 是递归查看目录 -q 是打印出事件 -e create,move,delete,modify,attrib 是指监听 \"创建，移动，删除，写入，权限\"事件 /usr/bin/rsync -ahqzt --delete $SRC $DST -a 存档模式 -h 保存硬连接 -q 制止非错误信息 -z 压缩文件数据在传输 -t 维护修改时间 --delete 删除于多余文件 要排除同步某个目录时，为rsync添加--exculde=PATTERN参数，注意，路径是相对路径，具体查看man rsync。\n要排除某个目录的事件监听的处理时，为inotifywait添加--exclude或--excludei参数，具体查看man inotifywait。\ninotifywait命令产生三个返回值，分别是日期，时间，文件这3个返回值会做为参数传给read，因此脚本中的while read D E F写法细化了返回值。\n赋予脚本可执行权限\n[root@server1 ~]# chmod +x inotify_rsync.sh 执行脚本\n[root@server1 ~]# /root/inotify_rsync.sh \u0026 设置脚本开机自启动\n[root@server1 ~]# cat \"/root/inotify_rsync.sh \u0026\"  /etc/rc.local 4. 测试 首先在server1服务器的/home/rsync/test目录下创建文件或目录，然后再到server2的/home/rsync/test目录下查看，如果看到就说明成功了。\n[rsync@server1 ~]$ cd test [rsync@server1 test]$ touch a.txt 注意：第一次SSH连接的时候可能需要输入一次密码，之后就不需要输入了。\n[rsync@server2 ~]$ cd test [rsync@server2 test]$ ls a.txt 看到了a.txt文件，说明文件同步已经成功！\n",
+  "wordCount" : "259",
   "inLanguage": "en",
   "datePublished": "2010-11-10T00:00:00Z",
   "dateModified": "2010-11-10T00:00:00Z",
@@ -173,9 +173,7 @@ November 10, 2010&nbsp;·&nbsp;mcsrainbow
 <p>但是，我们一般都是通过结合crontab计划任务来实现文件同步的，这样做的缺点是效率低，不能做到实时同步。</p>
 <p>现在，在Linux平台下我们可以利用2.6内核的inotify监控文件系统机制，通过inotify-tools来实现实时同步了。</p>
 <p>具体操作如下：</p>
-<ol>
-<li>安装所需软件</li>
-</ol>
+<h3 id="1-安装所需软件">1. 安装所需软件<a hidden class="anchor" aria-hidden="true" href="#1-安装所需软件">#</a></h3>
 <p>目前各大Linux发行版本都已经具有了rsync与inotify-tools的软件包，推荐通过rpm，yum，apt-get等方式进行安装。</p>
 <p>RHEL:</p>
 <pre><code>[root@server1 ~]# rpm -ivh rsync-*
@@ -198,9 +196,7 @@ November 10, 2010&nbsp;·&nbsp;mcsrainbow
 [root@server1 ~]# ./configure
 [root@server1 ~]# make
 [root@server1 ~]# make install
-</code></pre><ol start="2">
-<li>配置ssh key信任</li>
-</ol>
+</code></pre><h3 id="2-配置ssh-key信任">2. 配置ssh key信任<a hidden class="anchor" aria-hidden="true" href="#2-配置ssh-key信任">#</a></h3>
 <p>建议通过普通用户进行操作，理由是通过root操作本身就危险，免密码登陆的root就更危险了。</p>
 <p>在两台服务器上创建rsync用户</p>
 <pre><code>[root@server1 ~]# useradd -m rsync
@@ -223,9 +219,7 @@ November 10, 2010&nbsp;·&nbsp;mcsrainbow
 </code></pre><p>重启SSH服务</p>
 <pre><code>[root@server1 ~]# /etc/init.d/sshd restart
 [root@server2 ~]# /etc/init.d/sshd restart
-</code></pre><ol start="3">
-<li>创建inotify_rsync.sh脚本</li>
-</ol>
+</code></pre><h3 id="3-创建inotify_rsyncsh脚本">3. 创建inotify_rsync.sh脚本<a hidden class="anchor" aria-hidden="true" href="#3-创建inotify_rsyncsh脚本">#</a></h3>
 <pre><code>[root@server1 ~]# vim inotify_rsync.sh
 </code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>SRC<span style="color:#f92672">=</span>/home/rsync/test
@@ -258,7 +252,7 @@ inotifywait -mrq -e modify,delete,create,attrib <span style="color:#e6db74">${</
 <pre><code>[root@server1 ~]# /root/inotify_rsync.sh &amp;
 </code></pre><p>设置脚本开机自启动</p>
 <pre><code>[root@server1 ~]# cat &quot;/root/inotify_rsync.sh &amp;&quot; &gt;&gt; /etc/rc.local
-</code></pre><p>4.测试</p>
+</code></pre><h3 id="4-测试">4. 测试<a hidden class="anchor" aria-hidden="true" href="#4-测试">#</a></h3>
 <p>首先在server1服务器的/home/rsync/test目录下创建文件或目录，然后再到server2的/home/rsync/test目录下查看，如果看到就说明成功了。</p>
 <pre><code>[rsync@server1 ~]$ cd test
 [rsync@server1 test]$ touch a.txt
