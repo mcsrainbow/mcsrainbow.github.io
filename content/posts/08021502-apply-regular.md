@@ -13,7 +13,7 @@ categories: ["Corporation"]
 
 “转正申请表”的“考核项目”一栏内容如下：
 
-![examlist](/attachments/0290/examlist.jpg)
+![examlist](/attachments/0802/examlist.jpg)
 
 “态度决定一切”，这句比较极端的话是前中国男足主教练“米卢”所说的。无论是运气还是这样，他成为中国男足最有成绩的主教练。确实，态度在很多时候是很重要的，比你技术的高低还要重要。
 

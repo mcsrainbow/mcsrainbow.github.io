@@ -1,6 +1,6 @@
 ---
 title: "Linux平台上可以学什么？"
-date: "2008-04-29"
+date: "2008-04-29T23:27:00+08:00"
 tags: ["Life"]
 categories: ["Thinking"]
 ---
