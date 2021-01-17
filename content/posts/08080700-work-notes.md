@@ -62,7 +62,7 @@ pvreduce vg0 /dev/sdb1 #把sdb1从卷组中删除
 vgextend vg0 /dev/sdb1
 
 #扩展LV
-lvextend -L +10G/dev/vg0/lv0
+lvextend -L +10G /dev/vg0/lv0
 
 #查看信息
 vgdisplay /dev/vg0
