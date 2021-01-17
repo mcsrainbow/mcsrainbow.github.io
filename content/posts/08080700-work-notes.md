@@ -5,7 +5,7 @@ tags: ["Linux"]
 categories: ["DevOps"]
 ---
 
-**如何挂载一块从别的机器上取下的做了LVM的硬盘**
+如何挂载一块从别的机器上取下的做了LVM的硬盘
 
 <!--more-->
 
@@ -17,7 +17,7 @@ lvscan #如果正常则会显示出硬盘的LV状态都是 active
 mount -t ext3 /dev/VGname/LVname /mnt/lvmdisk/
 ```
 
-**如何将一块新硬盘添加到现有的LVM中，以达到扩容目的**
+如何将一块新硬盘添加到现有的LVM中，以达到扩容目的
 
 ```bash
 fdisk -l #查看新增的硬盘是否已经被识别
@@ -33,13 +33,13 @@ vgextend VolGroup00 /dev/sdb1 #将新增的屋里卷加入到卷组中去
 
 lvextend -L +800G /dev/VolGroup00/LogVol00 #将新增的80G硬盘的所有空间都加到逻辑卷中去
 
-RHEL4: ext2online /dev/VolGroup00/LogVol00   #激活新增的空间
-RHEL5: resize2fs -p /dev/VolGroup00/LogVol00 #激活新增的空间
+ext2online /dev/VolGroup00/LogVol00   #激活新增的空间，RHEL4
+resize2fs -p /dev/VolGroup00/LogVol00 #激活新增的空间，RHEL5
 
 df -h #此时便可以看到新增的空间了
 ```
 
-**如何删除一个现有的LVM**
+如何删除一个现有的LVM
 
 ```bash
 umount #所有vg0下的lv
@@ -48,21 +48,29 @@ vgchange -an /dev/vg0 #休眠vg0,-ay是激活
 vgremove vg0 #移除vg0
 ```
 
-**如何删除一个现有LVM中的物理卷，以取出新增的硬盘**
+如何删除一个现有LVM中的物理卷，以取出新增的硬盘
 
-转移数据`pvmove /dev/sdb1 [sdc1]`如果想指定转移的物理卷则在后面输入
+```
+pvmove /dev/sdb1 [sdc1] #转移数据，如果想指定转移的物理卷则在后面输入
+pvreduce vg0 /dev/sdb1 #把sdb1从卷组中删除
+```
 
-`pvreduce vg0 /dev/sdb1`把sdb1从卷组中删除
+一些常用的LVM管理命令
 
-**一些常用的LVM管理命令**
+```
+#扩展VG
+vgextend vg0 /dev/sdb1
 
-扩展VG： `vgextend vg0(卷组名) /dev/sdb1(PV名)`
+#扩展LV
+lvextend -L +10G/dev/vg0/lv0
 
-扩展LV： `lvextend -L +10G(空间大小) /dev/vg0/lv0(LV名)`
+#查看信息
+vgdisplay /dev/vg0
+lvdisplay /dev/vg0/lv0
 
-查看信息：` vgdisplay /dev/vg0` , `lvdisplay /dev/vg0/lv0`
-
-数据迁移： `pvmove /dev/sdb1 /dev/sdc1`
+#数据迁移 
+pvmove /dev/sdb1 /dev/sdc1
+```
 
 **所有命令列表**
 
