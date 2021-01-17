@@ -49,6 +49,7 @@ params:
     ShowReadingTime: false
     defaultTheme: auto
     ShowShareButtons: false
+    ShowPostNavLinks: true
     displayFullLangName: false
     # images: ""
     # assets:
