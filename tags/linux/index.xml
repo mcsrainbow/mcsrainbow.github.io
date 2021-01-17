@@ -161,7 +161,7 @@ rpm -ivh system-config-samba-*
       <pubDate>Thu, 07 Aug 2008 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heylinux.com/2008/08/2008-8-7%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0lvm%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;如何挂载一块从别的机器上取下的做了LVM的硬盘&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;如何挂载一块从别的机器上取下的做了LVM的硬盘&lt;/p&gt;</description>
     </item>
     
     <item>
