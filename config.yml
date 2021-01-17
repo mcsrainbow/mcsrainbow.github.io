@@ -58,7 +58,7 @@ params:
     profileMode:
         enabled: true
         title: Dong Guo | Damon
-        subtitle: "A **SRE** **Lead**, a **Solutions** **Architect** and a **Troubleshooter**"
+        subtitle: "A SRE Lead, a Solutions Architect and a Troubleshooter"
         imageUrl: "img/avatar.png"
         imageTitle: My Avatar
         buttons:
