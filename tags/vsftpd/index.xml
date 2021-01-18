@@ -15,14 +15,5 @@
       <description>&lt;p&gt;创建一个专用的FTP数据存储目录&lt;/p&gt;</description>
     </item>
     
-    <item>
-      <title>如何在端口过滤后通过pasv模式连接FTP服务器</title>
-      <link>https://blog.heylinux.com/2008/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AB%AF%E5%8F%A3%E8%BF%87%E6%BB%A4%E5%90%8E%E9%80%9A%E8%BF%87pasv%E6%A8%A1%E5%BC%8F%E8%BF%9E%E6%8E%A5ftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
-      <pubDate>Wed, 22 Oct 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heylinux.com/2008/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AB%AF%E5%8F%A3%E8%BF%87%E6%BB%A4%E5%90%8E%E9%80%9A%E8%BF%87pasv%E6%A8%A1%E5%BC%8F%E8%BF%9E%E6%8E%A5ftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-      <description>&lt;p&gt;了解下FTP协议原理，对我们深入理解和排查问题都是有好处的。&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>

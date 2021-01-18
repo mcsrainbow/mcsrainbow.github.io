@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>如何在端口过滤后通过pasv模式连接FTP服务器 | Hey! Linux.</title>
 
-<meta name="keywords" content="vsFTPd" />
+<meta name="keywords" content="FTP" />
 <meta name="description" content="了解下FTP协议原理，对我们深入理解和排查问题都是有好处的。">
 <meta name="author" content="mcsrainbow">
 <link rel="canonical" href="https://blog.heylinux.com/2008/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AB%AF%E5%8F%A3%E8%BF%87%E6%BB%A4%E5%90%8E%E9%80%9A%E8%BF%87pasv%E6%A8%A1%E5%BC%8F%E8%BF%9E%E6%8E%A5ftp%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -42,9 +42,9 @@
   "name": "如何在端口过滤后通过pasv模式连接FTP服务器",
   "description": "了解下FTP协议原理，对我们深入理解和排查问题都是有好处的。\n",
   "keywords": [
-    "vsFTPd"
+    "FTP"
   ],
-  "articleBody": "了解下FTP协议原理，对我们深入理解和排查问题都是有好处的。\n维基百科的链接：http://zh.wikipedia.org/wiki/FTP%E5%AE%A2%E6%88%B6%E7%AB%AF\n为了保障服务器的安全，一般都会对服务器进行端口过滤；\nwindows服务器一般采用通过TCP/IP筛选，而Linux则通过iptables防火墙。\n因为FTP服务器默认都会使用pasv模式进行数据传输，在连接时，服务器端会根据连接过来的IP计算出一个特定的端口来传输数据，这样可以实现每个IP地址连接过来之后都通过一个不同的端口进行数据的传输；\n如果这个端口不能打开，将无法连接到该服务器传输数据（即使在ftp登陆信息中看到已经成功登陆）。\n一些优秀的FTP传输工具在此时会自动切换到port模式进行传输，以达到使用监听端口（如默认的数据流端口20）来传输数据的目的。\n但这样会造成一些麻烦，比如我们直接使用IE的FTP功能，或很简单的一些FTP客户端，都无法正常连接上来；即使通过FlashFXP和CuteFTP这样的工具，也仍然不是很顺利。\n所以，在进行了端口的过滤之后，我们一般采用固定设置几个端口作为pasv的数据传输端口（一般设置5个以上），并开放这几个端口。\nWindows下使用Serv-U搭建FTP服务器，然后在“设置”中有一项可以设置数据传输端口，保存后再到TCP/IP筛选中添加允许这些端口即可。\n而Linux下常用的VSFTP服务器，需要在配置文件/etc/vsftpd.conf中添加以下几行配置，然后在iptables中开放这些端口即可。\nport_enable=NO pasv_enable=YES pasv_min_port=10021 pasv_max_port=10025 这样，就可以在进行了端口过滤后通过pasv模式连接FTP服务器了。\n",
+  "articleBody": "了解下FTP协议原理，对我们深入理解和排查问题都是有好处的。\n维基百科的链接：http://zh.wikipedia.org/wiki/FTP%E5%AE%A2%E6%88%B6%E7%AB%AF\n为了保障服务器的安全，一般都会对服务器进行端口过滤；\nwindows服务器一般采用通过TCP/IP筛选，而Linux则通过iptables防火墙。\n因为FTP服务器默认都会使用pasv模式进行数据传输，在连接时，服务器端会根据连接过来的IP计算出一个特定的端口来传输数据，这样可以实现每个IP地址连接过来之后都通过一个不同的端口进行数据的传输；\n如果这个端口不能打开，将无法连接到该服务器传输数据，即使在FTP登陆信息中看到已经成功登陆。\n一些优秀的FTP传输工具在此时会自动切换到port模式进行传输，以达到使用监听端口（如默认的数据流端口20）来传输数据的目的。\n但这样会造成一些麻烦，比如我们直接使用IE的FTP功能，或很简单的一些FTP客户端，都无法正常连接上来；即使通过FlashFXP和CuteFTP这样的工具，也仍然不是很顺利。\n所以，在进行了端口的过滤之后，我们一般采用固定设置几个端口作为pasv的数据传输端口（一般设置5个以上），并开放这几个端口。\nWindows下使用Serv-U搭建FTP服务器，然后在“设置”中有一项可以设置数据传输端口，保存后再到TCP/IP筛选中添加允许这些端口即可。\n而Linux下常用的vsFTPd服务器，需要在配置文件/etc/vsftpd.conf中添加以下几行配置，然后在iptables中开放这些端口即可。\nport_enable=NO pasv_enable=YES pasv_min_port=10021 pasv_max_port=10025 这样，就可以在进行了端口过滤后通过pasv模式连接FTP服务器了。\n",
   "wordCount" : "16",
   "inLanguage": "en",
   "datePublished": "2008-10-22T00:00:00Z",
@@ -174,12 +174,12 @@ October 22, 2008&nbsp;·&nbsp;mcsrainbow
 <p>为了保障服务器的安全，一般都会对服务器进行端口过滤；</p>
 <p>windows服务器一般采用通过<code>TCP/IP筛选</code>，而Linux则通过<code>iptables</code>防火墙。</p>
 <p>因为FTP服务器默认都会使用pasv模式进行数据传输，在连接时，服务器端会根据连接过来的IP计算出一个特定的端口来传输数据，这样可以实现每个IP地址连接过来之后都通过一个不同的端口进行数据的传输；</p>
-<p>如果这个端口不能打开，将无法连接到该服务器传输数据（即使在ftp登陆信息中看到已经成功登陆）。</p>
+<p>如果这个端口不能打开，将无法连接到该服务器传输数据，即使在FTP登陆信息中看到已经成功登陆。</p>
 <p>一些优秀的FTP传输工具在此时会自动切换到port模式进行传输，以达到使用监听端口（如默认的数据流端口20）来传输数据的目的。</p>
 <p>但这样会造成一些麻烦，比如我们直接使用IE的FTP功能，或很简单的一些FTP客户端，都无法正常连接上来；即使通过FlashFXP和CuteFTP这样的工具，也仍然不是很顺利。</p>
 <p>所以，在进行了端口的过滤之后，我们一般采用固定设置几个端口作为pasv的数据传输端口（一般设置5个以上），并开放这几个端口。</p>
 <p>Windows下使用Serv-U搭建FTP服务器，然后在“设置”中有一项可以设置数据传输端口，保存后再到TCP/IP筛选中添加允许这些端口即可。</p>
-<p>而Linux下常用的VSFTP服务器，需要在配置文件/etc/vsftpd.conf中添加以下几行配置，然后在iptables中开放这些端口即可。</p>
+<p>而Linux下常用的vsFTPd服务器，需要在配置文件/etc/vsftpd.conf中添加以下几行配置，然后在iptables中开放这些端口即可。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">port_enable<span style="color:#f92672">=</span>NO
 pasv_enable<span style="color:#f92672">=</span>YES
 pasv_min_port<span style="color:#f92672">=</span><span style="color:#ae81ff">10021</span>
@@ -188,7 +188,7 @@ pasv_max_port<span style="color:#f92672">=</span><span style="color:#ae81ff">100
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://blog.heylinux.com/tags/vsftpd/">vsFTPd</a></li>
+      <li><a href="https://blog.heylinux.com/tags/ftp/">FTP</a></li>
     </ul>
     <nav class="paginav">
       

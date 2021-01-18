@@ -44,7 +44,7 @@
   "keywords": [
     "Linux", "Sendmail"
   ],
-  "articleBody": "大多数Linux系统都默认自带了Sendmail，最近想通过Sendmail将一些服务器信息直接发送到自己的邮箱里面，结果发送之后一直没什么反应，最后发现是因为我的服务器上没有合法的域名和MX解析记录，而Sendmail默认会进行反向解析，所以就一直堆在队列里面发布出去。\n解决办法很简单，直接关掉Sendmail的反向解析就可以了，具体配置如下：\n我发送邮件的命令为：\nmail -s \"Daily report\" guosuiyu@gmail.com 查看电子邮件队列信息：\nSendmail -bp /var/spool/mqueue (1 requests) -----Q-ID----- --Size-- -----Q-Time----- ------------Sender/Recipient----------- p6C71EPC020359 10 Tue Mar 19 14:02 (host map: lookup (gmail.com): deferred) Total requests: 1 出现了host map: lookup (domain): deferred错误，意思就是说邮件的发送被延迟了。\n解决办法很简单：\nvim /etc/mail/sendmail.cf 找到#O ResolverOptions=+AAONLY这一行信息，并把它的注释去掉。\n/etc/init.d/sendmail restart 重启Sendmail以后即可成功发送邮件。\n不过，即使邮件能够发送出去了，由于没有合法的域名和MX解析记录，稍微好点的邮箱都会把它丢到垃圾邮件中去，所以建议如果有自己的域名的话，可以考虑分配一个子域名和MX解析。\n",
+  "articleBody": "大多数Linux系统都默认自带了Sendmail，最近想通过Sendmail将一些服务器信息直接发送到自己的邮箱里面，结果发送之后一直没什么反应，最后发现是因为我的服务器上没有合法的域名和MX解析记录，而Sendmail默认会进行反向解析，所以就一直堆在队列里面发布出去。\n解决办法很简单，直接关掉Sendmail的反向解析就可以了，具体配置如下：\n我发送邮件的命令为：\nmail -s \"Daily report\" guosuiyu@gmail.com 查看电子邮件队列信息：\nsendmail -bp /var/spool/mqueue (1 requests) -----Q-ID----- --Size-- -----Q-Time----- ------------Sender/Recipient----------- p6C71EPC020359 10 Tue Mar 19 14:02 (host map: lookup (gmail.com): deferred) Total requests: 1 出现了host map: lookup (domain): deferred错误，意思就是说邮件的发送被延迟了。\n解决办法很简单：\nvim /etc/mail/sendmail.cf 找到#O ResolverOptions=+AAONLY这一行信息，并把它的注释去掉。\n/etc/init.d/sendmail restart 重启Sendmail以后即可成功发送邮件。\n不过，即使邮件能够发送出去了，由于没有合法的域名和MX解析记录，稍微好点的邮箱都会把它丢到垃圾邮件中去，所以建议如果有自己的域名的话，可以考虑分配一个子域名和MX解析。\n",
   "wordCount" : "48",
   "inLanguage": "en",
   "datePublished": "2010-03-19T00:00:00Z",
@@ -174,7 +174,7 @@ March 19, 2010&nbsp;·&nbsp;mcsrainbow
 <p>我发送邮件的命令为：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mail -s <span style="color:#e6db74">&#34;Daily report&#34;</span> guosuiyu@gmail.com &lt; /var/log/report.txt 
 </code></pre></div><p>查看电子邮件队列信息：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Sendmail -bp
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sendmail -bp
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/var/spool/mqueue (1 requests)
 -----Q-ID----- --Size-- -----Q-Time----- ------------Sender/Recipient-----------
 p6C71EPC020359 10 Tue Mar 19 14:02 (host map: lookup (gmail.com): deferred)
