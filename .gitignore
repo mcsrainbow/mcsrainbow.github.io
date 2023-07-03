@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# VIM
+*.swp
+
+# Python
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+.ipynb_checkpoints/
