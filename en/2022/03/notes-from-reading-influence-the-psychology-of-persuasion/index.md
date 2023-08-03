@@ -23,7 +23,7 @@ Here is a summary of 6 principles of persuasion, which from [James Beswick](http
 
     Studies show that gamblers are more convinced of a horse's capability to win after placing the bet versus before the bet. Placing a commitment causes more loyalty to an idea.
 
-    People will defend a position once they take it - Competitions that ask you describe the virtues of a product in 15 words or less essentially convert you to promote positive messages of that product to other people, since you will aim to be consistent with yourself.
+    People will defend a position once they take it - Competitions that ask you to describe the virtues of a product in 15 words or less essentially convert you to promote positive messages of that product to other people, since you will aim to be consistent with yourself.
 
 + Social proof
 
@@ -31,7 +31,7 @@ Here is a summary of 6 principles of persuasion, which from [James Beswick](http
 
 + Liking
 
-    You are more likely to accept an idea from a people you like. Studies show that attractive people have twice the likelihood of con vicing others than average-looking individuals, and salespeople are frequently trained to feign interest in your hobbies and mirror your body language for the same reason.
+    You are more likely to accept an idea from a person you like. Studies show that attractive people have twice the likelihood of con vicing others than average-looking individuals, and salespeople are frequently trained to feign interest in your hobbies and mirror your body language for the same reason.
 
 + Authority
 

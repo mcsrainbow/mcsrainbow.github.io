@@ -43,26 +43,26 @@ Here is a summary from [Tess](https://tessang.com/personal-finance/rich-dad-poor
 >
 > Actively seek out ways to grow your knowledge about money and managing your finances. Increase your financial literacy.
 >
-> As Warren Buffett said, “The most important investment you can make is in yourself.”
+> As Warren Buffett said, "The most important investment you can make is in yourself."
 >
 >
 > **What is Your Reason?**
 >
-> Underlying everything that we do, there is a fundamental need we are trying to fulfil.
+> Underlying everything that we do, there is a fundamental need we are trying to fulfill.
 >
-> As with anything in life, you don’t have a strong enough “why” it makes the process difficult when you are faced with setbacks.
+> As with anything in life, you don’t have a strong enough "why" it makes the process difficult when you are faced with setbacks.
 >
-> Your reason or purpose is usually a mix of “wants” and “don’t wants”.
+> Your reason or purpose is usually a mix of "wants" and "don’t wants".
 > 
-> + “I don’t want to work my entire life and be stuck in the rat race.”
-> + “I don’t want to live paycheck to paycheck.”
-> + “I want control over my time and my life. I want to make money work for me so I can be free and travel the world with my loved ones.”
-> + “I want control over my time and my life.”
+> + "I don’t want to work my entire life and be stuck in the rat race."
+> + "I don’t want to live paycheck to paycheck."
+> + "I want control over my time and my life. I want to make money work for me so I can be free and travel the world with my loved ones."
+> + "I want control over my time and my life."
 >
 > Dig deeper and ask yourself these questions.
 >
-> + “What does being financially free means to me?”
-> + “Why is it so important for me to gain financial independence?”
+> + "What does being financially free means to me?"
+> + "Why is it so important for me to gain financial independence?"
 >
 > Your purpose lies somewhere in these answers.
 >
@@ -78,7 +78,7 @@ Here is a summary from [Tess](https://tessang.com/personal-finance/rich-dad-poor
 >
 > Among all these 5 takeaways, the last one is the most important.
 >
-> Find your personal reason and understand why it is important for you to “gain financial freedom”. If you gain clarity on your why, you’ll naturally get to the how. Your journey starts with this step.
+> Find your personal reason and understand why it is important for you to "gain financial freedom". If you gain clarity on your why, you’ll naturally get to the how. Your journey starts with this step.
 
 ## Thinking
 

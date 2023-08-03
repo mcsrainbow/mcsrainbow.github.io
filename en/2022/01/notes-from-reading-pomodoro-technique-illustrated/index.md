@@ -18,14 +18,14 @@ The basic unit of work in the Pomodoro Technique can be split into five simple s
 1. Choose a task to be accomplished
 2. Set a timer to 25 minutes
 3. Work on the task until the Pomodoro rings, then put a check on your sheet of paper
-4. Take a 5 minute break (marks the completion of one Pomodoro)
+4. Take a 5-minute break (marks the completion of one Pomodoro)
 5. Every 4 Pomodoros take a 15-30 minute longer break
 
 {{< image src="pomodoro_technique.png" alt="pomodoro_technique" width=1000 >}}
 
-PDCA is an iterative problem-solving process which represents Plan-Do-Check-Act.
+PDCA is an iterative problem-solving process that represents Plan-Do-Check-Act.
 
-+ Plan: Define the goals and processes need to deliver the expected results
++ Plan: Define the goals and processes needed to deliver the expected results
 + Do: Implement the process
 + Check: Measure the process and compare the results to the expected outcome in order to find discrepancies
 + Act: Analyze the discrepancies and try to understand the root cause of them
@@ -40,5 +40,5 @@ The Pomodoro Technique gets us to focus on execution. It could mean that we igno
 
 From this book, I've learned about the 25/5/15 time management method, the scientific theory of the daily Pomodoro Technique PDCA Cycle, how to handle interruptions and customize my own process.
 
-I plan every morning and review in the evening, concentrate on a single activity in a Pomodoro. No longer fell anxious, because all tasks just become the activities made up of Pomodoros. 
+I plan every morning and review in the evening, concentrating on a single activity in a Pomodoro. No longer feel anxious, because all tasks just become the activities made up of Pomodoros. 
 

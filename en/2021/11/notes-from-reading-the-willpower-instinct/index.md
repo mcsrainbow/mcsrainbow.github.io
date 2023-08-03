@@ -13,7 +13,7 @@ Because I can't stand my own procrastination and laziness, I have tried various 
 
 I used to think that lack of self-control was just a psychological problem and a personality flaw. After reading the book "The Willpower Instinct", I realized that the lack of self-control is not only a psychological problem, but also influenced by physiology, psychological traps and various social factors.
 
-As I read, I followed the examples, questions and action suggestions in the book to dissect my past habits and failures. I also got to know myself in a more scientific perspective and reconciled with myself, also learned some scientific and effective ways to improve my self-control.
+As I read, I followed the examples, questions and action suggestions in the book to dissect my past habits and failures. I also got to know myself from a more scientific perspective and reconciled with myself, also learned some scientific and effective ways to improve my self-control.
 
 ## Summary
 

@@ -24,7 +24,7 @@ Tara's experience was full of trauma and struggle. Putting those feelings aside,
 
 1. The power of role models
     
-    Tara's older brother, Tyler, was the first child who left home, went to university and got his Ph.D. He proved himself, enlightened and encouraged Tara to enter the universitry. He is a role model for Tara.
+    Tara's older brother, Tyler, was the first child who left home, went to university and got his Ph.D. He proved himself, enlightened and encouraged Tara to enter the university. He is a role model for Tara.
 
     Tara's other brother, Richard, also stepped into university after her and got his Ph.D. In a family with seven children, three have PhDs, while the other four didn't even go to high school. It is the power of role models.
 

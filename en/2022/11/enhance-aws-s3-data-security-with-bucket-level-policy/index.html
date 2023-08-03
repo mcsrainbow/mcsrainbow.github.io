@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Enhance AWS S3 Data Security with Bucket Level Policy - Hey! Linux</title><meta name="Description" content="After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."><meta property="og:title" content="Enhance AWS S3 Data Security with Bucket Level Policy" />
-<meta property="og:description" content="After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised." />
+        <title>Enhance AWS S3 Data Security with Bucket Level Policy - Hey! Linux</title><meta name="Description" content="After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."><meta property="og:title" content="Enhance AWS S3 Data Security with Bucket Level Policy" />
+<meta property="og:description" content="After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/" /><meta property="og:image" content="https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/featured-image.jpeg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-20T22:31:30+08:00" />
@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/featured-image.jpeg"/>
 <meta name="twitter:title" content="Enhance AWS S3 Data Security with Bucket Level Policy"/>
-<meta name="twitter:description" content="After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."/>
+<meta name="twitter:description" content="After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."/>
 <meta name="application-name" content="Hey! Linux">
 <meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -44,7 +44,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Dong Guo | Damon"
-            },"description": "After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."
+            },"description": "After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -124,12 +124,12 @@
         data-srcset="/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/featured-image.jpeg, /en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/featured-image.jpeg 1.5x, /en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/featured-image.jpeg 2x"
         data-sizes="auto"
         alt="/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/featured-image.jpeg"
-        title="After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised." /></div><div class="content" id="content"><p>After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.</p>
+        title="After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised." /></div><div class="content" id="content"><p>After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.</p>
 <h2 id="background">Background</h2>
 <p>Due to weak security awareness, many people prefer to access resources through AKSK (Access Key and Secret Key). AKSK contains only two strings and the user permissions can be obtained via command line tools or API codes.</p>
-<p>Take AWS as an example, a simple <code>aws s3 sync</code> command can drag away all the data stored in S3 Bucket. After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.</p>
+<p>Take AWS as an example, a simple <code>aws s3 sync</code> command can drag away all the data stored in S3 Bucket. After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.</p>
 <p>One prerequisite is that the compromised AKSK should not have administrator privileges or full privileges of services such as IAM, EC2, Lambda, etc. Otherwise, it may bypass the Bucket Level Policy restrictions or modify the Bucket Level Policy through those services. For such cases, restrictions could be imposed on various services from the organization account level by SCP.</p>
-<h2 id="policy-example">Policy example</h2>
+<h2 id="policy-example">Policy Example</h2>
 <p>The following Bucket Level Policy uses the <code>Deny</code> by default, only allows the following types of requests.</p>
 <ol>
 <li>When requests come directly from AWS services.</li>
@@ -236,7 +236,7 @@
 <li>Protect data in S3 from accidental deletion using S3 Versioning and S3 Object Lock</li>
 <li>Enable logging for S3 using CloudTrail and S3 server access logging</li>
 <li>Monitor S3 using Security Hub and CloudWatch Logs</li>
-<li>Use Cross-region replicatio to backup data in S3</li>
+<li>Use Cross-region replication to backup data in S3</li>
 </ol>
 <h2 id="references">References</h2>
 <p><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html" target="_blank" rel="noopener noreffer ">https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html</a><br>
@@ -268,7 +268,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

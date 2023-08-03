@@ -1,7 +1,7 @@
 # Punctuation Marks
 
 
-Every puctuation mark has a name.
+Every punctuation mark has a name.
 
 <!--more-->
 

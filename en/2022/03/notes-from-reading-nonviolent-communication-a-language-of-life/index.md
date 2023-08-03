@@ -45,7 +45,7 @@ When we use NVC to connect empathically, we use the same four components in the 
 
 Nonviolence means integrating love into our life. Leading life with respect, understanding, appreciation, gratitude, compassion and friendship, rather than selfishness, greed, hatred, prejudice, suspicion and hostility.
 
-Nonviolent communication reminds us that listening to the different voices within, and the needs they reflect, can promote self-understanding and inner harmony. By developing a good communication through a pattern of observations, feelings, needs, and requests, it makes life more harmonious and beautiful.
+Nonviolent communication reminds us that listening to the different voices within, and the needs they reflect, can promote self-understanding and inner harmony. By developing good communication through a pattern of observations, feelings, needs, and requests, makes life more harmonious and beautiful.
 
 I will practice the Nonviolent Communication to make life full of love and happiness.
 
