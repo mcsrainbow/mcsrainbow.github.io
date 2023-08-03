@@ -80,4 +80,4 @@ Here are the six ingredients as outlined in the book.
 
 Our real life is always not so good, but we can try some of the practices in the book to make us happier. 
 
-I'm looking forward to travel to northern Europe with my family to experience the kind of happy life in the book.
+I'm looking forward to traveling to northern Europe with my family to experience the kind of happy life in the book.

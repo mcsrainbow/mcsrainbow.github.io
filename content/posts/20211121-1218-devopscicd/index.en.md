@@ -32,7 +32,7 @@ Everyone knows that most factories already have the automation assembly lines fo
 
 It is a well-known fact that the car industry went through an evolution and perfected a highly efficient approach to manufacturing cars. It went from highly custom cars built manually, to automated parts production with manual assembly, then to fully automated assembly lines. 
 
-The car industry perfected a very lean manufacturing process. Compare with the car industry, our traditional software development models has already fell behind a lot.
+The car industry perfected a very lean manufacturing process. Compare with the car industry, our traditional software development models have already fallen behind a lot.
 
 ![car_assembly_line](car_assembly_line.jpg)
 
@@ -40,7 +40,7 @@ The car industry perfected a very lean manufacturing process. Compare with the c
 
 What is DevOps?
 
-Some people may think of that DevOps is a set of software and tools which can make the development and deployment better.
+Some people may think that DevOps is a set of software and tools which can make development and deployment better.
 
 DevOps is more than that, DevOps is a culture, it’s more about the Team and Organization, DevOps is a collaboration of Dev and Ops. The team should work together to design automation processes about the development, testing and deployment, and fix issues.
 
@@ -56,7 +56,7 @@ The DevOps lifecycle starts with plan, build, continuous integration, and deploy
 
 ### 1. Seven types of waste for manufacturing
 
-For manufacturing, it‘s every easy to waste time and resources on over production, transport, movement, over processing, waiting, inventory and products defects. Just because most of them still require manual works and no continuous deployment processes.
+For manufacturing, it‘s very easy to waste time and resources on over production, transport, movement, over processing, waiting, inventory and products defects. Just because most of them still require manual works and no continuous deployment processes.
 
 ![7_waste](7_waste.jpeg)
 
@@ -74,11 +74,11 @@ For the traditional software development models, there are also some disadvantag
 
 + Restricted Monitoring
   
-  They are solely dependent on manual checks performed by developers. This process introduces errors and delays the delivery or roll out time of products.
+  They are solely dependent on manual checks performed by developers. This process introduces errors and delays the delivery or rollout time of products.
 
 + Lack of Shared Ownership
   
-  Traditional software development models lack the concept of shared ownership, which create communication problems in organizations. 
+  Traditional software development models lack the concept of shared ownership, which creates communication problems in organizations. 
 
 ## DevOps CICD Best Practices
 
@@ -90,7 +90,7 @@ This is a lightweight and easy CICD pipeline solution by GitLab + Docker + Ansib
 
 ### 2. All on Kubernetes
 
-In this solution, it suggests to build the CICD pipeline based on cloud services and Kubernetes. This is a popular solution which named "All on Kubernetes" and many internet companies use this solution.
+In this solution, it suggests building the CICD pipeline based on cloud services and Kubernetes. This is a popular solution named "All on Kubernetes" and many internet companies use this solution.
 
 But "All on Kubernetes" requires all applications to be containerized, it is not friendly for complex environments and the traditional software.
 
@@ -98,7 +98,7 @@ But "All on Kubernetes" requires all applications to be containerized, it is not
 
 ### 3. IBM DevOps architecture
 
-The DevOps solution of IBM suggests to use DevOps and Cloud platform to help organizations to accelerate the applications development and delivery lifecycle.
+The DevOps solution of IBM suggests using DevOps and Cloud platform to help organizations to accelerate the applications development and delivery lifecycle.
 
 It is a very good architecture to tell all the necessary steps and parts in DevOps. More details on https://www.ibm.com/cloud/architecture/architectures/devOpsArchitecture
 
@@ -106,7 +106,7 @@ It is a very good architecture to tell all the necessary steps and parts in DevO
 
 ### 4. End-to-end CICD pipeline
 
-This end-to-end delivery pipeline of continuous integration and deployment across leading cloud platforms. In each step, it suggests the popular services and tools, and including most steps in the IBM DevOps architecture.
+This end-to-end delivery pipeline of continuous integration and deployment across leading cloud platforms. In each step, it suggests the popular services and tools, and includes most steps in the IBM DevOps architecture.
 
 ![devops_best_practice_wati](devops_bp_wati.jpeg)
 
@@ -137,7 +137,7 @@ In this way, we could ensure that all the packages in the test environment are s
 
 This is the End-to-End DevSecOps CICD pipeline for our own.
 
-It includes all necessary steps, across three different environments, with the most popular automation tools and Cloud services, including the infrastructure as code and configurations as code, integrates with security tools, with the manual approve function based on the tests and security reports.
+It includes all necessary steps, across three different environments, with the most popular automation tools and Cloud services, including the infrastructure as code and configurations as code, integrates with security tools, with the manually approve function based on the tests and security reports.
 
 It includes the following items:
 

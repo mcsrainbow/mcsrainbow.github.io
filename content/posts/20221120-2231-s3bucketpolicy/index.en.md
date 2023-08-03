@@ -2,7 +2,7 @@
 title: "Enhance AWS S3 Data Security with Bucket Level Policy"
 date: 2022-11-20T22:31:30+08:00
 author: "Dong Guo | Damon"
-description: "After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."
+description: "After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."
 categories: ["Skills"]
 tags: ["AWS","Security"]
 resources:
@@ -13,7 +13,7 @@ toc: false
 lightgallery: true
 ---
 
-After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.
+After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.
 
 <!--more-->
 
@@ -21,11 +21,11 @@ After restricted the source of S3 Bucket access requests through Bucket Level Po
 
 Due to weak security awareness, many people prefer to access resources through AKSK (Access Key and Secret Key). AKSK contains only two strings and the user permissions can be obtained via command line tools or API codes. 
 
-Take AWS as an example, a simple `aws s3 sync` command can drag away all the data stored in S3 Bucket. After restricted the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.
+Take AWS as an example, a simple `aws s3 sync` command can drag away all the data stored in S3 Bucket. After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.
 
 One prerequisite is that the compromised AKSK should not have administrator privileges or full privileges of services such as IAM, EC2, Lambda, etc. Otherwise, it may bypass the Bucket Level Policy restrictions or modify the Bucket Level Policy through those services. For such cases, restrictions could be imposed on various services from the organization account level by SCP.
 
-## Policy example
+## Policy Example
 
 The following Bucket Level Policy uses the `Deny` by default, only allows the following types of requests.
 
@@ -90,7 +90,7 @@ Here are some strong protection mechanisms for the data in Amazon S3, including 
 6. Protect data in S3 from accidental deletion using S3 Versioning and S3 Object Lock
 7. Enable logging for S3 using CloudTrail and S3 server access logging
 8. Monitor S3 using Security Hub and CloudWatch Logs
-9. Use Cross-region replicatio to backup data in S3
+9. Use Cross-region replication to backup data in S3
 
 ## References
 

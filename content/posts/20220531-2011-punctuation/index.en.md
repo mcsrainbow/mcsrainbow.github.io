@@ -2,7 +2,7 @@
 title: "Punctuation Marks"
 date: 2022-05-31T20:11:52+08:00
 author: "Dong Guo | Damon"
-description: "Every puctuation mark has a name."
+description: "Every punctuation mark has a name."
 categories: ["Skills"]
 tags: ["English"]
 resources:
@@ -13,7 +13,7 @@ toc: false
 lightgallery: true
 ---
 
-Every puctuation mark has a name.
+Every punctuation mark has a name.
 
 <!--more-->
 

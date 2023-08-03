@@ -24,7 +24,7 @@ My current company has a good learning and sharing atmosphere，sometimes holds 
 
 At first, I was thinking of finding some existing codes from GitHub and just modifying some parameters. Then I tried some programs that seemed to be able to train and recognize without any feature engineering, but the actual results were terrible.
 
-During the competition, colleagues kept showing their stage results in the group, and they all did feature engineering. So I also searched the articles in this area and finally completed successfully with the recognition rate over 99%. 
+During the competition, colleagues kept showing their stage results in the group, and they all did feature engineering. So I also searched the articles in this area and finally completed it successfully with a recognition rate of over 99%. 
 
 The main processes are as follows.
 
@@ -97,7 +97,7 @@ plt.show()
 
 {{< image src="captchas_5UFQ_gray.png" alt="captchas_5UFQ_gray" width=400 >}}
 
-Binarize the image to give a distinct black and white effect.
+Binarize the image to give a distinct black-and-white effect.
 
 ```python
 # image binarization, the default threshold is 127
@@ -109,7 +109,7 @@ plt.show()
 
 {{< image src="captchas_5UFQ_binary.png" alt="captchas_5UFQ_binary" width=400 >}}
 
-Use the Gaussian Blur to reduce noise and details, with the visual effect as looking at the image through a translucent frosted screen.
+Use the Gaussian Blur to reduce noise and details, with the visual effect of looking at the image through a translucent frosted screen.
 
 ```python
 # image denoising using the gaussian blur 
@@ -265,7 +265,7 @@ def rek_img(model_dict,rek_dir,suffix,results_csv):
 
 ## Summary
 
-The CAPTCHA images in this competition were more distinctive and easier to feature engineer, so that in the end, although 10k CAPTCHA images were used as the test set, many colleagues still achieved recognition accuracy of over 90%, and the winner's accuracy even reached an incredible 100%.
+The CAPTCHA images in this competition were more distinctive and easier to feature engineer, so in the end, although 10k CAPTCHA images were used as the test set, many colleagues still achieved recognition accuracy of over 90%, and the winner's accuracy even reached an incredible 100%.
 
 For me, the recognition principles and processes I have learned from the CAPTCHA recognition are really valuable.
 

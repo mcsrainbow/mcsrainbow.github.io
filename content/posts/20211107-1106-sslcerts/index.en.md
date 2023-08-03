@@ -388,7 +388,7 @@ cfssl-certinfo -cert rootCA.heylinux.com.pem
 
 ### 3. Generate and view server certificate
 
-Create `ssl-config.json` and `ssl.json`, generate the similar `star.heylinux.com.key`(encryption length is only 2048 due to cfssl cannot set the key with different encryption length) and `star.heylinux.com.crt` as above.
+Create `ssl-config.json` and `ssl.json`, generate the similar `star.heylinux.com.key`(encryption length is only 2048 due to cfssl cannot set the key with a different encryption length) and `star.heylinux.com.crt` as above.
 
 ```bash
 vim ssl-config.json
