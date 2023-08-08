@@ -43,7 +43,7 @@ openssl req -x509 -new -nodes -key rootCA.heylinux.com.key -sha256 -days 3650 -o
 
 Import `rootCA.heylinux.com.pem` to OS via Chrome, so the Chrome could trust the server certificate generated based on the root certificate.
 
-![Chrome CertManager](chrome-certmanager.jpeg)
+{{< image src="chrome-certmanager.jpeg" alt="Chrome CertManager" width=800 >}}
 
 ### 2. Generate server certificate
 

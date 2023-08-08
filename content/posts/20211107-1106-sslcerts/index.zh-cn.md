@@ -38,7 +38,8 @@ openssl req -x509 -new -nodes -key rootCA.heylinux.com.key -sha256 -days 3650 -o
 ```
 
 将生成的根证书文件`rootCA.heylinux.com.pem`通过Chrome浏览器导入到操作系统中，就可以让浏览器信任之后基于根证书所生成的服务端证书。
-![Chrome CertManager](chrome-certmanager.jpeg)
+
+{{< image src="chrome-certmanager.jpeg" alt="Chrome CertManager" width=800 >}}
 
 ### 2. 生成SSL服务端证书
 
