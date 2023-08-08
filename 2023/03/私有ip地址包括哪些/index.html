@@ -33,7 +33,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/03\/%E7%A7%81%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B\/featured-image.jpeg",
                             "width":  768 ,
                             "height":  338 
-                        }],"genre": "posts","keywords": "网络","wordcount":  923 ,
+                        }],"genre": "posts","keywords": "网络","wordcount":  811 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/03\/%E7%A7%81%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B\/","datePublished": "2023-03-29T20:41:35+08:00","dateModified": "2023-03-29T20:41:35+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -115,7 +115,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">私有IP地址包括哪些</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-29">2023-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 923 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-29">2023-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 811 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -143,7 +143,6 @@
 <th>范围</th>
 <th>地址数</th>
 <th>效用域</th>
-<th>RFC</th>
 <th>用途</th>
 </tr>
 </thead>
@@ -153,7 +152,6 @@
 <td>0.0.0.0 – 0.255.255.255</td>
 <td>16,777,216</td>
 <td>软件</td>
-<td>RFC791</td>
 <td>用于广播信息到当前主机</td>
 </tr>
 <tr>
@@ -161,7 +159,6 @@
 <td>10.0.0.0 – 10.255.255.255</td>
 <td>16,777,216</td>
 <td>专用网络</td>
-<td>RFC1918</td>
 <td>用于专用网络中的本地通信</td>
 </tr>
 <tr>
@@ -169,7 +166,6 @@
 <td>100.64.0.0 – 100.127.255.255</td>
 <td>4,194,304</td>
 <td>专用网络</td>
-<td>RFC6598</td>
 <td>用于在电信级NAT环境中服务提供商与其用户通信</td>
 </tr>
 <tr>
@@ -177,7 +173,6 @@
 <td>127.0.0.0 – 127.255.255.255</td>
 <td>16,777,216</td>
 <td>主机</td>
-<td>RFC1122</td>
 <td>用于到本地主机的环回地址</td>
 </tr>
 <tr>
@@ -185,15 +180,13 @@
 <td>169.254.0.0 – 169.254.255.255</td>
 <td>65,536</td>
 <td>链路</td>
-<td>RFC3927</td>
-<td>用于单链路的两个主机之间的链路本地地址，而没有另外指定IP地址，例如通常从DHCP服务器所检索到的IP地址</td>
+<td>用于单链路的两个主机之间的链路本地地址</td>
 </tr>
 <tr>
 <td>172.16.0.0/12</td>
 <td>172.16.0.0 – 172.31.255.255</td>
 <td>1,048,576</td>
 <td>专用网络</td>
-<td>RFC1918</td>
 <td>用于专用网络中的本地通信</td>
 </tr>
 <tr>
@@ -201,7 +194,6 @@
 <td>192.0.0.0 – 192.0.0.255</td>
 <td>256</td>
 <td>专用网络</td>
-<td>RFC6890</td>
 <td>用于IANA的IPv4特殊用途地址表</td>
 </tr>
 <tr>
@@ -209,39 +201,34 @@
 <td>192.0.2.0 – 192.0.2.255</td>
 <td>256</td>
 <td>文档</td>
-<td>RFC5737</td>
-<td>分配为用于文档和示例中的“TEST-NET”（测试网），它不应该被公开使用</td>
+<td>分配为用于文档和示例中的TEST-NET，不应该被公开使用</td>
 </tr>
 <tr>
 <td>192.31.196.0/24</td>
 <td>192.31.196.0 - 192.31.196.255</td>
 <td>256</td>
 <td>专用网络</td>
-<td>RFC7535</td>
-<td>旨在处理私有使用地址的反向DNS查询（这些地址永远不会出现在公共DNS 系统中）</td>
+<td>旨在处理私有使用地址的反向DNS查询，不会出现在公共DNS系统中</td>
 </tr>
 <tr>
 <td>192.52.193.0/24</td>
 <td>192.52.193.0 - 192.52.193.255</td>
 <td>256</td>
 <td>专用网络</td>
-<td>RFC7450</td>
-<td>用于自动组播隧道（AMT）</td>
+<td>用于自动组播隧道AMT</td>
 </tr>
 <tr>
 <td>192.88.99.0/24</td>
 <td>192.88.99.0 – 192.88.99.255</td>
 <td>256</td>
 <td>互联网</td>
-<td>RFC7526</td>
-<td>用于6to4任播中继。（已废弃 RFC7526）</td>
+<td>用于 6to4 任播中继，已废弃</td>
 </tr>
 <tr>
 <td>192.168.0.0/16</td>
 <td>192.168.0.0 – 192.168.255.255</td>
 <td>65,536</td>
 <td>专用网络</td>
-<td>RFC1918</td>
 <td>用于专用网络中的本地通信</td>
 </tr>
 <tr>
@@ -249,15 +236,13 @@
 <td>192.175.48.0 - 192.175.48.255</td>
 <td>256</td>
 <td>专用网络</td>
-<td>RFC7534</td>
-<td>旨在处理私有使用地址的反向DNS查询（这些地址永远不会出现在公共DNS 系统中）</td>
+<td>旨在处理私有使用地址的反向DNS查询，不会出现在公共DNS系统中</td>
 </tr>
 <tr>
 <td>198.18.0.0/15</td>
 <td>198.18.0.0 – 198.19.255.255</td>
 <td>131,072</td>
 <td>专用网络</td>
-<td>RFC2544</td>
 <td>用于测试两个不同的子网的网间通信</td>
 </tr>
 <tr>
@@ -265,23 +250,20 @@
 <td>198.51.100.0 – 198.51.100.255</td>
 <td>256</td>
 <td>文档</td>
-<td>RFC5737</td>
-<td>分配为用于文档和示例中的“TEST-NET-2”（测试-网-2），它不应该被公开使用</td>
+<td>分配为用于文档和示例中的TEST-NET-2，不应该被公开使用</td>
 </tr>
 <tr>
 <td>203.0.113.0/24</td>
 <td>203.0.113.0 – 203.0.113.255</td>
 <td>256</td>
 <td>文档</td>
-<td>RFC5737</td>
-<td>分配为用于文档和示例中的“TEST-NET-3”（测试-网-3），它不应该被公开使用</td>
+<td>分配为用于文档和示例中的TEST-NET-3，不应该被公开使用</td>
 </tr>
 <tr>
 <td>240.0.0.0/4</td>
 <td>240.0.0.0 – 255.255.255.254</td>
 <td>268,435,455</td>
 <td>互联网</td>
-<td>RFC1112</td>
 <td>用于将来使用</td>
 </tr>
 <tr>
@@ -289,7 +271,6 @@
 <td>255.255.255.255</td>
 <td>1</td>
 <td>子网</td>
-<td>RFC8190, RFC919</td>
 <td>用于受限广播地址</td>
 </tr>
 </tbody>

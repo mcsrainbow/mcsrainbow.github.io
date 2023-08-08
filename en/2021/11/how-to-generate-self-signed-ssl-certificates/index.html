@@ -31,8 +31,8 @@
         },"image": [{
                             "@type": "ImageObject",
                             "url": "https:\/\/blog.heylinux.com\/en\/2021\/11\/how-to-generate-self-signed-ssl-certificates\/featured-image.jpeg",
-                            "width":  1000 ,
-                            "height":  499 
+                            "width":  2236 ,
+                            "height":  1340 
                         }],"genre": "posts","keywords": "Security, SSL, TLS","wordcount":  1703 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2021\/11\/how-to-generate-self-signed-ssl-certificates\/","datePublished": "2021-11-07T11:06:54+08:00","dateModified": "2021-11-07T11:06:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
@@ -189,14 +189,15 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Import <code>rootCA.heylinux.com.pem</code> to OS via Chrome, so the Chrome could trust the server certificate generated based on the root certificate.</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg"
-        data-srcset="/en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg, /en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg 1.5x, /en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg 2x"
-        data-sizes="auto"
-        alt="/en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg"
-        title="Chrome CertManager" width="1344" height="572" /></p>
+<a class="lightgallery" href="/en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg" title="Chrome CertManager" data-thumbnail="/en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg"
+            data-srcset="/en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg, /en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg 1.5x, /en/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg 2x"
+            data-sizes="auto"
+            alt="Chrome CertManager" width="800" height="572" />
+    </a>
 <h3 id="2-generate-server-certificate">2. Generate server certificate</h3>
 <p>Create <code>ssl.conf</code>, enable <code>serverAuth</code> and <code>clientAuth</code>, wildcard DNS names as <code>*.heylinux.com</code> and <code>*.cloud.heylinux.com</code>.</p>
 <div class="highlight"><div class="chroma">
