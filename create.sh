@@ -67,10 +67,11 @@ if [ "$enable_english" == "yes" ];then
 fi
 
 post_date_str=$(date +%Y-%m-%dT%H:%M:%S+08:00)
-post_date=$(date +%Y%m%d-%H%M)
-post_dir="${post_date}-${post_dir_namestr}"
+post_date_year=$(date +%Y)
+post_date_time=$(date +%m%d-%H%M)
+post_dir="${post_date_year}/${post_date_time}-${post_dir_namestr}"
 
-mkdir content/posts/${post_dir}
+mkdir -p content/posts/${post_dir}
 cat > content/posts/${post_dir}/index.zh-cn.md <<EOF
 ---
 title: "${post_title}"
