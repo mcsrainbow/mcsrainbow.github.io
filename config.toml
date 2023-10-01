@@ -393,10 +393,13 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 文章页面的分享信息设置
     [params.page.share]
       enable = true
+      Facebook = false
+      HackerNews = false
+      Line = false
       Twitter = true
       LinkedIn = true
       Weibo = true
-      Evernote=true
+      Evernote = true
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
