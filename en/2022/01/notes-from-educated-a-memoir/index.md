@@ -1,4 +1,4 @@
-# Notes from reading 'Educated: A Memoir'
+# Notes from 'Educated: A Memoir'
 
 
 Flee as a bird to your mountain.

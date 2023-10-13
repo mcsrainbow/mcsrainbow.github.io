@@ -1,4 +1,4 @@
-# Notes from reading 'Influence: The Psychology of Persuasion'
+# Notes from 'Influence: The Psychology of Persuasion'
 
 
 The 6 principles of persuasion are Reciprocation, Commitment and Consistency, Social Proof, Liking, Authority, Scarcity.

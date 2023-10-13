@@ -1,4 +1,4 @@
-# Notes from reading 'Rich Dad Poor Dad'
+# Notes from 'Rich Dad Poor Dad'
 
 
 The rich buy assets. The poor only have expenses. The middle class buy liabilities they think are assets.

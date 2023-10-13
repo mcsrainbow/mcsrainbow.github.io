@@ -1,4 +1,4 @@
-# Notes from reading 'Nonviolent Communication: A Language of Life'
+# Notes from 'Nonviolent Communication: A Language of Life'
 
 
 Four steps of Nonviolent Communication: observe, identify and state feelings, identify and state needs, and make requests.

@@ -1,4 +1,4 @@
-# Notes from reading 'The Willpower Instinct'
+# Notes from 'The Willpower Instinct'
 
 
 The lack of self-control is not only a psychological problem, but also influenced by physiology, psychological traps and various social factors.
