@@ -1,5 +1,5 @@
 ---
-title: "Notes from reading 'The Willpower Instinct'"
+title: "Notes from 'The Willpower Instinct'"
 date: 2021-11-06T07:58:24+08:00
 author: "Dong Guo | Damon"
 description: "The lack of self-control is not only a psychological problem, but also influenced by physiology, psychological traps and various social factors."

@@ -1,5 +1,5 @@
 ---
-title: "Notes from reading 'PEAK: Secrets from the New Science of Expertise'"
+title: "Notes from 'PEAK: Secrets from the New Science of Expertise'"
 date: 2021-12-11T21:05:17+08:00
 author: "Dong Guo | Damon"
 description: "The core elements of deliberate practice include focus, feedback and fix, stepping out of the comfort zone, extensive training, and mentorship."
