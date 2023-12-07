@@ -250,3 +250,11 @@ The following files will be deleted:
 Are you sure you want to continue? [y/N] y
 ```
 
+```plain
+➜ minikube delete --purge --all
+Successfully deleted all profiles
+Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
+
+➜ brew uninstall minikube
+```
+
