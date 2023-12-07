@@ -268,4 +268,5 @@ Successfully deleted all profiles
 Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
 
 ➜ brew uninstall minikube
+Uninstalling /opt/homebrew/Cellar/minikube/1.32.0... (9 files, 87.5MB)
 ```
