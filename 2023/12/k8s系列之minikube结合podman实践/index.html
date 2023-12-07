@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>K8S系列之Minikube结合Podman实践 - Hey! Linux</title><meta name="Description" content="Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。"><meta property="og:title" content="K8S系列之Minikube结合Podman实践" />
+<meta property="og:description" content="Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/" /><meta property="og:image" content="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/featured-image.jpeg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-07T10:57:19+08:00" />
+<meta property="article:modified_time" content="2023-12-07T10:57:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/featured-image.jpeg"/>
+<meta name="twitter:title" content="K8S系列之Minikube结合Podman实践"/>
+<meta name="twitter:description" content="Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。"/>
+<meta name="application-name" content="Hey! Linux">
+<meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/" /><link rel="prev" href="https://blog.heylinux.com/2023/03/%E7%A7%81%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "K8S系列之Minikube结合Podman实践",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.heylinux.com\/2023\/12\/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/blog.heylinux.com\/2023\/12\/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5\/featured-image.jpeg",
+                            "width":  1536 ,
+                            "height":  768 
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  1016 ,
+        "url": "https:\/\/blog.heylinux.com\/2023\/12\/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "mcsrainbow","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/blog.heylinux.com\/images\/avatar.jpg",
+                    "width":  800 ,
+                    "height":  800 
+                }},"author": {
+                "@type": "Person",
+                "name": "郭冬"
+            },"description": "Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hey! Linux">Hey! Linux</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/en/"> English </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/" selected>简体中文</option><option value="/en/2023/12/kubernetes-series-using-minikube-with-podman/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hey! Linux">Hey! Linux</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/" selected>简体中文</option><option value="/en/2023/12/kubernetes-series-using-minikube-with-podman/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">K8S系列之Minikube结合Podman实践</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1016 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
+        data-srcset="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/featured-image.jpeg, /2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/featured-image.jpeg 1.5x, /2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/featured-image.jpeg 2x"
+        data-sizes="auto"
+        alt="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
+        title="Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础环境">基础环境</a></li>
+    <li><a href="#安装使用podman">安装使用Podman</a></li>
+    <li><a href="#安装使用minikube">安装使用Minikube</a></li>
+    <li><a href="#部署测试nginx-service">部署测试Nginx Service</a></li>
+    <li><a href="#清理minikube和podman">清理Minikube和Podman</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。<br>
+Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。</p>
+<h2 id="基础环境">基础环境</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">macOS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l">ARM64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Driver</span><span class="p">:</span><span class="w"> </span><span class="l">Podman</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">CPUs</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Memory</span><span class="p">:</span><span class="w"> </span><span class="l">2Gi</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Disk</span><span class="p">:</span><span class="w"> </span><span class="l">20GiB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="安装使用podman">安装使用Podman</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install podman
+</span></span><span class="line"><span class="cl">==&gt; Installing dependencies for podman: capstone, dtc, pcre2, gettext, glib, gmp, libtasn1, nettle, p11-kit, openssl@3, libnghttp2, unbound, gnutls, jpeg-turbo, libpng, libslirp, libssh, libusb, lzo, pixman, snappy, vde and qemu
+</span></span><span class="line"><span class="cl">==&gt; podman
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ podman machine init --cpus 2 --memory 2048 --disk-size 20 --rootful
+</span></span><span class="line"><span class="cl">Downloading VM image: fedora-coreos-39.20231204.2.1-qemu.aarch64.qcow2.xz: done
+</span></span><span class="line"><span class="cl">Extracting compressed file: podman-machine-default_fedora-coreos-39.20231204.2.1-qemu.aarch64.qcow2: done
+</span></span><span class="line"><span class="cl">Image resized.
+</span></span><span class="line"><span class="cl">Machine init complete
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ podman machine start
+</span></span><span class="line"><span class="cl">Starting machine &#34;podman-machine-default&#34;
+</span></span><span class="line"><span class="cl">Waiting for VM ...
+</span></span><span class="line"><span class="cl">Mounting volume... /Users:/Users
+</span></span><span class="line"><span class="cl">Mounting volume... /private:/private
+</span></span><span class="line"><span class="cl">Mounting volume... /var/folders:/var/folders
+</span></span><span class="line"><span class="cl">API forwarding listening on: /Users/damonguo/.local/share/containers/podman/machine/qemu/podman.sock
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The system helper service is not installed; the default Docker API socket address can&#39;t be used by podman.
+</span></span><span class="line"><span class="cl">If you would like to install it, run the following commands:
+</span></span><span class="line"><span class="cl">  sudo /opt/homebrew/Cellar/podman/4.8.1/bin/podman-mac-helper install
+</span></span><span class="line"><span class="cl">  podman machine stop; podman machine start
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  You can still connect Docker API clients by setting DOCKER_HOST using the following command in your terminal session:
+</span></span><span class="line"><span class="cl">  export DOCKER_HOST=&#39;unix:///Users/damonguo/.local/share/containers/podman/machine/qemu/podman.sock&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Machine &#34;podman-machine-default&#34; started successfully
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ podman machine list
+</span></span><span class="line"><span class="cl">NAME                    VM TYPE     CREATED        LAST UP            CPUS        MEMORY      DISK SIZE
+</span></span><span class="line"><span class="cl">podman-machine-default  qemu        8 minutes ago  Currently running  2           2GiB        20GiB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="安装使用minikube">安装使用Minikube</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install minikube
+</span></span><span class="line"><span class="cl">==&gt; Installing dependencies for minikube: kubernetes-cli
+</span></span><span class="line"><span class="cl">==&gt; minikube
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube config set driver podman
+</span></span><span class="line"><span class="cl">These changes will take effect upon a minikube delete and then a minikube start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube start --driver=podman --kubernetes-version=v1.28.3
+</span></span><span class="line"><span class="cl">minikube v1.32.0 on Darwin 14.1.2 (arm64)
+</span></span><span class="line"><span class="cl">Using the podman (experimental) driver based on user configuration
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Using Podman driver with root privileges
+</span></span><span class="line"><span class="cl">Starting control plane node minikube in cluster minikube
+</span></span><span class="line"><span class="cl">Pulling base image ...
+</span></span><span class="line"><span class="cl">Downloading Kubernetes v1.28.3 preload ...
+</span></span><span class="line"><span class="cl">preloaded-images-k8s-v18-v1...:  341.16 MiB / 341.16 MiB  100.00% 13.99 M
+</span></span><span class="line"><span class="cl">gcr.io/k8s-minikube/kicbase...:  410.58 MiB / 410.58 MiB  100.00% 13.22 M
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Creating podman container (CPUs=2, Memory=1887MB) ...
+</span></span><span class="line"><span class="cl">Preparing Kubernetes v1.28.3 on Docker 24.0.7 ...
+</span></span><span class="line"><span class="cl">Generating certificates and keys ...
+</span></span><span class="line"><span class="cl">Booting up control plane ...
+</span></span><span class="line"><span class="cl">Configuring RBAC rules ...
+</span></span><span class="line"><span class="cl">Configuring bridge CNI (Container Networking Interface) ...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Verifying Kubernetes components...
+</span></span><span class="line"><span class="cl">Using image gcr.io/k8s-minikube/storage-provisioner:v5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Enabled addons: storage-provisioner, default-storageclass
+</span></span><span class="line"><span class="cl">Done! kubectl is now configured to use &#34;minikube&#34; cluster and &#34;default&#34; namespace by default
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube status
+</span></span><span class="line"><span class="cl">minikube
+</span></span><span class="line"><span class="cl">type: Control Plane
+</span></span><span class="line"><span class="cl">host: Running
+</span></span><span class="line"><span class="cl">kubelet: Running
+</span></span><span class="line"><span class="cl">apiserver: Running
+</span></span><span class="line"><span class="cl">kubeconfig: Configured
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get namespaces
+</span></span><span class="line"><span class="cl">NAME              STATUS   AGE
+</span></span><span class="line"><span class="cl">default           Active   4m40s
+</span></span><span class="line"><span class="cl">kube-node-lease   Active   4m40s
+</span></span><span class="line"><span class="cl">kube-public       Active   4m40s
+</span></span><span class="line"><span class="cl">kube-system       Active   4m40s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl get nodes
+</span></span><span class="line"><span class="cl">NAME       STATUS   ROLES           AGE     VERSION
+</span></span><span class="line"><span class="cl">minikube   Ready    control-plane   4m44s   v1.28.3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl get svc
+</span></span><span class="line"><span class="cl">NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+</span></span><span class="line"><span class="cl">kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   16m
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="部署测试nginx-service">部署测试Nginx Service</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim nginx-deploy-svc.yaml </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl apply -f nginx-deploy-svc.yaml 
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
+</span></span><span class="line"><span class="cl">service/nginx-svc created
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get all
+</span></span><span class="line"><span class="cl">NAME                                READY   STATUS    RESTARTS   AGE
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-7c5ddbdf54-4d8c2   1/1     Running   0          67s
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-7c5ddbdf54-cmcg2   1/1     Running   0          67s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP        24m
+</span></span><span class="line"><span class="cl">service/nginx-svc    NodePort    10.103.72.229   &lt;none&gt;        80:31985/TCP   67s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy   2/2     2            2           67s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                                      DESIRED   CURRENT   READY   AGE
+</span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-7c5ddbdf54   2         2         2       67s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube service nginx-svc --url
+</span></span><span class="line"><span class="cl">http://127.0.0.1:51726
+</span></span><span class="line"><span class="cl">Because you are using a Docker driver on darwin, the terminal needs to be open to run it.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a class="lightgallery" href="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg" title="minikube_nginx_svc_web" data-thumbnail="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg"
+            data-srcset="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg, /2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg 1.5x, /2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg 2x"
+            data-sizes="auto"
+            alt="minikube_nginx_svc_web" width="800" height="560" />
+    </a>
+<h2 id="清理minikube和podman">清理Minikube和Podman</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube stop
+</span></span><span class="line"><span class="cl">Stopping node &#34;minikube&#34;  ...
+</span></span><span class="line"><span class="cl">Powering off &#34;minikube&#34; via SSH ...
+</span></span><span class="line"><span class="cl">1 node stopped.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube status
+</span></span><span class="line"><span class="cl">minikube
+</span></span><span class="line"><span class="cl">type: Control Plane
+</span></span><span class="line"><span class="cl">host: Stopped
+</span></span><span class="line"><span class="cl">kubelet: Stopped
+</span></span><span class="line"><span class="cl">apiserver: Stopped
+</span></span><span class="line"><span class="cl">kubeconfig: Stopped
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube delete
+</span></span><span class="line"><span class="cl">Deleting &#34;minikube&#34; in podman ...
+</span></span><span class="line"><span class="cl">Deleting container &#34;minikube&#34; ...
+</span></span><span class="line"><span class="cl">Removing /Users/damonguo/.minikube/machines/minikube ...
+</span></span><span class="line"><span class="cl">Removed all traces of the &#34;minikube&#34; cluster.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ podman machine list
+</span></span><span class="line"><span class="cl">NAME                    VM TYPE     CREATED         LAST UP            CPUS        MEMORY      DISK SIZE
+</span></span><span class="line"><span class="cl">podman-machine-default  qemu        54 minutes ago  Currently running  2           2GiB        20GiB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ podman machine stop podman-machine-default
+</span></span><span class="line"><span class="cl">Waiting for VM to exit...
+</span></span><span class="line"><span class="cl">Machine &#34;podman-machine-default&#34; stopped successfully
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ podman machine rm podman-machine-default
+</span></span><span class="line"><span class="cl">The following files will be deleted:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/Users/damonguo/.ssh/podman-machine-default
+</span></span><span class="line"><span class="cl">/Users/damonguo/.ssh/podman-machine-default.pub
+</span></span><span class="line"><span class="cl">/Users/damonguo/.config/containers/podman/machine/qemu/podman-machine-default.ign
+</span></span><span class="line"><span class="cl">/Users/damonguo/.local/share/containers/podman/machine/qemu/podman-machine-default_fedora-coreos-39.20231204.2.1-qemu.aarch64.qcow2
+</span></span><span class="line"><span class="cl">/Users/damonguo/.local/share/containers/podman/machine/qemu/podman.sock
+</span></span><span class="line"><span class="cl">/Users/damonguo/.local/share/containers/podman/machine/qemu/podman-machine-default_ovmf_vars.fd
+</span></span><span class="line"><span class="cl">/Users/damonguo/.config/containers/podman/machine/qemu/podman-machine-default.json
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Are you sure you want to continue? [y/N] y
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/" data-title="K8S系列之Minikube结合Podman实践" data-hashtags="Kubernetes,Podman"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/" data-title="K8S系列之Minikube结合Podman实践"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/" data-title="K8S系列之Minikube结合Podman实践"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kubernetes/">Kubernetes</a>,&nbsp;<a href="/tags/podman/">Podman</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023/03/%E7%A7%81%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/" class="prev" rel="prev" title="私有IP地址包括哪些"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>私有IP地址包括哪些</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.120.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

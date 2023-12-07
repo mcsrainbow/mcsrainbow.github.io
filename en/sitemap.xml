@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/categories/"
@@ -11,7 +11,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/categories/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/"
@@ -20,8 +20,34 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/network/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/tags/kubernetes/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/kubernetes/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/kubernetes/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-minikube-with-podman/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-minikube-with-podman/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/podman/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/podman/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/podman/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/posts/"
@@ -30,8 +56,8 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/posts/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/tags/"
@@ -40,6 +66,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/network/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -180,15 +207,6 @@
                     /></url><url>
             <loc>https://blog.heylinux.com/en/tags/pomodoro-technique/</loc><lastmod>2022-01-01T14:58:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/time-management/</loc><lastmod>2022-01-01T14:58:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/en/tags/kubernetes/</loc><lastmod>2021-12-21T21:58:24&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/tags/kubernetes/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/tags/kubernetes/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</loc><lastmod>2021-12-21T21:58:24&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
