@@ -34,7 +34,7 @@
                             "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-k3s-with-multipass\/featured-image.jpeg",
                             "width":  2400 ,
                             "height":  905 
-                        }],"genre": "posts","keywords": "Kubernetes, Multipass","wordcount":  872 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Multipass","wordcount":  926 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-k3s-with-multipass\/","datePublished": "2023-12-08T17:21:19+08:00","dateModified": "2023-12-08T17:21:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes Series: Using K3S with Multipass</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dong Guo | Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-08">2023-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;872 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-08">2023-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;926 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -598,6 +598,42 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ multipass list
 </span></span><span class="line"><span class="cl">No instances found.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall --cask multipass
+</span></span><span class="line"><span class="cl">==&gt; Uninstalling Cask multipass
+</span></span><span class="line"><span class="cl">==&gt; Removing launchctl service com.canonical.multipassd
+</span></span><span class="line"><span class="cl">==&gt; Uninstalling packages:
+</span></span><span class="line"><span class="cl">com.canonical.multipass.multipassd
+</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass
+</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass_gui
+</span></span><span class="line"><span class="cl">==&gt; Removing files:
+</span></span><span class="line"><span class="cl">/opt/homebrew/etc/bash_completion.d/multipass
+</span></span><span class="line"><span class="cl">/Applications/Multipass.app
+</span></span><span class="line"><span class="cl">/Library/Application Support/com.canonical.multipass
+</span></span><span class="line"><span class="cl">/Library/Logs/Multipass
+</span></span><span class="line"><span class="cl">/usr/local/bin/multipass
+</span></span><span class="line"><span class="cl">/usr/local/etc/bash_completion.d/multipass
+</span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.12.2 of Cask multipass
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
