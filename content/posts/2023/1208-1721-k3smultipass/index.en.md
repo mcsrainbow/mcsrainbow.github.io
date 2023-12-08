@@ -4,7 +4,7 @@ date: 2023-12-08T17:21:19+08:00
 author: "Dong Guo | Damon"
 description: "K3S is a lightweight, easy-to-install distribution of Kubernetes. Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual machines."
 categories: ["Skills"]
-tags: ["Kubernetes","Multipass"]
+tags: ["Kubernetes"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"

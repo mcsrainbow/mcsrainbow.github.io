@@ -4,7 +4,7 @@ date: 2023-12-08T17:21:19+08:00
 author: "郭冬"
 description: "K3S是一个轻量级、易于安装的Kubernetes发行版。Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具。"
 categories: ["技能矩阵"]
-tags: ["Kubernetes","Multipass"]
+tags: ["Kubernetes"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
