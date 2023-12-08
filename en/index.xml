@@ -4,9 +4,18 @@
         <link>https://blog.heylinux.com/en/</link>
         <description>Damon Guo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Kubernetes Series: Using K3S with Multipass</title>
+    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/</link>
+    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/</guid>
+    <description><![CDATA[<p>K3S is a lightweight, easy-to-install distribution of Kubernetes.<br>
+Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual machines.</p>]]></description>
+</item>
+<item>
     <title>Kubernetes Series: Using Minikube with Podman</title>
     <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-minikube-with-podman/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
@@ -78,14 +87,6 @@ Podman is an open-source container runtime tool offering functionality similar t
     <author>Dong Guo | Damon</author>
     <guid>https://blog.heylinux.com/en/2022/01/life-is-short-and-love-is-long/</guid>
     <description><![CDATA[<p>The rest of life is precious and unpredictable, don&rsquo;t let the regrets be too long.</p>]]></description>
-</item>
-<item>
-    <title>Notes from &#39;Educated: A Memoir&#39;</title>
-    <link>https://blog.heylinux.com/en/2022/01/notes-from-educated-a-memoir/</link>
-    <pubDate>Sun, 16 Jan 2022 07:44:45 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/01/notes-from-educated-a-memoir/</guid>
-    <description><![CDATA[<p>Flee as a bird to your mountain.</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -4,7 +4,16 @@
         <link>https://blog.heylinux.com/tags/kubernetes/</link>
         <description>Kubernetes - 标签 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+    <title>K8S系列之K3S结合Multipass实践</title>
+    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3s%E7%BB%93%E5%90%88multipass%E5%AE%9E%E8%B7%B5/</link>
+    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3s%E7%BB%93%E5%90%88multipass%E5%AE%9E%E8%B7%B5/</guid>
+    <description><![CDATA[<p>K3S是一个轻量级、易于安装的Kubernetes发行版。<br>
+Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具。</p>]]></description>
+</item>
+<item>
     <title>K8S系列之Minikube结合Podman实践</title>
     <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>

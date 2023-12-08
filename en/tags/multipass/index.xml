@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Multipass - Tag - Hey! Linux</title>
+        <link>https://blog.heylinux.com/en/tags/multipass/</link>
+        <description>Multipass - Tag - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/multipass/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes Series: Using K3S with Multipass</title>
+    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/</link>
+    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/</guid>
+    <description><![CDATA[<p>K3S is a lightweight, easy-to-install distribution of Kubernetes.<br>
+Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual machines.</p>]]></description>
+</item>
+</channel>
+</rss>
