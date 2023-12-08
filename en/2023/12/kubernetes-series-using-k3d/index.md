@@ -18,7 +18,7 @@ Installer: Homebrew
 ## Setup K3D
 
 ```plain
-➜ brew reinstall k3d
+➜ brew install k3d
 ==> Installing k3d 
 ==> Pouring k3d--5.6.0.arm64_sonoma.bottle.tar.gz
 ==> k3d

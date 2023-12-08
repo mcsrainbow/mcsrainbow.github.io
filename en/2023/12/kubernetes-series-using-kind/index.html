@@ -4,38 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Kubernetes Series: Using K3D - Hey! Linux</title><meta name="Description" content="K3D is a lightweight wrapper to run K3S in docker."><meta property="og:title" content="Kubernetes Series: Using K3D" />
-<meta property="og:description" content="K3D is a lightweight wrapper to run K3S in docker." />
+        <title>Kubernetes Series: Using KinD - Hey! Linux</title><meta name="Description" content="KinD is a tool for running local Kubernetes clusters in Docker."><meta property="og:title" content="Kubernetes Series: Using KinD" />
+<meta property="og:description" content="KinD is a tool for running local Kubernetes clusters in Docker." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/" /><meta property="og:image" content="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/featured-image.jpeg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-12-08T19:07:42+08:00" />
-<meta property="article:modified_time" content="2023-12-08T19:07:42+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="og:url" content="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/" /><meta property="og:image" content="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/featured-image.jpeg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-08T20:16:36+08:00" />
+<meta property="article:modified_time" content="2023-12-08T20:16:36+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/featured-image.jpeg"/>
-<meta name="twitter:title" content="Kubernetes Series: Using K3D"/>
-<meta name="twitter:description" content="K3D is a lightweight wrapper to run K3S in docker."/>
+<meta name="twitter:image" content="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/featured-image.jpeg"/>
+<meta name="twitter:title" content="Kubernetes Series: Using KinD"/>
+<meta name="twitter:description" content="KinD is a tool for running local Kubernetes clusters in Docker."/>
 <meta name="application-name" content="Hey! Linux">
 <meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/" /><link rel="prev" href="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/" /><link rel="next" href="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/" /><link rel="prev" href="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Kubernetes Series: Using K3D",
+        "headline": "Kubernetes Series: Using KinD",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-k3d\/"
+            "@id": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-kind\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-k3d\/featured-image.jpeg",
-                            "width":  1067 ,
+                            "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-kind\/featured-image.jpeg",
+                            "width":  750 ,
                             "height":  400 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  577 ,
-        "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-k3d\/","datePublished": "2023-12-08T19:07:42+08:00","dateModified": "2023-12-08T19:07:42+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  523 ,
+        "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/kubernetes-series-using-kind\/","datePublished": "2023-12-08T20:16:36+08:00","dateModified": "2023-12-08T20:16:36+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
                     "@type": "ImageObject",
@@ -45,7 +45,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Dong Guo | Damon"
-            },"description": "K3D is a lightweight wrapper to run K3S in docker."
+            },"description": "KinD is a tool for running local Kubernetes clusters in Docker."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -71,7 +71,7 @@
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2023/12/kubernetes-series-using-k3d/" selected>English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bkind%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2023/12/kubernetes-series-using-kind/" selected>English</option></select>
                 </a></div>
         </div>
     </div>
@@ -105,7 +105,7 @@
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2023/12/kubernetes-series-using-k3d/" selected>English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bkind%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2023/12/kubernetes-series-using-kind/" selected>English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -117,18 +117,18 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes Series: Using K3D</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes Series: Using KinD</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dong Guo | Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-08">2023-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;577 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-08">2023-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;523 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2023/12/kubernetes-series-using-k3d/featured-image.jpeg"
-        data-srcset="/en/2023/12/kubernetes-series-using-k3d/featured-image.jpeg, /en/2023/12/kubernetes-series-using-k3d/featured-image.jpeg 1.5x, /en/2023/12/kubernetes-series-using-k3d/featured-image.jpeg 2x"
+        data-src="/en/2023/12/kubernetes-series-using-kind/featured-image.jpeg"
+        data-srcset="/en/2023/12/kubernetes-series-using-kind/featured-image.jpeg, /en/2023/12/kubernetes-series-using-kind/featured-image.jpeg 1.5x, /en/2023/12/kubernetes-series-using-kind/featured-image.jpeg 2x"
         data-sizes="auto"
-        alt="/en/2023/12/kubernetes-series-using-k3d/featured-image.jpeg"
-        title="K3D is a lightweight wrapper to run K3S in docker." /></div><div class="details toc" id="toc-static"  data-kept="">
+        alt="/en/2023/12/kubernetes-series-using-kind/featured-image.jpeg"
+        title="KinD is a tool for running local Kubernetes clusters in Docker." /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -136,12 +136,12 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#basic">Basic</a></li>
-    <li><a href="#setup-k3d">Setup K3D</a></li>
+    <li><a href="#setup-kind">Setup KinD</a></li>
     <li><a href="#deploy-nginx-service">Deploy Nginx Service</a></li>
-    <li><a href="#cleanup-k3d">Cleanup K3D</a></li>
+    <li><a href="#cleanup-kind">Cleanup KinD</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>K3D is a lightweight wrapper to run K3S in docker.</p>
+            </div><div class="content" id="content"><p>KinD is a tool for running local Kubernetes clusters in Docker.</p>
 <h2 id="basic">Basic</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -159,7 +159,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="setup-k3d">Setup K3D</h2>
+</div><h2 id="setup-kind">Setup KinD</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -168,10 +168,77 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install k3d
-</span></span><span class="line"><span class="cl">==&gt; Installing k3d 
-</span></span><span class="line"><span class="cl">==&gt; Pouring k3d--5.6.0.arm64_sonoma.bottle.tar.gz
-</span></span><span class="line"><span class="cl">==&gt; k3d
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew reinstall kind
+</span></span><span class="line"><span class="cl">==&gt; Installing kind 
+</span></span><span class="line"><span class="cl">==&gt; Pouring kind--0.20.0.arm64_sonoma.bottle.tar.gz
+</span></span><span class="line"><span class="cl">==&gt; kind
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kind version
+</span></span><span class="line"><span class="cl">kind v0.20.0 go1.21.1 darwin/arm64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Create a cluster &lsquo;mycluster&rsquo;, allow the local host to make requests to the Ingress controller over port 30080.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim config-with-port-mapping.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kind.x-k8s.io/v1alpha4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">nodes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l">control-plane</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">extraPortMappings</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">30080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hostPort</span><span class="p">:</span><span class="w"> </span><span class="m">30080</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kind create cluster --name mycluster --config=config-with-port-mapping.yaml
+</span></span><span class="line"><span class="cl">Creating cluster &#34;mycluster&#34; ...
+</span></span><span class="line"><span class="cl"> ✓ Ensuring node image (kindest/node:v1.27.3)
+</span></span><span class="line"><span class="cl"> ✓ Preparing nodes
+</span></span><span class="line"><span class="cl"> ✓ Writing configuration
+</span></span><span class="line"><span class="cl"> ✓ Starting control-plane
+</span></span><span class="line"><span class="cl"> ✓ Installing CNI
+</span></span><span class="line"><span class="cl"> ✓ Installing StorageClass
+</span></span><span class="line"><span class="cl">Set kubectl context to &#34;kind-mycluster&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">You can now use your cluster with:
+</span></span><span class="line"><span class="cl">kubectl cluster-info --context kind-mycluster
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Thanks for using kind!
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -181,13 +248,22 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ k3d version
-</span></span><span class="line"><span class="cl">k3d version v5.6.0
-</span></span><span class="line"><span class="cl">k3s version v1.27.5-k3s1 (default)
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl cluster-info --context kind-mycluster
+</span></span><span class="line"><span class="cl">Kubernetes control plane is running at https://127.0.0.1:64070
+</span></span><span class="line"><span class="cl">CoreDNS is running at https://127.0.0.1:64070/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Create a cluster &lsquo;mycluster&rsquo;, mapping the ingress port 80 to localhost:8081.</p>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kind get clusters
+</span></span><span class="line"><span class="cl">mycluster
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -211,46 +287,30 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ k3d cluster create mycluster -p &#34;8081:80@loadbalancer&#34; --agents 1
-</span></span><span class="line"><span class="cl">INFO[0000] portmapping &#39;8081:80&#39; targets the loadbalancer: defaulting to [servers:*:proxy agents:*:proxy] 
-</span></span><span class="line"><span class="cl">INFO[0000] Prep: Network                                
-</span></span><span class="line"><span class="cl">INFO[0000] Created network &#39;k3d-mycluster&#39;              
-</span></span><span class="line"><span class="cl">INFO[0000] Created image volume k3d-mycluster-images    
-</span></span><span class="line"><span class="cl">INFO[0000] Starting new tools node...                   
-</span></span><span class="line"><span class="cl">INFO[0000] Starting Node &#39;k3d-mycluster-tools&#39;          
-</span></span><span class="line"><span class="cl">INFO[0001] Creating node &#39;k3d-mycluster-server-0&#39;       
-</span></span><span class="line"><span class="cl">INFO[0001] Creating node &#39;k3d-mycluster-agent-0&#39;        
-</span></span><span class="line"><span class="cl">INFO[0001] Creating LoadBalancer &#39;k3d-mycluster-serverlb&#39; 
-</span></span><span class="line"><span class="cl">INFO[0001] Using the k3d-tools node to gather environment information 
-</span></span><span class="line"><span class="cl">INFO[0001] HostIP: using network gateway 192.168.167.1 address 
-</span></span><span class="line"><span class="cl">INFO[0001] Starting cluster &#39;mycluster&#39;                 
-</span></span><span class="line"><span class="cl">INFO[0001] Starting servers...                          
-</span></span><span class="line"><span class="cl">INFO[0001] Starting Node &#39;k3d-mycluster-server-0&#39;       
-</span></span><span class="line"><span class="cl">INFO[0004] Starting agents...                           
-</span></span><span class="line"><span class="cl">INFO[0004] Starting Node &#39;k3d-mycluster-agent-0&#39;        
-</span></span><span class="line"><span class="cl">INFO[0007] Starting helpers...                          
-</span></span><span class="line"><span class="cl">INFO[0007] Starting Node &#39;k3d-mycluster-serverlb&#39;       
-</span></span><span class="line"><span class="cl">INFO[0013] Injecting records for hostAliases (incl. host.k3d.internal) and for 3 network members into CoreDNS configmap... 
-</span></span><span class="line"><span class="cl">INFO[0015] Cluster &#39;mycluster&#39; created successfully!    
-</span></span><span class="line"><span class="cl">INFO[0015] You can now use it like this:                
-</span></span><span class="line"><span class="cl">kubectl cluster-info
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl cluster-info
-</span></span><span class="line"><span class="cl">Kubernetes control plane is running at https://0.0.0.0:56685
-</span></span><span class="line"><span class="cl">CoreDNS is running at https://0.0.0.0:56685/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-</span></span><span class="line"><span class="cl">Metrics-server is running at https://0.0.0.0:56685/api/v1/namespaces/kube-system/services/https:metrics-server:https/proxy
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get nodes
+</span></span><span class="line"><span class="cl">NAME                      STATUS   ROLES           AGE   VERSION
+</span></span><span class="line"><span class="cl">mycluster-control-plane   Ready    control-plane   85s   v1.27.3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl get pods -n kube-system
+</span></span><span class="line"><span class="cl">NAME                                              READY   STATUS    RESTARTS   AGE
+</span></span><span class="line"><span class="cl">coredns-5d78c9869d-6zdpz                          1/1     Running   0          81s
+</span></span><span class="line"><span class="cl">coredns-5d78c9869d-twr96                          1/1     Running   0          81s
+</span></span><span class="line"><span class="cl">etcd-mycluster-control-plane                      1/1     Running   0          94s
+</span></span><span class="line"><span class="cl">kindnet-x9zrb                                     1/1     Running   0          81s
+</span></span><span class="line"><span class="cl">kube-apiserver-mycluster-control-plane            1/1     Running   0          96s
+</span></span><span class="line"><span class="cl">kube-controller-manager-mycluster-control-plane   1/1     Running   0          94s
+</span></span><span class="line"><span class="cl">kube-proxy-5zzch                                  1/1     Running   0          81s
+</span></span><span class="line"><span class="cl">kube-scheduler-mycluster-control-plane            1/1     Running   0          94s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl get namespaces
+</span></span><span class="line"><span class="cl">NAME                 STATUS   AGE
+</span></span><span class="line"><span class="cl">default              Active   108s
+</span></span><span class="line"><span class="cl">kube-node-lease      Active   108s
+</span></span><span class="line"><span class="cl">kube-public          Active   108s
+</span></span><span class="line"><span class="cl">kube-system          Active   108s
+</span></span><span class="line"><span class="cl">local-path-storage   Active   104s
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="deploy-nginx-service">Deploy Nginx Service</h2>
@@ -263,7 +323,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get all
 </span></span><span class="line"><span class="cl">NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.43.0.1    &lt;none&gt;        443/TCP   48s
+</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   119s
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -302,26 +362,9 @@
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim nginx-deploy-svc-ingress.yaml </span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim nginx-deploy-svc-portmapping.yaml </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
@@ -353,25 +396,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">nodePort</span><span class="p">:</span><span class="w"> </span><span class="m">30080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-ingress</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;false&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">http</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">paths</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l">Prefix</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">backend</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">service</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-svc</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">port</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -379,13 +405,11 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl apply -f nginx-deploy-svc-ingress.yaml 
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl apply -f nginx-deploy-svc-portmapping.yaml
 </span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
 </span></span><span class="line"><span class="cl">service/nginx-svc created
-</span></span><span class="line"><span class="cl">ingress.networking.k8s.io/nginx-ingress created
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -408,75 +432,47 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get all
 </span></span><span class="line"><span class="cl">NAME                               READY   STATUS    RESTARTS   AGE
-</span></span><span class="line"><span class="cl">pod/nginx-deploy-55f598f8d-z9n5v   1/1     Running   0          2m
-</span></span><span class="line"><span class="cl">pod/nginx-deploy-55f598f8d-h5zkb   1/1     Running   0          2m
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-55f598f8d-f2c2q   1/1     Running   0          35s
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-55f598f8d-ljxd8   1/1     Running   0          35s
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.43.0.1      &lt;none&gt;        443/TCP        3m12s
-</span></span><span class="line"><span class="cl">service/nginx-svc    NodePort    10.43.58.173   &lt;none&gt;        80:32459/TCP   2m
+</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.96.0.1      &lt;none&gt;        443/TCP        5m5s
+</span></span><span class="line"><span class="cl">service/nginx-svc    NodePort    10.96.221.64   &lt;none&gt;        80:30080/TCP   35s
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
-</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy   2/2     2            2           2m
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy   2/2     2            2           35s
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NAME                                     DESIRED   CURRENT   READY   AGE
-</span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-55f598f8d   2         2         2       2m
+</span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><p>Access Nginx: http://localhost:30080</p>
+<a class="lightgallery" href="/en/2023/12/kubernetes-series-using-kind/kind_nginx_svc_web.jpg" title="kind_nginx_svc_web" data-thumbnail="/en/2023/12/kubernetes-series-using-kind/kind_nginx_svc_web.jpg">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/en/2023/12/kubernetes-series-using-kind/kind_nginx_svc_web.jpg"
+            data-srcset="/en/2023/12/kubernetes-series-using-kind/kind_nginx_svc_web.jpg, /en/2023/12/kubernetes-series-using-kind/kind_nginx_svc_web.jpg 1.5x, /en/2023/12/kubernetes-series-using-kind/kind_nginx_svc_web.jpg 2x"
+            data-sizes="auto"
+            alt="kind_nginx_svc_web" width="800" height="614" />
+    </a>
+<h2 id="cleanup-kind">Cleanup KinD</h2>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get ingress
-</span></span><span class="line"><span class="cl">NAME            CLASS    HOSTS   ADDRESS                       PORTS   AGE
-</span></span><span class="line"><span class="cl">nginx-ingress   &lt;none&gt;   *       192.168.167.2,192.168.167.3   80      2m56s
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Access Nginx via Ingress: http://localhost:8081</p>
-<a class="lightgallery" href="/en/2023/12/kubernetes-series-using-k3d/k3d_nginx_ingress_web.jpg" title="k3d_nginx_ingress_web" data-thumbnail="/en/2023/12/kubernetes-series-using-k3d/k3d_nginx_ingress_web.jpg">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/en/2023/12/kubernetes-series-using-k3d/k3d_nginx_ingress_web.jpg"
-            data-srcset="/en/2023/12/kubernetes-series-using-k3d/k3d_nginx_ingress_web.jpg, /en/2023/12/kubernetes-series-using-k3d/k3d_nginx_ingress_web.jpg 1.5x, /en/2023/12/kubernetes-series-using-k3d/k3d_nginx_ingress_web.jpg 2x"
-            data-sizes="auto"
-            alt="k3d_nginx_ingress_web" width="800" height="612" />
-    </a>
-<h2 id="cleanup-k3d">Cleanup K3D</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ k3d cluster list
-</span></span><span class="line"><span class="cl">NAME        SERVERS   AGENTS   LOADBALANCER
-</span></span><span class="line"><span class="cl">mycluster   1/1       1/1      true
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kind delete cluster --name mycluster
+</span></span><span class="line"><span class="cl">Deleting cluster &#34;mycluster&#34; ...
+</span></span><span class="line"><span class="cl">Deleted nodes: [&#34;mycluster-control-plane&#34;]
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">➜ k3d cluster delete mycluster
-</span></span><span class="line"><span class="cl">INFO[0000] Deleting cluster &#39;mycluster&#39;                 
-</span></span><span class="line"><span class="cl">INFO[0000] Deleting cluster network &#39;k3d-mycluster&#39;     
-</span></span><span class="line"><span class="cl">INFO[0000] Deleting 1 attached volumes...               
-</span></span><span class="line"><span class="cl">INFO[0000] Removing cluster details from default kubeconfig... 
-</span></span><span class="line"><span class="cl">INFO[0000] Removing standalone kubeconfig file (if there is one)... 
-</span></span><span class="line"><span class="cl">INFO[0000] Successfully deleted cluster mycluster!      
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">➜ k3d cluster list
-</span></span><span class="line"><span class="cl">NAME   SERVERS   AGENTS   LOADBALANCER
+</span></span><span class="line"><span class="cl">➜ kind get clusters
+</span></span><span class="line"><span class="cl">No kind clusters found.
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
@@ -487,10 +483,10 @@
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/en/2023/12/kubernetes-series-using-k3d/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/en/2023/12/kubernetes-series-using-kind/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/" data-title="Kubernetes Series: Using K3D" data-hashtags="Kubernetes"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/" data-title="Kubernetes Series: Using K3D"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/" data-title="Kubernetes Series: Using K3D"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/" data-title="Kubernetes Series: Using KinD" data-hashtags="Kubernetes"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/" data-title="Kubernetes Series: Using KinD"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/" data-title="Kubernetes Series: Using KinD"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -502,8 +498,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/en/2023/12/kubernetes-series-using-k3s-with-multipass/" class="prev" rel="prev" title="Kubernetes Series: Using K3S with Multipass"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Kubernetes Series: Using K3S with Multipass</a>
-            <a href="/en/2023/12/kubernetes-series-using-kind/" class="next" rel="next" title="Kubernetes Series: Using KinD">Kubernetes Series: Using KinD<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/en/2023/12/kubernetes-series-using-k3d/" class="prev" rel="prev" title="Kubernetes Series: Using K3D"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Kubernetes Series: Using K3D</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

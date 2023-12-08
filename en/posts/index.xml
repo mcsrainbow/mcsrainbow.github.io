@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/en/posts/</link>
         <description>All Posts | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 20:16:36 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes Series: Using KinD</title>
+    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/</link>
+    <pubDate>Fri, 08 Dec 2023 20:16:36 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/</guid>
+    <description><![CDATA[<p>KinD is a tool for running local Kubernetes clusters in Docker.</p>]]></description>
+</item>
+<item>
     <title>Kubernetes Series: Using K3D</title>
     <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/</link>
     <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
@@ -77,14 +85,6 @@ Podman is an open-source container runtime tool offering functionality similar t
     <author>Dong Guo | Damon</author>
     <guid>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</guid>
     <description><![CDATA[<p>Four steps of Nonviolent Communication: observe, identify and state feelings, identify and state needs, and make requests.</p>]]></description>
-</item>
-<item>
-    <title>Notes from &#39;Influence: The Psychology of Persuasion&#39;</title>
-    <link>https://blog.heylinux.com/en/2022/03/notes-from-influence-the-psychology-of-persuasion/</link>
-    <pubDate>Sun, 06 Mar 2022 23:09:45 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/03/notes-from-influence-the-psychology-of-persuasion/</guid>
-    <description><![CDATA[<p>The 6 principles of persuasion are Reciprocation, Commitment and Consistency, Social Proof, Liking, Authority, Scarcity.</p>]]></description>
 </item>
 </channel>
 </rss>

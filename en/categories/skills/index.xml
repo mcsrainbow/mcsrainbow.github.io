@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/en/categories/skills/</link>
         <description>Skills - Category - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 20:16:36 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes Series: Using KinD</title>
+    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/</link>
+    <pubDate>Fri, 08 Dec 2023 20:16:36 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/</guid>
+    <description><![CDATA[<p>KinD is a tool for running local Kubernetes clusters in Docker.</p>]]></description>
+</item>
+<item>
     <title>Kubernetes Series: Using K3D</title>
     <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/</link>
     <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
@@ -77,14 +85,6 @@ Podman is an open-source container runtime tool offering functionality similar t
     <author>Dong Guo | Damon</author>
     <guid>https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/</guid>
     <description><![CDATA[<p>The recognition principles and processes I have learned from the CAPTCHA recognition are really valuable.</p>]]></description>
-</item>
-<item>
-    <title>DevOps CICD Pipeline in Action </title>
-    <link>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</link>
-    <pubDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</guid>
-    <description><![CDATA[<p>There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.</p>]]></description>
 </item>
 </channel>
 </rss>
