@@ -29,7 +29,7 @@ Installer: Homebrew
 ## 安装使用K3D
 
 ```plain
-➜ brew reinstall k3d
+➜ brew install k3d
 ==> Installing k3d 
 ==> Pouring k3d--5.6.0.arm64_sonoma.bottle.tar.gz
 ==> k3d
@@ -168,7 +168,7 @@ NAME            CLASS    HOSTS   ADDRESS                       PORTS   AGE
 nginx-ingress   <none>   *       192.168.167.2,192.168.167.3   80      2m56s
 ```
 
-通过Ingress访问Nginx http://localhost:8081
+通过Ingress访问Nginx: http://localhost:8081
 
 {{< image src="k3d_nginx_ingress_web.jpg" alt="k3d_nginx_ingress_web" width=800 >}}
 
