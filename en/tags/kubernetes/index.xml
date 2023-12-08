@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/en/tags/kubernetes/</link>
         <description>Kubernetes - Tag - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes Series: Using K3D</title>
+    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/</link>
+    <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/</guid>
+    <description><![CDATA[<p>K3D is a lightweight wrapper to run K3S in docker.</p>]]></description>
+</item>
+<item>
     <title>Kubernetes Series: Using K3S with Multipass</title>
     <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/</link>
     <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>

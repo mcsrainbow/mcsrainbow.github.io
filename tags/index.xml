@@ -4,20 +4,12 @@
         <link>https://blog.heylinux.com/tags/</link>
         <description>Tags - 标签 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Kubernetes</title>
     <link>https://blog.heylinux.com/tags/kubernetes/</link>
-    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
+    <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
     <author>mcsrainbow</author>
     <guid>https://blog.heylinux.com/tags/kubernetes/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Multipass</title>
-    <link>https://blog.heylinux.com/tags/multipass/</link>
-    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
-    <author>mcsrainbow</author>
-    <guid>https://blog.heylinux.com/tags/multipass/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -82,6 +74,14 @@
     <pubDate>Thu, 24 Mar 2022 08:14:42 &#43;0800</pubDate>
     <author>mcsrainbow</author>
     <guid>https://blog.heylinux.com/tags/%E5%BF%83%E7%90%86%E5%AD%A6/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>爱</title>
+    <link>https://blog.heylinux.com/tags/%E7%88%B1/</link>
+    <pubDate>Thu, 20 Jan 2022 00:44:01 &#43;0800</pubDate>
+    <author>mcsrainbow</author>
+    <guid>https://blog.heylinux.com/tags/%E7%88%B1/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

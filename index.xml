@@ -4,9 +4,17 @@
         <link>https://blog.heylinux.com/</link>
         <description>郭冬的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>K8S系列之K3D实践</title>
+    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/</link>
+    <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/</guid>
+    <description><![CDATA[<p>K3D是一个轻量级的工具，用于在Docker中运行K3S。</p>]]></description>
+</item>
+<item>
     <title>K8S系列之K3S结合Multipass实践</title>
     <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3s%E7%BB%93%E5%90%88multipass%E5%AE%9E%E8%B7%B5/</link>
     <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
@@ -79,14 +87,6 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2022/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%BD%B1%E5%93%8D%E5%8A%9B/</guid>
     <description><![CDATA[<p>隐藏在顺从行为背后的六大要素分别是互惠、承诺和一致、社会认同、喜好、权威、短缺。</p>]]></description>
-</item>
-<item>
-    <title>人生苦短，爱意绵长</title>
-    <link>https://blog.heylinux.com/2022/01/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%E7%88%B1%E6%84%8F%E7%BB%B5%E9%95%BF/</link>
-    <pubDate>Thu, 20 Jan 2022 00:44:01 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/01/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%E7%88%B1%E6%84%8F%E7%BB%B5%E9%95%BF/</guid>
-    <description><![CDATA[<p>余生可贵，世事无常，别让遗憾太长。</p>]]></description>
 </item>
 </channel>
 </rss>
