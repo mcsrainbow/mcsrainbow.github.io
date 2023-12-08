@@ -249,3 +249,21 @@ k3s-worker              Deleted           --               Not Available
 ➜ multipass list
 No instances found.
 ```
+
+```plain
+➜ brew uninstall --cask multipass
+==> Uninstalling Cask multipass
+==> Removing launchctl service com.canonical.multipassd
+==> Uninstalling packages:
+com.canonical.multipass.multipassd
+com.canonical.multipass.multipass
+com.canonical.multipass.multipass_gui
+==> Removing files:
+/opt/homebrew/etc/bash_completion.d/multipass
+/Applications/Multipass.app
+/Library/Application Support/com.canonical.multipass
+/Library/Logs/Multipass
+/usr/local/bin/multipass
+/usr/local/etc/bash_completion.d/multipass
+==> Purging files for version 1.12.2 of Cask multipass
+```
