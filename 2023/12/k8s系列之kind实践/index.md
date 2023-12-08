@@ -18,7 +18,7 @@ Installer: Homebrew
 ## 安装使用KinD
 
 ```plain
-➜ brew reinstall kind
+➜ brew install kind
 ==> Installing kind 
 ==> Pouring kind--0.20.0.arm64_sonoma.bottle.tar.gz
 ==> kind
