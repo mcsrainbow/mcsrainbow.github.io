@@ -1,9 +1,9 @@
 ---
-title: "K8S系列之KinD实践"
-date: 2023-12-08T20:16:36+08:00
-author: "郭冬"
-description: "KinD是一个工具，用于在Docker中运行本地Kubernetes集群。"
-categories: ["技能矩阵"]
+title: "Kubernetes Series: Using KinD"
+date: 2023-12-08T14:02:36+08:00
+author: "Dong Guo | Damon"
+description: "KinD is a tool for running local Kubernetes clusters in Docker."
+categories: ["Skills"]
 tags: ["Kubernetes"]
 resources:
 - name: "featured-image"
@@ -12,11 +12,12 @@ resources:
 lightgallery: true
 ---
 
-KinD是一个工具，用于在Docker中运行本地Kubernetes集群。
+KinD is a tool for running local Kubernetes clusters in Docker.
 
 <!--more-->
 
-## 基础环境
+
+## Basic
 
 ```yaml
 OS: macOS
@@ -26,10 +27,10 @@ Driver: Docker
 Installer: Homebrew
 ```
 
-## 安装使用KinD
+## Setup KinD
 
 ```plain
-➜ brew reinstall kind
+➜ brew install kind
 ==> Installing kind 
 ==> Pouring kind--0.20.0.arm64_sonoma.bottle.tar.gz
 ==> kind
@@ -40,7 +41,7 @@ Installer: Homebrew
 kind v0.20.0 go1.21.1 darwin/arm64
 ```
 
-创建一个名为mycluster的K8S集群，并将hostPort的30080端口暴露到localhost的30080端口。
+Create a cluster 'mycluster', allow the local host to make requests to the Ingress controller over port 30080.
 
 ```yaml
 ➜ vim config-with-port-mapping.yaml
@@ -106,7 +107,7 @@ kube-system          Active   108s
 local-path-storage   Active   104s
 ```
 
-## 部署测试Nginx Service
+## Deploy Nginx Service
 
 ```plain
 ➜ kubectl get all
@@ -174,11 +175,11 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s
 ```
 
-访问Nginx: http://localhost:30080
+Access Nginx: http://localhost:30080
 
 {{< image src="kind_nginx_svc_web.jpg" alt="kind_nginx_svc_web" width=800 >}}
 
-## 清理KinD
+## Cleanup KinD
 
 ```plain
 ➜ kind delete cluster --name mycluster
