@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</link>
         <description>技能矩阵 - 分类 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+    <title>使用git-crypt加解密Git中的文件</title>
+    <link>https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+    <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+    <description><![CDATA[<p>git-crypt是一个用于加密和解密文件的工具,可以与Git仓库无缝集成,允许用户安全地存储和共享敏感数据。</p>]]></description>
+</item>
+<item>
     <title>K8S系列之K3D实践</title>
     <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/</link>
     <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
@@ -77,14 +85,6 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2021/12/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/</guid>
     <description><![CDATA[<p>分享一些我所关注的<strong><ruby>解决方案<rt>Solutions</rt></ruby></strong>与<strong><ruby>技术前瞻<rt>Insights</rt></ruby></strong>的好网站。</p>]]></description>
-</item>
-<item>
-    <title>Python OpenCV验证码识别实战</title>
-    <link>https://blog.heylinux.com/2021/11/python-opencv%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/</link>
-    <pubDate>Wed, 24 Nov 2021 20:36:58 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/11/python-opencv%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/</guid>
-    <description><![CDATA[<p>在通过OpenCV完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。</p>]]></description>
 </item>
 </channel>
 </rss>
