@@ -84,6 +84,15 @@ Generating key...
 ❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
 ```
 
+Trigger an update and apply the new git-crypt encryption key.
+
+```plain
+❯ echo "new dummy value" > git-crypt/api.key
+❯ git add git-crypt/api.key
+❯ git commit -m "feat: update api.key with new git-crypt encryption key"
+❯ git push
+```
+
 Share the new git-crypt encryption key `/Users/damonguo/Workspace/keys/git-crypt-v2.key` with team members in a secure way.
 
 Then ask them to hold on the git push and pull actions, import the new encryption key first: `git-crypt unlock /path/to/git-crypt-v2.key`.

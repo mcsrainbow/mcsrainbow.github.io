@@ -81,6 +81,15 @@ Generating key...
 ❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
 ```
 
+触发更新并应用新的git-crypt加密key。
+
+```plain
+❯ echo "new dummy value" > git-crypt/api.key
+❯ git add git-crypt/api.key
+❯ git commit -m "feat: update api.key with new git-crypt encryption key"
+❯ git push
+```
+
 以安全的方式与团队成员共享新的加密Key`/Users/damonguo/Workspace/keys/git-crypt-v2.key`。
 
 通知他们暂停git push和pull等操作，先导入新的加密Key: `git-crypt unlock /path/to/git-crypt-v2.key`，然后再继续。

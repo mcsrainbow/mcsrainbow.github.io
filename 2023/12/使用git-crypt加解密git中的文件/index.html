@@ -34,7 +34,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6\/featured-image.jpeg",
                             "width":  1920 ,
                             "height":  640 
-                        }],"genre": "posts","keywords": "Git, Cybersecurity","wordcount":  683 ,
+                        }],"genre": "posts","keywords": "Git, Cybersecurity","wordcount":  737 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6\/","datePublished": "2023-12-18T17:50:15+08:00","dateModified": "2023-12-18T17:50:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用git-crypt加解密Git中的文件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 683 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 737 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -268,6 +268,21 @@
 </span></span><span class="line"><span class="cl">Generating key...
 </span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v2.key
 </span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>触发更新并应用新的git-crypt加密key。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ echo &#34;new dummy value&#34; &gt; git-crypt/api.key
+</span></span><span class="line"><span class="cl">❯ git add git-crypt/api.key
+</span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: update api.key with new git-crypt encryption key&#34;
+</span></span><span class="line"><span class="cl">❯ git push
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>以安全的方式与团队成员共享新的加密Key<code>/Users/damonguo/Workspace/keys/git-crypt-v2.key</code>。</p>
