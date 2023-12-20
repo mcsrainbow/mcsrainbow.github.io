@@ -27,8 +27,8 @@ git-crypt是一个用于加密和解密文件的工具,可以与Git仓库无缝�
 ```plain
 ❯ git-crypt init
 Generating key...
-❯ git-crypt export-key /Users/damonguo/Workspace/sshkeys/git-crypt.key
-❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/sshkeys/git-crypt.key
+❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v1.key
+❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v1.key
 
 ❯ echo "git-crypt/api.key filter=git-crypt diff=git-crypt" > .gitattributes
 ❯ git add .gitattributes
@@ -66,12 +66,35 @@ not encrypted: git-crypt/file.txt
 ❯ file git-crypt/api.key
 git-crypt/api.key: data
 
-❯ git-crypt unlock /Users/damonguo/Workspace/sshkeys/git-crypt.key
+❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
 ❯ file git-crypt/api.key
 git-crypt/api.key: ASCII text
 ❯ cat git-crypt/api.key
 dummy value
 ```
+
+## 在团队中使用git-crypt
+
+以安全的方式与团队成员共享导出的加密Key`/Users/damonguo/Workspace/keys/git-crypt-v1.key`。
+
+通知他们导入加密Key对Git仓库中的加密文件进行解密: `git-crypt unlock /path/to/git-crypt-v1.key`。
+
+## 更新git-crypt加密key
+
+创建一个新的git-crypt加密Key
+
+```plain
+❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
+❯ rm -rf .git/git-crypt/keys
+❯ git-crypt init
+Generating key...
+❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v2.key
+❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
+```
+
+以安全的方式与团队成员共享新的加密Key`/Users/damonguo/Workspace/keys/git-crypt-v2.key`。
+
+通知他们暂停git push和pull等操作，先导入新的加密Key: `git-crypt unlock /path/to/git-crypt-v2.key`，然后再继续。
 
 ## 参考
 

@@ -28,8 +28,8 @@ git-crypt is a tool for encrypting and decrypting files that integrates seamless
 ```plain
 ❯ git-crypt init
 Generating key...
-❯ git-crypt export-key /Users/damonguo/Workspace/sshkeys/git-crypt.key
-❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/sshkeys/git-crypt.key
+❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v1.key
+❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v1.key
 
 ❯ echo "git-crypt/api.key filter=git-crypt diff=git-crypt" > .gitattributes
 ❯ git add .gitattributes
@@ -69,12 +69,35 @@ Encrypt and decrypt the `git-crypt/api.key` locally with `git-crypt lock/unlock`
 ❯ file git-crypt/api.key
 git-crypt/api.key: data
 
-❯ git-crypt unlock /Users/damonguo/Workspace/sshkeys/git-crypt.key
+❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
 ❯ file git-crypt/api.key
 git-crypt/api.key: ASCII text
 ❯ cat git-crypt/api.key
 dummy value
 ```
+
+## Working in team with git-crypt
+
+Share the exported encryption key `/Users/damonguo/Workspace/keys/git-crypt-v1.key` with team members in a secure way.
+
+Then they can import encryption key and decrypt the repository by command: `git-crypt unlock /path/to/git-crypt-v1.key`.
+
+## Renew the git-crypt encryption key
+
+Create a new git-crypt encryption key
+
+```plain
+❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
+❯ rm -rf .git/git-crypt/keys
+❯ git-crypt init
+Generating key...
+❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v2.key
+❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
+```
+
+Share the new git-crypt encryption key `/Users/damonguo/Workspace/keys/git-crypt-v2.key` with team members in a secure way.
+
+Then ask them to hold on the git push and pull actions, import the new encryption key first: `git-crypt unlock /path/to/git-crypt-v2.key`.
 
 ## References
 
