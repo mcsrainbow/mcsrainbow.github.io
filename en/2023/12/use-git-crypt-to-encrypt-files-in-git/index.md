@@ -51,14 +51,12 @@ View the server side encryption and decryption status on the `GitLab Web`
 
 {{< image src="git_crypt_encrypted_file.jpg" alt="git_crypt_encrypted_file" width=800 >}}
 
-Encrypt and decrypt the file locally with `git-crypt lock/unlock` commands
+Encrypt and decrypt the `git-crypt/api.key` locally with `git-crypt lock/unlock` commands
 
 ```plain
 ❯ git-crypt lock
 ❯ file git-crypt/api.key
 git-crypt/api.key: data
-❯ cat git-crypt/file.txt
-This is some text
 
 ❯ git-crypt unlock /Users/damonguo/Workspace/sshkeys/git-crypt.key
 ❯ file git-crypt/api.key

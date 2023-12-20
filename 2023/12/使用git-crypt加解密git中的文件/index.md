@@ -48,14 +48,12 @@ not encrypted: git-crypt/file.txt
 
 {{< image src="git_crypt_encrypted_file.jpg" alt="git_crypt_encrypted_file" width=800 >}}
 
-通过`git-crypt lock/unlock`命令对文件进行本地加解密
+通过`git-crypt lock/unlock`命令对文件`git-crypt/api.key`进行本地加解密
 
 ```plain
 ❯ git-crypt lock
 ❯ file git-crypt/api.key
 git-crypt/api.key: data
-❯ cat git-crypt/file.txt
-This is some text
 
 ❯ git-crypt unlock /Users/damonguo/Workspace/sshkeys/git-crypt.key
 ❯ file git-crypt/api.key
