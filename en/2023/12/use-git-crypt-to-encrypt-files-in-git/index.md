@@ -69,5 +69,5 @@ dummy value
 
 ## References
 
-https://dev.to/heroku/how-to-manage-your-secrets-with-git-crypt-56ih
+https://buddy.works/guides/git-crypt
 
