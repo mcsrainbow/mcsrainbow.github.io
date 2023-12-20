@@ -10,7 +10,7 @@
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
-    <description><![CDATA[<p>git-crypt是一个用于加密和解密文件的工具,可以与Git仓库无缝集成,允许用户安全地存储和共享敏感数据。</p>]]></description>
+    <description><![CDATA[<p>git-crypt是一个用于加密和解密文件的工具，可以与Git仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
 </item>
 </channel>
 </rss>
