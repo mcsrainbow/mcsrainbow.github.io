@@ -2,7 +2,7 @@
 title: "使用git-crypt加解密Git中的文件"
 date: 2023-12-18T17:50:15+08:00
 author: "郭冬"
-description: "git-crypt是一个用于加密和解密文件的工具,可以与Git仓库无缝集成,允许用户安全地存储和共享敏感数据。"
+description: "git-crypt是一个用于加密和解密文件的工具，可以与Git仓库无缝集成，允许用户安全地存储和共享敏感数据。"
 categories: ["技能矩阵"]
 tags: ["Git","Cybersecurity"]
 resources:
@@ -12,7 +12,7 @@ resources:
 lightgallery: true
 ---
 
-git-crypt是一个用于加密和解密文件的工具,可以与Git仓库无缝集成,允许用户安全地存储和共享敏感数据。
+git-crypt是一个用于加密和解密文件的工具，可以与Git仓库无缝集成，允许用户安全地存储和共享敏感数据。
 
 <!--more-->
 
