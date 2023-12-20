@@ -34,7 +34,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6\/featured-image.jpeg",
                             "width":  1920 ,
                             "height":  640 
-                        }],"genre": "posts","keywords": "Git, Cybersecurity","wordcount":  345 ,
+                        }],"genre": "posts","keywords": "Git, Cybersecurity","wordcount":  683 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6\/","datePublished": "2023-12-18T17:50:15+08:00","dateModified": "2023-12-18T17:50:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用git-crypt加解密Git中的文件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 345 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 683 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -139,6 +139,8 @@
     <li><a href="#初始化git-crypt并备份加密key">初始化git-crypt并备份加密key</a></li>
     <li><a href="#创建测试文件">创建测试文件</a></li>
     <li><a href="#校验文件加解密状态">校验文件加解密状态</a></li>
+    <li><a href="#在团队中使用git-crypt">在团队中使用git-crypt</a></li>
+    <li><a href="#更新git-crypt加密key">更新git-crypt加密key</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
@@ -168,8 +170,8 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt init
 </span></span><span class="line"><span class="cl">Generating key...
-</span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/sshkeys/git-crypt.key
-</span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/sshkeys/git-crypt.key
+</span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v1.key
+</span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v1.key
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ echo &#34;git-crypt/api.key filter=git-crypt diff=git-crypt&#34; &gt; .gitattributes
 </span></span><span class="line"><span class="cl">❯ git add .gitattributes
@@ -238,14 +240,39 @@
 </span></span><span class="line"><span class="cl">❯ file git-crypt/api.key
 </span></span><span class="line"><span class="cl">git-crypt/api.key: data
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/sshkeys/git-crypt.key
+</span></span><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
 </span></span><span class="line"><span class="cl">❯ file git-crypt/api.key
 </span></span><span class="line"><span class="cl">git-crypt/api.key: ASCII text
 </span></span><span class="line"><span class="cl">❯ cat git-crypt/api.key
 </span></span><span class="line"><span class="cl">dummy value
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="参考">参考</h2>
+</div><h2 id="在团队中使用git-crypt">在团队中使用git-crypt</h2>
+<p>以安全的方式与团队成员共享导出的加密Key<code>/Users/damonguo/Workspace/keys/git-crypt-v1.key</code>。</p>
+<p>通知他们导入加密Key对Git仓库中的加密文件进行解密: <code>git-crypt unlock /path/to/git-crypt-v1.key</code>。</p>
+<h2 id="更新git-crypt加密key">更新git-crypt加密key</h2>
+<p>创建一个新的git-crypt加密Key</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
+</span></span><span class="line"><span class="cl">❯ rm -rf .git/git-crypt/keys
+</span></span><span class="line"><span class="cl">❯ git-crypt init
+</span></span><span class="line"><span class="cl">Generating key...
+</span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v2.key
+</span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以安全的方式与团队成员共享新的加密Key<code>/Users/damonguo/Workspace/keys/git-crypt-v2.key</code>。</p>
+<p>通知他们暂停git push和pull等操作，先导入新的加密Key: <code>git-crypt unlock /path/to/git-crypt-v2.key</code>，然后再继续。</p>
+<h2 id="参考">参考</h2>
 <p><a href="https://buddy.works/guides/git-crypt" target="_blank" rel="noopener noreffer ">https://buddy.works/guides/git-crypt</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
