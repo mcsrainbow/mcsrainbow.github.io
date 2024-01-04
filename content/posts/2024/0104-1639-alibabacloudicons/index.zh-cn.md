@@ -37,7 +37,7 @@ lightgallery: true
 
 矢量图标颜色代码: `#ff6a00`
 
-### draw.io 中图标的顺序
+## draw.io 中图标的顺序
 
 ```plain
 .
