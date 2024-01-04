@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/en/categories/skills/</link>
         <description>Skills - Category - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+    <title>Alibaba Cloud Official Vector Icons and draw.io Custom Libraries</title>
+    <link>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-draw.io-custom-libraries/</link>
+    <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-draw.io-custom-libraries/</guid>
+    <description><![CDATA[<p>I collected a complete set of Alibaba Cloud vector icons and generated the draw.io icon library.</p>]]></description>
+</item>
+<item>
     <title>Use git-crypt to encrypt files in Git</title>
     <link>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
@@ -77,14 +85,6 @@ Podman is an open-source container runtime tool offering functionality similar t
     <author>Dong Guo | Damon</author>
     <guid>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
     <description><![CDATA[<p>kubeadm performs the actions necessary to get a minimum viable cluster up and running.</p>]]></description>
-</item>
-<item>
-    <title>Solutions and Insights</title>
-    <link>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</link>
-    <pubDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</guid>
-    <description><![CDATA[<p>Here are some of my personal bookmarks about technology solutions and insights.</p>]]></description>
 </item>
 </channel>
 </rss>

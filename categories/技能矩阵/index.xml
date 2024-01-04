@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</link>
         <description>技能矩阵 - 分类 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+    <title>阿里云官方矢量图标和draw.io自定义图标库</title>
+    <link>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8Cdraw.io%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</link>
+    <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8Cdraw.io%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</guid>
+    <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的draw.io图标库。</p>]]></description>
+</item>
+<item>
     <title>使用git-crypt加解密Git中的文件</title>
     <link>https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/</link>
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
@@ -77,14 +85,6 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
     <description><![CDATA[<p>kubeadm是Kubernetes官方提供的用于快速部署集群的工具。</p>]]></description>
-</item>
-<item>
-    <title>解决方案与技术前瞻</title>
-    <link>https://blog.heylinux.com/2021/12/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/</link>
-    <pubDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/12/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/</guid>
-    <description><![CDATA[<p>分享一些我所关注的<strong><ruby>解决方案<rt>Solutions</rt></ruby></strong>与<strong><ruby>技术前瞻<rt>Insights</rt></ruby></strong>的好网站。</p>]]></description>
 </item>
 </channel>
 </rss>

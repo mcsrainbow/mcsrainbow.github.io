@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>阿里云 - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</link>
+        <description>阿里云 - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="self" type="application/rss+xml" /><item>
+    <title>阿里云官方矢量图标和draw.io自定义图标库</title>
+    <link>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8Cdraw.io%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</link>
+    <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8Cdraw.io%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</guid>
+    <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的draw.io图标库。</p>]]></description>
+</item>
+</channel>
+</rss>
