@@ -27,7 +27,7 @@ lightgallery: true
 
 {{< image src="alibaba-cloud-drawio-library.jpg" alt="alibaba-cloud-drawio-library" width=800 >}}
 
-## draw.io 自定义库下载
+## draw.io 自定义图标库下载
 
 [中文版 Alibaba Cloud.xml](https://github.com/mcsrainbow/alibaba-cloud-icons/blob/main/2022-orange/drawio/cn/Alibaba%20Cloud.xml) | [英文版 Alibaba Cloud.xml](https://github.com/mcsrainbow/alibaba-cloud-icons/blob/main/2022-orange/drawio/en/Alibaba%20Cloud.xml)
 
