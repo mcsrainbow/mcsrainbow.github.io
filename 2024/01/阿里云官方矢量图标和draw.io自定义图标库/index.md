@@ -15,7 +15,7 @@
 
 {{< image src="alibaba-cloud-drawio-library.jpg" alt="alibaba-cloud-drawio-library" width=800 >}}
 
-## draw.io 自定义库下载
+## draw.io 自定义图标库下载
 
 [中文版 Alibaba Cloud.xml](https://github.com/mcsrainbow/alibaba-cloud-icons/blob/main/2022-orange/drawio/cn/Alibaba%20Cloud.xml) | [英文版 Alibaba Cloud.xml](https://github.com/mcsrainbow/alibaba-cloud-icons/blob/main/2022-orange/drawio/en/Alibaba%20Cloud.xml)
 
@@ -46,4 +46,13 @@
 ├── 14 物联网
 └── 15 媒体服务
 ```
+
+## 后续
+
+关于draw.io中没有内置阿里云官方矢量图标这件事情，我带来了一些改变。  
+大家很快就能在draw.io里看到内置的阿里云官方矢量图标了。:smile:   
+
+https://github.com/jgraph/drawio/issues/4086  
+
+{{< image src="drawio-issue-alibaba-cloud-icon-set.jpg" alt="drawio-issue-alibaba-cloud-icon-set" width=800 >}}
 

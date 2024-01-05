@@ -46,3 +46,12 @@ Color Code: `#ff6a00`
 └── 15 Media Services
 ```
 
+## Followup
+
+I have brought some changes to the fact.  
+We will soon see the built-in Alibaba Cloud official vector icons in draw.io.:smile:  
+
+https://github.com/jgraph/drawio/issues/4086  
+
+{{< image src="drawio-issue-alibaba-cloud-icon-set.jpg" alt="drawio-issue-alibaba-cloud-icon-set" width=800 >}}
+
