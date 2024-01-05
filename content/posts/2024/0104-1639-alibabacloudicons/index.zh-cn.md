@@ -58,3 +58,12 @@ lightgallery: true
 ├── 14 物联网
 └── 15 媒体服务
 ```
+
+## 后续
+
+关于draw.io中没有内置阿里云官方矢量图标这件事情，我带来了一些改变。  
+大家很快就能在draw.io里看到内置的阿里云官方矢量图标了。:smile:   
+
+https://github.com/jgraph/drawio/issues/4086  
+
+{{< image src="drawio-issue-alibaba-cloud-icon-set.jpg" alt="drawio-issue-alibaba-cloud-icon-set" width=800 >}}
