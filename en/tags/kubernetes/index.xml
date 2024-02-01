@@ -39,11 +39,11 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 Podman is an open-source container runtime tool offering functionality similar to Docker, but operates without a daemon and supports enhanced security features and rootless mode execution.</p>]]></description>
 </item>
 <item>
-    <title>Setup Kubernetes Cluster Using kubeadm</title>
-    <link>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
+    <title>Kubernetes Series: Setup Kubernetes Cluster Using kubeadm</title>
+    <link>https://blog.heylinux.com/en/2021/12/kubernetes-series-setup-kubernetes-cluster-using-kubeadm/</link>
     <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
     <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
+    <guid>https://blog.heylinux.com/en/2021/12/kubernetes-series-setup-kubernetes-cluster-using-kubeadm/</guid>
     <description><![CDATA[<p>kubeadm performs the actions necessary to get a minimum viable cluster up and running.</p>]]></description>
 </item>
 </channel>

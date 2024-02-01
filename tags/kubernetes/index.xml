@@ -39,11 +39,11 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。</p>]]></description>
 </item>
 <item>
-    <title>使用kubeadm快速部署Kubernetes集群</title>
-    <link>https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
+    <title>K8S系列之使用kubeadm快速部署Kubernetes集群</title>
+    <link>https://blog.heylinux.com/2021/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
     <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
+    <guid>https://blog.heylinux.com/2021/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
     <description><![CDATA[<p>kubeadm是Kubernetes官方提供的用于快速部署集群的工具。</p>]]></description>
 </item>
 </channel>

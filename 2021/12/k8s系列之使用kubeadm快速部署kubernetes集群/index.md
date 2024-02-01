@@ -1,15 +1,19 @@
-# Setup Kubernetes Cluster Using kubeadm
+# K8S系列之使用kubeadm快速部署Kubernetes集群
 
 
-kubeadm performs the actions necessary to get a minimum viable cluster up and running.
+kubeadm是Kubernetes官方提供的用于快速部署集群的工具。
 
 <!--more-->
 
-## Prepare the Nodes
+## 背景
 
-> Note: root user by default on all Nodes
+kubeadm大大降低了Kubernetes集群部署的复杂度，但通常仅仅用来部署一个最小可用集群，方便学习和测试。生产级别的Kubernetes集群则需要高可用、高性能和更灵活的配置，建议通过源码包方式部署或选择已有的商业产品或公有云服务。
 
-Prepare the EC2 instances(replace the IP addresses as required)
+## 环境准备
+
+> 注：以下步骤都需要在所有节点上以root用户操作完成
+
+准备3台虚拟机节点（根据实际情况替换为真实IP）
 
 ```
 OS: CentOS 7.9 x86_64
@@ -21,7 +25,7 @@ kubeadm02: 172.31.5.5
 kubeadm03: 172.31.7.7
 ```
 
-Upgrade kernel and packages
+升级内核与系统软件包
 
 ```
 yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
@@ -35,7 +39,7 @@ grub2-editenv list
 yum -y update
 ```
 
-Configure /etc/hostname
+配置各节点主机名
 
 ```
 [root@kubeadm01 ~]# cat > /etc/hostname <<EOF
@@ -54,7 +58,7 @@ EOF
 [root@kubeadm03 ~]# hostname kubeadm03
 ```
 
-Configure /etc/hosts(replace the IP addresses as required)
+配置主机名解析（根据实际情况替换为真实IP）
 
 ```
 cat >> /etc/hosts <<EOF
@@ -64,7 +68,7 @@ cat >> /etc/hosts <<EOF
 EO
 ```
 
-Configure /etc/sysctl.conf
+配置内核参数
 
 ```
 cat > /etc/sysctl.d/sysctl.conf <<EOF
@@ -86,21 +90,21 @@ EOF
 sysctl -p /etc/sysctl.d/sysctl.conf
 ```
 
-Install required packages
+安装所需软件包
 
 ```
 yum install -y epel-release
 yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet
 ```
 
-Enable Chrony service
+启用Chrony时间同步服务
 
 ```
 systemctl start chronyd
 systemctl enable chronyd
 ```
 
-Disable Firewalld, Swap and SELinux
+禁用Firewalld，Swap和SELinux
 
 ```
 systemctl stop firewalld
@@ -113,7 +117,7 @@ setenforce 0
 sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
 ```
 
-Configure /etc/modules-load.d/kubernetes.conf and reboot
+配置内核模块，然后重启生效
 
 ```
 cat > /etc/modules-load.d/kubernetes.conf <<EOF
@@ -141,13 +145,13 @@ sync
 reboot
 ```
 
-Verify the kernel modules after reboot
+重启后，验证已加载内核模块
 
 ```
 lsmod | grep -e ip_vs -e nf_conntrack_ipv4
 ```
 
-Install Docker
+安装Docker
 
 ```
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -164,7 +168,7 @@ systemctl enable docker
 ```
 
 
-Disable postfix and create required directories
+禁用postfix，创建所需目录
 
 ```
 systemctl stop postfix
@@ -173,17 +177,17 @@ systemctl disable postfix
 mkdir -p /opt/k8s/{bin,work} /etc/{kubernetes,etcd}/cert
 ```
 
-## Setup the Cluster
+## 集群搭建
 
-> Note: Replace the version 1.22.1 as required
+> 注：以下步骤需要在不同节点上操作完成（根据实际情况替换1.22.1为需要的版本）
 
-Install kubeadm, kubelet and kubectl on all Nodes
+在所有节点上安装kubeadm，kubelet和kubectl
 
 ```
-cat > /etc/yum.repos.d/kubernetes.repo <<EOF
+cat > /etc/yum.repos.d/kubernetes.repo << EOF
 [kubernetes]
 name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
 enabled=1
 gpgcheck=0
 repo_gpgcheck=0
@@ -195,13 +199,50 @@ systemctl enable kubelet
 systemctl start kubelet
 ```
 
-Pull required Docker images on all Nodes
+在所有节点上拉取Docker镜像
 
 ```
-kubeadm config images pull --kubernetes-version v1.22.1
+kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.22.1
 ```
 
-Run init on kubeadm01(replace the CIDR of Node, Pod and Service networks as required)
+```
+[config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.22.1
+[config/images] Pulled registry.aliyuncs.com/google_containers/kube-controller-manager:v1.22.1
+[config/images] Pulled registry.aliyuncs.com/google_containers/kube-scheduler:v1.22.1
+[config/images] Pulled registry.aliyuncs.com/google_containers/kube-proxy:v1.22.1
+[config/images] Pulled registry.aliyuncs.com/google_containers/pause:3.5
+[config/images] Pulled registry.aliyuncs.com/google_containers/etcd:3.5.0-0
+[config/images] Pulled registry.aliyuncs.com/google_containers/coredns:v1.8.4
+```
+
+列出默认所需镜像及版本
+
+```
+kubeadm config images list --kubernetes-version v1.22.1
+```
+
+```
+k8s.gcr.io/kube-apiserver:v1.22.1
+k8s.gcr.io/kube-controller-manager:v1.22.1
+k8s.gcr.io/kube-scheduler:v1.22.1
+k8s.gcr.io/kube-proxy:v1.22.1
+k8s.gcr.io/pause:3.5
+k8s.gcr.io/etcd:3.5.0-0
+k8s.gcr.io/coredns/coredns:v1.8.4
+```
+
+在所有节点上修改已拉取的镜像的Tag
+
+```bash
+# 将除了coredns以外的镜像Tag为k8s.gcr.io镜像源
+for i in $(docker images | grep google_containers | awk '{print $1":"$2}' | cut -d/ -f3 | grep -v coredns); do docker tag registry.aliyuncs.com/google_containers/$i k8s.gcr.io/$i;done
+# 将coredns的镜像Tag为k8s.gcr.io镜像源，并增加/coredns前缀
+for i in $(docker images | grep google_containers/coredns | awk '{print $1":"$2}' | cut -d/ -f3); do docker tag registry.aliyuncs.com/google_containers/$i k8s.gcr.io/coredns/$i;done
+# 删除镜像的旧Tag
+for i in $(docker images | grep google_containers | awk '{print $1":"$2}' | cut -d/ -f3); do docker rmi registry.aliyuncs.com/google_containers/$i;done
+```
+
+在kubeadm01上执行init（根据实际情况替换Node，Pod和Service的网段）
 
 ```
 # Networks:
@@ -242,7 +283,7 @@ kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
         --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
 ```
 
-Create .kube/config on kubeadm01
+在kubeadm01上配置.kube/config
 
 ```
 [root@kubeadm01 ~]# mkdir -p $HOME/.kube
@@ -253,7 +294,7 @@ Create .kube/config on kubeadm01
 [centos@kubeadm01 ~]$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-Join the cluster via command on kubeadm02 and kubeadm03(repace the values as required)
+在kubeadm02和kubeadm03上执行join（根据实际情况替换参数的值）
 
 ```
 [root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
@@ -273,7 +314,7 @@ This node has joined the cluster:
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
 
-Check all Nodes status on kubeadm01
+在kubeadm01上查看节点状态
 
 ```
 [centos@kubeadm01 ~]$ kubectl get nodes 
@@ -286,7 +327,7 @@ kubeadm02   Ready    <none>                 7m      v1.22.1
 kubeadm03   Ready    <none>                 9m      v1.22.1
 ```
 
-Install Flannel on kubeadm01(replace the CIDR of Pod network as required)
+在kubeadm01上安装Flannel网络插件（根据实际情况替换Pod的网段）
 
 ```
 [centos@kubeadm01 ~]$ mkdir flannel 
@@ -309,7 +350,7 @@ Install Flannel on kubeadm01(replace the CIDR of Pod network as required)
 [centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
 ```
 
-Fix scheduler and controller-manager on kubeadm01
+在kubeadm01上修复scheduler和controller-manager
 
 ```
 [centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
@@ -319,7 +360,7 @@ Fix scheduler and controller-manager on kubeadm01
 [centos@kubeadm01 ~]$ sudo systemctl restart kubelet
 ```
 
-Check clusterservice status on kubeadm01
+在kubeadm01上查看clusterservice状态
 
 ```
 [centos@kubeadm01 ~]$ kubectl get cs
@@ -332,7 +373,7 @@ controller-manager   Healthy   ok
 etcd-0               Healthy   {"health":"true","reason":""} 
 ```
 
-Check all Pods status on kubeadm01
+在kubeadm01上查看所有Pod的状态
 
 ```
 [centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
@@ -354,9 +395,9 @@ kube-system            kube-proxy-w8v6s                            1/1     Runni
 kube-system            kube-scheduler-kubeadm01                    1/1     Running     0          5m
 ```
 
-## Optimize the Cluster
+## 配置优化
 
-Change the kube-proxy mode to ipvs, by default it's iptables
+默认kube-proxy的mode为iptables，修改为功能更强大的ipvs
 
 ```
 kubectl edit configmap kube-proxy -n kube-system
