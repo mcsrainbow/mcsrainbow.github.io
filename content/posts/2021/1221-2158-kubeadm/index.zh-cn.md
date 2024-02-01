@@ -1,5 +1,5 @@
 ---
-title: "使用kubeadm快速部署Kubernetes集群"
+title: "K8S系列之使用kubeadm快速部署Kubernetes集群"
 date: 2021-12-21T21:58:24+08:00
 author: "郭冬"
 description: "kubeadm是Kubernetes官方提供的用于快速部署集群的工具"
