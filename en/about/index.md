@@ -27,8 +27,6 @@
 - [ ] <i class="fas fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
 - [ ] <i class="fas fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Band Score 7
 - [ ] <i class="fas fa-hand-holding-usd fa-fw"></i> **CFA** - Chartered Financial Analyst
-- [ ] <i class="fas fa-cloud fa-fw"></i> **CCSP** - Certified Cloud Security Professional
-- [ ] <i class="fas fa-dharmachakra fa-fw"></i> **CKS** - Certified Kubernetes Security Specialist
 - [ ] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 MP** - ITIL 4 Managing Professional
 
 <i class="fas fa-book-open fa-fw"></i> **Private Booklist**
