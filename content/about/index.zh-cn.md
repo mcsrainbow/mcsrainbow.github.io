@@ -34,8 +34,6 @@ math:
 - [ ] <i class="fas fa-user-tag fa-fw"></i> **CDMP** - 数据管理专业认证
 - [ ] <i class="fas fa-language fa-fw"></i> **IELTS 7** - 雅思7分
 - [ ] <i class="fas fa-hand-holding-usd fa-fw"></i> **CFA** - 特许金融分析师
-- [ ] <i class="fas fa-cloud fa-fw"></i> **CCSP** - 云安全专家认证
-- [ ] <i class="fas fa-dharmachakra fa-fw"></i> **CKS** - Kubernetes安全专家认证
 - [ ] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 MP** - IT服务管理专家级
 
 <i class="fas fa-book-open fa-fw"></i> **私藏书单**
