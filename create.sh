@@ -57,7 +57,7 @@ echo -n "Rename the Post Directory name string? By default it is Post Category: 
 read post_dir_namestr
 if [ -z "$post_dir_namestr" ];then
   echo "INFO: Post Directory name string is empty"
-  post_dir_namestr=$post_category_en
+  post_dir_namestr=${post_category_en,,}
 fi
 
 echo -n "Enable English? [yes|no] "
