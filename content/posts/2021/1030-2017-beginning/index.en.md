@@ -17,6 +17,8 @@ I have renewed my confidence and enthusiasm for learning, the courage to explore
 
 <!--more-->
 
+---
+
 ## Why start over
 
 It was not on a whim or impulse that I made up my mind to close my old blog and start writing a new one.

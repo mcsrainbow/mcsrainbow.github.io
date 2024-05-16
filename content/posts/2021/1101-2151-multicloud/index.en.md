@@ -16,6 +16,8 @@ A multi-cloud strategy allows companies to select different cloud services from 
 
 <!--more-->
 
+---
+
 ## Reasons
 
 A multi-cloud strategy allows companies to select different cloud services from different providers, implement a multi-cloud environment for the following reasons:

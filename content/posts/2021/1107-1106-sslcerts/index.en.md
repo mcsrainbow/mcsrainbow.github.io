@@ -16,6 +16,8 @@ It is also important to deploy HTTPS services for internal private domains.
 
 <!--more-->
 
+---
+
 ## Background
 
 Today, almost all Internet sites and applications are already running on HTTPS site-wide, but many companies still have internal applications running on insecure HTTP.

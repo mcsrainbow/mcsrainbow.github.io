@@ -16,6 +16,8 @@ The rich buy assets. The poor only have expenses. The middle class buy liabiliti
 
 <!--more-->
 
+---
+
 ## Preface
 
 Robert Kiyosaki had two fathers: a rich one and a poor one. One was highly educated with a Ph.D. and so intelligent he completed his undergraduate degree in only two years. The other father didn’t even finish the eighth grade. While both men worked hard, were successful, and earned a lot of money, there was always one who struggled with money. And the other dad, well, he became one of the richest people in Hawaii.

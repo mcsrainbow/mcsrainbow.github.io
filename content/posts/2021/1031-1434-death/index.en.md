@@ -16,6 +16,8 @@ Walked through the valley of the shadow of death and tasted the nectar of life.
 
 <!--more-->
 
+---
+
 ## Preface
 
 Having served as a senior executive at top technology companies like Apple, Microsoft and Google, Kai-Fu Lee is known as a life winner and has a significant influence on the post-80s generation in China.

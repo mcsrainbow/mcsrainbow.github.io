@@ -16,6 +16,8 @@ git-crypt is a tool for encrypting and decrypting files that integrates seamless
 
 <!--more-->
 
+---
+
 
 ## Install git-crypt
 

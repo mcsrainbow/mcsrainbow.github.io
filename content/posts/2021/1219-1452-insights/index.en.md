@@ -17,6 +17,8 @@ Here are some of my personal bookmarks about technology solutions and insights.
 
 <!--more-->
 
+---
+
 + Gartner Insights https://www.gartner.com/en/insights
 
    Gartner Special Reports https://www.gartner.com/en/products/special-reports

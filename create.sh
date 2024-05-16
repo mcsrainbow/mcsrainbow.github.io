@@ -105,6 +105,8 @@ ${post_description}
 
 <!--more-->
 
+---
+
 EOF
 
 if [ "$enable_english" == "yes" ];then
@@ -140,6 +142,8 @@ lightgallery: true
 ${post_description}
 
 <!--more-->
+
+---
 
 EOF
 fi

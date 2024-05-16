@@ -16,6 +16,8 @@ The recognition principles and processes I have learned from the CAPTCHA recogni
 
 <!--more-->
 
+---
+
 ## Background
 
 My current company has a good learning and sharing atmosphere，sometimes holds various geek competitions, this one is about CAPTCHA recognition.

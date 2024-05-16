@@ -16,6 +16,8 @@ There are differences in the most appropriate CICD pipelines in different enviro
 
 <!--more-->
 
+---
+
 ## Background
 
 At the beginning of the project, the architect asked us to design a DevOps CICD (Continuous Integration, Continuous Deployment/Delivery) solution to improve productivity.

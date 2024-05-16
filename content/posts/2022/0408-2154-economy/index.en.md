@@ -16,6 +16,8 @@ How an Economy Grows and Why it Crashes uses illustration, humor, and accessible
 
 <!--more-->
 
+---
+
 ## Preface
 
 How an Economy Grows and Why It Crashes incorporates the spirit of the original while tackling the latest economic issues. With wit and humor, the Schiffs explain the roots of economic growth, the uses of capital, the destructive nature of consumer credit, the source of inflation, the importance of trade, savings, and risk, and many other topical principles of economics.

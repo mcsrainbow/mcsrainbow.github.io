@@ -16,6 +16,8 @@ lightgallery: true
 
 <!--more-->
 
+---
+
 ## 序
 
 这本书的英文原名为「Educated: A Memoir」，可以直译为「教育之名：一段回忆录」。

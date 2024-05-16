@@ -16,6 +16,8 @@ Four steps of Nonviolent Communication: observe, identify and state feelings, id
 
 <!--more-->
 
+---
+
 ## Preface
 
 Nonviolent Communication (NVC) has been described as a language of compassion, as a tool for positive social change, and as a spiritual practice. NVC gives us the tools and consciousness to understand what triggers us, to take responsibility for our reactions, and to deepen our connection with ourselves and others, thereby transforming our habitual responses to life. Ultimately, it involves a radical change in how we think about life and meaning. NVC is based on a fundamental principle:
