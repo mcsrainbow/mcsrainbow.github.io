@@ -5,6 +5,8 @@ The rest of life is precious and unpredictable, don't let the regrets be too lon
 
 <!--more-->
 
+---
+
 ## Be Open-minded
 
 Be not afraid. Do it best. Keep doing and stop worrying about results.

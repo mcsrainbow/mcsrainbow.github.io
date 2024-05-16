@@ -5,6 +5,8 @@
 
 <!--more-->
 
+---
+
 ## 背景
 
 在众多知名的绘图软件（如draw.io、Lucidchart、Gliffy、ProcessOn等）中都没有内置一套完整的、最新的阿里云官方矢量图标。  

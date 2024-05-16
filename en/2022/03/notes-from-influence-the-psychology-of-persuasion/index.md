@@ -5,6 +5,8 @@ The 6 principles of persuasion are Reciprocation, Commitment and Consistency, So
 
 <!--more-->
 
+---
+
 ## Preface
 
 These 6 ways to influence people were first put forward by Robert B. Cialdini in his 1984 book called "Influence: The Psychology of Persuasion."

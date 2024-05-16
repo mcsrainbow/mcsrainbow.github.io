@@ -5,6 +5,8 @@ The Pomodoro Technique is designed to maintain focus and prevent burnout.
 
 <!--more-->
 
+---
+
 ## Preface
 
 The name Pomodoro comes from a tomato-shaped kitchen timer that was used to manage bursts of work. 

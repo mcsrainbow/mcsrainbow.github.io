@@ -21,38 +21,12 @@
     <description><![CDATA[<p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>]]></description>
 </item>
 <item>
-    <title>Kubernetes Series: Using K3D</title>
-    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/</link>
-    <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3d/</guid>
-    <description><![CDATA[<p>K3D is a lightweight wrapper to run K3S in docker.</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes Series: Using K3S with Multipass</title>
-    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/</link>
-    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-k3s-with-multipass/</guid>
-    <description><![CDATA[<p>K3S is a lightweight, easy-to-install distribution of Kubernetes.<br>
-Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual machines.</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes Series: Using KinD</title>
-    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/</link>
-    <pubDate>Fri, 08 Dec 2023 14:02:36 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-kind/</guid>
-    <description><![CDATA[<p>KinD is a tool for running local Kubernetes clusters in Docker.</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes Series: Using Minikube with Podman</title>
-    <link>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-minikube-with-podman/</link>
+    <title>Lightweight Kubernetes Distributions Practices</title>
+    <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
     <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/kubernetes-series-using-minikube-with-podman/</guid>
-    <description><![CDATA[<p>Minikube is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node.<br>
-Podman is an open-source container runtime tool offering functionality similar to Docker, but operates without a daemon and supports enhanced security features and rootless mode execution.</p>]]></description>
+    <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
+    <description><![CDATA[<p>Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.</p>]]></description>
 </item>
 <item>
     <title>What are Private IP Addresses</title>
@@ -79,12 +53,36 @@ Podman is an open-source container runtime tool offering functionality similar t
     <description><![CDATA[<p>Every punctuation mark has a name.</p>]]></description>
 </item>
 <item>
-    <title>Kubernetes Series: Setup Kubernetes Cluster Using kubeadm</title>
-    <link>https://blog.heylinux.com/en/2021/12/kubernetes-series-setup-kubernetes-cluster-using-kubeadm/</link>
+    <title>Setup Kubernetes Cluster Using kubeadm</title>
+    <link>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
     <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
     <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/12/kubernetes-series-setup-kubernetes-cluster-using-kubeadm/</guid>
+    <guid>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
     <description><![CDATA[<p>kubeadm performs the actions necessary to get a minimum viable cluster up and running.</p>]]></description>
+</item>
+<item>
+    <title>Solutions and Insights</title>
+    <link>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</link>
+    <pubDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</guid>
+    <description><![CDATA[<p>Here are some of my personal bookmarks about technology solutions and insights.</p>]]></description>
+</item>
+<item>
+    <title>Python OpenCV CAPTCHA Recognition in Action</title>
+    <link>https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/</link>
+    <pubDate>Wed, 24 Nov 2021 20:36:58 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/</guid>
+    <description><![CDATA[<p>The recognition principles and processes I have learned from the CAPTCHA recognition are really valuable.</p>]]></description>
+</item>
+<item>
+    <title>DevOps CICD Pipeline in Action </title>
+    <link>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</link>
+    <pubDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</guid>
+    <description><![CDATA[<p>There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.</p>]]></description>
 </item>
 </channel>
 </rss>

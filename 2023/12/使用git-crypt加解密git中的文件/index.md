@@ -5,6 +5,8 @@ git-crypt是一个用于加密和解密文件的工具，可以与Git仓库无�
 
 <!--more-->
 
+---
+
 ## 安装git-crypt
 
 ```plain

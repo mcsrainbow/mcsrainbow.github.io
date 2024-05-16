@@ -4,7 +4,7 @@
         <link>https://blog.heylinux.com/posts/</link>
         <description>所有文章 | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Mar 2024 17:47:52 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
     <title>阿里云官方矢量图标和draw.io自定义图标库</title>
     <link>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8Cdraw.io%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</link>
     <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
@@ -21,38 +21,12 @@
     <description><![CDATA[<p>git-crypt是一个用于加密和解密文件的工具，可以与Git仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
 </item>
 <item>
-    <title>K8S系列之K3D实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/</link>
-    <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>K3D是一个轻量级的工具，用于在Docker中运行K3S。</p>]]></description>
-</item>
-<item>
-    <title>K8S系列之K3S结合Multipass实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3s%E7%BB%93%E5%90%88multipass%E5%AE%9E%E8%B7%B5/</link>
-    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3s%E7%BB%93%E5%90%88multipass%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>K3S是一个轻量级、易于安装的Kubernetes发行版。<br>
-Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具。</p>]]></description>
-</item>
-<item>
-    <title>K8S系列之KinD实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bkind%E5%AE%9E%E8%B7%B5/</link>
-    <pubDate>Fri, 08 Dec 2023 14:02:36 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bkind%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>KinD是一个工具，用于在Docker中运行本地Kubernetes集群。</p>]]></description>
-</item>
-<item>
-    <title>K8S系列之Minikube结合Podman实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/</link>
+    <title>轻量级Kubernetes发行版实践</title>
+    <link>https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。<br>
-Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。</p>]]></description>
+    <guid>https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/</guid>
+    <description><![CDATA[<p>部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。</p>]]></description>
 </item>
 <item>
     <title>私有IP地址包括哪些</title>
@@ -85,6 +59,30 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2022/05/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%AF%8C%E7%88%B8%E7%88%B8%E7%A9%B7%E7%88%B8%E7%88%B8/</guid>
     <description><![CDATA[<p>富人买入资产，穷人只有支出，中产阶级购买自以为是资产的负债。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《小岛经济学》</title>
+    <link>https://blog.heylinux.com/2022/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6/</link>
+    <pubDate>Fri, 08 Apr 2022 21:54:47 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6/</guid>
+    <description><![CDATA[<p>作者在书中虚构了一个远洋中的小岛，通过关于鱼、渔网、存钱、借钱等故事揭示了经济是如何运行的，映射出当今经济体制与政策暗藏的漏洞。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《非暴力沟通》</title>
+    <link>https://blog.heylinux.com/2022/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A/</link>
+    <pubDate>Thu, 24 Mar 2022 08:14:42 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A/</guid>
+    <description><![CDATA[<p>非暴力沟通的四要素：观察、感受、需要、请求。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《影响力》</title>
+    <link>https://blog.heylinux.com/2022/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%BD%B1%E5%93%8D%E5%8A%9B/</link>
+    <pubDate>Sun, 06 Mar 2022 23:09:45 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%BD%B1%E5%93%8D%E5%8A%9B/</guid>
+    <description><![CDATA[<p>隐藏在顺从行为背后的六大要素分别是互惠、承诺和一致、社会认同、喜好、权威、短缺。</p>]]></description>
 </item>
 </channel>
 </rss>

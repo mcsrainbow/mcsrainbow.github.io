@@ -5,6 +5,8 @@ In the Internet addressing architecture, the Internet Engineering Task Force (IE
 
 <!--more-->
 
+---
+
 ## Misunderstandings about Private IP Addresses
 
 The concepts of internal and external IP addresses are not fixed, but relative. It's easier to understand them as private and public IP addresses or local area network and internet IP addresses.

@@ -5,6 +5,8 @@ The core elements of deliberate practice include focus, feedback and fix, steppi
 
 <!--more-->
 
+---
+
 ## Preface
 
 Anders Ericsson became famous for his work on what he called "deliberate practice", a set of recipes that could help someone gain expertise in an area. In this readable and well-researched book, he expands upon this concept and brings several time-tested and scientifically reviewed ideas to bear on the search for perfection in our lives. 

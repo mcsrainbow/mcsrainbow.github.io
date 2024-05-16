@@ -5,6 +5,8 @@ The six ingredients of happiness are togetherness, money, health, freedom, trust
 
 <!--more-->
 
+---
+
 ## Preface
 
 In The Little Book of Lykke, Meik identifies the six ingredients that explain the majority of differences in happiness across the world: togetherness, money, health, freedom, trust and kindness, and explores what actions we can take to become happier.

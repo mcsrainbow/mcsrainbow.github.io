@@ -5,6 +5,8 @@ The lack of self-control is not only a psychological problem, but also influence
 
 <!--more-->
 
+---
+
 ## Preface
 
 Dr. McGonigal of Stanford University offers a course called "The Science of Willpower" that has been described as "life-changing" by those who have participated in it. This course is the basis for the book "The Willpower Instinct".

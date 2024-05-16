@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>使用kubeadm快速部署Kubernetes集群 - Hey! Linux</title><meta name="Description" content="kubeadm是Kubernetes官方提供的用于快速部署集群的工具"><meta property="og:url" content="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/">
+  <meta property="og:site_name" content="Hey! Linux">
+  <meta property="og:title" content="使用kubeadm快速部署Kubernetes集群">
+  <meta property="og:description" content="kubeadm是Kubernetes官方提供的用于快速部署集群的工具">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-12-21T21:58:24+08:00">
+    <meta property="article:modified_time" content="2021-12-21T21:58:24+08:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="og:image" content="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/featured-image.jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/featured-image.jpeg">
+  <meta name="twitter:title" content="使用kubeadm快速部署Kubernetes集群">
+  <meta name="twitter:description" content="kubeadm是Kubernetes官方提供的用于快速部署集群的工具">
+<meta name="application-name" content="Hey! Linux">
+<meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/" /><link rel="prev" href="https://blog.heylinux.com/2021/12/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/" /><link rel="next" href="https://blog.heylinux.com/2022/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E5%9B%BE%E8%A7%A3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "使用kubeadm快速部署Kubernetes集群",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.heylinux.com\/2021\/12\/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/blog.heylinux.com\/2021\/12\/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4\/featured-image.jpeg",
+                            "width":  2400 ,
+                            "height":  800 
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1893 ,
+        "url": "https:\/\/blog.heylinux.com\/2021\/12\/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4\/","datePublished": "2021-12-21T21:58:24+08:00","dateModified": "2021-12-21T21:58:24+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "mcsrainbow","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/blog.heylinux.com\/images\/avatar.jpg",
+                    "width":  800 ,
+                    "height":  800 
+                }},"author": {
+                "@type": "Person",
+                "name": "郭冬"
+            },"description": "kubeadm是Kubernetes官方提供的用于快速部署集群的工具"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hey! Linux">Hey! Linux</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/en/"> English </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/" selected>简体中文</option><option value="/en/2021/12/setup-kubernetes-cluster-using-kubeadm/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hey! Linux">Hey! Linux</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/" selected>简体中文</option><option value="/en/2021/12/setup-kubernetes-cluster-using-kubeadm/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用kubeadm快速部署Kubernetes集群</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1893 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/featured-image.jpeg"
+        data-srcset="/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/featured-image.jpeg, /2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/featured-image.jpeg 1.5x, /2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/featured-image.jpeg 2x"
+        data-sizes="auto"
+        alt="/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/featured-image.jpeg"
+        title="kubeadm是Kubernetes官方提供的用于快速部署集群的工具" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#环境准备">环境准备</a></li>
+    <li><a href="#集群搭建">集群搭建</a></li>
+    <li><a href="#配置优化">配置优化</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>kubeadm是Kubernetes官方提供的用于快速部署集群的工具。</p>
+<hr>
+<h2 id="背景">背景</h2>
+<p>kubeadm大大降低了Kubernetes集群部署的复杂度，但通常仅仅用来部署一个最小可用集群，方便学习和测试。生产级别的Kubernetes集群则需要高可用、高性能和更灵活的配置，建议通过源码包方式部署或选择已有的商业产品或公有云服务。</p>
+<h2 id="环境准备">环境准备</h2>
+<blockquote>
+<p>注：以下步骤都需要在所有节点上以root用户操作完成</p>
+</blockquote>
+<p>准备3台虚拟机节点（根据实际情况替换为真实IP）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">OS: CentOS 7.9 x86_64
+</span></span><span class="line"><span class="cl">CPU: 2 vCores
+</span></span><span class="line"><span class="cl">Memory: 4 Gi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubeadm01: 172.31.8.8
+</span></span><span class="line"><span class="cl">kubeadm02: 172.31.5.5
+</span></span><span class="line"><span class="cl">kubeadm03: 172.31.7.7
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>升级内核与系统软件包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+</span></span><span class="line"><span class="cl">yum install --enablerepo=elrepo-kernel -y kernel-lt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kernel_str=$(grep -E &#39;menuentry.*elrepo&#39; /boot/grub2/grub.cfg | cut -d\&#39; -f2)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">grub2-set-default &#34;${kernel_str}&#34;
+</span></span><span class="line"><span class="cl">grub2-editenv list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">yum -y update
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置各节点主机名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@kubeadm01 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">kubeadm01
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# hostname kubeadm01
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@kubeadm02 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">kubeadm02
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">[root@kubeadm02 ~]# hostname kubeadm02
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">kubeadm03
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">[root@kubeadm03 ~]# hostname kubeadm03
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置主机名解析（根据实际情况替换为真实IP）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat &gt;&gt; /etc/hosts &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">172.31.8.8 kubeadm01
+</span></span><span class="line"><span class="cl">172.31.5.5 kubeadm02
+</span></span><span class="line"><span class="cl">172.31.7.7 kubeadm03
+</span></span><span class="line"><span class="cl">EO
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置内核参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat &gt; /etc/sysctl.d/sysctl.conf &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">net.bridge.bridge-nf-call-iptables=1
+</span></span><span class="line"><span class="cl">net.bridge.bridge-nf-call-ip6tables=1
+</span></span><span class="line"><span class="cl">net.ipv4.ip_forward=1
+</span></span><span class="line"><span class="cl">net.ipv4.tcp_tw_recycle=0
+</span></span><span class="line"><span class="cl">vm.swappiness=0
+</span></span><span class="line"><span class="cl">vm.overcommit_memory=1
+</span></span><span class="line"><span class="cl">vm.panic_on_oom=0
+</span></span><span class="line"><span class="cl">fs.inotify.max_user_instances=8192
+</span></span><span class="line"><span class="cl">fs.inotify.max_user_watches=1048576
+</span></span><span class="line"><span class="cl">fs.file-max=52706963
+</span></span><span class="line"><span class="cl">fs.nr_open=52706963
+</span></span><span class="line"><span class="cl">net.ipv6.conf.all.disable_ipv6=1
+</span></span><span class="line"><span class="cl">net.netfilter.nf_conntrack_max=2310720
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sysctl -p /etc/sysctl.d/sysctl.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装所需软件包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yum install -y epel-release
+</span></span><span class="line"><span class="cl">yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启用Chrony时间同步服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl start chronyd
+</span></span><span class="line"><span class="cl">systemctl enable chronyd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>禁用Firewalld，Swap和SELinux</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl stop firewalld
+</span></span><span class="line"><span class="cl">systemctl disable firewalld
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">swapoff -a
+</span></span><span class="line"><span class="cl">sed -i &#39;/ swap / s/^\(.*\)$/#\1/g&#39; /etc/fstab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">setenforce 0
+</span></span><span class="line"><span class="cl">sed -i &#39;s/^SELINUX=.*/SELINUX=disabled/&#39; /etc/selinux/config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置内核模块，然后重启生效</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">cat</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">modules</span><span class="o">-</span><span class="nb">load</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">conf</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_dh</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_ftp</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_lblc</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_lblcr</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_lc</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_nq</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_pe_sip</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_rr</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_sed</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_sh</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_wlc</span>
+</span></span><span class="line"><span class="cl"><span class="n">ip_vs_wrr</span>
+</span></span><span class="line"><span class="cl"><span class="n">nf_conntrack_ipv4</span>
+</span></span><span class="line"><span class="cl"><span class="n">overlay</span>
+</span></span><span class="line"><span class="cl"><span class="n">br_netfilter</span>
+</span></span><span class="line"><span class="cl"><span class="n">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">systemd</span><span class="o">-</span><span class="n">modules</span><span class="o">-</span><span class="nb">load</span><span class="o">.</span><span class="n">service</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sync</span>
+</span></span><span class="line"><span class="cl"><span class="n">reboot</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>重启后，验证已加载内核模块</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lsmod | grep -e ip_vs -e nf_conntrack_ipv4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装Docker</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">yum</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">repo</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">ce</span><span class="o">.</span><span class="n">repo</span>
+</span></span><span class="line"><span class="cl"><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">docker</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="mf">20.10</span><span class="o">.</span><span class="mi">8</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cat</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">daemon</span><span class="o">.</span><span class="n">json</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s2">&#34;exec-opts&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;native.cgroupdriver=systemd&#34;</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl"><span class="n">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">usermod</span> <span class="o">-</span><span class="n">G</span> <span class="n">centos</span><span class="p">,</span><span class="n">adm</span><span class="p">,</span><span class="n">wheel</span><span class="p">,</span><span class="n">systemd</span><span class="o">-</span><span class="n">journal</span><span class="p">,</span><span class="n">docker</span><span class="p">,</span><span class="n">root</span> <span class="n">centos</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">start</span>  <span class="n">docker</span>
+</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">docker</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>禁用postfix，创建所需目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl stop postfix
+</span></span><span class="line"><span class="cl">systemctl disable postfix
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p /opt/k8s/{bin,work} /etc/{kubernetes,etcd}/cert
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="集群搭建">集群搭建</h2>
+<blockquote>
+<p>注：以下步骤需要在不同节点上操作完成（根据实际情况替换1.22.1为需要的版本）</p>
+</blockquote>
+<p>在所有节点上安装kubeadm，kubelet和kubectl</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF
+</span></span><span class="line"><span class="cl">[kubernetes]
+</span></span><span class="line"><span class="cl">name=Kubernetes
+</span></span><span class="line"><span class="cl">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+</span></span><span class="line"><span class="cl">enabled=1
+</span></span><span class="line"><span class="cl">gpgcheck=0
+</span></span><span class="line"><span class="cl">repo_gpgcheck=0
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">yum install -y kubelet-1.22.1 kubeadm-1.22.1 kubectl-1.22.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">systemctl enable kubelet
+</span></span><span class="line"><span class="cl">systemctl start kubelet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在所有节点上拉取Docker镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.22.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.22.1
+</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-controller-manager:v1.22.1
+</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-scheduler:v1.22.1
+</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-proxy:v1.22.1
+</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/pause:3.5
+</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/etcd:3.5.0-0
+</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/coredns:v1.8.4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>列出默认所需镜像及版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubeadm config images list --kubernetes-version v1.22.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">k8s.gcr.io/kube-apiserver:v1.22.1
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kube-controller-manager:v1.22.1
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kube-scheduler:v1.22.1
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kube-proxy:v1.22.1
+</span></span><span class="line"><span class="cl">k8s.gcr.io/pause:3.5
+</span></span><span class="line"><span class="cl">k8s.gcr.io/etcd:3.5.0-0
+</span></span><span class="line"><span class="cl">k8s.gcr.io/coredns/coredns:v1.8.4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在所有节点上修改已拉取的镜像的Tag</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 将除了coredns以外的镜像Tag为k8s.gcr.io镜像源</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>docker images <span class="p">|</span> grep google_containers <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34;:&#34;$2}&#39;</span> <span class="p">|</span> cut -d/ -f3 <span class="p">|</span> grep -v coredns<span class="k">)</span><span class="p">;</span> <span class="k">do</span> docker tag registry.aliyuncs.com/google_containers/<span class="nv">$i</span> k8s.gcr.io/<span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将coredns的镜像Tag为k8s.gcr.io镜像源，并增加/coredns前缀</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>docker images <span class="p">|</span> grep google_containers/coredns <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34;:&#34;$2}&#39;</span> <span class="p">|</span> cut -d/ -f3<span class="k">)</span><span class="p">;</span> <span class="k">do</span> docker tag registry.aliyuncs.com/google_containers/<span class="nv">$i</span> k8s.gcr.io/coredns/<span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除镜像的旧Tag</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>docker images <span class="p">|</span> grep google_containers <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34;:&#34;$2}&#39;</span> <span class="p">|</span> cut -d/ -f3<span class="k">)</span><span class="p">;</span> <span class="k">do</span> docker rmi registry.aliyuncs.com/google_containers/<span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm01上执行init（根据实际情况替换Node，Pod和Service的网段）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Networks:
+</span></span><span class="line"><span class="cl"># Node: 172.31.0.0/16
+</span></span><span class="line"><span class="cl"># Pod: 10.192.0.0/16
+</span></span><span class="line"><span class="cl"># Service: 10.254.0.0/16
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# kubeadm init --apiserver-advertise-address=0.0.0.0 \
+</span></span><span class="line"><span class="cl">--apiserver-bind-port=6443 \
+</span></span><span class="line"><span class="cl">--kubernetes-version=v1.22.1 \
+</span></span><span class="line"><span class="cl">--pod-network-cidr=10.192.0.0/16 \
+</span></span><span class="line"><span class="cl">--service-cidr=10.254.0.0/16 \
+</span></span><span class="line"><span class="cl">--image-repository=k8s.gcr.io \
+</span></span><span class="line"><span class="cl">--ignore-preflight-errors=swap \
+</span></span><span class="line"><span class="cl">--token-ttl=0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Your</span> <span class="n">Kubernetes</span> <span class="n">control</span><span class="o">-</span><span class="n">plane</span> <span class="n">has</span> <span class="n">initialized</span> <span class="n">successfully</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">To</span> <span class="n">start</span> <span class="n">using</span> <span class="n">your</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">as</span> <span class="n">a</span> <span class="n">regular</span> <span class="n">user</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">$</span><span class="n">HOME</span><span class="o">/.</span><span class="n">kube</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sudo</span> <span class="n">cp</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">conf</span> <span class="o">$</span><span class="n">HOME</span><span class="o">/.</span><span class="n">kube</span><span class="o">/</span><span class="n">config</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sudo</span> <span class="n">chown</span> <span class="o">$</span><span class="p">(</span><span class="n">id</span> <span class="o">-</span><span class="n">u</span><span class="p">):</span><span class="o">$</span><span class="p">(</span><span class="n">id</span> <span class="o">-</span><span class="n">g</span><span class="p">)</span> <span class="o">$</span><span class="n">HOME</span><span class="o">/.</span><span class="n">kube</span><span class="o">/</span><span class="n">config</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Alternatively</span><span class="p">,</span> <span class="k">if</span> <span class="n">you</span> <span class="n">are</span> <span class="n">the</span> <span class="n">root</span> <span class="n">user</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">run</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">export</span> <span class="n">KUBECONFIG</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">conf</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">You</span> <span class="n">should</span> <span class="n">now</span> <span class="n">deploy</span> <span class="n">a</span> <span class="n">pod</span> <span class="n">network</span> <span class="n">to</span> <span class="n">the</span> <span class="n">cluster</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Run</span> <span class="s2">&#34;kubectl apply -f [podnetwork].yaml&#34;</span> <span class="n">with</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">options</span> <span class="n">listed</span> <span class="n">at</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">concepts</span><span class="o">/</span><span class="n">cluster</span><span class="o">-</span><span class="n">administration</span><span class="o">/</span><span class="n">addons</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Then</span> <span class="n">you</span> <span class="n">can</span> <span class="n">join</span> <span class="n">any</span> <span class="n">number</span> <span class="n">of</span> <span class="n">worker</span> <span class="n">nodes</span> <span class="n">by</span> <span class="n">running</span> <span class="n">the</span> <span class="n">following</span> <span class="n">on</span> <span class="n">each</span> <span class="n">as</span> <span class="n">root</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">kubeadm</span> <span class="n">join</span> <span class="mf">172.31</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span><span class="mi">6443</span> <span class="o">--</span><span class="n">token</span> <span class="mi">2333</span><span class="n">y7</span><span class="o">.</span><span class="n">y7xev857t8n4w5em</span> \
+</span></span><span class="line"><span class="cl">        <span class="o">--</span><span class="n">discovery</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="n">ca</span><span class="o">-</span><span class="n">cert</span><span class="o">-</span><span class="nb">hash</span> <span class="n">sha256</span><span class="p">:</span><span class="n">df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm01上配置.kube/config</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@kubeadm01 ~]# mkdir -p $HOME/.kube
+</span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# cp /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir -p $HOME/.kube
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm02和kubeadm03上执行join（根据实际情况替换参数的值）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
+</span></span><span class="line"><span class="cl">        --token 2333y7.y7xev857t8n4w5em \
+</span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@kubeadm03 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
+</span></span><span class="line"><span class="cl">        --token 2333y7.y7xev857t8n4w5em \
+</span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">This node has joined the cluster:
+</span></span><span class="line"><span class="cl">* Certificate signing request was sent to apiserver and a response was received.
+</span></span><span class="line"><span class="cl">* The Kubelet was informed of the new secure connection details.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Run &#39;kubectl get nodes&#39; on the control-plane to see this node join the cluster.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm01上查看节点状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get nodes 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NAME        STATUS   ROLES                  AGE     VERSION
+</span></span><span class="line"><span class="cl">kubeadm01   Ready    control-plane,master   5m      v1.22.1
+</span></span><span class="line"><span class="cl">kubeadm02   Ready    &lt;none&gt;                 7m      v1.22.1
+</span></span><span class="line"><span class="cl">kubeadm03   Ready    &lt;none&gt;                 9m      v1.22.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm01上安装Flannel网络插件（根据实际情况替换Pod的网段）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir flannel 
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ cd flannel
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ vim kube-flannel.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">net-conf.json</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    {
+</span></span></span><span class="line"><span class="cl"><span class="sd">      &#34;Network&#34;: &#34;10.192.0.0/16&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="sd">      &#34;Backend&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="sd">        &#34;Type&#34;: &#34;vxlan&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }
+</span></span></span><span class="line"><span class="cl"><span class="sd">    }</span><span class="w">    
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm01上修复scheduler和controller-manager</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo sed -i &#39;/port=0/d&#39; /etc/kubernetes/manifests/kube-scheduler.yaml
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo sed -i &#39;/port=0/d&#39; /etc/kubernetes/manifests/kube-controller-manager.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo systemctl restart kubelet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm01上查看clusterservice状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get cs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NAME                 STATUS    MESSAGE                         ERROR
+</span></span><span class="line"><span class="cl">scheduler            Healthy   ok                              
+</span></span><span class="line"><span class="cl">controller-manager   Healthy   ok                              
+</span></span><span class="line"><span class="cl">etcd-0               Healthy   {&#34;health&#34;:&#34;true&#34;,&#34;reason&#34;:&#34;&#34;} 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在kubeadm01上查看所有Pod的状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NAMESPACE              NAME                                        READY   STATUS      RESTARTS   AGE
+</span></span><span class="line"><span class="cl">kube-system            coredns-78fcd69978-99vcx                    1/1     Running     0          5m
+</span></span><span class="line"><span class="cl">kube-system            coredns-78fcd69978-lm5bt                    1/1     Running     0          5m
+</span></span><span class="line"><span class="cl">kube-system            etcd-kubeadm01                              1/1     Running     0          5m
+</span></span><span class="line"><span class="cl">kube-system            kube-apiserver-kubeadm01                    1/1     Running     0          5m
+</span></span><span class="line"><span class="cl">kube-system            kube-controller-manager-kubeadm01           1/1     Running     0          5m
+</span></span><span class="line"><span class="cl">kube-system            kube-flannel-ds-b6c49                       1/1     Running     0          5m
+</span></span><span class="line"><span class="cl">kube-system            kube-flannel-ds-nspjx                       1/1     Running     0          7m
+</span></span><span class="line"><span class="cl">kube-system            kube-flannel-ds-sl5l2                       1/1     Running     0          9m
+</span></span><span class="line"><span class="cl">kube-system            kube-proxy-7r755                            1/1     Running     0          5m
+</span></span><span class="line"><span class="cl">kube-system            kube-proxy-nxz8c                            1/1     Running     0          7m
+</span></span><span class="line"><span class="cl">kube-system            kube-proxy-w8v6s                            1/1     Running     0          9m
+</span></span><span class="line"><span class="cl">kube-system            kube-scheduler-kubeadm01                    1/1     Running     0          5m
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="配置优化">配置优化</h2>
+<p>默认kube-proxy的mode为iptables，修改为功能更强大的ipvs</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl edit configmap kube-proxy -n kube-system
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;ipvs&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl get pods -n kube-system | grep kube-proxy | awk &#39;{print $2}&#39; | xargs kubectl -n kube-system delete pods
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-12-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/" data-title="使用kubeadm快速部署Kubernetes集群" data-hashtags="Kubernetes"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/" data-title="使用kubeadm快速部署Kubernetes集群"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/" data-title="使用kubeadm快速部署Kubernetes集群"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kubernetes/">Kubernetes</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/12/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/" class="prev" rel="prev" title="解决方案与技术前瞻"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>解决方案与技术前瞻</a>
+            <a href="/2022/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E5%9B%BE%E8%A7%A3/" class="next" rel="next" title="读书笔记之《番茄工作法图解》">读书笔记之《番茄工作法图解》<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.126.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

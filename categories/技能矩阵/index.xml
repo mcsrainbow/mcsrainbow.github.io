@@ -21,38 +21,12 @@
     <description><![CDATA[<p>git-crypt是一个用于加密和解密文件的工具，可以与Git仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
 </item>
 <item>
-    <title>K8S系列之K3D实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/</link>
-    <pubDate>Fri, 08 Dec 2023 19:07:42 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3d%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>K3D是一个轻量级的工具，用于在Docker中运行K3S。</p>]]></description>
-</item>
-<item>
-    <title>K8S系列之K3S结合Multipass实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3s%E7%BB%93%E5%90%88multipass%E5%AE%9E%E8%B7%B5/</link>
-    <pubDate>Fri, 08 Dec 2023 17:21:19 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bk3s%E7%BB%93%E5%90%88multipass%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>K3S是一个轻量级、易于安装的Kubernetes发行版。<br>
-Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具。</p>]]></description>
-</item>
-<item>
-    <title>K8S系列之KinD实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bkind%E5%AE%9E%E8%B7%B5/</link>
-    <pubDate>Fri, 08 Dec 2023 14:02:36 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bkind%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>KinD是一个工具，用于在Docker中运行本地Kubernetes集群。</p>]]></description>
-</item>
-<item>
-    <title>K8S系列之Minikube结合Podman实践</title>
-    <link>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/</link>
+    <title>轻量级Kubernetes发行版实践</title>
+    <link>https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8Bminikube%E7%BB%93%E5%90%88podman%E5%AE%9E%E8%B7%B5/</guid>
-    <description><![CDATA[<p>Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。<br>
-Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。</p>]]></description>
+    <guid>https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/</guid>
+    <description><![CDATA[<p>部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。</p>]]></description>
 </item>
 <item>
     <title>私有IP地址包括哪些</title>
@@ -79,12 +53,36 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
     <description><![CDATA[<p>正确表示常用标点符号的中英文名称。</p>]]></description>
 </item>
 <item>
-    <title>K8S系列之使用kubeadm快速部署Kubernetes集群</title>
-    <link>https://blog.heylinux.com/2021/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
+    <title>使用kubeadm快速部署Kubernetes集群</title>
+    <link>https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
     <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/12/k8s%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
+    <guid>https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
     <description><![CDATA[<p>kubeadm是Kubernetes官方提供的用于快速部署集群的工具。</p>]]></description>
+</item>
+<item>
+    <title>解决方案与技术前瞻</title>
+    <link>https://blog.heylinux.com/2021/12/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/</link>
+    <pubDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/12/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/</guid>
+    <description><![CDATA[<p>分享一些我所关注的<strong><ruby>解决方案<rt>Solutions</rt></ruby></strong>与<strong><ruby>技术前瞻<rt>Insights</rt></ruby></strong>的好网站。</p>]]></description>
+</item>
+<item>
+    <title>Python OpenCV验证码识别实战</title>
+    <link>https://blog.heylinux.com/2021/11/python-opencv%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/</link>
+    <pubDate>Wed, 24 Nov 2021 20:36:58 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/11/python-opencv%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/</guid>
+    <description><![CDATA[<p>在通过OpenCV完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。</p>]]></description>
+</item>
+<item>
+    <title>DevOps CICD流水线设计实践</title>
+    <link>https://blog.heylinux.com/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/</link>
+    <pubDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/</guid>
+    <description><![CDATA[<p>在不同的环境中，最适合的CICD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。</p>]]></description>
 </item>
 </channel>
 </rss>
