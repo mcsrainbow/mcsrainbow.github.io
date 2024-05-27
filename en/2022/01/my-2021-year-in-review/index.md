@@ -19,4 +19,4 @@ Here are my achievements in the 2021:
 6. 🏆 Got 3 certifications: AWS-SAP, ITIL, and CKA
 7. 💸 Awarded the MSTAR and promoted as AVP(Assistant Vice President) in the company
 
-I have also started to lose weight🏃and learn Cybersecurity for the CISSP. And the most important is that I have unlocked my thirst of knowledge and could not stop learning☀️.
+I have also started to lose weight 🏃 and learn Cybersecurity for the CISSP. And the most important is that I have unlocked my thirst of knowledge and could not stop learning ☀️.
