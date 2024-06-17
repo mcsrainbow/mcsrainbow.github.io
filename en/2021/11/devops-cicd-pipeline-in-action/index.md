@@ -1,4 +1,4 @@
-# DevOps CI/CD Pipeline in Action 
+# DevOps CICD Pipeline in Action 
 
 
 There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.
