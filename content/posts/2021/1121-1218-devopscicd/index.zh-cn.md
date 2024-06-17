@@ -1,10 +1,10 @@
 ---
-title: "DevOps CI/CD流水线设计实践"
+title: "DevOps CICD流水线设计实践"
 date: 2021-11-21T12:18:14+08:00
 author: "郭冬"
 description: "在不同的环境中，最适合的CI/CD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。"
 categories: ["技能矩阵"]
-tags: ["DevOps","CI/CD"]
+tags: ["DevOps","CICD"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
