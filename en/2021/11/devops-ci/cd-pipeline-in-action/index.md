@@ -1,7 +1,7 @@
-# DevOps CICD Pipeline in Action 
+# DevOps CI/CD Pipeline in Action 
 
 
-There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.
+There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.
 
 <!--more-->
 
@@ -9,9 +9,9 @@ There are differences in the most appropriate CICD pipelines in different enviro
 
 ## Background
 
-At the beginning of the project, the architect asked us to design a DevOps CICD (Continuous Integration, Continuous Deployment/Delivery) solution to improve productivity.
+At the beginning of the project, the architect asked us to design a DevOps CI/CD (Continuous Integration, Continuous Deployment/Delivery) solution to improve productivity.
 
-By taking some best practices into account and combining them with our own situation, we have designed a DevOps CICD pipeline which is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.
+By taking some best practices into account and combining them with our own situation, we have designed a DevOps CI/CD pipeline which is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.
 
 This solution has been successfully implemented and rolled out to other projects within the company.
 
@@ -71,17 +71,17 @@ For the traditional software development models, there are also some disadvantag
   
   Traditional software development models lack the concept of shared ownership, which creates communication problems in organizations. 
 
-## DevOps CICD Best Practices
+## DevOps CI/CD Best Practices
 
 ### 1. Lightweight and easy
 
-This is a lightweight and easy CICD pipeline solution by GitLab + Docker + Ansible from a fast-growing startup. GitLab is a source code management and also a continuous integration tool, Docker for containers and Ansible for configuration as code.
+This is a lightweight and easy CI/CD pipeline solution by GitLab + Docker + Ansible from a fast-growing startup. GitLab is a source code management and also a continuous integration tool, Docker for containers and Ansible for configuration as code.
 
 ![devops_best_practice_easy](devops_bp_easy.jpeg)
 
 ### 2. All on Kubernetes
 
-In this solution, it suggests building the CICD pipeline based on cloud services and Kubernetes. This is a popular solution named "All on Kubernetes" and many internet companies use this solution.
+In this solution, it suggests building the CI/CD pipeline based on cloud services and Kubernetes. This is a popular solution named "All on Kubernetes" and many internet companies use this solution.
 
 But "All on Kubernetes" requires all applications to be containerized, it is not friendly for complex environments and the traditional software.
 
@@ -95,13 +95,13 @@ It is a very good architecture to tell all the necessary steps and parts in DevO
 
 ![devops_best_practice_ibm](devops_bp_ibm.jpeg)
 
-### 4. End-to-end CICD pipeline
+### 4. End-to-end CI/CD pipeline
 
 This end-to-end delivery pipeline of continuous integration and deployment across leading cloud platforms. In each step, it suggests the popular services and tools, and includes most steps in the IBM DevOps architecture.
 
 ![devops_best_practice_wati](devops_bp_wati.jpeg)
 
-## Better DevOps CICD for Our Own
+## Better DevOps CI/CD for Our Own
 
 ### 1. DevSecOps
 
@@ -124,9 +124,9 @@ In this way, we could ensure that all the packages in the test environment are s
 
 ![secure_test_env](secure_test_env.jpeg)
 
-### 3. Our DevSecOps CICD pipeline
+### 3. Our DevSecOps CI/CD pipeline
 
-This is the End-to-End DevSecOps CICD pipeline for our own.
+This is the End-to-End DevSecOps CI/CD pipeline for our own.
 
 It includes all necessary steps, across three different environments, with the most popular automation tools and Cloud services, including the infrastructure as code and configurations as code, integrates with security tools, with the manually approve function based on the tests and security reports.
 
@@ -158,6 +158,6 @@ It includes the following items:
 
 ![devops_cicd](devops_cicd.jpeg)
 
-This DevSecOps CICD pipeline is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.
+This DevSecOps CI/CD pipeline is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.
 
-For sure, there are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.
+For sure, there are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.

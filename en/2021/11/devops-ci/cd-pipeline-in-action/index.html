@@ -4,44 +4,44 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>DevOps CICD Pipeline in Action  - Hey! Linux</title><meta name="Description" content="There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar."><meta property="og:url" content="https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/">
+        <title>DevOps CI/CD Pipeline in Action  - Hey! Linux</title><meta name="Description" content="There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar."><meta property="og:url" content="https://blog.heylinux.com/en/2021/11/devops-ci/cd-pipeline-in-action/">
   <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="DevOps CICD Pipeline in Action ">
-  <meta property="og:description" content="There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.">
+  <meta property="og:title" content="DevOps CI/CD Pipeline in Action ">
+  <meta property="og:description" content="There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2021-11-21T12:18:14+08:00">
     <meta property="article:modified_time" content="2021-11-21T12:18:14+08:00">
     <meta property="article:tag" content="DevOps">
-    <meta property="article:tag" content="CICD">
-    <meta property="og:image" content="https://blog.heylinux.com/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
+    <meta property="article:tag" content="CI/CD">
+    <meta property="og:image" content="https://blog.heylinux.com/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://blog.heylinux.com/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
-  <meta name="twitter:title" content="DevOps CICD Pipeline in Action ">
-  <meta name="twitter:description" content="There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.">
+  <meta name="twitter:image" content="https://blog.heylinux.com/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
+  <meta name="twitter:title" content="DevOps CI/CD Pipeline in Action ">
+  <meta name="twitter:description" content="There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.">
 <meta name="application-name" content="Hey! Linux">
 <meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/" /><link rel="prev" href="https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/" /><link rel="next" href="https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2021/11/devops-ci/cd-pipeline-in-action/" /><link rel="prev" href="https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/" /><link rel="next" href="https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "DevOps CICD Pipeline in Action ",
+        "headline": "DevOps CI/CD Pipeline in Action ",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/blog.heylinux.com\/en\/2021\/11\/devops-cicd-pipeline-in-action\/"
+            "@id": "https:\/\/blog.heylinux.com\/en\/2021\/11\/devops-ci\/cd-pipeline-in-action\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/blog.heylinux.com\/2021\/11\/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5\/featured-image.jpeg",
+                            "url": "https:\/\/blog.heylinux.com\/2021\/11\/devops-ci\/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5\/featured-image.jpeg",
                             "width":  1080 ,
                             "height":  608 
-                        }],"genre": "posts","keywords": "DevOps, CICD","wordcount":  1052 ,
-        "url": "https:\/\/blog.heylinux.com\/en\/2021\/11\/devops-cicd-pipeline-in-action\/","datePublished": "2021-11-21T12:18:14+08:00","dateModified": "2021-11-21T12:18:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "DevOps, CI\/CD","wordcount":  1052 ,
+        "url": "https:\/\/blog.heylinux.com\/en\/2021\/11\/devops-ci\/cd-pipeline-in-action\/","datePublished": "2021-11-21T12:18:14+08:00","dateModified": "2021-11-21T12:18:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
                     "@type": "ImageObject",
@@ -51,7 +51,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Dong Guo | Damon"
-            },"description": "There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar."
+            },"description": "There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -77,7 +77,7 @@
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2021/11/devops-cicd-pipeline-in-action/" selected>English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2021/11/devops-ci/cd-pipeline-in-action/" selected>English</option></select>
                 </a></div>
         </div>
     </div>
@@ -111,7 +111,7 @@
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2021/11/devops-cicd-pipeline-in-action/" selected>English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/">简体中文</option><option value="/en/2021/11/devops-ci/cd-pipeline-in-action/" selected>English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -123,18 +123,18 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DevOps CICD Pipeline in Action </h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DevOps CI/CD Pipeline in Action </h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dong Guo | Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-11-21">2021-11-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1052 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
-        title="There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar." /></div><div class="details toc" id="toc-static"  data-kept="">
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
+        title="There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar." /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -155,28 +155,28 @@
         <li><a href="#2-disadvantages-of-traditional-software-development-models">2. Disadvantages of traditional software development models</a></li>
       </ul>
     </li>
-    <li><a href="#devops-cicd-best-practices">DevOps CICD Best Practices</a>
+    <li><a href="#devops-cicd-best-practices">DevOps CI/CD Best Practices</a>
       <ul>
         <li><a href="#1-lightweight-and-easy">1. Lightweight and easy</a></li>
         <li><a href="#2-all-on-kubernetes">2. All on Kubernetes</a></li>
         <li><a href="#3-ibm-devops-architecture">3. IBM DevOps architecture</a></li>
-        <li><a href="#4-end-to-end-cicd-pipeline">4. End-to-end CICD pipeline</a></li>
+        <li><a href="#4-end-to-end-cicd-pipeline">4. End-to-end CI/CD pipeline</a></li>
       </ul>
     </li>
-    <li><a href="#better-devops-cicd-for-our-own">Better DevOps CICD for Our Own</a>
+    <li><a href="#better-devops-cicd-for-our-own">Better DevOps CI/CD for Our Own</a>
       <ul>
         <li><a href="#1-devsecops">1. DevSecOps</a></li>
         <li><a href="#2-deliver-to-test-environment">2. Deliver to Test environment</a></li>
-        <li><a href="#3-our-devsecops-cicd-pipeline">3. Our DevSecOps CICD pipeline</a></li>
+        <li><a href="#3-our-devsecops-cicd-pipeline">3. Our DevSecOps CI/CD pipeline</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>There are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.</p>
+            </div><div class="content" id="content"><p>There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.</p>
 <hr>
 <h2 id="background">Background</h2>
-<p>At the beginning of the project, the architect asked us to design a DevOps CICD (Continuous Integration, Continuous Deployment/Delivery) solution to improve productivity.</p>
-<p>By taking some best practices into account and combining them with our own situation, we have designed a DevOps CICD pipeline which is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.</p>
+<p>At the beginning of the project, the architect asked us to design a DevOps CI/CD (Continuous Integration, Continuous Deployment/Delivery) solution to improve productivity.</p>
+<p>By taking some best practices into account and combining them with our own situation, we have designed a DevOps CI/CD pipeline which is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.</p>
 <p>This solution has been successfully implemented and rolled out to other projects within the company.</p>
 <h2 id="what-is-devops">What is DevOps</h2>
 <h3 id="1-the-car-industry">1. The car industry</h3>
@@ -186,10 +186,10 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/car_assembly_line.jpg"
         title="car_assembly_line" width="704" height="570" /></p>
 <h3 id="2-devops-is-a-culture">2. DevOps is a culture</h3>
 <p>What is DevOps?</p>
@@ -198,20 +198,20 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_culture.jpeg"
         title="devops_culture" width="706" height="630" /></p>
 <h3 id="3-devops-toolchains">3. DevOps toolchains</h3>
 <p>The DevOps lifecycle starts with plan, build, continuous integration, and deploy, operate, then feedback and plan again. Around every part of this lifecycle, there are lots of applications and services.</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_toolchains.jpeg"
         title="devops_toolchains" width="1150" height="700" /></p>
 <h2 id="disadvantages-of-traditional-development">Disadvantages of Traditional Development</h2>
 <h3 id="1-seven-types-of-waste-for-manufacturing">1. Seven types of waste for manufacturing</h3>
@@ -219,10 +219,10 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/7_waste.jpeg"
         title="7_waste" width="750" height="756" /></p>
 <h3 id="2-disadvantages-of-traditional-software-development-models">2. Disadvantages of traditional software development models</h3>
 <p>For the traditional software development models, there are also some disadvantages.</p>
@@ -244,27 +244,27 @@
 <p>Traditional software development models lack the concept of shared ownership, which creates communication problems in organizations.</p>
 </li>
 </ul>
-<h2 id="devops-cicd-best-practices">DevOps CICD Best Practices</h2>
+<h2 id="devops-cicd-best-practices">DevOps CI/CD Best Practices</h2>
 <h3 id="1-lightweight-and-easy">1. Lightweight and easy</h3>
-<p>This is a lightweight and easy CICD pipeline solution by GitLab + Docker + Ansible from a fast-growing startup. GitLab is a source code management and also a continuous integration tool, Docker for containers and Ansible for configuration as code.</p>
+<p>This is a lightweight and easy CI/CD pipeline solution by GitLab + Docker + Ansible from a fast-growing startup. GitLab is a source code management and also a continuous integration tool, Docker for containers and Ansible for configuration as code.</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_easy.jpeg"
         title="devops_best_practice_easy" width="1228" height="588" /></p>
 <h3 id="2-all-on-kubernetes">2. All on Kubernetes</h3>
-<p>In this solution, it suggests building the CICD pipeline based on cloud services and Kubernetes. This is a popular solution named &ldquo;All on Kubernetes&rdquo; and many internet companies use this solution.</p>
+<p>In this solution, it suggests building the CI/CD pipeline based on cloud services and Kubernetes. This is a popular solution named &ldquo;All on Kubernetes&rdquo; and many internet companies use this solution.</p>
 <p>But &ldquo;All on Kubernetes&rdquo; requires all applications to be containerized, it is not friendly for complex environments and the traditional software.</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_k8s.jpeg"
         title="devops_best_practice_all_on_k8s" width="836" height="586" /></p>
 <h3 id="3-ibm-devops-architecture">3. IBM DevOps architecture</h3>
 <p>The DevOps solution of IBM suggests using DevOps and Cloud platform to help organizations to accelerate the applications development and delivery lifecycle.</p>
@@ -272,32 +272,32 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_ibm.jpeg"
         title="devops_best_practice_ibm" width="800" height="598" /></p>
-<h3 id="4-end-to-end-cicd-pipeline">4. End-to-end CICD pipeline</h3>
+<h3 id="4-end-to-end-cicd-pipeline">4. End-to-end CI/CD pipeline</h3>
 <p>This end-to-end delivery pipeline of continuous integration and deployment across leading cloud platforms. In each step, it suggests the popular services and tools, and includes most steps in the IBM DevOps architecture.</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_bp_wati.jpeg"
         title="devops_best_practice_wati" width="1152" height="608" /></p>
-<h2 id="better-devops-cicd-for-our-own">Better DevOps CICD for Our Own</h2>
+<h2 id="better-devops-cicd-for-our-own">Better DevOps CI/CD for Our Own</h2>
 <h3 id="1-devsecops">1. DevSecOps</h3>
 <p>What we most concern is security, so we need the DevSecOps, other than DevOps.</p>
 <p>The DevSecOps does not have to sacrifice automation processes, it only needs to audit them before changes are implemented.</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devsecops.jpeg"
         title="devsecops" width="678" height="684" /></p>
 <h3 id="2-deliver-to-test-environment">2. Deliver to Test environment</h3>
 <p>To deliver objects through a secure path to Test environment, this Test environment needs four networks: A, B, C and W.</p>
@@ -311,13 +311,13 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/secure_test_env.jpeg"
         title="secure_test_env" width="1288" height="746" /></p>
-<h3 id="3-our-devsecops-cicd-pipeline">3. Our DevSecOps CICD pipeline</h3>
-<p>This is the End-to-End DevSecOps CICD pipeline for our own.</p>
+<h3 id="3-our-devsecops-cicd-pipeline">3. Our DevSecOps CI/CD pipeline</h3>
+<p>This is the End-to-End DevSecOps CI/CD pipeline for our own.</p>
 <p>It includes all necessary steps, across three different environments, with the most popular automation tools and Cloud services, including the infrastructure as code and configurations as code, integrates with security tools, with the manually approve function based on the tests and security reports.</p>
 <p>It includes the following items:</p>
 <ul>
@@ -349,13 +349,13 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg"
-        data-srcset="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg 1.5x, /2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg 2x"
+        data-src="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg"
+        data-srcset="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg 1.5x, /2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg 2x"
         data-sizes="auto"
-        alt="/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg"
+        alt="/2021/11/devops-ci/cd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/devops_cicd.jpeg"
         title="devops_cicd" width="2730" height="1016" /></p>
-<p>This DevSecOps CICD pipeline is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.</p>
-<p>For sure, there are differences in the most appropriate CICD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.</p></div><div class="post-footer" id="post-footer">
+<p>This DevSecOps CI/CD pipeline is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.</p>
+<p>For sure, there are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -363,16 +363,16 @@
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/en/2021/11/devops-cicd-pipeline-in-action/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/en/2021/11/devops-ci/cd-pipeline-in-action/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/" data-title="DevOps CICD Pipeline in Action " data-hashtags="DevOps,CICD"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/" data-title="DevOps CICD Pipeline in Action "><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/" data-title="DevOps CICD Pipeline in Action "><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2021/11/devops-ci/cd-pipeline-in-action/" data-title="DevOps CI/CD Pipeline in Action " data-hashtags="DevOps,CI/CD"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2021/11/devops-ci/cd-pipeline-in-action/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/en/2021/11/devops-ci/cd-pipeline-in-action/" data-title="DevOps CI/CD Pipeline in Action "><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/en/2021/11/devops-ci/cd-pipeline-in-action/" data-title="DevOps CI/CD Pipeline in Action "><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/devops/">DevOps</a>,&nbsp;<a href="/en/tags/cicd/">CICD</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/devops/">DevOps</a>,&nbsp;<a href="/en/tags/ci/cd/">CI/CD</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
@@ -383,7 +383,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.126.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.127.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
