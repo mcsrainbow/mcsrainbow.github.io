@@ -1,10 +1,10 @@
 ---
-title: "DevOps CICD流水线设计实践"
+title: "DevOps CI/CD流水线设计实践"
 date: 2021-11-21T12:18:14+08:00
 author: "郭冬"
-description: "在不同的环境中，最适合的CICD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。"
+description: "在不同的环境中，最适合的CI/CD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。"
 categories: ["技能矩阵"]
-tags: ["DevOps","CICD"]
+tags: ["DevOps","CI/CD"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
@@ -12,7 +12,7 @@ resources:
 lightgallery: true
 ---
 
-在不同的环境中，最适合的CICD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。
+在不同的环境中，最适合的CI/CD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。
 
 <!--more-->
 
@@ -20,9 +20,9 @@ lightgallery: true
 
 ## 背景
 
-在项目建设初期，架构师要求我们设计一个[DevOps CICD]^(持续集成，持续部署/交付)方案，提升生产效率。
+在项目建设初期，架构师要求我们设计一个[DevOps CI/CD]^(持续集成，持续部署/交付)方案，提升生产效率。
 
-通过参考一些业界的最佳实践，结合自身的特点，我们设计了一个较为通用，且能兼顾安全、审批和接管本地已有基础设施与服务的DevOps CICD流水线方案。最后成功落地实施，并在公司内的其它项目中进行了推广。
+通过参考一些业界的最佳实践，结合自身的特点，我们设计了一个较为通用，且能兼顾安全、审批和接管本地已有基础设施与服务的DevOps CI/CD流水线方案。最后成功落地实施，并在公司内的其它项目中进行了推广。
 
 ## 什么是DevOps
 
@@ -80,17 +80,17 @@ DevOps的生命周期从计划、构建、持续集成和部署开始，接着�
   
   团队成员缺乏共同承担责任的理念，导致在组织中存在各种沟通问题。
 
-## 值得参考的DevOps CICD最佳实践
+## 值得参考的DevOps CI/CD最佳实践
 
 ### 1. 轻量级且简单
 
-由GitLab + Docker + Ansible组成的轻量级、简单的CICD流水线解决方案，来自一家快速成长的初创公司。其中，GitLab作为源代码管理和持续集成工具，Docker用于容器，Ansible用于配置即代码。
+由GitLab + Docker + Ansible组成的轻量级、简单的CI/CD流水线解决方案，来自一家快速成长的初创公司。其中，GitLab作为源代码管理和持续集成工具，Docker用于容器，Ansible用于配置即代码。
 
 ![devops_best_practice_easy](devops_bp_easy.jpeg)
 
 ### 2. All on Kubernetes
 
-基于云服务和Kubernetes的CICD流水线，被称为“All on Kubernetes”，比较流行。
+基于云服务和Kubernetes的CI/CD流水线，被称为“All on Kubernetes”，比较流行。
 
 但由于“All on Kubernetes”需要确保所有的应用和服务都容器化，因此对比较复杂的环境和传统软件都不友好。
 
@@ -104,13 +104,13 @@ IBM的解决方案建议使用DevOps和云平台来帮助企业加速应用开�
 
 ![devops_best_practice_ibm](devops_bp_ibm.jpeg)
 
-### 4. 端到端的CICD流水线
+### 4. 端到端的CI/CD流水线
 
-端到端的CICD持续集成和部署交付流水线，包括了IBM DevOps解决方案中的大多数步骤，并且在每个步骤中，都推荐了相关服务和工具。
+端到端的CI/CD持续集成和部署交付流水线，包括了IBM DevOps解决方案中的大多数步骤，并且在每个步骤中，都推荐了相关服务和工具。
 
 ![devops_best_practice_wati](devops_bp_wati.jpeg)
 
-## 设计最适合的DevOps CICD流水线
+## 设计最适合的DevOps CI/CD流水线
 
 ### 1. DevSecOps
 
@@ -133,9 +133,9 @@ DevSecOps并非一定要牺牲自动化流程，而是需要加入安全保障�
 
 ![secure_test_env](secure_test_env.jpeg)
 
-### 3. 最适合的端到端DevSecOps CICD流水线
+### 3. 最适合的端到端DevSecOps CI/CD流水线
 
-最终，我们确定了一个最适合自己的端到端DevSecOps CICD流水线。
+最终，我们确定了一个最适合自己的端到端DevSecOps CI/CD流水线。
 
 它包括所有必要的步骤，跨越三个不同的环境，使用最流行的自动化工具和云服务，包括基础设施即代码和配置即代码，与安全工具集成，支持基于测试报告和安全报告的人工审批。
 
@@ -167,6 +167,6 @@ DevSecOps并非一定要牺牲自动化流程，而是需要加入安全保障�
 
 ![devops_cicd](devops_cicd.jpeg)
 
-最后设计的这个DevSecOps CICD流水线比较通用，能兼顾安全，审批和接管本地已有的基础设施与服务。
+最后设计的这个DevSecOps CI/CD流水线比较通用，能兼顾安全，审批和接管本地已有的基础设施与服务。
 
-在此仅供参考，实际上在不同的环境中，最适合的CICD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。
+在此仅供参考，实际上在不同的环境中，最适合的CI/CD流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。
