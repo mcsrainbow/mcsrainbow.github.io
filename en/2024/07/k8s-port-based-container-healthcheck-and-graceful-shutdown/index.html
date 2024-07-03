@@ -39,7 +39,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/07\/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA\/featured-image.jpeg",
                             "width":  1440 ,
                             "height":  720 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  524 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  527 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2024\/07\/k8s-port-based-container-healthcheck-and-graceful-shutdown\/","datePublished": "2024-07-03T17:27:44+08:00","dateModified": "2024-07-03T17:27:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -121,7 +121,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">K8S Port-based Container Healthcheck and Graceful Shutdown</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dong Guo | Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;524 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;527 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -271,7 +271,7 @@
 <li><strong>Container Readiness:</strong> Minimum <code>0</code> seconds</li>
 <li><strong>Container State:</strong><br>
 Failure determination <code>33</code> seconds <code>failureThreshold(3) * ( timeoutSeconds(1) + periodSeconds(10) )</code><br>
-Recovery determination <code>0</code> seconds</li>
+Recovery determination <code>0</code> - <code>10</code> seconds <code>periodSeconds(10)</code></li>
 <li><strong>Container Shutdown:</strong> Minimum <code>0</code> seconds, Maximum <code>30</code> seconds <code>terminationGracePeriodSeconds(30)</code></li>
 </ol>
 <p><strong>Best Practice Configuration:</strong></p>
@@ -283,7 +283,7 @@ Maximum <code>350</code> seconds <code>initialDelaySeconds(30) + failureThreshol
 Minimum <code>120</code> seconds <code>Startup Check(60)</code> + <code>initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )</code></li>
 <li><strong>Container State:</strong><br>
 Failure determination <code>96</code> seconds <code>failureThreshold(3) * ( timeoutSeconds(2) + periodSeconds(30) )</code><br>
-Recovery determination <code>30</code> seconds <code>periodSeconds(30) * ( successThreshold(2) - 1 )</code></li>
+Recovery determination <code>30</code>-<code>60</code> seconds <code>periodSeconds(30) * ( successThreshold(2) - 1 )</code></li>
 <li><strong>Container Shutdown:</strong><br>
 Minimum <code>60</code> seconds <code>sleep 60</code><br>
 Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code></li>

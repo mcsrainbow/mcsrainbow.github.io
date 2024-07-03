@@ -85,7 +85,7 @@ spec:
 2. **Container Readiness:** Minimum `0` seconds
 3. **Container State:**  
    Failure determination `33` seconds `failureThreshold(3) * ( timeoutSeconds(1) + periodSeconds(10) )`   
-   Recovery determination `0` seconds
+   Recovery determination `0` - `10` seconds `periodSeconds(10)`
 4. **Container Shutdown:** Minimum `0` seconds, Maximum `30` seconds `terminationGracePeriodSeconds(30)`
 
 **Best Practice Configuration:**
@@ -97,7 +97,7 @@ spec:
    Minimum `120` seconds `Startup Check(60)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
 3. **Container State:**  
    Failure determination `96` seconds `failureThreshold(3) * ( timeoutSeconds(2) + periodSeconds(30) )`  
-   Recovery determination `30` seconds `periodSeconds(30) * ( successThreshold(2) - 1 )`
+   Recovery determination `30`-`60` seconds `periodSeconds(30) * ( successThreshold(2) - 1 )`
 4. **Container Shutdown:**   
    Minimum `60` seconds `sleep 60`  
    Maximum `120` seconds `terminationGracePeriodSeconds(120)`
