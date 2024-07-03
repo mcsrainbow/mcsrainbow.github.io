@@ -84,7 +84,7 @@ spec:
 1. **启动检查:** `无`
 2. **容器上线:** 最短`0`秒
 3. **容器状态:**  
-   异常判定`23`-`33`秒 `failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) -1 ) * periodSeconds(10)`  
+   异常判定`23`-`33`秒 `failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
    恢复判定`0`-`10`秒 `periodSeconds(10)`
 4. **容器关闭:** 最短`0`秒，最长`30`秒 `terminationGracePeriodSeconds(30)`
 
@@ -92,11 +92,11 @@ spec:
 
 1. **启动检查:**  
    最短`60`秒 `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`  
-   最长`320`秒 `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) -1 ) * periodSeconds(30)`
+   最长`320`秒 `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)`
 2. **容器上线:**  
    最短`120`秒 `启动检查(最短60秒)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
 3. **容器状态:**  
-   异常判定`66`-`96`秒 `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) -1 ) * periodSeconds(30)`  
+   异常判定`66`-`96`秒 `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(30)`  
    恢复判定`30`-`60`秒 `periodSeconds(30) * ( successThreshold(2) - 1 )`
 4. **容器关闭:**  
    最短`60`秒 `sleep 60`  
