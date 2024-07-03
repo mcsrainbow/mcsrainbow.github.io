@@ -92,7 +92,7 @@ spec:
 
 1. **Startup Check:**  
    Minimum `60` seconds `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`  
-   Maximum `350` seconds `initialDelaySeconds(30) + failureThreshold(10) * ( timeoutSeconds(2) + periodSeconds(30) )`
+   Maximum `320` seconds `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) -1 ) * periodSeconds(30)`
 2. **Container Readiness:**  
    Minimum `120` seconds `Startup Check(60)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
 3. **Container State:**  
@@ -104,9 +104,9 @@ spec:
 
 **Optimizations Compared to Default K8S Settings:**
 
-1. **Startup Check:** Add 60-350 seconds for application startup.
+1. **Startup Check:** Add 60-320 seconds for application startup.
 2. **Container Readiness:** Add a 120 seconds buffer during deployment.
-3. **Container State:** Add 33 seconds for failure determination and 30 seconds for recovery, improve accuracy.
+3. **Container State:** Add 43-73 seconds for failure determination and 30-60 seconds for recovery, improve accuracy.
 4. **Container Shutdown:** Add 60 seconds to ensure connections are properly released.
 
 **Further Enhancements:**
