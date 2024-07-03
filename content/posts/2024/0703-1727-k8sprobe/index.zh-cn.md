@@ -1,8 +1,8 @@
 ---
-title: "K8S基于端口的容器健康检查和优雅退出"
+title: "Kubernetes容器健康检查和优雅终止"
 date: 2024-07-03T17:27:44+08:00
 author: "郭冬"
-description: "在K8S中启用容器健康检查和优雅退出，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。"
+description: "在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。"
 categories: ["技能矩阵"]
 tags: ["Kubernetes"]
 resources:
@@ -13,7 +13,7 @@ toc: false
 lightgallery: true
 ---
 
-在K8S中启用容器健康检查和优雅退出，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。
+在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。
 
 <!--more-->
 
@@ -29,7 +29,7 @@ lightgallery: true
 
 {{< image src="k8s_pod_lifecycle.jpg" alt="k8s_pod_lifecycle" width=800 >}}
 
-**启用`容器健康检查`和`优雅退出`的 K8S Deployment 最佳实践配置示例:**
+**启用`容器健康检查`和`优雅终止`的 Kubernetes Deployment 最佳实践配置示例:**
 
 ```yaml
 apiVersion: apps/v1
@@ -93,7 +93,7 @@ spec:
               memory: 1Gi
 ```
 
-**K8S默认值：**
+**Kubernetes 默认配置：**
 
 1. **启动检查:** `无`
 2. **容器上线:** 最短`0`秒
@@ -116,7 +116,7 @@ spec:
    最短`60`秒 `sleep 60`  
    最长`120`秒 `terminationGracePeriodSeconds(120)`
 
-**与 K8S 默认值相比，以上最佳实践配置进行了如下优化:**
+**与 Kubernetes 默认配置相比，以上最佳实践配置进行了如下优化:**
 
 1. 增加启动检查，结合应用自身特点，为容器内的应用启动提供 60-320 秒的准备时间
 2. 容器上线时间延长 120 秒，在生产上线过程中可作为适当的缓冲时间
