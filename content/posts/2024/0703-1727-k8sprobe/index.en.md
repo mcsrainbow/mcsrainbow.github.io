@@ -96,7 +96,7 @@ spec:
 1. **Startup Check:** `None`
 2. **Container Readiness:** Minimum `0` seconds
 3. **Container State:**  
-   Failure determination `33` seconds `failureThreshold(3) * ( timeoutSeconds(1) + periodSeconds(10) )`   
+   Failure determination `23`-`33` seconds `failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) -1 ) * periodSeconds(10)`  
    Recovery determination `0` - `10` seconds `periodSeconds(10)`
 4. **Container Shutdown:** Minimum `0` seconds, Maximum `30` seconds `terminationGracePeriodSeconds(30)`
 
@@ -108,7 +108,7 @@ spec:
 2. **Container Readiness:**  
    Minimum `120` seconds `Startup Check(60)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
 3. **Container State:**  
-   Failure determination `96` seconds `failureThreshold(3) * ( timeoutSeconds(2) + periodSeconds(30) )`  
+   Failure determination `66`-`96` seconds `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) -1 ) * periodSeconds(30)`  
    Recovery determination `30`-`60` seconds `periodSeconds(30) * ( successThreshold(2) - 1 )`
 4. **Container Shutdown:**   
    Minimum `60` seconds `sleep 60`  
@@ -118,7 +118,7 @@ spec:
 
 1. **Startup Check:** Add 60-350 seconds for application startup.
 2. **Container Readiness:** Add a 120 seconds buffer during deployment.
-3. **Container State:** Add 63 seconds for failure determination and 30 seconds for recovery, improve accuracy.
+3. **Container State:** Add 33 seconds for failure determination and 30 seconds for recovery, improve accuracy.
 4. **Container Shutdown:** Add 60 seconds to ensure connections are properly released.
 
 **Further Enhancements:**
