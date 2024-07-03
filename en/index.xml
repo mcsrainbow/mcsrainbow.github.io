@@ -7,12 +7,12 @@
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>K8S Port-based Container Healthcheck and Graceful Shutdown</title>
-    <link>https://blog.heylinux.com/en/2024/07/k8s-port-based-container-healthcheck-and-graceful-shutdown/</link>
+    <title>Kubernetes Container Healthcheck and Graceful Termination</title>
+    <link>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
     <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2024/07/k8s-port-based-container-healthcheck-and-graceful-shutdown/</guid>
-    <description><![CDATA[<p>Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
+    <guid>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
+    <description><![CDATA[<p>Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
 </item>
 <item>
     <title>Alibaba Cloud Official Vector Icons and draw.io Custom Libraries</title>

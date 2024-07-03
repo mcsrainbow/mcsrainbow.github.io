@@ -7,12 +7,12 @@
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>K8S基于端口的容器健康检查和优雅退出</title>
-    <link>https://blog.heylinux.com/2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/</link>
+    <title>Kubernetes容器健康检查和优雅终止</title>
+    <link>https://blog.heylinux.com/2024/07/kubernetes%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E7%BB%88%E6%AD%A2/</link>
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/</guid>
-    <description><![CDATA[<p>在K8S中启用容器健康检查和优雅退出，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
+    <guid>https://blog.heylinux.com/2024/07/kubernetes%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E7%BB%88%E6%AD%A2/</guid>
+    <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
 <item>
     <title>阿里云官方矢量图标和draw.io自定义图标库</title>
@@ -20,7 +20,7 @@
     <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8Cdraw.io%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</guid>
-    <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的draw.io图标库。</p>]]></description>
+    <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。</p>]]></description>
 </item>
 <item>
     <title>使用git-crypt加解密Git中的文件</title>
