@@ -10,7 +10,7 @@
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
     <author>Dong Guo | Damon</author>
     <guid>https://blog.heylinux.com/en/2024/07/k8s-port-based-container-healthcheck-and-graceful-shutdown/</guid>
-    <description><![CDATA[<p>Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives.</p>]]></description>
+    <description><![CDATA[<p>Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
 </item>
 <item>
     <title>Lightweight Kubernetes Distributions Practices</title>

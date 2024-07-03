@@ -1,7 +1,7 @@
 # K8S Port-based Container Healthcheck and Graceful Shutdown
 
 
-Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives.
+Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.
 
 <!--more-->
 

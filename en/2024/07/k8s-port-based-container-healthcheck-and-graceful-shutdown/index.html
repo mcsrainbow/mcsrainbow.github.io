@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>K8S Port-based Container Healthcheck and Graceful Shutdown - Hey! Linux</title><meta name="Description" content="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives."><meta property="og:url" content="https://blog.heylinux.com/en/2024/07/k8s-port-based-container-healthcheck-and-graceful-shutdown/">
+        <title>K8S Port-based Container Healthcheck and Graceful Shutdown - Hey! Linux</title><meta name="Description" content="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms."><meta property="og:url" content="https://blog.heylinux.com/en/2024/07/k8s-port-based-container-healthcheck-and-graceful-shutdown/">
   <meta property="og:site_name" content="Hey! Linux">
   <meta property="og:title" content="K8S Port-based Container Healthcheck and Graceful Shutdown">
-  <meta property="og:description" content="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives.">
+  <meta property="og:description" content="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://blog.heylinux.com/2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/featured-image.jpeg">
   <meta name="twitter:title" content="K8S Port-based Container Healthcheck and Graceful Shutdown">
-  <meta name="twitter:description" content="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives.">
+  <meta name="twitter:description" content="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.">
 <meta name="application-name" content="Hey! Linux">
 <meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -39,7 +39,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/07\/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA\/featured-image.jpeg",
                             "width":  1440 ,
                             "height":  720 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  525 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  524 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2024\/07\/k8s-port-based-container-healthcheck-and-graceful-shutdown\/","datePublished": "2024-07-03T17:27:44+08:00","dateModified": "2024-07-03T17:27:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -50,7 +50,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Dong Guo | Damon"
-            },"description": "Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives."
+            },"description": "Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -121,7 +121,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">K8S Port-based Container Healthcheck and Graceful Shutdown</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dong Guo | Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;525 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;524 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -130,7 +130,7 @@
         data-srcset="/2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/featured-image.jpeg, /2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/featured-image.jpeg 1.5x, /2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/featured-image.jpeg 2x"
         data-sizes="auto"
         alt="/2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/featured-image.jpeg"
-        title="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives." /></div><div class="content" id="content"><p>Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives.</p>
+        title="Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms." /></div><div class="content" id="content"><p>Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>
 <hr>
 <p><strong>Configuration Item Descriptions:</strong></p>
 <ol>
