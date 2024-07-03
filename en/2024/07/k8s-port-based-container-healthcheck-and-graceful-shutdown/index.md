@@ -15,6 +15,8 @@ Implementing container health checks and graceful shutdown in Kubernetes (K8S) w
 4. **`livenessProbe`:** Checks if the container is alive; kubelet kills and restarts the container if the check fails.  
 5. **`readinessProbe`:** Checks if the container is ready to accept traffic; kubelet adds the Pod to the Service's load balancer pool only if this check passes.  
 
+{{< image src="k8s_pod_lifecycle.jpg" alt="k8s_pod_lifecycle" width=800 >}}
+
 **Best Practice K8S Deployment Configuration with Health Checks and Graceful Shutdown:**
 
 ```yaml

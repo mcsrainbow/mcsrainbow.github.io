@@ -15,6 +15,8 @@
 4. **`livenessProbe`:** 检查容器是否存活，如果检查失败，kubelet 会杀死容器，然后重启容器
 5. **`readinessProbe`:** 检查容器是否已经准备好接受流量，只有通过检查，kubelet 才会将 Pod 加入 Service 的负载均衡池
 
+{{< image src="k8s_pod_lifecycle.jpg" alt="k8s_pod_lifecycle" width=800 >}}
+
 **启用`容器健康检查`和`优雅退出`的 K8S Deployment 最佳实践配置示例:**
 
 ```yaml
