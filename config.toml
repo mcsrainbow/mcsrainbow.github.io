@@ -368,7 +368,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # 是否显示代码块的复制按钮
       copy = true
       # 默认展开显示的代码行数
-      maxShownLines = 50
+      maxShownLines = 80
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
       enable = false
