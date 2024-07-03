@@ -2,7 +2,7 @@
 title: "K8S Port-based Container Healthcheck and Graceful Shutdown"
 date: 2024-07-03T17:27:44+08:00
 author: "Dong Guo | Damon"
-description: "Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives."
+description: "Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms."
 categories: ["Skills"]
 tags: ["Kubernetes"]
 resources:
@@ -13,7 +13,7 @@ toc: false
 lightgallery: true
 ---
 
-Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents, and prevents false positives.
+Implementing container health checks and graceful shutdown in Kubernetes (K8S) with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.
 
 <!--more-->
 
