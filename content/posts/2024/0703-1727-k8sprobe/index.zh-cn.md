@@ -104,7 +104,7 @@ spec:
 
 1. **启动检查:**  
    最短`60`秒 `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`  
-   最长`350`秒 `initialDelaySeconds(30) + failureThreshold(10) * ( timeoutSeconds(2) + periodSeconds(30) )`
+   最长`320`秒 `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) -1 ) * periodSeconds(30)`
 2. **容器上线:**  
    最短`120`秒 `启动检查(最短60秒)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
 3. **容器状态:**  
@@ -118,7 +118,7 @@ spec:
 
 1. 增加启动检查，结合应用自身特点，为容器内的应用启动提供 60-350 秒的准备时间
 2. 容器上线时间延长 120 秒，在生产发版过程中可作为适当的缓冲时间
-3. 容器状态的异常判定延长 33 秒，恢复判定延长 30 秒，可确保判定结果更加准确，避免不稳定的新容器被误判为可以正常提供服务而替换了旧的正常容器
+3. 容器状态的异常判定延长 43-73 秒，恢复判定延长 30-60 秒，可确保判定结果更加准确，避免不稳定的新容器被误判为可以正常提供服务而替换了旧的正常容器
 4. 容器关闭时间延长 60 秒，可确保仍未完成的请求有更多的时间释放连接，避免用户尚未完成的请求被异常中断
 
 **进一步优化：**
