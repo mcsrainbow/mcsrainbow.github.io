@@ -39,7 +39,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/07\/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA\/featured-image.jpeg",
                             "width":  1440 ,
                             "height":  720 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  997 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1009 ,
         "url": "https:\/\/blog.heylinux.com\/2024\/07\/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA\/","datePublished": "2024-07-03T17:27:44+08:00","dateModified": "2024-07-03T17:27:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -121,8 +121,8 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">K8S基于端口的容器健康检查和优雅退出</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 997 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1009 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -270,7 +270,7 @@
 <li><strong>启动检查:</strong> <code>无</code></li>
 <li><strong>容器上线:</strong> 最短<code>0</code>秒</li>
 <li><strong>容器状态:</strong><br>
-异常判定<code>33</code>秒 <code>failureThreshold(3) * ( timeoutSeconds(1) + periodSeconds(10) )</code><br>
+异常判定<code>23</code>-<code>33</code>秒 <code>failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) -1 ) * periodSeconds(10)</code><br>
 恢复判定<code>0</code>-<code>10</code>秒 <code>periodSeconds(10)</code></li>
 <li><strong>容器关闭:</strong> 最短<code>0</code>秒，最长<code>30</code>秒 <code>terminationGracePeriodSeconds(30)</code></li>
 </ol>
@@ -282,7 +282,7 @@
 <li><strong>容器上线:</strong><br>
 最短<code>120</code>秒 <code>启动检查(最短60秒)</code> + <code>initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )</code></li>
 <li><strong>容器状态:</strong><br>
-异常判定<code>96</code>秒 <code>failureThreshold(3) * ( timeoutSeconds(2) + periodSeconds(30) )</code><br>
+异常判定<code>66</code>-<code>96</code>秒 <code>failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) -1 ) * periodSeconds(30)</code><br>
 恢复判定<code>30</code>-<code>60</code>秒 <code>periodSeconds(30) * ( successThreshold(2) - 1 )</code></li>
 <li><strong>容器关闭:</strong><br>
 最短<code>60</code>秒 <code>sleep 60</code><br>
@@ -292,7 +292,7 @@
 <ol>
 <li>增加启动检查，结合应用自身特点，为容器内的应用启动提供 60-350 秒的准备时间</li>
 <li>容器上线时间延长 120 秒，在生产发版过程中可作为适当的缓冲时间</li>
-<li>容器状态的异常判定延长 63 秒，恢复判定延长 30 秒，可确保判定结果更加准确，避免不稳定的新容器被误判为可以正常提供服务而替换了旧的正常容器</li>
+<li>容器状态的异常判定延长 33 秒，恢复判定延长 30 秒，可确保判定结果更加准确，避免不稳定的新容器被误判为可以正常提供服务而替换了旧的正常容器</li>
 <li>容器关闭时间延长 60 秒，可确保仍未完成的请求有更多的时间释放连接，避免用户尚未完成的请求被异常中断</li>
 </ol>
 <p><strong>进一步优化：</strong></p>
