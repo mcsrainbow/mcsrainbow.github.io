@@ -12,7 +12,7 @@
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2024/07/k8s%E5%9F%BA%E4%BA%8E%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E9%80%80%E5%87%BA/</guid>
-    <description><![CDATA[<p>在K8S中启用容器健康检查和优雅退出，并结合应用自身特点进行合理的配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
+    <description><![CDATA[<p>在K8S中启用容器健康检查和优雅退出，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
 <item>
     <title>阿里云官方矢量图标和draw.io自定义图标库</title>
