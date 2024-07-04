@@ -1,16 +1,16 @@
-# 轻量级Kubernetes发行版实践
+# 轻量级 Kubernetes 发行版实践
 
 
-部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。
+部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。
 
 <!--more-->
 
 ---
 
-## Minikube结合Podman实践
+## Minikube 结合 Podman 实践
 
-Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。    
-Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。
+Minikube 是一种轻量级的 Kubernetes 实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。  
+Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的功能，但不需要守护进程，并且支持更多的安全特性和 rootless 模式运行。
 
 ### 基础环境
 
@@ -26,7 +26,7 @@ Disk: 20GiB
 Installer: Homebrew
 ```
 
-### 安装使用Podman
+### 安装使用 Podman
 
 ```plain
 ➜ brew install podman
@@ -68,7 +68,7 @@ NAME                    VM TYPE     CREATED        LAST UP            CPUS      
 podman-machine-default  qemu        8 minutes ago  Currently running  2           2GiB        20GiB
 ```
 
-### 安装使用Minikube
+### 安装使用 Minikube
 
 ```plain
 ➜ brew install minikube
@@ -133,7 +133,7 @@ minikube   Ready    control-plane   4m44s   v1.28.3
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   16m
 ```
-### 部署测试Nginx Service
+### 部署测试 Nginx Service
 
 ```yaml
 ➜ vim nginx-deploy-svc.yaml 
@@ -202,7 +202,7 @@ Because you are using a Docker driver on darwin, the terminal needs to be open t
 
 {{< image src="minikube_nginx_svc_web.jpg" alt="minikube_nginx_svc_web" width=800 >}}
 
-### 清理Minikube和Podman
+### 清理 Minikube 和 Podman
 
 ```plain
 ➜ minikube stop
@@ -265,9 +265,9 @@ Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
 Uninstalling /opt/homebrew/Cellar/minikube/1.32.0... (9 files, 87.5MB)
 ```
 
-## KinD实践
+## KinD 实践
 
-KinD是一个工具，用于在Docker中运行本地Kubernetes集群。
+KinD 是一个工具，用于在 Docker 中运行本地 Kubernetes 集群。
 
 ### 基础环境
 
@@ -279,7 +279,7 @@ Driver: Docker
 Installer: Homebrew
 ```
 
-### 安装使用KinD
+### 安装使用 KinD
 
 ```plain
 ➜ brew install kind
@@ -293,7 +293,7 @@ Installer: Homebrew
 kind v0.20.0 go1.21.1 darwin/arm64
 ```
 
-创建一个名为mycluster的K8S集群，并将hostPort的30080端口暴露到localhost的30080端口。
+创建一个名为 mycluster 的 K8S 集群，并将 hostPort 的30080端口暴露到 localhost 的30080端口。
 
 ```yaml
 ➜ vim config-with-port-mapping.yaml
@@ -359,7 +359,7 @@ kube-system          Active   108s
 local-path-storage   Active   104s
 ```
 
-### 部署测试Nginx Service
+### 部署测试 Nginx Service
 
 ```plain
 ➜ kubectl get all
@@ -427,11 +427,11 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s
 ```
 
-访问Nginx: http://localhost:30080
+访问 Nginx: http://localhost:30080
 
 {{< image src="kind_nginx_svc_web.jpg" alt="kind_nginx_svc_web" width=800 >}}
 
-### 清理KinD
+### 清理 KinD
 
 ```plain
 ➜ kind delete cluster --name mycluster
@@ -442,10 +442,10 @@ Deleted nodes: ["mycluster-control-plane"]
 No kind clusters found.
 ```
 
-## K3S结合Multipass实践
+## K3S 结合 Multipass 实践
 
-K3S是一个轻量级、易于安装的Kubernetes发行版。  
-Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具。
+K3S 是一个轻量级、易于安装的 Kubernetes 发行版。
+Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工具。
 
 ### 基础环境
 
@@ -461,7 +461,7 @@ Disk: 10GiB
 Installer: Homebrew
 ```
 
-### 安装使用Multipass
+### 安装使用 Multipass
 
 ```plain
 ➜ brew install --cask multipass
@@ -492,7 +492,7 @@ Memory usage:   140.0MiB out of 962.3MiB
 Mounts:         --
 ```
 
-### 安装使用K3S
+### 安装使用 K3S
 
 ```plain
 ➜ multipass shell k3s
@@ -578,7 +578,7 @@ ubuntu@k3s-worker:~$ exit
 logout
 ```
 
-### 部署测试Nginx Service
+### 部署测试 Nginx Service
 
 ```plain
 ➜ multipass shell k3s
@@ -664,7 +664,7 @@ k3s-worker              Running           192.168.64.3     Ubuntu 22.04 LTS
 
 {{< image src="k3s_nginx_svc_web.jpg" alt="k3s_nginx_svc_web" width=800 >}}
 
-### 清理Multipass和K3S
+### 清理 Multipass 和 K3S
 
 ```plain
 ➜ multipass delete k3s k3s-worker
@@ -698,9 +698,9 @@ com.canonical.multipass.multipass_gui
 ==> Purging files for version 1.12.2 of Cask multipass
 ```
 
-## K3D实践
+## K3D 实践
 
-K3D是一个轻量级的工具，用于在Docker中运行K3S。
+K3D 是一个轻量级的工具，用于在 Docker 中运行 K3S。
 
 ### 基础环境
 
@@ -712,7 +712,7 @@ Driver: Docker
 Installer: Homebrew
 ```
 
-### 安装使用K3D
+### 安装使用 K3D
 
 ```plain
 ➜ brew install k3d
@@ -727,7 +727,7 @@ k3d version v5.6.0
 k3s version v1.27.5-k3s1 (default)
 ```
 
-创建一个名为mycluster的K8S集群，并将Ingress的80端口暴露到localhost的8081端口。
+创建一个名为 mycluster 的 K8S 集群，并将 Ingress 的80端口暴露到 localhost 的8081端口。
 
 ```plain
 ➜ k3d cluster create mycluster -p "8081:80@loadbalancer" --agents 1
@@ -762,7 +762,7 @@ CoreDNS is running at https://0.0.0.0:56685/api/v1/namespaces/kube-system/servic
 Metrics-server is running at https://0.0.0.0:56685/api/v1/namespaces/kube-system/services/https:metrics-server:https/proxy
 ```
 
-### 部署测试Nginx Service
+### 部署测试 Nginx Service
 
 ```plain
 ➜ kubectl get all
@@ -854,11 +854,11 @@ NAME            CLASS    HOSTS   ADDRESS                       PORTS   AGE
 nginx-ingress   <none>   *       192.168.167.2,192.168.167.3   80      2m56s
 ```
 
-通过Ingress访问Nginx: http://localhost:8081
+通过 Ingress 访问 Nginx: http://localhost:8081
 
 {{< image src="k3d_nginx_ingress_web.jpg" alt="k3d_nginx_ingress_web" width=800 >}}
 
-### 清理K3D
+### 清理 K3D
 
 ```plain
 ➜ k3d cluster list

@@ -1,7 +1,7 @@
-# Python OpenCV验证码识别实战
+# Python OpenCV 验证码识别实战
 
 
-在通过OpenCV完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。
+在通过 OpenCV 完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。
 
 <!--more-->
 
@@ -15,7 +15,7 @@
 
 ## 思路
 
-刚开始，我还想着从GitHub上找一些现成的代码，然后修改一下，调整一些参数就直接拿来用。在这个过程中尝试了很多看似高大上的程序，大多数都是号称无需做任何特征工程，就可以训练和识别的，但实际的结果都很差，甚至是惨不忍睹。
+刚开始，我还想着从 GitHub 上找一些现成的代码，然后修改一下，调整一些参数就直接拿来用。在这个过程中尝试了很多看似高大上的程序，大多数都是号称无需做任何特征工程，就可以训练和识别的，但实际的结果都很差，甚至是惨不忍睹。
 
 在比赛期间，不断有同事在群里秀出自己的阶段性成果，而且他们都做了特征工程，于是我也参考了这方面的文章，最后顺利完成，识别率达到了99%以上，主要思路如下：
 
@@ -29,7 +29,7 @@
 
 + 2.特征工程
 
-    使用OpenCV库对验证码图片样本进行分析，进行一系列有针对性的处理，去除验证码图片中的各种随机线条等噪音，突出验证码图片中的字符如5UFQ。
+    使用 OpenCV 库对验证码图片样本进行分析，进行一系列有针对性的处理，去除验证码图片中的各种随机线条等噪音，突出验证码图片中的字符如 5UFQ。
   
     > 特征工程是将原始数据转化成更好的表达问题本质的特征的过程，目的是发现重要特征。
     
@@ -37,7 +37,7 @@
 
 + 3.人工标注
   
-    操作方式很简单，将每个原始图片样本人工识别并重命名为验证码的字符内容如5UFQ.jpg，再将经过特征工程后的图片切割为单个字符的图片，分别保存为：5UFQ_5.jpg，5UFQ_U.jpg，5UFQ_F.jpg，5UFQ_Q.jpg，用于后面的模型训练。
+    操作方式很简单，将每个原始图片样本人工识别并重命名为验证码的字符内容如 5UFQ.jpg，再将经过特征工程后的图片切割为单个字符的图片，分别保存为：5UFQ_5.jpg，5UFQ_U.jpg，5UFQ_F.jpg，5UFQ_Q.jpg，用于后面的模型训练。
 
     > 目前成熟的机器学习技术主要还是监督式学习，监督式学习的核心就是把已知的数据特征提供给机器进行训练。
     
@@ -46,13 +46,13 @@
 
 + 4.训练模型
 
-    将上面的所有单个字符的图片作为训练集，每个图片的字符作为标签，构造一个图片与标签的映射表，然后用OpenCV自带的KNN相似度模型进行机器学习，最终训练出可识别相似的验证码图片的有效模型。
+    将上面的所有单个字符的图片作为训练集，每个图片的字符作为标签，构造一个图片与标签的映射表，然后用 OpenCV 自带的 KNN 相似度模型进行机器学习，最终训练出可识别相似的验证码图片的有效模型。
 
     > 这个过程中，机器学习程序类似学生，将书中的段落和老师圈出的重点内容在脑海里进行关联，然后反复学习、理解、消化，最后触类旁通，掌握了举一反三的能力。
 
 + 5.识别图片
 
-    将一定数量的原始图片样本作为测试集数据，通过特征工程去除噪音，然后直接使用训练好的模型进行匹配识别，并将识别后的结果与图片文件名（如00243af2b3545fd4c869d1c155c08d3f.png,LTEH）依次存入一个CSV文件中。
+    将一定数量的原始图片样本作为测试集数据，通过特征工程去除噪音，然后直接使用训练好的模型进行匹配识别，并将识别后的结果与图片文件名（如00243af2b3545fd4c869d1c155c08d3f.png,LTEH）依次存入一个 CSV 文件中。
 
     > 类似于学生通过举一反三的能力对新知识进行归纳总结，并像老师一样圈出重点内容的过程。
 
@@ -66,7 +66,7 @@
 
 ### 2. 特征工程
 
-以字符内容为5UFQ的验证码图片为例，首先导入所需的Python库：
+以字符内容为 5UFQ 的验证码图片为例，首先导入所需的 Python 库：
 
 ```python
 # 用于获取本地目录与文件
@@ -75,7 +75,7 @@ import os
 import numpy as np 
 # 用于显示图片
 from matplotlib import pyplot as plt
-# OpenCV库用于图片的特征工程与KNN模型训练
+# OpenCV 库用于图片的特征工程与 KNN 模型训练
 import cv2
 ```
 
@@ -84,7 +84,7 @@ import cv2
 ```python
 # 文件路径
 filepath='imgs/train/5UFQ.jpg'
-# OpenCV读取文件
+# OpenCV 读取文件
 im=cv2.imread(filepath)
 # 显示图片
 plt.imshow(im[:,:,[2,1,0]])
@@ -93,11 +93,11 @@ plt.show()
 
 {{< image src="captchas_5UFQ_raw.png" alt="captchas_5UFQ_raw" width=400 >}}
 
-[RGB](https://baike.baidu.com/item/RGB/342517)即代表红（Red）、绿（Green）、蓝（Blue），又称为三原色光，电脑屏幕上的所有颜色，都由这三种色光按照不同的比例混合而成的，屏幕上的任何一个颜色都可以由一组RGB值来记录和表达。
+[RGB](https://baike.baidu.com/item/RGB/342517)即代表红（Red）、绿（Green）、蓝（Blue），又称为三原色光，电脑屏幕上的所有颜色，都由这三种色光按照不同的比例混合而成的，屏幕上的任何一个颜色都可以由一组 RGB 值来记录和表达。
 
 任何颜色都由红、绿、蓝三原色组成，而[灰度图](https://baike.baidu.com/item/%E7%81%B0%E5%BA%A6%E5%9B%BE/8105733)只有一个通道，有256个灰度等级，255代表全白，0表示全黑。
 
-将图片由RGB转换为灰度图，就是将图片的色彩信息去掉，转换为只有黑白信息。
+将图片由 RGB 转换为灰度图，就是将图片的色彩信息去掉，转换为只有黑白信息。
 
 ```python
 # 将图片转成灰度图
@@ -183,7 +183,7 @@ def cut_img(train_dir,cut_dir,suffix):
                 for i in sorted(roi_dict.keys()):
                     cv2.imwrite("{0}/{1}_{2}.jpg".format(cut_dir,f.split('.')[0],f[i]),roi_dict[i])
     
-    # 关闭OpenCV的写操作
+    # 关闭 OpenCV 的写操作
     cv2.waitKey(0)
     
     return True
@@ -193,7 +193,7 @@ def cut_img(train_dir,cut_dir,suffix):
 
 ### 4. 训练模型
 
-将上面的所有单个字符的图片作为训练集，每个图片的字符作为标签，构造一个图片与标签的映射表，加载数据。再用OpenCV自带的KNN相似度模型进行机器学习，训练出可识别相似的验证码图片的模型。
+将上面的所有单个字符的图片作为训练集，每个图片的字符作为标签，构造一个图片与标签的映射表，加载数据。再用 OpenCV 自带的 KNN 相似度模型进行机器学习，训练出可识别相似的验证码图片的模型。
 
 ```python
 def train_model(cut_dir,suffix):
@@ -226,23 +226,23 @@ def train_model(cut_dir,suffix):
     label_ids = list(map(lambda x: label_id_map[x], labels))
     label_ids = np.array(label_ids).reshape((-1, 1)).astype(np.float32)
 
-    # 使用OpenCV自带的KNN相似度模型进行机器学习
+    # 使用 OpenCV 自带的 KNN 相似度模型进行机器学习
     model = cv2.ml.KNearest_create()
     model.train(samples, cv2.ml.ROW_SAMPLE, label_ids)
     
-    # 返回训练好的模型，数据ID与标签的映射字典
+    # 返回训练好的模型，数据 ID 与标签的映射字典
     return {'model':model,'id_label_map':id_label_map}
 ```
 
 ### 5. 识别图片
 
-读取测试集图片样本，通过特征工程去除噪音，然后使用训练好的模型进行匹配识别，并将识别后的结果与图片文件名依次存入一个CSV文件中。
+读取测试集图片样本，通过特征工程去除噪音，然后使用训练好的模型进行匹配识别，并将识别后的结果与图片文件名依次存入一个 CSV 文件中。
 
 ```python
 def rek_img(model_dict,rek_dir,suffix,results_csv):
     # 获取训练好的模型
     model = model_dict['model']
-    # 获取模型中的数据ID与标签的映射字典
+    # 获取模型中的数据 ID 与标签的映射字典
     id_label_map = model_dict['id_label_map']
     label_dict = {}
     
@@ -258,16 +258,16 @@ def rek_img(model_dict,rek_dir,suffix,results_csv):
                 for i in sorted(roi_dict.keys()):
                     # 将字符所在区域的信息转换为数据集格式
                     sample = roi_dict[i].reshape((1, 420)).astype(np.float32)
-                    # 通过训练好的模型匹配识别出最相似的数据集，并返回数据ID
+                    # 通过训练好的模型匹配识别出最相似的数据集，并返回数据 ID
                     ret, results, neighbours, distances = model.findNearest(sample, k = 3)
-                    # 通过数据ID查询出对应的标签，并写入到字典中
+                    # 通过数据 ID 查询出对应的标签，并写入到字典中
                     label_id = int(results[0,0])
                     label = id_label_map[label_id]               
                     label_dict[i] = label
                 
                 # 将标签字典中的值依次取出，显示为验证码图片中的四个字符
                 result_str = ''.join(str(v) for k,v in sorted(label_dict.items()))
-                # 将测试集图片的文件名与识别出的字符以逗号分割存入到CSV中
+                # 将测试集图片的文件名与识别出的字符以逗号分割存入到 CSV 中
                 with open(results_csv, "a") as myfile:
                     myfile.write("{0},{1}\n".format(f,result_str))
                 myfile.close()
@@ -281,7 +281,7 @@ def rek_img(model_dict,rek_dir,suffix,results_csv):
 
 由于此次比赛给出的验证码图片样本特征都比较明显，比较容易进行特征工程，到最后，即使用了一万张验证码图片作为测试集，很多同事的识别准确率也都达到了90%以上，而第一名的正确率甚至达到了令人发指的100%。
 
-对我来说，在通过OpenCV完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。
+对我来说，在通过 OpenCV 完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。
 
 ## 参考
 

@@ -32,7 +32,7 @@
             <loc>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2024/07/kubernetes%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E7%BB%88%E6%AD%A2/"
+                        href="https://blog.heylinux.com/2024/07/kubernetes-%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E7%BB%88%E6%AD%A2/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -61,7 +61,7 @@
             <loc>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-draw.io-custom-libraries/</loc><lastmod>2024-01-04T16:39:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8Cdraw.io%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/"
+                        href="https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8C-draw.io-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -88,7 +88,7 @@
             <loc>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/"
+                        href="https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -97,7 +97,7 @@
             <loc>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/"
+                        href="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -116,7 +116,7 @@
             <loc>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2023/03/%E7%A7%81%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/"
+                        href="https://blog.heylinux.com/2023/03/%E7%A7%81%E6%9C%89-ip-%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -134,7 +134,7 @@
             <loc>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</loc><lastmod>2022-11-20T22:31:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2022/11/%E9%80%9A%E8%BF%87bucket-level-policy%E5%8A%A0%E5%BC%BAaws-s3%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/"
+                        href="https://blog.heylinux.com/2022/11/%E9%80%9A%E8%BF%87-bucket-level-policy-%E5%8A%A0%E5%BC%BA-aws-s3-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -256,7 +256,7 @@
             <loc>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</loc><lastmod>2021-12-21T21:58:24&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/"
+                        href="https://blog.heylinux.com/2021/12/%E4%BD%BF%E7%94%A8-kubeadm-%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -304,7 +304,7 @@
             <loc>https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/</loc><lastmod>2021-11-24T20:36:58&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2021/11/python-opencv%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/"
+                        href="https://blog.heylinux.com/2021/11/python-opencv-%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -331,7 +331,7 @@
             <loc>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</loc><lastmod>2021-11-21T12:18:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2021/11/devops-cicd%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/"
+                        href="https://blog.heylinux.com/2021/11/devops-cicd-%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
@@ -349,7 +349,7 @@
             <loc>https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/</loc><lastmod>2021-11-07T11:06:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2021/11/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E5%90%8Dssl%E8%AF%81%E4%B9%A6%E6%94%AF%E6%8C%81%E7%A7%81%E6%9C%89%E5%9F%9F%E5%90%8D%E7%9A%84https%E6%9C%8D%E5%8A%A1/"
+                        href="https://blog.heylinux.com/2021/11/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E5%90%8D-ssl-%E8%AF%81%E4%B9%A6%E6%94%AF%E6%8C%81%E7%A7%81%E6%9C%89%E5%9F%9F%E5%90%8D%E7%9A%84-https-%E6%9C%8D%E5%8A%A1/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"

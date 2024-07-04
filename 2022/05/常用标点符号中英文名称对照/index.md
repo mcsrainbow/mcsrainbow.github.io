@@ -19,7 +19,7 @@
 | $	| dollar | 美元符号 |
 | % |	percent |	百分号 |
 | ^ |	caret |	插入号 |
-| & |	and , ampersand |	表示and的符号 |
+| & |	and , ampersand |	表示 and 的符号 |
 | * |	asterisk , star / multiply / pointer | 星号 / 乘号 / 指针 |
 | ( |	parenleft , opening parenthesis |	左圆括号 |
 | ) | parenright , closing parenthesis | 右圆括号 |

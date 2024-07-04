@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>轻量级Kubernetes发行版实践 - Hey! Linux</title><meta name="Description" content="部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。"><meta property="og:url" content="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/">
+        <title>轻量级 Kubernetes 发行版实践 - Hey! Linux</title><meta name="Description" content="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。"><meta property="og:url" content="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/">
   <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="轻量级Kubernetes发行版实践">
-  <meta property="og:description" content="部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。">
+  <meta property="og:title" content="轻量级 Kubernetes 发行版实践">
+  <meta property="og:description" content="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -15,33 +15,33 @@
     <meta property="article:modified_time" content="2023-12-07T10:57:19+08:00">
     <meta property="article:tag" content="Kubernetes">
     <meta property="article:tag" content="Podman">
-    <meta property="og:image" content="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
+    <meta property="og:image" content="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
-  <meta name="twitter:title" content="轻量级Kubernetes发行版实践">
-  <meta name="twitter:description" content="部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。">
+  <meta name="twitter:image" content="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg">
+  <meta name="twitter:title" content="轻量级 Kubernetes 发行版实践">
+  <meta name="twitter:description" content="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。">
 <meta name="application-name" content="Hey! Linux">
 <meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" /><link rel="prev" href="https://blog.heylinux.com/2023/03/%E7%A7%81%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/" /><link rel="next" href="https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" /><link rel="prev" href="https://blog.heylinux.com/2023/03/%E7%A7%81%E6%9C%89-ip-%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/" /><link rel="next" href="https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "轻量级Kubernetes发行版实践",
+        "headline": "轻量级 Kubernetes 发行版实践",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/blog.heylinux.com\/2023\/12\/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5\/"
+            "@id": "https:\/\/blog.heylinux.com\/2023\/12\/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5\/featured-image.jpeg",
+                            "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  3456 ,
-        "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  3195 ,
+        "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
                     "@type": "ImageObject",
@@ -51,7 +51,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "郭冬"
-            },"description": "部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。"
+            },"description": "部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -77,7 +77,7 @@
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" selected>简体中文</option><option value="/en/2023/12/lightweight-kubernetes-distributions-practices/">English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" selected>简体中文</option><option value="/en/2023/12/lightweight-kubernetes-distributions-practices/">English</option></select>
                 </a></div>
         </div>
     </div>
@@ -111,7 +111,7 @@
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" selected>简体中文</option><option value="/en/2023/12/lightweight-kubernetes-distributions-practices/">English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" selected>简体中文</option><option value="/en/2023/12/lightweight-kubernetes-distributions-practices/">English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -123,65 +123,65 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级Kubernetes发行版实践</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3456 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3195 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
-        data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg 2x"
+        data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
+        data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg 2x"
         data-sizes="auto"
-        alt="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
-        title="部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。" /></div><div class="details toc" id="toc-static"  data-kept="">
+        alt="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/featured-image.jpeg"
+        title="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#minikube结合podman实践">Minikube结合Podman实践</a>
+    <li><a href="#minikube-结合-podman-实践">Minikube 结合 Podman 实践</a>
       <ul>
         <li><a href="#基础环境">基础环境</a></li>
-        <li><a href="#安装使用podman">安装使用Podman</a></li>
-        <li><a href="#安装使用minikube">安装使用Minikube</a></li>
-        <li><a href="#部署测试nginx-service">部署测试Nginx Service</a></li>
-        <li><a href="#清理minikube和podman">清理Minikube和Podman</a></li>
+        <li><a href="#安装使用-podman">安装使用 Podman</a></li>
+        <li><a href="#安装使用-minikube">安装使用 Minikube</a></li>
+        <li><a href="#部署测试-nginx-service">部署测试 Nginx Service</a></li>
+        <li><a href="#清理-minikube-和-podman">清理 Minikube 和 Podman</a></li>
       </ul>
     </li>
-    <li><a href="#kind实践">KinD实践</a>
+    <li><a href="#kind-实践">KinD 实践</a>
       <ul>
         <li><a href="#基础环境-1">基础环境</a></li>
-        <li><a href="#安装使用kind">安装使用KinD</a></li>
-        <li><a href="#部署测试nginx-service-1">部署测试Nginx Service</a></li>
-        <li><a href="#清理kind">清理KinD</a></li>
+        <li><a href="#安装使用-kind">安装使用 KinD</a></li>
+        <li><a href="#部署测试-nginx-service-1">部署测试 Nginx Service</a></li>
+        <li><a href="#清理-kind">清理 KinD</a></li>
       </ul>
     </li>
-    <li><a href="#k3s结合multipass实践">K3S结合Multipass实践</a>
+    <li><a href="#k3s-结合-multipass-实践">K3S 结合 Multipass 实践</a>
       <ul>
         <li><a href="#基础环境-2">基础环境</a></li>
-        <li><a href="#安装使用multipass">安装使用Multipass</a></li>
-        <li><a href="#安装使用k3s">安装使用K3S</a></li>
-        <li><a href="#部署测试nginx-service-2">部署测试Nginx Service</a></li>
-        <li><a href="#清理multipass和k3s">清理Multipass和K3S</a></li>
+        <li><a href="#安装使用-multipass">安装使用 Multipass</a></li>
+        <li><a href="#安装使用-k3s">安装使用 K3S</a></li>
+        <li><a href="#部署测试-nginx-service-2">部署测试 Nginx Service</a></li>
+        <li><a href="#清理-multipass-和-k3s">清理 Multipass 和 K3S</a></li>
       </ul>
     </li>
-    <li><a href="#k3d实践">K3D实践</a>
+    <li><a href="#k3d-实践">K3D 实践</a>
       <ul>
         <li><a href="#基础环境-3">基础环境</a></li>
-        <li><a href="#安装使用k3d">安装使用K3D</a></li>
-        <li><a href="#部署测试nginx-service-3">部署测试Nginx Service</a></li>
-        <li><a href="#清理k3d">清理K3D</a></li>
+        <li><a href="#安装使用-k3d">安装使用 K3D</a></li>
+        <li><a href="#部署测试-nginx-service-3">部署测试 Nginx Service</a></li>
+        <li><a href="#清理-k3d">清理 K3D</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>部署和管理原生Kubernetes集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级Kubernetes发行版作为解决方案。</p>
+            </div><div class="content" id="content"><p>部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。</p>
 <hr>
-<h2 id="minikube结合podman实践">Minikube结合Podman实践</h2>
-<p>Minikube是一种轻量级的Kubernetes实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。 <br>
-Podman是一个开源的容器运行时工具，它提供与Docker相似的功能，但不需要守护进程，并且支持更多的安全特性和rootless模式运行。</p>
+<h2 id="minikube-结合-podman-实践">Minikube 结合 Podman 实践</h2>
+<p>Minikube 是一种轻量级的 Kubernetes 实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。<br>
+Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的功能，但不需要守护进程，并且支持更多的安全特性和 rootless 模式运行。</p>
 <h3 id="基础环境">基础环境</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -207,7 +207,7 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="安装使用podman">安装使用Podman</h3>
+</div><h3 id="安装使用-podman">安装使用 Podman</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -288,7 +288,7 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">podman-machine-default  qemu        8 minutes ago  Currently running  2           2GiB        20GiB
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="安装使用minikube">安装使用Minikube</h3>
+</div><h3 id="安装使用-minikube">安装使用 Minikube</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -417,7 +417,7 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   16m
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="部署测试nginx-service">部署测试Nginx Service</h3>
+</div><h3 id="部署测试-nginx-service">部署测试 Nginx Service</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -548,16 +548,16 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">Because you are using a Docker driver on darwin, the terminal needs to be open to run it.
 </span></span></code></pre></td></tr></table>
 </div>
-</div><a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg" title="minikube_nginx_svc_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg">
+</div><a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg" title="minikube_nginx_svc_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg"
-            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg 2x"
+            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg"
+            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/minikube_nginx_svc_web.jpg 2x"
             data-sizes="auto"
             alt="minikube_nginx_svc_web" width="800" height="560" />
     </a>
-<h3 id="清理minikube和podman">清理Minikube和Podman</h3>
+<h3 id="清理-minikube-和-podman">清理 Minikube 和 Podman</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -680,8 +680,8 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/minikube/1.32.0... (9 files, 87.5MB)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="kind实践">KinD实践</h2>
-<p>KinD是一个工具，用于在Docker中运行本地Kubernetes集群。</p>
+</div><h2 id="kind-实践">KinD 实践</h2>
+<p>KinD 是一个工具，用于在 Docker 中运行本地 Kubernetes 集群。</p>
 <h3 id="基础环境-1">基础环境</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -699,7 +699,7 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="安装使用kind">安装使用KinD</h3>
+</div><h3 id="安装使用-kind">安装使用 KinD</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -724,7 +724,7 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">kind v0.20.0 go1.21.1 darwin/arm64
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建一个名为mycluster的K8S集群，并将hostPort的30080端口暴露到localhost的30080端口。</p>
+</div><p>创建一个名为 mycluster 的 K8S 集群，并将 hostPort 的30080端口暴露到 localhost 的30080端口。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -853,7 +853,7 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">local-path-storage   Active   104s
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="部署测试nginx-service-1">部署测试Nginx Service</h3>
+</div><h3 id="部署测试-nginx-service-1">部署测试 Nginx Service</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -986,17 +986,17 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>访问Nginx: http://localhost:30080</p>
-<a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg" title="kind_nginx_svc_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg">
+</div><p>访问 Nginx: http://localhost:30080</p>
+<a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg" title="kind_nginx_svc_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg"
-            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg 2x"
+            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg"
+            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/kind_nginx_svc_web.jpg 2x"
             data-sizes="auto"
             alt="kind_nginx_svc_web" width="800" height="614" />
     </a>
-<h3 id="清理kind">清理KinD</h3>
+<h3 id="清理-kind">清理 KinD</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1015,9 +1015,9 @@ Podman是一个开源的容器运行时工具，它提供与Docker相似的功�
 </span></span><span class="line"><span class="cl">No kind clusters found.
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="k3s结合multipass实践">K3S结合Multipass实践</h2>
-<p>K3S是一个轻量级、易于安装的Kubernetes发行版。<br>
-Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具。</p>
+</div><h2 id="k3s-结合-multipass-实践">K3S 结合 Multipass 实践</h2>
+<p>K3S 是一个轻量级、易于安装的 Kubernetes 发行版。
+Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
 <h3 id="基础环境-2">基础环境</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1043,7 +1043,7 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="安装使用multipass">安装使用Multipass</h3>
+</div><h3 id="安装使用-multipass">安装使用 Multipass</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1102,7 +1102,7 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span><span class="line"><span class="cl">Mounts:         --
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="安装使用k3s">安装使用K3S</h3>
+</div><h3 id="安装使用-k3s">安装使用 K3S</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1271,7 +1271,7 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span><span class="line"><span class="cl">logout
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="部署测试nginx-service-2">部署测试Nginx Service</h3>
+</div><h3 id="部署测试-nginx-service-2">部署测试 Nginx Service</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1436,16 +1436,16 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span><span class="line"><span class="cl">                                          10.42.1.1
 </span></span></code></pre></td></tr></table>
 </div>
-</div><a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg" title="k3s_nginx_svc_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg">
+</div><a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg" title="k3s_nginx_svc_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg"
-            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg 2x"
+            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg"
+            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3s_nginx_svc_web.jpg 2x"
             data-sizes="auto"
             alt="k3s_nginx_svc_web" width="800" height="620" />
     </a>
-<h3 id="清理multipass和k3s">清理Multipass和K3S</h3>
+<h3 id="清理-multipass-和-k3s">清理 Multipass 和 K3S</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1510,8 +1510,8 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.12.2 of Cask multipass
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="k3d实践">K3D实践</h2>
-<p>K3D是一个轻量级的工具，用于在Docker中运行K3S。</p>
+</div><h2 id="k3d-实践">K3D 实践</h2>
+<p>K3D 是一个轻量级的工具，用于在 Docker 中运行 K3S。</p>
 <h3 id="基础环境-3">基础环境</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1529,7 +1529,7 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="安装使用k3d">安装使用K3D</h3>
+</div><h3 id="安装使用-k3d">安装使用 K3D</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1556,7 +1556,7 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span><span class="line"><span class="cl">k3s version v1.27.5-k3s1 (default)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建一个名为mycluster的K8S集群，并将Ingress的80端口暴露到localhost的8081端口。</p>
+</div><p>创建一个名为 mycluster 的 K8S 集群，并将 Ingress 的80端口暴露到 localhost 的8081端口。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1623,7 +1623,7 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span><span class="line"><span class="cl">Metrics-server is running at https://0.0.0.0:56685/api/v1/namespaces/kube-system/services/https:metrics-server:https/proxy
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="部署测试nginx-service-3">部署测试Nginx Service</h3>
+</div><h3 id="部署测试-nginx-service-3">部署测试 Nginx Service</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1804,17 +1804,17 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
 </span></span><span class="line"><span class="cl">nginx-ingress   &lt;none&gt;   *       192.168.167.2,192.168.167.3   80      2m56s
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>通过Ingress访问Nginx: http://localhost:8081</p>
-<a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg" title="k3d_nginx_ingress_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg">
+</div><p>通过 Ingress 访问 Nginx: http://localhost:8081</p>
+<a class="lightgallery" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg" title="k3d_nginx_ingress_web" data-thumbnail="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg"
-            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg 2x"
+            data-src="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg"
+            data-srcset="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg 1.5x, /2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/k3d_nginx_ingress_web.jpg 2x"
             data-sizes="auto"
             alt="k3d_nginx_ingress_web" width="800" height="612" />
     </a>
-<h3 id="清理k3d">清理K3D</h3>
+<h3 id="清理-k3d">清理 K3D</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1857,10 +1857,10 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" data-title="轻量级Kubernetes发行版实践" data-hashtags="Kubernetes,Podman"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" data-title="轻量级Kubernetes发行版实践"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7kubernetes%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" data-title="轻量级Kubernetes发行版实践"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" data-title="轻量级 Kubernetes 发行版实践" data-hashtags="Kubernetes,Podman"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" data-title="轻量级 Kubernetes 发行版实践"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/" data-title="轻量级 Kubernetes 发行版实践"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -1872,8 +1872,8 @@ Multipass是一个用于快速创建、管理和操作Ubuntu虚拟机的工具�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2023/03/%E7%A7%81%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/" class="prev" rel="prev" title="私有IP地址包括哪些"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>私有IP地址包括哪些</a>
-            <a href="/2023/12/%E4%BD%BF%E7%94%A8git-crypt%E5%8A%A0%E8%A7%A3%E5%AF%86git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/" class="next" rel="next" title="使用git-crypt加解密Git中的文件">使用git-crypt加解密Git中的文件<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/2023/03/%E7%A7%81%E6%9C%89-ip-%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/" class="prev" rel="prev" title="私有 IP 地址包括哪些"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>私有 IP 地址包括哪些</a>
+            <a href="/2023/12/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/" class="next" rel="next" title="使用 git-crypt 加解密 Git 中的文件">使用 git-crypt 加解密 Git 中的文件<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

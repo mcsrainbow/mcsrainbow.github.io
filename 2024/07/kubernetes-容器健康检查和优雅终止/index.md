@@ -1,4 +1,4 @@
-# Kubernetes容器健康检查和优雅终止
+# Kubernetes 容器健康检查和优雅终止
 
 
 在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。
@@ -17,7 +17,7 @@
 
 {{< image src="k8s_pod_lifecycle.jpg" alt="k8s_pod_lifecycle" width=800 >}}
 
-**启用`容器健康检查`和`优雅终止`的 Kubernetes Deployment 最佳实践配置示例:**
+**启用 `容器健康检查` 和 `优雅终止` 的 Kubernetes Deployment 最佳实践配置示例:**
 
 ```yaml
 apiVersion: apps/v1
@@ -84,25 +84,25 @@ spec:
 **Kubernetes 默认配置：**
 
 1. **启动检查:** `无`
-2. **容器上线:** 最短`0`秒
+2. **容器上线:** 最短 `0` 秒
 3. **容器状态:**  
-   异常判定`23`-`33`秒 `failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
-   恢复判定`0`-`10`秒 `periodSeconds(10)`
-4. **容器关闭:** 最短`0`秒，最长`30`秒 `terminationGracePeriodSeconds(30)`
+   异常判定 `23`-`33` 秒 `failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
+   恢复判定 `0`-`10` 秒 `periodSeconds(10)`
+4. **容器关闭:** 最短 `0` 秒，最长 `30` 秒 `terminationGracePeriodSeconds(30)`
 
 **最佳实践配置:**
 
 1. **启动检查:**  
-   最短`60`秒 `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`  
-   最长`320`秒 `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)`
+   最短 `60` 秒 `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`  
+   最长 `320` 秒 `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)`
 2. **容器上线:**  
-   最短`120`秒 `启动检查(最短60秒)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
+   最短 `120` 秒 `启动检查(最短60秒)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
 3. **容器状态:**  
-   异常判定`66`-`96`秒 `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(30)`  
-   恢复判定`30`-`60`秒 `periodSeconds(30) * ( successThreshold(2) - 1 )`
+   异常判定 `66`-`96` 秒 `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(30)`  
+   恢复判定 `30`-`60` 秒 `periodSeconds(30) * ( successThreshold(2) - 1 )`
 4. **容器关闭:**  
-   最短`60`秒 `sleep 60`  
-   最长`120`秒 `terminationGracePeriodSeconds(120)`
+   最短 `60` 秒 `sleep 60`  
+   最长 `120` 秒 `terminationGracePeriodSeconds(120)`
 
 **与 Kubernetes 默认配置相比，以上最佳实践配置进行了如下优化:**
 
