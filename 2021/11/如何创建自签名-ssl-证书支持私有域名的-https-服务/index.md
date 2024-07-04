@@ -189,7 +189,7 @@ keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.
 openssl x509 -noout -text -in rootCA.heylinux.com.pem 
 openssl x509 -noout -text -in star.heylinux.com.pem
 
-# 查看 P12格式的证书 star.heylinux.com.p12 
+# 查看 P12 格式的证书 star.heylinux.com.p12 
 keytool -list -v -keystore star.heylinux.com.p12 -storepass P_Ss0rdT -storetype PKCS12
 
 # 查看 JKS 格式的证书 star.heylinux.com.jks
@@ -243,13 +243,13 @@ writing new private key to 'heylinux-ssl-keypair.key'
 Enter PEM pass phrase: P_Ss0rdT
 Verifying - Enter PEM pass phrase: P_Ss0rdT
 
-# 将证书 Key 和证书转换为 P12格式的捆绑证书 heylinux-ssl-keypair.p12
+# 将证书 Key 和证书转换为 P12 格式的捆绑证书 heylinux-ssl-keypair.p12
 openssl pkcs12 -export -in heylinux-ssl-keypair.crt -inkey heylinux-ssl-keypair.key -password pass:P_Ss0rdT -name heylinux_ssl_keypair -out heylinux-ssl-keypair.p12
 
 # 输入密码
 Enter pass phrase for heylinux-ssl-keypair.key: P_Ss0rdT
 
-# 查看 P12格式的捆绑证书 heylinux-ssl-keypair.p12
+# 查看 P12 格式的捆绑证书 heylinux-ssl-keypair.p12
 keytool -list -v -keystore heylinux-ssl-keypair.p12 -storepass P_Ss0rdT -storetype PKCS12
 ```
 
