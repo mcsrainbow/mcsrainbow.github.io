@@ -21,12 +21,12 @@ math:
 
 <i class="fas fa-tasks fa-fw"></i> **核心任务**
 
-- [x] <i class="fab fa-aws fa-fw"></i> **AWS SAP** - AWS解决方案架构师专家级
-- [x] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT服务管理基础级
-- [x] <i class="fas fa-dharmachakra fa-fw"></i> **CKA** - Kubernetes管理员认证
+- [x] <i class="fab fa-aws fa-fw"></i> **AWS SAP** - AWS 解决方案架构师专家级
+- [x] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT 服务管理基础级
+- [x] <i class="fas fa-dharmachakra fa-fw"></i> **CKA** - Kubernetes 管理员认证
 - [x] <i class="fas fa-language fa-fw"></i> **CET6** - 英语六级
 - [x] <i class="fas fa-graduation-cap fa-fw"></i> **Degree** - 工程管理硕士
-- [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** - 极狐GitLab DevOps高级专家
+- [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** - 极狐 GitLab DevOps 高级专家
 - [x] <i class="fas fa-cloud fa-fw"></i> **ACP** - 阿里云云计算专业认证
 - [ ] <i class="fas fa-user-shield fa-fw"></i> **CISSP** - 信息系统安全认证专家
 - [ ] <i class="fas fa-users-cog fa-fw"></i> **PMP** - 项目管理专业认证
@@ -34,7 +34,7 @@ math:
 - [ ] <i class="fas fa-user-tag fa-fw"></i> **CDMP** - 数据管理专业认证
 - [ ] <i class="fas fa-language fa-fw"></i> **IELTS 7** - 雅思7分
 - [ ] <i class="fas fa-hand-holding-usd fa-fw"></i> **CFA** - 特许金融分析师
-- [ ] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 MP** - IT服务管理专家级
+- [ ] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 MP** - IT 服务管理专家级
 
 <i class="fas fa-book-open fa-fw"></i> **私藏书单**
 
