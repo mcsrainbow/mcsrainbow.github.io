@@ -1,8 +1,8 @@
 ---
-title: "使用kubeadm快速部署Kubernetes集群"
+title: "使用 kubeadm 快速部署 Kubernetes 集群"
 date: 2021-12-21T21:58:24+08:00
 author: "郭冬"
-description: "kubeadm是Kubernetes官方提供的用于快速部署集群的工具"
+description: "kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具"
 categories: ["技能矩阵"]
 tags: ["Kubernetes"]
 resources:
@@ -12,7 +12,7 @@ resources:
 lightgallery: true
 ---
 
-kubeadm是Kubernetes官方提供的用于快速部署集群的工具。
+kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具。
 
 <!--more-->
 
@@ -20,13 +20,13 @@ kubeadm是Kubernetes官方提供的用于快速部署集群的工具。
 
 ## 背景
 
-kubeadm大大降低了Kubernetes集群部署的复杂度，但通常仅仅用来部署一个最小可用集群，方便学习和测试。生产级别的Kubernetes集群则需要高可用、高性能和更灵活的配置，建议通过源码包方式部署或选择已有的商业产品或公有云服务。
+kubeadm 大大降低了 Kubernetes 集群部署的复杂度，但通常仅仅用来部署一个最小可用集群，方便学习和测试。生产级别的 Kubernetes 集群则需要高可用、高性能和更灵活的配置，建议通过源码包方式部署或选择已有的商业产品或公有云服务。
 
 ## 环境准备
 
-> 注：以下步骤都需要在所有节点上以root用户操作完成
+> 注：以下步骤都需要在所有节点上以 root 用户操作完成
 
-准备3台虚拟机节点（根据实际情况替换为真实IP）
+准备3台虚拟机节点（根据实际情况替换为真实 IP）
 
 ```
 OS: CentOS 7.9 x86_64
@@ -71,7 +71,7 @@ EOF
 [root@kubeadm03 ~]# hostname kubeadm03
 ```
 
-配置主机名解析（根据实际情况替换为真实IP）
+配置主机名解析（根据实际情况替换为真实 IP）
 
 ```
 cat >> /etc/hosts <<EOF
@@ -110,14 +110,14 @@ yum install -y epel-release
 yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet
 ```
 
-启用Chrony时间同步服务
+启用 Chrony 时间同步服务
 
 ```
 systemctl start chronyd
 systemctl enable chronyd
 ```
 
-禁用Firewalld，Swap和SELinux
+禁用 Firewalld，Swap 和 SELinux
 
 ```
 systemctl stop firewalld
@@ -164,7 +164,7 @@ reboot
 lsmod | grep -e ip_vs -e nf_conntrack_ipv4
 ```
 
-安装Docker
+安装 Docker
 
 ```
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -181,7 +181,7 @@ systemctl enable docker
 ```
 
 
-禁用postfix，创建所需目录
+禁用 postfix，创建所需目录
 
 ```
 systemctl stop postfix
@@ -194,7 +194,7 @@ mkdir -p /opt/k8s/{bin,work} /etc/{kubernetes,etcd}/cert
 
 > 注：以下步骤需要在不同节点上操作完成（根据实际情况替换1.22.1为需要的版本）
 
-在所有节点上安装kubeadm，kubelet和kubectl
+在所有节点上安装 kubeadm，kubelet 和 kubectl
 
 ```
 cat > /etc/yum.repos.d/kubernetes.repo << EOF
@@ -212,7 +212,7 @@ systemctl enable kubelet
 systemctl start kubelet
 ```
 
-在所有节点上拉取Docker镜像
+在所有节点上拉取 Docker 镜像
 
 ```
 kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.22.1
@@ -244,18 +244,18 @@ k8s.gcr.io/etcd:3.5.0-0
 k8s.gcr.io/coredns/coredns:v1.8.4
 ```
 
-在所有节点上修改已拉取的镜像的Tag
+在所有节点上修改已拉取的镜像的 Tag
 
 ```bash
-# 将除了coredns以外的镜像Tag为k8s.gcr.io镜像源
+# 将除了 coredns 以外的镜像 Tag 为 k8s.gcr.io 镜像源
 for i in $(docker images | grep google_containers | awk '{print $1":"$2}' | cut -d/ -f3 | grep -v coredns); do docker tag registry.aliyuncs.com/google_containers/$i k8s.gcr.io/$i;done
-# 将coredns的镜像Tag为k8s.gcr.io镜像源，并增加/coredns前缀
+# 将 coredns 的镜像 Tag 为 k8s.gcr.io 镜像源，并增加/coredns 前缀
 for i in $(docker images | grep google_containers/coredns | awk '{print $1":"$2}' | cut -d/ -f3); do docker tag registry.aliyuncs.com/google_containers/$i k8s.gcr.io/coredns/$i;done
-# 删除镜像的旧Tag
+# 删除镜像的旧 Tag
 for i in $(docker images | grep google_containers | awk '{print $1":"$2}' | cut -d/ -f3); do docker rmi registry.aliyuncs.com/google_containers/$i;done
 ```
 
-在kubeadm01上执行init（根据实际情况替换Node，Pod和Service的网段）
+在 kubeadm01 上执行 init（根据实际情况替换 Node，Pod 和 Service 的网段）
 
 ```
 # Networks:
@@ -296,7 +296,7 @@ kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
         --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
 ```
 
-在kubeadm01上配置.kube/config
+在 kubeadm01 上配置.kube/config
 
 ```
 [root@kubeadm01 ~]# mkdir -p $HOME/.kube
@@ -307,7 +307,7 @@ kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
 [centos@kubeadm01 ~]$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-在kubeadm02和kubeadm03上执行join（根据实际情况替换参数的值）
+在 kubeadm02 和 kubeadm03 上执行 join（根据实际情况替换参数的值）
 
 ```
 [root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
@@ -327,7 +327,7 @@ This node has joined the cluster:
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
 
-在kubeadm01上查看节点状态
+在 kubeadm01 上查看节点状态
 
 ```
 [centos@kubeadm01 ~]$ kubectl get nodes 
@@ -340,7 +340,7 @@ kubeadm02   Ready    <none>                 7m      v1.22.1
 kubeadm03   Ready    <none>                 9m      v1.22.1
 ```
 
-在kubeadm01上安装Flannel网络插件（根据实际情况替换Pod的网段）
+在 kubeadm01 上安装 Flannel 网络插件（根据实际情况替换 Pod 的网段）
 
 ```
 [centos@kubeadm01 ~]$ mkdir flannel 
@@ -363,7 +363,7 @@ kubeadm03   Ready    <none>                 9m      v1.22.1
 [centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
 ```
 
-在kubeadm01上修复scheduler和controller-manager
+在 kubeadm01 上修复 scheduler 和 controller-manager
 
 ```
 [centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
@@ -373,7 +373,7 @@ kubeadm03   Ready    <none>                 9m      v1.22.1
 [centos@kubeadm01 ~]$ sudo systemctl restart kubelet
 ```
 
-在kubeadm01上查看clusterservice状态
+在 kubeadm01 上查看 clusterservice 状态
 
 ```
 [centos@kubeadm01 ~]$ kubectl get cs
@@ -386,7 +386,7 @@ controller-manager   Healthy   ok
 etcd-0               Healthy   {"health":"true","reason":""} 
 ```
 
-在kubeadm01上查看所有Pod的状态
+在 kubeadm01 上查看所有 Pod 的状态
 
 ```
 [centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
@@ -410,7 +410,7 @@ kube-system            kube-scheduler-kubeadm01                    1/1     Runni
 
 ## 配置优化
 
-默认kube-proxy的mode为iptables，修改为功能更强大的ipvs
+默认 kube-proxy 的 mode 为 iptables，修改为功能更强大的 ipvs
 
 ```
 kubectl edit configmap kube-proxy -n kube-system

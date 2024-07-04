@@ -1,5 +1,5 @@
 ---
-title: "阿里云官方矢量图标和draw.io自定义图标库"
+title: "阿里云官方矢量图标和 draw.io 自定义图标库"
 date: 2024-01-04T16:39:06+08:00
 author: "郭冬"
 description: "我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。"
@@ -64,7 +64,7 @@ lightgallery: true
 ## 后续
 
 关于 draw.io 中没有内置阿里云官方矢量图标这件事情，我带来了一些改变。  
-大家很快就能在 draw.io 里看到内置的阿里云官方矢量图标了。:smile:   
+大家很快就能在 draw.io 里看到内置的阿里云官方矢量图标了。:smile:
 
 https://github.com/jgraph/drawio/issues/4086  
 

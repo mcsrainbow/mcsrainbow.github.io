@@ -1,8 +1,8 @@
 ---
-title: "通过Bucket Level Policy加强AWS S3数据安全防护"
+title: "通过 Bucket Level Policy 加强 AWS S3 数据安全防护"
 date: 2022-11-20T22:31:30+08:00
 author: "郭冬"
-description: "通过Bucket Level Policy合理限制S3 Bucket的访问请求来源后，能够在AKSK泄露的情况下仍然保障AWS S3 Bucket的数据安全。"
+description: "通过 Bucket Level Policy 合理限制 S3 Bucket 的访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。"
 categories: ["技能矩阵"]
 tags: ["AWS","安全"]
 resources:
@@ -13,7 +13,7 @@ toc: false
 lightgallery: true
 ---
 
-通过Bucket Level Policy合理限制S3 Bucket访问请求来源后，能够在AKSK泄露的情况下仍然保障AWS S3 Bucket的数据安全。
+通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。
 
 <!--more-->
 
@@ -23,20 +23,20 @@ lightgallery: true
 
 随着公有云的不断发展，越来越多的企业通过云服务来构建基础设施，并采用对象存储作为企业的数据底座。
 
-由于安全意识较弱，大量的技术人员为了方便，喜欢通过AKSK（Access Key and Secret Key）的授权方式对资源进行访问。AKSK由两串字符构成，通过AKSK能够直接用命令行工具或API代码获取到对应用户的权限。以AWS为例，通过一个简单的`aws s3 sync`命令就可以将S3 Bucket的数据全部拖走。
+由于安全意识较弱，大量的技术人员为了方便，喜欢通过 AKSK（Access Key and Secret Key）的授权方式对资源进行访问。AKSK 由两串字符构成，通过 AKSK 能够直接用命令行工具或 API 代码获取到对应用户的权限。以 AWS 为例，通过一个简单的`aws s3 sync`命令就可以将 S3 Bucket 的数据全部拖走。
 
-由于AKSK泄露造成对象存储中数据被拖走的案例，可谓是屡见不鲜，部分案例所造成的影响甚至可以用骇人听闻来形容。采用技术手段规避掉这类风险是很有必要的，以AWS为例，通过Bucket Level Policy合理限制S3 Bucket的访问请求来源后，能够在AKSK泄露的情况下仍然保障AWS S3 Bucket的数据安全。
+由于 AKSK 泄露造成对象存储中数据被拖走的案例，可谓是屡见不鲜，部分案例所造成的影响甚至可以用骇人听闻来形容。采用技术手段规避掉这类风险是很有必要的，以 AWS 为例，通过 Bucket Level Policy 合理限制 S3 Bucket 的访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。
 
-当然，这里还有一个前提，就是泄露的AKSK对应用户的权限不能太大，比如具备管理员权限或包含其它服务如IAM、EC2、Lambda等服务的完整权限。否则仍然可能通过其它服务绕过Bucket Level Policy的合理限制或修改重置Bucket Level Policy，造成权限蔓延。对于这类情况，可以通过SCP从组织账号级别对各种服务进行限制，Policy也会更复杂一些。
+当然，这里还有一个前提，就是泄露的 AKSK 对应用户的权限不能太大，比如具备管理员权限或包含其它服务如 IAM、EC2、Lambda 等服务的完整权限。否则仍然可能通过其它服务绕过 Bucket Level Policy 的合理限制或修改重置 Bucket Level Policy，造成权限蔓延。对于这类情况，可以通过 SCP 从组织账号级别对各种服务进行限制，Policy 也会更复杂一些。
 
-## Policy示例
+## Policy 示例
 
-以下Bucket Level Policy示例代码默认采用了Deny（禁用）策略，仅对以下几种请求放行：
+以下 Bucket Level Policy 示例代码默认采用了 Deny（禁用）策略，仅对以下几种请求放行：
 
-1. 当请求直接来自于AWS Service；
-2. 当请求来自于指定的VPC ID；
-3. 当请求来自于指定的Role；
-4. 当请求来自于指定的IP。
+1. 当请求直接来自于 AWS Service；
+2. 当请求来自于指定的 VPC ID；
+3. 当请求来自于指定的 Role；
+4. 当请求来自于指定的 IP。
 
 ```json
 {
@@ -84,17 +84,17 @@ lightgallery: true
 
 ## 更完善的方案
 
-更加完善地保障S3 Bucket的数据安全，可以通过访问来源、最小访问权限、安全监测、日志监控、数据加密、配置检查、数据副本等方面开展：
+更加完善地保障 S3 Bucket 的数据安全，可以通过访问来源、最小访问权限、安全监测、日志监控、数据加密、配置检查、数据副本等方面开展：
 
-1. 通过SCP从组织账号级别限制S3以及其它AWS Service的访问来源
-2. 通过Bucket Level Policy限制具体的S3 Action
-3. 启用GuardDuty监测可疑的S3访问活动
-4. 使用Macie扫描S3中的敏感数据
-5. 启用KMS加密S3中的数据
-6. 启用S3 Versioning保留数据副本避免误删除，或启用S3 Object Lock禁用数据删除功能
-7. 启用S3访问日志和CloudTrail日志监控
-8. 通过Security Hub检查S3设置，对CloudWatch日志进行自定义分析和报警
-9. 采用S3跨区域复制功能自动同步备份
+1. 通过 SCP 从组织账号级别限制 S3 以及其它 AWS Service 的访问来源
+2. 通过 Bucket Level Policy 限制具体的 S3 Action
+3. 启用 GuardDuty 监测可疑的 S3 访问活动
+4. 使用 Macie 扫描 S3 中的敏感数据
+5. 启用 KMS 加密 S3 中的数据
+6. 启用 S3 Versioning 保留数据副本避免误删除，或启用 S3 Object Lock 禁用数据删除功能
+7. 启用 S3 访问日志和 CloudTrail 日志监控
+8. 通过 Security Hub 检查 S3 设置，对 CloudWatch 日志进行自定义分析和报警
+9. 采用 S3 跨区域复制功能自动同步备份
 
 ## 参考
 
