@@ -53,7 +53,7 @@ DNS.1 = *.heylinux.com
 DNS.2 = *.cloud.heylinux.com
 ```
 
-生成服务端证书的 Key,文件名 `star.heylinux.com.key`，机构信息设置为 `/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com`。
+生成服务端证书的 Key，文件名 `star.heylinux.com.key`，机构信息设置为 `/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com`。
 
 ```bash
 openssl req -new -nodes -out star.heylinux.com.csr -newkey rsa:4096 -keyout star.heylinux.com.key -subj "/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com"
