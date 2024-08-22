@@ -9,7 +9,7 @@ resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
 
-toc: false
+toc: true
 lightgallery: true
 ---
 
@@ -19,7 +19,7 @@ Implementing container health checks and graceful termination in Kubernetes with
 
 ---
 
-**Configuration Items:**
+## Parameters
 
 1. **`terminationGracePeriodSeconds`:** Global setting for Pod termination grace period; must greater than lifecycle.preStop. If containers aren't terminated within this period, the Pod will be forcibly terminated.  
 2. **`lifecycle.preStop`:** Hook to execute commands before container stops, delaying termination to release connections for pending requests.  
@@ -29,7 +29,10 @@ Implementing container health checks and graceful termination in Kubernetes with
 
 {{< image src="k8s_pod_lifecycle.jpg" alt="k8s_pod_lifecycle" width=800 >}}
 
-**Best Practice Kubernetes Deployment Configurations with Health Checks and Graceful Termination:**
+
+## Practice
+
+Kubernetes deployment configurations with health checks and graceful termination:
 
 ```yaml
 apiVersion: apps/v1
@@ -70,7 +73,7 @@ spec:
             initialDelaySeconds: 30      # default: 0
             periodSeconds: 30            # default: 10
             failureThreshold: 3          # default: 3
-            successThreshold: 2          # default: 1
+            successThreshold: 2          # default: 1 and must be 1 by design
             timeoutSeconds: 2            # default: 1
           readinessProbe:
             tcpSocket:
@@ -93,7 +96,9 @@ spec:
               memory: 1Gi
 ```
 
-**Default Kubernetes Configurations:**
+## Explanation
+
+Default Kubernetes configurations:
 
 1. **Startup Check:** `None`
 2. **Container Readiness:** Minimum `0` seconds
@@ -102,13 +107,14 @@ spec:
    Recovery determination `0` - `10` seconds `periodSeconds(10)`
 4. **Container Termination:** Minimum `0` seconds, Maximum `30` seconds `terminationGracePeriodSeconds(30)`
 
-**Best Practice Configurations:**
+Practice configurations:
 
 1. **Startup Check:**  
    Minimum `60` seconds `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`  
    Maximum `320` seconds `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)`
 2. **Container Readiness:**  
-   Minimum `120` seconds `Startup Check(60)` + `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`
+   Minimum `120` seconds `Startup Check(60)` + `initialDelaySeconds(30) + periodSeconds(30) * ( readinessProbe.successThreshold(2) - 1 )`  
+   Note: The design purpose and working principle determine that `livenessProbe.successThreshold` can only be set to `1`
 3. **Container State:**  
    Failure determination `66`-`96` seconds `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(30)`  
    Recovery determination `30`-`60` seconds `periodSeconds(30) * ( successThreshold(2) - 1 )`
@@ -116,14 +122,86 @@ spec:
    Minimum `60` seconds `sleep 60`  
    Maximum `120` seconds `terminationGracePeriodSeconds(120)`
 
-**Optimizations Compared to Default Kubernetes Configurations:**
+## Summary
+
+Optimizations compared to default Kubernetes configurations:
 
 1. **Startup Check:** Add 60-320 seconds for application startup.
 2. **Container Readiness:** Add a 120 seconds buffer during deployment.
-3. **Container State:** Add 43-73 seconds for failure determination and 30-60 seconds for recovery, improve accuracy.
+3. **Container State:** Add 66-96 seconds for failure determination and 30-60 seconds for recovery, improve accuracy.
 4. **Container Termination:** Add 60 seconds to ensure connections are properly released.
 
-**Further Enhancements:**
+## Optimization
+
+Further optimization:
 
 1. Create a `/healthz` endpoint for accurate health checks.
-2. Upgrade from `port` to `httpGet` health checks for precise assessments.
+2. Upgrade from `tcpSocket` to `httpGet` health checks for precise assessments.
+
+## Optimized Practice
+
+Kubernetes deployment configurations enables the `/healthz` endpoint:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      terminationGracePeriodSeconds: 120 # default: 30
+      imagePullSecrets:
+      - name: mysecret
+      containers:
+        - name: myapp
+          image: myapp:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          startupProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 30      # default: 0
+            periodSeconds: 30            # default: 10
+            failureThreshold: 10         # default: 3
+            successThreshold: 2          # default: 1
+            timeoutSeconds: 2            # default: 1
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 30      # default: 0
+            periodSeconds: 30            # default: 10
+            failureThreshold: 3          # default: 3
+            successThreshold: 1          # default: 1 and must be 1 by design
+            timeoutSeconds: 2            # default: 1
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 30      # default: 0
+            periodSeconds: 30            # default: 10
+            failureThreshold: 3          # default: 3
+            successThreshold: 2          # default: 1
+            timeoutSeconds: 2            # default: 1
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 60"]
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+          resources:
+            requests:
+              cpu: "0.5"
+              memory: 1Gi
+```
