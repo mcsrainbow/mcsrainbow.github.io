@@ -64,11 +64,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         identifier = "english"
         name = "English"
         url = "/en/"
-    # 作者配置
-    [languages.zh-cn.author]
-      name = "mcsrainbow"
-      email = "guosuiyu@gmail.com"
-      link = "/about/"
     [languages.zh-cn.params]
       # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
       description = "郭冬的博客"
@@ -76,6 +71,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       keywords = ["heylinux", "mcsrainbow", "damonguo"]
       # 谷歌分析代号 [UA-XXXXXXXX-X]
       googleAnalytics = ""
+      # 作者配置
+      [languages.zh-cn.params.author]
+        name = "mcsrainbow"
+        email = "guosuiyu@gmail.com"
+        link = "/about/"
       # 应用图标配置
       [languages.zh-cn.params.app]
         # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
@@ -187,11 +187,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         identifier = "chinese"
         name = "简体中文"
         url = "../"
-    [languages.en.author]
-      # author
-      name = "mcsrainbow"
-      email = "guosuiyu@gmail.com"
-      link = "/en/about/"
     [languages.en.params]
       # site description
       description = "Damon Guo's Blog"
@@ -199,6 +194,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       keywords = ["heylinux", "mcsrainbow", "damonguo"]
       # google analytics code [UA-XXXXXXXX-X]
       googleAnalytics = ""
+      [languages.en.params.author]
+        # author
+        name = "mcsrainbow"
+        email = "guosuiyu@gmail.com"
+        link = "/en/about/"
       # App icon config
       [languages.en.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
