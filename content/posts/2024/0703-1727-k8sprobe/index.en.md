@@ -50,7 +50,8 @@ spec:
       labels:
         app: myapp
     spec:
-      terminationGracePeriodSeconds: 120 # default: 30
+      # default: 30
+      terminationGracePeriodSeconds: 120
       imagePullSecrets:
       - name: mysecret
       containers:
@@ -61,28 +62,43 @@ spec:
             - containerPort: 8080
           startupProbe:
             tcpSocket:
-              port: 8080
-            initialDelaySeconds: 30      # default: 0
-            periodSeconds: 30            # default: 10
-            failureThreshold: 10         # default: 3
-            successThreshold: 2          # default: 1
-            timeoutSeconds: 2            # default: 1
+              port: 
+            # default: 0
+            initialDelaySeconds: 30
+            # default: 10
+            periodSeconds: 30
+            # default: 3
+            failureThreshold: 10
+            # default: 1
+            successThreshold: 2
+            # default: 1
+            timeoutSeconds: 2
           livenessProbe:
             tcpSocket:
               port: 8080
-            initialDelaySeconds: 30      # default: 0
-            periodSeconds: 30            # default: 10
-            failureThreshold: 3          # default: 3
-            successThreshold: 2          # default: 1 and must be 1 by design
-            timeoutSeconds: 2            # default: 1
+            # default: 0
+            initialDelaySeconds: 30
+            # default: 10
+            periodSeconds: 30
+            # default: 3
+            failureThreshold: 3
+            # default: 1 and must be 1 by design
+            successThreshold: 1
+            # default: 1
+            timeoutSeconds: 2
           readinessProbe:
             tcpSocket:
               port: 8080
-            initialDelaySeconds: 30      # default: 0
-            periodSeconds: 30            # default: 10
-            failureThreshold: 3          # default: 3
-            successThreshold: 2          # default: 1
-            timeoutSeconds: 2            # default: 1
+            # default: 0
+            initialDelaySeconds: 30
+            # default: 10
+            periodSeconds: 30
+            # default: 3
+            failureThreshold: 3
+            # default: 1
+            successThreshold: 2
+            # default: 1
+            timeoutSeconds: 2
           lifecycle:
             preStop:
               exec:
@@ -158,7 +174,8 @@ spec:
       labels:
         app: myapp
     spec:
-      terminationGracePeriodSeconds: 120 # default: 30
+      # default: 30
+      terminationGracePeriodSeconds: 120
       imagePullSecrets:
       - name: mysecret
       containers:
@@ -170,29 +187,44 @@ spec:
           startupProbe:
             tcpSocket:
               port: 8080
-            initialDelaySeconds: 30      # default: 0
-            periodSeconds: 30            # default: 10
-            failureThreshold: 10         # default: 3
-            successThreshold: 2          # default: 1
-            timeoutSeconds: 2            # default: 1
+            # default: 0
+            initialDelaySeconds: 30
+            # default: 10
+            periodSeconds: 30
+            # default: 3
+            failureThreshold: 10
+            # default: 1
+            successThreshold: 2
+            # default: 1
+            timeoutSeconds: 2
           livenessProbe:
             httpGet:
               path: /healthz
               port: 8080
-            initialDelaySeconds: 30      # default: 0
-            periodSeconds: 30            # default: 10
-            failureThreshold: 3          # default: 3
-            successThreshold: 1          # default: 1 and must be 1 by design
-            timeoutSeconds: 2            # default: 1
+            # default: 0
+            initialDelaySeconds: 30
+            # default: 10
+            periodSeconds: 30
+            # default: 3
+            failureThreshold: 3
+            # default: 1 and must be 1 by design
+            successThreshold: 1
+            # default: 1
+            timeoutSeconds: 2
           readinessProbe:
             httpGet:
               path: /healthz
               port: 8080
-            initialDelaySeconds: 30      # default: 0
-            periodSeconds: 30            # default: 10
-            failureThreshold: 3          # default: 3
-            successThreshold: 2          # default: 1
-            timeoutSeconds: 2            # default: 1
+            # default: 0
+            initialDelaySeconds: 30
+            # default: 10
+            periodSeconds: 30
+            # default: 3
+            failureThreshold: 3
+            # default: 1
+            successThreshold: 2
+            # default: 1
+            timeoutSeconds: 2
           lifecycle:
             preStop:
               exec:
