@@ -126,7 +126,7 @@ helm/apps-overlays
 
 通过 `helm template` 命令可以预览渲染出的原生 YAML。
 
-```
+```bash
 cd helm/apps-overlays
 helm template . -f values/development.yaml
 helm template . -f values/staging.yaml

@@ -126,7 +126,7 @@ helm/apps-overlays
 
 Rendering of native YAML can be previewed using the `helm template` command.
 
-```
+```bash
 cd helm/apps-overlays
 helm template . -f values/development.yaml
 helm template . -f values/staging.yaml
