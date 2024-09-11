@@ -180,7 +180,7 @@ spec:
       # default: 30
       terminationGracePeriodSeconds: 120
       imagePullSecrets:
-      - name: mysecret
+        - name: mysecret
       containers:
         - name: myapp
           image: myapp:1.0
@@ -237,6 +237,9 @@ spec:
               value: Asia/Shanghai
           resources:
             requests:
-              cpu: "0.5"
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: 500m
               memory: 1Gi
 ```

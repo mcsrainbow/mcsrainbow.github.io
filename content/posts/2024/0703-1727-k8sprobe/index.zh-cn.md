@@ -176,10 +176,10 @@ spec:
       labels:
         app: myapp
     spec:
-      # default: 30
+      # 默认值: 30
       terminationGracePeriodSeconds: 120
       imagePullSecrets:
-      - name: mysecret
+        - name: mysecret
       containers:
         - name: myapp
           image: myapp:1.0
@@ -189,44 +189,44 @@ spec:
           startupProbe:
             tcpSocket:
               port: 8080
-            # default: 0
+            # 默认值: 0
             initialDelaySeconds: 30
-            # default: 10
+            # 默认值: 10
             periodSeconds: 30
-            # default: 3
+            # 默认值: 3
             failureThreshold: 10
-            # default: 1
+            # 默认值: 1
             successThreshold: 2
-            # default: 1
+            # 默认值: 1
             timeoutSeconds: 2
           livenessProbe:
             httpGet:
               path: /healthz
               port: 8080
-            # default: 0
+            # 默认值: 0
             initialDelaySeconds: 30
-            # default: 10
+            # 默认值: 10
             periodSeconds: 30
-             # default: 3
+            # 默认值: 3
             failureThreshold: 3
-            # default: 1 and must be 1 by design
+            # 默认值: 1 且设计目的和工作原理决定了只能设置为: 1
             successThreshold: 1
-            # default: 1
+            # 默认值: 1
             timeoutSeconds: 2
           readinessProbe:
             httpGet:
               path: /healthz
               port: 8080
-            # default: 0
+            # 默认值: 0
             initialDelaySeconds: 30
-            # default: 10
+            # 默认值: 10
             periodSeconds: 30            
             failureThreshold: 3
-            # default: 3
+            # 默认值: 3
             successThreshold: 2
-            # default: 1
+            # 默认值: 1
             timeoutSeconds: 2
-            # default: 1
+            # 默认值: 1
           lifecycle:
             preStop:
               exec:
@@ -236,6 +236,9 @@ spec:
               value: Asia/Shanghai
           resources:
             requests:
-              cpu: "0.5"
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: 500m
               memory: 1Gi
 ```
