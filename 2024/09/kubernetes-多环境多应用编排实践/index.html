@@ -280,7 +280,7 @@
 </div>
 </div><p>优点: 兼容原生 YAML，可复用配置代码，可通过内置的插件读取文件生成 Secret 和 ConfigMap，以及修改参数（例如: 增加标签、增加资源名称前缀、修改 CPU 和内存等）；<br>
 缺点: 复用配置代码后也导致了耦合，配置失误时影响范围增大，内置的插件功能有限，无法高度自由地复用配置代码和修改参数。</p>
-<p>Kustomize 内置插件: <a href="https://kubectl.docs.kubernetes.io/references/kustomize/builtins/" target="_blank" rel="noopener noreffer ">https://kubectl.docs.kubernetes.io/references/kustomize/builtins/</a></p>
+<p>Kustomize 内置插件: <a href="https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/" target="_blank" rel="noopener noreffer ">https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/</a></p>
 <h2 id="helm">Helm</h2>
 <p>Helm 是 Kubernetes 包管理器和部署工具，类似 Linux 上的 配置管理工具 Ansible + 包管理器 Yum。</p>
 <p>Helm 默认读取 values.yaml 文件中定义的变量，和 templates 目录下的模板文件、函数和代码块，可以高度自由地复用代码、修改参数和读取文件生成配置。</p>

@@ -88,7 +88,7 @@ kustomize build overlays/production
 优点: 兼容原生 YAML，可复用配置代码，可通过内置的插件读取文件生成 Secret 和 ConfigMap，以及修改参数（例如: 增加标签、增加资源名称前缀、修改 CPU 和内存等）；  
 缺点: 复用配置代码后也导致了耦合，配置失误时影响范围增大，内置的插件功能有限，无法高度自由地复用配置代码和修改参数。
 
-Kustomize 内置插件: https://kubectl.docs.kubernetes.io/references/kustomize/builtins/
+Kustomize 内置插件: https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/
 
 ## Helm
 
@@ -137,3 +137,4 @@ helm template . -f values/production.yaml
 缺点: 高度自由的定制能力也导致了高耦合，模板化的配置代码不够直观，配置失误时影响范围增大且调试难度增加。
 
 Helm 模板函数: https://helm.sh/zh/docs/chart_template_guide/function_list/
+
