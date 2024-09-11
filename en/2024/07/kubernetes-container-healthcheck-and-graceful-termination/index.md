@@ -26,8 +26,8 @@ Kubernetes deployment configurations with health checks and graceful termination
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
   namespace: default
+  name: myapp
 spec:
   replicas: 1
   selector:
@@ -41,16 +41,16 @@ spec:
       # default: 30
       terminationGracePeriodSeconds: 120
       imagePullSecrets:
-      - name: mysecret
+        - name: mysecret
       containers:
         - name: myapp
-          image: myapp:1.0
+          image: registry.example.com/myapp:1.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           startupProbe:
             tcpSocket:
-              port: 
+              port: 8080
             # default: 0
             initialDelaySeconds: 30
             # default: 10
@@ -96,7 +96,10 @@ spec:
               value: Asia/Shanghai
           resources:
             requests:
-              cpu: "0.5"
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: 500m
               memory: 1Gi
 ```
 

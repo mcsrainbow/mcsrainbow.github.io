@@ -4,9 +4,17 @@
         <link>https://blog.heylinux.com/en/</link>
         <description>Damon Guo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
+    <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
+    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
+    <author>Dong Guo | Damon</author>
+    <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
+    <description><![CDATA[<p>By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.</p>]]></description>
+</item>
+<item>
     <title>Kubernetes Container Healthcheck and Graceful Termination</title>
     <link>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Dong Guo | Damon</author>
     <guid>https://blog.heylinux.com/en/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</guid>
     <description><![CDATA[<p>How an Economy Grows and Why it Crashes uses illustration, humor, and accessible storytelling to explain complex topics of economic growth and monetary systems.</p>]]></description>
-</item>
-<item>
-    <title>Notes from &#39;Nonviolent Communication: A Language of Life&#39;</title>
-    <link>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</link>
-    <pubDate>Thu, 24 Mar 2022 08:14:42 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</guid>
-    <description><![CDATA[<p>Four steps of Nonviolent Communication: observe, identify and state feelings, identify and state needs, and make requests.</p>]]></description>
 </item>
 </channel>
 </rss>

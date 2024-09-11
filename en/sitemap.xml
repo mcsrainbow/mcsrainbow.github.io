@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/categories/"
@@ -11,7 +11,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/categories/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/"
@@ -20,7 +20,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/kubernetes/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/tags/kubernetes/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/tags/kubernetes/"
@@ -28,6 +28,34 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/kubernetes/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/2024/09/kubernetes-%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%A4%9A%E5%BA%94%E7%94%A8%E7%BC%96%E6%8E%92%E5%AE%9E%E8%B7%B5/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/posts/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/posts/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/"
                     /></url><url>
             <loc>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
@@ -37,25 +65,6 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/posts/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/tags/"
                     /></url><url>
             <loc>https://blog.heylinux.com/en/tags/alibaba-cloud/</loc><lastmod>2024-01-04T16:39:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-draw.io-custom-libraries/</loc><lastmod>2024-01-04T16:39:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
