@@ -11,6 +11,15 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/categories/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/tags/helm/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/tags/helm/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/tags/helm/"
+                    /></url><url>
             <loc>https://blog.heylinux.com/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -37,6 +46,15 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/2024/09/kubernetes-%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%A4%9A%E5%BA%94%E7%94%A8%E7%BC%96%E6%8E%92%E5%AE%9E%E8%B7%B5/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/tags/kustomize/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/tags/kustomize/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/tags/kustomize/"
                     /></url><url>
             <loc>https://blog.heylinux.com/posts/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
