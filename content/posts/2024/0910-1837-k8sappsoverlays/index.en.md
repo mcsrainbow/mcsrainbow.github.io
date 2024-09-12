@@ -4,7 +4,7 @@ date: 2024-09-10T18:37:39+08:00
 author: "Dong Guo | Damon"
 description: "By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them."
 categories: ["Skills"]
-tags: ["Kubernetes"]
+tags: ["Kubernetes","Kustomize","Helm"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
