@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/09\/kubernetes-%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%A4%9A%E5%BA%94%E7%94%A8%E7%BC%96%E6%8E%92%E5%AE%9E%E8%B7%B5\/featured-image.jpeg",
                             "width":  3200 ,
                             "height":  800 
-                        }],"genre": "posts","keywords": "Kubernetes, Kustomize, Helm","wordcount":  1215 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Kustomize, Helm","wordcount":  1140 ,
         "url": "https:\/\/blog.heylinux.com\/2024\/09\/kubernetes-%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%A4%9A%E5%BA%94%E7%94%A8%E7%BC%96%E6%8E%92%E5%AE%9E%E8%B7%B5\/","datePublished": "2024-09-10T18:37:39+08:00","dateModified": "2024-09-10T18:37:39+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,7 +126,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes 多环境多应用编排实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-09-10">2024-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1215 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-09-10">2024-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1140 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -160,201 +160,96 @@
 <p><strong>代码分享:</strong> <a href="https://github.com/mcsrainbow/k8s-apps" target="_blank" rel="noopener noreffer ">https://github.com/mcsrainbow/k8s-apps</a></p>
 <h2 id="manifests">Manifests</h2>
 <p>原生 YAML(Manifests) 是最直观和最简单的 Kubernetes 资源配置方式，对于多环境多应用的编排方式也简单粗暴，直接创建不同环境名称的目录，将资源按照公共和应用维度分别写入不同的 YAML 文件即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">manifests/apps-overlays
-</span></span><span class="line"><span class="cl">├── development
-</span></span><span class="line"><span class="cl">│   ├── bu-project-all.yaml
-</span></span><span class="line"><span class="cl">│   ├── bu-project-apiproxy.yaml
-</span></span><span class="line"><span class="cl">│   └── bu-project-webfront.yaml
-</span></span><span class="line"><span class="cl">├── production
-</span></span><span class="line"><span class="cl">│   ├── bu-project-all.yaml
-</span></span><span class="line"><span class="cl">│   ├── bu-project-apiproxy.yaml
-</span></span><span class="line"><span class="cl">│   └── bu-project-webfront.yaml
-</span></span><span class="line"><span class="cl">└── staging
-</span></span><span class="line"><span class="cl">    ├── bu-project-all.yaml
-</span></span><span class="line"><span class="cl">    ├── bu-project-apiproxy.yaml
-</span></span><span class="line"><span class="cl">    └── bu-project-webfront.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>优点: 最直观，不同环境和应用之间配置无耦合，配置失误时影响范围小；<br>
+<pre tabindex="0"><code>manifests/apps-overlays
+├── development
+│   ├── bu-project-all.yaml
+│   ├── bu-project-apiproxy.yaml
+│   └── bu-project-webfront.yaml
+├── production
+│   ├── bu-project-all.yaml
+│   ├── bu-project-apiproxy.yaml
+│   └── bu-project-webfront.yaml
+└── staging
+    ├── bu-project-all.yaml
+    ├── bu-project-apiproxy.yaml
+    └── bu-project-webfront.yaml
+</code></pre><p>优点: 最直观，不同环境和应用之间配置无耦合，配置失误时影响范围小；<br>
 缺点: 重复的配置代码较多，修改配置参数时不方便，需要通过文本方式查找和替换。</p>
 <h2 id="kustomize">Kustomize</h2>
 <p>Kustomize 是介于 YAML 和 Helm 之间的资源配置方式，在兼容 YAML 的基础上通过内置的插件实现配置代码的复用和参数的修改。</p>
 <p>Kustomize 默认读取 kustomization.yaml 文件中的配置，可通过引用不同目录下的 kustomization.yaml 文件实现分层设计。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kustomize/apps-overlays
-</span></span><span class="line"><span class="cl">├── base
-</span></span><span class="line"><span class="cl">│   ├── apps
-</span></span><span class="line"><span class="cl">│   │   ├── apiproxy
-</span></span><span class="line"><span class="cl">│   │   │   ├── deployment.yaml
-</span></span><span class="line"><span class="cl">│   │   │   ├── ingress.yaml
-</span></span><span class="line"><span class="cl">│   │   │   ├── kustomization.yaml
-</span></span><span class="line"><span class="cl">│   │   │   └── service.yaml
-</span></span><span class="line"><span class="cl">│   │   └── webfront
-</span></span><span class="line"><span class="cl">│   │       ├── deployment.yaml
-</span></span><span class="line"><span class="cl">│   │       ├── ingress.yaml
-</span></span><span class="line"><span class="cl">│   │       ├── kustomization.yaml
-</span></span><span class="line"><span class="cl">│   │       └── service.yaml
-</span></span><span class="line"><span class="cl">│   ├── files
-</span></span><span class="line"><span class="cl">│   │   └── dockerconfigjson.encrypted
-</span></span><span class="line"><span class="cl">│   ├── kustomization.yaml
-</span></span><span class="line"><span class="cl">│   └── patches
-</span></span><span class="line"><span class="cl">│       └── imagePullSecrets.yaml
-</span></span><span class="line"><span class="cl">└── overlays
-</span></span><span class="line"><span class="cl">    ├── development
-</span></span><span class="line"><span class="cl">    │   ├── files
-</span></span><span class="line"><span class="cl">    │   │   └── nginx.conf
-</span></span><span class="line"><span class="cl">    │   └── kustomization.yaml
-</span></span><span class="line"><span class="cl">    ├── production
-</span></span><span class="line"><span class="cl">    │   ├── files
-</span></span><span class="line"><span class="cl">    │   │   └── nginx.conf
-</span></span><span class="line"><span class="cl">    │   └── kustomization.yaml
-</span></span><span class="line"><span class="cl">    └── staging
-</span></span><span class="line"><span class="cl">        ├── files
-</span></span><span class="line"><span class="cl">        │   └── nginx.conf
-</span></span><span class="line"><span class="cl">        └── kustomization.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>通过 <code>kustomize build</code> 命令可以预览渲染出的原生 YAML。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> kustomize/apps-overlays
+<pre tabindex="0"><code>kustomize/apps-overlays
+├── base
+│   ├── apps
+│   │   ├── apiproxy
+│   │   │   ├── deployment.yaml
+│   │   │   ├── ingress.yaml
+│   │   │   ├── kustomization.yaml
+│   │   │   └── service.yaml
+│   │   └── webfront
+│   │       ├── deployment.yaml
+│   │       ├── ingress.yaml
+│   │       ├── kustomization.yaml
+│   │       └── service.yaml
+│   ├── files
+│   │   └── dockerconfigjson.encrypted
+│   ├── kustomization.yaml
+│   └── patches
+│       └── imagePullSecrets.yaml
+└── overlays
+    ├── development
+    │   ├── files
+    │   │   └── nginx.conf
+    │   └── kustomization.yaml
+    ├── production
+    │   ├── files
+    │   │   └── nginx.conf
+    │   └── kustomization.yaml
+    └── staging
+        ├── files
+        │   └── nginx.conf
+        └── kustomization.yaml
+</code></pre><p>通过 <code>kustomize build</code> 命令可以预览渲染出的原生 YAML。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> kustomize/apps-overlays
 </span></span><span class="line"><span class="cl">kustomize build overlays/development
 </span></span><span class="line"><span class="cl">kustomize build overlays/staging
 </span></span><span class="line"><span class="cl">kustomize build overlays/production
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>优点: 兼容原生 YAML，可复用配置代码，可通过内置的插件读取文件生成 Secret 和 ConfigMap，以及修改参数（例如: 增加标签、增加资源名称前缀、修改 CPU 和内存等）；<br>
+</span></span></code></pre></div><p>优点: 兼容原生 YAML，可复用配置代码，可通过内置的插件读取文件生成 Secret 和 ConfigMap，以及修改参数（例如: 增加标签、增加资源名称前缀、修改 CPU 和内存等）；<br>
 缺点: 复用配置代码后也导致了耦合，配置失误时影响范围增大，内置的插件功能有限，无法高度自由地复用配置代码和修改参数。</p>
 <p>Kustomize 内置插件: <a href="https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/" target="_blank" rel="noopener noreffer ">https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/</a></p>
 <h2 id="helm">Helm</h2>
 <p>Helm 是 Kubernetes 包管理器和部署工具，类似 Linux 上的 配置管理工具 Ansible + 包管理器 Yum。</p>
 <p>Helm 默认读取 values.yaml 文件中定义的变量，和 templates 目录下的模板文件、函数和代码块，可以高度自由地复用代码、修改参数和读取文件生成配置。</p>
 <p>Helm 可以创建不同环境的 values 文件，将默认参数和公共参数放到 values.yaml 文件中，通过不同环境的 values 文件中的参数补充和覆盖，实现多环境多应用编排。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">helm/apps-overlays
-</span></span><span class="line"><span class="cl">├── Chart.yaml
-</span></span><span class="line"><span class="cl">├── files
-</span></span><span class="line"><span class="cl">│   ├── dockerconfigjson.encrypted
-</span></span><span class="line"><span class="cl">│   └── nginx.conf
-</span></span><span class="line"><span class="cl">├── templates
-</span></span><span class="line"><span class="cl">│   ├── apiproxy
-</span></span><span class="line"><span class="cl">│   │   ├── _helpers.tpl
-</span></span><span class="line"><span class="cl">│   │   ├── configmap.yaml
-</span></span><span class="line"><span class="cl">│   │   ├── deployment.yaml
-</span></span><span class="line"><span class="cl">│   │   ├── ingress.yaml
-</span></span><span class="line"><span class="cl">│   │   └── service.yaml
-</span></span><span class="line"><span class="cl">│   ├── secret.yaml
-</span></span><span class="line"><span class="cl">│   └── webfront
-</span></span><span class="line"><span class="cl">│       ├── _helpers.tpl
-</span></span><span class="line"><span class="cl">│       ├── deployment.yaml
-</span></span><span class="line"><span class="cl">│       ├── ingress.yaml
-</span></span><span class="line"><span class="cl">│       └── service.yaml
-</span></span><span class="line"><span class="cl">├── values
-</span></span><span class="line"><span class="cl">│   ├── development.yaml
-</span></span><span class="line"><span class="cl">│   ├── production.yaml
-</span></span><span class="line"><span class="cl">│   └── staging.yaml
-</span></span><span class="line"><span class="cl">└── values.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>通过 <code>helm template</code> 命令可以预览渲染出的原生 YAML。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> helm/apps-overlays
+<pre tabindex="0"><code>helm/apps-overlays
+├── Chart.yaml
+├── files
+│   ├── dockerconfigjson.encrypted
+│   └── nginx.conf
+├── templates
+│   ├── apiproxy
+│   │   ├── _helpers.tpl
+│   │   ├── configmap.yaml
+│   │   ├── deployment.yaml
+│   │   ├── ingress.yaml
+│   │   └── service.yaml
+│   ├── secret.yaml
+│   └── webfront
+│       ├── _helpers.tpl
+│       ├── deployment.yaml
+│       ├── ingress.yaml
+│       └── service.yaml
+├── values
+│   ├── development.yaml
+│   ├── production.yaml
+│   └── staging.yaml
+└── values.yaml
+</code></pre><p>通过 <code>helm template</code> 命令可以预览渲染出的原生 YAML。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> helm/apps-overlays
 </span></span><span class="line"><span class="cl">helm template . -f values/development.yaml
 </span></span><span class="line"><span class="cl">helm template . -f values/staging.yaml
 </span></span><span class="line"><span class="cl">helm template . -f values/production.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>优点: 模板功能强大，可以高度自由地复用代码、修改参数和读取文件生成配置，可将配置按应用打包发布到 Helm Repo 中进行包管理；<br>
+</span></span></code></pre></div><p>优点: 模板功能强大，可以高度自由地复用代码、修改参数和读取文件生成配置，可将配置按应用打包发布到 Helm Repo 中进行包管理；<br>
 缺点: 高度自由的定制能力也导致了高耦合，模板化的配置代码不够直观，配置失误时影响范围增大且调试难度增加。</p>
 <p>Helm 模板函数: <a href="https://helm.sh/zh/docs/chart_template_guide/function_list/" target="_blank" rel="noopener noreffer ">https://helm.sh/zh/docs/chart_template_guide/function_list/</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">

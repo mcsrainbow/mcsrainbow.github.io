@@ -39,7 +39,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2021\/12\/%E4%BD%BF%E7%94%A8-kubeadm-%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4\/featured-image.jpeg",
                             "width":  2400 ,
                             "height":  800 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1088 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  876 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2021\/12\/setup-kubernetes-cluster-using-kubeadm\/","datePublished": "2021-12-21T21:58:24+08:00","dateModified": "2021-12-21T21:58:24+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -124,8 +124,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Setup Kubernetes Cluster Using kubeadm</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dong Guo | Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1088 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;876 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -152,71 +152,25 @@
 <p>Note: root user by default on all Nodes</p>
 </blockquote>
 <p>Prepare the EC2 instances(replace the IP addresses as required)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">OS: CentOS 7.9 x86_64
-</span></span><span class="line"><span class="cl">CPU: 2 vCores
-</span></span><span class="line"><span class="cl">Memory: 4 Gi
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">CentOS 7.9 x86_64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">CPU</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="l">vCores</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Memory</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="l">Gi</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeadm01</span><span class="p">:</span><span class="w"> </span><span class="m">172.31.8.8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeadm02</span><span class="p">:</span><span class="w"> </span><span class="m">172.31.5.5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeadm03</span><span class="p">:</span><span class="w"> </span><span class="m">172.31.7.7</span><span class="w">
+</span></span></span></code></pre></div><p>Upgrade kernel and packages</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+</span></span><span class="line"><span class="cl">yum install --enablerepo<span class="o">=</span>elrepo-kernel -y kernel-lt
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">kubeadm01: 172.31.8.8
-</span></span><span class="line"><span class="cl">kubeadm02: 172.31.5.5
-</span></span><span class="line"><span class="cl">kubeadm03: 172.31.7.7
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Upgrade kernel and packages</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
-</span></span><span class="line"><span class="cl">yum install --enablerepo=elrepo-kernel -y kernel-lt
+</span></span><span class="line"><span class="cl"><span class="nv">kernel_str</span><span class="o">=</span><span class="k">$(</span>grep -E <span class="s1">&#39;menuentry.*elrepo&#39;</span> /boot/grub2/grub.cfg <span class="p">|</span> cut -d<span class="se">\&#39;</span> -f2<span class="k">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">kernel_str=$(grep -E &#39;menuentry.*elrepo&#39; /boot/grub2/grub.cfg | cut -d\&#39; -f2)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">grub2-set-default &#34;${kernel_str}&#34;
+</span></span><span class="line"><span class="cl">grub2-set-default <span class="s2">&#34;</span><span class="si">${</span><span class="nv">kernel_str</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">grub2-editenv list
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">yum -y update
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Configure /etc/hostname</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@kubeadm01 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
+</span></span></code></pre></div><p>Configure /etc/hostname</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm01 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
 </span></span><span class="line"><span class="cl">kubeadm01
 </span></span><span class="line"><span class="cl">EOF
 </span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# hostname kubeadm01
@@ -230,282 +184,110 @@
 </span></span><span class="line"><span class="cl">kubeadm03
 </span></span><span class="line"><span class="cl">EOF
 </span></span><span class="line"><span class="cl">[root@kubeadm03 ~]# hostname kubeadm03
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Configure /etc/hosts(replace the IP addresses as required)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat &gt;&gt; /etc/hosts &lt;&lt;EOF
-</span></span><span class="line"><span class="cl">172.31.8.8 kubeadm01
-</span></span><span class="line"><span class="cl">172.31.5.5 kubeadm02
-</span></span><span class="line"><span class="cl">172.31.7.7 kubeadm03
-</span></span><span class="line"><span class="cl">EO
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Configure /etc/sysctl.conf</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat &gt; /etc/sysctl.d/sysctl.conf &lt;&lt;EOF
-</span></span><span class="line"><span class="cl">net.bridge.bridge-nf-call-iptables=1
-</span></span><span class="line"><span class="cl">net.bridge.bridge-nf-call-ip6tables=1
-</span></span><span class="line"><span class="cl">net.ipv4.ip_forward=1
-</span></span><span class="line"><span class="cl">net.ipv4.tcp_tw_recycle=0
-</span></span><span class="line"><span class="cl">vm.swappiness=0
-</span></span><span class="line"><span class="cl">vm.overcommit_memory=1
-</span></span><span class="line"><span class="cl">vm.panic_on_oom=0
-</span></span><span class="line"><span class="cl">fs.inotify.max_user_instances=8192
-</span></span><span class="line"><span class="cl">fs.inotify.max_user_watches=1048576
-</span></span><span class="line"><span class="cl">fs.file-max=52706963
-</span></span><span class="line"><span class="cl">fs.nr_open=52706963
-</span></span><span class="line"><span class="cl">net.ipv6.conf.all.disable_ipv6=1
-</span></span><span class="line"><span class="cl">net.netfilter.nf_conntrack_max=2310720
-</span></span><span class="line"><span class="cl">EOF
+</span></span></code></pre></div><p>Configure /etc/hosts(replace the IP addresses as required)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt;&gt; /etc/hosts <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">172.31.8.8 kubeadm01
+</span></span></span><span class="line"><span class="cl"><span class="s">172.31.5.5 kubeadm02
+</span></span></span><span class="line"><span class="cl"><span class="s">172.31.7.7 kubeadm03
+</span></span></span><span class="line"><span class="cl"><span class="s">EO</span>
+</span></span></code></pre></div><p>Configure /etc/sysctl.conf</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/sysctl.d/sysctl.conf <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">net.bridge.bridge-nf-call-iptables=1
+</span></span></span><span class="line"><span class="cl"><span class="s">net.bridge.bridge-nf-call-ip6tables=1
+</span></span></span><span class="line"><span class="cl"><span class="s">net.ipv4.ip_forward=1
+</span></span></span><span class="line"><span class="cl"><span class="s">net.ipv4.tcp_tw_recycle=0
+</span></span></span><span class="line"><span class="cl"><span class="s">vm.swappiness=0
+</span></span></span><span class="line"><span class="cl"><span class="s">vm.overcommit_memory=1
+</span></span></span><span class="line"><span class="cl"><span class="s">vm.panic_on_oom=0
+</span></span></span><span class="line"><span class="cl"><span class="s">fs.inotify.max_user_instances=8192
+</span></span></span><span class="line"><span class="cl"><span class="s">fs.inotify.max_user_watches=1048576
+</span></span></span><span class="line"><span class="cl"><span class="s">fs.file-max=52706963
+</span></span></span><span class="line"><span class="cl"><span class="s">fs.nr_open=52706963
+</span></span></span><span class="line"><span class="cl"><span class="s">net.ipv6.conf.all.disable_ipv6=1
+</span></span></span><span class="line"><span class="cl"><span class="s">net.netfilter.nf_conntrack_max=2310720
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sysctl -p /etc/sysctl.d/sysctl.conf
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Install required packages</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yum install -y epel-release
+</span></span></code></pre></div><p>Install required packages</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y epel-release
 </span></span><span class="line"><span class="cl">yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Enable Chrony service</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl start chronyd
-</span></span><span class="line"><span class="cl">systemctl enable chronyd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Disable Firewalld, Swap and SELinux</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl stop firewalld
+</span></span></code></pre></div><p>Enable Chrony service</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl start chronyd
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> chronyd
+</span></span></code></pre></div><p>Disable Firewalld, Swap and SELinux</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl stop firewalld
 </span></span><span class="line"><span class="cl">systemctl disable firewalld
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">swapoff -a
-</span></span><span class="line"><span class="cl">sed -i &#39;/ swap / s/^\(.*\)$/#\1/g&#39; /etc/fstab
+</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;/ swap / s/^\(.*\)$/#\1/g&#39;</span> /etc/fstab
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">setenforce 0
-</span></span><span class="line"><span class="cl">sed -i &#39;s/^SELINUX=.*/SELINUX=disabled/&#39; /etc/selinux/config
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Configure /etc/modules-load.d/kubernetes.conf and reboot</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">cat</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">modules</span><span class="o">-</span><span class="nb">load</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">conf</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_dh</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_ftp</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_lblc</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_lblcr</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_lc</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_nq</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_pe_sip</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_rr</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_sed</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_sh</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_wlc</span>
-</span></span><span class="line"><span class="cl"><span class="n">ip_vs_wrr</span>
-</span></span><span class="line"><span class="cl"><span class="n">nf_conntrack_ipv4</span>
-</span></span><span class="line"><span class="cl"><span class="n">overlay</span>
-</span></span><span class="line"><span class="cl"><span class="n">br_netfilter</span>
-</span></span><span class="line"><span class="cl"><span class="n">EOF</span>
+</span></span><span class="line"><span class="cl">setenforce <span class="m">0</span>
+</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/^SELINUX=.*/SELINUX=disabled/&#39;</span> /etc/selinux/config
+</span></span></code></pre></div><p>Configure /etc/modules-load.d/kubernetes.conf and reboot</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/modules-load.d/kubernetes.conf <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_dh
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_ftp
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_lblc
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_lblcr
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_lc
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_nq
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_pe_sip
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_rr
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_sed
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_sh
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_wlc
+</span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_wrr
+</span></span></span><span class="line"><span class="cl"><span class="s">nf_conntrack_ipv4
+</span></span></span><span class="line"><span class="cl"><span class="s">overlay
+</span></span></span><span class="line"><span class="cl"><span class="s">br_netfilter
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">systemd</span><span class="o">-</span><span class="n">modules</span><span class="o">-</span><span class="nb">load</span><span class="o">.</span><span class="n">service</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> systemd-modules-load.service
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sync</span>
-</span></span><span class="line"><span class="cl"><span class="n">reboot</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Verify the kernel modules after reboot</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lsmod | grep -e ip_vs -e nf_conntrack_ipv4
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Install Docker</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">yum</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">repo</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">ce</span><span class="o">.</span><span class="n">repo</span>
-</span></span><span class="line"><span class="cl"><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">docker</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="mf">20.10</span><span class="o">.</span><span class="mi">8</span>
+</span></span><span class="line"><span class="cl">sync
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></div><p>Verify the kernel modules after reboot</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsmod <span class="p">|</span> grep -e ip_vs -e nf_conntrack_ipv4
+</span></span></code></pre></div><p>Install Docker</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+</span></span><span class="line"><span class="cl">yum -y install docker-ce-20.10.8
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">cat</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">daemon</span><span class="o">.</span><span class="n">json</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s2">&#34;exec-opts&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;native.cgroupdriver=systemd&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl"><span class="n">EOF</span>
+</span></span><span class="line"><span class="cl">cat &gt; /etc/docker/daemon.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{&#34;exec-opts&#34;: [&#34;native.cgroupdriver=systemd&#34;]}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">usermod</span> <span class="o">-</span><span class="n">G</span> <span class="n">centos</span><span class="p">,</span><span class="n">adm</span><span class="p">,</span><span class="n">wheel</span><span class="p">,</span><span class="n">systemd</span><span class="o">-</span><span class="n">journal</span><span class="p">,</span><span class="n">docker</span><span class="p">,</span><span class="n">root</span> <span class="n">centos</span>
+</span></span><span class="line"><span class="cl">usermod -G centos,adm,wheel,systemd-journal,docker,root centos
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">start</span>  <span class="n">docker</span>
-</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">docker</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Disable postfix and create required directories</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl stop postfix
+</span></span><span class="line"><span class="cl">systemctl start  docker
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker
+</span></span></code></pre></div><p>Disable postfix and create required directories</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl stop postfix
 </span></span><span class="line"><span class="cl">systemctl disable postfix
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mkdir -p /opt/k8s/{bin,work} /etc/{kubernetes,etcd}/cert
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="setup-the-cluster">Setup the Cluster</h2>
+</span></span><span class="line"><span class="cl">mkdir -p /opt/k8s/<span class="o">{</span>bin,work<span class="o">}</span> /etc/<span class="o">{</span>kubernetes,etcd<span class="o">}</span>/cert
+</span></span></code></pre></div><h2 id="setup-the-cluster">Setup the Cluster</h2>
 <blockquote>
 <p>Note: Replace the version 1.22.1 as required</p>
 </blockquote>
 <p>Install kubeadm, kubelet and kubectl on all Nodes</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt;EOF
-</span></span><span class="line"><span class="cl">[kubernetes]
-</span></span><span class="line"><span class="cl">name=Kubernetes
-</span></span><span class="line"><span class="cl">baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-</span></span><span class="line"><span class="cl">enabled=1
-</span></span><span class="line"><span class="cl">gpgcheck=0
-</span></span><span class="line"><span class="cl">repo_gpgcheck=0
-</span></span><span class="line"><span class="cl">EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/yum.repos.d/kubernetes.repo <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">[kubernetes]
+</span></span></span><span class="line"><span class="cl"><span class="s">name=Kubernetes
+</span></span></span><span class="line"><span class="cl"><span class="s">baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+</span></span></span><span class="line"><span class="cl"><span class="s">enabled=1
+</span></span></span><span class="line"><span class="cl"><span class="s">gpgcheck=0
+</span></span></span><span class="line"><span class="cl"><span class="s">repo_gpgcheck=0
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">yum install -y kubelet-1.22.1 kubeadm-1.22.1 kubectl-1.22.1
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">systemctl enable kubelet
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> kubelet
 </span></span><span class="line"><span class="cl">systemctl start kubelet
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Pull required Docker images on all Nodes</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubeadm config images pull --kubernetes-version v1.22.1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Run init on kubeadm01(replace the CIDR of Node, Pod and Service networks as required)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Networks:
+</span></span></code></pre></div><p>Pull required Docker images on all Nodes</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm config images pull --kubernetes-version v1.22.1
+</span></span></code></pre></div><p>Run init on kubeadm01(replace the CIDR of Node, Pod and Service networks as required)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># Networks:
 </span></span><span class="line"><span class="cl"># Node: 172.31.0.0/16
 </span></span><span class="line"><span class="cl"># Pod: 10.192.0.0/16
 </span></span><span class="line"><span class="cl"># Service: 10.254.0.0/16
@@ -518,243 +300,80 @@
 </span></span><span class="line"><span class="cl">--image-repository=k8s.gcr.io \
 </span></span><span class="line"><span class="cl">--ignore-preflight-errors=swap \
 </span></span><span class="line"><span class="cl">--token-ttl=0
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Your</span> <span class="n">Kubernetes</span> <span class="n">control</span><span class="o">-</span><span class="n">plane</span> <span class="n">has</span> <span class="n">initialized</span> <span class="n">successfully</span><span class="o">!</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Your Kubernetes control-plane has initialized successfully!
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">To</span> <span class="n">start</span> <span class="n">using</span> <span class="n">your</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">as</span> <span class="n">a</span> <span class="n">regular</span> <span class="n">user</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">To start using your cluster, you need to run the following as a regular user:
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">$</span><span class="n">HOME</span><span class="o">/.</span><span class="n">kube</span>
-</span></span><span class="line"><span class="cl">  <span class="n">sudo</span> <span class="n">cp</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">conf</span> <span class="o">$</span><span class="n">HOME</span><span class="o">/.</span><span class="n">kube</span><span class="o">/</span><span class="n">config</span>
-</span></span><span class="line"><span class="cl">  <span class="n">sudo</span> <span class="n">chown</span> <span class="o">$</span><span class="p">(</span><span class="n">id</span> <span class="o">-</span><span class="n">u</span><span class="p">):</span><span class="o">$</span><span class="p">(</span><span class="n">id</span> <span class="o">-</span><span class="n">g</span><span class="p">)</span> <span class="o">$</span><span class="n">HOME</span><span class="o">/.</span><span class="n">kube</span><span class="o">/</span><span class="n">config</span>
+</span></span><span class="line"><span class="cl">  mkdir -p $HOME/.kube
+</span></span><span class="line"><span class="cl">  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span><span class="line"><span class="cl">  sudo chown $(id -u):$(id -g) $HOME/.kube/config
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Alternatively</span><span class="p">,</span> <span class="k">if</span> <span class="n">you</span> <span class="n">are</span> <span class="n">the</span> <span class="n">root</span> <span class="n">user</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">run</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">Alternatively, if you are the root user, you can run:
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">export</span> <span class="n">KUBECONFIG</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">admin</span><span class="o">.</span><span class="n">conf</span>
+</span></span><span class="line"><span class="cl">  export KUBECONFIG=/etc/kubernetes/admin.conf
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">You</span> <span class="n">should</span> <span class="n">now</span> <span class="n">deploy</span> <span class="n">a</span> <span class="n">pod</span> <span class="n">network</span> <span class="n">to</span> <span class="n">the</span> <span class="n">cluster</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="n">Run</span> <span class="s2">&#34;kubectl apply -f [podnetwork].yaml&#34;</span> <span class="n">with</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">options</span> <span class="n">listed</span> <span class="n">at</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">concepts</span><span class="o">/</span><span class="n">cluster</span><span class="o">-</span><span class="n">administration</span><span class="o">/</span><span class="n">addons</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl">You should now deploy a pod network to the cluster.
+</span></span><span class="line"><span class="cl">Run &#34;kubectl apply -f [podnetwork].yaml&#34; with one of the options listed at:
+</span></span><span class="line"><span class="cl">  https://kubernetes.io/docs/concepts/cluster-administration/addons/
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Then</span> <span class="n">you</span> <span class="n">can</span> <span class="n">join</span> <span class="n">any</span> <span class="n">number</span> <span class="n">of</span> <span class="n">worker</span> <span class="n">nodes</span> <span class="n">by</span> <span class="n">running</span> <span class="n">the</span> <span class="n">following</span> <span class="n">on</span> <span class="n">each</span> <span class="n">as</span> <span class="n">root</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">Then you can join any number of worker nodes by running the following on each as root:
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">kubeadm</span> <span class="n">join</span> <span class="mf">172.31</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span><span class="mi">6443</span> <span class="o">--</span><span class="n">token</span> <span class="mi">2333</span><span class="n">y7</span><span class="o">.</span><span class="n">y7xev857t8n4w5em</span> \
-</span></span><span class="line"><span class="cl">        <span class="o">--</span><span class="n">discovery</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="n">ca</span><span class="o">-</span><span class="n">cert</span><span class="o">-</span><span class="nb">hash</span> <span class="n">sha256</span><span class="p">:</span><span class="n">df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Create .kube/config on kubeadm01</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@kubeadm01 ~]# mkdir -p $HOME/.kube
+</span></span><span class="line"><span class="cl">kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
+</span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
+</span></span></code></pre></div><p>Create .kube/config on kubeadm01</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm01 ~]# mkdir -p $HOME/.kube
 </span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# cp /etc/kubernetes/admin.conf $HOME/.kube/config
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir -p $HOME/.kube
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Join the cluster via command on kubeadm02 and kubeadm03(repace the values as required)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
+</span></span></code></pre></div><p>Join the cluster via command on kubeadm02 and kubeadm03(repace the values as required)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
 </span></span><span class="line"><span class="cl">        --token 2333y7.y7xev857t8n4w5em \
 </span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[root@kubeadm03 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
 </span></span><span class="line"><span class="cl">        --token 2333y7.y7xev857t8n4w5em \
 </span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">This node has joined the cluster:
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">This node has joined the cluster:
 </span></span><span class="line"><span class="cl">* Certificate signing request was sent to apiserver and a response was received.
 </span></span><span class="line"><span class="cl">* The Kubelet was informed of the new secure connection details.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Run &#39;kubectl get nodes&#39; on the control-plane to see this node join the cluster.
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Check all Nodes status on kubeadm01</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get nodes 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NAME        STATUS   ROLES                  AGE     VERSION
+</span></span></code></pre></div><p>Check all Nodes status on kubeadm01</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get nodes 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAME        STATUS   ROLES                  AGE     VERSION
 </span></span><span class="line"><span class="cl">kubeadm01   Ready    control-plane,master   5m      v1.22.1
 </span></span><span class="line"><span class="cl">kubeadm02   Ready    &lt;none&gt;                 7m      v1.22.1
 </span></span><span class="line"><span class="cl">kubeadm03   Ready    &lt;none&gt;                 9m      v1.22.1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Install Flannel on kubeadm01(replace the CIDR of Pod network as required)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir flannel 
+</span></span></code></pre></div><p>Install Flannel on kubeadm01(replace the CIDR of Pod network as required)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir flannel 
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ cd flannel
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ vim kube-flannel.yml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">net-conf.json</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">net-conf.json</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">    {
 </span></span></span><span class="line"><span class="cl"><span class="sd">      &#34;Network&#34;: &#34;10.192.0.0/16&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="sd">      &#34;Backend&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="sd">        &#34;Type&#34;: &#34;vxlan&#34;
 </span></span></span><span class="line"><span class="cl"><span class="sd">      }
 </span></span></span><span class="line"><span class="cl"><span class="sd">    }</span><span class="w">    
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Fix scheduler and controller-manager on kubeadm01</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
+</span></span></code></pre></div><p>Fix scheduler and controller-manager on kubeadm01</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo sed -i &#39;/port=0/d&#39; /etc/kubernetes/manifests/kube-scheduler.yaml
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo sed -i &#39;/port=0/d&#39; /etc/kubernetes/manifests/kube-controller-manager.yaml
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo systemctl restart kubelet
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Check clusterservice status on kubeadm01</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get cs
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NAME                 STATUS    MESSAGE                         ERROR
+</span></span></code></pre></div><p>Check clusterservice status on kubeadm01</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get cs
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAME                 STATUS    MESSAGE                         ERROR
 </span></span><span class="line"><span class="cl">scheduler            Healthy   ok                              
 </span></span><span class="line"><span class="cl">controller-manager   Healthy   ok                              
 </span></span><span class="line"><span class="cl">etcd-0               Healthy   {&#34;health&#34;:&#34;true&#34;,&#34;reason&#34;:&#34;&#34;} 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Check all Pods status on kubeadm01</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NAMESPACE              NAME                                        READY   STATUS      RESTARTS   AGE
+</span></span></code></pre></div><p>Check all Pods status on kubeadm01</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAMESPACE              NAME                                        READY   STATUS      RESTARTS   AGE
 </span></span><span class="line"><span class="cl">kube-system            coredns-78fcd69978-99vcx                    1/1     Running     0          5m
 </span></span><span class="line"><span class="cl">kube-system            coredns-78fcd69978-lm5bt                    1/1     Running     0          5m
 </span></span><span class="line"><span class="cl">kube-system            etcd-kubeadm01                              1/1     Running     0          5m
@@ -767,35 +386,12 @@
 </span></span><span class="line"><span class="cl">kube-system            kube-proxy-nxz8c                            1/1     Running     0          7m
 </span></span><span class="line"><span class="cl">kube-system            kube-proxy-w8v6s                            1/1     Running     0          9m
 </span></span><span class="line"><span class="cl">kube-system            kube-scheduler-kubeadm01                    1/1     Running     0          5m
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="optimize-the-cluster">Optimize the Cluster</h2>
+</span></span></code></pre></div><h2 id="optimize-the-cluster">Optimize the Cluster</h2>
 <p>Change the kube-proxy mode to ipvs, by default it&rsquo;s iptables</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl edit configmap kube-proxy -n kube-system
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;ipvs&#34;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl get pods -n kube-system | grep kube-proxy | awk &#39;{print $2}&#39; | xargs kubectl -n kube-system delete pods
-</span></span></code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl edit configmap kube-proxy -n kube-system
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;ipvs&#34;</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods -n kube-system <span class="p">|</span> grep kube-proxy <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> xargs kubectl -n kube-system delete pods
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

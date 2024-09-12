@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2021\/11\/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E5%90%8D-ssl-%E8%AF%81%E4%B9%A6%E6%94%AF%E6%8C%81%E7%A7%81%E6%9C%89%E5%9F%9F%E5%90%8D%E7%9A%84-https-%E6%9C%8D%E5%8A%A1\/featured-image.jpeg",
                             "width":  2236 ,
                             "height":  1340 
-                        }],"genre": "posts","keywords": "安全, SSL, TLS","wordcount":  3279 ,
+                        }],"genre": "posts","keywords": "安全, SSL, TLS","wordcount":  2983 ,
         "url": "https:\/\/blog.heylinux.com\/2021\/11\/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E5%90%8D-ssl-%E8%AF%81%E4%B9%A6%E6%94%AF%E6%8C%81%E7%A7%81%E6%9C%89%E5%9F%9F%E5%90%8D%E7%9A%84-https-%E6%9C%8D%E5%8A%A1\/","datePublished": "2021-11-07T11:06:54+08:00","dateModified": "2021-11-07T11:06:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,8 +126,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">如何创建自签名 SSL 证书支持私有域名的 HTTPS 服务</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-11-07">2021-11-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3279 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-11-07">2021-11-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2983 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -178,24 +178,10 @@
 <h2 id="生成-ssl-证书">生成 SSL 证书</h2>
 <h3 id="1-生成根证书并导入">1. 生成根证书并导入</h3>
 <p>首先生成根证书的 Key <code>rootCA.heylinux.com.key</code>，设置加密长度为 <code>4096</code> 以满足安全级别要求。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl genrsa -out rootCA.heylinux.com.key <span class="m">4096</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>使用根证书的 Key <code>rootCA.heylinux.com.key</code> 生成根证书文件 <code>rootCA.heylinux.com.pem</code>，设置加密方式为 <code>sha256</code>，有效期为 <code>3650天</code>，证书的机构信息为 <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -x509 -new -nodes -key rootCA.heylinux.com.key -sha256 -days <span class="m">3650</span> -out rootCA.heylinux.com.pem -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将生成的根证书文件 <code>rootCA.heylinux.com.pem</code> 通过 Chrome 浏览器导入到操作系统中，就可以让浏览器信任之后基于根证书所生成的服务端证书。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl genrsa -out rootCA.heylinux.com.key <span class="m">4096</span>
+</span></span></code></pre></div><p>使用根证书的 Key <code>rootCA.heylinux.com.key</code> 生成根证书文件 <code>rootCA.heylinux.com.pem</code>，设置加密方式为 <code>sha256</code>，有效期为 <code>3650天</code>，证书的机构信息为 <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -x509 -new -nodes -key rootCA.heylinux.com.key -sha256 -days <span class="m">3650</span> -out rootCA.heylinux.com.pem -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE&#34;</span>
+</span></span></code></pre></div><p>将生成的根证书文件 <code>rootCA.heylinux.com.pem</code> 通过 Chrome 浏览器导入到操作系统中，就可以让浏览器信任之后基于根证书所生成的服务端证书。</p>
 <a class="lightgallery" href="/2021/11/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E5%90%8D-ssl-%E8%AF%81%E4%B9%A6%E6%94%AF%E6%8C%81%E7%A7%81%E6%9C%89%E5%9F%9F%E5%90%8D%E7%9A%84-https-%E6%9C%8D%E5%8A%A1/chrome-certmanager.jpeg" title="Chrome CertManager" data-thumbnail="/2021/11/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E7%AD%BE%E5%90%8D-ssl-%E8%AF%81%E4%B9%A6%E6%94%AF%E6%8C%81%E7%A7%81%E6%9C%89%E5%9F%9F%E5%90%8D%E7%9A%84-https-%E6%9C%8D%E5%8A%A1/chrome-certmanager.jpeg">
         <img
             class="lazyload"
@@ -207,29 +193,8 @@
     </a>
 <h3 id="2-生成-ssl-服务端证书">2. 生成 SSL 服务端证书</h3>
 <p>创建服务端证书配置文件 <code>ssl.conf</code>，支持 <code>serverAuth</code> 和 <code>clientAuth</code>，可用于多个泛域名 <code>*.heylinux.com</code> 和 <code>*.cloud.heylinux.com</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.conf
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">subjectAltName</span> <span class="o">=</span> <span class="s">@alt_names</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">subjectAltName</span> <span class="o">=</span> <span class="s">@alt_names</span>
 </span></span><span class="line"><span class="cl"><span class="na">authorityKeyIdentifier</span> <span class="o">=</span> <span class="s">keyid,issuer</span>
 </span></span><span class="line"><span class="cl"><span class="na">keyUsage</span> <span class="o">=</span> <span class="s">digitalSignature,keyEncipherment,nonRepudiation,dataEncipherment</span>
 </span></span><span class="line"><span class="cl"><span class="na">extendedKeyUsage</span> <span class="o">=</span> <span class="s">serverAuth,clientAuth</span>
@@ -239,71 +204,13 @@
 </span></span><span class="line"><span class="cl"><span class="k">[alt_names]</span>
 </span></span><span class="line"><span class="cl"><span class="na">DNS.1</span> <span class="o">=</span> <span class="s">*.heylinux.com</span>
 </span></span><span class="line"><span class="cl"><span class="na">DNS.2</span> <span class="o">=</span> <span class="s">*.cloud.heylinux.com</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>生成服务端证书的 Key，文件名 <code>star.heylinux.com.key</code>，机构信息设置为 <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -new -nodes -out star.heylinux.com.csr -newkey rsa:4096 -keyout star.heylinux.com.key -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>通过根证书的 Key、根证书、服务端证书的 Key 和服务端证书配置文件 <code>ssl.conf</code>，生成服务端证书，文件名 <code>star.heylinux.com.crt</code>，设置加密方式为 <code>sha256</code>，有效期为 <code>3650天</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -req -in star.heylinux.com.csr -CA rootCA.heylinux.com.pem -CAkey rootCA.heylinux.com.key -CAcreateserial -out star.heylinux.com.crt -days <span class="m">3650</span> -sha256 -extfile ssl.conf
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>查看服务端证书信息。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -text -noout -in star.heylinux.com.crt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Certificate:
+</span></span></code></pre></div><p>生成服务端证书的 Key，文件名 <code>star.heylinux.com.key</code>，机构信息设置为 <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -new -nodes -out star.heylinux.com.csr -newkey rsa:4096 -keyout star.heylinux.com.key -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com&#34;</span>
+</span></span></code></pre></div><p>通过根证书的 Key、根证书、服务端证书的 Key 和服务端证书配置文件 <code>ssl.conf</code>，生成服务端证书，文件名 <code>star.heylinux.com.crt</code>，设置加密方式为 <code>sha256</code>，有效期为 <code>3650天</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -req -in star.heylinux.com.csr -CA rootCA.heylinux.com.pem -CAkey rootCA.heylinux.com.key -CAcreateserial -out star.heylinux.com.crt -days <span class="m">3650</span> -sha256 -extfile ssl.conf
+</span></span></code></pre></div><p>查看服务端证书信息。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -text -noout -in star.heylinux.com.crt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Certificate:
 </span></span><span class="line"><span class="cl">    Data:
 </span></span><span class="line"><span class="cl">        Version: 3 (0x2)
 </span></span><span class="line"><span class="cl">        Serial Number:
@@ -334,55 +241,17 @@
 </span></span><span class="line"><span class="cl">            X509v3 Subject Key Identifier:
 </span></span><span class="line"><span class="cl">                DB:0D:E8:00:A4:3E:95:71:26:1A:0B:57:4C:3C:3B:33:D3:67:F0:16
 </span></span><span class="line"><span class="cl">...
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-生成不同格式的捆绑证书">3. 生成不同格式的捆绑证书</h3>
+</span></span></code></pre></div><h3 id="3-生成不同格式的捆绑证书">3. 生成不同格式的捆绑证书</h3>
 <p><strong><ruby>捆绑证书<rt>certificate bundle</rt></ruby></strong>通常包含多个服务端证书 Key 和服务端证书。</p>
 <p>生成 <code>PKCS12</code> 格式的捆绑证书 <code>star.heylinux.com.p12</code>，设置证书文件的<strong><ruby>密码<rt>passphrase</rt></ruby></strong>为 <code>P_Ss0rdT</code>，文件内别名 <code>heylinux_com</code>，这种证书可用于服务器软件如 Tomcat。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -export -in star.heylinux.com.crt -inkey star.heylinux.com.key -password pass:P_Ss0rdT -name heylinux_com -out star.heylinux.com.p12
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将生成好的 <code>PKCS12</code> 格式的捆绑证书 <code>star.heylinux.com.p12</code> 转换为 <code>JKS</code> 格式 <code>star.heylinux.com.jks</code>，设置证书文件的<strong><ruby>密码<rt>passphrase</rt></ruby></strong>为 <code>P_Ss0rdT</code>，文件内别名 <code>heylinux_com</code>，这种证书可用于 Java 类应用的服务器软件如 Tomcat。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">keytool</span> <span class="o">-</span><span class="n">importkeystore</span> <span class="o">-</span><span class="n">deststorepass</span> <span class="n">P_Ss0rdT</span> <span class="o">-</span><span class="n">destkeystore</span> <span class="n">star</span><span class="o">.</span><span class="n">heylinux</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">jks</span> <span class="o">-</span><span class="n">srcstorepass</span> <span class="n">P_Ss0rdT</span> <span class="o">-</span><span class="n">srckeystore</span> <span class="n">star</span><span class="o">.</span><span class="n">heylinux</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">p12</span> <span class="o">-</span><span class="n">srcstoretype</span> <span class="n">PKCS12</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将生成好的 <code>PKCS12</code> 格式的捆绑证书 <code>star.heylinux.com.p12</code> 转换为 <code>PEM</code> 格式 <code>star.heylinux.com.pem</code>，文件内别名 <code>heylinux_com</code>，不设置证书文件的密码，这种证书可用于服务器软件如 Apache、Nginx、HAProxy 和 AWS ELB。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -in star.heylinux.com.p12 -out star.heylinux.com.pem -nodes
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="4-将根证书转换为-jks-格式">4. 将根证书转换为 JKS 格式</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -export -in star.heylinux.com.crt -inkey star.heylinux.com.key -password pass:P_Ss0rdT -name heylinux_com -out star.heylinux.com.p12
+</span></span></code></pre></div><p>将生成好的 <code>PKCS12</code> 格式的捆绑证书 <code>star.heylinux.com.p12</code> 转换为 <code>JKS</code> 格式 <code>star.heylinux.com.jks</code>，设置证书文件的<strong><ruby>密码<rt>passphrase</rt></ruby></strong>为 <code>P_Ss0rdT</code>，文件内别名 <code>heylinux_com</code>，这种证书可用于 Java 类应用的服务器软件如 Tomcat。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12
+</span></span></code></pre></div><p>将生成好的 <code>PKCS12</code> 格式的捆绑证书 <code>star.heylinux.com.p12</code> 转换为 <code>PEM</code> 格式 <code>star.heylinux.com.pem</code>，文件内别名 <code>heylinux_com</code>，不设置证书文件的密码，这种证书可用于服务器软件如 Apache、Nginx、HAProxy 和 AWS ELB。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -in star.heylinux.com.p12 -out star.heylinux.com.pem -nodes
+</span></span></code></pre></div><h3 id="4-将根证书转换为-jks-格式">4. 将根证书转换为 JKS 格式</h3>
 <p>将根证书 <code>rootCA.heylinux.com.pem</code> 转换为 <code>JKS</code> 格式 <code>rootCA.heylinux.com.jks</code>，文件内别名 <code>heylinux_com</code>，用于 Java 类应用对服务端证书进行校验，原理类似于上面“导入到操作系统中，就可以让浏览器信任之后基于根证书所生成的服务端证书”。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 先生成 rootCA.heylinux.com.der</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 先生成 rootCA.heylinux.com.der</span>
 </span></span><span class="line"><span class="cl">openssl x509 -in rootCA.heylinux.com.pem -out rootCA.heylinux.com.der -outform der
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 查看 rootCA.heylinux.com.der</span>
@@ -393,72 +262,25 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 查看 rootCA.heylinux.com.jks</span>
 </span></span><span class="line"><span class="cl">keytool -keystore rootCA.heylinux.com.jks -storepass P_Ss0rdT -list
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="转换和查看-ssl-证书">转换和查看 SSL 证书</h2>
+</span></span></code></pre></div><h2 id="转换和查看-ssl-证书">转换和查看 SSL 证书</h2>
 <h3 id="1-从-p7b-到-pem">1. 从 P7B 到 PEM</h3>
 <p>将 Windows 生成的根证书 <code>SubCA_2.p7b</code> 从 <code>P7B</code> 格式转换为 <code>PEM</code> 格式 <code>rootCA.heylinux.com.pem</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs7 -inform DER -print_certs -in SubCA_2.p7b -out rootCA.heylinux.com.pem
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="2-从-pem-到-jks">2. 从 PEM 到 JKS</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs7 -inform DER -print_certs -in SubCA_2.p7b -out rootCA.heylinux.com.pem
+</span></span></code></pre></div><h3 id="2-从-pem-到-jks">2. 从 PEM 到 JKS</h3>
 <p>将 <code>PEM</code> 格式的根证书 <code>rootCA.heylinux.com.pem</code> 转换为 <code>JKS</code> 格式 <code>rootCA.heylinux.com.jks</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 生成 rootCA.heylinux.com.der</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 生成 rootCA.heylinux.com.der</span>
 </span></span><span class="line"><span class="cl">openssl x509 -in rootCA.heylinux.com.pem -out rootCA.heylinux.com.der -outform der
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 生成 rootCA.heylinux.com.jks, 文件内别名 heylinux_com</span>
 </span></span><span class="line"><span class="cl">keytool -importcert -alias heylinux_com -keystore rootCA.heylinux.com.jks -storepass P_Ss0rdT -file rootCA.heylinux.com.der
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-从-pfxp12-到-pem">3. 从 PFX(P12) 到 PEM</h3>
+</span></span></code></pre></div><h3 id="3-从-pfxp12-到-pem">3. 从 PFX(P12) 到 PEM</h3>
 <p>将 <code>PFX(P12)</code> 格式的证书 <code>star.heylinux.com.pfx</code> 转换为 <code>PEM</code> 格式 <code>star.heylinux.com.pem</code>，通常 <code>star.heylinux.com.pem</code> 包含了服务端证书 Key 和服务端证书，可以手动将其中的内容分别复制出来，生成服务端证书 Key <code>star.heylinux.com.key</code> 和服务端证书 <code>star.heylinux.com.crt</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -nodes -in star.heylinux.com.pfx -out star.heylinux.com.pem
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="4-从-p12-到-jks">4. 从 P12 到 JKS</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -nodes -in star.heylinux.com.pfx -out star.heylinux.com.pem
+</span></span></code></pre></div><h3 id="4-从-p12-到-jks">4. 从 P12 到 JKS</h3>
 <p>将 <code>P12</code> 格式的证书 <code>star.heylinux.com.p12</code> 转换为 <code>JKS</code> 格式 <code>star.heylinux.com.jks</code>，文件内别名 <code>heylinux_com</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12 -alias heylinux_com
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="5-查看各种格式的证书">5. 查看各种格式的证书</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看 PEM 格式的证书 rootCA.heylinux.com.pem 和 star.heylinux.com.pem</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12 -alias heylinux_com
+</span></span></code></pre></div><h3 id="5-查看各种格式的证书">5. 查看各种格式的证书</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看 PEM 格式的证书 rootCA.heylinux.com.pem 和 star.heylinux.com.pem</span>
 </span></span><span class="line"><span class="cl">openssl x509 -noout -text -in rootCA.heylinux.com.pem 
 </span></span><span class="line"><span class="cl">openssl x509 -noout -text -in star.heylinux.com.pem
 </span></span><span class="line"><span class="cl">
@@ -467,45 +289,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 查看 JKS 格式的证书 star.heylinux.com.jks</span>
 </span></span><span class="line"><span class="cl">keytool -list -v -keystore star.heylinux.com.jks -storepass P_Ss0rdT
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="无需根证书的-tlsssl-证书">无需根证书的 TLS/SSL 证书</h2>
+</span></span></code></pre></div><h2 id="无需根证书的-tlsssl-证书">无需根证书的 TLS/SSL 证书</h2>
 <p>对于一些应用如 NiFi、vsFTPd，主要将 TLS/SSL 证书直接用于客户端与服务端校验，类似于 SSH 的私钥与公钥间的认证关系，这类 TLS/SSL 证书可以不需要根证书。</p>
 <p>创建服务端证书配置文件 <code>tls.conf</code>，证书的机构信息为 <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>，可用于多个 IP <code>10.8.5.7</code> 和 <code>10.2.3.4</code>，和多个泛域名 <code>*.heylinux.com</code> 和 <code>*.cloud.heylinux.com</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim tls.conf
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[req]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim tls.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[req]</span>
 </span></span><span class="line"><span class="cl"><span class="na">prompt</span> <span class="o">=</span> <span class="s">no</span>
 </span></span><span class="line"><span class="cl"><span class="na">req_extensions</span> <span class="o">=</span> <span class="s">req_ext</span>
 </span></span><span class="line"><span class="cl"><span class="na">distinguished_name</span> <span class="o">=</span> <span class="s">dn</span>
@@ -526,32 +314,8 @@
 </span></span><span class="line"><span class="cl"><span class="na">IP.2</span> <span class="o">=</span> <span class="s">10.2.3.4</span>
 </span></span><span class="line"><span class="cl"><span class="na">DNS.1</span> <span class="o">=</span> <span class="s">*.heylinux.com</span>
 </span></span><span class="line"><span class="cl"><span class="na">DNS.2</span> <span class="o">=</span> <span class="s">*.cloud.heylinux.com</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>可通过以下方式生成，设置加密方式为 <code>sha256</code>，有效期为 <code>3650天</code>，证书文件<strong><ruby>密码<rt>passphrase</rt></ruby></strong>为 <code>P_Ss0rdT</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 生成证书 Key heylinux-ssl-keypair.key 和证书 heylinux-ssl-keypair.crt</span>
+</span></span></code></pre></div><p>可通过以下方式生成，设置加密方式为 <code>sha256</code>，有效期为 <code>3650天</code>，证书文件<strong><ruby>密码<rt>passphrase</rt></ruby></strong>为 <code>P_Ss0rdT</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 生成证书 Key heylinux-ssl-keypair.key 和证书 heylinux-ssl-keypair.crt</span>
 </span></span><span class="line"><span class="cl">openssl req -x509 -newkey rsa:4096 -keyout heylinux-ssl-keypair.key -out heylinux-ssl-keypair.crt -days <span class="m">3650</span> -sha256 -extensions req_ext -config tls.conf
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 输入密码</span>
@@ -569,52 +333,16 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 查看 P12 格式的捆绑证书 heylinux-ssl-keypair.p12</span>
 </span></span><span class="line"><span class="cl">keytool -list -v -keystore heylinux-ssl-keypair.p12 -storepass P_Ss0rdT -storetype PKCS12
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="使用-cfssl-生成和查看-ssl-证书">使用 cfssl 生成和查看 SSL 证书</h2>
+</span></span></code></pre></div><h2 id="使用-cfssl-生成和查看-ssl-证书">使用 cfssl 生成和查看 SSL 证书</h2>
 <h3 id="1-安装命令行工具">1. 安装命令行工具</h3>
 <p>下载命令行工具 <code>cfssl</code>，<code>cfssljson</code> 和 <code>cfssl-certinfo</code> 并给予执行权限。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssl_linux-amd64 -O /usr/local/bin/cfssl
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssl_linux-amd64 -O /usr/local/bin/cfssl
 </span></span><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64 -O /usr/local/bin/cfssljson
 </span></span><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssl-certinfo_linux-amd64 -O /usr/local/bin/cfssl-certinfo
 </span></span><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/cfssl*
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="2-生成和查看根证书">2. 生成和查看根证书</h3>
+</span></span></code></pre></div><h3 id="2-生成和查看根证书">2. 生成和查看根证书</h3>
 <p>创建 json 配置文件 <code>rootCA.json</code>，生成与上面配置相同的 <code>rootCA.heylinux.com.key</code>（cfssl 不支持证书 key 与证书长度不一致，因此加密长度仅为2048）和 <code>rootCA.heylinux.com.pem</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;CA&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;expiry&#34;</span><span class="p">:</span> <span class="s2">&#34;87600h&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;pathlen&#34;</span><span class="p">:</span> <span class="mi">0</span>
@@ -634,119 +362,22 @@
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -initca rootCA.json <span class="p">|</span> cfssljson -bare rootCA.heylinux.com
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generating a new CA key and certificate from CSR
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -initca rootCA.json <span class="p">|</span> cfssljson -bare rootCA.heylinux.com
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generating a new CA key and certificate from CSR
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generate received request
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] received CSR
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generating key: rsa-2048
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] encoded CSR
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] signed certificate with serial number 644632230923530854661361284854682897812867573233
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rootCA.heylinux.com.csr
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -1
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">rootCA.heylinux.com.csr
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com-key.pem
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com.pem
 </span></span><span class="line"><span class="cl">rootCA.json
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv rootCA.heylinux.com-key.pem rootCA.heylinux.com.key
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>查看根证书 <code>rootCA.heylinux.com.pem</code> 信息。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert rootCA.heylinux.com.pem
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv rootCA.heylinux.com-key.pem rootCA.heylinux.com.key
+</span></span></code></pre></div><p>查看根证书 <code>rootCA.heylinux.com.pem</code> 信息。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert rootCA.heylinux.com.pem
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;common_name&#34;</span><span class="p">:</span> <span class="s2">&#34;SRE&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;country&#34;</span><span class="p">:</span> <span class="s2">&#34;CN&#34;</span><span class="p">,</span>
@@ -787,41 +418,10 @@
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject_key_id&#34;</span><span class="p">:</span> <span class="s2">&#34;36:D1:86:6B:27:AE:24:EF:C7:B3:2B:25:E7:92:DE:F1:0:34:2B:E5&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;pem&#34;</span><span class="p">:</span> <span class="s2">&#34;-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----\n&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-生成和查看-ssl-服务端证书">3. 生成和查看 SSL 服务端证书</h3>
+</span></span></code></pre></div><h3 id="3-生成和查看-ssl-服务端证书">3. 生成和查看 SSL 服务端证书</h3>
 <p>创建 json 配置文件 <code>ssl-config.json</code> 和 <code>ssl.json</code>，生成与上面配置相同的 <code>star.heylinux.com.key</code>（cfssl 不支持证书 key 与证书长度不一致，因此加密长度仅为2048）和 <code>star.heylinux.com.crt</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl-config.json
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl-config.json
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;signing&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;default&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;expiry&#34;</span><span class="p">:</span> <span class="s2">&#34;87600h&#34;</span>
@@ -839,39 +439,8 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.json
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.json
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;CN&#34;</span><span class="p">:</span> <span class="s2">&#34;*.heylinux.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;hosts&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;*.heylinux.com&#34;</span><span class="p">,</span>
@@ -889,40 +458,13 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;OU&#34;</span><span class="p">:</span> <span class="s2">&#34;IT&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -ca<span class="o">=</span>rootCA.heylinux.com.pem -ca-key<span class="o">=</span>rootCA.heylinux.com.key -config<span class="o">=</span>ssl-config.json -profile<span class="o">=</span>server ssl.json <span class="p">|</span> cfssljson -bare star.heylinux.com
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -ca<span class="o">=</span>rootCA.heylinux.com.pem -ca-key<span class="o">=</span>rootCA.heylinux.com.key -config<span class="o">=</span>ssl-config.json -profile<span class="o">=</span>server ssl.json <span class="p">|</span> cfssljson -bare star.heylinux.com
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">mv star.heylinux.com.pem star.heylinux.com.crt
 </span></span><span class="line"><span class="cl">mv star.heylinux.com-key.pem star.heylinux.com.key
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">ls -1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rootCA.heylinux.com.csr
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">rootCA.heylinux.com.csr
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com.key
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com.pem
 </span></span><span class="line"><span class="cl">rootCA.json
@@ -931,67 +473,9 @@
 </span></span><span class="line"><span class="cl">star.heylinux.com.crt
 </span></span><span class="line"><span class="cl">star.heylinux.com.csr
 </span></span><span class="line"><span class="cl">star.heylinux.com.key
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>查看服务端证书 <code>star.heylinux.com.crt</code> 信息。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert star.heylinux.com.crt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span></code></pre></div><p>查看服务端证书 <code>star.heylinux.com.crt</code> 信息。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert star.heylinux.com.crt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;common_name&#34;</span><span class="p">:</span> <span class="s2">&#34;*.heylinux.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;country&#34;</span><span class="p">:</span> <span class="s2">&#34;CN&#34;</span><span class="p">,</span>
@@ -1036,9 +520,7 @@
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject_key_id&#34;</span><span class="p">:</span> <span class="s2">&#34;4E:15:55:4A:34:EA:BA:69:3E:A5:F:40:74:16:52:F0:88:C3:7D:6F&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;pem&#34;</span><span class="p">:</span> <span class="s2">&#34;-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----\n&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

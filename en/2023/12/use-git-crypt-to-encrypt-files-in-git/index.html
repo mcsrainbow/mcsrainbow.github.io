@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6\/featured-image.jpeg",
                             "width":  1920 ,
                             "height":  640 
-                        }],"genre": "posts","keywords": "Git, Cybersecurity","wordcount":  361 ,
+                        }],"genre": "posts","keywords": "Git, Cybersecurity","wordcount":  323 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/use-git-crypt-to-encrypt-files-in-git\/","datePublished": "2023-12-18T17:50:15+08:00","dateModified": "2023-12-18T17:50:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -125,7 +125,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Use git-crypt to encrypt files in Git</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dong Guo | Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;361 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;323 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -153,29 +153,9 @@
             </div><div class="content" id="content"><p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>
 <hr>
 <h2 id="install-git-crypt">Install git-crypt</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="initialize-git-crypt-and-back-up-the-encryption-key">Initialize git-crypt and back up the encryption key</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt init
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt
+</span></span></code></pre></div><h2 id="initialize-git-crypt-and-back-up-the-encryption-key">Initialize git-crypt and back up the encryption key</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt init
 </span></span><span class="line"><span class="cl">Generating key...
 </span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v1.key
 </span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v1.key
@@ -184,42 +164,19 @@
 </span></span><span class="line"><span class="cl">❯ git add .gitattributes
 </span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: tell git-crypt to encrypt git-crypt/api.key&#34;
 </span></span><span class="line"><span class="cl">❯ git push
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="create-git-crypt-demo-files">Create git-crypt demo files</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir git-crypt
+</span></span></code></pre></div><h2 id="create-git-crypt-demo-files">Create git-crypt demo files</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir git-crypt
 </span></span><span class="line"><span class="cl">❯ echo &#34;This is some text&#34; &gt; git-crypt/file.txt
 </span></span><span class="line"><span class="cl">❯ echo &#34;dummy value&#34; &gt; git-crypt/api.key
 </span></span><span class="line"><span class="cl">❯ git add git-crypt
 </span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: add git-crypt demo files&#34;
 </span></span><span class="line"><span class="cl">❯ git push
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="verify-encryption-and-decryption-status">Verify encryption and decryption status</h2>
+</span></span></code></pre></div><h2 id="verify-encryption-and-decryption-status">Verify encryption and decryption status</h2>
 <p>Use the <code>git-crypt status</code> command to view the server side encryption and decryption status</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt status git-crypt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt status git-crypt
 </span></span><span class="line"><span class="cl">    encrypted: git-crypt/api.key
 </span></span><span class="line"><span class="cl">not encrypted: git-crypt/file.txt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>View the server side encryption and decryption status on the <code>GitLab Web</code></p>
+</span></span></code></pre></div><p>View the server side encryption and decryption status on the <code>GitLab Web</code></p>
 <a class="lightgallery" href="/2023/12/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/git_crypt_encrypted_file.jpg" title="git_crypt_encrypted_file" data-thumbnail="/2023/12/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/git_crypt_encrypted_file.jpg">
         <img
             class="lazyload"
@@ -230,20 +187,7 @@
             alt="git_crypt_encrypted_file" width="800" height="790" />
     </a>
 <p>Encrypt and decrypt the <code>git-crypt/api.key</code> locally with <code>git-crypt lock/unlock</code> commands</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt lock
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt lock
 </span></span><span class="line"><span class="cl">❯ file git-crypt/api.key
 </span></span><span class="line"><span class="cl">git-crypt/api.key: data
 </span></span><span class="line"><span class="cl">
@@ -252,47 +196,23 @@
 </span></span><span class="line"><span class="cl">git-crypt/api.key: ASCII text
 </span></span><span class="line"><span class="cl">❯ cat git-crypt/api.key
 </span></span><span class="line"><span class="cl">dummy value
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="working-in-team-with-git-crypt">Working in team with git-crypt</h2>
+</span></span></code></pre></div><h2 id="working-in-team-with-git-crypt">Working in team with git-crypt</h2>
 <p>Share the exported encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v1.key</code> with team members in a secure way.</p>
 <p>Then they can import encryption key and decrypt the repository by command: <code>git-crypt unlock /path/to/git-crypt-v1.key</code>.</p>
 <h2 id="renew-the-git-crypt-encryption-key">Renew the git-crypt encryption key</h2>
 <p>Create a new git-crypt encryption key</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
 </span></span><span class="line"><span class="cl">❯ rm -rf .git/git-crypt/keys
 </span></span><span class="line"><span class="cl">❯ git-crypt init
 </span></span><span class="line"><span class="cl">Generating key...
 </span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v2.key
 </span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Trigger an update and apply the new git-crypt encryption key.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ echo &#34;new dummy value&#34; &gt; git-crypt/api.key
+</span></span></code></pre></div><p>Trigger an update and apply the new git-crypt encryption key.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ echo &#34;new dummy value&#34; &gt; git-crypt/api.key
 </span></span><span class="line"><span class="cl">❯ git add git-crypt/api.key
 </span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: update api.key with new git-crypt encryption key&#34;
 </span></span><span class="line"><span class="cl">❯ git push
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Share the new git-crypt encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v2.key</code> with team members in a secure way.</p>
+</span></span></code></pre></div><p>Share the new git-crypt encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v2.key</code> with team members in a secure way.</p>
 <p>Then ask them to hold on the git push and pull actions, import the new encryption key first: <code>git-crypt unlock /path/to/git-crypt-v2.key</code>.</p>
 <h2 id="references">References</h2>
 <p><a href="https://buddy.works/guides/git-crypt" target="_blank" rel="noopener noreffer ">https://buddy.works/guides/git-crypt</a></p></div><div class="post-footer" id="post-footer">
