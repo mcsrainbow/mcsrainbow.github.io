@@ -28,7 +28,7 @@ kubeadm 大大降低了 Kubernetes 集群部署的复杂度，但通常仅仅用
 
 准备3台虚拟机节点（根据实际情况替换为真实 IP）
 
-```
+```yaml
 OS: CentOS 7.9 x86_64
 CPU: 2 vCores
 Memory: 4 Gi
@@ -40,7 +40,7 @@ kubeadm03: 172.31.7.7
 
 升级内核与系统软件包
 
-```
+```bash
 yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
 yum install --enablerepo=elrepo-kernel -y kernel-lt
 
@@ -54,7 +54,7 @@ yum -y update
 
 配置各节点主机名
 
-```
+```plain
 [root@kubeadm01 ~]# cat > /etc/hostname <<EOF
 kubeadm01
 EOF
@@ -73,7 +73,7 @@ EOF
 
 配置主机名解析（根据实际情况替换为真实 IP）
 
-```
+```bash
 cat >> /etc/hosts <<EOF
 172.31.8.8 kubeadm01
 172.31.5.5 kubeadm02
@@ -83,7 +83,7 @@ EO
 
 配置内核参数
 
-```
+```bash
 cat > /etc/sysctl.d/sysctl.conf <<EOF
 net.bridge.bridge-nf-call-iptables=1
 net.bridge.bridge-nf-call-ip6tables=1
@@ -105,21 +105,21 @@ sysctl -p /etc/sysctl.d/sysctl.conf
 
 安装所需软件包
 
-```
+```bash
 yum install -y epel-release
 yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet
 ```
 
 启用 Chrony 时间同步服务
 
-```
+```bash
 systemctl start chronyd
 systemctl enable chronyd
 ```
 
 禁用 Firewalld，Swap 和 SELinux
 
-```
+```bash
 systemctl stop firewalld
 systemctl disable firewalld
 
@@ -132,7 +132,7 @@ sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
 
 配置内核模块，然后重启生效
 
-```
+```bash
 cat > /etc/modules-load.d/kubernetes.conf <<EOF
 ip_vs_dh
 ip_vs_ftp
@@ -160,13 +160,13 @@ reboot
 
 重启后，验证已加载内核模块
 
-```
+```bash
 lsmod | grep -e ip_vs -e nf_conntrack_ipv4
 ```
 
 安装 Docker
 
-```
+```bash
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum -y install docker-ce-20.10.8
 
@@ -183,7 +183,7 @@ systemctl enable docker
 
 禁用 postfix，创建所需目录
 
-```
+```bash
 systemctl stop postfix
 systemctl disable postfix
 
@@ -196,7 +196,7 @@ mkdir -p /opt/k8s/{bin,work} /etc/{kubernetes,etcd}/cert
 
 在所有节点上安装 kubeadm，kubelet 和 kubectl
 
-```
+```bash
 cat > /etc/yum.repos.d/kubernetes.repo << EOF
 [kubernetes]
 name=Kubernetes
@@ -214,11 +214,11 @@ systemctl start kubelet
 
 在所有节点上拉取 Docker 镜像
 
-```
+```bash
 kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.22.1
 ```
 
-```
+```plain
 [config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.22.1
 [config/images] Pulled registry.aliyuncs.com/google_containers/kube-controller-manager:v1.22.1
 [config/images] Pulled registry.aliyuncs.com/google_containers/kube-scheduler:v1.22.1
@@ -230,11 +230,11 @@ kubeadm config images pull --image-repository registry.aliyuncs.com/google_conta
 
 列出默认所需镜像及版本
 
-```
+```bash
 kubeadm config images list --kubernetes-version v1.22.1
 ```
 
-```
+```plain
 k8s.gcr.io/kube-apiserver:v1.22.1
 k8s.gcr.io/kube-controller-manager:v1.22.1
 k8s.gcr.io/kube-scheduler:v1.22.1
@@ -257,7 +257,7 @@ for i in $(docker images | grep google_containers | awk '{print $1":"$2}' | cut 
 
 在 kubeadm01 上执行 init（根据实际情况替换 Node，Pod 和 Service 的网段）
 
-```
+```plain
 # Networks:
 # Node: 172.31.0.0/16
 # Pod: 10.192.0.0/16
@@ -273,7 +273,7 @@ for i in $(docker images | grep google_containers | awk '{print $1":"$2}' | cut 
 --token-ttl=0
 ```
 
-```
+```plain
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
@@ -298,7 +298,7 @@ kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
 
 在 kubeadm01 上配置 .kube/config
 
-```
+```plain
 [root@kubeadm01 ~]# mkdir -p $HOME/.kube
 [root@kubeadm01 ~]# cp /etc/kubernetes/admin.conf $HOME/.kube/config
 
@@ -309,7 +309,7 @@ kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
 
 在 kubeadm02 和 kubeadm03 上执行 join（根据实际情况替换参数的值）
 
-```
+```plain
 [root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
         --token 2333y7.y7xev857t8n4w5em \
         --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
@@ -319,7 +319,7 @@ kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
         --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
 ```
 
-```
+```plain
 This node has joined the cluster:
 * Certificate signing request was sent to apiserver and a response was received.
 * The Kubelet was informed of the new secure connection details.
@@ -329,11 +329,11 @@ Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 
 在 kubeadm01 上查看节点状态
 
-```
+```plain
 [centos@kubeadm01 ~]$ kubectl get nodes 
 ```
 
-```
+```plain
 NAME        STATUS   ROLES                  AGE     VERSION
 kubeadm01   Ready    control-plane,master   5m      v1.22.1
 kubeadm02   Ready    <none>                 7m      v1.22.1
@@ -342,7 +342,7 @@ kubeadm03   Ready    <none>                 9m      v1.22.1
 
 在 kubeadm01 上安装 Flannel 网络插件（根据实际情况替换 Pod 的网段）
 
-```
+```plain
 [centos@kubeadm01 ~]$ mkdir flannel 
 [centos@kubeadm01 ~]$ cd flannel
 [centos@kubeadm01 flannel]$ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
@@ -359,13 +359,13 @@ kubeadm03   Ready    <none>                 9m      v1.22.1
     }
 ```
 
-```
+```plain
 [centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
 ```
 
 在 kubeadm01 上修复 scheduler 和 controller-manager
 
-```
+```plain
 [centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
 [centos@kubeadm01 ~]$ sudo sed -i '/port=0/d' /etc/kubernetes/manifests/kube-scheduler.yaml
 [centos@kubeadm01 ~]$ sudo sed -i '/port=0/d' /etc/kubernetes/manifests/kube-controller-manager.yaml
@@ -375,11 +375,11 @@ kubeadm03   Ready    <none>                 9m      v1.22.1
 
 在 kubeadm01 上查看 clusterservice 状态
 
-```
+```plain
 [centos@kubeadm01 ~]$ kubectl get cs
 ```
 
-```
+```plain
 NAME                 STATUS    MESSAGE                         ERROR
 scheduler            Healthy   ok                              
 controller-manager   Healthy   ok                              
@@ -388,11 +388,11 @@ etcd-0               Healthy   {"health":"true","reason":""}
 
 在 kubeadm01 上查看所有 Pod 的状态
 
-```
+```plain
 [centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
 ```
 
-```
+```plain
 NAMESPACE              NAME                                        READY   STATUS      RESTARTS   AGE
 kube-system            coredns-78fcd69978-99vcx                    1/1     Running     0          5m
 kube-system            coredns-78fcd69978-lm5bt                    1/1     Running     0          5m
@@ -412,7 +412,7 @@ kube-system            kube-scheduler-kubeadm01                    1/1     Runni
 
 默认 kube-proxy 的 mode 为 iptables，修改为功能更强大的 ipvs
 
-```
+```bash
 kubectl edit configmap kube-proxy -n kube-system
 ```
 
@@ -420,6 +420,6 @@ kubectl edit configmap kube-proxy -n kube-system
 mode: "ipvs"
 ```
 
-```
+```bash
 kubectl get pods -n kube-system | grep kube-proxy | awk '{print $2}' | xargs kubectl -n kube-system delete pods
 ```

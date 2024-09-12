@@ -41,7 +41,7 @@ lightgallery: true
 
 ## draw.io 中图标的顺序
 
-```plain
+```
 .
 ├── 00 Logo
 ├── 01 网络与CDN

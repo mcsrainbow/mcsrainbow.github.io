@@ -86,7 +86,7 @@ View server certificate information
 openssl x509 -text -noout -in star.heylinux.com.crt
 ```
 
-```
+```plain
 Certificate:
     Data:
         Version: 3 (0x2)
@@ -131,13 +131,13 @@ openssl pkcs12 -export -in star.heylinux.com.crt -inkey star.heylinux.com.key -p
 
 Convert `star.heylinux.com.p12` to `star.heylinux.com.jks` in `JKS`, set passphrase `P_Ss0rdT`, alias `heylinux_com`. It could be used for servers such as Tomcat.
 
-```
+```bash
 keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12
 ```
 
 Convert `star.heylinux.com.p12` to `star.heylinux.com.pem` in `PEM`, alias `heylinux_com`,no passphrase. It could be used for servers such as Apache、Nginx、HAProxy and AWS ELB.
 
-```
+```bash
 openssl pkcs12 -password pass:P_Ss0rdT -in star.heylinux.com.p12 -out star.heylinux.com.pem -nodes
 ```
 
@@ -187,7 +187,7 @@ keytool -importcert -alias heylinux_com -keystore rootCA.heylinux.com.jks -store
 
 Convert `star.heylinux.com.pfx` to `star.heylinux.com.pem`, which including the items of `star.heylinux.com.key` and `star.heylinux.com.crt`.
 
-```
+```bash
 openssl pkcs12 -password pass:P_Ss0rdT -nodes -in star.heylinux.com.pfx -out star.heylinux.com.pem
 ```
 
@@ -314,7 +314,7 @@ Create `rootCA.json`, generate the similar `rootCA.heylinux.com.key`(encryption 
 cfssl gencert -initca rootCA.json | cfssljson -bare rootCA.heylinux.com
 ```
 
-```
+```plain
 2021/11/13 05:11:48 [INFO] generating a new CA key and certificate from CSR
 2021/11/13 05:11:48 [INFO] generate received request
 2021/11/13 05:11:48 [INFO] received CSR
@@ -327,7 +327,7 @@ cfssl gencert -initca rootCA.json | cfssljson -bare rootCA.heylinux.com
 ls -1
 ```
 
-```
+```plain
 rootCA.heylinux.com.csr
 rootCA.heylinux.com-key.pem
 rootCA.heylinux.com.pem
@@ -451,7 +451,7 @@ mv star.heylinux.com-key.pem star.heylinux.com.key
 ls -1
 ```
 
-```
+```plain
 rootCA.heylinux.com.csr
 rootCA.heylinux.com.key
 rootCA.heylinux.com.pem

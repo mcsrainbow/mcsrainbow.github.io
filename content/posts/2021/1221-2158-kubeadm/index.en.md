@@ -24,7 +24,7 @@ kubeadm performs the actions necessary to get a minimum viable cluster up and ru
 
 Prepare the EC2 instances(replace the IP addresses as required)
 
-```
+```yaml
 OS: CentOS 7.9 x86_64
 CPU: 2 vCores
 Memory: 4 Gi
@@ -36,7 +36,7 @@ kubeadm03: 172.31.7.7
 
 Upgrade kernel and packages
 
-```
+```bash
 yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
 yum install --enablerepo=elrepo-kernel -y kernel-lt
 
@@ -50,7 +50,7 @@ yum -y update
 
 Configure /etc/hostname
 
-```
+```plain
 [root@kubeadm01 ~]# cat > /etc/hostname <<EOF
 kubeadm01
 EOF
@@ -69,7 +69,7 @@ EOF
 
 Configure /etc/hosts(replace the IP addresses as required)
 
-```
+```bash
 cat >> /etc/hosts <<EOF
 172.31.8.8 kubeadm01
 172.31.5.5 kubeadm02
@@ -79,7 +79,7 @@ EO
 
 Configure /etc/sysctl.conf
 
-```
+```bash
 cat > /etc/sysctl.d/sysctl.conf <<EOF
 net.bridge.bridge-nf-call-iptables=1
 net.bridge.bridge-nf-call-ip6tables=1
@@ -101,21 +101,21 @@ sysctl -p /etc/sysctl.d/sysctl.conf
 
 Install required packages
 
-```
+```bash
 yum install -y epel-release
 yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet
 ```
 
 Enable Chrony service
 
-```
+```bash
 systemctl start chronyd
 systemctl enable chronyd
 ```
 
 Disable Firewalld, Swap and SELinux
 
-```
+```bash
 systemctl stop firewalld
 systemctl disable firewalld
 
@@ -128,7 +128,7 @@ sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
 
 Configure /etc/modules-load.d/kubernetes.conf and reboot
 
-```
+```bash
 cat > /etc/modules-load.d/kubernetes.conf <<EOF
 ip_vs_dh
 ip_vs_ftp
@@ -156,13 +156,13 @@ reboot
 
 Verify the kernel modules after reboot
 
-```
+```bash
 lsmod | grep -e ip_vs -e nf_conntrack_ipv4
 ```
 
 Install Docker
 
-```
+```bash
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum -y install docker-ce-20.10.8
 
@@ -179,7 +179,7 @@ systemctl enable docker
 
 Disable postfix and create required directories
 
-```
+```bash
 systemctl stop postfix
 systemctl disable postfix
 
@@ -192,7 +192,7 @@ mkdir -p /opt/k8s/{bin,work} /etc/{kubernetes,etcd}/cert
 
 Install kubeadm, kubelet and kubectl on all Nodes
 
-```
+```bash
 cat > /etc/yum.repos.d/kubernetes.repo <<EOF
 [kubernetes]
 name=Kubernetes
@@ -210,13 +210,13 @@ systemctl start kubelet
 
 Pull required Docker images on all Nodes
 
-```
+```bash
 kubeadm config images pull --kubernetes-version v1.22.1
 ```
 
 Run init on kubeadm01(replace the CIDR of Node, Pod and Service networks as required)
 
-```
+```plain
 # Networks:
 # Node: 172.31.0.0/16
 # Pod: 10.192.0.0/16
@@ -232,7 +232,7 @@ Run init on kubeadm01(replace the CIDR of Node, Pod and Service networks as requ
 --token-ttl=0
 ```
 
-```
+```plain
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
@@ -257,7 +257,7 @@ kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
 
 Create .kube/config on kubeadm01
 
-```
+```plain
 [root@kubeadm01 ~]# mkdir -p $HOME/.kube
 [root@kubeadm01 ~]# cp /etc/kubernetes/admin.conf $HOME/.kube/config
 
@@ -268,7 +268,7 @@ Create .kube/config on kubeadm01
 
 Join the cluster via command on kubeadm02 and kubeadm03(repace the values as required)
 
-```
+```plain
 [root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
         --token 2333y7.y7xev857t8n4w5em \
         --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
@@ -278,7 +278,7 @@ Join the cluster via command on kubeadm02 and kubeadm03(repace the values as req
         --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
 ```
 
-```
+```plain
 This node has joined the cluster:
 * Certificate signing request was sent to apiserver and a response was received.
 * The Kubelet was informed of the new secure connection details.
@@ -288,11 +288,11 @@ Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 
 Check all Nodes status on kubeadm01
 
-```
+```plain
 [centos@kubeadm01 ~]$ kubectl get nodes 
 ```
 
-```
+```plain
 NAME        STATUS   ROLES                  AGE     VERSION
 kubeadm01   Ready    control-plane,master   5m      v1.22.1
 kubeadm02   Ready    <none>                 7m      v1.22.1
@@ -301,7 +301,7 @@ kubeadm03   Ready    <none>                 9m      v1.22.1
 
 Install Flannel on kubeadm01(replace the CIDR of Pod network as required)
 
-```
+```plain
 [centos@kubeadm01 ~]$ mkdir flannel 
 [centos@kubeadm01 ~]$ cd flannel
 [centos@kubeadm01 flannel]$ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
@@ -318,13 +318,13 @@ Install Flannel on kubeadm01(replace the CIDR of Pod network as required)
     }
 ```
 
-```
+```plain
 [centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
 ```
 
 Fix scheduler and controller-manager on kubeadm01
 
-```
+```plain
 [centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
 [centos@kubeadm01 ~]$ sudo sed -i '/port=0/d' /etc/kubernetes/manifests/kube-scheduler.yaml
 [centos@kubeadm01 ~]$ sudo sed -i '/port=0/d' /etc/kubernetes/manifests/kube-controller-manager.yaml
@@ -334,11 +334,11 @@ Fix scheduler and controller-manager on kubeadm01
 
 Check clusterservice status on kubeadm01
 
-```
+```plain
 [centos@kubeadm01 ~]$ kubectl get cs
 ```
 
-```
+```plain
 NAME                 STATUS    MESSAGE                         ERROR
 scheduler            Healthy   ok                              
 controller-manager   Healthy   ok                              
@@ -347,11 +347,11 @@ etcd-0               Healthy   {"health":"true","reason":""}
 
 Check all Pods status on kubeadm01
 
-```
+```plain
 [centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
 ```
 
-```
+```plain
 NAMESPACE              NAME                                        READY   STATUS      RESTARTS   AGE
 kube-system            coredns-78fcd69978-99vcx                    1/1     Running     0          5m
 kube-system            coredns-78fcd69978-lm5bt                    1/1     Running     0          5m
@@ -371,7 +371,7 @@ kube-system            kube-scheduler-kubeadm01                    1/1     Runni
 
 Change the kube-proxy mode to ipvs, by default it's iptables
 
-```
+```bash
 kubectl edit configmap kube-proxy -n kube-system
 ```
 
@@ -379,6 +379,6 @@ kubectl edit configmap kube-proxy -n kube-system
 mode: "ipvs"
 ```
 
-```
+```bash
 kubectl get pods -n kube-system | grep kube-proxy | awk '{print $2}' | xargs kubectl -n kube-system delete pods
 ```

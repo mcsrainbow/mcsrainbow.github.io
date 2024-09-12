@@ -82,7 +82,7 @@ openssl x509 -req -in star.heylinux.com.csr -CA rootCA.heylinux.com.pem -CAkey r
 openssl x509 -text -noout -in star.heylinux.com.crt
 ```
 
-```
+```plain
 Certificate:
     Data:
         Version: 3 (0x2)
@@ -127,13 +127,13 @@ openssl pkcs12 -export -in star.heylinux.com.crt -inkey star.heylinux.com.key -p
 
 将生成好的 `PKCS12` 格式的捆绑证书 `star.heylinux.com.p12` 转换为 `JKS` 格式 `star.heylinux.com.jks`，设置证书文件的[密码]^(passphrase)为 `P_Ss0rdT`，文件内别名 `heylinux_com`，这种证书可用于 Java 类应用的服务器软件如 Tomcat。
 
-```
+```bash
 keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12
 ```
 
 将生成好的 `PKCS12` 格式的捆绑证书 `star.heylinux.com.p12` 转换为 `PEM` 格式 `star.heylinux.com.pem`，文件内别名 `heylinux_com`，不设置证书文件的密码，这种证书可用于服务器软件如 Apache、Nginx、HAProxy 和 AWS ELB。
 
-```
+```bash
 openssl pkcs12 -password pass:P_Ss0rdT -in star.heylinux.com.p12 -out star.heylinux.com.pem -nodes
 ```
 
@@ -181,7 +181,7 @@ keytool -importcert -alias heylinux_com -keystore rootCA.heylinux.com.jks -store
 
 将 `PFX(P12)` 格式的证书 `star.heylinux.com.pfx` 转换为 `PEM` 格式 `star.heylinux.com.pem`，通常 `star.heylinux.com.pem` 包含了服务端证书 Key 和服务端证书，可以手动将其中的内容分别复制出来，生成服务端证书 Key `star.heylinux.com.key` 和服务端证书 `star.heylinux.com.crt`。
 
-```
+```bash
 openssl pkcs12 -password pass:P_Ss0rdT -nodes -in star.heylinux.com.pfx -out star.heylinux.com.pem
 ```
 
@@ -308,7 +308,7 @@ sudo chmod +x /usr/local/bin/cfssl*
 cfssl gencert -initca rootCA.json | cfssljson -bare rootCA.heylinux.com
 ```
 
-```
+```plain
 2021/11/13 05:11:48 [INFO] generating a new CA key and certificate from CSR
 2021/11/13 05:11:48 [INFO] generate received request
 2021/11/13 05:11:48 [INFO] received CSR
@@ -321,7 +321,7 @@ cfssl gencert -initca rootCA.json | cfssljson -bare rootCA.heylinux.com
 ls -1
 ```
 
-```
+```plain
 rootCA.heylinux.com.csr
 rootCA.heylinux.com-key.pem
 rootCA.heylinux.com.pem
@@ -445,7 +445,7 @@ mv star.heylinux.com-key.pem star.heylinux.com.key
 ls -1
 ```
 
-```
+```plain
 rootCA.heylinux.com.csr
 rootCA.heylinux.com.key
 rootCA.heylinux.com.pem
