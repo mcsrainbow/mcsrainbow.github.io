@@ -44,3 +44,10 @@
 #view-comments {
   bottom: 4.5rem;
 }
+
+/* 添加这些规则以调整按钮在大屏幕上的位置 */
+@media only screen and (min-width: 1440px) {
+  .fixed-button {
+    right: calc((100% - 1440px) / 2 + 1.5rem); // 1200px 是导航栏的最大宽度，+ 1.5rem 是内边距
+  }
+}
