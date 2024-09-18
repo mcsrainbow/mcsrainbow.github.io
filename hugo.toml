@@ -442,8 +442,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         enable = true
         # owner/repo
         repo = "mcsrainbow/blog-comments"
-        issueTerm = "pathname"
-        label = ""
+        issueTerm = "title"
+        label = "💬"
         lightTheme = "github-light"
         darkTheme = "github-dark"
 
