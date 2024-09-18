@@ -27,10 +27,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     languageName = "简体中文"
     # 是否包括中日韩文字
     hasCJKLanguage = true
-    # 默认每页列表显示的文章数目
-    paginate = 12
     # 版权描述，仅仅用于 SEO
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+    # 默认每页列表显示的文章数目
+    [languages.zh-cn.pagination]
+      pagerSize = 12
     # 菜单配置
     [languages.zh-cn.menu]
       [[languages.zh-cn.menu.main]]
@@ -136,7 +137,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         [languages.zh-cn.params.home.posts]
           enable = true
           # 主页每页显示文章数量
-          paginate = 6
+          [languages.zh-cn.params.home.posts.pagination]
+            pagerSize = 6
       # 主页的社交信息设置
       [languages.zh-cn.params.social]
         GitHub = "mcsrainbow"
@@ -150,10 +152,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     languageName = "English"
     # whether to include Chinese/Japanese/Korean
     hasCJKLanguage = false
-    # default amount of posts in each pages
-    paginate = 12
     # copyright description used only for seo schema
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+    # default amount of posts in each pages
+    [languages.en.pagination]
+      pagerSize = 12
     # Menu config
     [languages.en.menu]
       [[languages.en.menu.main]]
@@ -259,7 +262,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         [languages.en.params.home.posts]
           enable = true
           # special amount of posts in each home posts page
-          paginate = 6
+          [languages.en.params.home.posts.pagination]
+            pagerSize = 6
       # Social config in home page
       [languages.en.params.social]
         GitHub = "mcsrainbow"
@@ -319,21 +323,23 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   # Section (所有文章) 页面配置
   [params.section]
-    # section 页面每页显示文章数量
-    paginate = 20
     # 日期格式 (月和日)
     dateFormat = "01-02"
     # RSS 文章数目
     rss = 10
+    # section 页面每页显示文章数量
+    [params.section.pagination]
+      pagerSize = 20
 
   # List (目录或标签) 页面配置
   [params.list]
-    # list 页面每页显示文章数量
-    paginate = 20
     # 日期格式 (月和日)
     dateFormat = "01-02"
     # RSS 文章数目
     rss = 10
+    # list 页面每页显示文章数量
+    [params.list.pagination]
+      pagerSize = 20
 
   # 文章页面配置
   [params.page]
@@ -428,6 +434,18 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       [params.page.seo.publisher]
         name = "mcsrainbow"
         logoUrl = "/images/avatar.jpg"
+    # 评论系统设置
+    [params.page.comment]
+      enable = true
+      # utterances comment 评论系统设置 (https://utteranc.es/)
+      [params.page.comment.utterances]
+        enable = true
+        # owner/repo
+        repo = "mcsrainbow/blog-comments"
+        issueTerm = "pathname"
+        label = ""
+        lightTheme = "github-light"
+        darkTheme = "github-dark"
 
   # TypeIt 配置
   [params.typeit]
