@@ -1,5 +1,7 @@
 #comments {
-  padding: 2rem 0 1rem; // 调整评论框的上下内边距，以减少上下空白
+  padding: 3rem 0 1rem; // 调整评论框的上下内边距，以减少上下空白
+  max-width: 1000px; // 设置评论框的最大宽度为1000px
+  margin: 0 auto; // 中央对齐评论框
 
   .vemoji {
     max-width: 1.5em;
