@@ -27,7 +27,7 @@
             {{- else -}}
                 {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
             {{- end -}}
-            {{- with $posts.paginate | default .Site.Params.paginate -}}
+            {{- with $posts.pagination.pagerSize | default .Site.Params.pagination.pagerSize -}}
                 {{- $pages = $.Paginate $pages . -}}
             {{- else -}}
                 {{- $pages = .Paginate $pages -}}
