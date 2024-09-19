@@ -441,9 +441,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       [params.page.comment.utterances]
         enable = true
         # owner/repo
-        repo = "mcsrainbow/blog-comments"
+        repo = "mcsrainbow/mcsrainbow.github.io"
         issueTerm = "title"
-        label = "utterances"
+        label = "utteranc.es"
         lightTheme = "github-light"
         darkTheme = "github-dark"
 
