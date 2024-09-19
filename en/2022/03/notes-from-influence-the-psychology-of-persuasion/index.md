@@ -46,3 +46,4 @@ Here is a summary of 6 principles of persuasion, which from [James Beswick](http
 ## Thinking
 
 After reading the book "Influence", I have gained a psychological level of understanding of some business activities and social phenomena. In the future, when facing similar psychological manipulation, I should be able to keep a clearer head and think independently to avoid being easily misled.
+

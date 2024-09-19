@@ -55,4 +55,3 @@
 | ✓ |	tick , check | 钩 |
 | x | cross |	叉 |
 
-

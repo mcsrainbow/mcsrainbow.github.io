@@ -161,3 +161,4 @@ It includes the following items:
 This DevSecOps CI/CD pipeline is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.
 
 For sure, there are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.
+

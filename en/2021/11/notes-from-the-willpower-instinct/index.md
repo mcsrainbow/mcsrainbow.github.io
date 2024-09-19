@@ -68,3 +68,4 @@ The book mentions many ways to enhance willpower, there is [a good summary from 
 While reading this book, I was surprised many times by the various conclusions analyzed from a physiological point of view, and gained many scientific and practical ways to enhance my willpower.
 
 I also gained a new understanding of self-control, stopped doubting myself, learned to reconcile with myself, accept my flaws, act more positively in a good direction, and have a clear vision of a better future:grin:.
+

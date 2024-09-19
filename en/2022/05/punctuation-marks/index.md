@@ -54,3 +54,4 @@ Reference: [List of typographical symbols and punctuation marks](https://en.wiki
 | → |	arrow |
 | ✓ |	tick , check |
 | x | cross |
+

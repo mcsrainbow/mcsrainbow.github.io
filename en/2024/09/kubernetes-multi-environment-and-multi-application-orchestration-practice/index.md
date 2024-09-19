@@ -137,3 +137,4 @@ Pros: Powerful templating, with highly flexible code reuse, parameter modificati
 Cons: High flexibility leads to high coupling, and the templated code is less intuitive. Configuration errors can have a larger impact and be more difficult to debug.
 
 Helm Template Functions: https://helm.sh/docs/chart_template_guide/function_list/
+

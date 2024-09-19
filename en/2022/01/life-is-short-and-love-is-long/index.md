@@ -37,3 +37,4 @@ Love myself, love our relatives and friends.
 Reasoning isn't the ultimate solution to problems, showing love is.
 
 The wisest and most rewarding choice is to maintain our positive mental state by observing our inner emotional changes, doing more behaviors that contribute to good emotions, and reducing emotional internal conflict.
+

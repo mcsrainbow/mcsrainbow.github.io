@@ -371,3 +371,4 @@ mode: "ipvs"
 ```bash
 kubectl get pods -n kube-system | grep kube-proxy | awk '{print $2}' | xargs kubectl -n kube-system delete pods
 ```
+
