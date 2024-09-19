@@ -6,6 +6,11 @@ lightgallery: true
 
 math:
   enable: true
+
+params:
+  page:
+    comment:
+      enable: false
 ---
 
 ### 关于网站
