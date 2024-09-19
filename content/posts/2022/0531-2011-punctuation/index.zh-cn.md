@@ -66,4 +66,3 @@ lightgallery: true
 | → |	arrow |	箭头 |
 | ✓ |	tick , check | 钩 |
 | x | cross |	叉 |
-
