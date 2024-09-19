@@ -7,10 +7,8 @@ lightgallery: true
 math:
   enable: true
 
-params:
-  page:
-    comment:
-      enable: false
+comment:
+  enable: false
 ---
 
 ### About Site
