@@ -1,4 +1,4 @@
-# Use git-crypt to encrypt files in Git
+# Use git-crypt to Encrypt Files in Git
 
 
 git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.
