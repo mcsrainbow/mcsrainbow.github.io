@@ -228,7 +228,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         # max number of results length
         maxResultLength = 10
         # snippet length of the result
-        snippetLength = 30
+        snippetLength = 50
         # HTML tag name of the highlight part in results
         highlightTag = "em"
         # whether to use the absolute URL based on the baseURL in search index
@@ -407,12 +407,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 文章页面的分享信息设置
     [params.page.share]
       enable = true
+      Twitter = true
       Facebook = false
+      LinkedIn = true
       HackerNews = false
       Line = false
-      Twitter = true
-      LinkedIn = true
-      Weibo = true
+      Weibo = false
       Evernote = true
     # 第三方库配置
     [params.page.library]
