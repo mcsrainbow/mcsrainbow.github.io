@@ -136,5 +136,5 @@ helm template . -f values/production.yaml
 优点: 模板功能强大，可以高度自由地复用代码、修改参数和读取文件生成配置，可将配置按应用打包发布到 Helm Repo 中进行包管理；  
 缺点: 高度自由的定制能力也导致了高耦合，模板化的配置代码不够直观，配置失误时影响范围增大且调试难度增加。
 
-Helm 模板函数: https://helm.sh/zh/docs/chart_template_guide/function_list/
+Helm 模板函数和流水线: https://helm.sh/zh/docs/chart_template_guide/functions_and_pipelines/
 
