@@ -136,5 +136,5 @@ helm template . -f values/production.yaml
 Pros: Powerful templating, with highly flexible code reuse, parameter modification, and file generation. Configurations can be packaged and published to Helm Repos for package management.  
 Cons: High flexibility leads to high coupling, and the templated code is less intuitive. Configuration errors can have a larger impact and be more difficult to debug.
 
-Helm Template Functions and Pipelines: https://helm.sh/zh/docs/chart_template_guide/functions_and_pipelines/
+Helm Template Functions and Pipelines: https://helm.sh/docs/chart_template_guide/functions_and_pipelines/
 
