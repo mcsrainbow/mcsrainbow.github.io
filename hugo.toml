@@ -408,11 +408,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     [params.page.share]
       enable = true
       Twitter = true
-      Facebook = false
+      Facebook = true
       LinkedIn = true
       HackerNews = false
+      Reddit = true
       Line = false
-      Pocket = true
       Weibo = false
     # 第三方库配置
     [params.page.library]
