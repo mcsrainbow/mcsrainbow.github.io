@@ -412,8 +412,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       LinkedIn = true
       HackerNews = false
       Line = false
+      Pocket = true
       Weibo = false
-      Evernote = true
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
