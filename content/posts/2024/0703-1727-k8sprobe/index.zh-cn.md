@@ -226,7 +226,6 @@ spec:
             successThreshold: 2
             # 默认值: 1
             timeoutSeconds: 2
-            # 默认值: 1
           lifecycle:
             preStop:
               exec:
