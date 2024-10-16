@@ -39,7 +39,7 @@ cd public
 git add --all
 
 # Push to remote branch gh-pages
-if [ $# -eq 1 ]; then
+if [[ $# -eq 1 ]]; then
   commit_msg="$1"
 else
   commit_msg="Update site on $(date '+%b %d, %Y')"
