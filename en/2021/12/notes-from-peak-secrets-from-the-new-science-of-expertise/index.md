@@ -1,4 +1,4 @@
-# Notes from 'PEAK: Secrets from the New Science of Expertise'
+# Notes from "PEAK: Secrets from the New Science of Expertise"
 
 
 The core elements of deliberate practice include focus, feedback and fix, stepping out of the comfort zone, extensive training, and mentorship.

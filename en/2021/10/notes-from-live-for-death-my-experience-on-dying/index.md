@@ -1,4 +1,4 @@
-# Notes from 'Live for Death: My Experience on Dying'
+# Notes from "Live for Death: My Experience on Dying"
 
 
 Walked through the valley of the shadow of death and tasted the nectar of life.

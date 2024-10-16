@@ -1,4 +1,4 @@
-# Notes from 'How an Economy Grows and Why It Crashes'
+# Notes from "How an Economy Grows and Why It Crashes"
 
 
 How an Economy Grows and Why it Crashes uses illustration, humor, and accessible storytelling to explain complex topics of economic growth and monetary systems. 
