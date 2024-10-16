@@ -1,5 +1,5 @@
 ---
-title: "Notes from 'Educated: A Memoir'"
+title: "Notes from \"Educated: A Memoir\""
 date: 2022-01-16T07:44:45+08:00
 author: "Dong Guo | Damon"
 description: "Flee as a bird to your mountain."
