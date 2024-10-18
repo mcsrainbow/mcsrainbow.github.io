@@ -114,7 +114,7 @@ if [ "$enable_english" == "yes" ];then
 ---
 title: "${post_title}"
 date: ${post_date_str}
-author: "Dong Guo / Damon"
+author: "Damon"
 description: "${post_description}"
 categories: ["${post_category_en}"]
 tags: ["${post_tags_formatted}"]

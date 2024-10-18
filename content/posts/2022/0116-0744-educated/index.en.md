@@ -1,7 +1,7 @@
 ---
 title: "Notes from \"Educated: A Memoir\""
 date: 2022-01-16T07:44:45+08:00
-author: "Dong Guo / Damon"
+author: "Damon"
 description: "Flee as a bird to your mountain."
 categories: ["Notes"]
 tags: ["Biography"]

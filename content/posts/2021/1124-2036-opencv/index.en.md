@@ -1,7 +1,7 @@
 ---
 title: "Python OpenCV CAPTCHA Recognition in Action"
 date: 2021-11-24T20:36:58+08:00
-author: "Dong Guo / Damon"
+author: "Damon"
 description: "The recognition principles and processes I have learned from the CAPTCHA recognition are really valuable."
 categories: ["Skills"]
 tags: ["OpenCV","Machine Learning"]

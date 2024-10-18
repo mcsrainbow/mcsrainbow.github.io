@@ -1,7 +1,7 @@
 ---
 title: "Lightweight Kubernetes Distributions Practices"
 date: 2023-12-07T10:57:19+08:00
-author: "Dong Guo / Damon"
+author: "Damon"
 description: "Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution."
 categories: ["Skills"]
 tags: ["Kubernetes","Podman"]

@@ -1,7 +1,7 @@
 ---
 title: "Notes from \"Pomodoro Technique Illustrated\""
 date: 2022-01-01T14:58:41+08:00
-author: "Dong Guo / Damon"
+author: "Damon"
 description: "The Pomodoro Technique is designed to maintain focus and prevent burnout."
 categories: ["Notes"]
 tags: ["Pomodoro Technique","Time Management"]

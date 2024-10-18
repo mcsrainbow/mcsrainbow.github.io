@@ -1,7 +1,7 @@
 ---
 title: "Setup Kubernetes Cluster Using kubeadm"
 date: 2021-12-21T21:58:24+08:00
-author: "Dong Guo / Damon"
+author: "Damon"
 description: "kubeadm performs the actions necessary to get a minimum viable cluster up and running."
 categories: ["Skills"]
 tags: ["Kubernetes"]
