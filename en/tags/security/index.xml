@@ -8,7 +8,7 @@
     <title>Enhance AWS S3 Data Security with Bucket Level Policy</title>
     <link>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
     <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
+    <author>Dong Guo / Damon</author>
     <guid>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
     <description><![CDATA[<p>After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.</p>]]></description>
 </item>
@@ -16,7 +16,7 @@
     <title>How to Generate Self-signed SSL Certificates</title>
     <link>https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/</link>
     <pubDate>Sun, 07 Nov 2021 11:06:54 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
+    <author>Dong Guo / Damon</author>
     <guid>https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/</guid>
     <description><![CDATA[<p>It is also important to deploy HTTPS services for internal private domains.</p>]]></description>
 </item>

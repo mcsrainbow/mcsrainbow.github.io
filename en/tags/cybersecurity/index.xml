@@ -8,7 +8,7 @@
     <title>Use git-crypt to Encrypt Files in Git</title>
     <link>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
-    <author>Dong Guo | Damon</author>
+    <author>Dong Guo / Damon</author>
     <guid>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
     <description><![CDATA[<p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>]]></description>
 </item>
