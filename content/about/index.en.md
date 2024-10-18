@@ -11,14 +11,18 @@ comment:
   enable: false
 ---
 
-### About Site
+{{< style "float: right" >}}
+{{< image src="android-chrome-512x512.png" alt="android-chrome-512x512" width=128 >}}
+{{< /style >}}
 
-<i class="fas fa-seedling fa-fw"></i> Document the Growth of the New Phase of My Life
+### Author
 
-### About Me
+<i class="fas fa-tags fa-fw"></i> **Dong Guo** based on Chinese pinyin  
+<i class="fas fa-tags fa-fw" style="opacity: 0"></i> **Damon** inspired by the Linux `daemon` process and a favored Hollywood actor `Matt Damon`
 
-+ <i class="fas fa-user fa-fw"></i> **Bio**: A Hands-On Solutions Architect, a DevOps Manager, and a Lifelong Learner
-+ <i class="fas fa-user-tie fa-fw"></i> **Specialties**: <i class="fas fa-cloud-upload-alt fa-fw"></i> Hybrid Cloud <i class="fas fa-layer-group"></i> Big Data <i class="fas fa-code-branch fa-fw"></i> DevOps <i class="fas fa-user-shield fa-fw"></i> Cybersecurity
+<i class="fas fa-seedling fa-fw"></i> **Bio**: A Hands-On Solutions Architect, a DevOps Manager, and a Lifelong Learner
+
+<i class="fas fa-user-tie fa-fw"></i> **Specialties**: <i class="fas fa-cloud-upload-alt fa-fw"></i> Hybrid Cloud <i class="fas fa-layer-group"></i> Big Data <i class="fas fa-code-branch fa-fw"></i> DevOps <i class="fas fa-user-shield fa-fw"></i> Cybersecurity
 
 ### [TO DO LIST]^(Since Feburary 2021)
 
