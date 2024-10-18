@@ -1,7 +1,7 @@
 ---
 title: "DevOps CICD Pipeline in Action "
 date: 2021-11-21T12:18:14+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar."
 categories: ["Skills"]
 tags: ["DevOps","CICD"]

@@ -1,7 +1,7 @@
 ---
 title: "Enhance AWS S3 Data Security with Bucket Level Policy"
 date: 2022-11-20T22:31:30+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised."
 categories: ["Skills"]
 tags: ["AWS","Security"]

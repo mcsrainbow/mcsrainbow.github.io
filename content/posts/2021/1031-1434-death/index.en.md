@@ -1,7 +1,7 @@
 ---
 title: "Notes from \"Live for Death: My Experience on Dying\""
 date: 2021-10-31T14:34:58+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "Walked through the valley of the shadow of death and tasted the nectar of life."
 categories: ["Notes"]
 tags: ["Biography"]

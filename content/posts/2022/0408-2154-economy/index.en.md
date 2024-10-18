@@ -1,7 +1,7 @@
 ---
 title: "Notes from \"How an Economy Grows and Why It Crashes\""
 date: 2022-04-08T21:54:47+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "How an Economy Grows and Why it Crashes uses illustration, humor, and accessible storytelling to explain complex topics of economic growth and monetary systems."
 categories: ["Notes"]
 tags: ["Economics"]

@@ -1,7 +1,7 @@
 ---
 title: "Punctuation Marks"
 date: 2022-05-31T20:11:52+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "Every punctuation mark has a name."
 categories: ["Skills"]
 tags: ["English"]

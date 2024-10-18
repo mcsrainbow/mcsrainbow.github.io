@@ -1,7 +1,7 @@
 ---
 title: "Notes from \"Rich Dad Poor Dad\""
 date: 2022-05-29T18:57:58+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "The rich buy assets. The poor only have expenses. The middle class buy liabilities they think are assets."
 categories: ["Notes"]
 tags: ["Finance"]

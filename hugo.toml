@@ -249,7 +249,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           # URL of avatar shown in home page
           avatarURL = "/images/avatar.jpg"
           # title shown in home page (HTML format is supported)
-          title = "Dong Guo | Damon"
+          title = "Dong Guo / Damon"
           # subtitle shown in home page
           subtitle = "A Hands-On Solutions Architect"
           # whether to use typeit animation for subtitle

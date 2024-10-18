@@ -1,7 +1,7 @@
 ---
 title: "Solutions and Insights"
 date: 2021-12-19T14:52:49+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "Here are some of my personal bookmarks about technology solutions and insights."
 categories: ["Skills"]
 tags: ["Solutions","Insights"]

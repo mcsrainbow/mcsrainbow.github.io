@@ -1,7 +1,7 @@
 ---
 title: "How to Generate Self-signed SSL Certificates"
 date: 2021-11-07T11:06:54+08:00
-author: "Dong Guo | Damon"
+author: "Dong Guo / Damon"
 description: "It is also important to deploy HTTPS services for internal private domains."
 categories: ["Skills"]
 tags: ["Security","SSL","TLS"]
