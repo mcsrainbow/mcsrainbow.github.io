@@ -1,16 +1,20 @@
 # 关于
 
 
-### 关于网站
+{{< style "float: right" >}}
+{{< image src="android-chrome-512x512.png" alt="android-chrome-512x512" width=128 >}}
+{{< /style >}}
 
-<i class="fas fa-seedling fa-fw"></i> 记录我人生新阶段的成长历程
+### 笔者
 
-### 关于我
+<i class="fas fa-tags fa-fw"></i> 姓名 **郭冬**  
+<i class="fas fa-tags fa-fw" style="opacity: 0"></i> 英文名 **Damon** [ˈdeɪmən]，灵感来自 Linux 操作系统中的守护进程 `daemon` 和喜欢的好莱坞演员 `Matt Damon`
 
-+ <i class="fas fa-user fa-fw"></i>**简介**：实操型解决方案架构师、运维经理、终身学习者
-+ <i class="fas fa-user-tie fa-fw"></i>**领域**：<i class="fas fa-cloud-upload-alt fa-fw"></i> 混合云 <i class="fas fa-layer-group"></i> 大数据 <i class="fas fa-code-branch fa-fw"></i> 运维开发 <i class="fas fa-user-shield fa-fw"></i> 网络安全
+<i class="fas fa-seedling fa-fw"></i> **简介**：实操型解决方案架构师、运维经理、终身学习者
 
-### [TO DO LIST]^(始于2021年2月)
+<i class="fas fa-user-tie fa-fw"></i> **领域**：<i class="fas fa-cloud-upload-alt fa-fw"></i> 混合云 <i class="fas fa-layer-group"></i> 大数据 <i class="fas fa-code-branch fa-fw"></i> 运维开发 <i class="fas fa-user-shield fa-fw"></i> 网络安全
+
+### [待办清单]^(始于2021年2月)
 
 <i class="fas fa-tasks fa-fw"></i> **核心任务**
 
