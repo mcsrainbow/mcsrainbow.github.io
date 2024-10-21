@@ -8,7 +8,7 @@
 ### 笔者
 
 <i class="fas fa-tags fa-fw"></i> 姓名 **郭冬**  
-<i class="fas fa-tags fa-fw" style="opacity: 0"></i> 英文名 **Damon** [ˈdeɪmən]，灵感来自 Linux 操作系统中的守护进程 `daemon` 和喜欢的好莱坞演员 `Matt Damon`
+<i class="fas fa-tags fa-fw" style="opacity: 0"></i> 英文名 **Damon** /day·mən/，灵感来自 Linux 操作系统中的守护进程 `Daemon` /dee·mən/ 和喜欢的好莱坞演员 `Matt Damon`
 
 <i class="fas fa-seedling fa-fw"></i> **简介**：实操型解决方案架构师、运维经理、终身学习者
 
