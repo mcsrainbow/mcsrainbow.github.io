@@ -2,7 +2,7 @@
 
 
 {{< style "float: right" >}}
-{{< image src="android-chrome-512x512.png" alt="android-chrome-512x512" width=128 >}}
+{{< image src="/images/avatar.jpg" alt="avatar" width=128 >}}
 {{< /style >}}
 
 ### Author
