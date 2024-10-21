@@ -7,8 +7,8 @@
 
 ### Author
 
-<i class="fas fa-tags fa-fw"></i> **Dong Guo** based on Chinese pinyin  
-<i class="fas fa-tags fa-fw" style="opacity: 0"></i> **Damon** inspired by the Linux `daemon` process and a favored Hollywood actor `Matt Damon`
+<i class="fas fa-tags fa-fw"></i> [Dong Guo]^(Dōng Guō) based on Mandarin Pinyin  
+<i class="fas fa-tags fa-fw" style="opacity: 0"></i> [Damon]^(/ˈdeɪmən/ DAY-mən) inspired by the Linux [daemon]^(/ˈdiːmən/ DEE-mən) process and a favored Hollywood actor `Matt Damon`
 
 <i class="fas fa-seedling fa-fw"></i> **Bio**: A Hands-On Solutions Architect, a DevOps Manager, and a Lifelong Learner
 
