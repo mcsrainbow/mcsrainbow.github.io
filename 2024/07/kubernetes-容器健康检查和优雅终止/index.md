@@ -232,3 +232,7 @@ spec:
               memory: 1Gi
 ```
 
+## 参考
+
+https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+
