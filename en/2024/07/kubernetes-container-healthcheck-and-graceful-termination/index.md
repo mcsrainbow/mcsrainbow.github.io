@@ -57,8 +57,8 @@ spec:
             periodSeconds: 30
             # default: 3
             failureThreshold: 10
-            # default: 1
-            successThreshold: 2
+            # default: 1 and must be 1 by design
+            successThreshold: 1
             # default: 1
             timeoutSeconds: 2
           livenessProbe:
@@ -117,10 +117,11 @@ Default Kubernetes configurations:
 Practice configurations:
 
 1. **Startup Check:**  
-   Minimum `60` seconds `initialDelaySeconds(30) + periodSeconds(30) * ( successThreshold(2) - 1 )`  
-   Maximum `320` seconds `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)`
+   Minimum `30` seconds `initialDelaySeconds(30)`  
+   Maximum `320` seconds `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)`  
+   Note: The design purpose and working principle determine that `startupProbe.successThreshold` can only be set to `1`
 2. **Container Readiness:**  
-   Minimum `120` seconds `Startup Check(60)` + `initialDelaySeconds(30) + periodSeconds(30) * ( readinessProbe.successThreshold(2) - 1 )`  
+   Minimum `90` seconds `Startup Check(30)` + `initialDelaySeconds(30) + periodSeconds(30) * ( readinessProbe.successThreshold(2) - 1 )`  
    Note: The design purpose and working principle determine that `livenessProbe.successThreshold` can only be set to `1`
 3. **Container State:**  
    Failure determination `66`-`96` seconds `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(30)`  
@@ -133,8 +134,8 @@ Practice configurations:
 
 Optimizations compared to default Kubernetes configurations:
 
-1. **Startup Check:** Add 60-320 seconds for application startup.
-2. **Container Readiness:** Add a 120 seconds buffer during deployment.
+1. **Startup Check:** Add 30-320 seconds for application startup.
+2. **Container Readiness:** Add a 90 seconds buffer during deployment.
 3. **Container State:** Add 66-96 seconds for failure determination and 30-60 seconds for recovery, improve accuracy.
 4. **Container Termination:** Add 60 seconds to ensure connections are properly released.
 
@@ -184,8 +185,8 @@ spec:
             periodSeconds: 30
             # default: 3
             failureThreshold: 10
-            # default: 1
-            successThreshold: 2
+            # default: 1 and must be 1 by design
+            successThreshold: 1
             # default: 1
             timeoutSeconds: 2
           livenessProbe:
