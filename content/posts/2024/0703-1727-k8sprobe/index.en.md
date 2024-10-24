@@ -244,3 +244,7 @@ spec:
               cpu: 500m
               memory: 1Gi
 ```
+
+## Reference
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
