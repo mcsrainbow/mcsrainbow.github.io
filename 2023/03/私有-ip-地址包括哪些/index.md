@@ -46,6 +46,6 @@
 
 ## 参考
 
-https://en.wikipedia.org/wiki/Reserved_IP_addresse  
+https://en.wikipedia.org/wiki/Reserved_IP_addresses  
 https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml  
 
