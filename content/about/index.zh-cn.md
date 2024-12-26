@@ -35,7 +35,7 @@ comment:
 - [x] <i class="fas fa-graduation-cap fa-fw"></i> **Degree** - 工程管理硕士
 - [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** - 极狐 GitLab DevOps 高级专家
 - [x] <i class="fas fa-cloud fa-fw"></i> **ACP** - 阿里云云计算专业认证
-- [ ] <i class="fas fa-user-shield fa-fw"></i> **CISSP** - 信息系统安全认证专家
+- [x] <i class="fas fa-user-shield fa-fw"></i> **CISSP** - 信息系统安全认证专家
 - [ ] <i class="fas fa-users-cog fa-fw"></i> **PMP** - 项目管理专业认证
 - [ ] <i class="fas fa-user-tag fa-fw"></i> **CDMP** - 数据管理专业认证
 - [ ] <i class="fas fa-language fa-fw"></i> **IELTS 7** - 雅思7分
