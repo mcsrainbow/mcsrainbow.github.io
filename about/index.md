@@ -10,7 +10,7 @@
 <i class="fas fa-tags fa-fw"></i> 姓名 [郭冬]^(Guō Dōng)  
 <i class="fas fa-tags fa-fw" style="opacity: 0"></i> 英文名 [Damon]^(/ˈdeɪmən/ DAY-mən)，灵感来自 Linux 操作系统中的 [daemon]^(/ˈdiːmən/ DEE-mən) 守护进程和喜欢的好莱坞演员 `Matt Damon`
 
-<i class="fas fa-seedling fa-fw"></i> **简介**：实操型解决方案架构师、运维经理、终身学习者
+<i class="fas fa-seedling fa-fw"></i> **简介**：实操型解决方案架构师、运维负责人、终身学习者
 
 <i class="fas fa-user-tie fa-fw"></i> **领域**：<i class="fas fa-cloud-upload-alt fa-fw"></i> 混合云 <i class="fas fa-layer-group"></i> 大数据 <i class="fas fa-code-branch fa-fw"></i> 运维开发 <i class="fas fa-user-shield fa-fw"></i> 网络安全
 
@@ -52,4 +52,6 @@
 - [ ] 热锅上的家庭：家庭问题背后的心理真相
 - [ ] 被讨厌的勇气
 - [ ] 亲密关系
+- [ ] 正面管教
 - [ ] 幸福之路
+
