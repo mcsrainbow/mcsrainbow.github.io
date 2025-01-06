@@ -54,6 +54,7 @@ comment:
 - [x] Rich Dad Poor Dad
 - [x] Tiny Habits: The Small Changes That Change Everything
 - [ ] The Lean Startup
+- [ ] How to Read a Book: The Classic Guide to Intelligent Reading
 - [ ] Being Logical：A Guide to Good Thinking
 - [ ] The Crowd：A Study of the Popular Mind
 - [ ] A Brief History of Time: From the Big Bang to Black Holes
