@@ -39,7 +39,6 @@ comment:
 - [ ] <i class="fas fa-users-cog fa-fw"></i> **PMP** - 项目管理专业认证
 - [ ] <i class="fas fa-user-tag fa-fw"></i> **CDMP** - 数据管理专业认证
 - [ ] <i class="fas fa-language fa-fw"></i> **IELTS 7** - 雅思7分
-- [ ] <i class="fas fa-hand-holding-usd fa-fw"></i> **CFA** - 特许金融分析师
 - [ ] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 MP** - IT 服务管理专家级
 
 <i class="fas fa-book-open fa-fw"></i> **私藏书单**
@@ -55,3 +54,11 @@ comment:
 - [x] 富爸爸穷爸爸
 - [x] 福格行为模型
 - [ ] 精益创业
+- [ ] 简单的逻辑学
+- [ ] 乌合之众：大众心理研究
+- [ ] 纳瓦尔宝典：财富与幸福指南
+- [ ] 时间简史：从大爆炸到黑洞
+- [ ] 人体简史
+- [ ] 被讨厌的勇气
+- [ ] 亲密关系
+- [ ] 幸福之路
