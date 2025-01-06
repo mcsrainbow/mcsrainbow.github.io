@@ -56,9 +56,11 @@ comment:
 - [ ] The Lean Startup
 - [ ] Being Logical：A Guide to Good Thinking
 - [ ] The Crowd：A Study of the Popular Mind
-- [ ] The Almanack of Naval Ravikant：A Guide to Wealth and Happiness
 - [ ] A Brief History of Time: From the Big Bang to Black Holes
 - [ ] The Body：A Guide for Occupants
+- [ ] The Almanack of Naval Ravikant：A Guide to Wealth and Happiness
+- [ ] The Family Crucible: The Intense Experience of Family Therapy
 - [ ] The Courage to be Disliked
 - [ ] Intimate Relationships
+- [ ] Positive Discipline
 - [ ] The Conquest of Happiness
