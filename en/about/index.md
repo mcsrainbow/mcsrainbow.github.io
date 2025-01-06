@@ -29,7 +29,6 @@
 - [ ] <i class="fas fa-users-cog fa-fw"></i> **PMP** - Project Management Professional
 - [ ] <i class="fas fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
 - [ ] <i class="fas fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Band Score 7
-- [ ] <i class="fas fa-hand-holding-usd fa-fw"></i> **CFA** - Chartered Financial Analyst
 - [ ] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 MP** - ITIL 4 Managing Professional
 
 <i class="fas fa-book-open fa-fw"></i> **Private Booklist**
@@ -45,4 +44,12 @@
 - [x] Rich Dad Poor Dad
 - [x] Tiny Habits: The Small Changes That Change Everything
 - [ ] The Lean Startup
+- [ ] Being Logical：A Guide to Good Thinking
+- [ ] The Crowd：A Study of the Popular Mind
+- [ ] The Almanack of Naval Ravikant：A Guide to Wealth and Happiness
+- [ ] A Brief History of Time：from the Big Bang to Black Holes
+- [ ] The Body：A Guide for Occupants
+- [ ] The Courage to be Disliked
+- [ ] Intimate Relationships
+- [ ] The Conquest of Happiness
 
