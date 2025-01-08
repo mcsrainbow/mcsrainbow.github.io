@@ -75,6 +75,7 @@ mkdir -p content/posts/${post_dir}
 cat > content/posts/${post_dir}/index.zh-cn.md <<EOF
 ---
 title: "${post_title}"
+slug: ""
 date: ${post_date_str}
 author: "郭冬"
 description: "${post_description}"
@@ -113,6 +114,7 @@ if [ "$enable_english" == "yes" ];then
   cat > content/posts/${post_dir}/index.en.md <<EOF
 ---
 title: "${post_title}"
+slug: ""
 date: ${post_date_str}
 author: "Damon"
 description: "${post_description}"
