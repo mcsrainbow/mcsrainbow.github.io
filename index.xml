@@ -8,82 +8,82 @@
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Kubernetes 多环境多应用编排实践</title>
-    <link>https://blog.heylinux.com/2024/09/kubernetes-%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%A4%9A%E5%BA%94%E7%94%A8%E7%BC%96%E6%8E%92%E5%AE%9E%E8%B7%B5/</link>
+    <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
     <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/09/kubernetes-%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%A4%9A%E5%BA%94%E7%94%A8%E7%BC%96%E6%8E%92%E5%AE%9E%E8%B7%B5/</guid>
+    <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
     <description><![CDATA[<p>通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。</p>]]></description>
 </item>
 <item>
     <title>Kubernetes 容器健康检查和优雅终止</title>
-    <link>https://blog.heylinux.com/2024/07/kubernetes-%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E7%BB%88%E6%AD%A2/</link>
+    <link>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/07/kubernetes-%E5%AE%B9%E5%99%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E4%BC%98%E9%9B%85%E7%BB%88%E6%AD%A2/</guid>
+    <guid>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
     <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
 <item>
     <title>阿里云官方矢量图标和 draw.io 自定义图标库</title>
-    <link>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8C-draw.io-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</link>
+    <link>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
     <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%98%E6%96%B9%E7%9F%A2%E9%87%8F%E5%9B%BE%E6%A0%87%E5%92%8C-draw.io-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E5%BA%93/</guid>
+    <guid>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
     <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。</p>]]></description>
 </item>
 <item>
     <title>使用 git-crypt 加解密 Git 中的文件</title>
-    <link>https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+    <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/%E4%BD%BF%E7%94%A8-git-crypt-%E5%8A%A0%E8%A7%A3%E5%AF%86-git-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+    <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
     <description><![CDATA[<p>git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
 </item>
 <item>
     <title>轻量级 Kubernetes 发行版实践</title>
-    <link>https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/</link>
+    <link>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/%E8%BD%BB%E9%87%8F%E7%BA%A7-kubernetes-%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E8%B7%B5/</guid>
+    <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
     <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。</p>]]></description>
 </item>
 <item>
     <title>私有 IP 地址包括哪些</title>
-    <link>https://blog.heylinux.com/2023/03/%E7%A7%81%E6%9C%89-ip-%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/</link>
+    <link>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</link>
     <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/03/%E7%A7%81%E6%9C%89-ip-%E5%9C%B0%E5%9D%80%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B/</guid>
+    <guid>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</guid>
     <description><![CDATA[<p>在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>]]></description>
 </item>
 <item>
     <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
-    <link>https://blog.heylinux.com/2022/11/%E9%80%9A%E8%BF%87-bucket-level-policy-%E5%8A%A0%E5%BC%BA-aws-s3-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/</link>
+    <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
     <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/11/%E9%80%9A%E8%BF%87-bucket-level-policy-%E5%8A%A0%E5%BC%BA-aws-s3-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/</guid>
+    <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
     <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
 </item>
 <item>
     <title>常用标点符号中英文名称对照</title>
-    <link>https://blog.heylinux.com/2022/05/%E5%B8%B8%E7%94%A8%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7%E4%B8%AD%E8%8B%B1%E6%96%87%E5%90%8D%E7%A7%B0%E5%AF%B9%E7%85%A7/</link>
+    <link>https://blog.heylinux.com/2022/05/punctuation-marks/</link>
     <pubDate>Tue, 31 May 2022 20:11:52 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/05/%E5%B8%B8%E7%94%A8%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7%E4%B8%AD%E8%8B%B1%E6%96%87%E5%90%8D%E7%A7%B0%E5%AF%B9%E7%85%A7/</guid>
+    <guid>https://blog.heylinux.com/2022/05/punctuation-marks/</guid>
     <description><![CDATA[<p>正确表示常用标点符号的中英文名称。</p>]]></description>
 </item>
 <item>
     <title>读书笔记之《富爸爸穷爸爸》</title>
-    <link>https://blog.heylinux.com/2022/05/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%AF%8C%E7%88%B8%E7%88%B8%E7%A9%B7%E7%88%B8%E7%88%B8/</link>
+    <link>https://blog.heylinux.com/2022/05/notes-from-rich-dad-poor-dad/</link>
     <pubDate>Sun, 29 May 2022 18:57:58 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/05/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%AF%8C%E7%88%B8%E7%88%B8%E7%A9%B7%E7%88%B8%E7%88%B8/</guid>
+    <guid>https://blog.heylinux.com/2022/05/notes-from-rich-dad-poor-dad/</guid>
     <description><![CDATA[<p>富人买入资产，穷人只有支出，中产阶级购买自以为是资产的负债。</p>]]></description>
 </item>
 <item>
     <title>读书笔记之《小岛经济学》</title>
-    <link>https://blog.heylinux.com/2022/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6/</link>
+    <link>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</link>
     <pubDate>Fri, 08 Apr 2022 21:54:47 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6/</guid>
+    <guid>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</guid>
     <description><![CDATA[<p>作者在书中虚构了一个远洋中的小岛，通过关于鱼、渔网、存钱、借钱等故事揭示了经济是如何运行的，映射出当今经济体制与政策暗藏的漏洞。</p>]]></description>
 </item>
 </channel>

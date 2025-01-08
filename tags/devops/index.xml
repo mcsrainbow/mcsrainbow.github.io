@@ -5,11 +5,11 @@
         <description>DevOps - 标签 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/devops/" rel="self" type="application/rss+xml" /><item>
-    <title>DevOps CICD 流水线设计实践</title>
-    <link>https://blog.heylinux.com/2021/11/devops-cicd-%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/</link>
+    <title>DevOps CI/CD 流水线设计实践</title>
+    <link>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</link>
     <pubDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/11/devops-cicd-%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5/</guid>
+    <guid>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</guid>
     <description><![CDATA[<p>在不同的环境中，最适合的 CI/CD 流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。</p>]]></description>
 </item>
 </channel>

@@ -21,14 +21,6 @@
     <description><![CDATA[<p>Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
 </item>
 <item>
-    <title>Lightweight Kubernetes Distributions Practices</title>
-    <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
-    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-    <description><![CDATA[<p>Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.</p>]]></description>
-</item>
-<item>
     <title>Setup Kubernetes Cluster Using kubeadm</title>
     <link>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
     <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>

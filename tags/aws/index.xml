@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/aws/" rel="self" type="application/rss+xml" /><item>
     <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
-    <link>https://blog.heylinux.com/2022/11/%E9%80%9A%E8%BF%87-bucket-level-policy-%E5%8A%A0%E5%BC%BA-aws-s3-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/</link>
+    <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
     <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
     <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/11/%E9%80%9A%E8%BF%87-bucket-level-policy-%E5%8A%A0%E5%BC%BA-aws-s3-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/</guid>
+    <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
     <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
 </item>
 </channel>
