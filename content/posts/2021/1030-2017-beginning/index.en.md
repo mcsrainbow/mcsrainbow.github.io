@@ -1,5 +1,6 @@
 ---
 title: "If You Are in Full Bloom, Butterflies Will Come Naturally"
+slug: "if-you-are-in-full-bloom-butterflies-will-come-naturally"
 date: 2021-10-30T20:15:25+08:00
 author: "Damon"
 description: "I have renewed my confidence and enthusiasm for learning, the courage to explore the unknown, and an ever-increasing belief in a better future."

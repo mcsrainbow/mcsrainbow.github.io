@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"Rich Dad Poor Dad\""
+slug: "notes-from-rich-dad-poor-dad"
 date: 2022-05-29T18:57:58+08:00
 author: "Damon"
 description: "The rich buy assets. The poor only have expenses. The middle class buy liabilities they think are assets."

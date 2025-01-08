@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《福格行为模型》"
+slug: "notes-from-tiny-habits-the-small-changes-that-change-everything"
 date: 2024-03-01T17:47:52+08:00
 author: "郭冬"
 description: "B=MAP，即「行为=动机+能力+提示」。把目标切分成多个细小的习惯，让看似不可能实现的目标变得容易。"

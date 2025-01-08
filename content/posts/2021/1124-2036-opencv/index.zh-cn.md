@@ -1,5 +1,6 @@
 ---
 title: "Python OpenCV 验证码识别实战"
+slug: "python-opencv-captcha-recognition-in-action"
 date: 2021-11-24T20:36:58+08:00
 author: "郭冬"
 description: "在通过 OpenCV 完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。"

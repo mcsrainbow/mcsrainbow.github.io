@@ -1,5 +1,6 @@
 ---
-title: "DevOps CICD Pipeline in Action "
+title: "DevOps CI/CD Pipeline in Action"
+slug: "devops-cicd-pipeline-in-action"
 date: 2021-11-21T12:18:14+08:00
 author: "Damon"
 description: "There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar."

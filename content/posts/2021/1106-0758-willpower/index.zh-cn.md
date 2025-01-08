@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《自控力》"
+slug: "notes-from-the-willpower-instinct"
 date: 2021-11-06T07:58:24+08:00
 author: "郭冬"
 description: "自控力不足并不只是心理问题，影响自控的还有生理学，心理陷阱和各种社会因素。"

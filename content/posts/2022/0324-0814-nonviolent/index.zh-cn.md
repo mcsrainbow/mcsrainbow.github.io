@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《非暴力沟通》"
+slug: "notes-from-nonviolent-communication-a-language-of-life"
 date: 2022-03-24T08:14:42+08:00
 author: "郭冬"
 description: "非暴力沟通的四要素：观察、感受、需要、请求。"

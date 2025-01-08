@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"Influence: The Psychology of Persuasion\""
+slug: "notes-from-influence-the-psychology-of-persuasion"
 date: 2022-03-06T23:09:45+08:00
 author: "Damon"
 description: "The 6 principles of persuasion are Reciprocation, Commitment and Consistency, Social Proof, Liking, Authority, Scarcity."

@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"Pomodoro Technique Illustrated\""
+slug: "notes-from-pomodoro-technique-illustrated"
 date: 2022-01-01T14:58:41+08:00
 author: "Damon"
 description: "The Pomodoro Technique is designed to maintain focus and prevent burnout."

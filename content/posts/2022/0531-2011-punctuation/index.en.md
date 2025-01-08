@@ -1,5 +1,6 @@
 ---
 title: "Punctuation Marks"
+slug: "punctuation-marks"
 date: 2022-05-31T20:11:52+08:00
 author: "Damon"
 description: "Every punctuation mark has a name."

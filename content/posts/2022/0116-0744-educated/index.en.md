@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"Educated: A Memoir\""
+slug: "notes-from-educated-a-memoir"
 date: 2022-01-16T07:44:45+08:00
 author: "Damon"
 description: "Flee as a bird to your mountain."

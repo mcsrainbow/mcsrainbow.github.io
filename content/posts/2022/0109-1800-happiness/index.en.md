@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"Secrets of the World's Happiest People\""
+slug: "notes-from-secrets-of-the-worlds-happiest-people"
 date: 2022-01-09T18:00:37+08:00
 author: "Damon"
 description: "The six ingredients of happiness are togetherness, money, health, freedom, trust and kindness."

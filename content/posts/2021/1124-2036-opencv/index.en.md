@@ -1,5 +1,6 @@
 ---
 title: "Python OpenCV CAPTCHA Recognition in Action"
+slug: "python-opencv-captcha-recognition-in-action"
 date: 2021-11-24T20:36:58+08:00
 author: "Damon"
 description: "The recognition principles and processes I have learned from the CAPTCHA recognition are really valuable."

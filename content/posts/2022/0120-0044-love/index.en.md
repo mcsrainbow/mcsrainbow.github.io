@@ -1,5 +1,6 @@
 ---
 title: "Life is Short and Love is Long"
+slug: "life-is-short-and-love-is-long"
 date: 2022-01-20T00:44:01+08:00
 author: "Damon"
 description: "The rest of life is precious and unpredictable, don't let the regrets be too long."

@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《影响力》"
+slug: "notes-from-influence-the-psychology-of-persuasion"
 date: 2022-03-06T23:09:45+08:00
 author: "郭冬"
 description: "隐藏在顺从行为背后的六大要素分别是互惠、承诺和一致、社会认同、喜好、权威、短缺。"

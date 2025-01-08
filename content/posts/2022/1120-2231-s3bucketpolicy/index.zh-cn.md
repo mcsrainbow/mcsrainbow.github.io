@@ -1,5 +1,6 @@
 ---
 title: "通过 Bucket Level Policy 加强 AWS S3 数据安全防护"
+slug: "enhance-aws-s3-data-security-with-bucket-level-policy"
 date: 2022-11-20T22:31:30+08:00
 author: "郭冬"
 description: "通过 Bucket Level Policy 合理限制 S3 Bucket 的访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。"

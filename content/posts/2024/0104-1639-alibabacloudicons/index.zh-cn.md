@@ -1,5 +1,6 @@
 ---
 title: "阿里云官方矢量图标和 draw.io 自定义图标库"
+slug: "alibaba-cloud-official-vector-icons-and-drawio-custom-libraries"
 date: 2024-01-04T16:39:06+08:00
 author: "郭冬"
 description: "我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。"

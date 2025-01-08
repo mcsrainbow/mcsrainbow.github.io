@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《富爸爸穷爸爸》"
+slug: "notes-from-rich-dad-poor-dad"
 date: 2022-05-29T18:57:58+08:00
 author: "郭冬"
 description: "富人买入资产，穷人只有支出，中产阶级购买自以为是资产的负债。"

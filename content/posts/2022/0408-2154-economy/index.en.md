@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"How an Economy Grows and Why It Crashes\""
+slug: "notes-from-how-an-economy-grows-and-why-it-crashes"
 date: 2022-04-08T21:54:47+08:00
 author: "Damon"
 description: "How an Economy Grows and Why it Crashes uses illustration, humor, and accessible storytelling to explain complex topics of economic growth and monetary systems."

@@ -1,5 +1,6 @@
 ---
 title: "How to Generate Self-signed SSL Certificates"
+slug: "how-to-generate-self-signed-ssl-certificates"
 date: 2021-11-07T11:06:54+08:00
 author: "Damon"
 description: "It is also important to deploy HTTPS services for internal private domains."

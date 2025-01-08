@@ -1,5 +1,6 @@
 ---
 title: "Setup Kubernetes Cluster Using kubeadm"
+slug: "setup-kubernetes-cluster-using-kubeadm"
 date: 2021-12-21T21:58:24+08:00
 author: "Damon"
 description: "kubeadm performs the actions necessary to get a minimum viable cluster up and running."

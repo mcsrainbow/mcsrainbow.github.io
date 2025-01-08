@@ -1,5 +1,6 @@
 ---
 title: "Alibaba Cloud Official Vector Icons and draw.io Custom Libraries"
+slug: "alibaba-cloud-official-vector-icons-and-drawio-custom-libraries"
 date: 2024-01-04T16:39:06+08:00
 author: "Damon"
 description: "I collected a complete set of Alibaba Cloud vector icons and generated the draw.io icon library."

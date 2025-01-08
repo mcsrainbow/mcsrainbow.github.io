@@ -1,5 +1,6 @@
 ---
 title: "Why Use a Multi-Cloud Strategy"
+slug: "why-use-a-multi-cloud-strategy"
 date: 2021-11-01T21:51:17+08:00
 author: "Damon"
 description: "A multi-cloud strategy allows companies to select different cloud services from different providers."

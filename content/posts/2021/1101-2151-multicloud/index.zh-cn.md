@@ -1,5 +1,6 @@
 ---
 title: "为什么要采用多云架构"
+slug: "why-use-a-multi-cloud-strategy"
 date: 2021-11-01T21:51:17+08:00
 author: "郭冬"
 description: "多云架构使组织可以利用每个平台的优势，同时最大程度地减少缺点。"

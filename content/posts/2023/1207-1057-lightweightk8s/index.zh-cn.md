@@ -1,5 +1,6 @@
 ---
 title: "轻量级 Kubernetes 发行版实践"
+slug: "lightweight-kubernetes-distributions-practices"
 date: 2023-12-07T10:57:19+08:00
 author: "郭冬"
 description: "部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。"

@@ -1,5 +1,6 @@
 ---
 title: "不负时光，迎接美好"
+slug: "cherish-the-time-to-meet-a-bright-future"
 date: 2021-11-09T22:07:33+08:00
 author: "郭冬"
 description: "我将继续努力，长久地保持这种状态，不懈怠，积极地迎接未来每一天的美好。"

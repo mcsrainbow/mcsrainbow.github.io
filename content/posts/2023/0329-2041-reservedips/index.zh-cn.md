@@ -1,5 +1,6 @@
 ---
 title: "私有 IP 地址包括哪些"
+slug: "what-are-private-ip-addresses"
 date: 2023-03-29T20:41:35+08:00
 author: "郭冬"
 description: "在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。"

@@ -1,5 +1,6 @@
 ---
 title: "解决方案与技术前瞻"
+slug: "solutions-and-insights"
 date: 2021-12-19T14:52:49+08:00
 author: "郭冬"
 description: "分享一些我所关注的解决方案与技术前瞻的好网站。"

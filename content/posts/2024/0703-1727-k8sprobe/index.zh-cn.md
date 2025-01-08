@@ -1,5 +1,6 @@
 ---
 title: "Kubernetes 容器健康检查和优雅终止"
+slug: "kubernetes-container-healthcheck-and-graceful-termination"
 date: 2024-07-03T17:27:44+08:00
 author: "郭冬"
 description: "在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。"

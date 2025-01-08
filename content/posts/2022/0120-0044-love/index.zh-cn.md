@@ -1,5 +1,6 @@
 ---
 title: "人生苦短，爱意绵长"
+slug: "life-is-short-and-love-is-long"
 date: 2022-01-20T00:44:01+08:00
 author: "郭冬"
 description: "余生可贵，世事无常，别让遗憾太长。"

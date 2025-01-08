@@ -1,5 +1,6 @@
 ---
 title: "你若盛开，蝴蝶自来"
+slug: "if-you-are-in-full-bloom-butterflies-will-come-naturally"
 date: 2021-10-30T20:15:25+08:00
 author: "郭冬"
 description: "重拾了对学习的信心与热情，对未知事物探索的勇气，以及对美好未来不断增加的信念。"

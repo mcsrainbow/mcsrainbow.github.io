@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《刻意放手：向最幸福的人学习幸福》"
+slug: "notes-from-secrets-of-the-worlds-happiest-people"
 date: 2022-01-09T18:00:37+08:00
 author: "郭冬"
 description: "影响幸福感的六个维度有凝聚感、金钱、健康、自由、信任和与人为善。"

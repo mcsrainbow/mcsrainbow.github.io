@@ -1,5 +1,6 @@
 ---
 title: "My 2021 Year in Review"
+slug: "my-2021-year-in-review"
 date: 2022-01-06T21:48:08+08:00
 author: "Damon"
 description: "The most important is that I have unlocked my thirst of knowledge and could not stop learning."

@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《向死而生：我修的死亡学分》"
+slug: "notes-from-live-for-death-my-experience-on-dying"
 date: 2021-10-31T14:34:58+08:00
 author: "郭冬"
 description: "穿过死亡荫谷，品味生命甘露。"

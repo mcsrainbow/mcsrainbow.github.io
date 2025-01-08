@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"Nonviolent Communication: A Language of Life\""
+slug: "notes-from-nonviolent-communication-a-language-of-life"
 date: 2022-03-24T08:14:42+08:00
 author: "Damon"
 description: "Four steps of Nonviolent Communication: observe, identify and state feelings, identify and state needs, and make requests."

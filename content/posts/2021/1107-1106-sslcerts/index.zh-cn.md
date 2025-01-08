@@ -1,5 +1,6 @@
 ---
 title: "如何创建自签名 SSL 证书支持私有域名的 HTTPS 服务"
+slug: "how-to-generate-self-signed-ssl-certificates"
 date: 2021-11-07T11:06:54+08:00
 author: "郭冬"
 description: "在互联网全站 HTTPS 的时代，内部私有域名的 HTTPS 服务部署也尤为重要。"

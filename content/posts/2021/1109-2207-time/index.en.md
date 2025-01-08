@@ -1,5 +1,6 @@
 ---
 title: "Cherish the Time to Meet A Bright Future"
+slug: "cherish-the-time-to-meet-a-bright-future"
 date: 2021-11-09T22:07:33+08:00
 author: "Damon"
 description: "I will keep this state, no more slacking off, and be positive for every beautiful day ahead."

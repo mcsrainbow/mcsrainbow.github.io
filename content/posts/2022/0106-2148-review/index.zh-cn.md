@@ -1,5 +1,6 @@
 ---
 title: "我的2021年终回顾"
+slug: "my-2021-year-in-review"
 date: 2022-01-06T21:48:08+08:00
 author: "郭冬"
 description: "我重新燃起了对知识的渴望和不断学习的热情。"

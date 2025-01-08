@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《小岛经济学》"
+slug: "notes-from-how-an-economy-grows-and-why-it-crashes"
 date: 2022-04-08T21:54:47+08:00
 author: "郭冬"
 description: "作者在书中虚构了一个远洋中的小岛，通过关于鱼、渔网、存钱、借钱等故事揭示了经济是如何运行的，映射出当今经济体制与政策暗藏的漏洞。"

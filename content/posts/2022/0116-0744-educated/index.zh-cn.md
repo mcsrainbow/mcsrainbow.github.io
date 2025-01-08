@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《你当像鸟飞往你的山》"
+slug: "notes-from-educated-a-memoir"
 date: 2022-01-16T07:44:45+08:00
 author: "郭冬"
 description: "她不能被家人所束缚，她注定是飞鸟，要飞往自己的山去。"

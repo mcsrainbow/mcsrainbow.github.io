@@ -1,5 +1,6 @@
 ---
 title: "Kubernetes 多环境多应用编排实践"
+slug: "kubernetes-multi-environment-and-multi-application-orchestration-practice"
 date: 2024-09-10T18:37:39+08:00
 author: "郭冬"
 description: "通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。"

@@ -1,5 +1,6 @@
 ---
 title: "Use git-crypt to Encrypt Files in Git"
+slug: "use-git-crypt-to-encrypt-files-in-git"
 date: 2023-12-18T17:50:15+08:00
 author: "Damon"
 description: "git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data."

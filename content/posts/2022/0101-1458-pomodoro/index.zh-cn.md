@@ -1,5 +1,6 @@
 ---
 title: "读书笔记之《番茄工作法图解》"
+slug: "notes-from-pomodoro-technique-illustrated"
 date: 2022-01-01T14:58:41+08:00
 author: "郭冬"
 description: "番茄工作法是一种简单易行的时间管理方法，有张有弛，能够减轻时间焦虑、提升专注力和减少中断。"

@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"The Willpower Instinct\""
+slug: "notes-from-the-willpower-instinct"
 date: 2021-11-06T07:58:24+08:00
 author: "Damon"
 description: "The lack of self-control is not only a psychological problem, but also influenced by physiology, psychological traps and various social factors."

@@ -1,5 +1,6 @@
 ---
 title: "使用 kubeadm 快速部署 Kubernetes 集群"
+slug: "setup-kubernetes-cluster-using-kubeadm"
 date: 2021-12-21T21:58:24+08:00
 author: "郭冬"
 description: "kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具"

@@ -1,5 +1,6 @@
 ---
 title: "Notes from \"Live for Death: My Experience on Dying\""
+slug: "notes-from-live-for-death-my-experience-on-dying"
 date: 2021-10-31T14:34:58+08:00
 author: "Damon"
 description: "Walked through the valley of the shadow of death and tasted the nectar of life."
