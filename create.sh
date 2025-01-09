@@ -9,6 +9,9 @@ if [ -z "$post_title" ];then
 fi
 echo "INFO: Post Title is: ${post_title}"
 
+post_slug=$(echo "${post_title}" | tr '[:upper:]' '[:lower:]' | perl -CSDA -pe 's/[^a-z0-9\p{Han}]+/-/g; s/^-+|-+$//g')
+echo "INFO: Post Slug is: ${post_slug}"
+
 echo -n "Input the Post Description: "
 read post_description
 if [ -z "$post_description" ];then
@@ -75,7 +78,7 @@ mkdir -p content/posts/${post_dir}
 cat > content/posts/${post_dir}/index.zh-cn.md <<EOF
 ---
 title: "${post_title}"
-slug: ""
+slug: "${post_slug}"
 date: ${post_date_str}
 author: "郭冬"
 description: "${post_description}"
@@ -114,7 +117,7 @@ if [ "$enable_english" == "yes" ];then
   cat > content/posts/${post_dir}/index.en.md <<EOF
 ---
 title: "${post_title}"
-slug: ""
+slug: "${post_slug}"
 date: ${post_date_str}
 author: "Damon"
 description: "${post_description}"
