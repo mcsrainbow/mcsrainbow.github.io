@@ -121,11 +121,19 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/podman/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://blog.heylinux.com/tags/podman/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/tags/podman/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/tags/podman/"
+                    /></url><url>
             <loc>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://blog.heylinux.com/en/1/01/"
+                        href="https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="zh-cn"

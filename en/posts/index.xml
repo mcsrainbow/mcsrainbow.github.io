@@ -37,6 +37,14 @@
     <description><![CDATA[<p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>]]></description>
 </item>
 <item>
+    <title>Lightweight Kubernetes Distributions Practices</title>
+    <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
+    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
+    <description><![CDATA[<p>Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.</p>]]></description>
+</item>
+<item>
     <title>What are Private IP Addresses</title>
     <link>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</link>
     <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</guid>
     <description><![CDATA[<p>How an Economy Grows and Why it Crashes uses illustration, humor, and accessible storytelling to explain complex topics of economic growth and monetary systems.</p>]]></description>
-</item>
-<item>
-    <title>Notes from &#34;Nonviolent Communication: A Language of Life&#34;</title>
-    <link>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</link>
-    <pubDate>Thu, 24 Mar 2022 08:14:42 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</guid>
-    <description><![CDATA[<p>Four steps of Nonviolent Communication: observe, identify and state feelings, identify and state needs, and make requests.</p>]]></description>
 </item>
 </channel>
 </rss>

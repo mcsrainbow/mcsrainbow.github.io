@@ -121,6 +121,24 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/podman/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/podman/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/podman/"
+                    /></url><url>
             <loc>https://blog.heylinux.com/en/tags/network/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</loc><lastmod>2023-03-29T20:41:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
@@ -429,13 +447,4 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/1/01/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/1/01/"
                     /></url></urlset>
