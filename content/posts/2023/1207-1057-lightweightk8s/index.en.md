@@ -1,4 +1,4 @@
-
+---
 title: "Lightweight Kubernetes Distributions Practices"
 slug: "lightweight-kubernetes-distributions-practices"
 date: 2023-12-07T10:57:19+08:00
