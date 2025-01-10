@@ -49,4 +49,4 @@ Love myself, love our relatives and friends.
 
 Reasoning isn't the ultimate solution to problems, showing love is.
 
-The wisest and most rewarding choice is to maintain our positive mental state by observing our inner emotional changes, doing more behaviors that contribute to good emotions, and reducing emotional internal conflict.
+When falling into bad emotions, the wisest and most valuable choice is to observe inner emotional changes, do more behaviors that are conducive to good emotions, and reduce unnecessary emotional consumption to maintain a positive mental state.
