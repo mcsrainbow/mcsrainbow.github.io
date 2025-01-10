@@ -46,7 +46,7 @@
 - [ ] The Lean Startup
 - [ ] How to Read a Book: The Classic Guide to Intelligent Reading
 - [ ] The Crowd: A Study of the Popular Mind
-- [ ] A brief history of time : from the Big Bang to black holes
+- [ ] A Brief History of Time: From the Big Bang to Black Holes
 - [ ] The Body: A Guide for Occupants
 - [ ] Mankind and Mother Earth: A Narrative History of the World
 - [ ] The Almanack of Naval Ravikant: A Guide to Wealth and Happiness
