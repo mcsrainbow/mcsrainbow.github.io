@@ -45,7 +45,6 @@
 - [x] Tiny Habits: The Small Changes That Change Everything
 - [ ] The Lean Startup
 - [ ] How to Read a Book: The Classic Guide to Intelligent Reading
-- [ ] Being Logical: A Guide to Good Thinking
 - [ ] The Crowd: A Study of the Popular Mind
 - [ ] A brief history of time : from the Big Bang to black holes
 - [ ] The Body: A Guide for Occupants
@@ -53,7 +52,8 @@
 - [ ] The Almanack of Naval Ravikant: A Guide to Wealth and Happiness
 - [ ] The Family Crucible: The Intense Experience of Family Therapy
 - [ ] The Courage to Be Disliked: How to Free Yourself, Change Your Life and Achieve Real Happiness
-- [ ] Intimate Relationships
+- [ ] Intimate Relationships (by Rowland S. Miller)
+- [ ] Social Psychology (by David G. Myers)
 - [ ] Positive Discipline: The Classic Guide to Helping Children Develop Self-Discipline, Responsibility, Cooperation, and Problem-Solving Skills
 - [ ] The Conquest of Happiness
 
