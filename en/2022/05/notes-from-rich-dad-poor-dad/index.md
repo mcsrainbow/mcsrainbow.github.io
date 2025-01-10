@@ -11,7 +11,7 @@ The rich buy assets. The poor only have expenses. The middle class buy liabiliti
 
 Robert Kiyosaki had two fathers: a rich one and a poor one. One was highly educated with a Ph.D. and so intelligent he completed his undergraduate degree in only two years. The other father didn’t even finish the eighth grade. While both men worked hard, were successful, and earned a lot of money, there was always one who struggled with money. And the other dad, well, he became one of the richest people in Hawaii.
 
-Rich Dad Poor Dad is Robert Kiyosaki’s best-selling book about the difference in mindset between the poor, middle class, and rich.
+"Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not" is Robert Kiyosaki’s best-selling book about the difference in mindset between the poor, middle class, and rich.
 
 ## Summary
 
