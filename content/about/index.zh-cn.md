@@ -43,25 +43,26 @@ comment:
 
 <i class="fa-solid fa-book-open fa-fw"></i> **私藏书单**
 
-- [x] 向死而生：我修的死亡学分
-- [x] 自控力
-- [x] 刻意练习：如何从新手到大师
-- [x] 番茄工作法图解：简单易行的时间管理方法
-- [x] 刻意放手：向最幸福的人学习幸福
-- [x] 影响力
-- [x] 非暴力沟通
-- [x] 小岛经济学：鱼、美元和经济的故事
-- [x] 富爸爸穷爸爸
-- [x] 福格行为模型
-- [ ] 精益创业
+- [x] [向死而生：我修的死亡学分](/2021/10/notes-from-live-for-death-my-experience-on-dying/)
+- [x] [自控力：斯坦福大学最受欢迎心理学课程](/2021/11/notes-from-the-willpower-instinct/)
+- [x] [刻意练习：如何从新手到大师](/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/)
+- [x] [番茄工作法图解：简单易行的时间管理方法](/2022/01/notes-from-pomodoro-technique-illustrated/)
+- [x] [刻意放手：向最幸福的人学习幸福](/2022/01/notes-from-secrets-of-the-worlds-happiest-people/)
+- [x] [影响力：让人乖乖听话的说服术](/2022/03/notes-from-influence-the-psychology-of-persuasion/)
+- [x] [非暴力沟通：爱的语言](/2022/03/notes-from-nonviolent-communication-a-language-of-life/)
+- [x] [小岛经济学：鱼、美元和经济的故事](/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/)
+- [x] [富爸爸穷爸爸：富人教孩子的理财智慧，而穷人和中产阶级却不知道](/2022/05/notes-from-rich-dad-poor-dad/)
+- [x] 福格行为模型：微习惯改变一切
+- [ ] 精益创业：新创企业的成长思维
 - [ ] 如何阅读一本书
 - [ ] 简单的逻辑学
 - [ ] 乌合之众：大众心理研究
 - [ ] 时间简史：从大爆炸到黑洞
-- [ ] 人体简史
+- [ ] 人体简史：你的身体30亿岁了
+- [ ] 人类与大地母亲：一部叙事体世界历史
 - [ ] 纳瓦尔宝典：财富与幸福指南
 - [ ] 热锅上的家庭：家庭问题背后的心理真相
-- [ ] 被讨厌的勇气
+- [ ] 被讨厌的勇气：自我启发之父阿德勒的哲学课
 - [ ] 亲密关系
-- [ ] 正面管教
+- [ ] 正面管教：如何不惩罚、不娇纵地有效管教孩子
 - [ ] 幸福之路

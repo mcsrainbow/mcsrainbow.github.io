@@ -1,5 +1,5 @@
 ---
-title: "Notes from \"PEAK: Secrets from the New Science of Expertise\""
+title: "Notes from \"Peak: Secrets from the New Science of Expertise\""
 slug: "notes-from-peak-secrets-from-the-new-science-of-expertise"
 date: 2021-12-11T21:05:17+08:00
 author: "Damon"
