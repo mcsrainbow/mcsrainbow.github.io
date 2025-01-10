@@ -44,7 +44,7 @@ comment:
 <i class="fa-solid fa-book-open fa-fw"></i> **Private Booklist**
 
 - [x] [Live for Death: My Experience on Dying](/en/2021/10/notes-from-live-for-death-my-experience-on-dying/)
-- [x] [The Willpower Instinct](/en/2021/11/notes-from-the-willpower-instinct/)
+- [x] [The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It](/en/2021/11/notes-from-the-willpower-instinct/)
 - [x] [Peak: Secrets from the New Science of Expertise](/en/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/)
 - [x] [Pomodoro Technique Illustrated: The Easy Way to Do More in Less Time](/en/2022/01/notes-from-pomodoro-technique-illustrated/)
 - [x] [The Little Book of Lykke: Secrets of the World's Happiest People](/en/2022/01/notes-from-secrets-of-the-worlds-happiest-people/)
@@ -53,7 +53,7 @@ comment:
 - [x] [How an Economy Grows and Why It Crashes](/en/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/)
 - [x] [Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not](/en/2022/05/notes-from-rich-dad-poor-dad/)
 - [x] Tiny Habits: The Small Changes That Change Everything
-- [ ] The Lean Startup
+- [ ] The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses
 - [ ] How to Read a Book: The Classic Guide to Intelligent Reading
 - [ ] The Crowd: A Study of the Popular Mind
 - [ ] A Brief History of Time: From the Big Bang to Black Holes
