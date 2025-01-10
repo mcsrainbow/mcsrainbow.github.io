@@ -17,31 +17,31 @@ comment:
 
 ### Author
 
-<i class="fas fa-tags fa-fw"></i> [Dong Guo]^(Dōng Guō) based on Mandarin Pinyin  
-<i class="fas fa-tags fa-fw" style="opacity: 0"></i> [Damon]^(/ˈdeɪmən/ DAY-mən) inspired by the Linux [daemon]^(/ˈdiːmən/ DEE-mən) process and a favored Hollywood actor `Matt Damon`
+<i class="fa-solid fa-tags fa-fw"></i> [Dong Guo]^(Dōng Guō) based on Mandarin Pinyin  
+<i class="fa-solid fa-tags fa-fw" style="opacity: 0"></i> [Damon]^(/ˈdeɪmən/ DAY-mən) inspired by the Linux [daemon]^(/ˈdiːmən/ DEE-mən) process and a favored Hollywood actor `Matt Damon`
 
-<i class="fas fa-seedling fa-fw"></i> **Bio**: A Hands-On Solutions Architect, a DevOps Manager, and a Lifelong Learner
+<i class="fa-solid fa-seedling fa-fw"></i> **Bio**: A Hands-On Solutions Architect, a DevOps Manager, and a Lifelong Learner
 
-<i class="fas fa-user-tie fa-fw"></i> **Specialties**: <i class="fas fa-cloud-upload-alt fa-fw"></i> Hybrid Cloud <i class="fas fa-layer-group"></i> Big Data <i class="fas fa-code-branch fa-fw"></i> DevOps <i class="fas fa-user-shield fa-fw"></i> Cybersecurity
+<i class="fa-solid fa-user-tie fa-fw"></i> **Specialties**: <i class="fa-solid fa-cloud-upload-alt fa-fw fa-bounce"></i> Hybrid Cloud <i class="fa-solid fa-layer-group fa-fw fa-beat"></i> Big Data <i class="fa-solid fa-code-branch fa-fw fa-flip"></i> DevOps <i class="fa-solid fa-bell fa-fw fa-shake"></i> Cybersecurity
 
 ### [TO DO LIST]^(Since Feburary 2021)
 
-<i class="fas fa-tasks fa-fw"></i> **Core Missions**
+<i class="fa-solid fa-tasks fa-fw"></i> **Core Missions**
 
-- [x] <i class="fab fa-aws fa-fw"></i> **AWS SAP** - AWS Certified Solutions Architect - Professional
-- [x] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT Service Management
-- [x] <i class="fas fa-dharmachakra fa-fw"></i> **CKA** - Certified Kubernetes Administrator
-- [x] <i class="fas fa-language fa-fw"></i> **CET6** - College English Test Band 6
-- [x] <i class="fas fa-graduation-cap fa-fw"></i> **Degree** - Master of Engineering Management
+- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS SAP** - AWS Certified Solutions Architect - Professional
+- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT Service Management
+- [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** - Certified Kubernetes Administrator
+- [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** - College English Test Band 6
+- [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** - Master of Engineering Management
 - [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** - JiHu GitLab DevOps Expert
-- [x] <i class="fas fa-cloud fa-fw"></i> **ACP** - Alibaba Cloud Certified Professional - Cloud Computing
-- [x] <i class="fas fa-user-shield fa-fw"></i> **CISSP** - Certified Information Systems Security Professional
-- [ ] <i class="fas fa-users-cog fa-fw"></i> **PMP** - Project Management Professional
-- [ ] <i class="fas fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
-- [ ] <i class="fas fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Band Score 7
-- [ ] <i class="fas fa-cogs fa-fw"></i> **ITIL 4 MP** - ITIL 4 Managing Professional
+- [x] <i class="fa-solid fa-cloud fa-fw"></i> **ACP** - Alibaba Cloud Certified Professional - Cloud Computing
+- [x] <i class="fa-solid fa-user-shield fa-fw"></i> **CISSP** - Certified Information Systems Security Professional
+- [ ] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** - Project Management Professional
+- [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
+- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Band Score 7
+- [ ] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 MP** - ITIL 4 Managing Professional
 
-<i class="fas fa-book-open fa-fw"></i> **Private Booklist**
+<i class="fa-solid fa-book-open fa-fw"></i> **Private Booklist**
 
 - [x] Live for Death: My Experience on Dying
 - [x] The Willpower Instinct 
