@@ -34,7 +34,7 @@
 <i class="fa-solid fa-book-open fa-fw"></i> **私藏书单**
 
 - [x] [向死而生：我修的死亡学分](/2021/10/notes-from-live-for-death-my-experience-on-dying/)
-- [x] [自控力：斯坦福大学最受欢迎心理学课程](/2021/11/notes-from-the-willpower-instinct/)
+- [x] [自控力：自我控制如何运作、为什么重要以及你可以做什么來增强它](/2021/11/notes-from-the-willpower-instinct/)
 - [x] [刻意练习：如何从新手到大师](/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/)
 - [x] [番茄工作法图解：简单易行的时间管理方法](/2022/01/notes-from-pomodoro-technique-illustrated/)
 - [x] [刻意放手：向最幸福的人学习幸福](/2022/01/notes-from-secrets-of-the-worlds-happiest-people/)
