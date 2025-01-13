@@ -13,6 +13,26 @@
 
 在我目前的工作中，内部安全抓的很紧，所有的应用都必须支持 HTTPS 才能部署上线。于是，我在这里将创建自签名 SSL 证书的笔记分享出来，供大家参考。
 
+其中涉及到的专业词汇缩写有：
+
+- HTTPS - HyperText Transfer Protocol Secure 超文本传输安全协议
+- SSL - Secure Sockets Layer 安全套接层
+- TLS - Transport Layer Security 传输层安全性协议，基于 SSL
+- SSH - Secure Shell 安全外壳协议
+- FTP - File Transfer Protocol 文件传输协议
+- SHA - Secure Hash Algorithm 安全散列算法
+- RSA - Rivest, Shamir, Adleman 非对称加密算法，名称源自三位科学家姓氏的首字母
+- CA - Certificate Authority 证书授权
+- X.509 - 密码学里公钥证书的格式标准
+- DER - Distinguished Encoding Rules 可区别编码规则，通常用来编码证书
+- CER/CRT - Certificate 证书文件后缀
+- PKCS - Public Key Cryptography Standards 公钥加密标准
+- PFX - Personal Information Exchange 证书存储格式(微软)
+- JKS - Java KeyStore Java密钥存储
+- PEM - Privacy-Enhanced Mail 隐私增强邮件，密钥文件格式
+- P7B - PKCS#7 Binary 公钥加密标准二进制文件后缀
+- ELB - Elastic Load Balancing 弹性负载均衡
+
 ## 生成 SSL 证书
 
 ### 1. 生成根证书并导入
