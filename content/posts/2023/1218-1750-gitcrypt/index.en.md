@@ -5,7 +5,7 @@ date: 2023-12-18T17:50:15+08:00
 author: "Damon"
 description: "git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data."
 categories: ["Skills"]
-tags: ["Git","Cybersecurity"]
+tags: ["Git","Security"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
