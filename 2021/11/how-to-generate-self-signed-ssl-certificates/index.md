@@ -22,6 +22,7 @@
 - FTP - File Transfer Protocol 文件传输协议
 - SHA - Secure Hash Algorithm 安全散列算法
 - RSA - Rivest, Shamir, Adleman 非对称加密算法，名称源自三位科学家姓氏的首字母
+- CSR - Certificate Signing Request 证书签名请求
 - CA - Certificate Authority 证书授权
 - X.509 - 密码学里公钥证书的格式标准
 - DER - Distinguished Encoding Rules 可区别编码规则，通常用来编码证书
