@@ -25,6 +25,26 @@ Today, almost all Internet sites and applications are already running on HTTPS s
 
 In my current job, internal security requirements are very strict and all applications must support HTTPS. So I'm sharing my notes on how to generate self-signed SSL certificates for your reference.
 
+The abbreviations of professional terminology involved:
+
+- HTTPS - HyperText Transfer Protocol Secure
+- SSL - Secure Sockets Layer
+- TLS - Transport Layer Security
+- SSH - Secure Shell
+- FTP - File Transfer Protocol
+- SHA - Secure Hash Algorithm
+- RSA - Rivest, Shamir, Adleman (Asymmetric encryption algorithm)
+- CA - Certificate Authority
+- X.509 - A standard defining the format of public-key certificates
+- DER - Distinguished Encoding Rules
+- CER/CRT - Certificate
+- PKCS - Public Key Cryptography Standards
+- PFX - Personal Information Exchange
+- JKS - Java KeyStore
+- PEM - Privacy-Enhanced Mail
+- P7B - PKCS#7 Binary
+- ELB - Elastic Load Balancing
+
 ## Generate SSL Certificates
 
 ### 1. Generate root certificate and import to OS
