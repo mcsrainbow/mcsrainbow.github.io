@@ -5,7 +5,7 @@ date: 2021-11-07T11:06:54+08:00
 author: "Damon"
 description: "It is also important to deploy HTTPS services for internal private domains."
 categories: ["Skills"]
-tags: ["Security","SSL","TLS"]
+tags: ["Security","SSL"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
@@ -235,9 +235,9 @@ keytool -list -v -keystore star.heylinux.com.p12 -storepass P_Ss0rdT -storetype 
 keytool -list -v -keystore star.heylinux.com.jks -storepass P_Ss0rdT
 ```
 
-## TLS/SSL Certificates without Root Certificate
+## SSL Certificates without Root Certificate
 
-For applications such as NiFi, vsFTPd, the TLS/SSL certificates are mainly used for client and server verification, similar to the authentication between private and public keys in SSH, this kind of certificates could be used without the root certificate.
+For applications such as NiFi, vsFTPd, the SSL certificates are mainly used for client and server verification, similar to the authentication between private and public keys in SSH, this kind of certificates could be used without the root certificate.
 
 Create `tls.conf`, set IPs as `10.8.5.7` and `10.2.3.4`, wildcard DNS names as `*.heylinux.com` and `*.cloud.heylinux.com`, organization `/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE`.
 

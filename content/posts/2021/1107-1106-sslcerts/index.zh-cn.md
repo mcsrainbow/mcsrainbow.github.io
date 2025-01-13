@@ -5,7 +5,7 @@ date: 2021-11-07T11:06:54+08:00
 author: "郭冬"
 description: "在互联网全站 HTTPS 的时代，内部私有域名的 HTTPS 服务部署也尤为重要。"
 categories: ["技能矩阵"]
-tags: ["安全","SSL","TLS"]
+tags: ["安全","SSL"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
@@ -229,9 +229,9 @@ keytool -list -v -keystore star.heylinux.com.p12 -storepass P_Ss0rdT -storetype 
 keytool -list -v -keystore star.heylinux.com.jks -storepass P_Ss0rdT
 ```
 
-## 无需根证书的 TLS/SSL 证书
+## 无需根证书的 SSL 证书
 
-对于一些应用如 NiFi、vsFTPd，主要将 TLS/SSL 证书直接用于客户端与服务端校验，类似于 SSH 的私钥与公钥间的认证关系，这类 TLS/SSL 证书可以不需要根证书。
+对于一些应用如 NiFi、vsFTPd，主要将 SSL 证书直接用于客户端与服务端校验，类似于 SSH 的私钥与公钥间的认证关系，这类 SSL 证书可以不需要根证书。
 
 创建服务端证书配置文件 `tls.conf`，证书的机构信息为 `/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE`，可用于多个 IP `10.8.5.7` 和 `10.2.3.4`，和多个泛域名 `*.heylinux.com` 和 `*.cloud.heylinux.com`。
 
