@@ -34,6 +34,7 @@ The abbreviations of professional terminology involved:
 - FTP - File Transfer Protocol
 - SHA - Secure Hash Algorithm
 - RSA - Rivest, Shamir, Adleman (Asymmetric encryption algorithm)
+- CSR - Certificate Signing Request
 - CA - Certificate Authority
 - X.509 - A standard defining the format of public-key certificates
 - DER - Distinguished Encoding Rules
