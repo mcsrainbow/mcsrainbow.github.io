@@ -28,10 +28,10 @@ The abbreviations of professional terminology involved:
 - DER - Distinguished Encoding Rules
 - CER/CRT - Certificate
 - PKCS - Public Key Cryptography Standards
+- P7B - PKCS#7 Binary
 - PFX - Personal Information Exchange
 - JKS - Java KeyStore
 - PEM - Privacy-Enhanced Mail
-- P7B - PKCS#7 Binary
 - ELB - Elastic Load Balancing
 
 ## Generate SSL Certificates

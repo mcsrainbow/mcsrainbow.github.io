@@ -26,12 +26,12 @@
 - CA - Certificate Authority 证书授权
 - X.509 - 密码学里公钥证书的格式标准
 - DER - Distinguished Encoding Rules 可区别编码规则，通常用来编码证书
-- CER/CRT - Certificate 证书文件后缀
+- CER/CRT - Certificate 证书
 - PKCS - Public Key Cryptography Standards 公钥加密标准
-- PFX - Personal Information Exchange 证书存储格式(微软)
-- JKS - Java KeyStore Java密钥存储
+- P7B - PKCS#7 Binary 公钥加密标准二进制
+- PFX - Personal Information Exchange 微软证书存储格式
+- JKS - Java KeyStore Java 密钥存储
 - PEM - Privacy-Enhanced Mail 隐私增强邮件，密钥文件格式
-- P7B - PKCS#7 Binary 公钥加密标准二进制文件后缀
 - ELB - Elastic Load Balancing 弹性负载均衡
 
 ## 生成 SSL 证书
