@@ -373,15 +373,6 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/tags/ssl/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/tls/</loc><lastmod>2021-11-07T11:06:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://blog.heylinux.com/en/tags/tls/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://blog.heylinux.com/tags/tls/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/</loc><lastmod>2021-11-07T11:06:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"

@@ -15,7 +15,6 @@
     <meta property="article:modified_time" content="2021-11-07T11:06:54+08:00">
     <meta property="article:tag" content="安全">
     <meta property="article:tag" content="SSL">
-    <meta property="article:tag" content="TLS">
     <meta property="og:image" content="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/featured-image.jpeg">
 
   <meta name="twitter:card" content="summary_large_image">
@@ -41,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2021\/11\/how-to-generate-self-signed-ssl-certificates\/featured-image.jpeg",
                             "width":  2236 ,
                             "height":  1340 
-                        }],"genre": "posts","keywords": "安全, SSL, TLS","wordcount":  3247 ,
+                        }],"genre": "posts","keywords": "安全, SSL","wordcount":  3247 ,
         "url": "https:\/\/blog.heylinux.com\/2021\/11\/how-to-generate-self-signed-ssl-certificates\/","datePublished": "2021-11-07T11:06:54+08:00","dateModified": "2021-11-07T11:06:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -160,7 +159,7 @@
         <li><a href="#5-查看各种格式的证书">5. 查看各种格式的证书</a></li>
       </ul>
     </li>
-    <li><a href="#无需根证书的-tlsssl-证书">无需根证书的 TLS/SSL 证书</a></li>
+    <li><a href="#无需根证书的-ssl-证书">无需根证书的 SSL 证书</a></li>
     <li><a href="#使用-cfssl-生成和查看-ssl-证书">使用 cfssl 生成和查看 SSL 证书</a>
       <ul>
         <li><a href="#1-安装命令行工具">1. 安装命令行工具</a></li>
@@ -310,8 +309,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 查看 JKS 格式的证书 star.heylinux.com.jks</span>
 </span></span><span class="line"><span class="cl">keytool -list -v -keystore star.heylinux.com.jks -storepass P_Ss0rdT
-</span></span></code></pre></div><h2 id="无需根证书的-tlsssl-证书">无需根证书的 TLS/SSL 证书</h2>
-<p>对于一些应用如 NiFi、vsFTPd，主要将 TLS/SSL 证书直接用于客户端与服务端校验，类似于 SSH 的私钥与公钥间的认证关系，这类 TLS/SSL 证书可以不需要根证书。</p>
+</span></span></code></pre></div><h2 id="无需根证书的-ssl-证书">无需根证书的 SSL 证书</h2>
+<p>对于一些应用如 NiFi、vsFTPd，主要将 SSL 证书直接用于客户端与服务端校验，类似于 SSH 的私钥与公钥间的认证关系，这类 SSL 证书可以不需要根证书。</p>
 <p>创建服务端证书配置文件 <code>tls.conf</code>，证书的机构信息为 <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>，可用于多个 IP <code>10.8.5.7</code> 和 <code>10.2.3.4</code>，和多个泛域名 <code>*.heylinux.com</code> 和 <code>*.cloud.heylinux.com</code>。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim tls.conf
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[req]</span>
@@ -552,13 +551,13 @@
                             <a class="link-to-markdown" href="/2021/11/how-to-generate-self-signed-ssl-certificates/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/" data-title="如何创建自签名 SSL 证书支持私有域名的 HTTPS 服务" data-hashtags="安全,SSL,TLS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/" data-hashtag="安全"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/" data-title="如何创建自签名 SSL 证书支持私有域名的 HTTPS 服务" data-hashtags="安全,SSL"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/" data-hashtag="安全"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%AE%89%E5%85%A8/">安全</a>,&nbsp;<a href="/tags/ssl/">SSL</a>,&nbsp;<a href="/tags/tls/">TLS</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%AE%89%E5%85%A8/">安全</a>,&nbsp;<a href="/tags/ssl/">SSL</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

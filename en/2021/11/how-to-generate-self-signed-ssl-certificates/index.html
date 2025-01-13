@@ -15,7 +15,6 @@
     <meta property="article:modified_time" content="2021-11-07T11:06:54+08:00">
     <meta property="article:tag" content="Security">
     <meta property="article:tag" content="SSL">
-    <meta property="article:tag" content="TLS">
     <meta property="og:image" content="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/featured-image.jpeg">
 
   <meta name="twitter:card" content="summary_large_image">
@@ -41,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2021\/11\/how-to-generate-self-signed-ssl-certificates\/featured-image.jpeg",
                             "width":  2236 ,
                             "height":  1340 
-                        }],"genre": "posts","keywords": "Security, SSL, TLS","wordcount":  1506 ,
+                        }],"genre": "posts","keywords": "Security, SSL","wordcount":  1506 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2021\/11\/how-to-generate-self-signed-ssl-certificates\/","datePublished": "2021-11-07T11:06:54+08:00","dateModified": "2021-11-07T11:06:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -160,7 +159,7 @@
         <li><a href="#5-view-certificates-in-different-formats">5. View certificates in different formats</a></li>
       </ul>
     </li>
-    <li><a href="#tlsssl-certificates-without-root-certificate">TLS/SSL Certificates without Root Certificate</a></li>
+    <li><a href="#ssl-certificates-without-root-certificate">SSL Certificates without Root Certificate</a></li>
     <li><a href="#generate-and-view-ssl-certificates-by-cfssl-tools">Generate and View SSL Certificates by cfssl tools</a>
       <ul>
         <li><a href="#1-install-cfssl-tools">1. Install cfssl tools</a></li>
@@ -313,8 +312,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># View star.heylinux.com.jks</span>
 </span></span><span class="line"><span class="cl">keytool -list -v -keystore star.heylinux.com.jks -storepass P_Ss0rdT
-</span></span></code></pre></div><h2 id="tlsssl-certificates-without-root-certificate">TLS/SSL Certificates without Root Certificate</h2>
-<p>For applications such as NiFi, vsFTPd, the TLS/SSL certificates are mainly used for client and server verification, similar to the authentication between private and public keys in SSH, this kind of certificates could be used without the root certificate.</p>
+</span></span></code></pre></div><h2 id="ssl-certificates-without-root-certificate">SSL Certificates without Root Certificate</h2>
+<p>For applications such as NiFi, vsFTPd, the SSL certificates are mainly used for client and server verification, similar to the authentication between private and public keys in SSH, this kind of certificates could be used without the root certificate.</p>
 <p>Create <code>tls.conf</code>, set IPs as <code>10.8.5.7</code> and <code>10.2.3.4</code>, wildcard DNS names as <code>*.heylinux.com</code> and <code>*.cloud.heylinux.com</code>, organization <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim tls.conf
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[req]</span>
@@ -555,13 +554,13 @@
                             <a class="link-to-markdown" href="/en/2021/11/how-to-generate-self-signed-ssl-certificates/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-title="How to Generate Self-signed SSL Certificates" data-hashtags="Security,SSL,TLS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-hashtag="Security"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-title="How to Generate Self-signed SSL Certificates" data-hashtags="Security,SSL"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-hashtag="Security"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/security/">Security</a>,&nbsp;<a href="/en/tags/ssl/">SSL</a>,&nbsp;<a href="/en/tags/tls/">TLS</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/security/">Security</a>,&nbsp;<a href="/en/tags/ssl/">SSL</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
