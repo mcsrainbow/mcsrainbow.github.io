@@ -94,15 +94,6 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/cybersecurity/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/tags/cybersecurity/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/tags/cybersecurity/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/en/tags/git/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -112,6 +103,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/git/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/security/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -167,7 +159,6 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/security/</loc><lastmod>2022-11-20T22:31:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/english/</loc><lastmod>2022-05-31T20:11:52&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
