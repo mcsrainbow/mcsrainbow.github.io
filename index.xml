@@ -4,9 +4,17 @@
         <link>https://blog.heylinux.com/</link>
         <description>郭冬的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>我的工作准则</title>
+    <link>https://blog.heylinux.com/2025/01/my-work-guidelines/</link>
+    <pubDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2025/01/my-work-guidelines/</guid>
+    <description><![CDATA[<p>良好的工作准则有助于培养深层思考和职业化的行为。</p>]]></description>
+</item>
+<item>
     <title>Kubernetes 多环境多应用编排实践</title>
     <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
     <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2022/05/notes-from-rich-dad-poor-dad/</guid>
     <description><![CDATA[<p>富人买入资产，穷人只有支出，中产阶级购买自以为是资产的负债。</p>]]></description>
-</item>
-<item>
-    <title>读书笔记之《小岛经济学》</title>
-    <link>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</link>
-    <pubDate>Fri, 08 Apr 2022 21:54:47 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</guid>
-    <description><![CDATA[<p>作者在书中虚构了一个远洋中的小岛，通过关于鱼、渔网、存钱、借钱等故事揭示了经济是如何运行的，映射出当今经济体制与政策暗藏的漏洞。</p>]]></description>
 </item>
 </channel>
 </rss>

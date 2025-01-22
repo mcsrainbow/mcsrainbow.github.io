@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/categories/"
@@ -11,6 +11,45 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/categories/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/growth/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/2025/01/my-work-guidelines/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/2025/01/my-work-guidelines/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/2025/01/my-work-guidelines/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/posts/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/posts/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/self-management/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/categories/thinking/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/helm/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -19,15 +58,6 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/helm/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/"
                     /></url><url>
             <loc>https://blog.heylinux.com/en/tags/kubernetes/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
@@ -56,25 +86,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/kustomize/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/posts/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/tags/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -229,7 +241,6 @@
                     href="https://blog.heylinux.com/en/2022/01/life-is-short-and-love-is-long/"
                     /></url><url>
             <loc>https://blog.heylinux.com/en/tags/love/</loc><lastmod>2022-01-20T00:44:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/en/categories/thinking/</loc><lastmod>2022-01-20T00:44:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/biography/</loc><lastmod>2022-01-16T07:44:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2022/01/notes-from-educated-a-memoir/</loc><lastmod>2022-01-16T07:44:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
@@ -249,7 +260,6 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2022/01/notes-from-secrets-of-the-worlds-happiest-people/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/growth/</loc><lastmod>2022-01-06T21:48:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</loc><lastmod>2022-01-06T21:48:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -300,7 +310,6 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/self-management/</loc><lastmod>2021-12-11T21:05:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/machine-learning/</loc><lastmod>2021-11-24T20:36:58&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
