@@ -5,7 +5,7 @@ date: 2025-01-21T16:25:37+08:00
 author: "Damon"
 description: "Good work guidelines help cultivate deep thinking and professional behavior."
 categories: ["Thinking"]
-tags: ["Growth","Self-Management"]
+tags: ["Growth","Self-management"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
