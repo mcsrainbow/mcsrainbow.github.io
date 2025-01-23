@@ -5,7 +5,7 @@ date: 2021-11-24T20:36:58+08:00
 author: "郭冬"
 description: "在通过 OpenCV 完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。"
 categories: ["技能矩阵"]
-tags: ["OpenCV","Machine Learning"]
+tags: ["OpenCV","机器学习"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
