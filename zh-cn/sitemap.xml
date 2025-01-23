@@ -310,15 +310,6 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/machine-learning/</loc><lastmod>2021-11-24T20:36:58&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://blog.heylinux.com/en/tags/machine-learning/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://blog.heylinux.com/tags/machine-learning/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/tags/opencv/</loc><lastmod>2021-11-24T20:36:58&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -337,6 +328,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/2021/11/python-opencv-captcha-recognition-in-action/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc><lastmod>2021-11-24T20:36:58&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/tags/cicd/</loc><lastmod>2021-11-21T12:18:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
