@@ -152,8 +152,7 @@
 <p>kubeadm 大大降低了 Kubernetes 集群部署的复杂度，但通常仅仅用来部署一个最小可用集群，方便学习和测试。生产级别的 Kubernetes 集群则需要高可用、高性能和更灵活的配置，建议通过源码包方式部署或选择已有的商业产品或公有云服务。</p>
 <h2 id="环境准备">环境准备</h2>
 <blockquote>
-<p>注：以下步骤都需要在所有节点上以 root 用户操作完成</p>
-</blockquote>
+<p>注：以下步骤都需要在所有节点上以 root 用户操作完成</p></blockquote>
 <p>准备3台虚拟机节点（根据实际情况替换为真实 IP）</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">CentOS 7.9 x86_64</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">CPU</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="l">vCores</span><span class="w">
@@ -271,8 +270,7 @@
 </span></span><span class="line"><span class="cl">mkdir -p /opt/k8s/<span class="o">{</span>bin,work<span class="o">}</span> /etc/<span class="o">{</span>kubernetes,etcd<span class="o">}</span>/cert
 </span></span></code></pre></div><h2 id="集群搭建">集群搭建</h2>
 <blockquote>
-<p>注：以下步骤需要在不同节点上操作完成（根据实际情况替换1.22.1为需要的版本）</p>
-</blockquote>
+<p>注：以下步骤需要在不同节点上操作完成（根据实际情况替换1.22.1为需要的版本）</p></blockquote>
 <p>在所有节点上安装 kubeadm，kubelet 和 kubectl</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/yum.repos.d/kubernetes.repo <span class="s">&lt;&lt; EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">[kubernetes]
@@ -447,7 +445,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.141.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.143.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

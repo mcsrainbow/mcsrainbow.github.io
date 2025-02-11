@@ -169,45 +169,37 @@
 <p>1.收集样本</p>
 <p>收集一定数量的验证码图片样本，此次的验证码识别大赛仅提供了100张图片样本给所有的参赛选手。</p>
 <blockquote>
-<p>理论上图片样本的数量越多，可以分析出的有效特征就越多，构建出的模型就越准确。数据比模型更重要，机器学习模型的表现高度依赖于数据量，选择对的模型只是其次，正所谓巧妇难为无米之炊。</p>
-</blockquote>
+<p>理论上图片样本的数量越多，可以分析出的有效特征就越多，构建出的模型就越准确。数据比模型更重要，机器学习模型的表现高度依赖于数据量，选择对的模型只是其次，正所谓巧妇难为无米之炊。</p></blockquote>
 <blockquote>
-<p>这个过程类似于在编写一本教科书之前，需要先收集大量的参考资料。</p>
-</blockquote>
+<p>这个过程类似于在编写一本教科书之前，需要先收集大量的参考资料。</p></blockquote>
 </li>
 <li>
 <p>2.特征工程</p>
 <p>使用 OpenCV 库对验证码图片样本进行分析，进行一系列有针对性的处理，去除验证码图片中的各种随机线条等噪音，突出验证码图片中的字符如 5UFQ。</p>
 <blockquote>
-<p>特征工程是将原始数据转化成更好的表达问题本质的特征的过程，目的是发现重要特征。</p>
-</blockquote>
+<p>特征工程是将原始数据转化成更好的表达问题本质的特征的过程，目的是发现重要特征。</p></blockquote>
 <blockquote>
-<p>这个过程中，原始图片样本类似参考资料，最后用于机器学习的训练集数据类似教科书。编写一本教科书，需要从海量的参考资料中剔除无用的信息，反复校对，最后形成一本易于学生接受的教科书。</p>
-</blockquote>
+<p>这个过程中，原始图片样本类似参考资料，最后用于机器学习的训练集数据类似教科书。编写一本教科书，需要从海量的参考资料中剔除无用的信息，反复校对，最后形成一本易于学生接受的教科书。</p></blockquote>
 </li>
 <li>
 <p>3.人工标注</p>
 <p>操作方式很简单，将每个原始图片样本人工识别并重命名为验证码的字符内容如 5UFQ.jpg，再将经过特征工程后的图片切割为单个字符的图片，分别保存为：5UFQ_5.jpg，5UFQ_U.jpg，5UFQ_F.jpg，5UFQ_Q.jpg，用于后面的模型训练。</p>
 <blockquote>
-<p>目前成熟的机器学习技术主要还是监督式学习，监督式学习的核心就是把已知的数据特征提供给机器进行训练。</p>
-</blockquote>
+<p>目前成熟的机器学习技术主要还是监督式学习，监督式学习的核心就是把已知的数据特征提供给机器进行训练。</p></blockquote>
 <blockquote>
-<p>数据样本类似教课书中的段落，数据特征类似老师圈出的重点内容，机器学习程序类似学生，突出重点内容能让学生更快更好的掌握知识。</p>
-</blockquote>
+<p>数据样本类似教课书中的段落，数据特征类似老师圈出的重点内容，机器学习程序类似学生，突出重点内容能让学生更快更好的掌握知识。</p></blockquote>
 </li>
 <li>
 <p>4.训练模型</p>
 <p>将上面的所有单个字符的图片作为训练集，每个图片的字符作为标签，构造一个图片与标签的映射表，然后用 OpenCV 自带的 KNN 相似度模型进行机器学习，最终训练出可识别相似的验证码图片的有效模型。</p>
 <blockquote>
-<p>这个过程中，机器学习程序类似学生，将书中的段落和老师圈出的重点内容在脑海里进行关联，然后反复学习、理解、消化，最后触类旁通，掌握了举一反三的能力。</p>
-</blockquote>
+<p>这个过程中，机器学习程序类似学生，将书中的段落和老师圈出的重点内容在脑海里进行关联，然后反复学习、理解、消化，最后触类旁通，掌握了举一反三的能力。</p></blockquote>
 </li>
 <li>
 <p>5.识别图片</p>
 <p>将一定数量的原始图片样本作为测试集数据，通过特征工程去除噪音，然后直接使用训练好的模型进行匹配识别，并将识别后的结果与图片文件名（如00243af2b3545fd4c869d1c155c08d3f.png,LTEH）依次存入一个 CSV 文件中。</p>
 <blockquote>
-<p>类似于学生通过举一反三的能力对新知识进行归纳总结，并像老师一样圈出重点内容的过程。</p>
-</blockquote>
+<p>类似于学生通过举一反三的能力对新知识进行归纳总结，并像老师一样圈出重点内容的过程。</p></blockquote>
 </li>
 </ul>
 <h2 id="详解">详解</h2>
@@ -479,7 +471,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.141.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.143.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
