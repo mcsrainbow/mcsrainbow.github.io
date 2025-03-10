@@ -23,7 +23,7 @@ rm -rf public/*
 
 # Generate Hugo site
 echo "${tput_green}INFO: 2.Generating Hugo site ...${tput_reset}"
-hugo
+hugo --gc --environment production
 if [[ $? -ne 0 ]]; then
   echo "${tput_red}ERROR: Failed to generate Hugo site${tput_reset}"
   exit 1
