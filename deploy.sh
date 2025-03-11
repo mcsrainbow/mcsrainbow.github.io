@@ -18,11 +18,11 @@ if [[ $(git status -s) ]]; then
 fi
 
 # Remove all existing files in public folder
-echo "${tput_green}INFO: 1.Removing all existing files in public folder ...${tput_reset}"
+echo "${tput_green}INFO: 1.Removing all existing files in public folder...${tput_reset}"
 rm -rf public/*
 
 # Generate Hugo site
-echo "${tput_green}INFO: 2.Generating Hugo site ...${tput_reset}"
+echo "${tput_green}INFO: 2.Generating Hugo site...${tput_reset}"
 hugo --gc --environment production
 if [[ $? -ne 0 ]]; then
   echo "${tput_red}ERROR: Failed to generate Hugo site${tput_reset}"
@@ -30,7 +30,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Deploy Hugo site
-echo "${tput_green}INFO: 3.Deploying Hugo site to branch gh-pages ...${tput_reset}"
+echo "${tput_green}INFO: 3.Deploying Hugo site to branch gh-pages...${tput_reset}"
 
 # Go into worktree subdirectory of branch gh-pages
 cd public
