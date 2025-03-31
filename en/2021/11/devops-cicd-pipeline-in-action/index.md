@@ -156,7 +156,7 @@ It includes the following items:
   
   Audit the whole pipeline and wait for the manual review, when the release manager approved, automatically continue to run the deployment and integration tests in staging environment, then wait for another review and approval for the production release.
 
-![devops_cicd](devops_cicd.jpeg)
+![devops_cicd](devops_cicd.png)
 
 This DevSecOps CI/CD pipeline is more general and can balance security, audit, and the ability to take over existing on-premises infrastructure and services.
 

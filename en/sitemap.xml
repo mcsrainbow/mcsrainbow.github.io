@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/categories/"
@@ -11,8 +11,8 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/categories/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/growth/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://blog.heylinux.com/en/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/tags/growth/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://blog.heylinux.com/en/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/"
@@ -21,7 +21,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/2025/01/my-work-guidelines/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/2025/01/my-work-guidelines/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/2025/01/my-work-guidelines/"
@@ -30,7 +30,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2025/01/my-work-guidelines/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/posts/"
@@ -39,8 +39,8 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/posts/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/self-management/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/tags/self-management/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/tags/"
@@ -49,7 +49,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/categories/thinking/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://blog.heylinux.com/en/categories/thinking/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/helm/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
