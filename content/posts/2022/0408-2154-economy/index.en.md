@@ -8,7 +8,7 @@ categories: ["Notes"]
 tags: ["Economics"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 lightgallery: true
 ---

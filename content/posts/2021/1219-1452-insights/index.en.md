@@ -8,7 +8,7 @@ categories: ["Skills"]
 tags: ["Solutions","Insights"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 toc: false
 lightgallery: true

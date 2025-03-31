@@ -8,7 +8,7 @@ categories: ["读书笔记"]
 tags: ["经济学"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 lightgallery: true
 ---

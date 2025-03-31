@@ -8,7 +8,7 @@ categories: ["Notes"]
 tags: ["Psychology","Self-management"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 lightgallery: true
 ---

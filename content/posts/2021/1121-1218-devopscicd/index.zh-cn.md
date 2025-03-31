@@ -166,7 +166,7 @@ DevSecOps 并非一定要牺牲自动化流程，而是需要加入安全保障�
   
   对整个流水线的各个过程进行安全审计，并在部署上线时进行人为审批，审批通过后自动到下一个环境中进行部署和测试。
 
-![devops_cicd](devops_cicd.jpeg)
+![devops_cicd](devops_cicd.png)
 
 最后设计的这个 DevSecOps CI/CD 流水线比较通用，能兼顾安全，审批和接管本地已有的基础设施与服务。
 

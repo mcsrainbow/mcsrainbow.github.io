@@ -8,7 +8,7 @@ categories: ["读书笔记"]
 tags: ["番茄工作法","时间管理"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 lightgallery: true
 ---

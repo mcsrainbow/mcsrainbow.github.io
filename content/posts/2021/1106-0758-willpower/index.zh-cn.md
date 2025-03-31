@@ -8,7 +8,7 @@ categories: ["读书笔记"]
 tags: ["心理学","自我管理"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 lightgallery: true
 ---

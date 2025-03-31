@@ -8,7 +8,7 @@ categories: ["Notes"]
 tags: ["Pomodoro Technique","Time Management"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 lightgallery: true
 ---
@@ -48,7 +48,7 @@ This particular type of planning, monitoring, measuring, and improving is also t
 
 The Pomodoro Technique gets us to focus on execution. It could mean that we ignore Systems Thinking and holism. That’s why it’s often beneficial to let processes like Scrum, XP, or GTD enclose the Pomodoro Technique.
 
-{{< image src="pomodoro_process_en.jpeg" alt="pomodoro_process_en" width=1000 >}}
+{{< image src="pomodoro_process_en.png" alt="pomodoro_process_en" width=1000 >}}
 
 ## Thinking
 

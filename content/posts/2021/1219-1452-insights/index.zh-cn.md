@@ -8,7 +8,7 @@ categories: ["技能矩阵"]
 tags: ["解决方案","技术前瞻"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpeg"
+  src: "featured-image.png"
 
 toc: false
 lightgallery: true
