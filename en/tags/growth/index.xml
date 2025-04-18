@@ -1,40 +1,43 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Growth - Tag - Hey! Linux</title>
-        <link>https://blog.heylinux.com/en/tags/growth/</link>
-        <description>Growth - Tag - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/growth/" rel="self" type="application/rss+xml" /><item>
-    <title>My Work Guidelines</title>
-    <link>https://blog.heylinux.com/en/2025/01/my-work-guidelines/</link>
-    <pubDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2025/01/my-work-guidelines/</guid>
-    <description><![CDATA[<p>Good work guidelines help cultivate deep thinking and professional behavior.</p>]]></description>
-</item>
-<item>
-    <title>My 2021 Year in Review</title>
-    <link>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</link>
-    <pubDate>Thu, 06 Jan 2022 21:48:08 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</guid>
-    <description><![CDATA[<p>The most important is that I have unlocked my thirst of knowledge and could not stop learning.</p>]]></description>
-</item>
-<item>
-    <title>Notes from &#34;Peak: Secrets from the New Science of Expertise&#34;</title>
-    <link>https://blog.heylinux.com/en/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</link>
-    <pubDate>Sat, 11 Dec 2021 21:05:17 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</guid>
-    <description><![CDATA[<p>The core elements of deliberate practice include focus, feedback and fix, stepping out of the comfort zone, extensive training, and mentorship.</p>]]></description>
-</item>
-<item>
-    <title>Cherish the Time to Meet A Bright Future</title>
-    <link>https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/</link>
-    <pubDate>Tue, 09 Nov 2021 22:07:33 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/</guid>
-    <description><![CDATA[<p>I will keep this state, no more slacking off, and be positive for every beautiful day ahead.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Growth on Hey! Linux</title>
+    <link>https://blog.heylinux.com/en/tags/growth/</link>
+    <description>Recent content in Growth on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 21 Jan 2025 16:25:37 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/en/tags/growth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Work Guidelines</title>
+      <link>https://blog.heylinux.com/en/2025/01/my-work-guidelines/</link>
+      <pubDate>Tue, 21 Jan 2025 16:25:37 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2025/01/my-work-guidelines/</guid>
+      <description>&lt;p&gt;Good work guidelines help cultivate deep thinking and professional behavior.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My 2021 Year in Review</title>
+      <link>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</link>
+      <pubDate>Thu, 06 Jan 2022 21:48:08 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</guid>
+      <description>&lt;p&gt;The most important is that I have unlocked my thirst of knowledge and could not stop learning.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Notes from &#34;Peak: Secrets from the New Science of Expertise&#34;</title>
+      <link>https://blog.heylinux.com/en/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</link>
+      <pubDate>Sat, 11 Dec 2021 21:05:17 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</guid>
+      <description>&lt;p&gt;The core elements of deliberate practice include focus, feedback and fix, stepping out of the comfort zone, extensive training, and mentorship.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cherish the Time to Meet A Bright Future</title>
+      <link>https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/</link>
+      <pubDate>Tue, 09 Nov 2021 22:07:33 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/</guid>
+      <description>&lt;p&gt;I will keep this state, no more slacking off, and be positive for every beautiful day ahead.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

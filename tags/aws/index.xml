@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>AWS - 标签 - Hey! Linux</title>
-        <link>https://blog.heylinux.com/tags/aws/</link>
-        <description>AWS - 标签 - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/aws/" rel="self" type="application/rss+xml" /><item>
-    <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
-    <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
-    <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
-    <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on Hey! Linux</title>
+    <link>https://blog.heylinux.com/tags/aws/</link>
+    <description>Recent content in AWS on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 20 Nov 2022 22:31:30 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
+      <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
+      <pubDate>Sun, 20 Nov 2022 22:31:30 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
+      <description>&lt;p&gt;通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

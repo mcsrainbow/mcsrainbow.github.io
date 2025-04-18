@@ -1,88 +1,113 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Skills - Category - Hey! Linux</title>
-        <link>https://blog.heylinux.com/en/categories/skills/</link>
-        <description>Skills - Category - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
-    <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
-    <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
-    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
-    <description><![CDATA[<p>By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes Container Healthcheck and Graceful Termination</title>
-    <link>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
-    <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
-    <description><![CDATA[<p>Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
-</item>
-<item>
-    <title>Alibaba Cloud Official Vector Icons and draw.io Custom Libraries</title>
-    <link>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
-    <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
-    <description><![CDATA[<p>I collected a complete set of Alibaba Cloud vector icons and generated the draw.io icon library.</p>]]></description>
-</item>
-<item>
-    <title>Use git-crypt to Encrypt Files in Git</title>
-    <link>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
-    <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
-    <description><![CDATA[<p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>]]></description>
-</item>
-<item>
-    <title>Lightweight Kubernetes Distributions Practices</title>
-    <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
-    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-    <description><![CDATA[<p>Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.</p>]]></description>
-</item>
-<item>
-    <title>What are Private IP Addresses</title>
-    <link>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</link>
-    <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</guid>
-    <description><![CDATA[<p>In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.</p>]]></description>
-</item>
-<item>
-    <title>Enhance AWS S3 Data Security with Bucket Level Policy</title>
-    <link>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
-    <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
-    <description><![CDATA[<p>After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.</p>]]></description>
-</item>
-<item>
-    <title>Punctuation Marks</title>
-    <link>https://blog.heylinux.com/en/2022/05/punctuation-marks/</link>
-    <pubDate>Tue, 31 May 2022 20:11:52 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/05/punctuation-marks/</guid>
-    <description><![CDATA[<p>Every punctuation mark has a name.</p>]]></description>
-</item>
-<item>
-    <title>Setup Kubernetes Cluster Using kubeadm</title>
-    <link>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
-    <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
-    <description><![CDATA[<p>kubeadm performs the actions necessary to get a minimum viable cluster up and running.</p>]]></description>
-</item>
-<item>
-    <title>Solutions and Insights</title>
-    <link>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</link>
-    <pubDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</guid>
-    <description><![CDATA[<p>Here are some of my personal bookmarks about technology solutions and insights.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skills on Hey! Linux</title>
+    <link>https://blog.heylinux.com/en/categories/skills/</link>
+    <description>Recent content in Skills on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 10 Sep 2024 18:37:39 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/en/categories/skills/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
+      <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
+      <pubDate>Tue, 10 Sep 2024 18:37:39 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
+      <description>&lt;p&gt;By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes Container Healthcheck and Graceful Termination</title>
+      <link>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
+      <pubDate>Wed, 03 Jul 2024 17:27:44 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
+      <description>&lt;p&gt;Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Alibaba Cloud Official Vector Icons and draw.io Custom Libraries</title>
+      <link>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
+      <pubDate>Thu, 04 Jan 2024 16:39:06 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
+      <description>&lt;p&gt;I collected a complete set of Alibaba Cloud vector icons and generated the draw.io icon library.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use git-crypt to Encrypt Files in Git</title>
+      <link>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
+      <pubDate>Mon, 18 Dec 2023 17:50:15 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
+      <description>&lt;p&gt;git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lightweight Kubernetes Distributions Practices</title>
+      <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
+      <pubDate>Thu, 07 Dec 2023 10:57:19 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
+      <description>&lt;p&gt;Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What are Private IP Addresses</title>
+      <link>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</link>
+      <pubDate>Wed, 29 Mar 2023 20:41:35 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</guid>
+      <description>&lt;p&gt;In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Enhance AWS S3 Data Security with Bucket Level Policy</title>
+      <link>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
+      <pubDate>Sun, 20 Nov 2022 22:31:30 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
+      <description>&lt;p&gt;After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Punctuation Marks</title>
+      <link>https://blog.heylinux.com/en/2022/05/punctuation-marks/</link>
+      <pubDate>Tue, 31 May 2022 20:11:52 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2022/05/punctuation-marks/</guid>
+      <description>&lt;p&gt;Every punctuation mark has a name.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setup Kubernetes Cluster Using kubeadm</title>
+      <link>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
+      <pubDate>Tue, 21 Dec 2021 21:58:24 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
+      <description>&lt;p&gt;kubeadm performs the actions necessary to get a minimum viable cluster up and running.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Solutions and Insights</title>
+      <link>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</link>
+      <pubDate>Sun, 19 Dec 2021 14:52:49 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/12/solutions-and-insights/</guid>
+      <description>&lt;p&gt;Here are some of my personal bookmarks about technology solutions and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python OpenCV CAPTCHA Recognition in Action</title>
+      <link>https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/</link>
+      <pubDate>Wed, 24 Nov 2021 20:36:58 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/11/python-opencv-captcha-recognition-in-action/</guid>
+      <description>&lt;p&gt;The recognition principles and processes I have learned from the CAPTCHA recognition are really valuable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DevOps CI/CD Pipeline in Action</title>
+      <link>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</link>
+      <pubDate>Sun, 21 Nov 2021 12:18:14 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</guid>
+      <description>&lt;p&gt;There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Generate Self-signed SSL Certificates</title>
+      <link>https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/</link>
+      <pubDate>Sun, 07 Nov 2021 11:06:54 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/</guid>
+      <description>&lt;p&gt;It is also important to deploy HTTPS services for internal private domains.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why Use a Multi-Cloud Strategy</title>
+      <link>https://blog.heylinux.com/en/2021/11/why-use-a-multi-cloud-strategy/</link>
+      <pubDate>Mon, 01 Nov 2021 21:51:17 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2021/11/why-use-a-multi-cloud-strategy/</guid>
+      <description>&lt;p&gt;A multi-cloud strategy allows companies to select different cloud services from different providers.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

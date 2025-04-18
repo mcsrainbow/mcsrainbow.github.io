@@ -263,6 +263,9 @@ Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
 
 ➜ brew uninstall minikube
 Uninstalling /opt/homebrew/Cellar/minikube/1.32.0... (9 files, 87.5MB)
+
+➜ brew uninstall podman
+Uninstalling /opt/homebrew/Cellar/podman/5.4.2... (201 files, 80.3MB)
 ```
 
 ## KinD 实践

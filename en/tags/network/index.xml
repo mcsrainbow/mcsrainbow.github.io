@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Network - Tag - Hey! Linux</title>
-        <link>https://blog.heylinux.com/en/tags/network/</link>
-        <description>Network - Tag - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/network/" rel="self" type="application/rss+xml" /><item>
-    <title>What are Private IP Addresses</title>
-    <link>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</link>
-    <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</guid>
-    <description><![CDATA[<p>In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Hey! Linux</title>
+    <link>https://blog.heylinux.com/en/tags/network/</link>
+    <description>Recent content in Network on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 29 Mar 2023 20:41:35 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/en/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What are Private IP Addresses</title>
+      <link>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</link>
+      <pubDate>Wed, 29 Mar 2023 20:41:35 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</guid>
+      <description>&lt;p&gt;In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

@@ -1,88 +1,113 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>技能矩阵 - 分类 - Hey! Linux</title>
-        <link>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</link>
-        <description>技能矩阵 - 分类 - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
-    <title>Kubernetes 多环境多应用编排实践</title>
-    <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
-    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
-    <description><![CDATA[<p>通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes 容器健康检查和优雅终止</title>
-    <link>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
-    <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
-    <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
-</item>
-<item>
-    <title>阿里云官方矢量图标和 draw.io 自定义图标库</title>
-    <link>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
-    <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
-    <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。</p>]]></description>
-</item>
-<item>
-    <title>使用 git-crypt 加解密 Git 中的文件</title>
-    <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
-    <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
-    <description><![CDATA[<p>git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
-</item>
-<item>
-    <title>轻量级 Kubernetes 发行版实践</title>
-    <link>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</link>
-    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-    <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。</p>]]></description>
-</item>
-<item>
-    <title>私有 IP 地址包括哪些</title>
-    <link>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</link>
-    <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</guid>
-    <description><![CDATA[<p>在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>]]></description>
-</item>
-<item>
-    <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
-    <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
-    <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
-    <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
-</item>
-<item>
-    <title>常用标点符号中英文名称对照</title>
-    <link>https://blog.heylinux.com/2022/05/punctuation-marks/</link>
-    <pubDate>Tue, 31 May 2022 20:11:52 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/05/punctuation-marks/</guid>
-    <description><![CDATA[<p>正确表示常用标点符号的中英文名称。</p>]]></description>
-</item>
-<item>
-    <title>使用 kubeadm 快速部署 Kubernetes 集群</title>
-    <link>https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
-    <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
-    <description><![CDATA[<p>kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具。</p>]]></description>
-</item>
-<item>
-    <title>解决方案与技术前瞻</title>
-    <link>https://blog.heylinux.com/2021/12/solutions-and-insights/</link>
-    <pubDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/12/solutions-and-insights/</guid>
-    <description><![CDATA[<p>分享一些我所关注的<strong><ruby>解决方案<rt>Solutions</rt></ruby></strong>与<strong><ruby>技术前瞻<rt>Insights</rt></ruby></strong>的好网站。</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技能矩阵 on Hey! Linux</title>
+    <link>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</link>
+    <description>Recent content in 技能矩阵 on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 10 Sep 2024 18:37:39 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes 多环境多应用编排实践</title>
+      <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
+      <pubDate>Tue, 10 Sep 2024 18:37:39 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
+      <description>&lt;p&gt;通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes 容器健康检查和优雅终止</title>
+      <link>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
+      <pubDate>Wed, 03 Jul 2024 17:27:44 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
+      <description>&lt;p&gt;在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>阿里云官方矢量图标和 draw.io 自定义图标库</title>
+      <link>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
+      <pubDate>Thu, 04 Jan 2024 16:39:06 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
+      <description>&lt;p&gt;我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用 git-crypt 加解密 Git 中的文件</title>
+      <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
+      <pubDate>Mon, 18 Dec 2023 17:50:15 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
+      <description>&lt;p&gt;git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>轻量级 Kubernetes 发行版实践</title>
+      <link>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</link>
+      <pubDate>Thu, 07 Dec 2023 10:57:19 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
+      <description>&lt;p&gt;部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>私有 IP 地址包括哪些</title>
+      <link>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</link>
+      <pubDate>Wed, 29 Mar 2023 20:41:35 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</guid>
+      <description>&lt;p&gt;在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
+      <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
+      <pubDate>Sun, 20 Nov 2022 22:31:30 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
+      <description>&lt;p&gt;通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>常用标点符号中英文名称对照</title>
+      <link>https://blog.heylinux.com/2022/05/punctuation-marks/</link>
+      <pubDate>Tue, 31 May 2022 20:11:52 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2022/05/punctuation-marks/</guid>
+      <description>&lt;p&gt;正确表示常用标点符号的中英文名称。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用 kubeadm 快速部署 Kubernetes 集群</title>
+      <link>https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
+      <pubDate>Tue, 21 Dec 2021 21:58:24 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
+      <description>&lt;p&gt;kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>解决方案与技术前瞻</title>
+      <link>https://blog.heylinux.com/2021/12/solutions-and-insights/</link>
+      <pubDate>Sun, 19 Dec 2021 14:52:49 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/12/solutions-and-insights/</guid>
+      <description>&lt;p&gt;分享一些我所关注的[解决方案]^(Solutions)与[技术前瞻]^(Insights)的好网站。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python OpenCV 验证码识别实战</title>
+      <link>https://blog.heylinux.com/2021/11/python-opencv-captcha-recognition-in-action/</link>
+      <pubDate>Wed, 24 Nov 2021 20:36:58 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/11/python-opencv-captcha-recognition-in-action/</guid>
+      <description>&lt;p&gt;在通过 OpenCV 完成验证码识别的过程中，所学习到的识别原理和流程，还是很有价值的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DevOps CI/CD 流水线设计实践</title>
+      <link>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</link>
+      <pubDate>Sun, 21 Nov 2021 12:18:14 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</guid>
+      <description>&lt;p&gt;在不同的环境中，最适合的 CI/CD 流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何创建自签名 SSL 证书支持私有域名的 HTTPS 服务</title>
+      <link>https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/</link>
+      <pubDate>Sun, 07 Nov 2021 11:06:54 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/</guid>
+      <description>&lt;p&gt;在互联网全站 HTTPS 的时代，内部私有域名的 HTTPS 服务部署也尤为重要。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>为什么要采用多云架构</title>
+      <link>https://blog.heylinux.com/2021/11/why-use-a-multi-cloud-strategy/</link>
+      <pubDate>Mon, 01 Nov 2021 21:51:17 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/11/why-use-a-multi-cloud-strategy/</guid>
+      <description>&lt;p&gt;多云架构使组织可以利用每个平台的优势，同时最大程度地减少缺点。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

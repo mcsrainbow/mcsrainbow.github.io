@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  2574 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  2583 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -125,7 +125,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2574 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2583 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -375,6 +375,9 @@ Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ brew uninstall minikube
 </span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/minikube/1.32.0... (9 files, 87.5MB)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew uninstall podman
+</span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/podman/5.4.2... (201 files, 80.3MB)
 </span></span></code></pre></div><h2 id="kind-实践">KinD 实践</h2>
 <p>KinD 是一个工具，用于在 Docker 中运行本地 Kubernetes 集群。</p>
 <h3 id="基础环境-1">基础环境</h3>
@@ -898,7 +901,7 @@ Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工�
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

@@ -1,32 +1,36 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>安全 - 标签 - Hey! Linux</title>
-        <link>https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/</link>
-        <description>安全 - 标签 - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/" rel="self" type="application/rss+xml" /><item>
-    <title>使用 git-crypt 加解密 Git 中的文件</title>
-    <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
-    <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
-    <description><![CDATA[<p>git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
-</item>
-<item>
-    <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
-    <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
-    <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
-    <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
-</item>
-<item>
-    <title>如何创建自签名 SSL 证书支持私有域名的 HTTPS 服务</title>
-    <link>https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/</link>
-    <pubDate>Sun, 07 Nov 2021 11:06:54 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/</guid>
-    <description><![CDATA[<p>在互联网全站 HTTPS 的时代，内部私有域名的 HTTPS 服务部署也尤为重要。</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>安全 on Hey! Linux</title>
+    <link>https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in 安全 on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 18 Dec 2023 17:50:15 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 git-crypt 加解密 Git 中的文件</title>
+      <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
+      <pubDate>Mon, 18 Dec 2023 17:50:15 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
+      <description>&lt;p&gt;git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
+      <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
+      <pubDate>Sun, 20 Nov 2022 22:31:30 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
+      <description>&lt;p&gt;通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何创建自签名 SSL 证书支持私有域名的 HTTPS 服务</title>
+      <link>https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/</link>
+      <pubDate>Sun, 07 Nov 2021 11:06:54 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/</guid>
+      <description>&lt;p&gt;在互联网全站 HTTPS 的时代，内部私有域名的 HTTPS 服务部署也尤为重要。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>技术前瞻 - 标签 - Hey! Linux</title>
-        <link>https://blog.heylinux.com/tags/%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/</link>
-        <description>技术前瞻 - 标签 - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/" rel="self" type="application/rss+xml" /><item>
-    <title>解决方案与技术前瞻</title>
-    <link>https://blog.heylinux.com/2021/12/solutions-and-insights/</link>
-    <pubDate>Sun, 19 Dec 2021 14:52:49 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/12/solutions-and-insights/</guid>
-    <description><![CDATA[<p>分享一些我所关注的<strong><ruby>解决方案<rt>Solutions</rt></ruby></strong>与<strong><ruby>技术前瞻<rt>Insights</rt></ruby></strong>的好网站。</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术前瞻 on Hey! Linux</title>
+    <link>https://blog.heylinux.com/tags/%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/</link>
+    <description>Recent content in 技术前瞻 on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 19 Dec 2021 14:52:49 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/tags/%E6%8A%80%E6%9C%AF%E5%89%8D%E7%9E%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决方案与技术前瞻</title>
+      <link>https://blog.heylinux.com/2021/12/solutions-and-insights/</link>
+      <pubDate>Sun, 19 Dec 2021 14:52:49 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2021/12/solutions-and-insights/</guid>
+      <description>&lt;p&gt;分享一些我所关注的[解决方案]^(Solutions)与[技术前瞻]^(Insights)的好网站。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

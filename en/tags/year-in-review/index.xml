@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Year in Review - Tag - Hey! Linux</title>
-        <link>https://blog.heylinux.com/en/tags/year-in-review/</link>
-        <description>Year in Review - Tag - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Jan 2022 21:48:08 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/year-in-review/" rel="self" type="application/rss+xml" /><item>
-    <title>My 2021 Year in Review</title>
-    <link>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</link>
-    <pubDate>Thu, 06 Jan 2022 21:48:08 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</guid>
-    <description><![CDATA[<p>The most important is that I have unlocked my thirst of knowledge and could not stop learning.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Year in Review on Hey! Linux</title>
+    <link>https://blog.heylinux.com/en/tags/year-in-review/</link>
+    <description>Recent content in Year in Review on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 06 Jan 2022 21:48:08 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/en/tags/year-in-review/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My 2021 Year in Review</title>
+      <link>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</link>
+      <pubDate>Thu, 06 Jan 2022 21:48:08 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2022/01/my-2021-year-in-review/</guid>
+      <description>&lt;p&gt;The most important is that I have unlocked my thirst of knowledge and could not stop learning.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

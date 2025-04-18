@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Helm - Tag - Hey! Linux</title>
-        <link>https://blog.heylinux.com/en/tags/helm/</link>
-        <description>Helm - Tag - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/helm/" rel="self" type="application/rss+xml" /><item>
-    <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
-    <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
-    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
-    <description><![CDATA[<p>By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Helm on Hey! Linux</title>
+    <link>https://blog.heylinux.com/en/tags/helm/</link>
+    <description>Recent content in Helm on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 10 Sep 2024 18:37:39 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/en/tags/helm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
+      <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
+      <pubDate>Tue, 10 Sep 2024 18:37:39 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
+      <description>&lt;p&gt;By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

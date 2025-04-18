@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>阿里云 - 标签 - Hey! Linux</title>
-        <link>https://blog.heylinux.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</link>
-        <description>阿里云 - 标签 - Hey! Linux</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="self" type="application/rss+xml" /><item>
-    <title>阿里云官方矢量图标和 draw.io 自定义图标库</title>
-    <link>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
-    <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
-    <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>阿里云 on Hey! Linux</title>
+    <link>https://blog.heylinux.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</link>
+    <description>Recent content in 阿里云 on Hey! Linux</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 04 Jan 2024 16:39:06 +0800</lastBuildDate>
+    <atom:link href="https://blog.heylinux.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>阿里云官方矢量图标和 draw.io 自定义图标库</title>
+      <link>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
+      <pubDate>Thu, 04 Jan 2024 16:39:06 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
+      <guid>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
+      <description>&lt;p&gt;我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>
