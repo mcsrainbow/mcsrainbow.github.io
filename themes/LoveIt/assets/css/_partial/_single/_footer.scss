@@ -81,6 +81,10 @@
 
     & a.prev {
       float: left;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; // 多余文字用省略号显示
+      max-width: calc(100% - 1em); // 确保内容不会覆盖内边距
     }
 
     & a.prev:hover {
@@ -89,6 +93,18 @@
 
     & a.next {
       float: right;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; // 多余文字用省略号显示
+      max-width: calc(100% - 2em); // 确保内容不会覆盖内边距
+      position: relative;
+      padding-right: 1.2em; // 为图标留出空间
+      i {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%); // 垂直居中图标
+      }
     }
 
     & a.next:hover {
