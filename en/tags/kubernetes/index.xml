@@ -1,43 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Kubernetes on Hey! Linux</title>
-    <link>https://blog.heylinux.com/en/tags/kubernetes/</link>
-    <description>Recent content in Kubernetes on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 10 Sep 2024 18:37:39 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/en/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
-      <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
-      <pubDate>Tue, 10 Sep 2024 18:37:39 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
-      <description>&lt;p&gt;By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kubernetes Container Healthcheck and Graceful Termination</title>
-      <link>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
-      <pubDate>Wed, 03 Jul 2024 17:27:44 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
-      <description>&lt;p&gt;Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Lightweight Kubernetes Distributions Practices</title>
-      <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
-      <pubDate>Thu, 07 Dec 2023 10:57:19 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-      <description>&lt;p&gt;Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Setup Kubernetes Cluster Using kubeadm</title>
-      <link>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
-      <pubDate>Tue, 21 Dec 2021 21:58:24 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
-      <description>&lt;p&gt;kubeadm performs the actions necessary to get a minimum viable cluster up and running.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Kubernetes - Tag - Hey! Linux</title>
+        <link>https://blog.heylinux.com/en/tags/kubernetes/</link>
+        <description>Kubernetes - Tag - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
+    <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
+    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
+    <description><![CDATA[<p>By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.</p>]]></description>
+</item>
+<item>
+    <title>Kubernetes Container Healthcheck and Graceful Termination</title>
+    <link>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
+    <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
+    <description><![CDATA[<p>Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
+</item>
+<item>
+    <title>Lightweight Kubernetes Distributions Practices</title>
+    <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
+    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
+    <description><![CDATA[<p>Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.</p>]]></description>
+</item>
+<item>
+    <title>Setup Kubernetes Cluster Using kubeadm</title>
+    <link>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
+    <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
+    <description><![CDATA[<p>kubeadm performs the actions necessary to get a minimum viable cluster up and running.</p>]]></description>
+</item>
+</channel>
 </rss>

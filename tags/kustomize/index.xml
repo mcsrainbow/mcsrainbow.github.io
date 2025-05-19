@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Kustomize on Hey! Linux</title>
-    <link>https://blog.heylinux.com/tags/kustomize/</link>
-    <description>Recent content in Kustomize on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 10 Sep 2024 18:37:39 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/tags/kustomize/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kubernetes 多环境多应用编排实践</title>
-      <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
-      <pubDate>Tue, 10 Sep 2024 18:37:39 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
-      <description>&lt;p&gt;通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Kustomize - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/kustomize/</link>
+        <description>Kustomize - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/kustomize/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes 多环境多应用编排实践</title>
+    <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
+    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
+    <description><![CDATA[<p>通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。</p>]]></description>
+</item>
+</channel>
 </rss>

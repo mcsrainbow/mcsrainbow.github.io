@@ -1,36 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Psychology on Hey! Linux</title>
-    <link>https://blog.heylinux.com/en/tags/psychology/</link>
-    <description>Recent content in Psychology on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 24 Mar 2022 08:14:42 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/en/tags/psychology/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Notes from &#34;Nonviolent Communication: A Language of Life&#34;</title>
-      <link>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</link>
-      <pubDate>Thu, 24 Mar 2022 08:14:42 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</guid>
-      <description>&lt;p&gt;Four steps of Nonviolent Communication: observe, identify and state feelings, identify and state needs, and make requests.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Notes from &#34;Influence: The Psychology of Persuasion&#34;</title>
-      <link>https://blog.heylinux.com/en/2022/03/notes-from-influence-the-psychology-of-persuasion/</link>
-      <pubDate>Sun, 06 Mar 2022 23:09:45 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/2022/03/notes-from-influence-the-psychology-of-persuasion/</guid>
-      <description>&lt;p&gt;The 6 principles of persuasion are Reciprocation, Commitment and Consistency, Social Proof, Liking, Authority, Scarcity.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Notes from &#34;The Willpower Instinct&#34;</title>
-      <link>https://blog.heylinux.com/en/2021/11/notes-from-the-willpower-instinct/</link>
-      <pubDate>Sat, 06 Nov 2021 07:58:24 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/2021/11/notes-from-the-willpower-instinct/</guid>
-      <description>&lt;p&gt;The lack of self-control is not only a psychological problem, but also influenced by physiology, psychological traps and various social factors.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Psychology - Tag - Hey! Linux</title>
+        <link>https://blog.heylinux.com/en/tags/psychology/</link>
+        <description>Psychology - Tag - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 24 Mar 2022 08:14:42 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/psychology/" rel="self" type="application/rss+xml" /><item>
+    <title>Notes from &#34;Nonviolent Communication: A Language of Life&#34;</title>
+    <link>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</link>
+    <pubDate>Thu, 24 Mar 2022 08:14:42 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/</guid>
+    <description><![CDATA[<p>Four steps of Nonviolent Communication: observe, identify and state feelings, identify and state needs, and make requests.</p>]]></description>
+</item>
+<item>
+    <title>Notes from &#34;Influence: The Psychology of Persuasion&#34;</title>
+    <link>https://blog.heylinux.com/en/2022/03/notes-from-influence-the-psychology-of-persuasion/</link>
+    <pubDate>Sun, 06 Mar 2022 23:09:45 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2022/03/notes-from-influence-the-psychology-of-persuasion/</guid>
+    <description><![CDATA[<p>The 6 principles of persuasion are Reciprocation, Commitment and Consistency, Social Proof, Liking, Authority, Scarcity.</p>]]></description>
+</item>
+<item>
+    <title>Notes from &#34;The Willpower Instinct&#34;</title>
+    <link>https://blog.heylinux.com/en/2021/11/notes-from-the-willpower-instinct/</link>
+    <pubDate>Sat, 06 Nov 2021 07:58:24 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2021/11/notes-from-the-willpower-instinct/</guid>
+    <description><![CDATA[<p>The lack of self-control is not only a psychological problem, but also influenced by physiology, psychological traps and various social factors.</p>]]></description>
+</item>
+</channel>
 </rss>

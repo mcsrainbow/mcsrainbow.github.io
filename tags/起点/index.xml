@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>起点 on Hey! Linux</title>
-    <link>https://blog.heylinux.com/tags/%E8%B5%B7%E7%82%B9/</link>
-    <description>Recent content in 起点 on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 30 Oct 2021 20:15:25 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/tags/%E8%B5%B7%E7%82%B9/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>你若盛开，蝴蝶自来</title>
-      <link>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</link>
-      <pubDate>Sat, 30 Oct 2021 20:15:25 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</guid>
-      <description>&lt;p&gt;重拾了对学习的信心与热情，对未知事物探索的勇气，以及对美好未来不断增加的信念。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>起点 - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/%E8%B5%B7%E7%82%B9/</link>
+        <description>起点 - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 30 Oct 2021 20:15:25 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E8%B5%B7%E7%82%B9/" rel="self" type="application/rss+xml" /><item>
+    <title>你若盛开，蝴蝶自来</title>
+    <link>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</link>
+    <pubDate>Sat, 30 Oct 2021 20:15:25 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</guid>
+    <description><![CDATA[<p>重拾了对学习的信心与热情，对未知事物探索的勇气，以及对美好未来不断增加的信念。</p>]]></description>
+</item>
+</channel>
 </rss>

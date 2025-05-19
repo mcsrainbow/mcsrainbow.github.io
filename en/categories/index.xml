@@ -1,36 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Hey! Linux</title>
-    <link>https://blog.heylinux.com/en/categories/</link>
-    <description>Recent content in Categories on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 21 Jan 2025 16:25:37 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/en/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Thinking</title>
-      <link>https://blog.heylinux.com/en/categories/thinking/</link>
-      <pubDate>Tue, 21 Jan 2025 16:25:37 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/categories/thinking/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Skills</title>
-      <link>https://blog.heylinux.com/en/categories/skills/</link>
-      <pubDate>Tue, 10 Sep 2024 18:37:39 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/categories/skills/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Notes</title>
-      <link>https://blog.heylinux.com/en/categories/notes/</link>
-      <pubDate>Sun, 29 May 2022 18:57:58 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/en/categories/notes/</guid>
-      <description></description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Hey! Linux</title>
+        <link>https://blog.heylinux.com/en/categories/</link>
+        <description>Categories - Category - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Thinking</title>
+    <link>https://blog.heylinux.com/en/categories/thinking/</link>
+    <pubDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</pubDate>
+    <author>mcsrainbow</author>
+    <guid>https://blog.heylinux.com/en/categories/thinking/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Skills</title>
+    <link>https://blog.heylinux.com/en/categories/skills/</link>
+    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
+    <author>mcsrainbow</author>
+    <guid>https://blog.heylinux.com/en/categories/skills/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Notes</title>
+    <link>https://blog.heylinux.com/en/categories/notes/</link>
+    <pubDate>Sun, 29 May 2022 18:57:58 &#43;0800</pubDate>
+    <author>mcsrainbow</author>
+    <guid>https://blog.heylinux.com/en/categories/notes/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

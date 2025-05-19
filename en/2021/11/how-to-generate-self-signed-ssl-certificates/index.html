@@ -21,11 +21,12 @@
   <meta name="twitter:image" content="https://blog.heylinux.com/2021/11/how-to-generate-self-signed-ssl-certificates/featured-image.jpeg">
   <meta name="twitter:title" content="How to Generate Self-signed SSL Certificates">
   <meta name="twitter:description" content="It is also important to deploy HTTPS services for internal private domains.">
-<meta name="application-name" content="Hey! Linux">
-<meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" /><link rel="prev" href="https://blog.heylinux.com/en/2021/11/notes-from-the-willpower-instinct/" /><link rel="next" href="https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" /><link rel="prev" href="https://blog.heylinux.com/en/2021/11/notes-from-the-willpower-instinct/" /><link rel="next" href="https://blog.heylinux.com/en/2021/11/cherish-the-time-to-meet-a-bright-future/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -54,7 +55,7 @@
             },"description": "It is also important to deploy HTTPS services for internal private domains."
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -76,7 +77,7 @@
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
-                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
                     <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2021/11/how-to-generate-self-signed-ssl-certificates/">简体中文</option><option value="/en/2021/11/how-to-generate-self-signed-ssl-certificates/" selected>English</option></select>
                 </a></div>
         </div>
@@ -198,12 +199,22 @@
 <h2 id="generate-ssl-certificates">Generate SSL Certificates</h2>
 <h3 id="1-generate-root-certificate-and-import-to-os">1. Generate root certificate and import to OS</h3>
 <p>First, generate the <code>rootCA.heylinux.com.pem</code>, set the encryption length to 4096 to meet security level requirements.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl genrsa -out rootCA.heylinux.com.key <span class="m">4096</span>
-</span></span></code></pre></div><p>Generate <code>rootCA.heylinux.com.pem</code>, set encryption <code>sha256</code>, valid days <code>3650</code>, organization <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl genrsa -out rootCA.heylinux.com.key <span class="m">4096</span></span></span></code></pre></div></div>
+<p>Generate <code>rootCA.heylinux.com.pem</code>, set encryption <code>sha256</code>, valid days <code>3650</code>, organization <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>.</p>
 <p>The <code>rootCA.heylinux.com.pem</code> will be used to generate the server key and the trusted root certification authorities of browsers such as Chrome.</p>
 <p>The <code>-subj</code> parameter is more straightforward than the interactive steps.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -x509 -new -nodes -key rootCA.heylinux.com.key -sha256 -days <span class="m">3650</span> -out rootCA.heylinux.com.pem -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE&#34;</span>
-</span></span></code></pre></div><p>Import <code>rootCA.heylinux.com.pem</code> to OS via Chrome, so the Chrome could trust the server certificate generated based on the root certificate.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -x509 -new -nodes -key rootCA.heylinux.com.key -sha256 -days <span class="m">3650</span> -out rootCA.heylinux.com.pem -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE&#34;</span></span></span></code></pre></div></div>
+<p>Import <code>rootCA.heylinux.com.pem</code> to OS via Chrome, so the Chrome could trust the server certificate generated based on the root certificate.</p>
 <a class="lightgallery" href="/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg" title="Chrome CertManager" data-thumbnail="/2021/11/how-to-generate-self-signed-ssl-certificates/chrome-certmanager.jpeg">
         <img
             class="lazyload"
@@ -215,8 +226,18 @@
     </a>
 <h3 id="2-generate-server-certificate">2. Generate server certificate</h3>
 <p>Create <code>ssl.conf</code>, enable <code>serverAuth</code> and <code>clientAuth</code>, wildcard DNS names as <code>*.heylinux.com</code> and <code>*.cloud.heylinux.com</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.conf
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">subjectAltName</span> <span class="o">=</span> <span class="s">@alt_names</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.conf</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ini">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">subjectAltName</span> <span class="o">=</span> <span class="s">@alt_names</span>
 </span></span><span class="line"><span class="cl"><span class="na">authorityKeyIdentifier</span> <span class="o">=</span> <span class="s">keyid,issuer</span>
 </span></span><span class="line"><span class="cl"><span class="na">keyUsage</span> <span class="o">=</span> <span class="s">digitalSignature,keyEncipherment,nonRepudiation,dataEncipherment</span>
 </span></span><span class="line"><span class="cl"><span class="na">extendedKeyUsage</span> <span class="o">=</span> <span class="s">serverAuth,clientAuth</span>
@@ -225,14 +246,34 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">[alt_names]</span>
 </span></span><span class="line"><span class="cl"><span class="na">DNS.1</span> <span class="o">=</span> <span class="s">*.heylinux.com</span>
-</span></span><span class="line"><span class="cl"><span class="na">DNS.2</span> <span class="o">=</span> <span class="s">*.cloud.heylinux.com</span>
-</span></span></code></pre></div><p>Generate server certificate Key <code>star.heylinux.com.key</code>, organization <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -new -nodes -out star.heylinux.com.csr -newkey rsa:4096 -keyout star.heylinux.com.key -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com&#34;</span>
-</span></span></code></pre></div><p>Generate <code>star.heylinux.com.crt</code>, set encryption <code>sha256</code>, valid days <code>3650</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -req -in star.heylinux.com.csr -CA rootCA.heylinux.com.pem -CAkey rootCA.heylinux.com.key -CAcreateserial -out star.heylinux.com.crt -days <span class="m">3650</span> -sha256 -extfile ssl.conf
-</span></span></code></pre></div><p>View server certificate information</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -text -noout -in star.heylinux.com.crt
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Certificate:
+</span></span><span class="line"><span class="cl"><span class="na">DNS.2</span> <span class="o">=</span> <span class="s">*.cloud.heylinux.com</span></span></span></code></pre></div></div>
+<p>Generate server certificate Key <code>star.heylinux.com.key</code>, organization <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl req -new -nodes -out star.heylinux.com.csr -newkey rsa:4096 -keyout star.heylinux.com.key -subj <span class="s2">&#34;/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=*.heylinux.com&#34;</span></span></span></code></pre></div></div>
+<p>Generate <code>star.heylinux.com.crt</code>, set encryption <code>sha256</code>, valid days <code>3650</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -req -in star.heylinux.com.csr -CA rootCA.heylinux.com.pem -CAkey rootCA.heylinux.com.key -CAcreateserial -out star.heylinux.com.crt -days <span class="m">3650</span> -sha256 -extfile ssl.conf</span></span></code></pre></div></div>
+<p>View server certificate information</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -text -noout -in star.heylinux.com.crt</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Certificate:
 </span></span><span class="line"><span class="cl">    Data:
 </span></span><span class="line"><span class="cl">        Version: 3 (0x2)
 </span></span><span class="line"><span class="cl">        Serial Number:
@@ -262,19 +303,39 @@
 </span></span><span class="line"><span class="cl">                CA:FALSE
 </span></span><span class="line"><span class="cl">            X509v3 Subject Key Identifier:
 </span></span><span class="line"><span class="cl">                DB:0D:E8:00:A4:3E:95:71:26:1A:0B:57:4C:3C:3B:33:D3:67:F0:16
-</span></span><span class="line"><span class="cl">...
-</span></span></code></pre></div><h3 id="3-generate-certificate-bundles-in-different-formats">3. Generate certificate bundles in different formats</h3>
+</span></span><span class="line"><span class="cl">...</span></span></code></pre></div></div>
+<h3 id="3-generate-certificate-bundles-in-different-formats">3. Generate certificate bundles in different formats</h3>
 <p>Certificate bundle usually contains multiple server certificates.</p>
 <p>Generate <code>star.heylinux.com.p12</code> in <code>PKCS12</code>, set passphrase <code>P_Ss0rdT</code>, alias <code>heylinux_com</code>. It could be used for servers such as Tomcat.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -export -in star.heylinux.com.crt -inkey star.heylinux.com.key -password pass:P_Ss0rdT -name heylinux_com -out star.heylinux.com.p12
-</span></span></code></pre></div><p>Convert <code>star.heylinux.com.p12</code> to <code>star.heylinux.com.jks</code> in <code>JKS</code>, set passphrase <code>P_Ss0rdT</code>, alias <code>heylinux_com</code>. It could be used for servers such as Tomcat.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12
-</span></span></code></pre></div><p>Convert <code>star.heylinux.com.p12</code> to <code>star.heylinux.com.pem</code> in <code>PEM</code>, alias <code>heylinux_com</code>,no passphrase. It could be used for servers such as Apache、Nginx、HAProxy and AWS ELB.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -in star.heylinux.com.p12 -out star.heylinux.com.pem -nodes
-</span></span></code></pre></div><h3 id="4-convert-root-certificate-to-jks-format">4. Convert root certificate to JKS format</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -export -in star.heylinux.com.crt -inkey star.heylinux.com.key -password pass:P_Ss0rdT -name heylinux_com -out star.heylinux.com.p12</span></span></code></pre></div></div>
+<p>Convert <code>star.heylinux.com.p12</code> to <code>star.heylinux.com.jks</code> in <code>JKS</code>, set passphrase <code>P_Ss0rdT</code>, alias <code>heylinux_com</code>. It could be used for servers such as Tomcat.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12</span></span></code></pre></div></div>
+<p>Convert <code>star.heylinux.com.p12</code> to <code>star.heylinux.com.pem</code> in <code>PEM</code>, alias <code>heylinux_com</code>,no passphrase. It could be used for servers such as Apache、Nginx、HAProxy and AWS ELB.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -in star.heylinux.com.p12 -out star.heylinux.com.pem -nodes</span></span></code></pre></div></div>
+<h3 id="4-convert-root-certificate-to-jks-format">4. Convert root certificate to JKS format</h3>
 <p>Convert <code>rootCA.heylinux.com.pem</code> to <code>rootCA.heylinux.com.jks</code>, alias <code>heylinux_com</code>, for Java applications to verify server certificate.</p>
 <p>The principle is similar to the above &ldquo;import the root certificate to OS via Chrome, so the Chrome could trust the server certificate generated based on the root certificate&rdquo;.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Convert rootCA.heylinux.com.pem to rootCA.heylinux.com.der</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Convert rootCA.heylinux.com.pem to rootCA.heylinux.com.der</span>
 </span></span><span class="line"><span class="cl">openssl x509 -in rootCA.heylinux.com.pem -out rootCA.heylinux.com.der -outform der
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># View rootCA.heylinux.com.der</span>
@@ -284,26 +345,51 @@
 </span></span><span class="line"><span class="cl">keytool -importcert -alias heylinux_com -keystore rootCA.heylinux.com.jks -storepass P_Ss0rdT -file rootCA.heylinux.com.der
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># View rootCA.heylinux.com.jks</span>
-</span></span><span class="line"><span class="cl">keytool -keystore rootCA.heylinux.com.jks -storepass P_Ss0rdT -list
-</span></span></code></pre></div><h2 id="convert-and-view-ssl-certificates">Convert and View SSL Certificates</h2>
+</span></span><span class="line"><span class="cl">keytool -keystore rootCA.heylinux.com.jks -storepass P_Ss0rdT -list</span></span></code></pre></div></div>
+<h2 id="convert-and-view-ssl-certificates">Convert and View SSL Certificates</h2>
 <h3 id="1-from-p7b-to-pem">1. From P7B to PEM</h3>
 <p>Convert <code>SubCA_2.p7b</code> to <code>rootCA.heylinux.com.pem</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs7 -inform DER -print_certs -in SubCA_2.p7b -out rootCA.heylinux.com.pem
-</span></span></code></pre></div><h3 id="2-from-pem-to-jks">2. From PEM to JKS</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs7 -inform DER -print_certs -in SubCA_2.p7b -out rootCA.heylinux.com.pem</span></span></code></pre></div></div>
+<h3 id="2-from-pem-to-jks">2. From PEM to JKS</h3>
 <p>Convert <code>rootCA.heylinux.com.pem</code> to <code>rootCA.heylinux.com.jks</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Convert rootCA.heylinux.com.pem to rootCA.heylinux.com.der</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Convert rootCA.heylinux.com.pem to rootCA.heylinux.com.der</span>
 </span></span><span class="line"><span class="cl">openssl x509 -in rootCA.heylinux.com.pem -out rootCA.heylinux.com.der -outform der
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Convert rootCA.heylinux.com.der to rootCA.heylinux.com.jks, alias heylinux_com</span>
-</span></span><span class="line"><span class="cl">keytool -importcert -alias heylinux_com -keystore rootCA.heylinux.com.jks -storepass P_Ss0rdT -file rootCA.heylinux.com.der
-</span></span></code></pre></div><h3 id="3-from-pfxp12-to-pem">3. From PFX(P12) to PEM</h3>
+</span></span><span class="line"><span class="cl">keytool -importcert -alias heylinux_com -keystore rootCA.heylinux.com.jks -storepass P_Ss0rdT -file rootCA.heylinux.com.der</span></span></code></pre></div></div>
+<h3 id="3-from-pfxp12-to-pem">3. From PFX(P12) to PEM</h3>
 <p>Convert <code>star.heylinux.com.pfx</code> to <code>star.heylinux.com.pem</code>, which including the items of <code>star.heylinux.com.key</code> and <code>star.heylinux.com.crt</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -nodes -in star.heylinux.com.pfx -out star.heylinux.com.pem
-</span></span></code></pre></div><h3 id="4-from-p12-to-jks">4. From P12 to JKS</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl pkcs12 -password pass:P_Ss0rdT -nodes -in star.heylinux.com.pfx -out star.heylinux.com.pem</span></span></code></pre></div></div>
+<h3 id="4-from-p12-to-jks">4. From P12 to JKS</h3>
 <p>Convert <code>star.heylinux.com.p12</code> to <code>star.heylinux.com.jks</code>, alias <code>heylinux_com</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12 -alias heylinux_com
-</span></span></code></pre></div><h3 id="5-view-certificates-in-different-formats">5. View certificates in different formats</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># View rootCA.heylinux.com.pem and star.heylinux.com.pem</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -importkeystore -deststorepass P_Ss0rdT -destkeystore star.heylinux.com.jks -srcstorepass P_Ss0rdT -srckeystore star.heylinux.com.p12 -srcstoretype PKCS12 -alias heylinux_com</span></span></code></pre></div></div>
+<h3 id="5-view-certificates-in-different-formats">5. View certificates in different formats</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># View rootCA.heylinux.com.pem and star.heylinux.com.pem</span>
 </span></span><span class="line"><span class="cl">openssl x509 -noout -text -in rootCA.heylinux.com.pem 
 </span></span><span class="line"><span class="cl">openssl x509 -noout -text -in star.heylinux.com.pem
 </span></span><span class="line"><span class="cl">
@@ -311,12 +397,22 @@
 </span></span><span class="line"><span class="cl">keytool -list -v -keystore star.heylinux.com.p12 -storepass P_Ss0rdT -storetype PKCS12
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># View star.heylinux.com.jks</span>
-</span></span><span class="line"><span class="cl">keytool -list -v -keystore star.heylinux.com.jks -storepass P_Ss0rdT
-</span></span></code></pre></div><h2 id="ssl-certificates-without-root-certificate">SSL Certificates without Root Certificate</h2>
+</span></span><span class="line"><span class="cl">keytool -list -v -keystore star.heylinux.com.jks -storepass P_Ss0rdT</span></span></code></pre></div></div>
+<h2 id="ssl-certificates-without-root-certificate">SSL Certificates without Root Certificate</h2>
 <p>For applications such as NiFi, vsFTPd, the SSL certificates are mainly used for client and server verification, similar to the authentication between private and public keys in SSH, this kind of certificates could be used without the root certificate.</p>
 <p>Create <code>tls.conf</code>, set IPs as <code>10.8.5.7</code> and <code>10.2.3.4</code>, wildcard DNS names as <code>*.heylinux.com</code> and <code>*.cloud.heylinux.com</code>, organization <code>/C=CN/ST=Sichuan/L=Chengdu/O=HEYLINUX/OU=IT/CN=SRE</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim tls.conf
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[req]</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim tls.conf</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ini">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[req]</span>
 </span></span><span class="line"><span class="cl"><span class="na">prompt</span> <span class="o">=</span> <span class="s">no</span>
 </span></span><span class="line"><span class="cl"><span class="na">req_extensions</span> <span class="o">=</span> <span class="s">req_ext</span>
 </span></span><span class="line"><span class="cl"><span class="na">distinguished_name</span> <span class="o">=</span> <span class="s">dn</span>
@@ -336,9 +432,14 @@
 </span></span><span class="line"><span class="cl"><span class="na">IP.1</span> <span class="o">=</span> <span class="s">10.8.5.7</span>
 </span></span><span class="line"><span class="cl"><span class="na">IP.2</span> <span class="o">=</span> <span class="s">10.2.3.4</span>
 </span></span><span class="line"><span class="cl"><span class="na">DNS.1</span> <span class="o">=</span> <span class="s">*.heylinux.com</span>
-</span></span><span class="line"><span class="cl"><span class="na">DNS.2</span> <span class="o">=</span> <span class="s">*.cloud.heylinux.com</span>
-</span></span></code></pre></div><p>Generate server certificates <code>heylinux-ssl-keypair.key</code> and <code>heylinux-ssl-keypair.crt</code>, set encryption <code>sha256</code>, valid days <code>3650</code>, passphrase <code>P_Ss0rdT</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Generate heylinux-ssl-keypair.key and heylinux-ssl-keypair.crt</span>
+</span></span><span class="line"><span class="cl"><span class="na">DNS.2</span> <span class="o">=</span> <span class="s">*.cloud.heylinux.com</span></span></span></code></pre></div></div>
+<p>Generate server certificates <code>heylinux-ssl-keypair.key</code> and <code>heylinux-ssl-keypair.crt</code>, set encryption <code>sha256</code>, valid days <code>3650</code>, passphrase <code>P_Ss0rdT</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Generate heylinux-ssl-keypair.key and heylinux-ssl-keypair.crt</span>
 </span></span><span class="line"><span class="cl">openssl req -x509 -newkey rsa:4096 -keyout heylinux-ssl-keypair.key -out heylinux-ssl-keypair.crt -days <span class="m">3650</span> -sha256 -extensions req_ext -config tls.conf
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Input password</span>
@@ -355,17 +456,27 @@
 </span></span><span class="line"><span class="cl">Enter pass phrase <span class="k">for</span> heylinux-ssl-keypair.key: P_Ss0rdT
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># View certificate bundle heylinux-ssl-keypair.p12</span>
-</span></span><span class="line"><span class="cl">keytool -list -v -keystore heylinux-ssl-keypair.p12 -storepass P_Ss0rdT -storetype PKCS12
-</span></span></code></pre></div><h2 id="generate-and-view-ssl-certificates-by-cfssl-tools">Generate and View SSL Certificates by cfssl tools</h2>
+</span></span><span class="line"><span class="cl">keytool -list -v -keystore heylinux-ssl-keypair.p12 -storepass P_Ss0rdT -storetype PKCS12</span></span></code></pre></div></div>
+<h2 id="generate-and-view-ssl-certificates-by-cfssl-tools">Generate and View SSL Certificates by cfssl tools</h2>
 <h3 id="1-install-cfssl-tools">1. Install cfssl tools</h3>
 <p>Download <code>cfssl</code>, <code>cfssljson</code>, <code>cfssl-certinfo</code> and grant execute permission.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssl_linux-amd64 -O /usr/local/bin/cfssl
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssl_linux-amd64 -O /usr/local/bin/cfssl
 </span></span><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64 -O /usr/local/bin/cfssljson
 </span></span><span class="line"><span class="cl">sudo wget https://pkg.cfssl.org/R1.2/cfssl-certinfo_linux-amd64 -O /usr/local/bin/cfssl-certinfo
-</span></span><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/cfssl*
-</span></span></code></pre></div><h3 id="2-generate-and-view-root-certificate">2. Generate and view root certificate</h3>
+</span></span><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/cfssl*</span></span></code></pre></div></div>
+<h3 id="2-generate-and-view-root-certificate">2. Generate and view root certificate</h3>
 <p>Create <code>rootCA.json</code>, generate the similar <code>rootCA.heylinux.com.key</code>(encryption length is only 2048 due to cfssl cannot set the key with different encryption length) and <code>rootCA.heylinux.com.pem</code> as above.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;CA&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;expiry&#34;</span><span class="p">:</span> <span class="s2">&#34;87600h&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;pathlen&#34;</span><span class="p">:</span> <span class="mi">0</span>
@@ -384,23 +495,58 @@
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;OU&#34;</span><span class="p">:</span> <span class="s2">&#34;IT&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -initca rootCA.json <span class="p">|</span> cfssljson -bare rootCA.heylinux.com
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generating a new CA key and certificate from CSR
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -initca rootCA.json <span class="p">|</span> cfssljson -bare rootCA.heylinux.com</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generating a new CA key and certificate from CSR
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generate received request
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] received CSR
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] generating key: rsa-2048
 </span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] encoded CSR
-</span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] signed certificate with serial number 644632230923530854661361284854682897812867573233
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -1
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">rootCA.heylinux.com.csr
+</span></span><span class="line"><span class="cl">2021/11/13 05:11:48 [INFO] signed certificate with serial number 644632230923530854661361284854682897812867573233</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -1</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">rootCA.heylinux.com.csr
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com-key.pem
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com.pem
-</span></span><span class="line"><span class="cl">rootCA.json
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv rootCA.heylinux.com-key.pem rootCA.heylinux.com.key
-</span></span></code></pre></div><p>View <code>rootCA.heylinux.com.pem</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert rootCA.heylinux.com.pem
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">rootCA.json</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv rootCA.heylinux.com-key.pem rootCA.heylinux.com.key</span></span></code></pre></div></div>
+<p>View <code>rootCA.heylinux.com.pem</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert rootCA.heylinux.com.pem</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;common_name&#34;</span><span class="p">:</span> <span class="s2">&#34;SRE&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;country&#34;</span><span class="p">:</span> <span class="s2">&#34;CN&#34;</span><span class="p">,</span>
@@ -440,11 +586,21 @@
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;authority_key_id&#34;</span><span class="p">:</span> <span class="s2">&#34;36:D1:86:6B:27:AE:24:EF:C7:B3:2B:25:E7:92:DE:F1:0:34:2B:E5&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject_key_id&#34;</span><span class="p">:</span> <span class="s2">&#34;36:D1:86:6B:27:AE:24:EF:C7:B3:2B:25:E7:92:DE:F1:0:34:2B:E5&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;pem&#34;</span><span class="p">:</span> <span class="s2">&#34;-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----\n&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="3-generate-and-view-server-certificate">3. Generate and view server certificate</h3>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<h3 id="3-generate-and-view-server-certificate">3. Generate and view server certificate</h3>
 <p>Create <code>ssl-config.json</code> and <code>ssl.json</code>, generate the similar <code>star.heylinux.com.key</code>(encryption length is only 2048 due to cfssl cannot set the key with a different encryption length) and <code>star.heylinux.com.crt</code> as above.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl-config.json
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl-config.json</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;signing&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;default&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;expiry&#34;</span><span class="p">:</span> <span class="s2">&#34;87600h&#34;</span>
@@ -461,9 +617,19 @@
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.json
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ssl.json</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;CN&#34;</span><span class="p">:</span> <span class="s2">&#34;*.heylinux.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;hosts&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;*.heylinux.com&#34;</span><span class="p">,</span>
@@ -480,14 +646,24 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;O&#34;</span><span class="p">:</span> <span class="s2">&#34;HEYLINUX&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;OU&#34;</span><span class="p">:</span> <span class="s2">&#34;IT&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}]</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -ca<span class="o">=</span>rootCA.heylinux.com.pem -ca-key<span class="o">=</span>rootCA.heylinux.com.key -config<span class="o">=</span>ssl-config.json -profile<span class="o">=</span>server ssl.json <span class="p">|</span> cfssljson -bare star.heylinux.com
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl gencert -ca<span class="o">=</span>rootCA.heylinux.com.pem -ca-key<span class="o">=</span>rootCA.heylinux.com.key -config<span class="o">=</span>ssl-config.json -profile<span class="o">=</span>server ssl.json <span class="p">|</span> cfssljson -bare star.heylinux.com
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">mv star.heylinux.com.pem star.heylinux.com.crt
 </span></span><span class="line"><span class="cl">mv star.heylinux.com-key.pem star.heylinux.com.key
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ls -1
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">rootCA.heylinux.com.csr
+</span></span><span class="line"><span class="cl">ls -1</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">rootCA.heylinux.com.csr
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com.key
 </span></span><span class="line"><span class="cl">rootCA.heylinux.com.pem
 </span></span><span class="line"><span class="cl">rootCA.json
@@ -495,10 +671,20 @@
 </span></span><span class="line"><span class="cl">ssl.json
 </span></span><span class="line"><span class="cl">star.heylinux.com.crt
 </span></span><span class="line"><span class="cl">star.heylinux.com.csr
-</span></span><span class="line"><span class="cl">star.heylinux.com.key
-</span></span></code></pre></div><p>View <code>star.heylinux.com.crt</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert star.heylinux.com.crt
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">star.heylinux.com.key</span></span></code></pre></div></div>
+<p>View <code>star.heylinux.com.crt</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfssl-certinfo -cert star.heylinux.com.crt</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;common_name&#34;</span><span class="p">:</span> <span class="s2">&#34;*.heylinux.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;country&#34;</span><span class="p">:</span> <span class="s2">&#34;CN&#34;</span><span class="p">,</span>
@@ -542,8 +728,7 @@
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;authority_key_id&#34;</span><span class="p">:</span> <span class="s2">&#34;2B:D4:44:57:4D:9:D8:9A:0:63:4C:5B:B8:78:F4:8F:45:9C:3C:F5&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject_key_id&#34;</span><span class="p">:</span> <span class="s2">&#34;4E:15:55:4A:34:EA:BA:69:3E:A5:F:40:74:16:52:F0:88:C3:7D:6F&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;pem&#34;</span><span class="p">:</span> <span class="s2">&#34;-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----\n&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -554,7 +739,7 @@
                             <a class="link-to-markdown" href="/en/2021/11/how-to-generate-self-signed-ssl-certificates/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-title="How to Generate Self-signed SSL Certificates" data-hashtags="Security,SSL"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-hashtag="Security"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-title="How to Generate Self-signed SSL Certificates" data-hashtags="Security,SSL"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/" data-title="How to Generate Self-signed SSL Certificates" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2021/11/how-to-generate-self-signed-ssl-certificates/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2fen%2f2021%2f11%2fhow-to-generate-self-signed-ssl-certificates%2f&amp;text=How%20to%20Generate%20Self-signed%20SSL%20Certificates" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -573,15 +758,18 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.5">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":80},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"utteranc.es","lightTheme":"github-light","repo":"mcsrainbow/mcsrainbow.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"utteranc.es","lightTheme":"github-light","repo":"mcsrainbow/mcsrainbow.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

@@ -1,85 +1,88 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>读书笔记 on Hey! Linux</title>
-    <link>https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
-    <description>Recent content in 读书笔记 on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 29 May 2022 18:57:58 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>读书笔记之《富爸爸穷爸爸》</title>
-      <link>https://blog.heylinux.com/2022/05/notes-from-rich-dad-poor-dad/</link>
-      <pubDate>Sun, 29 May 2022 18:57:58 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/05/notes-from-rich-dad-poor-dad/</guid>
-      <description>&lt;p&gt;富人买入资产，穷人只有支出，中产阶级购买自以为是资产的负债。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《小岛经济学》</title>
-      <link>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</link>
-      <pubDate>Fri, 08 Apr 2022 21:54:47 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</guid>
-      <description>&lt;p&gt;作者在书中虚构了一个远洋中的小岛，通过关于鱼、渔网、存钱、借钱等故事揭示了经济是如何运行的，映射出当今经济体制与政策暗藏的漏洞。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《非暴力沟通：爱的语言》</title>
-      <link>https://blog.heylinux.com/2022/03/notes-from-nonviolent-communication-a-language-of-life/</link>
-      <pubDate>Thu, 24 Mar 2022 08:14:42 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/03/notes-from-nonviolent-communication-a-language-of-life/</guid>
-      <description>&lt;p&gt;非暴力沟通的四要素：观察、感受、需要、请求。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《影响力：让人乖乖听话的说服术》</title>
-      <link>https://blog.heylinux.com/2022/03/notes-from-influence-the-psychology-of-persuasion/</link>
-      <pubDate>Sun, 06 Mar 2022 23:09:45 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/03/notes-from-influence-the-psychology-of-persuasion/</guid>
-      <description>&lt;p&gt;隐藏在顺从行为背后的六大要素分别是互惠、承诺和一致、社会认同、喜好、权威、短缺。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《你当像鸟飞往你的山》</title>
-      <link>https://blog.heylinux.com/2022/01/notes-from-educated-a-memoir/</link>
-      <pubDate>Sun, 16 Jan 2022 07:44:45 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/01/notes-from-educated-a-memoir/</guid>
-      <description>&lt;p&gt;她不能被家人所束缚，她注定是飞鸟，要飞往自己的山去。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《刻意放手：向最幸福的人学习幸福》</title>
-      <link>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</link>
-      <pubDate>Sun, 09 Jan 2022 18:00:37 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</guid>
-      <description>&lt;p&gt;影响幸福感的六个维度有凝聚感、金钱、健康、自由、信任和与人为善。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《番茄工作法图解》</title>
-      <link>https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/</link>
-      <pubDate>Sat, 01 Jan 2022 14:58:41 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/</guid>
-      <description>&lt;p&gt;番茄工作法是一种简单易行的时间管理方法，有张有弛，能够减轻时间焦虑、提升专注力和减少中断。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《刻意练习》</title>
-      <link>https://blog.heylinux.com/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</link>
-      <pubDate>Sat, 11 Dec 2021 21:05:17 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</guid>
-      <description>&lt;p&gt;刻意练习的核心元素包括专注沉浸、有目标、有计划、及时反馈并纠正、走出舒适区但不用力过度、大量的训练和导师指引。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《自控力》</title>
-      <link>https://blog.heylinux.com/2021/11/notes-from-the-willpower-instinct/</link>
-      <pubDate>Sat, 06 Nov 2021 07:58:24 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2021/11/notes-from-the-willpower-instinct/</guid>
-      <description>&lt;p&gt;自控力不足并不只是心理问题，影响自控的还有生理学，心理陷阱和各种社会因素。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《向死而生：我修的死亡学分》</title>
-      <link>https://blog.heylinux.com/2021/10/notes-from-live-for-death-my-experience-on-dying/</link>
-      <pubDate>Sun, 31 Oct 2021 14:34:58 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2021/10/notes-from-live-for-death-my-experience-on-dying/</guid>
-      <description>&lt;p&gt;穿过死亡荫谷，品味生命甘露。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>读书笔记 - 分类 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+        <description>读书笔记 - 分类 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 29 May 2022 18:57:58 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>读书笔记之《富爸爸穷爸爸》</title>
+    <link>https://blog.heylinux.com/2022/05/notes-from-rich-dad-poor-dad/</link>
+    <pubDate>Sun, 29 May 2022 18:57:58 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/05/notes-from-rich-dad-poor-dad/</guid>
+    <description><![CDATA[<p>富人买入资产，穷人只有支出，中产阶级购买自以为是资产的负债。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《小岛经济学》</title>
+    <link>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</link>
+    <pubDate>Fri, 08 Apr 2022 21:54:47 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/</guid>
+    <description><![CDATA[<p>作者在书中虚构了一个远洋中的小岛，通过关于鱼、渔网、存钱、借钱等故事揭示了经济是如何运行的，映射出当今经济体制与政策暗藏的漏洞。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《非暴力沟通：爱的语言》</title>
+    <link>https://blog.heylinux.com/2022/03/notes-from-nonviolent-communication-a-language-of-life/</link>
+    <pubDate>Thu, 24 Mar 2022 08:14:42 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/03/notes-from-nonviolent-communication-a-language-of-life/</guid>
+    <description><![CDATA[<p>非暴力沟通的四要素：观察、感受、需要、请求。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《影响力：让人乖乖听话的说服术》</title>
+    <link>https://blog.heylinux.com/2022/03/notes-from-influence-the-psychology-of-persuasion/</link>
+    <pubDate>Sun, 06 Mar 2022 23:09:45 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/03/notes-from-influence-the-psychology-of-persuasion/</guid>
+    <description><![CDATA[<p>隐藏在顺从行为背后的六大要素分别是互惠、承诺和一致、社会认同、喜好、权威、短缺。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《你当像鸟飞往你的山》</title>
+    <link>https://blog.heylinux.com/2022/01/notes-from-educated-a-memoir/</link>
+    <pubDate>Sun, 16 Jan 2022 07:44:45 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/01/notes-from-educated-a-memoir/</guid>
+    <description><![CDATA[<p>她不能被家人所束缚，她注定是飞鸟，要飞往自己的山去。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《刻意放手：向最幸福的人学习幸福》</title>
+    <link>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</link>
+    <pubDate>Sun, 09 Jan 2022 18:00:37 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</guid>
+    <description><![CDATA[<p>影响幸福感的六个维度有凝聚感、金钱、健康、自由、信任和与人为善。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《番茄工作法图解》</title>
+    <link>https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/</link>
+    <pubDate>Sat, 01 Jan 2022 14:58:41 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/</guid>
+    <description><![CDATA[<p>番茄工作法是一种简单易行的时间管理方法，有张有弛，能够减轻时间焦虑、提升专注力和减少中断。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《刻意练习》</title>
+    <link>https://blog.heylinux.com/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</link>
+    <pubDate>Sat, 11 Dec 2021 21:05:17 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/</guid>
+    <description><![CDATA[<p>刻意练习的核心元素包括专注沉浸、有目标、有计划、及时反馈并纠正、走出舒适区但不用力过度、大量的训练和导师指引。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《自控力》</title>
+    <link>https://blog.heylinux.com/2021/11/notes-from-the-willpower-instinct/</link>
+    <pubDate>Sat, 06 Nov 2021 07:58:24 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/11/notes-from-the-willpower-instinct/</guid>
+    <description><![CDATA[<p>自控力不足并不只是心理问题，影响自控的还有生理学，心理陷阱和各种社会因素。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《向死而生：我修的死亡学分》</title>
+    <link>https://blog.heylinux.com/2021/10/notes-from-live-for-death-my-experience-on-dying/</link>
+    <pubDate>Sun, 31 Oct 2021 14:34:58 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/10/notes-from-live-for-death-my-experience-on-dying/</guid>
+    <description><![CDATA[<p>穿过死亡荫谷，品味生命甘露。</p>]]></description>
+</item>
+</channel>
 </rss>

@@ -20,11 +20,12 @@
   <meta name="twitter:image" content="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/featured-image.jpeg">
   <meta name="twitter:title" content="使用 kubeadm 快速部署 Kubernetes 集群">
   <meta name="twitter:description" content="kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具">
-<meta name="application-name" content="Hey! Linux">
-<meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/" /><link rel="prev" href="https://blog.heylinux.com/2021/12/solutions-and-insights/" /><link rel="next" href="https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/" /><link rel="prev" href="https://blog.heylinux.com/2021/12/solutions-and-insights/" /><link rel="next" href="https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -53,7 +54,7 @@
             },"description": "kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具"
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -75,7 +76,7 @@
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
-                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
                     <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2021/12/setup-kubernetes-cluster-using-kubeadm/" selected>简体中文</option><option value="/en/2021/12/setup-kubernetes-cluster-using-kubeadm/">English</option></select>
                 </a></div>
         </div>
@@ -154,15 +155,25 @@
 <blockquote>
 <p>注：以下步骤都需要在所有节点上以 root 用户操作完成</p></blockquote>
 <p>准备3台虚拟机节点（根据实际情况替换为真实 IP）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">CentOS 7.9 x86_64</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">CentOS 7.9 x86_64</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">CPU</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="l">vCores</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Memory</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="l">Gi</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeadm01</span><span class="p">:</span><span class="w"> </span><span class="m">172.31.8.8</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeadm02</span><span class="p">:</span><span class="w"> </span><span class="m">172.31.5.5</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeadm03</span><span class="p">:</span><span class="w"> </span><span class="m">172.31.7.7</span><span class="w">
-</span></span></span></code></pre></div><p>升级内核与系统软件包</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kubeadm03</span><span class="p">:</span><span class="w"> </span><span class="m">172.31.7.7</span></span></span></code></pre></div></div>
+<p>升级内核与系统软件包</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
 </span></span><span class="line"><span class="cl">yum install --enablerepo<span class="o">=</span>elrepo-kernel -y kernel-lt
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">kernel_str</span><span class="o">=</span><span class="k">$(</span>grep -E <span class="s1">&#39;menuentry.*elrepo&#39;</span> /boot/grub2/grub.cfg <span class="p">|</span> cut -d<span class="se">\&#39;</span> -f2<span class="k">)</span>
@@ -170,9 +181,14 @@
 </span></span><span class="line"><span class="cl">grub2-set-default <span class="s2">&#34;</span><span class="si">${</span><span class="nv">kernel_str</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">grub2-editenv list
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum -y update
-</span></span></code></pre></div><p>配置各节点主机名</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm01 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">yum -y update</span></span></code></pre></div></div>
+<p>配置各节点主机名</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm01 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
 </span></span><span class="line"><span class="cl">kubeadm01
 </span></span><span class="line"><span class="cl">EOF
 </span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# hostname kubeadm01
@@ -185,15 +201,25 @@
 </span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# cat &gt; /etc/hostname &lt;&lt;EOF
 </span></span><span class="line"><span class="cl">kubeadm03
 </span></span><span class="line"><span class="cl">EOF
-</span></span><span class="line"><span class="cl">[root@kubeadm03 ~]# hostname kubeadm03
-</span></span></code></pre></div><p>配置主机名解析（根据实际情况替换为真实 IP）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt;&gt; /etc/hosts <span class="s">&lt;&lt;EOF
+</span></span><span class="line"><span class="cl">[root@kubeadm03 ~]# hostname kubeadm03</span></span></code></pre></div></div>
+<p>配置主机名解析（根据实际情况替换为真实 IP）</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt;&gt; /etc/hosts <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">172.31.8.8 kubeadm01
 </span></span></span><span class="line"><span class="cl"><span class="s">172.31.5.5 kubeadm02
 </span></span></span><span class="line"><span class="cl"><span class="s">172.31.7.7 kubeadm03
-</span></span></span><span class="line"><span class="cl"><span class="s">EO</span>
-</span></span></code></pre></div><p>配置内核参数</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/sysctl.d/sysctl.conf <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">EO</span></span></span></code></pre></div></div>
+<p>配置内核参数</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/sysctl.d/sysctl.conf <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">net.bridge.bridge-nf-call-iptables=1
 </span></span></span><span class="line"><span class="cl"><span class="s">net.bridge.bridge-nf-call-ip6tables=1
 </span></span></span><span class="line"><span class="cl"><span class="s">net.ipv4.ip_forward=1
@@ -209,24 +235,44 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">net.netfilter.nf_conntrack_max=2310720
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sysctl -p /etc/sysctl.d/sysctl.conf
-</span></span></code></pre></div><p>安装所需软件包</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y epel-release
-</span></span><span class="line"><span class="cl">yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet
-</span></span></code></pre></div><p>启用 Chrony 时间同步服务</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl start chronyd
-</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> chronyd
-</span></span></code></pre></div><p>禁用 Firewalld，Swap 和 SELinux</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl stop firewalld
+</span></span><span class="line"><span class="cl">sysctl -p /etc/sysctl.d/sysctl.conf</span></span></code></pre></div></div>
+<p>安装所需软件包</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y epel-release
+</span></span><span class="line"><span class="cl">yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git vim lrzsz wget man tree rsync gcc gcc-c++ cmake telnet</span></span></code></pre></div></div>
+<p>启用 Chrony 时间同步服务</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl start chronyd
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> chronyd</span></span></code></pre></div></div>
+<p>禁用 Firewalld，Swap 和 SELinux</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl stop firewalld
 </span></span><span class="line"><span class="cl">systemctl disable firewalld
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">swapoff -a
 </span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;/ swap / s/^\(.*\)$/#\1/g&#39;</span> /etc/fstab
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">setenforce <span class="m">0</span>
-</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/^SELINUX=.*/SELINUX=disabled/&#39;</span> /etc/selinux/config
-</span></span></code></pre></div><p>配置内核模块，然后重启生效</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/modules-load.d/kubernetes.conf <span class="s">&lt;&lt;EOF
+</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/^SELINUX=.*/SELINUX=disabled/&#39;</span> /etc/selinux/config</span></span></code></pre></div></div>
+<p>配置内核模块，然后重启生效</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/modules-load.d/kubernetes.conf <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_dh
 </span></span></span><span class="line"><span class="cl"><span class="s">ip_vs_ftp
 </span></span></span><span class="line"><span class="cl"><span class="s">ip_vs
@@ -248,11 +294,21 @@
 </span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> systemd-modules-load.service
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sync
-</span></span><span class="line"><span class="cl">reboot
-</span></span></code></pre></div><p>重启后，验证已加载内核模块</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsmod <span class="p">|</span> grep -e ip_vs -e nf_conntrack_ipv4
-</span></span></code></pre></div><p>安装 Docker</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+</span></span><span class="line"><span class="cl">reboot</span></span></code></pre></div></div>
+<p>重启后，验证已加载内核模块</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsmod <span class="p">|</span> grep -e ip_vs -e nf_conntrack_ipv4</span></span></code></pre></div></div>
+<p>安装 Docker</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 </span></span><span class="line"><span class="cl">yum -y install docker-ce-20.10.8
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">cat &gt; /etc/docker/daemon.json <span class="s">&lt;&lt;EOF
@@ -262,17 +318,27 @@
 </span></span><span class="line"><span class="cl">usermod -G centos,adm,wheel,systemd-journal,docker,root centos
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">systemctl start  docker
-</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker
-</span></span></code></pre></div><p>禁用 postfix，创建所需目录</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl stop postfix
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker</span></span></code></pre></div></div>
+<p>禁用 postfix，创建所需目录</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl stop postfix
 </span></span><span class="line"><span class="cl">systemctl disable postfix
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mkdir -p /opt/k8s/<span class="o">{</span>bin,work<span class="o">}</span> /etc/<span class="o">{</span>kubernetes,etcd<span class="o">}</span>/cert
-</span></span></code></pre></div><h2 id="集群搭建">集群搭建</h2>
+</span></span><span class="line"><span class="cl">mkdir -p /opt/k8s/<span class="o">{</span>bin,work<span class="o">}</span> /etc/<span class="o">{</span>kubernetes,etcd<span class="o">}</span>/cert</span></span></code></pre></div></div>
+<h2 id="集群搭建">集群搭建</h2>
 <blockquote>
 <p>注：以下步骤需要在不同节点上操作完成（根据实际情况替换1.22.1为需要的版本）</p></blockquote>
 <p>在所有节点上安装 kubeadm，kubelet 和 kubectl</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/yum.repos.d/kubernetes.repo <span class="s">&lt;&lt; EOF
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /etc/yum.repos.d/kubernetes.repo <span class="s">&lt;&lt; EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">[kubernetes]
 </span></span></span><span class="line"><span class="cl"><span class="s">name=Kubernetes
 </span></span></span><span class="line"><span class="cl"><span class="s">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
@@ -284,34 +350,64 @@
 </span></span><span class="line"><span class="cl">yum install -y kubelet-1.22.1 kubeadm-1.22.1 kubectl-1.22.1
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> kubelet
-</span></span><span class="line"><span class="cl">systemctl start kubelet
-</span></span></code></pre></div><p>在所有节点上拉取 Docker 镜像</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.22.1
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.22.1
+</span></span><span class="line"><span class="cl">systemctl start kubelet</span></span></code></pre></div></div>
+<p>在所有节点上拉取 Docker 镜像</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.22.1</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.22.1
 </span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-controller-manager:v1.22.1
 </span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-scheduler:v1.22.1
 </span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/kube-proxy:v1.22.1
 </span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/pause:3.5
 </span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/etcd:3.5.0-0
-</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/coredns:v1.8.4
-</span></span></code></pre></div><p>列出默认所需镜像及版本</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm config images list --kubernetes-version v1.22.1
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">k8s.gcr.io/kube-apiserver:v1.22.1
+</span></span><span class="line"><span class="cl">[config/images] Pulled registry.aliyuncs.com/google_containers/coredns:v1.8.4</span></span></code></pre></div></div>
+<p>列出默认所需镜像及版本</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm config images list --kubernetes-version v1.22.1</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">k8s.gcr.io/kube-apiserver:v1.22.1
 </span></span><span class="line"><span class="cl">k8s.gcr.io/kube-controller-manager:v1.22.1
 </span></span><span class="line"><span class="cl">k8s.gcr.io/kube-scheduler:v1.22.1
 </span></span><span class="line"><span class="cl">k8s.gcr.io/kube-proxy:v1.22.1
 </span></span><span class="line"><span class="cl">k8s.gcr.io/pause:3.5
 </span></span><span class="line"><span class="cl">k8s.gcr.io/etcd:3.5.0-0
-</span></span><span class="line"><span class="cl">k8s.gcr.io/coredns/coredns:v1.8.4
-</span></span></code></pre></div><p>在所有节点上修改已拉取的镜像的 Tag</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 将除了 coredns 以外的镜像 Tag 为 k8s.gcr.io 镜像源</span>
+</span></span><span class="line"><span class="cl">k8s.gcr.io/coredns/coredns:v1.8.4</span></span></code></pre></div></div>
+<p>在所有节点上修改已拉取的镜像的 Tag</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 将除了 coredns 以外的镜像 Tag 为 k8s.gcr.io 镜像源</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>docker images <span class="p">|</span> grep google_containers <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34;:&#34;$2}&#39;</span> <span class="p">|</span> cut -d/ -f3 <span class="p">|</span> grep -v coredns<span class="k">)</span><span class="p">;</span> <span class="k">do</span> docker tag registry.aliyuncs.com/google_containers/<span class="nv">$i</span> k8s.gcr.io/<span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 将 coredns 的镜像 Tag 为 k8s.gcr.io 镜像源，并增加/coredns 前缀</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>docker images <span class="p">|</span> grep google_containers/coredns <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34;:&#34;$2}&#39;</span> <span class="p">|</span> cut -d/ -f3<span class="k">)</span><span class="p">;</span> <span class="k">do</span> docker tag registry.aliyuncs.com/google_containers/<span class="nv">$i</span> k8s.gcr.io/coredns/<span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 删除镜像的旧 Tag</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>docker images <span class="p">|</span> grep google_containers <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34;:&#34;$2}&#39;</span> <span class="p">|</span> cut -d/ -f3<span class="k">)</span><span class="p">;</span> <span class="k">do</span> docker rmi registry.aliyuncs.com/google_containers/<span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
-</span></span></code></pre></div><p>在 kubeadm01 上执行 init（根据实际情况替换 Node，Pod 和 Service 的网段）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># Networks:
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>docker images <span class="p">|</span> grep google_containers <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34;:&#34;$2}&#39;</span> <span class="p">|</span> cut -d/ -f3<span class="k">)</span><span class="p">;</span> <span class="k">do</span> docker rmi registry.aliyuncs.com/google_containers/<span class="nv">$i</span><span class="p">;</span><span class="k">done</span></span></span></code></pre></div></div>
+<p>在 kubeadm01 上执行 init（根据实际情况替换 Node，Pod 和 Service 的网段）</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># Networks:
 </span></span><span class="line"><span class="cl"># Node: 172.31.0.0/16
 </span></span><span class="line"><span class="cl"># Pod: 10.192.0.0/16
 </span></span><span class="line"><span class="cl"># Service: 10.254.0.0/16
@@ -323,8 +419,13 @@
 </span></span><span class="line"><span class="cl">--service-cidr=10.254.0.0/16 \
 </span></span><span class="line"><span class="cl">--image-repository=k8s.gcr.io \
 </span></span><span class="line"><span class="cl">--ignore-preflight-errors=swap \
-</span></span><span class="line"><span class="cl">--token-ttl=0
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Your Kubernetes control-plane has initialized successfully!
+</span></span><span class="line"><span class="cl">--token-ttl=0</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Your Kubernetes control-plane has initialized successfully!
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">To start using your cluster, you need to run the following as a regular user:
 </span></span><span class="line"><span class="cl">
@@ -343,61 +444,126 @@
 </span></span><span class="line"><span class="cl">Then you can join any number of worker nodes by running the following on each as root:
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">kubeadm join 172.31.8.8:6443 --token 2333y7.y7xev857t8n4w5em \
-</span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
-</span></span></code></pre></div><p>在 kubeadm01 上配置 .kube/config</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm01 ~]# mkdir -p $HOME/.kube
+</span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049</span></span></code></pre></div></div>
+<p>在 kubeadm01 上配置 .kube/config</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm01 ~]# mkdir -p $HOME/.kube
 </span></span><span class="line"><span class="cl">[root@kubeadm01 ~]# cp /etc/kubernetes/admin.conf $HOME/.kube/config
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir -p $HOME/.kube
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
-</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
-</span></span></code></pre></div><p>在 kubeadm02 和 kubeadm03 上执行 join（根据实际情况替换参数的值）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo chown $(id -u):$(id -g) $HOME/.kube/config</span></span></code></pre></div></div>
+<p>在 kubeadm02 和 kubeadm03 上执行 join（根据实际情况替换参数的值）</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[root@kubeadm02 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
 </span></span><span class="line"><span class="cl">        --token 2333y7.y7xev857t8n4w5em \
 </span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[root@kubeadm03 ~]# kubeadm join 172.31.8.8:6443 --ignore-preflight-errors=swap \
 </span></span><span class="line"><span class="cl">        --token 2333y7.y7xev857t8n4w5em \
-</span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">This node has joined the cluster:
+</span></span><span class="line"><span class="cl">        --discovery-token-ca-cert-hash sha256:df7857bdae645dad4072db71ae9e92efd248ead2d8fb184edd1720a4cddc5049</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">This node has joined the cluster:
 </span></span><span class="line"><span class="cl">* Certificate signing request was sent to apiserver and a response was received.
 </span></span><span class="line"><span class="cl">* The Kubelet was informed of the new secure connection details.
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Run &#39;kubectl get nodes&#39; on the control-plane to see this node join the cluster.
-</span></span></code></pre></div><p>在 kubeadm01 上查看节点状态</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get nodes 
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAME        STATUS   ROLES                  AGE     VERSION
+</span></span><span class="line"><span class="cl">Run &#39;kubectl get nodes&#39; on the control-plane to see this node join the cluster.</span></span></code></pre></div></div>
+<p>在 kubeadm01 上查看节点状态</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get nodes </span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAME        STATUS   ROLES                  AGE     VERSION
 </span></span><span class="line"><span class="cl">kubeadm01   Ready    control-plane,master   5m      v1.22.1
 </span></span><span class="line"><span class="cl">kubeadm02   Ready    &lt;none&gt;                 7m      v1.22.1
-</span></span><span class="line"><span class="cl">kubeadm03   Ready    &lt;none&gt;                 9m      v1.22.1
-</span></span></code></pre></div><p>在 kubeadm01 上安装 Flannel 网络插件（根据实际情况替换 Pod 的网段）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir flannel 
+</span></span><span class="line"><span class="cl">kubeadm03   Ready    &lt;none&gt;                 9m      v1.22.1</span></span></code></pre></div></div>
+<p>在 kubeadm01 上安装 Flannel 网络插件（根据实际情况替换 Pod 的网段）</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ mkdir flannel 
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ cd flannel
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-</span></span><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ vim kube-flannel.yml
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">net-conf.json</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ vim kube-flannel.yml</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">net-conf.json</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">    {
 </span></span></span><span class="line"><span class="cl"><span class="sd">      &#34;Network&#34;: &#34;10.192.0.0/16&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="sd">      &#34;Backend&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="sd">        &#34;Type&#34;: &#34;vxlan&#34;
 </span></span></span><span class="line"><span class="cl"><span class="sd">      }
-</span></span></span><span class="line"><span class="cl"><span class="sd">    }</span><span class="w">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml
-</span></span></code></pre></div><p>在 kubeadm01 上修复 scheduler 和 controller-manager</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
+</span></span></span><span class="line"><span class="cl"><span class="sd">    }</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl create -f kube-flannel.yml</span></span></code></pre></div></div>
+<p>在 kubeadm01 上修复 scheduler 和 controller-manager</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo cp -rpa /etc/kubernetes/manifests/etc/kubernetes/manifests.default
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo sed -i &#39;/port=0/d&#39; /etc/kubernetes/manifests/kube-scheduler.yaml
 </span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo sed -i &#39;/port=0/d&#39; /etc/kubernetes/manifests/kube-controller-manager.yaml
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo systemctl restart kubelet
-</span></span></code></pre></div><p>在 kubeadm01 上查看 clusterservice 状态</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get cs
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAME                 STATUS    MESSAGE                         ERROR
+</span></span><span class="line"><span class="cl">[centos@kubeadm01 ~]$ sudo systemctl restart kubelet</span></span></code></pre></div></div>
+<p>在 kubeadm01 上查看 clusterservice 状态</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 ~]$ kubectl get cs</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAME                 STATUS    MESSAGE                         ERROR
 </span></span><span class="line"><span class="cl">scheduler            Healthy   ok                              
 </span></span><span class="line"><span class="cl">controller-manager   Healthy   ok                              
-</span></span><span class="line"><span class="cl">etcd-0               Healthy   {&#34;health&#34;:&#34;true&#34;,&#34;reason&#34;:&#34;&#34;} 
-</span></span></code></pre></div><p>在 kubeadm01 上查看所有 Pod 的状态</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAMESPACE              NAME                                        READY   STATUS      RESTARTS   AGE
+</span></span><span class="line"><span class="cl">etcd-0               Healthy   {&#34;health&#34;:&#34;true&#34;,&#34;reason&#34;:&#34;&#34;} </span></span></code></pre></div></div>
+<p>在 kubeadm01 上查看所有 Pod 的状态</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[centos@kubeadm01 flannel]$ kubectl get pod --all-namespaces</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">NAMESPACE              NAME                                        READY   STATUS      RESTARTS   AGE
 </span></span><span class="line"><span class="cl">kube-system            coredns-78fcd69978-99vcx                    1/1     Running     0          5m
 </span></span><span class="line"><span class="cl">kube-system            coredns-78fcd69978-lm5bt                    1/1     Running     0          5m
 </span></span><span class="line"><span class="cl">kube-system            etcd-kubeadm01                              1/1     Running     0          5m
@@ -409,13 +575,27 @@
 </span></span><span class="line"><span class="cl">kube-system            kube-proxy-7r755                            1/1     Running     0          5m
 </span></span><span class="line"><span class="cl">kube-system            kube-proxy-nxz8c                            1/1     Running     0          7m
 </span></span><span class="line"><span class="cl">kube-system            kube-proxy-w8v6s                            1/1     Running     0          9m
-</span></span><span class="line"><span class="cl">kube-system            kube-scheduler-kubeadm01                    1/1     Running     0          5m
-</span></span></code></pre></div><h2 id="配置优化">配置优化</h2>
+</span></span><span class="line"><span class="cl">kube-system            kube-scheduler-kubeadm01                    1/1     Running     0          5m</span></span></code></pre></div></div>
+<h2 id="配置优化">配置优化</h2>
 <p>默认 kube-proxy 的 mode 为 iptables，修改为功能更强大的 ipvs</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl edit configmap kube-proxy -n kube-system
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;ipvs&#34;</span><span class="w">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods -n kube-system <span class="p">|</span> grep kube-proxy <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> xargs kubectl -n kube-system delete pods
-</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl edit configmap kube-proxy -n kube-system</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;ipvs&#34;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods -n kube-system <span class="p">|</span> grep kube-proxy <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> xargs kubectl -n kube-system delete pods</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -426,7 +606,7 @@
                             <a class="link-to-markdown" href="/2021/12/setup-kubernetes-cluster-using-kubeadm/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/" data-title="使用 kubeadm 快速部署 Kubernetes 集群" data-hashtags="Kubernetes"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/" data-hashtag="Kubernetes"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/" data-title="使用 kubeadm 快速部署 Kubernetes 集群" data-hashtags="Kubernetes"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/" data-title="使用 kubeadm 快速部署 Kubernetes 集群" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2021%2f12%2fsetup-kubernetes-cluster-using-kubeadm%2f&amp;text=%e4%bd%bf%e7%94%a8%20kubeadm%20%e5%bf%ab%e9%80%9f%e9%83%a8%e7%bd%b2%20Kubernetes%20%e9%9b%86%e7%be%a4" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -445,15 +625,18 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":80},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"utteranc.es","lightTheme":"github-light","repo":"mcsrainbow/mcsrainbow.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"utteranc.es","lightTheme":"github-light","repo":"mcsrainbow/mcsrainbow.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

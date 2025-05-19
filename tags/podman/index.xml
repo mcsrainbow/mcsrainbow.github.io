@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Podman on Hey! Linux</title>
-    <link>https://blog.heylinux.com/tags/podman/</link>
-    <description>Recent content in Podman on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 07 Dec 2023 10:57:19 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/tags/podman/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>轻量级 Kubernetes 发行版实践</title>
-      <link>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</link>
-      <pubDate>Thu, 07 Dec 2023 10:57:19 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-      <description>&lt;p&gt;部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Podman - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/podman/</link>
+        <description>Podman - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/podman/" rel="self" type="application/rss+xml" /><item>
+    <title>轻量级 Kubernetes 发行版实践</title>
+    <link>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</link>
+    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
+    <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。</p>]]></description>
+</item>
+</channel>
 </rss>

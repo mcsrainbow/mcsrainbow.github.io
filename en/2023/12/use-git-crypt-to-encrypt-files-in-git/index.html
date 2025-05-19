@@ -21,11 +21,12 @@
   <meta name="twitter:image" content="https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/featured-image.jpeg">
   <meta name="twitter:title" content="Use git-crypt to Encrypt Files in Git">
   <meta name="twitter:description" content="git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.">
-<meta name="application-name" content="Hey! Linux">
-<meta name="apple-mobile-web-app-title" content="Hey! Linux"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/" /><link rel="prev" href="https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/" /><link rel="next" href="https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/" /><link rel="prev" href="https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/" /><link rel="next" href="https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -54,7 +55,7 @@
             },"description": "git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data."
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -76,7 +77,7 @@
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
-                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
                     <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023/12/use-git-crypt-to-encrypt-files-in-git/">简体中文</option><option value="/en/2023/12/use-git-crypt-to-encrypt-files-in-git/" selected>English</option></select>
                 </a></div>
         </div>
@@ -153,9 +154,19 @@
             </div><div class="content" id="content"><p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>
 <hr>
 <h2 id="install-git-crypt">Install git-crypt</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt
-</span></span></code></pre></div><h2 id="initialize-git-crypt-and-back-up-the-encryption-key">Initialize git-crypt and back up the encryption key</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt init
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt</span></span></code></pre></div></div>
+<h2 id="initialize-git-crypt-and-back-up-the-encryption-key">Initialize git-crypt and back up the encryption key</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt init
 </span></span><span class="line"><span class="cl">Generating key...
 </span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v1.key
 </span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v1.key
@@ -163,20 +174,30 @@
 </span></span><span class="line"><span class="cl">❯ echo &#34;git-crypt/api.key filter=git-crypt diff=git-crypt&#34; &gt; .gitattributes
 </span></span><span class="line"><span class="cl">❯ git add .gitattributes
 </span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: tell git-crypt to encrypt git-crypt/api.key&#34;
-</span></span><span class="line"><span class="cl">❯ git push
-</span></span></code></pre></div><h2 id="create-git-crypt-demo-files">Create git-crypt demo files</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir git-crypt
+</span></span><span class="line"><span class="cl">❯ git push</span></span></code></pre></div></div>
+<h2 id="create-git-crypt-demo-files">Create git-crypt demo files</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir git-crypt
 </span></span><span class="line"><span class="cl">❯ echo &#34;This is some text&#34; &gt; git-crypt/file.txt
 </span></span><span class="line"><span class="cl">❯ echo &#34;dummy value&#34; &gt; git-crypt/api.key
 </span></span><span class="line"><span class="cl">❯ git add git-crypt
 </span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: add git-crypt demo files&#34;
-</span></span><span class="line"><span class="cl">❯ git push
-</span></span></code></pre></div><h2 id="verify-encryption-and-decryption-status">Verify encryption and decryption status</h2>
+</span></span><span class="line"><span class="cl">❯ git push</span></span></code></pre></div></div>
+<h2 id="verify-encryption-and-decryption-status">Verify encryption and decryption status</h2>
 <p>Use the <code>git-crypt status</code> command to view the server side encryption and decryption status</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt status git-crypt
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt status git-crypt
 </span></span><span class="line"><span class="cl">    encrypted: git-crypt/api.key
-</span></span><span class="line"><span class="cl">not encrypted: git-crypt/file.txt
-</span></span></code></pre></div><p>View the server side encryption and decryption status on the <code>GitLab Web</code></p>
+</span></span><span class="line"><span class="cl">not encrypted: git-crypt/file.txt</span></span></code></pre></div></div>
+<p>View the server side encryption and decryption status on the <code>GitLab Web</code></p>
 <a class="lightgallery" href="/2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg" title="git_crypt_encrypted_file" data-thumbnail="/2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg">
         <img
             class="lazyload"
@@ -187,7 +208,12 @@
             alt="git_crypt_encrypted_file" width="800" height="790" />
     </a>
 <p>Encrypt and decrypt the <code>git-crypt/api.key</code> locally with <code>git-crypt lock/unlock</code> commands</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt lock
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt lock
 </span></span><span class="line"><span class="cl">❯ file git-crypt/api.key
 </span></span><span class="line"><span class="cl">git-crypt/api.key: data
 </span></span><span class="line"><span class="cl">
@@ -195,24 +221,34 @@
 </span></span><span class="line"><span class="cl">❯ file git-crypt/api.key
 </span></span><span class="line"><span class="cl">git-crypt/api.key: ASCII text
 </span></span><span class="line"><span class="cl">❯ cat git-crypt/api.key
-</span></span><span class="line"><span class="cl">dummy value
-</span></span></code></pre></div><h2 id="working-in-team-with-git-crypt">Working in team with git-crypt</h2>
+</span></span><span class="line"><span class="cl">dummy value</span></span></code></pre></div></div>
+<h2 id="working-in-team-with-git-crypt">Working in team with git-crypt</h2>
 <p>Share the exported encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v1.key</code> with team members in a secure way.</p>
 <p>Then they can import encryption key and decrypt the repository by command: <code>git-crypt unlock /path/to/git-crypt-v1.key</code>.</p>
 <h2 id="renew-the-git-crypt-encryption-key">Renew the git-crypt encryption key</h2>
 <p>Create a new git-crypt encryption key</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
 </span></span><span class="line"><span class="cl">❯ rm -rf .git/git-crypt/keys
 </span></span><span class="line"><span class="cl">❯ git-crypt init
 </span></span><span class="line"><span class="cl">Generating key...
 </span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v2.key
-</span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key
-</span></span></code></pre></div><p>Trigger an update and apply the new git-crypt encryption key.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ echo &#34;new dummy value&#34; &gt; git-crypt/api.key
+</span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key</span></span></code></pre></div></div>
+<p>Trigger an update and apply the new git-crypt encryption key.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ echo &#34;new dummy value&#34; &gt; git-crypt/api.key
 </span></span><span class="line"><span class="cl">❯ git add git-crypt/api.key
 </span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: update api.key with new git-crypt encryption key&#34;
-</span></span><span class="line"><span class="cl">❯ git push
-</span></span></code></pre></div><p>Share the new git-crypt encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v2.key</code> with team members in a secure way.</p>
+</span></span><span class="line"><span class="cl">❯ git push</span></span></code></pre></div></div>
+<p>Share the new git-crypt encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v2.key</code> with team members in a secure way.</p>
 <p>Then ask them to hold on the git push and pull actions, import the new encryption key first: <code>git-crypt unlock /path/to/git-crypt-v2.key</code>.</p>
 <h2 id="references">References</h2>
 <p><a href="https://buddy.works/guides/git-crypt" target="_blank" rel="noopener noreffer ">https://buddy.works/guides/git-crypt</a></p></div><div class="post-footer" id="post-footer">
@@ -226,7 +262,7 @@
                             <a class="link-to-markdown" href="/en/2023/12/use-git-crypt-to-encrypt-files-in-git/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/" data-title="Use git-crypt to Encrypt Files in Git" data-hashtags="Git,Security"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/" data-hashtag="Git"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/" data-title="Use git-crypt to Encrypt Files in Git" data-hashtags="Git,Security"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/" data-title="Use git-crypt to Encrypt Files in Git" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2fen%2f2023%2f12%2fuse-git-crypt-to-encrypt-files-in-git%2f&amp;text=Use%20git-crypt%20to%20Encrypt%20Files%20in%20Git" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -245,15 +281,18 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">utterances</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.5">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":80},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"utteranc.es","lightTheme":"github-light","repo":"mcsrainbow/mcsrainbow.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"utteranc.es","lightTheme":"github-light","repo":"mcsrainbow/mcsrainbow.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

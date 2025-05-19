@@ -1,50 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>生活感悟 on Hey! Linux</title>
-    <link>https://blog.heylinux.com/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/</link>
-    <description>Recent content in 生活感悟 on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 21 Jan 2025 16:25:37 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>我的工作准则</title>
-      <link>https://blog.heylinux.com/2025/01/my-work-guidelines/</link>
-      <pubDate>Tue, 21 Jan 2025 16:25:37 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2025/01/my-work-guidelines/</guid>
-      <description>&lt;p&gt;良好的工作准则有助于培养深层思考和职业化的行为。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>人生苦短，爱意绵长</title>
-      <link>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</link>
-      <pubDate>Thu, 20 Jan 2022 00:44:01 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</guid>
-      <description>&lt;p&gt;余生可贵，世事无常，别让遗憾太长。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>我的2021年终回顾</title>
-      <link>https://blog.heylinux.com/2022/01/my-2021-year-in-review/</link>
-      <pubDate>Thu, 06 Jan 2022 21:48:08 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/01/my-2021-year-in-review/</guid>
-      <description>&lt;p&gt;我重新燃起了对知识的渴望和不断学习的热情。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>不负时光，迎接美好</title>
-      <link>https://blog.heylinux.com/2021/11/cherish-the-time-to-meet-a-bright-future/</link>
-      <pubDate>Tue, 09 Nov 2021 22:07:33 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2021/11/cherish-the-time-to-meet-a-bright-future/</guid>
-      <description>&lt;p&gt;我将继续努力，长久地保持这种状态，不懈怠，积极地迎接未来每一天的美好。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>你若盛开，蝴蝶自来</title>
-      <link>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</link>
-      <pubDate>Sat, 30 Oct 2021 20:15:25 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</guid>
-      <description>&lt;p&gt;重拾了对学习的信心与热情，对未知事物探索的勇气，以及对美好未来不断增加的信念。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>生活感悟 - 分类 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/</link>
+        <description>生活感悟 - 分类 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" rel="self" type="application/rss+xml" /><item>
+    <title>我的工作准则</title>
+    <link>https://blog.heylinux.com/2025/01/my-work-guidelines/</link>
+    <pubDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2025/01/my-work-guidelines/</guid>
+    <description><![CDATA[<p>良好的工作准则有助于培养深层思考和职业化的行为。</p>]]></description>
+</item>
+<item>
+    <title>人生苦短，爱意绵长</title>
+    <link>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</link>
+    <pubDate>Thu, 20 Jan 2022 00:44:01 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</guid>
+    <description><![CDATA[<p>余生可贵，世事无常，别让遗憾太长。</p>]]></description>
+</item>
+<item>
+    <title>我的2021年终回顾</title>
+    <link>https://blog.heylinux.com/2022/01/my-2021-year-in-review/</link>
+    <pubDate>Thu, 06 Jan 2022 21:48:08 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/01/my-2021-year-in-review/</guid>
+    <description><![CDATA[<p>我重新燃起了对知识的渴望和不断学习的热情。</p>]]></description>
+</item>
+<item>
+    <title>不负时光，迎接美好</title>
+    <link>https://blog.heylinux.com/2021/11/cherish-the-time-to-meet-a-bright-future/</link>
+    <pubDate>Tue, 09 Nov 2021 22:07:33 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/11/cherish-the-time-to-meet-a-bright-future/</guid>
+    <description><![CDATA[<p>我将继续努力，长久地保持这种状态，不懈怠，积极地迎接未来每一天的美好。</p>]]></description>
+</item>
+<item>
+    <title>你若盛开，蝴蝶自来</title>
+    <link>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</link>
+    <pubDate>Sat, 30 Oct 2021 20:15:25 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/10/if-you-are-in-full-bloom-butterflies-will-come-naturally/</guid>
+    <description><![CDATA[<p>重拾了对学习的信心与热情，对未知事物探索的勇气，以及对美好未来不断增加的信念。</p>]]></description>
+</item>
+</channel>
 </rss>

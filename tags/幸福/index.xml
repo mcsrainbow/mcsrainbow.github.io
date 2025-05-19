@@ -1,29 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>幸福 on Hey! Linux</title>
-    <link>https://blog.heylinux.com/tags/%E5%B9%B8%E7%A6%8F/</link>
-    <description>Recent content in 幸福 on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 20 Jan 2022 00:44:01 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/tags/%E5%B9%B8%E7%A6%8F/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>人生苦短，爱意绵长</title>
-      <link>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</link>
-      <pubDate>Thu, 20 Jan 2022 00:44:01 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</guid>
-      <description>&lt;p&gt;余生可贵，世事无常，别让遗憾太长。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>读书笔记之《刻意放手：向最幸福的人学习幸福》</title>
-      <link>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</link>
-      <pubDate>Sun, 09 Jan 2022 18:00:37 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</guid>
-      <description>&lt;p&gt;影响幸福感的六个维度有凝聚感、金钱、健康、自由、信任和与人为善。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>幸福 - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/%E5%B9%B8%E7%A6%8F/</link>
+        <description>幸福 - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 20 Jan 2022 00:44:01 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E5%B9%B8%E7%A6%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>人生苦短，爱意绵长</title>
+    <link>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</link>
+    <pubDate>Thu, 20 Jan 2022 00:44:01 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/01/life-is-short-and-love-is-long/</guid>
+    <description><![CDATA[<p>余生可贵，世事无常，别让遗憾太长。</p>]]></description>
+</item>
+<item>
+    <title>读书笔记之《刻意放手：向最幸福的人学习幸福》</title>
+    <link>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</link>
+    <pubDate>Sun, 09 Jan 2022 18:00:37 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</guid>
+    <description><![CDATA[<p>影响幸福感的六个维度有凝聚感、金钱、健康、自由、信任和与人为善。</p>]]></description>
+</item>
+</channel>
 </rss>

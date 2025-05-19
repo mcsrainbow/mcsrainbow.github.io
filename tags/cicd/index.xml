@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>CICD on Hey! Linux</title>
-    <link>https://blog.heylinux.com/tags/cicd/</link>
-    <description>Recent content in CICD on Hey! Linux</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-    <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 21 Nov 2021 12:18:14 +0800</lastBuildDate>
-    <atom:link href="https://blog.heylinux.com/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>DevOps CI/CD 流水线设计实践</title>
-      <link>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</link>
-      <pubDate>Sun, 21 Nov 2021 12:18:14 +0800</pubDate><author>guosuiyu@gmail.com (mcsrainbow)</author>
-      <guid>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</guid>
-      <description>&lt;p&gt;在不同的环境中，最适合的 CI/CD 流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CICD - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/cicd/</link>
+        <description>CICD - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/cicd/" rel="self" type="application/rss+xml" /><item>
+    <title>DevOps CI/CD 流水线设计实践</title>
+    <link>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</link>
+    <pubDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2021/11/devops-cicd-pipeline-in-action/</guid>
+    <description><![CDATA[<p>在不同的环境中，最适合的 CI/CD 流水线会有所差异，尤其是在工具链层面，但大致的流程和思路应该是一致的。</p>]]></description>
+</item>
+</channel>
 </rss>
