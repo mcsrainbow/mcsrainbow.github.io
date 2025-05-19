@@ -1,8 +1,12 @@
 #comments {
-  padding: 8rem 0 2rem;
+  padding: 3rem 0 1rem; // 调整评论框的上下内边距，以减少上下空白
 
   .vemoji {
     max-width: 1.5em;
     max-height: 1.5em;
+  }
+
+  .utterances {
+    max-width: 1000px; // 设置utterances最大宽度
   }
 }
