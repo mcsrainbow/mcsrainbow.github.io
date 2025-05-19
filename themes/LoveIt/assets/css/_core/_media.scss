@@ -1,15 +1,6 @@
-@media only screen and (min-width: 1440px) {
+@media only screen and (max-width: 1440px) {
   .page {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  #header-desktop .header-wrapper,
-  #header-mobile .header-wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: 60%;
   }
 }
 
@@ -19,7 +10,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1280px) {
   .page {
     width: 52%;
   }

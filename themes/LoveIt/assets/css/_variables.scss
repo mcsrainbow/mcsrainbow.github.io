@@ -10,7 +10,7 @@
 
 // ========== Global ========== //
 // Font and Line Height
-$global-font-family: Helvetica Neue, system-ui, -apple-system, Segoe UI, Roboto, Emoji, Helvetica, Arial, sans-serif !default;
+$global-font-family: system-ui, -apple-system, Segoe UI, Roboto, Emoji, Helvetica, Arial, sans-serif !default;
 $global-font-size: 16px !default;
 $global-font-weight: 400 !default;
 $global-line-height: 1.5rem !default;
@@ -78,7 +78,7 @@ $search-background-color-dark: #363636 !default;
 // ========== Single Content ========== //
 // Font size of the TOC
 $toc-title-font-size: 1.2rem !default;
-$toc-content-font-size: 1rem !default;
+$toc-content-font-size: 0.875rem !default;
 
 // Color of the single link
 $single-link-color: #2d96bd !default;
@@ -113,12 +113,12 @@ $pagination-link-hover-color-dark: #fff !default;
 
 // ========== Code ========== //
 // Font family and size of the code
-$code-font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$code-font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $code-font-size: .875rem !default;
 
 // Color of the code
-$code-color: #2d2d2d !default;
-$code-color-dark: #9fa9b8 !default;
+$code-color: #E74C3C !default;
+$code-color-dark: #E5BF78 !default;
 
 // Color of the code background
 $code-background-color: #f5f5f5 !default;
@@ -163,6 +163,7 @@ $code-type-list:
   "language-perl" "Perl",
   "language-powershell" "PowerShell",
   "language-posh" "PowerShell",
+  "language-puppet" "Puppet",
   "language-pwsh" "PowerShell",
   "language-python" "Python",
   "language-r" "R",
@@ -180,9 +181,6 @@ $code-type-list:
   "language-vue" "Vue",
   "language-yml" "YAML",
   "language-yaml" "YAML",
-  "language-ini" "Configuration",
-  "language-text" "Plaintext",
-  "language-plain" "Plaintext",
   !default;
 
 // Color map of the code highlight

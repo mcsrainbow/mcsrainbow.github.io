@@ -62,6 +62,9 @@ other = "de_DE"
 
 [giscusLang]
 other = "de"
+
+[walineLang]
+other = "en"
 # === partials/comment.html ===
 
 # === partials/assets.html ===
@@ -69,7 +72,7 @@ other = "de"
 other = "Suche"
 
 [searchPlaceholder]
-other = "Suche nach Titel und Inhalt..."
+other = "Suche nach Titel und Inhalt ..."
 
 [clear]
 other = "Leeren"
@@ -109,10 +112,10 @@ other = "Teilen auf"
 other = "Inhalt"
 
 [publishedOnDate]
-other = "veröffentlicht an {{ .Date }}"
+other = "Veröffentlicht am {{ .Date }}"
 
 [includedInCategories]
-other = "enthalten in {{ .Categories }}"
+other = "Enthalten in {{ .Categories }}"
 
 [wordCount]
 one = "Ein Wort"
@@ -141,7 +144,7 @@ other = "Zurück"
 other = "Startseite"
 
 [readMore]
-other = "Mehr lesen"
+other = "Weiterlesen"
 # === posts/single.html ===
 
 # === 404.html ===

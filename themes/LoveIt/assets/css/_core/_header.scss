@@ -156,7 +156,7 @@ header {
   }
 
   .header-wrapper {
-    padding: 0 10vh 0 10vh;
+    padding: 0 2rem 0 10vh;
 
     .header-title {
       font-size: var(--header-title-font-size);
@@ -328,7 +328,7 @@ header {
 
   &.open {
     .header-wrapper {
-      margin-top: -var(--header-height);
+      margin-top: calc(0px - var(--header-height));
     }
 
     .menu {
@@ -355,15 +355,9 @@ header {
   &.desktop {
     right: 2rem;
     width: 30rem;
-
-    @media only screen and (min-width: 1440px) {
-      width: 30rem;
-      right: calc((100% - 1440px) / 2 + 2rem); // 1440px 是导航栏的最大宽度，+ 2rem 是内边距
-    }
   }
 
   &.mobile {
-    top: calc(var(--header-height) + 55px); /* 显示在搜索框下方并留出间距 */
     right: 0;
     width: 100%;
   }
