@@ -32,14 +32,14 @@ enableEmoji = true
 # 忽略一些构建错误
 ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
-# Pagination config
+# pagination config
 # 分页配置
 [pagination]
   disableAliases = false
   pagerSize = 12
   path = "page"
 
-# Multilingual
+# multilingual
 # 多语言
 [languages]
   [languages.zh-cn]
@@ -56,7 +56,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # copyright description used only for seo schema
     # 版权描述，仅仅用于 SEO
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-    # Menu config
+    # menu config
     # 菜单配置
     [languages.zh-cn.menu]
       [[languages.zh-cn.menu.main]]
@@ -86,7 +86,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
         # title will be shown when you hover on this menu link
-        # 当您将鼠标悬停在此菜单链接上时, 将显示标题
+        # 当你将鼠标悬停在此菜单链接上时, 将显示标题
         title = ""
       [[languages.zh-cn.menu.main]]
         weight = 5
@@ -94,8 +94,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         name = "English"
         url = "/en/"
     [languages.zh-cn.params]
-      # site description for RSS, SEO, Open Graph and Twitter Cards
-      # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
+      # site description for RSS, SEO, Open Graph and X Cards
+      # 网站描述, 用于 RSS, SEO, Open Graph 和 X Cards
       description = "郭冬的博客"
       # site keywords
       # 网站关键词
@@ -103,13 +103,13 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # google analytics code [UA-XXXXXXXX-X]
       # 谷歌分析代号 [UA-XXXXXXXX-X]
       googleAnalytics = ""
-      # Author config
+      # author config
       # 作者配置
       [languages.zh-cn.params.author]
         name = "mcsrainbow"
         email = "guosuiyu@gmail.com"
         link = "/about/"
-      # Search config
+      # search config
       # 搜索配置
       [languages.zh-cn.params.search]
         enable = true
@@ -138,18 +138,18 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           index = "index.zh-cn"
           appID = "T37NSH4YYY"
           searchKey = "2b7d83ac63406ccc989a0857442fef17"
-      # Home page config
+      # home page config
       # 主页信息设置
       [languages.zh-cn.params.home]
         # amount of RSS pages
         # RSS 文章数目
         rss = 10
-        # Home page profile
+        # home page profile
         # 主页个人信息
         [languages.zh-cn.params.home.profile]
           enable = true
-          # Gravatar Email for preferred avatar in home page
-          # Gravatar 邮箱，用于优先在主页显示的头像
+          # gravatar email for preferred avatar in home page
+          # gravatar 邮箱，用于优先在主页显示的头像
           gravatarEmail = ""
           # URL of avatar shown in home page
           # 主页显示头像的 URL
@@ -169,14 +169,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           # disclaimer (HTML format is supported)
           # 免责声明 (支持 HTML 格式)
           disclaimer = ""
-        # Home page posts
+        # home page posts
         # 主页文章列表
         [languages.zh-cn.params.home.posts]
           enable = true
           # special amount of posts in each home posts page
           # 主页每页显示文章数量
           paginate = 6
-      # Social config in home page
+      # social config in home page
       # 主页的社交信息设置
       [languages.zh-cn.params.social]
         GitHub = "mcsrainbow"
@@ -194,10 +194,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 是否包括中日韩文字
     hasCJKLanguage = false
     # copyright description used only for seo schema
-    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-    # copyright description used only for seo schema
     # 版权描述，仅仅用于 SEO
-    # Menu config
+    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+    # menu config
     # 菜单配置
     [languages.en.menu]
       [[languages.en.menu.main]]
@@ -227,7 +226,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
         # title will be shown when you hover on this menu link
-        # 当您将鼠标悬停在此菜单链接上时, 将显示标题
+        # 当你将鼠标悬停在此菜单链接上时, 将显示标题
         title = ""
       [[languages.en.menu.main]]
         weight = 5
@@ -235,8 +234,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         name = "简体中文"
         url = "../"
     [languages.en.params]
-      # site description for RSS, SEO, Open Graph and Twitter Cards
-      # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
+      # site description for RSS, SEO, Open Graph and X Cards
+      # 网站描述, 用于 RSS, SEO, Open Graph 和 X Cards
       description = "Damon Guo's Blog"
       # site keywords
       # 网站关键词
@@ -244,13 +243,13 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # google analytics code [UA-XXXXXXXX-X]
       # 谷歌分析代号 [UA-XXXXXXXX-X]
       googleAnalytics = ""
-      # Author config
+      # author config
       # 作者配置
       [languages.en.params.author]
         name = "mcsrainbow"
         email = "guosuiyu@gmail.com"
         link = "/en/about/"
-      # Search config
+      # search config
       # 搜索配置
       [languages.en.params.search]
         enable = true
@@ -279,18 +278,18 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           index = "index.en"
           appID = "T37NSH4YYY"
           searchKey = "2b7d83ac63406ccc989a0857442fef17"
-      # Home page config
+      # home page config
       # 主页信息设置
       [languages.en.params.home]
         # amount of RSS pages
         # RSS 文章数目
         rss = 10
-        # Home page profile
+        # home page profile
         # 主页个人信息
         [languages.en.params.home.profile]
           enable = true
-          # Gravatar Email for preferred avatar in home page
-          # Gravatar 邮箱，用于优先在主页显示的头像
+          # gravatar email for preferred avatar in home page
+          # gravatar 邮箱，用于优先在主页显示的头像
           gravatarEmail = ""
           # URL of avatar shown in home page
           # 主页显示头像的 URL
@@ -310,14 +309,15 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           # disclaimer (HTML format is supported)
           # 免责声明 (支持 HTML 格式)
           disclaimer = ""
-        # Home page posts
+        # home page posts
         # 主页文章列表
         [languages.en.params.home.posts]
           enable = true
           # special amount of posts in each home posts page
           # 主页每页显示文章数量
           paginate = 6
-      # Social config in home page
+      # social config in home page
+      # 主页的社交信息设置
       [languages.en.params.social]
         GitHub = "mcsrainbow"
         LinkedIn = "damonguo"
@@ -338,16 +338,16 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # date format
   # 日期格式
   dateFormat = "2006-01-02"
-  # website title for Open Graph and Twitter Cards
-  # 网站标题, 用于 Open Graph 和 Twitter Cards
+  # website title for Open Graph and X Cards
+  # 网站标题, 用于 Open Graph 和 X Cards
   title = "Hey! Linux"
-  # website description for RSS, SEO, Open Graph and Twitter Cards
-  # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
+  # website description for RSS, SEO, Open Graph and X Cards
+  # 网站描述, 用于 RSS, SEO, Open Graph 和 X Cards
   description = "Damon Guo's Blog"
-  # 网站图片, 用于 Open Graph 和 Twitter Cards
+  # 网站图片, 用于 Open Graph 和 X Cards
   images = ["/apple-touch-icon.png"]
 
-  # Header config
+  # header config
   # 页面头部导航栏配置
   [params.header]
     # desktop header mode ["fixed", "normal", "auto"]
@@ -356,11 +356,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # mobile header mode ["fixed", "normal", "auto"]
     # 移动端导航栏模式 ["fixed", "normal", "auto"]
     mobileMode = "auto"
-    # Header title config
+    # header title config
     # 页面头部导航栏标题配置
     [params.header.title]
-      # URL of the LOGO
-      # LOGO 的 URL
+      # URL of the logo
+      # logo 的 URL
       logo = ""
       # title name
       # 标题名称
@@ -375,11 +375,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # 是否为标题显示打字机动画
       typeit = false
 
-  # Footer config
+  # footer config
   # 页面底部信息配置
   [params.footer]
     enable = true
-    # Custom content (HTML format is supported)
+    # custom content (HTML format is supported)
     # 自定义内容 (支持 HTML 格式)
     custom = ''
     # whether to show Hugo and theme info
@@ -401,8 +401,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 许可协议信息 (支持 HTML 格式)
     license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
-  # Section (all posts) page config
-  # Section (所有文章) 页面配置
+  # section (all posts) page config
+  # section (所有文章) 页面配置
   [params.section]
     # special amount of posts in each section page
     # section 页面每页显示文章数量
@@ -414,8 +414,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # RSS 文章数目
     rss = 10
 
-  # List (category or tag) page config
-  # List (目录或标签) 页面配置
+  # list (category or tag) page config
+  # list (目录或标签) 页面配置
   [params.list]
     # special amount of posts in each list page
     # list 页面每页显示文章数量
@@ -427,7 +427,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # RSS 文章数目
     rss = 10
 
-  # App icon config
+  # app icon config
   # 应用图标配置
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -439,17 +439,17 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # modern SVG favicon to use in place of older style .png and .ico files
     # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
     svgFavicon = ""
-    # Android browser theme color
-    # Android 浏览器主题色
+    # android browser theme color
+    # android 浏览器主题色
     themeColor = "#ffffff"
-    # Safari mask icon color
-    # Safari 图标颜色
+    # safari mask icon color
+    # safari 图标颜色
     iconColor = "#5bbad5"
-    # Windows v8-11 tile color
-    # Windows v8-11 磁贴颜色
+    # windows v8-11 tile color
+    # windows v8-11 磁贴颜色
     tileColor = "#da532c"
 
-  # Page global config
+  # page global config
   # 文章页面全局配置
   [params.page]
     # whether to hide a page from home page
@@ -479,7 +479,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # whether to show the full text content in RSS
     # 是否在 RSS 中显示全文内容
     rssFullText = false
-    # Table of the contents config
+    # table of the contents config
     # 目录配置
     [params.page.toc]
       # whether to enable the table of the contents
@@ -491,7 +491,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # whether to make the table of the contents in the sidebar automatically collapsed
       # 是否使侧边目录自动折叠展开
       auto = true
-    # Code config
+    # code config
     # 代码配置
     [params.page.code]
       # whether to show the copy button of the code block
@@ -545,7 +545,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # whether to add FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
       # 是否添加 FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
       fullscreen = true
-    # Social share links in post page
+    # social share links in post page
     # 文章页面的分享信息设置
     [params.page.share]
       enable = true
@@ -560,7 +560,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Weibo = false
       Diaspora = false
       Telegram = true
-    # Comment config
+    # comment config
     # 评论系统设置
     [params.page.comment]
       enable = true
@@ -574,7 +574,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         label = "utteranc.es"
         lightTheme = "github-light"
         darkTheme = "github-dark"
-    # Third-party library config
+    # third-party library config
     # 第三方库配置
     [params.page.library]
       [params.page.library.css]
@@ -587,13 +587,13 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         # located in "assets/" 位于 "assets/"
         # 或者
         # someJavascript = "https://cdn.example.com/some.js"
-    # Page SEO config
+    # page SEO config
     # 页面 SEO 配置
     [params.page.seo]
       # image URL
       # 图片 URL
       images = []
-      # Publisher info
+      # publisher info
       # 出版者信息
       [params.page.seo.publisher]
         name = "mcsrainbow"
@@ -615,7 +615,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
     duration = -1
 
-  # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
+  # site verification code for Google/Bing/Yandex/Pinterest/Baidu
   # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
     google = ""
@@ -624,7 +624,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     pinterest = ""
     baidu = ""
 
-  # Site SEO config
+  # site SEO config
   # 网站 SEO 配置
   [params.seo]
     # image URL
@@ -634,7 +634,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 缩略图 URL
     thumbnailUrl = "/images/screenshot.png"
 
-  # Analytics config
+  # analytics config
   # 网站分析配置
   [params.analytics]
     # Google Analytics
@@ -644,12 +644,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # 是否遵循浏览器的 “Do Not Track” 设置
       respectDoNotTrack = false
 
-  # Cookie consent config
-  # Cookie 许可配置
+  # cookie consent config
+  # cookie 许可配置
   [params.cookieconsent]
     enable = false
-    # text strings used for Cookie consent banner
-    # 用于 Cookie 许可横幅的文本字符串
+    # text strings used for cookie consent banner
+    # 用于 cookie 许可横幅的文本字符串
     [params.cookieconsent.content]
       message = ""
       dismiss = ""
@@ -670,7 +670,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # "assets/data/cdn/"
     # data = "jsdelivr.yml"
 
-  # Compatibility config
+  # compatibility config
   # 兼容性设置
   [params.compatibility]
     # whether to use Polyfill.io to be compatible with older browsers
@@ -683,7 +683,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 # Markup related configuration in Hugo
 # Hugo 解析文档的配置
 [markup]
-  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+  # syntax highlighting (https://gohugo.io/content-management/syntax-highlighting)
   # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
     anchorLineNos = false
@@ -707,25 +707,25 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # whether to use HTML tags directly in the document
       # 是否在文档中直接使用 HTML 标签
       unsafe = true
-  # Table Of Contents settings
+  # table of contents settings
   # 目录设置
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 6
 
-# Sitemap config
+# sitemap config
 # 网站地图配置
 [sitemap]
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
 
-# Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
-# Permalinks 配置 (https://gohugo.io/content-management/urls/#permalinks)
+# permalinks config (https://gohugo.io/content-management/urls/#permalinks)
+# permalinks 配置 (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
   posts = ":year/:month/:slug"
 
-# Privacy config (https://gohugo.io/configuration/privacy/)
+# privacy config (https://gohugo.io/configuration/privacy/)
 # 隐私信息配置 (https://gohugo.io/configuration/privacy/)
 [privacy]
   # privacy of the Google Analytics (can also be configured in params.analytics.google)
@@ -737,20 +737,20 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [privacy.youtube]
     # ...
 
-# Options to make output .md files
+# options to make output .md files
 # 用于输出 Markdown 格式文档的设置
 [mediaTypes]
   [mediaTypes."text/plain"]
     suffixes = ["md"]
 
-# Options to make output .md files
+# options to make output .md files
 # 用于输出 Markdown 格式文档的设置
 [outputFormats.MarkDown]
   mediaType = "text/plain"
   isPlainText = true
   isHTML = false
 
-# Options to make hugo output files
+# options to make hugo output files
 # 用于 Hugo 输出文档的设置
 [outputs]
   home = ["HTML", "RSS", "JSON"]
