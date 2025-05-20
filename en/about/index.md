@@ -22,7 +22,7 @@
 - [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS SAP** - AWS Certified Solutions Architect - Professional
 - [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT Service Management
 - [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** - Certified Kubernetes Administrator
-- [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** - College English Test Band 6
+- [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** - National College English Test Band 6
 - [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** - Master of Engineering Management
 - [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** - JiHu GitLab DevOps Expert
 - [x] <i class="fa-solid fa-cloud fa-fw"></i> **ACP** - Alibaba Cloud Certified Professional - Cloud Computing
