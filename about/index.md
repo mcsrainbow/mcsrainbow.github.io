@@ -5,7 +5,7 @@
 {{< image src="/images/avatar.jpg" alt="avatar" width=128 >}}
 {{< /style >}}
 
-### 笔者
+### 作者
 
 <i class="fa-solid fa-tags fa-fw"></i> 姓名 [郭冬]^(Guō Dōng)  
 <i class="fa-solid fa-tags fa-fw" style="opacity: 0"></i> 英文名 [Damon]^(/ˈdeɪmən/ DAY-mən)，灵感来自 Linux 操作系统中的 [[daemon]^(/ˈdiːmən/ DEE-mən)](https://man7.org/linux/man-pages/man7/daemon.7.html) 守护进程和喜欢的好莱坞演员 [**`Matt Damon`**](https://en.wikipedia.org/wiki/Matt_Damon)
