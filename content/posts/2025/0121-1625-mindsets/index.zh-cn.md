@@ -1,9 +1,9 @@
 ---
-title: "我的八个工作心法"
+title: "我的八个工作思维倾向"
 slug: "my-8-work-mindsets"
 date: 2025-01-21T16:25:37+08:00
 author: "郭冬"
-description: "良好的工作心法有助于养成专业化的行为。"
+description: "良好的工作思维倾向有助于养成专业化的行为。"
 categories: ["生活感悟"]
 tags: ["成长","自我管理"]
 resources:
@@ -14,7 +14,7 @@ toc: false
 lightgallery: true
 ---
 
-良好的工作心法有助于养成专业化的行为。
+良好的工作思维倾向有助于养成专业化的行为。
 
 <!--more-->
 
