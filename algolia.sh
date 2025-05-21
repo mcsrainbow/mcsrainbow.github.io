@@ -17,16 +17,16 @@ index.en:public/en/index.json
 "
 
 for index_item in ${index_list}; do
-  index_name=$(echo ${index_item} | cut -d: -f1)
-  index_json=$(echo ${index_item} | cut -d: -f2)
+  index_name=${index_item%%:*}
+  index_json=${index_item#*:}
   index_ndjson=${index_json/.json/.ndjson}
 
-  echo "${tput_green}INFO: Clearing index ${index_name}...${tput_reset}"
+  echo "${tput_green}INFO: Clearing ${index_name}...${tput_reset}"
   algolia index clear ${index_name} -y
 
   echo "${tput_green}INFO: Converting ${index_json} into ${index_ndjson}...${tput_reset}"
   jq -c '.[]' ${index_json} > ${index_ndjson}
 
-  echo "${tput_green}INFO: Importing index ${index_name} objects from ${index_ndjson}...${tput_reset}"
+  echo "${tput_green}INFO: Importing ${index_name} objects from ${index_ndjson}...${tput_reset}"
   algolia objects import ${index_name} -F ${index_ndjson}
 done
