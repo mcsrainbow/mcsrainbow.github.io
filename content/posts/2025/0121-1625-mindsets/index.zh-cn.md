@@ -1,6 +1,6 @@
 ---
-title: "我的八个工作思维倾向"
-slug: "my-8-work-mindsets"
+title: "我的工作思维倾向"
+slug: "my-work-mindsets"
 date: 2025-01-21T16:25:37+08:00
 author: "郭冬"
 description: "良好的工作思维倾向有助于养成专业化的行为。"
