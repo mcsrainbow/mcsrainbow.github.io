@@ -64,6 +64,7 @@
 {{- if $params.code.copy | default true -}}
     {{- $source := $cdn.clipboardJS | default "lib/clipboard/clipboard.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- $config = dict "maxShownLines" $params.code.maxShownLines | dict "code" | merge $config -}}
 {{- end -}}
 
 {{- /* Sharer.js */ -}}

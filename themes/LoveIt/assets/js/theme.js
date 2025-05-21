@@ -426,6 +426,8 @@ var Theme = /*#__PURE__*/function () {
   }, {
     key: "initHighlight",
     value: function initHighlight() {
+      var maxShownLines = this.config.code && this.config.code.maxShownLines ? this.config.code.maxShownLines : 10;
+
       Util.forEach(document.querySelectorAll('.code-block'), function ($codeBlock) {
         var $codeTitle = $codeBlock.querySelector('.code-header > .code-title');
         if ($codeTitle) {
@@ -439,6 +441,16 @@ var Theme = /*#__PURE__*/function () {
             $codeBlock.classList.toggle('open');
           }, false);
         }
+
+        // 检查代码行数，如果小于maxShownLines则自动展开
+        var $code = $codeBlock.querySelector('code');
+        if ($code) {
+          var $codeLines = $code.querySelectorAll('span.cl');
+          if ($codeLines && $codeLines.length > 10 && $codeLines.length <= maxShownLines) {
+            $codeBlock.classList.add('open');
+          }
+        }
+
         var $copy = $codeBlock.querySelector('.code-header .copy');
         if ($copy) {
           const $code = $codeBlock.querySelector('code');
