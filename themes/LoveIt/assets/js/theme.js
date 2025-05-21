@@ -441,9 +441,9 @@ var Theme = /*#__PURE__*/function () {
         }
         var $copy = $codeBlock.querySelector('.code-header .copy');
         if ($copy) {
-          var $code = $codeBlock.querySelector('code');
-          $copy.setAttribute('data-clipboard-text', $code.innerText);
-          var clipboard = new ClipboardJS($copy);
+          const $code = $codeBlock.querySelector('code');
+          $copy.setAttribute('data-clipboard-text', $code.textContent);
+          const clipboard = new ClipboardJS($copy);
           var $codeLines = $code.querySelectorAll('span.cl');
           clipboard.on('success', function (_e) {
             if ($codeLines) {

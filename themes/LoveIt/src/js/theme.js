@@ -362,7 +362,7 @@ class Theme {
             const $copy = $codeBlock.querySelector('.code-header .copy');
             if ($copy) {
                 const $code = $codeBlock.querySelector('code');
-                $copy.setAttribute('data-clipboard-text', $code.innerText);
+                $copy.setAttribute('data-clipboard-text', $code.textContent);
                 const clipboard = new ClipboardJS($copy);
                 const $codeLines = $code.querySelectorAll('span.cl');
                 clipboard.on('success', _e => {
