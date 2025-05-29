@@ -39,7 +39,7 @@ comment:
 - [x] <i class="fa-solid fa-user-shield fa-fw"></i> **CISSP** - Certified Information Systems Security Professional
 - [ ] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** - Project Management Professional
 - [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
-- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Band Score 7
+- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Overall Band Score of 7
 - [ ] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 MP** - ITIL 4 Managing Professional
 
 <i class="fa-solid fa-book-open fa-fw"></i> **Private Booklist**
