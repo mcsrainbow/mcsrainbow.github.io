@@ -3,7 +3,7 @@ title: "My Work Mindsets"
 slug: "my-work-mindsets"
 date: 2025-01-21T16:25:37+08:00
 author: "Damon"
-description: "Good work mindsets develop professional behavior."
+description: "Good work mindsets develop professional behaviors."
 categories: ["Thinking"]
 tags: ["Growth","Self-management"]
 resources:
@@ -14,7 +14,7 @@ toc: false
 lightgallery: true
 ---
 
-Good work mindsets develop professional behavior.
+Good work mindsets develop professional behaviors.
 
 <!--more-->
 
