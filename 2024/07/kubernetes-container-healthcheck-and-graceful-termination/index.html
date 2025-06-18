@@ -248,7 +248,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 容器关闭时间延长 60 秒</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 容器关闭时间推迟 60 秒</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">preStop</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">exec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-c&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sleep 60&#34;</span><span class="p">]</span><span class="w">
@@ -301,10 +301,10 @@
 <h2 id="实践总结">实践总结</h2>
 <p>与 Kubernetes 默认配置相比，以上实践配置进行了如下优化:</p>
 <ol>
-<li><strong>启动:</strong> 延长 <code>10</code> 秒，异常判定需要 <code>302</code> 秒，检查失败会重启容器</li>
-<li><strong>上线:</strong> 延长 <code>10</code> 秒，异常判定需要 <code>125</code> 秒，检查失败会重启容器</li>
-<li><strong>就绪:</strong> 延长 <code>35</code> 秒，健康检查 <code>2</code> 次，避免不稳定的新容器替换正常的旧容器，异常判定需要 <code>42</code> 秒，检查失败会阻止入站请求，恢复判定需要 <code>40</code> 秒，检查成功会允许入站请求</li>
-<li><strong>关闭:</strong> 立即阻止旧容器的入站请求，延长 <code>60</code> 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断</li>
+<li><strong>启动:</strong> 推迟 <code>10</code> 秒，异常判定需要 <code>302</code> 秒，检查失败会重启容器</li>
+<li><strong>上线:</strong> 推迟 <code>10</code> 秒，异常判定需要 <code>125</code> 秒，检查失败会重启容器</li>
+<li><strong>就绪:</strong> 推迟 <code>35</code> 秒，健康检查 <code>2</code> 次，避免不稳定的新容器替换正常的旧容器，异常判定需要 <code>42</code> 秒，检查失败会阻止入站请求，恢复判定需要 <code>40</code> 秒，检查成功会允许入站请求</li>
+<li><strong>关闭:</strong> 立即阻止旧容器的入站请求，推迟 <code>60</code> 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断</li>
 </ol>
 <h2 id="进一步优化">进一步优化</h2>
 <ol>
@@ -391,7 +391,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 容器关闭时间延长 60 秒</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 容器关闭时间推迟 60 秒</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">preStop</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">exec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-c&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sleep 60&#34;</span><span class="p">]</span><span class="w">
