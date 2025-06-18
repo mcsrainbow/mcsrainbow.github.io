@@ -151,7 +151,7 @@ Kubernetes 默认配置:
    最短: `10` 秒  
    异常判定(首次): `135` 秒 `initialDelaySeconds(10) + timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
    异常判定(运行中): `125` 秒 `timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
-   注意: 工作原理决定了 `startupProbe.successThreshold` 只能设置为 `1`  
+   注意: 工作原理决定了 `livenessProbe.successThreshold` 只能设置为 `1`  
 3. **就绪:**  
    最短: `35` 秒 `Startup(10)` + `initialDelaySeconds(5) + periodSeconds(20) * ( readinessProbe.successThreshold(2) - 1 )`  
    异常判定(首次): `47` 秒 `initialDelaySeconds(5) + timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)`  
