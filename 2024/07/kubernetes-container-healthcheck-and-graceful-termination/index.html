@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/featured-image.jpeg",
                             "width":  1440 ,
                             "height":  720 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1350 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1628 ,
         "url": "https:\/\/blog.heylinux.com\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/","datePublished": "2024-07-03T17:27:44+08:00","dateModified": "2024-07-03T17:27:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -125,8 +125,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes 容器健康检查和优雅终止</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1350 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1628 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -156,10 +156,10 @@
 <p>相关配置项解释如下:</p>
 <ol>
 <li><strong><code>terminationGracePeriodSeconds</code>:</strong> 全局配置项，Pod 终止的宽限期，必须大于 lifecycle.preStop，如果 Pod 中的容器在达到宽限期时仍未关闭，Pod 将被强制终止</li>
-<li><strong><code>lifecycle.preStop</code>:</strong> 在容器停止之前执行命令的钩子，可用于延迟容器停止时间，为仍未完成的请求提供更多的时间释放连接</li>
-<li><strong><code>startupProbe</code>:</strong> 检查容器的启动状态，可用于为容器内的应用启动提供更多的准备时间</li>
-<li><strong><code>livenessProbe</code>:</strong> 检查容器是否存活，如果检查失败，kubelet 会杀死容器，然后重启容器</li>
-<li><strong><code>readinessProbe</code>:</strong> 检查容器是否已经准备好接受流量，只有通过检查，kubelet 才会将 Pod 加入 Service 的负载均衡池</li>
+<li><strong><code>lifecycle.preStop</code>:</strong> 在容器停止之前执行命令的钩子，可用于推迟容器停止时间，确保旧容器有更多的剩余时间处理用户尚未完成的请求</li>
+<li><strong><code>startupProbe</code>:</strong> 检查容器的启动状态，可用于为容器内的应用启动提供更多的准备时间，如果检查失败，kubelet 会杀死容器，然后再次启动容器</li>
+<li><strong><code>livenessProbe</code>:</strong> 检查容器是否存活，如果检查失败，kubelet 会杀死容器，然后再次启动容器</li>
+<li><strong><code>readinessProbe</code>:</strong> 检查容器是否已经准备好接受流量，只有通过检查，kubelet 才会将 Pod 加入到 Service 的负载均衡池</li>
 </ol>
 <a class="lightgallery" href="/2024/07/kubernetes-container-healthcheck-and-graceful-termination/k8s_pod_lifecycle.jpg" title="k8s_pod_lifecycle" data-thumbnail="/2024/07/kubernetes-container-healthcheck-and-graceful-termination/k8s_pod_lifecycle.jpg">
         <img
@@ -206,12 +206,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">tcpSocket</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 固定间隔, 不会等待上一次探测完成</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1 且设计目的和工作原理决定了只能设置为: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 不能更改, 工作原理决定了只能设置为 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
@@ -219,29 +221,34 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">tcpSocket</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 固定间隔, 不会等待上一次探测完成</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1 且设计目的和工作原理决定了只能设置为: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 不能更改, 工作原理决定了只能设置为 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">readinessProbe</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">tcpSocket</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 固定间隔, 不会等待上一次探测完成</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 设置为 2, 避免不稳定的新容器替换正常的旧容器</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 容器关闭时间延长 60 秒</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">preStop</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">exec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-c&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sleep 60&#34;</span><span class="p">]</span><span class="w">
@@ -258,36 +265,46 @@
 <h2 id="实践配置详解">实践配置详解</h2>
 <p>Kubernetes 默认配置:</p>
 <ol>
-<li><strong>启动检查:</strong> <code>无</code></li>
-<li><strong>容器上线:</strong> 最短 <code>0</code> 秒</li>
-<li><strong>容器状态:</strong><br>
-异常判定 <code>23</code>-<code>33</code> 秒 <code>failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)</code><br>
-恢复判定 <code>0</code>-<code>10</code> 秒 <code>periodSeconds(10)</code></li>
-<li><strong>容器关闭:</strong> 最短 <code>0</code> 秒，最长 <code>30</code> 秒 <code>terminationGracePeriodSeconds(30)</code></li>
+<li><strong>启动:</strong><br>
+<code>无</code></li>
+<li><strong>上线:</strong><br>
+最短: <code>0</code> 秒<br>
+异常判定: <code>21</code> 秒 <code>timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)</code></li>
+<li><strong>就绪:</strong><br>
+最短: <code>0</code> 秒<br>
+异常判定: <code>21</code> 秒 <code>timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)</code><br>
+恢复判定: <code>10</code> 秒 <code>periodSeconds(10)</code></li>
+<li><strong>关闭:</strong><br>
+最短: <code>0</code> 秒<br>
+最长: <code>30</code> 秒 <code>terminationGracePeriodSeconds(30)</code></li>
 </ol>
 <p>实践配置:</p>
 <ol>
-<li><strong>启动检查:</strong><br>
-最短 <code>30</code> 秒 <code>initialDelaySeconds(30)</code><br>
-最长 <code>320</code> 秒 <code>initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)</code><br>
-注意: 设计目的和工作原理决定了 <code>startupProbe.successThreshold</code> 只能设置为 <code>1</code></li>
-<li><strong>容器上线:</strong><br>
-最短 <code>90</code> 秒 <code>启动检查(最短30秒)</code> + <code>initialDelaySeconds(30) + periodSeconds(30) * ( readinessProbe.successThreshold(2) - 1 )</code><br>
-注意: 设计目的和工作原理决定了 <code>livenessProbe.successThreshold</code> 只能设置为 <code>1</code></li>
-<li><strong>容器状态:</strong><br>
-异常判定 <code>66</code>-<code>96</code> 秒 <code>failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(30)</code><br>
-恢复判定 <code>30</code>-<code>60</code> 秒 <code>periodSeconds(30) * ( successThreshold(2) - 1 )</code></li>
-<li><strong>容器关闭:</strong><br>
+<li><strong>启动:</strong><br>
+最短: <code>10</code> 秒 <code>initialDelaySeconds(10)</code><br>
+异常判定: <code>302</code> 秒 <code>initialDelaySeconds(10) + timeoutSeconds(2) + ( failureThreshold(30) - 1 ) * periodSeconds(10)</code><br>
+注意: 工作原理决定了 <code>startupProbe.successThreshold</code> 只能设置为 <code>1</code></li>
+<li><strong>上线:</strong><br>
+最短: <code>10</code> 秒<br>
+异常判定(首次): <code>135</code> 秒 <code>initialDelaySeconds(10) + timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)</code><br>
+异常判定(运行中): <code>125</code> 秒 <code>timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)</code><br>
+注意: 工作原理决定了 <code>startupProbe.successThreshold</code> 只能设置为 <code>1</code></li>
+<li><strong>就绪:</strong><br>
+最短: <code>35</code> 秒 <code>Startup(10)</code> + <code>initialDelaySeconds(5) + periodSeconds(20) * ( readinessProbe.successThreshold(2) - 1 )</code><br>
+异常判定(首次): <code>47</code> 秒 <code>initialDelaySeconds(5) + timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)</code><br>
+异常判定(运行中): <code>42</code> 秒 <code>timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)</code><br>
+恢复判定: <code>40</code> 秒 <code>periodSeconds(20) * successThreshold(2)</code></li>
+<li><strong>关闭:</strong><br>
 最短 <code>60</code> 秒 <code>sleep 60</code><br>
 最长 <code>120</code> 秒 <code>terminationGracePeriodSeconds(120)</code></li>
 </ol>
 <h2 id="实践总结">实践总结</h2>
 <p>与 Kubernetes 默认配置相比，以上实践配置进行了如下优化:</p>
 <ol>
-<li>增加启动检查，结合应用自身特点，为容器内的应用启动提供 30-320 秒的准备时间</li>
-<li>容器上线时间延长 90 秒，在生产上线过程中可作为适当的缓冲时间</li>
-<li>容器状态的异常判定延长 66-96 秒，恢复判定延长 30-60 秒，可确保判定结果更加准确，避免不稳定的新容器被误判为可以正常提供服务而替换了旧的正常容器</li>
-<li>容器关闭时间延长 60 秒，可确保仍未完成的请求有更多的时间释放连接，避免用户尚未完成的请求被异常中断</li>
+<li><strong>启动:</strong> 延长 <code>10</code> 秒，异常判定需要 <code>302</code> 秒，检查失败会重启容器</li>
+<li><strong>上线:</strong> 延长 <code>10</code> 秒，异常判定需要 <code>125</code> 秒，检查失败会重启容器</li>
+<li><strong>就绪:</strong> 延长 <code>35</code> 秒，健康检查 <code>2</code> 次，避免不稳定的新容器替换正常的旧容器，异常判定需要 <code>42</code> 秒，检查失败会阻止入站请求，恢复判定需要 <code>40</code> 秒，检查成功会允许入站请求</li>
+<li><strong>关闭:</strong> 立即阻止旧容器的入站请求，延长 <code>60</code> 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断</li>
 </ol>
 <h2 id="进一步优化">进一步优化</h2>
 <ol>
@@ -330,12 +347,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">tcpSocket</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 固定间隔, 不会等待上一次探测完成</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1 且设计目的和工作原理决定了只能设置为: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 不能更改, 工作原理决定了只能设置为 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
@@ -344,30 +363,35 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/healthz</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 固定间隔, 不会等待上一次探测完成</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1 且设计目的和工作原理决定了只能设置为: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 不能更改, 工作原理决定了只能设置为 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">readinessProbe</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/healthz</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 固定间隔, 不会等待上一次探测完成</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 设置为 2, 避免不稳定的新容器替换正常的旧容器</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 默认值: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># 容器关闭时间延长 60 秒</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">preStop</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">exec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-c&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sleep 60&#34;</span><span class="p">]</span><span class="w">

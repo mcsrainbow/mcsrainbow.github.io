@@ -9,11 +9,11 @@ Implementing container health checks and graceful termination in Kubernetes with
 
 ## Parameters
 
-1. **`terminationGracePeriodSeconds`:** Global setting for Pod termination grace period; must greater than lifecycle.preStop. If containers aren't terminated within this period, the Pod will be forcibly terminated.  
+1. **`terminationGracePeriodSeconds`:** Global setting for Pod termination grace period, must greater than lifecycle.preStop. If containers aren't terminated within this period, the Pod will be forcibly terminated.  
 2. **`lifecycle.preStop`:** Hook to execute commands before container stops, delaying termination to release connections for pending requests.  
-3. **`startupProbe`:** Checks container startup status, providing additional preparation time.  
-4. **`livenessProbe`:** Checks if the container is alive; kubelet kills and restarts the container if the check fails.  
-5. **`readinessProbe`:** Checks if the container is ready to accept traffic; kubelet adds the Pod to the Service's load balancer pool only if this check passes.  
+3. **`startupProbe`:** Checks the container startup status, providing additional preparation time. kubelet kills and restarts the container if the check fails.  
+4. **`livenessProbe`:** Checks if the container is alive. kubelet kills and restarts the container if the check fails.  
+5. **`readinessProbe`:** Checks if the container is ready to accept traffic. kubelet adds the Pod to the Service's load balancer pool only if this check passes.  
 
 {{< image src="k8s_pod_lifecycle.jpg" alt="k8s_pod_lifecycle" width=800 >}}
 
@@ -52,12 +52,14 @@ spec:
             tcpSocket:
               port: 8080
             # default: 0
-            initialDelaySeconds: 30
+            initialDelaySeconds: 10
             # default: 10
-            periodSeconds: 30
+            # fixed interval, does not wait for the previous probe to complete
+            periodSeconds: 10
             # default: 3
-            failureThreshold: 10
-            # default: 1 and must be 1 by design
+            failureThreshold: 30
+            # default: 1 
+            # cannot be changed, must be 1 by design
             successThreshold: 1
             # default: 1
             timeoutSeconds: 2
@@ -65,29 +67,34 @@ spec:
             tcpSocket:
               port: 8080
             # default: 0
-            initialDelaySeconds: 30
+            initialDelaySeconds: 10
             # default: 10
+            # fixed interval, does not wait for the previous probe to complete
             periodSeconds: 30
             # default: 3
-            failureThreshold: 3
-            # default: 1 and must be 1 by design
+            failureThreshold: 5
+            # default: 1
+            # cannot be changed, must be 1 by design
             successThreshold: 1
             # default: 1
-            timeoutSeconds: 2
+            timeoutSeconds: 5
           readinessProbe:
             tcpSocket:
               port: 8080
             # default: 0
-            initialDelaySeconds: 30
+            initialDelaySeconds: 5
             # default: 10
-            periodSeconds: 30
+            # fixed interval, does not wait for the previous probe to complete
+            periodSeconds: 20
             # default: 3
             failureThreshold: 3
             # default: 1
+            # set to 2 to avoid mistaking unstable new containers as ready
             successThreshold: 2
             # default: 1
             timeoutSeconds: 2
           lifecycle:
+            # delay container shutdown by 60 seconds
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]
@@ -107,37 +114,47 @@ spec:
 
 Default Kubernetes configurations:
 
-1. **Startup Check:** `None`
-2. **Container Readiness:** Minimum `0` seconds
-3. **Container State:**  
-   Failure determination `23`-`33` seconds `failureThreshold(3) * timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
-   Recovery determination `0` - `10` seconds `periodSeconds(10)`
-4. **Container Termination:** Minimum `0` seconds, Maximum `30` seconds `terminationGracePeriodSeconds(30)`
+1. **Startup Check:**  
+   `None`  
+2. **Liveness:**  
+   Minimum: `0` seconds  
+   Failure determination: `21` seconds `timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
+3. **Readiness:**  
+   Minimum: `0` seconds  
+   Failure determination: `21` seconds `timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
+   Recovery determination: `10` seconds `periodSeconds(10)`  
+4. **Termination:**  
+   Minimum: `0` seconds  
+   Maximum: `30` seconds `terminationGracePeriodSeconds(30)`  
 
 Practice configurations:
 
-1. **Startup Check:**  
-   Minimum `30` seconds `initialDelaySeconds(30)`  
-   Maximum `320` seconds `initialDelaySeconds(30) + failureThreshold(10) * timeoutSeconds(2) + ( failureThreshold(10) - 1 ) * periodSeconds(30)`  
-   Note: The design purpose and working principle determine that `startupProbe.successThreshold` can only be set to `1`
-2. **Container Readiness:**  
-   Minimum `90` seconds `Startup Check(30)` + `initialDelaySeconds(30) + periodSeconds(30) * ( readinessProbe.successThreshold(2) - 1 )`  
-   Note: The design purpose and working principle determine that `livenessProbe.successThreshold` can only be set to `1`
-3. **Container State:**  
-   Failure determination `66`-`96` seconds `failureThreshold(3) * timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(30)`  
-   Recovery determination `30`-`60` seconds `periodSeconds(30) * ( successThreshold(2) - 1 )`
-4. **Container Termination:**   
+1. **Startup:**  
+   Minimum: `10` seconds `initialDelaySeconds(10)`  
+   Failure determination: `302` seconds `initialDelaySeconds(10) + timeoutSeconds(2) + ( failureThreshold(30) - 1 ) * periodSeconds(10)`  
+   Note: The working principle determines that `startupProbe.successThreshold` can only be set to `1`  
+2. **Liveness:**  
+   Minimum: `10` seconds  
+   Failure determination (first): `135` seconds `initialDelaySeconds(10) + timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
+   Failure determination (running): `125` seconds `timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
+   Note: The working principle determines that `livenessProbe.successThreshold` can only be set to `1`  
+3. **Readiness:**  
+   Minimum: `35` seconds `Startup(10)` + `initialDelaySeconds(5) + periodSeconds(20) * ( readinessProbe.successThreshold(2) - 1 )`  
+   Failure determination (first): `47` seconds `initialDelaySeconds(5) + timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)`  
+   Failure determination (running): `42` seconds `timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)`  
+   Recovery determination: `40` seconds `periodSeconds(20) * successThreshold(2)`  
+4. **Termination:**  
    Minimum `60` seconds `sleep 60`  
-   Maximum `120` seconds `terminationGracePeriodSeconds(120)`
+   Maximum `120` seconds `terminationGracePeriodSeconds(120)`  
 
 ## Summary
 
 Optimizations compared to default Kubernetes configurations:
 
-1. **Startup Check:** Add 30-320 seconds for application startup.
-2. **Container Readiness:** Add a 90 seconds buffer during deployment.
-3. **Container State:** Add 66-96 seconds for failure determination and 30-60 seconds for recovery, improve accuracy.
-4. **Container Termination:** Add 60 seconds to ensure connections are properly released.
+1. **Startup:** `10` seconds delay, failure threshold `302` seconds, failed checks trigger container restart.  
+2. **Liveness:** `10` seconds delay, failure threshold `125` seconds, failed checks trigger container restart.  
+3. **Readiness:** `35` seconds delay, `2` times health checks to avoid mistaking unstable new containers as ready, failure threshold `42` seconds blocks inbound traffic, `40` seconds recovery threshold allows inbound traffic again.  
+4. **Termination:** Immediately block inbound traffic to old container, allow `60` seconds delay before termination to ensure pending user requests complete gracefully.  
 
 ## Optimization
 
@@ -180,12 +197,14 @@ spec:
             tcpSocket:
               port: 8080
             # default: 0
-            initialDelaySeconds: 30
+            initialDelaySeconds: 10
             # default: 10
-            periodSeconds: 30
+            # fixed interval, does not wait for the previous probe to complete
+            periodSeconds: 10
             # default: 3
-            failureThreshold: 10
-            # default: 1 and must be 1 by design
+            failureThreshold: 30
+            # default: 1
+            # cannot be changed, must be 1 by design
             successThreshold: 1
             # default: 1
             timeoutSeconds: 2
@@ -194,30 +213,35 @@ spec:
               path: /healthz
               port: 8080
             # default: 0
-            initialDelaySeconds: 30
+            initialDelaySeconds: 10
             # default: 10
+            # fixed interval, does not wait for the previous probe to complete
             periodSeconds: 30
             # default: 3
-            failureThreshold: 3
-            # default: 1 and must be 1 by design
+            failureThreshold: 5
+            # default: 1
+            # cannot be changed, must be 1 by design
             successThreshold: 1
             # default: 1
-            timeoutSeconds: 2
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthz
               port: 8080
             # default: 0
-            initialDelaySeconds: 30
+            initialDelaySeconds: 5
             # default: 10
-            periodSeconds: 30
+            # fixed interval, does not wait for the previous probe to complete
+            periodSeconds: 20
             # default: 3
             failureThreshold: 3
             # default: 1
+            # set to 2 to avoid mistaking unstable new containers as ready
             successThreshold: 2
             # default: 1
             timeoutSeconds: 2
           lifecycle:
+            # delay container shutdown by 60 seconds
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]
