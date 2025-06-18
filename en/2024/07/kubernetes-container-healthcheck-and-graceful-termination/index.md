@@ -9,7 +9,7 @@ Implementing container health checks and graceful termination in Kubernetes with
 
 ## Parameters
 
-1. **`terminationGracePeriodSeconds`:** Global setting for Pod termination grace period, must greater than lifecycle.preStop. If containers aren't terminated within this period, the Pod will be forcibly terminated.  
+1. **`terminationGracePeriodSeconds`:** Global setting for Pod termination grace period, must greater than lifecycle.preStop. If containers aren't stopped within this period, the Pod will be forcibly terminated.  
 2. **`lifecycle.preStop`:** Hook to execute commands before container stops, delaying termination to release connections for pending requests.  
 3. **`startupProbe`:** Checks the container startup status, providing additional preparation time. kubelet kills and restarts the container if the check fails.  
 4. **`livenessProbe`:** Checks if the container is alive. kubelet kills and restarts the container if the check fails.  
@@ -94,7 +94,7 @@ spec:
             # default: 1
             timeoutSeconds: 2
           lifecycle:
-            # delay container shutdown by 60 seconds
+            # delay container stop by 60 seconds
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]
@@ -241,7 +241,7 @@ spec:
             # default: 1
             timeoutSeconds: 2
           lifecycle:
-            # delay container shutdown by 60 seconds
+            # delay container stop by 60 seconds
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]

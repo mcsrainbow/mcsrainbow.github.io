@@ -154,7 +154,7 @@
 <hr>
 <h2 id="parameters">Parameters</h2>
 <ol>
-<li><strong><code>terminationGracePeriodSeconds</code>:</strong> Global setting for Pod termination grace period, must greater than lifecycle.preStop. If containers aren&rsquo;t terminated within this period, the Pod will be forcibly terminated.</li>
+<li><strong><code>terminationGracePeriodSeconds</code>:</strong> Global setting for Pod termination grace period, must greater than lifecycle.preStop. If containers aren&rsquo;t stopped within this period, the Pod will be forcibly terminated.</li>
 <li><strong><code>lifecycle.preStop</code>:</strong> Hook to execute commands before container stops, delaying termination to release connections for pending requests.</li>
 <li><strong><code>startupProbe</code>:</strong> Checks the container startup status, providing additional preparation time. kubelet kills and restarts the container if the check fails.</li>
 <li><strong><code>livenessProbe</code>:</strong> Checks if the container is alive. kubelet kills and restarts the container if the check fails.</li>
@@ -247,7 +247,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># default: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># delay container shutdown by 60 seconds</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># delay container stop by 60 seconds</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">preStop</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">exec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-c&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sleep 60&#34;</span><span class="p">]</span><span class="w">
@@ -391,7 +391,7 @@ Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code>
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># default: 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># delay container shutdown by 60 seconds</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># delay container stop by 60 seconds</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">preStop</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">exec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-c&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;sleep 60&#34;</span><span class="p">]</span><span class="w">

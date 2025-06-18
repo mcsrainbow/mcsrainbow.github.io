@@ -11,7 +11,7 @@
 
 相关配置项解释如下:
 
-1. **`terminationGracePeriodSeconds`:** 全局配置项，Pod 终止的宽限期，必须大于 lifecycle.preStop，如果 Pod 中的容器在达到宽限期时仍未关闭，Pod 将被强制终止
+1. **`terminationGracePeriodSeconds`:** 全局配置项，Pod 终止的宽限期，必须大于 lifecycle.preStop，如果 Pod 中的容器在达到宽限期时仍未停止，Pod 将被强制终止
 2. **`lifecycle.preStop`:** 在容器停止之前执行命令的钩子，可用于推迟容器停止时间，确保旧容器有更多的剩余时间处理用户尚未完成的请求
 3. **`startupProbe`:** 检查容器的启动状态，可用于为容器内的应用启动提供更多的准备时间，如果检查失败，kubelet 会杀死容器，然后再次启动容器
 4. **`livenessProbe`:** 检查容器是否存活，如果检查失败，kubelet 会杀死容器，然后再次启动容器
@@ -95,7 +95,7 @@ spec:
             # 默认值: 1
             timeoutSeconds: 2
           lifecycle:
-            # 容器关闭时间推迟 60 秒
+            # 容器停止时间推迟 60 秒
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]
@@ -124,7 +124,7 @@ Kubernetes 默认配置:
    最短: `0` 秒  
    异常判定: `21` 秒 `( failureThreshold(3) - 1 ) * periodSeconds(10) + timeoutSeconds(1)`  
    恢复判定: `10` 秒 `periodSeconds(10)`  
-4. **关闭:**  
+4. **终止:**  
    最短: `0` 秒  
    最长: `30` 秒 `terminationGracePeriodSeconds(30)`  
 
@@ -144,7 +144,7 @@ Kubernetes 默认配置:
    异常判定(首次): `47` 秒 `initialDelaySeconds(5) + ( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
    异常判定(持续): `42` 秒 `( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
    恢复判定: `40` 秒 `successThreshold(2) * periodSeconds(20)`  
-4. **关闭:**  
+4. **终止:**  
    最短 `60` 秒 `sleep 60`  
    最长 `120` 秒 `terminationGracePeriodSeconds(120)`  
 
@@ -155,7 +155,7 @@ Kubernetes 默认配置:
 1. **启动:** 推迟 `10` 秒，异常判定需要 `302` 秒，检查失败会重启容器
 2. **上线:** 推迟 `20` 秒，异常判定需要 `125` 秒，检查失败会重启容器
 3. **就绪:** 推迟 `35` 秒，健康检查 `2` 次，避免不稳定的新容器替换正常的旧容器，异常判定需要 `42` 秒，检查失败会阻止入站请求，恢复判定需要 `40` 秒，检查成功会允许入站请求
-4. **关闭:** 立即阻止旧容器的入站请求，推迟 `60` 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断
+4. **终止:** 立即阻止旧容器的入站请求，推迟 `60` 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断
 
 ## 进一步优化
 
@@ -240,7 +240,7 @@ spec:
             # 默认值: 1
             timeoutSeconds: 2
           lifecycle:
-            # 容器关闭时间推迟 60 秒
+            # 容器停止时间推迟 60 秒
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]
