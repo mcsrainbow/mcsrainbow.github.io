@@ -285,7 +285,7 @@
 异常判定: <code>302</code> 秒 <code>initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)</code><br>
 注意: 工作原理决定了 <code>startupProbe.successThreshold</code> 只能设置为 <code>1</code></li>
 <li><strong>上线:</strong><br>
-最短: <code>20</code> 秒 <code>启动(10)</code> + <code>initialDelaySeconds(10)</code>
+最短: <code>20</code> 秒 <code>启动(10)</code> + <code>initialDelaySeconds(10)</code><br>
 异常判定(首次): <code>135</code> 秒 <code>initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)</code><br>
 异常判定(持续): <code>125</code> 秒 <code>( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)</code><br>
 注意: 工作原理决定了 <code>livenessProbe.successThreshold</code> 只能设置为 <code>1</code></li>

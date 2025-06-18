@@ -284,7 +284,7 @@ Minimum: <code>10</code> seconds <code>initialDelaySeconds(10)</code><br>
 Failure determination: <code>302</code> seconds <code>initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)</code><br>
 Note: The working principle determines that <code>startupProbe.successThreshold</code> can only be set to <code>1</code></li>
 <li><strong>Liveness:</strong><br>
-Minimum: <code>20</code> seconds <code>Startup(10)</code> + <code>initialDelaySeconds(10)</code>
+Minimum: <code>20</code> seconds <code>Startup(10)</code> + <code>initialDelaySeconds(10)</code><br>
 Failure determination (first): <code>135</code> seconds <code>initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)</code><br>
 Failure determination (running): <code>125</code> seconds <code>( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)</code><br>
 Note: The working principle determines that <code>livenessProbe.successThreshold</code> can only be set to <code>1</code></li>
