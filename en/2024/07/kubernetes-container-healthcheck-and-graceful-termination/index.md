@@ -189,7 +189,7 @@ spec:
         - name: mysecret
       containers:
         - name: myapp
-          image: myapp:1.0
+          image: registry.example.com/myapp:1.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
