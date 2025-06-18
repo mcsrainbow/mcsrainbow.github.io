@@ -25,7 +25,7 @@ lightgallery: true
 相关配置项解释如下:
 
 1. **`terminationGracePeriodSeconds`:** 全局配置项，Pod 终止的宽限期，必须大于 lifecycle.preStop，如果 Pod 中的容器在达到宽限期时仍未停止，Pod 将被强制终止
-2. **`lifecycle.preStop`:** 在容器停止之前执行命令的钩子，可用于推迟容器停止时间，确保旧容器有更多的剩余时间处理用户尚未完成的请求
+2. **`lifecycle.preStop`:** 在容器停止之前执行命令的钩子，可用于推迟容器停止时间，确保容器有更多的剩余时间处理用户尚未完成的请求
 3. **`startupProbe`:** 检查容器的启动状态，可用于为容器内的应用启动提供更多的准备时间，如果检查失败，kubelet 会杀死容器，然后再次启动容器
 4. **`livenessProbe`:** 检查容器是否存活，如果检查失败，kubelet 会杀死容器，然后再次启动容器
 5. **`readinessProbe`:** 检查容器是否已经准备好接受流量，只有通过检查，kubelet 才会将 Pod 加入到 Service 的负载均衡池
