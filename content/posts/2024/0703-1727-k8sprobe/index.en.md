@@ -147,7 +147,7 @@ Practice configurations:
    Failure determination: `302` seconds `initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)`  
    Note: The working principle determines that `startupProbe.successThreshold` can only be set to `1`  
 2. **Liveness:**  
-   Minimum: `20` seconds `Startup(10)` + `initialDelaySeconds(10)`
+   Minimum: `20` seconds `Startup(10)` + `initialDelaySeconds(10)`  
    Failure determination (first): `135` seconds `initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    Failure determination (running): `125` seconds `( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    Note: The working principle determines that `livenessProbe.successThreshold` can only be set to `1`  
