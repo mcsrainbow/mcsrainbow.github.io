@@ -134,7 +134,7 @@ Practice configurations:
    Failure determination: `302` seconds `initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)`  
    Note: The working principle determines that `startupProbe.successThreshold` can only be set to `1`  
 2. **Liveness:**  
-   Minimum: `10` seconds  
+   Minimum: `20` seconds `Startup(10)` + `initialDelaySeconds(10)`
    Failure determination (first): `135` seconds `initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    Failure determination (running): `125` seconds `( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    Note: The working principle determines that `livenessProbe.successThreshold` can only be set to `1`  
@@ -152,7 +152,7 @@ Practice configurations:
 Optimizations compared to default Kubernetes configurations:
 
 1. **Startup:** `10` seconds delay, failure threshold `302` seconds, failed checks trigger container restart.  
-2. **Liveness:** `10` seconds delay, failure threshold `125` seconds, failed checks trigger container restart.  
+2. **Liveness:** `20` seconds delay, failure threshold `125` seconds, failed checks trigger container restart.  
 3. **Readiness:** `35` seconds delay, `2` times health checks to avoid mistaking unstable new containers as ready, failure threshold `42` seconds blocks inbound traffic, `40` seconds recovery threshold allows inbound traffic again.  
 4. **Termination:** Immediately block inbound traffic to old container, allow `60` seconds delay before termination to ensure pending user requests complete gracefully.  
 

@@ -135,12 +135,12 @@ Kubernetes 默认配置:
    异常判定: `302` 秒 `initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)`  
    注意: 工作原理决定了 `startupProbe.successThreshold` 只能设置为 `1`  
 2. **上线:**  
-   最短: `10` 秒  
+   最短: `20` 秒 `启动(10)` + `initialDelaySeconds(10)`
    异常判定(首次): `135` 秒 `initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    异常判定(持续): `125` 秒 `( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    注意: 工作原理决定了 `livenessProbe.successThreshold` 只能设置为 `1`  
 3. **就绪:**  
-   最短: `35` 秒 `Startup(10)` + `initialDelaySeconds(5) + ( readinessProbe.successThreshold(2) - 1 ) * periodSeconds(20)`  
+   最短: `35` 秒 `启动(10)` + `initialDelaySeconds(5) + ( readinessProbe.successThreshold(2) - 1 ) * periodSeconds(20)`  
    异常判定(首次): `47` 秒 `initialDelaySeconds(5) + ( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
    异常判定(持续): `42` 秒 `( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
    恢复判定: `40` 秒 `successThreshold(2) * periodSeconds(20)`  
@@ -153,7 +153,7 @@ Kubernetes 默认配置:
 与 Kubernetes 默认配置相比，以上实践配置进行了如下优化:
 
 1. **启动:** 推迟 `10` 秒，异常判定需要 `302` 秒，检查失败会重启容器
-2. **上线:** 推迟 `10` 秒，异常判定需要 `125` 秒，检查失败会重启容器
+2. **上线:** 推迟 `20` 秒，异常判定需要 `125` 秒，检查失败会重启容器
 3. **就绪:** 推迟 `35` 秒，健康检查 `2` 次，避免不稳定的新容器替换正常的旧容器，异常判定需要 `42` 秒，检查失败会阻止入站请求，恢复判定需要 `40` 秒，检查成功会允许入站请求
 4. **关闭:** 立即阻止旧容器的入站请求，推迟 `60` 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断
 

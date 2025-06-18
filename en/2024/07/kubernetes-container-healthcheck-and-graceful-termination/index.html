@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/featured-image.jpeg",
                             "width":  1440 ,
                             "height":  720 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  910 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  913 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/","datePublished": "2024-07-03T17:27:44+08:00","dateModified": "2024-07-03T17:27:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -125,7 +125,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes Container Healthcheck and Graceful Termination</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;910 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;913 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -284,7 +284,7 @@ Minimum: <code>10</code> seconds <code>initialDelaySeconds(10)</code><br>
 Failure determination: <code>302</code> seconds <code>initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)</code><br>
 Note: The working principle determines that <code>startupProbe.successThreshold</code> can only be set to <code>1</code></li>
 <li><strong>Liveness:</strong><br>
-Minimum: <code>10</code> seconds<br>
+Minimum: <code>20</code> seconds <code>Startup(10)</code> + <code>initialDelaySeconds(10)</code>
 Failure determination (first): <code>135</code> seconds <code>initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)</code><br>
 Failure determination (running): <code>125</code> seconds <code>( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)</code><br>
 Note: The working principle determines that <code>livenessProbe.successThreshold</code> can only be set to <code>1</code></li>
@@ -301,7 +301,7 @@ Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code>
 <p>Optimizations compared to default Kubernetes configurations:</p>
 <ol>
 <li><strong>Startup:</strong> <code>10</code> seconds delay, failure threshold <code>302</code> seconds, failed checks trigger container restart.</li>
-<li><strong>Liveness:</strong> <code>10</code> seconds delay, failure threshold <code>125</code> seconds, failed checks trigger container restart.</li>
+<li><strong>Liveness:</strong> <code>20</code> seconds delay, failure threshold <code>125</code> seconds, failed checks trigger container restart.</li>
 <li><strong>Readiness:</strong> <code>35</code> seconds delay, <code>2</code> times health checks to avoid mistaking unstable new containers as ready, failure threshold <code>42</code> seconds blocks inbound traffic, <code>40</code> seconds recovery threshold allows inbound traffic again.</li>
 <li><strong>Termination:</strong> Immediately block inbound traffic to old container, allow <code>60</code> seconds delay before termination to ensure pending user requests complete gracefully.</li>
 </ol>
