@@ -132,10 +132,10 @@ Kubernetes 默认配置:
    `无`  
 2. **上线:**  
    最短: `0` 秒  
-   异常判定: `21` 秒 `timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
+   异常判定: `21` 秒 `( failureThreshold(3) - 1 ) * periodSeconds(10) + timeoutSeconds(1)`  
 3. **就绪:**  
    最短: `0` 秒  
-   异常判定: `21` 秒 `timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
+   异常判定: `21` 秒 `( failureThreshold(3) - 1 ) * periodSeconds(10) + timeoutSeconds(1)`  
    恢复判定: `10` 秒 `periodSeconds(10)`  
 4. **关闭:**  
    最短: `0` 秒  
@@ -145,18 +145,18 @@ Kubernetes 默认配置:
 
 1. **启动:**  
    最短: `10` 秒 `initialDelaySeconds(10)`  
-   异常判定: `302` 秒 `initialDelaySeconds(10) + timeoutSeconds(2) + ( failureThreshold(30) - 1 ) * periodSeconds(10)`  
+   异常判定: `302` 秒 `initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)`  
    注意: 工作原理决定了 `startupProbe.successThreshold` 只能设置为 `1`  
 2. **上线:**  
    最短: `10` 秒  
-   异常判定(首次): `135` 秒 `initialDelaySeconds(10) + timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
-   异常判定(持续): `125` 秒 `timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
+   异常判定(首次): `135` 秒 `initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
+   异常判定(持续): `125` 秒 `( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    注意: 工作原理决定了 `livenessProbe.successThreshold` 只能设置为 `1`  
 3. **就绪:**  
-   最短: `35` 秒 `Startup(10)` + `initialDelaySeconds(5) + periodSeconds(20) * ( readinessProbe.successThreshold(2) - 1 )`  
-   异常判定(首次): `47` 秒 `initialDelaySeconds(5) + timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)`  
-   异常判定(持续): `42` 秒 `timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)`  
-   恢复判定: `40` 秒 `periodSeconds(20) * successThreshold(2)`  
+   最短: `35` 秒 `Startup(10)` + `initialDelaySeconds(5) + ( readinessProbe.successThreshold(2) - 1 ) * periodSeconds(20)`  
+   异常判定(首次): `47` 秒 `initialDelaySeconds(5) + ( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
+   异常判定(持续): `42` 秒 `( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
+   恢复判定: `40` 秒 `successThreshold(2) * periodSeconds(20)`  
 4. **关闭:**  
    最短 `60` 秒 `sleep 60`  
    最长 `120` 秒 `terminationGracePeriodSeconds(120)`  

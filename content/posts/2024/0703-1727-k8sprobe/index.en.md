@@ -131,10 +131,10 @@ Default Kubernetes configurations:
    `None`  
 2. **Liveness:**  
    Minimum: `0` seconds  
-   Failure determination: `21` seconds `timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
+   Failure determination: `21` seconds `( failureThreshold(3) - 1 ) * periodSeconds(10) + timeoutSeconds(1)`  
 3. **Readiness:**  
    Minimum: `0` seconds  
-   Failure determination: `21` seconds `timeoutSeconds(1) + ( failureThreshold(3) - 1 ) * periodSeconds(10)`  
+   Failure determination: `21` seconds `( failureThreshold(3) - 1 ) * periodSeconds(10) + timeoutSeconds(1)`  
    Recovery determination: `10` seconds `periodSeconds(10)`  
 4. **Termination:**  
    Minimum: `0` seconds  
@@ -144,18 +144,18 @@ Practice configurations:
 
 1. **Startup:**  
    Minimum: `10` seconds `initialDelaySeconds(10)`  
-   Failure determination: `302` seconds `initialDelaySeconds(10) + timeoutSeconds(2) + ( failureThreshold(30) - 1 ) * periodSeconds(10)`  
+   Failure determination: `302` seconds `initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)`  
    Note: The working principle determines that `startupProbe.successThreshold` can only be set to `1`  
 2. **Liveness:**  
    Minimum: `10` seconds  
-   Failure determination (first): `135` seconds `initialDelaySeconds(10) + timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
-   Failure determination (running): `125` seconds `timeoutSeconds(5) + ( failureThreshold(5) - 1 ) * periodSeconds(30)`  
+   Failure determination (first): `135` seconds `initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
+   Failure determination (running): `125` seconds `( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    Note: The working principle determines that `livenessProbe.successThreshold` can only be set to `1`  
 3. **Readiness:**  
-   Minimum: `35` seconds `Startup(10)` + `initialDelaySeconds(5) + periodSeconds(20) * ( readinessProbe.successThreshold(2) - 1 )`  
-   Failure determination (first): `47` seconds `initialDelaySeconds(5) + timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)`  
-   Failure determination (running): `42` seconds `timeoutSeconds(2) + ( failureThreshold(3) - 1 ) * periodSeconds(20)`  
-   Recovery determination: `40` seconds `periodSeconds(20) * successThreshold(2)`  
+   Minimum: `35` seconds `Startup(10)` + `initialDelaySeconds(5) + ( readinessProbe.successThreshold(2) - 1 ) * periodSeconds(20)`  
+   Failure determination (first): `47` seconds `initialDelaySeconds(5) + ( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
+   Failure determination (running): `42` seconds `( failureThreshold(3) - 1 ) * periodSeconds(20) + timeoutSeconds(2)`  
+   Recovery determination: `40` seconds `successThreshold(2) * periodSeconds(20)`  
 4. **Termination:**  
    Minimum `60` seconds `sleep 60`  
    Maximum `120` seconds `terminationGracePeriodSeconds(120)`  
