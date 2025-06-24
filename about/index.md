@@ -12,7 +12,7 @@
 
 <i class="fa-solid fa-seedling fa-fw"></i> **简介**：实操型解决方案架构师、运维负责人、终身学习者
 
-<i class="fa-solid fa-user-tie fa-fw"></i> **领域**：<i class="fa-solid fa-cloud-upload-alt fa-fw fa-bounce"></i> 混合云 <i class="fa-solid fa-layer-group fa-fw fa-beat"></i> 大数据 <i class="fa-solid fa-code-branch fa-fw fa-flip"></i> 运维开发 <i class="fa-solid fa-bell fa-fw fa-shake"></i> 网络安全
+<i class="fa-solid fa-user-tie fa-fw"></i> **领域**：<i class="fa-solid fa-cloud-upload-alt fa-fw fa-bounce"></i> 混合云 <i class="fa-solid fa-code-branch fa-fw fa-flip"></i> 运维开发 <i class="fa-solid fa-layer-group fa-fw fa-beat"></i> 大数据 <i class="fa-solid fa-bell fa-fw fa-shake"></i> 网络安全
 
 ### [待办清单]^(始于2021年2月)
 

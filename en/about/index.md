@@ -13,7 +13,7 @@
 
 <i class="fa-solid fa-seedling fa-fw"></i> **Bio**: A Hands-On Solutions Architect, a DevOps Manager, and a Lifelong Learner
 
-<i class="fa-solid fa-user-tie fa-fw"></i> **Specialties**: <i class="fa-solid fa-cloud-upload-alt fa-fw fa-bounce"></i> Hybrid Cloud <i class="fa-solid fa-layer-group fa-fw fa-beat"></i> Big Data <i class="fa-solid fa-code-branch fa-fw fa-flip"></i> DevOps <i class="fa-solid fa-bell fa-fw fa-shake"></i> Cybersecurity
+<i class="fa-solid fa-user-tie fa-fw"></i> **Specialties**: <i class="fa-solid fa-cloud-upload-alt fa-fw fa-bounce"></i> Hybrid Cloud <i class="fa-solid fa-code-branch fa-fw fa-flip"></i> DevOps <i class="fa-solid fa-layer-group fa-fw fa-beat"></i> Big Data <i class="fa-solid fa-bell fa-fw fa-shake"></i> Cybersecurity
 
 ### [TO DO LIST]^(Since Feburary 2021)
 
