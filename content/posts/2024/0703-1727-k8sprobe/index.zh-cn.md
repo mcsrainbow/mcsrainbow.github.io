@@ -275,9 +275,9 @@ spec:
 
 这种情况下，为了避免用户尚未完成的请求被 Ingress 异常中断，还需要在 Ingress 上配置与 `lifecycle.preStop` 匹配的优雅中断超时时间。
 
-这样，在连接优雅中断时间结束前，Ingress 才不会主动关闭与 Pod 的连接。
+这样，在优雅中断时间结束前，Ingress 才不会主动关闭与 Pod 的连接。
 
-阿里云连接优雅中断配置示例：
+阿里云优雅中断配置示例：
 
 ```yaml
 ---
@@ -301,7 +301,7 @@ metadata:
   namespace: default
   name: myapp-ingress
   annotations:
-    # 开启连接优雅中断
+    # 开启优雅中断
     alb.ingress.kubernetes.io/connection-drain-enabled: "true"
     # 优雅中断超时时间，与 lifecycle.preStop 匹配
     alb.ingress.kubernetes.io/connection-drain-timeout: "60"
