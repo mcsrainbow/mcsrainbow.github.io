@@ -277,7 +277,7 @@ To avoid interrupting in-flight user requests, the Ingress should be configured 
 
 This ensures the Ingress keeps connections alive until the timeout expires.
 
-Alibaba Cloud graceful draining configuration:
+Alibaba Cloud Kubernetes graceful draining configuration:
 
 ```yaml
 ---
