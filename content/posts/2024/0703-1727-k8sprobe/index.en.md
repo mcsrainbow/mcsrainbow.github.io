@@ -176,8 +176,6 @@ Optimizations compared to default Kubernetes configurations:
 
 ### Solution
 
-Further optimization:
-
 1. Create a `/healthz` endpoint for accurate health checks.
 2. Upgrade from `tcpSocket` to `httpGet` health checks for precise assessments.
 
