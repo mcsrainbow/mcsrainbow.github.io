@@ -286,8 +286,8 @@ spec:
     app: myapp
   clusterIP: None
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
@@ -312,7 +312,7 @@ spec:
               service:
                 name: myapp-svc
                 port:
-                  number: 80
+                  number: 8080
 ```
 
 ## Reference

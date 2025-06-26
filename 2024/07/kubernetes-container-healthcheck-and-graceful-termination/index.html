@@ -440,8 +440,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">myapp</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">clusterIP</span><span class="p">:</span><span class="w"> </span><span class="l">None</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
@@ -466,7 +466,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">service</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">myapp-svc</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">port</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></span></span></code></pre></div></div>
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span></span></span></code></pre></div></div>
 <h2 id="参考">参考</h2>
 <p><a href="https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" target="_blank" rel="noopener noreffer ">https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/</a><br>
 <a href="https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/advanced-alb-ingress-settings#c5bf22507239t" target="_blank" rel="noopener noreffer ">https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/advanced-alb-ingress-settings#c5bf22507239t</a></p></div><div class="post-footer" id="post-footer">
