@@ -7,11 +7,11 @@
 
 ---
 
-## 参数
+## 配置项
 
 相关配置项解释如下:
 
-1. **`terminationGracePeriodSeconds`:** 全局配置项，Pod 终止的宽限期，必须大于 lifecycle.preStop，如果 Pod 中的容器在达到宽限期时仍未停止，Pod 将被强制终止
+1. **`terminationGracePeriodSeconds`:** 全局配置项，Pod 终止的宽限期，必须大于 `lifecycle.preStop`，如果 Pod 中的容器在达到宽限期时仍未停止，Pod 将被强制终止
 2. **`lifecycle.preStop`:** 在容器停止之前执行命令的钩子，可用于推迟容器停止时间，确保容器有更多的剩余时间处理用户尚未完成的请求
 3. **`startupProbe`:** 检查容器的启动状态，可用于为容器内的应用启动提供更多的准备时间，如果检查失败，kubelet 会杀死容器，然后再次启动容器
 4. **`livenessProbe`:** 检查容器是否存活，如果检查失败，kubelet 会杀死容器，然后再次启动容器
@@ -19,11 +19,14 @@
 
 {{< image src="k8s_pod_lifecycle.jpg" alt="k8s_pod_lifecycle" width=800 >}}
 
-## 实践配置
+## 实践
+
+### 配置
 
 启用 `容器健康检查` 和 `优雅终止` 的 Kubernetes Deployment 实践配置示例:
 
 ```yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -111,7 +114,7 @@ spec:
               memory: 1Gi
 ```
 
-## 实践配置详解
+### 配置详解
 
 Kubernetes 默认配置:
 
@@ -148,7 +151,7 @@ Kubernetes 默认配置:
    最短 `60` 秒 `sleep 60`  
    最长 `120` 秒 `terminationGracePeriodSeconds(120)`  
 
-## 实践总结
+### 总结
 
 与 Kubernetes 默认配置相比，以上实践配置进行了如下优化:
 
@@ -157,16 +160,19 @@ Kubernetes 默认配置:
 3. **就绪:** 推迟 `35` 秒，健康检查 `2` 次，避免不稳定的新容器替换正常的旧容器，异常判定需要 `42` 秒，检查失败会阻止入站请求，恢复判定需要 `40` 秒，检查成功会允许入站请求
 4. **终止:** 立即阻止旧容器的入站请求，推迟 `60` 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断
 
-## 进一步优化
+## 优化
+
+### 方案
 
 1. 对于 Web 类应用，通过应用代码判断自身业务状态，生成 `/healthz` 健康检查页面
 2. 将基于 `tcpSocket` 的健康检查升级为基于 `httpGet`，通过获取健康检查页面的返回结果进行精准判断
 
-## 优化后的配置
+### 配置
 
 启用 `/healthz` 健康检查页面的 Kubernetes Deployment 实践配置示例:
 
 ```yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -256,7 +262,61 @@ spec:
               memory: 1Gi
 ```
 
+## 连接优雅中断
+
+容器健康检查可以确保 Pod 处于健康的运行状态，容器优雅终止可以让 Pod 延迟下线。
+
+通常，用户的请求需要先经过 Ingress 转发，但 Ingress 可能默认不会等待 Pod 的 Terminating 状态完成就提前将 Pod 从后端移除，例如阿里云的容器服务 Kubernetes 版。
+
+这种情况下，为了避免用户尚未完成的请求被 Ingress 异常中断，还需要在 Ingress 上配置与 `lifecycle.preStop` 匹配的优雅中断超时时间。
+
+这样，在连接优雅中断时间结束前，Ingress 才不会主动关闭与 Pod 的连接。
+
+阿里云连接优雅中断配置示例：
+
+```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  name: myapp-svc
+spec:
+  selector:
+    app: myapp
+  clusterIP: None
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: default
+  name: myapp-ingress
+  annotations:
+    # 开启连接优雅中断
+    alb.ingress.kubernetes.io/connection-drain-enabled: "true"
+    # 优雅中断超时时间，与 lifecycle.preStop 匹配
+    alb.ingress.kubernetes.io/connection-drain-timeout: "60"
+spec:
+  ingressClassName: alb
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /myapp
+            pathType: Prefix
+            backend:
+              service:
+                name: myapp-svc
+                port:
+                  number: 80
+```
+
 ## 参考
 
-https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/  
+https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/advanced-alb-ingress-settings#c5bf22507239t  
 
