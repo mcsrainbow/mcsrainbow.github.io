@@ -22,8 +22,8 @@ Implementing container health checks and graceful termination in Kubernetes with
 
 ## Parameters
 
-1. **`terminationGracePeriodSeconds`:** Global setting for Pod termination grace period, must greater than lifecycle.preStop. If containers aren't stopped within this period, the Pod will be forcibly terminated.  
-2. **`lifecycle.preStop`:** Hook to execute commands before container stops, delaying termination to release connections for pending requests.  
+1. **`terminationGracePeriodSeconds`:** Global setting for Pod termination grace period, must greater than `lifecycle.preStop`. If containers aren't stopped within this period, the Pod will be forcibly terminated.  
+2. **`lifecycle.preStop`:** Hook to execute commands before container stops, delaying termination to release connections for in-flight requests.  
 3. **`startupProbe`:** Checks the container startup status, providing additional preparation time. kubelet kills and restarts the container if the check fails.  
 4. **`livenessProbe`:** Checks if the container is alive. kubelet kills and restarts the container if the check fails.  
 5. **`readinessProbe`:** Checks if the container is ready to accept traffic. kubelet adds the Pod to the Service's load balancer pool only if this check passes.  
@@ -33,9 +33,12 @@ Implementing container health checks and graceful termination in Kubernetes with
 
 ## Practice
 
+### Manifests
+
 Kubernetes deployment configurations with health checks and graceful termination:
 
 ```yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -123,7 +126,7 @@ spec:
               memory: 1Gi
 ```
 
-## Explanation
+### Explanation
 
 Default Kubernetes configurations:
 
@@ -160,27 +163,30 @@ Practice configurations:
    Minimum `60` seconds `sleep 60`  
    Maximum `120` seconds `terminationGracePeriodSeconds(120)`  
 
-## Summary
+### Summary
 
 Optimizations compared to default Kubernetes configurations:
 
 1. **Startup:** `10` seconds delay, failure threshold `302` seconds, failed checks trigger container restart.  
 2. **Liveness:** `20` seconds delay, failure threshold `125` seconds, failed checks trigger container restart.  
 3. **Readiness:** `35` seconds delay, `2` times health checks to avoid mistaking unstable new containers as ready, failure threshold `42` seconds blocks inbound traffic, `40` seconds recovery threshold allows inbound traffic again.  
-4. **Termination:** Immediately block inbound traffic to old container, allow `60` seconds delay before termination to ensure pending user requests complete gracefully.  
+4. **Termination:** Immediately block inbound traffic to old container, allow `60` seconds delay before termination to ensure in-flight user requests complete gracefully.  
 
 ## Optimization
+
+### Solution
 
 Further optimization:
 
 1. Create a `/healthz` endpoint for accurate health checks.
 2. Upgrade from `tcpSocket` to `httpGet` health checks for precise assessments.
 
-## Optimized Practice
+### Manifests
 
 Kubernetes deployment configurations enables the `/healthz` endpoint:
 
 ```yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -270,6 +276,61 @@ spec:
               memory: 1Gi
 ```
 
+
+## Graceful Draining
+
+Container health checks ensure that Pods are running properly, while graceful termination allows Pods to delay shutdown.
+
+Typically, user requests are routed through an Ingress. However, some Ingress controllers such as Alibaba Cloud Kubernetes may remove Pods from backend pools before the Pod fully Terminated.
+
+To avoid interrupting in-flight user requests, the Ingress should be configured with a graceful connection drain timeout that aligns with the container `lifecycle.preStop`. 
+
+This ensures the Ingress keeps connections alive until the timeout expires.
+
+Alibaba Cloud graceful draining configuration:
+
+```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  name: myapp-svc
+spec:
+  selector:
+    app: myapp
+  clusterIP: None
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: default
+  name: myapp-ingress
+  annotations:
+    # enable graceful draining
+    alb.ingress.kubernetes.io/connection-drain-enabled: "true"
+    # match lifecycle.preStop
+    alb.ingress.kubernetes.io/connection-drain-timeout: "60"
+spec:
+  ingressClassName: alb
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /myapp
+            pathType: Prefix
+            backend:
+              service:
+                name: myapp-svc
+                port:
+                  number: 80
+```
+
 ## Reference
 
-https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/  
+https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/advanced-alb-ingress-settings#c5bf22507239t  
