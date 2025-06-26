@@ -20,8 +20,6 @@ Implementing container health checks and graceful termination in Kubernetes with
 
 ## Practice
 
-### Manifests
-
 Kubernetes deployment configurations with health checks and graceful termination:
 
 ```yaml
@@ -113,8 +111,6 @@ spec:
               memory: 1Gi
 ```
 
-### Explanation
-
 Default Kubernetes configurations:
 
 1. **Startup Check:**  
@@ -150,8 +146,6 @@ Practice configurations:
    Minimum `60` seconds `sleep 60`  
    Maximum `120` seconds `terminationGracePeriodSeconds(120)`  
 
-### Summary
-
 Optimizations compared to default Kubernetes configurations:
 
 1. **Startup:** `10` seconds delay, failure threshold `302` seconds, failed checks trigger container restart.  
@@ -161,12 +155,8 @@ Optimizations compared to default Kubernetes configurations:
 
 ## Optimization
 
-### Solution
-
 1. Create a `/healthz` endpoint for accurate health checks.
 2. Upgrade from `tcpSocket` to `httpGet` health checks for precise assessments.
-
-### Manifests
 
 Kubernetes deployment configurations enables the `/healthz` endpoint:
 

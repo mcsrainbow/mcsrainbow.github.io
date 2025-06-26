@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/featured-image.jpeg",
                             "width":  1440 ,
                             "height":  720 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1068 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1063 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/","datePublished": "2024-07-03T17:27:44+08:00","dateModified": "2024-07-03T17:27:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -125,8 +125,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes Container Healthcheck and Graceful Termination</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1068 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1063 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -142,19 +142,8 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#parameters">Parameters</a></li>
-    <li><a href="#practice">Practice</a>
-      <ul>
-        <li><a href="#manifests">Manifests</a></li>
-        <li><a href="#explanation">Explanation</a></li>
-        <li><a href="#summary">Summary</a></li>
-      </ul>
-    </li>
-    <li><a href="#optimization">Optimization</a>
-      <ul>
-        <li><a href="#solution">Solution</a></li>
-        <li><a href="#manifests-1">Manifests</a></li>
-      </ul>
-    </li>
+    <li><a href="#practice">Practice</a></li>
+    <li><a href="#optimization">Optimization</a></li>
     <li><a href="#graceful-draining">Graceful Draining</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
@@ -179,7 +168,6 @@
             alt="k8s_pod_lifecycle" width="800" height="664" />
     </a>
 <h2 id="practice">Practice</h2>
-<h3 id="manifests">Manifests</h3>
 <p>Kubernetes deployment configurations with health checks and graceful termination:</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
@@ -272,7 +260,6 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">limits</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l">500m</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span></span></span></code></pre></div></div>
-<h3 id="explanation">Explanation</h3>
 <p>Default Kubernetes configurations:</p>
 <ol>
 <li><strong>Startup Check:</strong><br>
@@ -308,7 +295,6 @@ Recovery determination: <code>40</code> seconds <code>successThreshold(2) * peri
 Minimum <code>60</code> seconds <code>sleep 60</code><br>
 Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code></li>
 </ol>
-<h3 id="summary">Summary</h3>
 <p>Optimizations compared to default Kubernetes configurations:</p>
 <ol>
 <li><strong>Startup:</strong> <code>10</code> seconds delay, failure threshold <code>302</code> seconds, failed checks trigger container restart.</li>
@@ -317,12 +303,10 @@ Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code>
 <li><strong>Termination:</strong> Immediately block inbound traffic to old container, allow <code>60</code> seconds delay before termination to ensure in-flight user requests complete gracefully.</li>
 </ol>
 <h2 id="optimization">Optimization</h2>
-<h3 id="solution">Solution</h3>
 <ol>
 <li>Create a <code>/healthz</code> endpoint for accurate health checks.</li>
 <li>Upgrade from <code>tcpSocket</code> to <code>httpGet</code> health checks for precise assessments.</li>
 </ol>
-<h3 id="manifests-1">Manifests</h3>
 <p>Kubernetes deployment configurations enables the <code>/healthz</code> endpoint:</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">

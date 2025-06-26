@@ -21,8 +21,6 @@
 
 ## 实践
 
-### 配置
-
 启用 `容器健康检查` 和 `优雅终止` 的 Kubernetes Deployment 实践配置示例:
 
 ```yaml
@@ -114,8 +112,6 @@ spec:
               memory: 1Gi
 ```
 
-### 配置详解
-
 Kubernetes 默认配置:
 
 1. **启动:**  
@@ -151,8 +147,6 @@ Kubernetes 默认配置:
    最短 `60` 秒 `sleep 60`  
    最长 `120` 秒 `terminationGracePeriodSeconds(120)`  
 
-### 总结
-
 与 Kubernetes 默认配置相比，以上实践配置进行了如下优化:
 
 1. **启动:** 推迟 `10` 秒，异常判定需要 `302` 秒，检查失败会重启容器
@@ -162,12 +156,8 @@ Kubernetes 默认配置:
 
 ## 优化
 
-### 方案
-
 1. 对于 Web 类应用，通过应用代码判断自身业务状态，生成 `/healthz` 健康检查页面
 2. 将基于 `tcpSocket` 的健康检查升级为基于 `httpGet`，通过获取健康检查页面的返回结果进行精准判断
-
-### 配置
 
 启用 `/healthz` 健康检查页面的 Kubernetes Deployment 实践配置示例:
 
