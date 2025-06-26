@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/featured-image.jpeg",
                             "width":  1440 ,
                             "height":  720 
-                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1914 ,
+                        }],"genre": "posts","keywords": "Kubernetes","wordcount":  1912 ,
         "url": "https:\/\/blog.heylinux.com\/2024\/07\/kubernetes-container-healthcheck-and-graceful-termination\/","datePublished": "2024-07-03T17:27:44+08:00","dateModified": "2024-07-03T17:27:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -125,7 +125,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes 容器健康检查和优雅终止</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1914 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-03">2024-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1912 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -155,7 +155,7 @@
         <li><a href="#配置-1">配置</a></li>
       </ul>
     </li>
-    <li><a href="#连接优雅中断">连接优雅中断</a></li>
+    <li><a href="#优雅中断">优雅中断</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
@@ -418,7 +418,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">limits</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l">500m</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span></span></span></code></pre></div></div>
-<h2 id="连接优雅中断">连接优雅中断</h2>
+<h2 id="优雅中断">优雅中断</h2>
 <p>容器健康检查可以确保 Pod 处于健康的运行状态，容器优雅终止可以让 Pod 延迟下线。</p>
 <p>通常，用户的请求需要先经过 Ingress 转发，但 Ingress 可能默认不会等待 Pod 的 Terminating 状态完成就提前将 Pod 从后端移除，例如阿里云的容器服务 Kubernetes 版。</p>
 <p>这种情况下，为了避免用户尚未完成的请求被 Ingress 异常中断，还需要在 Ingress 上配置与 <code>lifecycle.preStop</code> 匹配的优雅中断超时时间。</p>
