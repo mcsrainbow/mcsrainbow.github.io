@@ -271,7 +271,7 @@ spec:
 
 容器健康检查可以确保 Pod 处于健康的运行状态，容器优雅终止可以让 Pod 延迟下线。
 
-通常，用户的请求需要先经过 Ingress 转发，但 Ingress 可能默认不会等待 Pod 的 Terminating 状态完成就提前将 Pod 从后端移除，例如阿里云 Kubernetes 容器服务。
+通常，用户的请求需要先经过 Ingress 转发，但 Ingress 可能默认不会等待 Pod 的 Terminating 状态完成，就提前将 Pod 从后端移除了，例如阿里云 Kubernetes 容器服务。
 
 这种情况下，为了避免用户尚未完成的请求被 Ingress 异常中断，还需要在 Ingress 上配置与 `lifecycle.preStop` 匹配的优雅中断超时时间。
 
