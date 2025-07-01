@@ -18,7 +18,7 @@
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
-    <description><![CDATA[<p>Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
+    <description><![CDATA[<p>Kubernetes container health checks and graceful termination enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
 </item>
 <item>
     <title>Lightweight Kubernetes Distributions Practices</title>

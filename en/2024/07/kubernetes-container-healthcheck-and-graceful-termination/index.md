@@ -1,7 +1,7 @@
 # Kubernetes Container Healthcheck and Graceful Termination
 
 
-Implementing container health checks and graceful termination in Kubernetes with application-specific configurations enhances production stability, reduces deployment incidents and false alarms.
+Kubernetes container health checks and graceful termination enhances production stability, reduces deployment incidents and false alarms.
 
 <!--more-->
 
