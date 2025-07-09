@@ -15,7 +15,7 @@
 
 ## draw.io 自定义图标库截图
 
-{{< image src="alibaba-cloud-drawio-library.jpg" alt="alibaba-cloud-drawio-library" width=800 >}}
+{{< image src="alibaba-cloud-drawio-library.png" alt="alibaba-cloud-drawio-library" width=800 >}}
 
 ## draw.io 自定义图标库下载
 

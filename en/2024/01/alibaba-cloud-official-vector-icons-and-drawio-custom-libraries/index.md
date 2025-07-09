@@ -14,7 +14,7 @@ So I collected a complete set of Alibaba Cloud vector icons and generated the dr
 
 ## Screenshot of draw.io Custom library Icons
 
-{{< image src="alibaba-cloud-drawio-library.jpg" alt="alibaba-cloud-drawio-library" width=800 >}}
+{{< image src="alibaba-cloud-drawio-library.png" alt="alibaba-cloud-drawio-library" width=800 >}}
 
 ## Download draw.io Custom Library
 
