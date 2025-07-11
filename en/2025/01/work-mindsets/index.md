@@ -1,4 +1,4 @@
-# My Work Mindsets
+# Work Mindsets
 
 
 Good work mindsets develop professional behaviors.
