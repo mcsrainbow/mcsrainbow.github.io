@@ -1,6 +1,6 @@
 ---
-title: "My Work Mindsets"
-slug: "my-work-mindsets"
+title: "Work Mindsets"
+slug: "work-mindsets"
 date: 2025-01-21T16:25:37+08:00
 author: "Damon"
 description: "Good work mindsets develop professional behaviors."
