@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  2583 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  3316 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,8 +126,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2583 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3316 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -176,13 +176,22 @@
         <li><a href="#清理-k3d">清理 K3D</a></li>
       </ul>
     </li>
+    <li><a href="#microk8s-结合-multipass-实践">MicroK8s 结合 Multipass 实践</a>
+      <ul>
+        <li><a href="#基础环境-4">基础环境</a></li>
+        <li><a href="#安装使用-multipass-1">安装使用 Multipass</a></li>
+        <li><a href="#安装使用-microk8s">安装使用 MicroK8s</a></li>
+        <li><a href="#部署测试-nginx-service-4">部署测试 Nginx Service</a></li>
+        <li><a href="#清理-multipass-和-microk8s">清理 Multipass 和 MicroK8s</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。</p>
 <hr>
 <h2 id="minikube-结合-podman-实践">Minikube 结合 Podman 实践</h2>
-<p>Minikube 是一种轻量级的 Kubernetes 实现，可在本地计算机上创建虚拟机并部署仅包含一个节点的简单集群。<br>
-Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的功能，但不需要守护进程，并且支持更多的安全特性和 rootless 模式运行。</p>
+<p>Minikube 是轻量级的 Kubernetes 实现，可在本地计算机上创建虚拟机并部署仅包含节点的简单集群。<br>
+Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能，但不需要守护进程，并且支持更多的安全特性和 rootless 模式运行。</p>
 <h3 id="基础环境">基础环境</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
@@ -357,10 +366,10 @@ Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span></span></span></code></pre></div></div>
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -485,7 +494,7 @@ Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的�
 </span></span><span class="line"><span class="cl">➜ brew uninstall podman
 </span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/podman/5.4.2... (201 files, 80.3MB)</span></span></code></pre></div></div>
 <h2 id="kind-实践">KinD 实践</h2>
-<p>KinD 是一个工具，用于在 Docker 中运行本地 Kubernetes 集群。</p>
+<p>KinD 是轻量级的工具，用于在 Docker 中运行本地 Kubernetes 集群。</p>
 <h3 id="基础环境-1">基础环境</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
@@ -514,7 +523,7 @@ Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的�
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kind version
 </span></span><span class="line"><span class="cl">kind v0.20.0 go1.21.1 darwin/arm64</span></span></code></pre></div></div>
-<p>创建一个名为 mycluster 的 K8S 集群，并将 hostPort 的30080端口暴露到 localhost 的30080端口。</p>
+<p>创建名为 mycluster 的 K8S 集群，并将 hostPort 的30080端口暴露到 localhost 的30080端口。</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -632,11 +641,11 @@ Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">nodePort</span><span class="p">:</span><span class="w"> </span><span class="m">30080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span></span></span></code></pre></div></div>
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">nodePort</span><span class="p">:</span><span class="w"> </span><span class="m">30080</span></span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -687,8 +696,8 @@ Podman 是一个开源的容器运行时工具，它提供与 Docker 相似的�
 </span></span><span class="line"><span class="cl">➜ kind get clusters
 </span></span><span class="line"><span class="cl">No kind clusters found.</span></span></code></pre></div></div>
 <h2 id="k3s-结合-multipass-实践">K3S 结合 Multipass 实践</h2>
-<p>K3S 是一个轻量级、易于安装的 Kubernetes 发行版。
-Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
+<p>K3S 是轻量级、易于安装的 Kubernetes 发行版。<br>
+Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
 <h3 id="基础环境-2">基础环境</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
@@ -879,10 +888,10 @@ Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span></span></span></code></pre></div></div>
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -973,7 +982,7 @@ Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工�
 </span></span><span class="line"><span class="cl">/usr/local/etc/bash_completion.d/multipass
 </span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.12.2 of Cask multipass</span></span></code></pre></div></div>
 <h2 id="k3d-实践">K3D 实践</h2>
-<p>K3D 是一个轻量级的工具，用于在 Docker 中运行 K3S。</p>
+<p>K3D 是轻量级的工具，用于在 Docker 中运行 K3S。</p>
 <h3 id="基础环境-3">基础环境</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
@@ -1003,7 +1012,7 @@ Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工�
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ k3d version
 </span></span><span class="line"><span class="cl">k3d version v5.6.0
 </span></span><span class="line"><span class="cl">k3s version v1.27.5-k3s1 (default)</span></span></code></pre></div></div>
-<p>创建一个名为 mycluster 的 K8S 集群，并将 Ingress 的80端口暴露到 localhost 的8081端口。</p>
+<p>创建名为 mycluster 的 K8S 集群，并将 Ingress 的80端口暴露到 localhost 的8081端口。</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -1084,10 +1093,10 @@ Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工�
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
@@ -1171,7 +1180,275 @@ Multipass 是一个用于快速创建、管理和操作 Ubuntu 虚拟机的工�
 </span></span><span class="line"><span class="cl">INFO[0000] Successfully deleted cluster mycluster!      
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ k3d cluster list
-</span></span><span class="line"><span class="cl">NAME   SERVERS   AGENTS   LOADBALANCER</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
+</span></span><span class="line"><span class="cl">NAME   SERVERS   AGENTS   LOADBALANCER</span></span></code></pre></div></div>
+<h2 id="microk8s-结合-multipass-实践">MicroK8s 结合 Multipass 实践</h2>
+<p>MicroK8s 是 Ubuntu 公司 Canonical 开发的轻运维、最小化生产级 Kubernetes。<br>
+Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
+<h3 id="基础环境-4">基础环境</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">macOS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l">ARM64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Virtualization</span><span class="p">:</span><span class="w"> </span><span class="l">Multipass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span></span></span></code></pre></div></div>
+<h3 id="安装使用-multipass-1">安装使用 Multipass</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install --cask multipass
+</span></span><span class="line"><span class="cl">==&gt; Downloading https://github.com/canonical/multipass/releases/download/v1.12.2/multipass-1.12.2+mac-Darwin.pkg
+</span></span><span class="line"><span class="cl">==&gt; Installing Cask multipass
+</span></span><span class="line"><span class="cl">installer: Package name is multipass
+</span></span><span class="line"><span class="cl">installer: Installing at base path /
+</span></span><span class="line"><span class="cl">installer: The install was successful.
+</span></span><span class="line"><span class="cl">multipass was successfully installed!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass list
+</span></span><span class="line"><span class="cl">No instances found.</span></span></code></pre></div></div>
+<h3 id="安装使用-microk8s">安装使用 MicroK8s</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install ubuntu/microk8s/microk8s
+</span></span><span class="line"><span class="cl">==&gt; Tapping ubuntu/microk8s
+</span></span><span class="line"><span class="cl">Cloning into &#39;/opt/homebrew/Library/Taps/ubuntu/homebrew-microk8s&#39;...
+</span></span><span class="line"><span class="cl">==&gt; Fetching ubuntu/microk8s/microk8s
+</span></span><span class="line"><span class="cl">==&gt; Installing microk8s from ubuntu/microk8s
+</span></span><span class="line"><span class="cl">Run `microk8s install` to start with MicroK8s</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ microk8s install
+</span></span><span class="line"><span class="cl">Launched: microk8s-vm
+</span></span><span class="line"><span class="cl">microk8s (1.28/stable) v1.28.15 from Canonical✓ installed
+</span></span><span class="line"><span class="cl">microk8s-integrator-macos 0.1 from Canonical✓ installed
+</span></span><span class="line"><span class="cl">MicroK8s is up and running. See the available commands with `microk8s --help`.</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ microk8s status --wait-ready
+</span></span><span class="line"><span class="cl">microk8s is running
+</span></span><span class="line"><span class="cl">high-availability: no
+</span></span><span class="line"><span class="cl">  datastore master nodes: 127.0.0.1:19001
+</span></span><span class="line"><span class="cl">  datastore standby nodes: none
+</span></span><span class="line"><span class="cl">addons:
+</span></span><span class="line"><span class="cl">  enabled:
+</span></span><span class="line"><span class="cl">    dns                  # (core) CoreDNS
+</span></span><span class="line"><span class="cl">    ha-cluster           # (core) Configure high availability on the current node
+</span></span><span class="line"><span class="cl">    helm                 # (core) Helm - the package manager for Kubernetes
+</span></span><span class="line"><span class="cl">    helm3                # (core) Helm 3 - the package manager for Kubernetes
+</span></span><span class="line"><span class="cl">  disabled:
+</span></span><span class="line"><span class="cl">    cert-manager         # (core) Cloud native certificate management
+</span></span><span class="line"><span class="cl">    cis-hardening        # (core) Apply CIS K8s hardening
+</span></span><span class="line"><span class="cl">    community            # (core) The community addons repository
+</span></span><span class="line"><span class="cl">    dashboard            # (core) The Kubernetes dashboard
+</span></span><span class="line"><span class="cl">    host-access          # (core) Allow Pods connecting to Host services smoothly
+</span></span><span class="line"><span class="cl">    hostpath-storage     # (core) Storage class; allocates storage from host directory
+</span></span><span class="line"><span class="cl">    ingress              # (core) Ingress controller for external access
+</span></span><span class="line"><span class="cl">    kube-ovn             # (core) An advanced network fabric for Kubernetes
+</span></span><span class="line"><span class="cl">    mayastor             # (core) OpenEBS MayaStor
+</span></span><span class="line"><span class="cl">    metallb              # (core) Loadbalancer for your Kubernetes cluster
+</span></span><span class="line"><span class="cl">    metrics-server       # (core) K8s Metrics Server for API access to service metrics
+</span></span><span class="line"><span class="cl">    minio                # (core) MinIO object storage
+</span></span><span class="line"><span class="cl">    observability        # (core) A lightweight observability stack for logs, traces and metrics
+</span></span><span class="line"><span class="cl">    prometheus           # (core) Prometheus operator for monitoring and logging
+</span></span><span class="line"><span class="cl">    rbac                 # (core) Role-Based Access Control for authorisation
+</span></span><span class="line"><span class="cl">    registry             # (core) Private image registry exposed on localhost:32000
+</span></span><span class="line"><span class="cl">    rook-ceph            # (core) Distributed Ceph storage using Rook
+</span></span><span class="line"><span class="cl">    storage              # (core) Alias to hostpath-storage add-on, deprecated</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass info microk8s-vm
+</span></span><span class="line"><span class="cl">Name:           microk8s-vm
+</span></span><span class="line"><span class="cl">State:          Running
+</span></span><span class="line"><span class="cl">Snapshots:      0
+</span></span><span class="line"><span class="cl">IPv4:           192.168.64.6
+</span></span><span class="line"><span class="cl">                10.1.254.64
+</span></span><span class="line"><span class="cl">Release:        Ubuntu 22.04.5 LTS
+</span></span><span class="line"><span class="cl">Image hash:     7b86a56f8069 (Ubuntu 22.04 LTS)
+</span></span><span class="line"><span class="cl">CPU(s):         2
+</span></span><span class="line"><span class="cl">Load:           0.73 0.40 0.16
+</span></span><span class="line"><span class="cl">Disk usage:     2.9GiB out of 48.4GiB
+</span></span><span class="line"><span class="cl">Memory usage:   624.6MiB out of 3.8GiB
+</span></span><span class="line"><span class="cl">Mounts:         --</span></span></code></pre></div></div>
+<p>启用 ingress 插件</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ microk8s enable ingress
+</span></span><span class="line"><span class="cl">Infer repository core for addon ingress
+</span></span><span class="line"><span class="cl">Enabling Ingress
+</span></span><span class="line"><span class="cl">ingressclass.networking.k8s.io/public created
+</span></span><span class="line"><span class="cl">ingressclass.networking.k8s.io/nginx created
+</span></span><span class="line"><span class="cl">namespace/ingress created
+</span></span><span class="line"><span class="cl">serviceaccount/nginx-ingress-microk8s-serviceaccount created
+</span></span><span class="line"><span class="cl">clusterrole.rbac.authorization.k8s.io/nginx-ingress-microk8s-clusterrole created
+</span></span><span class="line"><span class="cl">role.rbac.authorization.k8s.io/nginx-ingress-microk8s-role created
+</span></span><span class="line"><span class="cl">clusterrolebinding.rbac.authorization.k8s.io/nginx-ingress-microk8s created
+</span></span><span class="line"><span class="cl">rolebinding.rbac.authorization.k8s.io/nginx-ingress-microk8s created
+</span></span><span class="line"><span class="cl">configmap/nginx-load-balancer-microk8s-conf created
+</span></span><span class="line"><span class="cl">configmap/nginx-ingress-tcp-microk8s-conf created
+</span></span><span class="line"><span class="cl">configmap/nginx-ingress-udp-microk8s-conf created
+</span></span><span class="line"><span class="cl">daemonset.apps/nginx-ingress-microk8s-controller created
+</span></span><span class="line"><span class="cl">Ingress is enabled</span></span></code></pre></div></div>
+<h3 id="部署测试-nginx-service-4">部署测试 Nginx Service</h3>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim nginx-deploy-svc-ingress.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">nginx.ingress.kubernetes.io/rewrite-target</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l">Prefix</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">service</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">port</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ microk8s kubectl apply -f nginx-deploy-svc-ingress.yaml
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
+</span></span><span class="line"><span class="cl">service/nginx-svc created
+</span></span><span class="line"><span class="cl">ingress.networking.k8s.io/nginx-ingress created</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ microk8s kubectl get all
+</span></span><span class="line"><span class="cl">NAME                                READY   STATUS    RESTARTS   AGE
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-7c5ddbdf54-ld8xc   1/1     Running   0          62s
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-7c5ddbdf54-t44vz   1/1     Running   0          62s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP        22m
+</span></span><span class="line"><span class="cl">service/nginx-svc    NodePort    10.152.183.115   &lt;none&gt;        80:30945/TCP   62s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy   2/2     2            2           62s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                                      DESIRED   CURRENT   READY   AGE
+</span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-7c5ddbdf54   2         2         2       62s</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ microk8s kubectl get ingress
+</span></span><span class="line"><span class="cl">NAME            CLASS    HOSTS   ADDRESS     PORTS   AGE
+</span></span><span class="line"><span class="cl">nginx-ingress   public   *       127.0.0.1   80      2m17s</span></span></code></pre></div></div>
+<p>通过 Ingress 访问 Nginx: http://192.168.64.6:80</p>
+<a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg" title="microk8s_nginx_ingress_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg"
+            data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg 2x"
+            data-sizes="auto"
+            alt="microk8s_nginx_ingress_web" width="800" height="580" />
+    </a>
+<h3 id="清理-multipass-和-microk8s">清理 Multipass 和 MicroK8s</h3>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ microk8s stop
+</span></span><span class="line"><span class="cl">Stopped.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew uninstall ubuntu/microk8s/microk8s
+</span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/microk8s/2.3.4... (1,023 files, 9.2MB)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ rm -rf ~/.microk8s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass delete microk8s-vm
+</span></span><span class="line"><span class="cl">➜ multipass purge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass list
+</span></span><span class="line"><span class="cl">No instances found.</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall --cask multipass
+</span></span><span class="line"><span class="cl">==&gt; Uninstalling Cask multipass
+</span></span><span class="line"><span class="cl">==&gt; Removing launchctl service com.canonical.multipassd
+</span></span><span class="line"><span class="cl">com.canonical.multipass.multipassd
+</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass
+</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass_gui
+</span></span><span class="line"><span class="cl">==&gt; Removing files:
+</span></span><span class="line"><span class="cl">/opt/homebrew/etc/bash_completion.d/multipass
+</span></span><span class="line"><span class="cl">/Applications/Multipass.app
+</span></span><span class="line"><span class="cl">/Library/Application Support/com.canonical.multipass
+</span></span><span class="line"><span class="cl">/Library/Logs/Multipass
+</span></span><span class="line"><span class="cl">/usr/local/bin/multipass
+</span></span><span class="line"><span class="cl">/usr/local/etc/bash_completion.d/multipass
+</span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.16.0 of Cask multipass</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
