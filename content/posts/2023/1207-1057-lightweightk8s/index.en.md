@@ -178,10 +178,10 @@ metadata:
 spec:
   selector:
     app: nginx
+  type: NodePort
   ports:
     - name: http
       port: 80
-  type: NodePort
 ```
 
 ```plain
@@ -413,11 +413,11 @@ metadata:
 spec:
   selector:
     app: nginx
+  type: NodePort
   ports:
     - name: http
       port: 80
       nodePort: 30080
-  type: NodePort
 ```
 
 ```plain
@@ -461,7 +461,7 @@ No kind clusters found.
 ## Using K3S with Multipass
 
 K3S is a lightweight, easy-to-install distribution of Kubernetes.  
-Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual machines.
+Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual machines, by Canonical, the company behind Ubuntu.
 
 ### Basic
 
@@ -635,10 +635,10 @@ metadata:
 spec:
   selector:
     app: nginx
+  type: NodePort
   ports:
     - name: http
       port: 80
-  type: NodePort
 ```
 
 ```plain
@@ -816,10 +816,10 @@ metadata:
 spec:
   selector:
     app: nginx
+  type: NodePort
   ports:
     - name: http
       port: 80
-  type: NodePort
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -891,4 +891,248 @@ INFO[0000] Successfully deleted cluster mycluster!
 
 ➜ k3d cluster list
 NAME   SERVERS   AGENTS   LOADBALANCER
+```
+
+## Using MicroK8s with Multipass
+
+MicroK8s is a low-ops, minimal production Kubernetes by Canonical, the company behind Ubuntu.  
+Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual machines, by Canonical, the company behind Ubuntu.
+
+### Basic
+
+```yaml
+OS: macOS
+Architecture: ARM64
+Virtualization: Multipass
+
+Installer: Homebrew
+```
+
+### Setup Multipass
+
+```plain
+➜ brew install --cask multipass
+==> Downloading https://github.com/canonical/multipass/releases/download/v1.12.2/multipass-1.12.2+mac-Darwin.pkg
+==> Installing Cask multipass
+installer: Package name is multipass
+installer: Installing at base path /
+installer: The install was successful.
+multipass was successfully installed!
+
+➜ multipass list
+No instances found.
+```
+
+### Setup MicroK8s
+
+```plain
+➜ brew install ubuntu/microk8s/microk8s
+==> Tapping ubuntu/microk8s
+Cloning into '/opt/homebrew/Library/Taps/ubuntu/homebrew-microk8s'...
+==> Fetching ubuntu/microk8s/microk8s
+==> Installing microk8s from ubuntu/microk8s
+Run `microk8s install` to start with MicroK8s
+```
+
+```plain
+➜ microk8s install
+Launched: microk8s-vm
+microk8s (1.28/stable) v1.28.15 from Canonical✓ installed
+microk8s-integrator-macos 0.1 from Canonical✓ installed
+MicroK8s is up and running. See the available commands with `microk8s --help`.
+```
+
+```plain
+➜ microk8s status --wait-ready
+microk8s is running
+high-availability: no
+  datastore master nodes: 127.0.0.1:19001
+  datastore standby nodes: none
+addons:
+  enabled:
+    dns                  # (core) CoreDNS
+    ha-cluster           # (core) Configure high availability on the current node
+    helm                 # (core) Helm - the package manager for Kubernetes
+    helm3                # (core) Helm 3 - the package manager for Kubernetes
+  disabled:
+    cert-manager         # (core) Cloud native certificate management
+    cis-hardening        # (core) Apply CIS K8s hardening
+    community            # (core) The community addons repository
+    dashboard            # (core) The Kubernetes dashboard
+    host-access          # (core) Allow Pods connecting to Host services smoothly
+    hostpath-storage     # (core) Storage class; allocates storage from host directory
+    ingress              # (core) Ingress controller for external access
+    kube-ovn             # (core) An advanced network fabric for Kubernetes
+    mayastor             # (core) OpenEBS MayaStor
+    metallb              # (core) Loadbalancer for your Kubernetes cluster
+    metrics-server       # (core) K8s Metrics Server for API access to service metrics
+    minio                # (core) MinIO object storage
+    observability        # (core) A lightweight observability stack for logs, traces and metrics
+    prometheus           # (core) Prometheus operator for monitoring and logging
+    rbac                 # (core) Role-Based Access Control for authorisation
+    registry             # (core) Private image registry exposed on localhost:32000
+    rook-ceph            # (core) Distributed Ceph storage using Rook
+    storage              # (core) Alias to hostpath-storage add-on, deprecated
+```
+
+```plain
+➜ multipass info microk8s-vm
+Name:           microk8s-vm
+State:          Running
+Snapshots:      0
+IPv4:           192.168.64.6
+                10.1.254.64
+Release:        Ubuntu 22.04.5 LTS
+Image hash:     7b86a56f8069 (Ubuntu 22.04 LTS)
+CPU(s):         2
+Load:           0.73 0.40 0.16
+Disk usage:     2.9GiB out of 48.4GiB
+Memory usage:   624.6MiB out of 3.8GiB
+Mounts:         --
+```
+
+Enable addon ingress
+
+```plain
+➜ microk8s enable ingress
+Infer repository core for addon ingress
+Enabling Ingress
+ingressclass.networking.k8s.io/public created
+ingressclass.networking.k8s.io/nginx created
+namespace/ingress created
+serviceaccount/nginx-ingress-microk8s-serviceaccount created
+clusterrole.rbac.authorization.k8s.io/nginx-ingress-microk8s-clusterrole created
+role.rbac.authorization.k8s.io/nginx-ingress-microk8s-role created
+clusterrolebinding.rbac.authorization.k8s.io/nginx-ingress-microk8s created
+rolebinding.rbac.authorization.k8s.io/nginx-ingress-microk8s created
+configmap/nginx-load-balancer-microk8s-conf created
+configmap/nginx-ingress-tcp-microk8s-conf created
+configmap/nginx-ingress-udp-microk8s-conf created
+daemonset.apps/nginx-ingress-microk8s-controller created
+Ingress is enabled
+```
+
+### Deploy Nginx Service
+
+```yaml
+➜ vim nginx-deploy-svc-ingress.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+spec:
+  selector:
+    app: nginx
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-svc
+                port:
+                  number: 80
+```
+
+```plain
+➜ microk8s kubectl apply -f nginx-deploy-svc-ingress.yaml
+deployment.apps/nginx-deploy created
+service/nginx-svc created
+ingress.networking.k8s.io/nginx-ingress created
+```
+
+```plain
+➜ microk8s kubectl get all
+NAME                                READY   STATUS    RESTARTS   AGE
+pod/nginx-deploy-7c5ddbdf54-ld8xc   1/1     Running   0          62s
+pod/nginx-deploy-7c5ddbdf54-t44vz   1/1     Running   0          62s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes   ClusterIP   10.152.183.1     <none>        443/TCP        22m
+service/nginx-svc    NodePort    10.152.183.115   <none>        80:30945/TCP   62s
+
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-deploy   2/2     2            2           62s
+
+NAME                                      DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-deploy-7c5ddbdf54   2         2         2       62s
+```
+
+```plain
+➜ microk8s kubectl get ingress
+NAME            CLASS    HOSTS   ADDRESS     PORTS   AGE
+nginx-ingress   public   *       127.0.0.1   80      2m17s
+```
+
+Access Nginx via Ingress: http://192.168.64.6:80
+
+{{< image src="microk8s_nginx_ingress_web.jpg" alt="microk8s_nginx_ingress_web" width=800 >}}
+
+### Cleanup Multipass and MicroK8s
+
+```plain
+➜ microk8s stop
+Stopped.
+
+➜ brew uninstall ubuntu/microk8s/microk8s
+Uninstalling /opt/homebrew/Cellar/microk8s/2.3.4... (1,023 files, 9.2MB)
+
+➜ rm -rf ~/.microk8s
+
+➜ multipass delete microk8s-vm
+➜ multipass purge
+
+➜ multipass list
+No instances found.
+```
+
+```plain
+➜ brew uninstall --cask multipass
+==> Uninstalling Cask multipass
+==> Removing launchctl service com.canonical.multipassd
+com.canonical.multipass.multipassd
+com.canonical.multipass.multipass
+com.canonical.multipass.multipass_gui
+==> Removing files:
+/opt/homebrew/etc/bash_completion.d/multipass
+/Applications/Multipass.app
+/Library/Application Support/com.canonical.multipass
+/Library/Logs/Multipass
+/usr/local/bin/multipass
+/usr/local/etc/bash_completion.d/multipass
+==> Purging files for version 1.16.0 of Cask multipass
 ```
