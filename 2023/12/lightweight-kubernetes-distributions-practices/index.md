@@ -444,6 +444,9 @@ Deleted nodes: ["mycluster-control-plane"]
 ➜ kind get clusters
 No kind clusters found.
 
+➜ kubectl config delete-context kind-mycluster
+deleted context kind-mycluster from /Users/damonguo/.kube/config
+
 ➜ brew uninstall kind
 ```
 
@@ -1594,6 +1597,9 @@ KUBERNETES ENDPOINT
 NODES:
 
 NAME   TYPE   IP   CPU   RAM   DISK
+
+➜ kubectl config delete-context admin@talos-default
+deleted context admin@talos-default from /Users/damonguo/.kube/config
 ```
 
 ```plain

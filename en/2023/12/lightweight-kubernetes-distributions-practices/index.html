@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4593 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4613 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,7 +126,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Lightweight Kubernetes Distributions Practices</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4593 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4613 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;22 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -700,7 +700,7 @@ Podman is an open-source container runtime tool offering functionality similar t
             alt="kind_nginx_svc_web" width="600" height="614" />
     </a>
 <h3 id="cleanup-kind">Cleanup KinD</h3>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -711,6 +711,9 @@ Podman is an open-source container runtime tool offering functionality similar t
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ kind get clusters
 </span></span><span class="line"><span class="cl">No kind clusters found.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl config delete-context kind-mycluster
+</span></span><span class="line"><span class="cl">deleted context kind-mycluster from /Users/damonguo/.kube/config
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ brew uninstall kind</span></span></code></pre></div></div>
 <h2 id="using-k3s-with-multipass">Using K3S with Multipass</h2>
@@ -751,7 +754,7 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass launch --name k3s-server --cpus 1 --memory 1G --disk 10G
 </span></span><span class="line"><span class="cl">Launched: k3s-server</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -768,7 +771,7 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 </span></span><span class="line"><span class="cl">Memory usage:   140.0MiB out of 962.3MiB
 </span></span><span class="line"><span class="cl">Mounts:         --</span></span></code></pre></div></div>
 <h3 id="setup-k3s">Setup K3S</h3>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -832,7 +835,7 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 </span></span><span class="line"><span class="cl">                                          10.42.0.0
 </span></span><span class="line"><span class="cl">                                          10.42.0.1
 </span></span><span class="line"><span class="cl">k3s-agent               Running           192.168.64.3     Ubuntu 22.04 LTS</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -1978,7 +1981,10 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NODES:
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">NAME   TYPE   IP   CPU   RAM   DISK</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">NAME   TYPE   IP   CPU   RAM   DISK
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl config delete-context admin@talos-default
+</span></span><span class="line"><span class="cl">deleted context admin@talos-default from /Users/damonguo/.kube/config</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>

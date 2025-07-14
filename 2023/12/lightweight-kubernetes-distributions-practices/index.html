@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4924 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4944 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,7 +126,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4924 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4944 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -700,7 +700,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
             alt="kind_nginx_svc_web" width="600" height="614" />
     </a>
 <h3 id="清理-kind">清理 KinD</h3>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -711,6 +711,9 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ kind get clusters
 </span></span><span class="line"><span class="cl">No kind clusters found.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl config delete-context kind-mycluster
+</span></span><span class="line"><span class="cl">deleted context kind-mycluster from /Users/damonguo/.kube/config
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ brew uninstall kind</span></span></code></pre></div></div>
 <h2 id="k3s-结合-multipass-实践">K3S 结合 Multipass 实践</h2>
@@ -1872,7 +1875,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">talos-default-controlplane-1   Ready    control-plane   108s   v1.33.2   10.5.0.2      &lt;none&gt;        Talos (v1.10.5)   6.14.10-orbstack-00291-g1b252bd3edea   containerd://2.0.5
 </span></span><span class="line"><span class="cl">talos-default-worker-1         Ready    &lt;none&gt;          102s   v1.33.2   10.5.0.3      &lt;none&gt;        Talos (v1.10.5)   6.14.10-orbstack-00291-g1b252bd3edea   containerd://2.0.5</span></span></code></pre></div></div>
 <h3 id="部署测试-nginx-service-6">部署测试 Nginx Service</h3>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -1919,7 +1922,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">Warning: would violate PodSecurity &#34;restricted:latest&#34;: allowPrivilegeEscalation != false (container &#34;nginx&#34; must set securityContext.allowPrivilegeEscalation=false), unrestricted capabilities (container &#34;nginx&#34; must set securityContext.capabilities.drop=[&#34;ALL&#34;]), runAsNonRoot != true (pod or container &#34;nginx&#34; must set securityContext.runAsNonRoot=true), seccompProfile (pod or container &#34;nginx&#34; must set securityContext.seccompProfile.type to &#34;RuntimeDefault&#34; or &#34;Localhost&#34;)
 </span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
 </span></span><span class="line"><span class="cl">service/nginx-svc created</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -1957,7 +1960,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
             alt="talos_nginx_svc_web" width="600" height="542" />
     </a>
 <h3 id="清理-talos">清理 Talos</h3>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -1978,7 +1981,10 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NODES:
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">NAME   TYPE   IP   CPU   RAM   DISK</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">NAME   TYPE   IP   CPU   RAM   DISK
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl config delete-context admin@talos-default
+</span></span><span class="line"><span class="cl">deleted context admin@talos-default from /Users/damonguo/.kube/config</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
