@@ -270,7 +270,7 @@ Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
 
 ## KinD 实践
 
-KinD 是轻量级的工具，用于在 Docker 中运行本地 Kubernetes 集群。
+KinD (Kubernetes in Docker) 是轻量级的工具，用于在 Docker 中运行本地 Kubernetes 集群。
 
 ### 基础环境
 

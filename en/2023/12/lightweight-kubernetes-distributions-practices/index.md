@@ -270,7 +270,7 @@ Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
 
 ## Using KinD
 
-KinD is a tool for running local Kubernetes clusters in Docker.
+KinD (Kubernetes in Docker) is a tool for running local Kubernetes clusters in Docker.
 
 ### Basic
 
