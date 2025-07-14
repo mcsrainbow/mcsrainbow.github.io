@@ -215,7 +215,7 @@ Because you are using a Docker driver on darwin, the terminal needs to be open t
 
 通过 Tunnel 访问 Nginx: http://127.0.0.1:51726
 
-{{< image src="minikube_nginx_svc_web.jpg" alt="minikube_nginx_svc_web" width=800 >}}
+{{< image src="minikube_nginx_svc_web.jpg" alt="minikube_nginx_svc_web" width=600 >}}
 
 ### 清理 Minikube 和 Podman
 
@@ -277,10 +277,8 @@ Successfully deleted all profiles
 Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
 
 ➜ brew uninstall minikube
-Uninstalling /opt/homebrew/Cellar/minikube/1.32.0... (9 files, 87.5MB)
 
 ➜ brew uninstall podman
-Uninstalling /opt/homebrew/Cellar/podman/5.4.2... (201 files, 80.3MB)
 ```
 
 ## KinD 实践
@@ -445,9 +443,9 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s
 ```
 
-通过 NodePort 访问 Nginx: http://localhost:30080
+通过 NodePort 本地端口映射访问 Nginx: http://localhost:30080
 
-{{< image src="kind_nginx_svc_web.jpg" alt="kind_nginx_svc_web" width=800 >}}
+{{< image src="kind_nginx_svc_web.jpg" alt="kind_nginx_svc_web" width=600 >}}
 
 ### 清理 KinD
 
@@ -458,6 +456,8 @@ Deleted nodes: ["mycluster-control-plane"]
 
 ➜ kind get clusters
 No kind clusters found.
+
+➜ brew uninstall kind
 ```
 
 ## K3S 结合 Multipass 实践
@@ -682,7 +682,7 @@ k3s-agent               Running           192.168.64.3     Ubuntu 22.04 LTS
 
 通过 NodePort 访问 Nginx: http://192.168.64.2:32711
 
-{{< image src="k3s_nginx_svc_web.jpg" alt="k3s_nginx_svc_web" width=800 >}}
+{{< image src="k3s_nginx_svc_web.jpg" alt="k3s_nginx_svc_web" width=600 >}}
 
 ### 清理 Multipass 和 K3S
 
@@ -698,24 +698,8 @@ k3s-agent               Deleted           --               Not Available
 
 ➜ multipass list
 No instances found.
-```
 
-```plain
 ➜ brew uninstall --cask multipass
-==> Uninstalling Cask multipass
-==> Removing launchctl service com.canonical.multipassd
-==> Uninstalling packages:
-com.canonical.multipass.multipassd
-com.canonical.multipass.multipass
-com.canonical.multipass.multipass_gui
-==> Removing files:
-/opt/homebrew/etc/bash_completion.d/multipass
-/Applications/Multipass.app
-/Library/Application Support/com.canonical.multipass
-/Library/Logs/Multipass
-/usr/local/bin/multipass
-/usr/local/etc/bash_completion.d/multipass
-==> Purging files for version 1.12.2 of Cask multipass
 ```
 
 ## K3D 实践
@@ -876,7 +860,7 @@ nginx-ingress   <none>   *       192.168.167.2,192.168.167.3   80      2m56s
 
 通过 Ingress 访问 Nginx: http://localhost:8081
 
-{{< image src="k3d_nginx_ingress_web.jpg" alt="k3d_nginx_ingress_web" width=800 >}}
+{{< image src="k3d_nginx_ingress_web.jpg" alt="k3d_nginx_ingress_web" width=600 >}}
 
 ### 清理 K3D
 
@@ -1104,7 +1088,7 @@ nginx-ingress   public   *       127.0.0.1   80      2m17s
 
 通过 Ingress 访问 Nginx: http://192.168.64.6:80
 
-{{< image src="microk8s_nginx_ingress_web.jpg" alt="microk8s_nginx_ingress_web" width=800 >}}
+{{< image src="microk8s_nginx_ingress_web.jpg" alt="microk8s_nginx_ingress_web" width=600 >}}
 
 ### 清理 Multipass 和 MicroK8s
 
@@ -1113,11 +1097,8 @@ nginx-ingress   public   *       127.0.0.1   80      2m17s
 Stopped.
 
 ➜ brew uninstall ubuntu/microk8s/microk8s
-Uninstalling /opt/homebrew/Cellar/microk8s/2.3.4... (1,023 files, 9.2MB)
 
 ➜ brew untap ubuntu/microk8s
-Untapping ubuntu/microk8s...
-Untapped 1 formula (16 files, 60.8KB).
 
 ➜ rm -rf ~/.microk8s
 
@@ -1126,23 +1107,8 @@ Untapped 1 formula (16 files, 60.8KB).
 
 ➜ multipass list
 No instances found.
-```
 
-```plain
 ➜ brew uninstall --cask multipass
-==> Uninstalling Cask multipass
-==> Removing launchctl service com.canonical.multipassd
-com.canonical.multipass.multipassd
-com.canonical.multipass.multipass
-com.canonical.multipass.multipass_gui
-==> Removing files:
-/opt/homebrew/etc/bash_completion.d/multipass
-/Applications/Multipass.app
-/Library/Application Support/com.canonical.multipass
-/Library/Logs/Multipass
-/usr/local/bin/multipass
-/usr/local/etc/bash_completion.d/multipass
-==> Purging files for version 1.16.0 of Cask multipass
 ```
 
 ## K0S 结合 Multipass 实践
@@ -1426,7 +1392,7 @@ replicaset.apps/nginx-deploy-86c57bc6b8   2         2         2       22s
 
 通过 NodePort 访问 Nginx: http://192.168.64.8:32110
 
-{{< image src="k0s_nginx_svc_web.jpg" alt="k3s_nginx_svc_web" width=800 >}}
+{{< image src="k0s_nginx_svc_web.jpg" alt="k0s_nginx_svc_web" width=600 >}}
 
 ### 清理 Multipass 和 K0S
 
@@ -1466,9 +1432,185 @@ No instances found.
 
 ```plain
 ➜ brew uninstall k0sctl
-Uninstalling /opt/homebrew/Cellar/k0sctl/0.25.1... (9 files, 18.6MB)
 
 ➜ brew untap k0sproject/tap
-Untapping k0sproject/tap...
-Untapped 2 formulae (17 files, 98KB).
+```
+
+## Talos 实践
+
+Talos 是为 Kubernetes 环境设计的安全、最小化且只读的容器化 Linux 操作系统。
+
+### 基础环境
+
+```yaml
+OS: macOS
+Architecture: ARM64
+Driver: Docker
+
+Installer: Homebrew
+```
+
+### 安装使用 Talos
+
+```plain
+➜ brew install siderolabs/tap/talosctl
+==> Tapping siderolabs/tap
+Cloning into '/opt/homebrew/Library/Taps/siderolabs/homebrew-tap'...
+
+==> Fetching siderolabs/tap/talosctl
+==> Downloading https://github.com/siderolabs/talos/releases/download/v1.10.5/talosctl-darwin-arm64
+
+==> Installing talosctl from siderolabs/tap
+/opt/homebrew/Cellar/talosctl/1.10.5: 7 files, 85.6MB, built in 4 seconds
+```
+
+```plain
+➜ talosctl cluster create
+validating CIDR and reserving IPs
+generating PKI and tokens
+creating state directory in "/Users/damonguo/.talos/clusters/talos-default"
+downloading ghcr.io/siderolabs/talos:v1.10.5
+creating network talos-default
+creating controlplane nodes
+creating worker nodes
+waiting for API
+bootstrapping cluster
+waiting for etcd to be healthy: OK
+waiting for etcd members to be consistent across nodes: OK
+waiting for etcd members to be control plane nodes: OK
+waiting for apid to be ready: OK
+waiting for all nodes memory sizes: OK
+waiting for all nodes disk sizes: OK
+waiting for no diagnostics: OK
+waiting for kubelet to be healthy: OK
+waiting for all nodes to finish boot sequence: OK
+waiting for all k8s nodes to report: OK
+waiting for all control plane static pods to be running: OK
+waiting for all control plane components to be ready: OK
+waiting for all k8s nodes to report ready: OK
+waiting for kube-proxy to report ready: OK
+waiting for coredns to report ready: OK
+waiting for all k8s nodes to report schedulable: OK
+
+merging kubeconfig into "/Users/damonguo/.kube/config"
+PROVISIONER           docker
+NAME                  talos-default
+NETWORK NAME          talos-default
+NETWORK CIDR          10.5.0.0/24
+NETWORK GATEWAY       10.5.0.1
+NETWORK MTU           1500
+KUBERNETES ENDPOINT   https://127.0.0.1:60132
+
+NODES:
+
+NAME                            TYPE           IP         CPU    RAM      DISK
+/talos-default-controlplane-1   controlplane   10.5.0.2   2.00   2.1 GB   -
+/talos-default-worker-1         worker         10.5.0.3   2.00   2.1 GB   -
+```
+
+```plain
+➜ kubectl get nodes -o wide
+NAME                           STATUS   ROLES           AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE          KERNEL-VERSION                         CONTAINER-RUNTIME
+talos-default-controlplane-1   Ready    control-plane   108s   v1.33.2   10.5.0.2      <none>        Talos (v1.10.5)   6.14.10-orbstack-00291-g1b252bd3edea   containerd://2.0.5
+talos-default-worker-1         Ready    <none>          102s   v1.33.2   10.5.0.3      <none>        Talos (v1.10.5)   6.14.10-orbstack-00291-g1b252bd3edea   containerd://2.0.5
+```
+
+### 部署测试 Nginx Service
+
+```yaml
+➜ vim nginx-deploy-svc.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+spec:
+  selector:
+    app: nginx
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+```
+
+```plain
+➜ kubectl apply -f nginx-deploy-svc.yaml
+Warning: would violate PodSecurity "restricted:latest": allowPrivilegeEscalation != false (container "nginx" must set securityContext.allowPrivilegeEscalation=false), unrestricted capabilities (container "nginx" must set securityContext.capabilities.drop=["ALL"]), runAsNonRoot != true (pod or container "nginx" must set securityContext.runAsNonRoot=true), seccompProfile (pod or container "nginx" must set securityContext.seccompProfile.type to "RuntimeDefault" or "Localhost")
+deployment.apps/nginx-deploy created
+service/nginx-svc created
+```
+
+```plain
+➜ kubectl get all
+NAME                                READY   STATUS    RESTARTS   AGE
+pod/nginx-deploy-86c57bc6b8-dk5fh   1/1     Running   0          33s
+pod/nginx-deploy-86c57bc6b8-hb44f   1/1     Running   0          33s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP        8m7s
+service/nginx-svc    NodePort    10.109.129.119   <none>        80:32659/TCP   33s
+
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-deploy   2/2     2            2           33s
+
+NAME                                      DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-deploy-86c57bc6b8   2         2         2       33s
+```
+
+```plain
+➜ kubectl port-forward svc/nginx-svc 30081:80
+Forwarding from 127.0.0.1:30081 -> 80
+Forwarding from [::1]:30081 -> 80
+```
+
+通过 NodePort 本地端口映射访问 Nginx: http://127.0.0.1:30081
+
+{{< image src="talos_nginx_svc_web.jpg" alt="talos_nginx_svc_web" width=600 >}}
+
+### 清理 Talos
+
+```plain
+➜ talosctl cluster destroy
+destroying node talos-default-controlplane-1
+destroying node talos-default-worker-1
+destroying network talos-default
+
+➜ talosctl cluster show
+PROVISIONER           docker
+NAME                  talos-default
+NETWORK NAME
+NETWORK CIDR
+NETWORK GATEWAY
+NETWORK MTU           0
+KUBERNETES ENDPOINT
+
+NODES:
+
+NAME   TYPE   IP   CPU   RAM   DISK
+```
+
+```plain
+➜ brew uninstall talosctl
+
+➜ brew untap siderolabs/tap
 ```
