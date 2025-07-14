@@ -200,6 +200,8 @@ http://127.0.0.1:51726
 Because you are using a Docker driver on darwin, the terminal needs to be open to run it.
 ```
 
+通过 Tunnel 访问 Nginx: http://127.0.0.1:51726
+
 {{< image src="minikube_nginx_svc_web.jpg" alt="minikube_nginx_svc_web" width=800 >}}
 
 ### 清理 Minikube 和 Podman
@@ -430,7 +432,7 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s
 ```
 
-访问 Nginx: http://localhost:30080
+通过 NodePort 访问 Nginx: http://localhost:30080
 
 {{< image src="kind_nginx_svc_web.jpg" alt="kind_nginx_svc_web" width=800 >}}
 
@@ -477,13 +479,13 @@ multipass was successfully installed!
 ```
 
 ```plain
-➜ multipass launch --name k3s --cpus 1 --memory 1G --disk 10G
-Launched: k3s
+➜ multipass launch --name k3s-server --cpus 1 --memory 1G --disk 10G
+Launched: k3s-server
 ```
 
 ```plain
-➜ multipass info k3s
-Name:           k3s
+➜ multipass info k3s-server
+Name:           k3s-server
 State:          Running
 IPv4:           192.168.64.2
 Release:        Ubuntu 22.04.3 LTS
@@ -498,9 +500,9 @@ Mounts:         --
 ### 安装使用 K3S
 
 ```plain
-➜ multipass shell k3s
+➜ multipass shell k3s-server
 Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-89-generic aarch64)
-ubuntu@k3s:~$ curl -sfL https://get.k3s.io | sh -
+ubuntu@k3s-server:~$ curl -sfL https://get.k3s.io | sh -
 [INFO]  Finding release for channel stable
 [INFO]  Using v1.27.7+k3s2 as release
 [INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.7+k3s2/sha256sum-arm64.txt
@@ -519,11 +521,11 @@ ubuntu@k3s:~$ curl -sfL https://get.k3s.io | sh -
 Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.
 [INFO]  systemd: Starting k3s
 
-ubuntu@k3s:~$ sudo k3s kubectl get nodes
-NAME   STATUS   ROLES                  AGE   VERSION
-k3s    Ready    control-plane,master   19s   v1.27.7+k3s2
+ubuntu@k3s-server:~$ sudo k3s kubectl get nodes
+NAME          STATUS   ROLES                  AGE   VERSION
+k3s-server    Ready    control-plane,master   19s   v1.27.7+k3s2
 
-ubuntu@k3s:~$ sudo ss -lntpu | grep k3s-server
+ubuntu@k3s-server:~$ sudo ss -lntpu | grep k3s-server
 tcp   LISTEN 0      4096                          127.0.0.1:10248      0.0.0.0:*    users:(("k3s-server",pid=2786,fd=172))   
 tcp   LISTEN 0      4096                          127.0.0.1:10249      0.0.0.0:*    users:(("k3s-server",pid=2786,fd=208))   
 tcp   LISTEN 0      4096                          127.0.0.1:6444       0.0.0.0:*    users:(("k3s-server",pid=2786,fd=15))    
@@ -534,31 +536,31 @@ tcp   LISTEN 0      4096                          127.0.0.1:10259      0.0.0.0:*
 tcp   LISTEN 0      4096                                  *:10250            *:*    users:(("k3s-server",pid=2786,fd=168))   
 tcp   LISTEN 0      4096                                  *:6443             *:*    users:(("k3s-server",pid=2786,fd=13)) 
 
-ubuntu@k3s:~$ sudo cat /var/lib/rancher/k3s/server/node-token
+ubuntu@k3s-server:~$ sudo cat /var/lib/rancher/k3s/server/node-token
 K10fa8d62310e361852c7607ba12b9667cd05f52122df80ca928448200295bb0969::server:c421b343a4f042a2a3511156664a76b1
 
-ubuntu@k3s:~$ exit
+ubuntu@k3s-server:~$ exit
 logout
 ```
 
 ```plain
-➜ multipass launch --name k3s-worker --cpus 1 --memory 1G --disk 10G
-Launched: k3s-worker
+➜ multipass launch --name k3s-agent --cpus 1 --memory 1G --disk 10G
+Launched: k3s-agent
 ```
 
 ```plain
 ➜ multipass list
 Name                    State             IPv4             Image
-k3s                     Running           192.168.64.2     Ubuntu 22.04 LTS
+k3s-server              Running           192.168.64.2     Ubuntu 22.04 LTS
                                           10.42.0.0
                                           10.42.0.1
-k3s-worker              Running           192.168.64.3     Ubuntu 22.04 LTS
+k3s-agent               Running           192.168.64.3     Ubuntu 22.04 LTS
 ```
 
 ```plain
-➜ multipass shell k3s-worker
+➜ multipass shell k3s-agent
 Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-89-generic aarch64)
-ubuntu@k3s-worker:~$ curl -sfL https://get.k3s.io | K3S_URL=https://192.168.64.2:6443 K3S_TOKEN="K10fa8d62310e361852c7607ba12b9667cd05f52122df80ca928448200295bb0969::server:c421b343a4f042a2a3511156664a76b1" sh -
+ubuntu@k3s-agent:~$ curl -sfL https://get.k3s.io | K3S_URL=https://192.168.64.2:6443 K3S_TOKEN="K10fa8d62310e361852c7607ba12b9667cd05f52122df80ca928448200295bb0969::server:c421b343a4f042a2a3511156664a76b1" sh -
 [INFO]  Finding release for channel stable
 [INFO]  Using v1.27.7+k3s2 as release
 [INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.7+k3s2/sha256sum-arm64.txt
@@ -577,23 +579,23 @@ ubuntu@k3s-worker:~$ curl -sfL https://get.k3s.io | K3S_URL=https://192.168.64.2
 Created symlink /etc/systemd/system/multi-user.target.wants/k3s-agent.service → /etc/systemd/system/k3s-agent.service.
 [INFO]  systemd: Starting k3s-agent
 
-ubuntu@k3s-worker:~$ exit
+ubuntu@k3s-agent:~$ exit
 logout
 ```
 
 ### 部署测试 Nginx Service
 
 ```plain
-➜ multipass shell k3s
+➜ multipass shell k3s-server
 Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-89-generic aarch64)
-ubuntu@k3s:~$ sudo k3s kubectl get nodes
+ubuntu@k3s-server:~$ sudo k3s kubectl get nodes
 NAME         STATUS   ROLES                  AGE     VERSION
-k3s          Ready    control-plane,master   9m26s   v1.27.7+k3s2
-k3s-worker   Ready    <none>                 71s     v1.27.7+k3s2
+k3s-server   Ready    control-plane,master   9m26s   v1.27.7+k3s2
+k3s-agent    Ready    <none>                 71s     v1.27.7+k3s2
 ```
 
 ```yaml
-ubuntu@k3s:~$ vim nginx-deploy-svc.yaml 
+ubuntu@k3s-server:~$ vim nginx-deploy-svc.yaml 
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -629,13 +631,13 @@ spec:
 ```
 
 ```plain
-ubuntu@k3s:~$ sudo k3s kubectl apply -f nginx-deploy-svc.yaml 
+ubuntu@k3s-server:~$ sudo k3s kubectl apply -f nginx-deploy-svc.yaml 
 deployment.apps/nginx-deploy created
 service/nginx-svc created
 ```
 
 ```plain
-ubuntu@k3s:~$ sudo k3s kubectl get all
+ubuntu@k3s-server:~$ sudo k3s kubectl get all
 NAME                               READY   STATUS    RESTARTS   AGE
 pod/nginx-deploy-55f598f8d-pzr6n   1/1     Running   0          20m
 pod/nginx-deploy-55f598f8d-z55ng   1/1     Running   0          20m
@@ -650,32 +652,34 @@ deployment.apps/nginx-deploy   2/2     2            2           20m
 NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-deploy-55f598f8d   2         2         2       20m
 
-ubuntu@k3s:~$ exit
+ubuntu@k3s-server:~$ exit
 logout 
 ```
 
 ```plain
 ➜ multipass list
 Name                    State             IPv4             Image
-k3s                     Running           192.168.64.2     Ubuntu 22.04 LTS
+k3s-server              Running           192.168.64.2     Ubuntu 22.04 LTS
                                           10.42.0.0
                                           10.42.0.1
-k3s-worker              Running           192.168.64.3     Ubuntu 22.04 LTS
+k3s-agent               Running           192.168.64.3     Ubuntu 22.04 LTS
                                           10.42.1.0
                                           10.42.1.1
 ```
+
+通过 NodePort 访问 Nginx: http://192.168.64.2:32711
 
 {{< image src="k3s_nginx_svc_web.jpg" alt="k3s_nginx_svc_web" width=800 >}}
 
 ### 清理 Multipass 和 K3S
 
 ```plain
-➜ multipass delete k3s k3s-worker
+➜ multipass delete k3s-server k3s-agent
 
 ➜ multipass list
 Name                    State             IPv4             Image
-k3s                     Deleted           --               Not Available
-k3s-worker              Deleted           --               Not Available
+k3s-server              Deleted           --               Not Available
+k3s-agent               Deleted           --               Not Available
 
 ➜ multipass purge
 
@@ -1098,6 +1102,10 @@ Stopped.
 ➜ brew uninstall ubuntu/microk8s/microk8s
 Uninstalling /opt/homebrew/Cellar/microk8s/2.3.4... (1,023 files, 9.2MB)
 
+➜ brew untap ubuntu/microk8s
+Untapping ubuntu/microk8s...
+Untapped 1 formula (16 files, 60.8KB).
+
 ➜ rm -rf ~/.microk8s
 
 ➜ multipass delete microk8s-vm
@@ -1122,4 +1130,332 @@ com.canonical.multipass.multipass_gui
 /usr/local/bin/multipass
 /usr/local/etc/bash_completion.d/multipass
 ==> Purging files for version 1.16.0 of Cask multipass
+```
+
+## K0S 结合 Multipass 实践
+
+K0S 是简单、稳固且经过认证的 Kubernetes 发行版。  
+Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操作 Ubuntu 虚拟机的工具。
+
+### 基础环境
+
+```yaml
+OS: macOS
+Architecture: ARM64
+Virtualization: Multipass
+
+CPUs: 1
+Memory: 1Gi
+Disk: 10GiB
+
+Installer: Homebrew
+```
+
+### 安装使用 Multipass
+
+```plain
+➜ brew install --cask multipass
+==> Downloading https://github.com/canonical/multipass/releases/download/v1.16.0/multipass-1.16.0+mac-Darwin.pkg
+==> Installing Cask multipass
+installer: Package name is multipass
+installer: Installing at base path /
+installer: The install was successful.
+multipass was successfully installed!
+```
+
+```plain
+➜ multipass launch --name k0s-controller --cpus 1 --mem 1G --disk 10G
+Launched: k0s-controller
+
+➜ multipass launch --name k0s-worker --cpus 1 --mem 1G --disk 10G
+Launched: k0s-worker
+```
+
+```plain
+➜ multipass info k0s-controller
+Name:           k0s-controller
+State:          Running
+Snapshots:      0
+IPv4:           192.168.64.7
+Release:        Ubuntu 24.04.2 LTS
+Image hash:     bbecbb88100e (Ubuntu 24.04 LTS)
+CPU(s):         1
+Load:           0.04 0.03 0.01
+Disk usage:     2.0GiB out of 9.6GiB
+Memory usage:   222.6MiB out of 952.9MiB
+Mounts:         --
+
+➜ multipass info k0s-worker
+Name:           k0s-worker
+State:          Running
+Snapshots:      0
+IPv4:           192.168.64.8
+Release:        Ubuntu 24.04.2 LTS
+Image hash:     bbecbb88100e (Ubuntu 24.04 LTS)
+CPU(s):         1
+Load:           0.04 0.01 0.00
+Disk usage:     2.0GiB out of 9.6GiB
+Memory usage:   222.4MiB out of 952.9MiB
+Mounts:         --
+```
+
+```plain
+➜ multipass exec k0s-controller -- bash -c "mkdir -p ~/.ssh && echo '$(cat ~/.ssh/id_rsa.pub)' >> ~/.ssh/authorized_keys"
+➜ multipass exec k0s-worker -- bash -c "mkdir -p ~/.ssh && echo '$(cat ~/.ssh/id_rsa.pub)' >> ~/.ssh/authorized_keys"
+
+➜ ssh ubuntu@192.168.64.7
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+ubuntu@k0s-worker:~$ exit
+logout
+Connection to 192.168.64.7 closed.
+➜ ssh ubuntu@192.168.64.8
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+ubuntu@k0s-worker:~$ exit
+logout
+Connection to 192.168.64.8 closed.
+```
+
+### 安装使用 K0S
+
+```plain
+➜ brew install k0sproject/tap/k0sctl
+==> Tapping k0sproject/tap
+Cloning into '/opt/homebrew/Library/Taps/k0sproject/homebrew-tap'...
+Tapped 2 formulae (17 files, 98KB).
+==> Fetching k0sproject/tap/k0sctl
+==> Downloading https://github.com/k0sproject/homebrew-tap/releases/download/k0sctl-0.25.1/k0sctl-0.25.1.arm64_sonoma.bottle.tar.gz
+==> Installing k0sctl from k0sproject/tap
+==> Pouring k0sctl-0.25.1.arm64_sonoma.bottle.tar.gz
+/opt/homebrew/Cellar/k0sctl/0.25.1: 9 files, 18.6MB
+```
+
+```plain
+➜ k0sctl init > k0sctl.yaml
+```
+
+```yaml
+➜ vim k0sctl.yaml
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: k0s-cluster
+  user: admin
+spec:
+  hosts:
+  - ssh:
+      address: 192.168.64.7
+      user: ubuntu
+      port: 22
+      keyPath: ~/.ssh/id_rsa
+    role: controller
+  - ssh:
+      address: 192.168.64.8
+      user: ubuntu
+      port: 22
+      keyPath: ~/.ssh/id_rsa
+    role: worker
+  options:
+    wait:
+      enabled: true
+    drain:
+      enabled: true
+      gracePeriod: 2m0s
+      timeout: 5m0s
+      force: true
+      ignoreDaemonSets: true
+      deleteEmptyDirData: true
+      podSelector: ""
+      skipWaitForDeleteTimeout: 0s
+    concurrency:
+      limit: 30
+      workerDisruptionPercent: 10
+      uploads: 5
+    evictTaint:
+      enabled: false
+      taint: k0sctl.k0sproject.io/evict=true
+      effect: NoExecute
+      controllerWorkers: false
+```
+
+```plain
+➜ k0sctl apply --config k0sctl.yaml
+INFO ==> Running phase: Set k0s version
+INFO Looking up latest stable k0s version
+INFO Using k0s version v1.33.2+k0s.0
+INFO ==> Running phase: Connect to hosts
+INFO [ssh] 192.168.64.8:22: connected
+INFO [ssh] 192.168.64.7:22: connected
+INFO ==> Running phase: Detect host operating systems
+INFO [ssh] 192.168.64.7:22: is running Ubuntu 24.04.2 LTS
+INFO [ssh] 192.168.64.8:22: is running Ubuntu 24.04.2 LTS
+INFO ==> Running phase: Acquire exclusive host lock
+INFO ==> Running phase: Prepare hosts
+INFO ==> Running phase: Gather host facts
+INFO [ssh] 192.168.64.7:22: using k0s-controller as hostname
+INFO [ssh] 192.168.64.8:22: using k0s-worker as hostname
+INFO [ssh] 192.168.64.7:22: discovered enp0s1 as private interface
+INFO [ssh] 192.168.64.8:22: discovered enp0s1 as private interface
+INFO ==> Running phase: Validate hosts
+INFO validating clock skew
+INFO ==> Running phase: Validate facts
+INFO ==> Running phase: Download k0s on hosts
+INFO [ssh] 192.168.64.8:22: downloading k0s v1.33.2+k0s.0
+INFO [ssh] 192.168.64.7:22: downloading k0s v1.33.2+k0s.0
+INFO ==> Running phase: Install k0s binaries on hosts
+INFO [ssh] 192.168.64.7:22: validating configuration
+INFO ==> Running phase: Configure k0s
+INFO [ssh] 192.168.64.7:22: installing new configuration
+INFO ==> Running phase: Initialize the k0s cluster
+INFO [ssh] 192.168.64.7:22: installing k0s controller
+INFO [ssh] 192.168.64.7:22: waiting for the k0s service to start
+INFO [ssh] 192.168.64.7:22: wait for kubernetes to reach ready state
+INFO ==> Running phase: Install workers
+INFO [ssh] 192.168.64.7:22: generating a join token for worker 1
+INFO [ssh] 192.168.64.8:22: validating api connection to https://192.168.64.7:6443 using join token
+INFO [ssh] 192.168.64.8:22: writing join token to /etc/k0s/k0stoken
+INFO [ssh] 192.168.64.8:22: installing k0s worker
+INFO [ssh] 192.168.64.8:22: starting service
+INFO [ssh] 192.168.64.8:22: waiting for node to become ready
+INFO ==> Running phase: Release exclusive host lock
+INFO ==> Running phase: Disconnect from hosts
+INFO ==> Finished in 1m18s
+INFO k0s cluster version v1.33.2+k0s.0 is now installed
+INFO Tip: To access the cluster you can now fetch the admin kubeconfig using:
+INFO      k0sctl kubeconfig
+```
+
+```plain
+➜ kubectl --kubeconfig=k0s.kubeconfig get all --all-namespaces
+NAMESPACE     NAME                                 READY   STATUS    RESTARTS   AGE
+kube-system   pod/coredns-5c8cb48c4-rr9k2          1/1     Running   0          8m54s
+kube-system   pod/konnectivity-agent-sndm9         1/1     Running   0          8m50s
+kube-system   pod/kube-proxy-csvw7                 1/1     Running   0          8m53s
+kube-system   pod/kube-router-5nn4t                1/1     Running   0          8m53s
+kube-system   pod/metrics-server-7db8586f5-d7p8h   1/1     Running   0          8m50s
+
+NAMESPACE     NAME                     TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                  AGE
+default       service/kubernetes       ClusterIP   10.96.0.1     <none>        443/TCP                  9m5s
+kube-system   service/kube-dns         ClusterIP   10.96.0.10    <none>        53/UDP,53/TCP,9153/TCP   8m55s
+kube-system   service/metrics-server   ClusterIP   10.98.32.18   <none>        443/TCP                  8m50s
+
+NAMESPACE     NAME                                DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-system   daemonset.apps/konnectivity-agent   1         1         1       1            1           kubernetes.io/os=linux   8m59s
+kube-system   daemonset.apps/kube-proxy           1         1         1       1            1           kubernetes.io/os=linux   8m55s
+kube-system   daemonset.apps/kube-router          1         1         1       1            1           <none>                   8m56s
+
+NAMESPACE     NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system   deployment.apps/coredns          1/1     1            1           8m56s
+kube-system   deployment.apps/metrics-server   1/1     1            1           8m50s
+
+NAMESPACE     NAME                                       DESIRED   CURRENT   READY   AGE
+kube-system   replicaset.apps/coredns-5c8cb48c4          1         1         1       8m55s
+kube-system   replicaset.apps/metrics-server-7db8586f5   1         1         1       8m50s
+```
+
+### 部署测试 Nginx Service
+
+```yaml
+➜ vim nginx-deploy-svc.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+spec:
+  selector:
+    app: nginx
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+```
+
+```plain
+➜ kubectl --kubeconfig=k0s.kubeconfig apply -f nginx-deploy-svc.yaml
+deployment.apps/nginx-deploy created
+service/nginx-svc created
+
+➜ kubectl --kubeconfig=k0s.kubeconfig get all
+NAME                                READY   STATUS    RESTARTS   AGE
+pod/nginx-deploy-86c57bc6b8-pm68d   1/1     Running   0          22s
+pod/nginx-deploy-86c57bc6b8-tchhj   1/1     Running   0          22s
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP        33m
+service/nginx-svc    NodePort    10.104.182.55   <none>        80:32110/TCP   22s
+
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-deploy   2/2     2            2           22s
+
+NAME                                      DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-deploy-86c57bc6b8   2         2         2       22s
+```
+
+通过 NodePort 访问 Nginx: http://192.168.64.8:32110
+
+{{< image src="k0s_nginx_svc_web.jpg" alt="k3s_nginx_svc_web" width=800 >}}
+
+### 清理 Multipass 和 K0S
+
+```plain
+➜ multipass shell k0s-controller
+
+ubuntu@k0s-controller:~$ sudo k0s status
+Version: v1.33.2+k0s.0
+Process ID: 2213
+Role: controller
+Workloads: false
+SingleNode: false
+
+ubuntu@k0s-controller:~$ sudo k0s kubectl get nodes
+NAME         STATUS   ROLES    AGE   VERSION
+k0s-worker   Ready    <none>   40m   v1.33.2+k0s
+
+ubuntu@k0s-controller:~$ sudo k0s stop
+
+ubuntu@k0s-controller:~$ exit
+logout
+```
+
+```plain
+➜ multipass delete k0s-controller k0s-worker
+
+➜ multipass list
+Name                    State             IPv4             Image
+k0s-controller          Deleted           --               Ubuntu 24.04 LTS
+k0s-worker              Deleted           --               Ubuntu 24.04 LTS
+
+➜ multipass purge
+
+➜ multipass list
+No instances found.
+```
+
+```plain
+➜ brew uninstall k0sctl
+Uninstalling /opt/homebrew/Cellar/k0sctl/0.25.1... (9 files, 18.6MB)
+
+➜ brew untap k0sproject/tap
+Untapping k0sproject/tap...
+Untapped 2 formulae (17 files, 98KB).
 ```

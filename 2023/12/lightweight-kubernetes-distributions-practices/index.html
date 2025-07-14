@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  3316 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4443 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,8 +126,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3316 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4443 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -183,6 +183,15 @@
         <li><a href="#安装使用-microk8s">安装使用 MicroK8s</a></li>
         <li><a href="#部署测试-nginx-service-4">部署测试 Nginx Service</a></li>
         <li><a href="#清理-multipass-和-microk8s">清理 Multipass 和 MicroK8s</a></li>
+      </ul>
+    </li>
+    <li><a href="#k0s-结合-multipass-实践">K0S 结合 Multipass 实践</a>
+      <ul>
+        <li><a href="#基础环境-5">基础环境</a></li>
+        <li><a href="#安装使用-multipass-2">安装使用 Multipass</a></li>
+        <li><a href="#安装使用-k0s">安装使用 K0S</a></li>
+        <li><a href="#部署测试-nginx-service-5">部署测试 Nginx Service</a></li>
+        <li><a href="#清理-multipass-和-k0s">清理 Multipass 和 K0S</a></li>
       </ul>
     </li>
   </ul>
@@ -405,6 +414,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ minikube service nginx-svc --url
 </span></span><span class="line"><span class="cl">http://127.0.0.1:51726
 </span></span><span class="line"><span class="cl">Because you are using a Docker driver on darwin, the terminal needs to be open to run it.</span></span></code></pre></div></div>
+<p>通过 Tunnel 访问 Nginx: http://127.0.0.1:51726</p>
 <a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/minikube_nginx_svc_web.jpg" title="minikube_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/minikube_nginx_svc_web.jpg">
         <img
             class="lazyload"
@@ -673,7 +683,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NAME                                     DESIRED   CURRENT   READY   AGE
 </span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s</span></span></code></pre></div></div>
-<p>访问 Nginx: http://localhost:30080</p>
+<p>通过 NodePort 访问 Nginx: http://localhost:30080</p>
 <a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg" title="kind_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg">
         <img
             class="lazyload"
@@ -731,15 +741,15 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass launch --name k3s --cpus 1 --memory 1G --disk 10G
-</span></span><span class="line"><span class="cl">Launched: k3s</span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass launch --name k3s-server --cpus 1 --memory 1G --disk 10G
+</span></span><span class="line"><span class="cl">Launched: k3s-server</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass info k3s
-</span></span><span class="line"><span class="cl">Name:           k3s
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass info k3s-server
+</span></span><span class="line"><span class="cl">Name:           k3s-server
 </span></span><span class="line"><span class="cl">State:          Running
 </span></span><span class="line"><span class="cl">IPv4:           192.168.64.2
 </span></span><span class="line"><span class="cl">Release:        Ubuntu 22.04.3 LTS
@@ -755,9 +765,9 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass shell k3s
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass shell k3s-server
 </span></span><span class="line"><span class="cl">Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-89-generic aarch64)
-</span></span><span class="line"><span class="cl">ubuntu@k3s:~$ curl -sfL https://get.k3s.io | sh -
+</span></span><span class="line"><span class="cl">ubuntu@k3s-server:~$ curl -sfL https://get.k3s.io | sh -
 </span></span><span class="line"><span class="cl">[INFO]  Finding release for channel stable
 </span></span><span class="line"><span class="cl">[INFO]  Using v1.27.7+k3s2 as release
 </span></span><span class="line"><span class="cl">[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.7+k3s2/sha256sum-arm64.txt
@@ -776,11 +786,11 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.
 </span></span><span class="line"><span class="cl">[INFO]  systemd: Starting k3s
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ubuntu@k3s:~$ sudo k3s kubectl get nodes
-</span></span><span class="line"><span class="cl">NAME   STATUS   ROLES                  AGE   VERSION
-</span></span><span class="line"><span class="cl">k3s    Ready    control-plane,master   19s   v1.27.7+k3s2
+</span></span><span class="line"><span class="cl">ubuntu@k3s-server:~$ sudo k3s kubectl get nodes
+</span></span><span class="line"><span class="cl">NAME          STATUS   ROLES                  AGE   VERSION
+</span></span><span class="line"><span class="cl">k3s-server    Ready    control-plane,master   19s   v1.27.7+k3s2
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ubuntu@k3s:~$ sudo ss -lntpu | grep k3s-server
+</span></span><span class="line"><span class="cl">ubuntu@k3s-server:~$ sudo ss -lntpu | grep k3s-server
 </span></span><span class="line"><span class="cl">tcp   LISTEN 0      4096                          127.0.0.1:10248      0.0.0.0:*    users:((&#34;k3s-server&#34;,pid=2786,fd=172))   
 </span></span><span class="line"><span class="cl">tcp   LISTEN 0      4096                          127.0.0.1:10249      0.0.0.0:*    users:((&#34;k3s-server&#34;,pid=2786,fd=208))   
 </span></span><span class="line"><span class="cl">tcp   LISTEN 0      4096                          127.0.0.1:6444       0.0.0.0:*    users:((&#34;k3s-server&#34;,pid=2786,fd=15))    
@@ -791,18 +801,18 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">tcp   LISTEN 0      4096                                  *:10250            *:*    users:((&#34;k3s-server&#34;,pid=2786,fd=168))   
 </span></span><span class="line"><span class="cl">tcp   LISTEN 0      4096                                  *:6443             *:*    users:((&#34;k3s-server&#34;,pid=2786,fd=13)) 
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ubuntu@k3s:~$ sudo cat /var/lib/rancher/k3s/server/node-token
+</span></span><span class="line"><span class="cl">ubuntu@k3s-server:~$ sudo cat /var/lib/rancher/k3s/server/node-token
 </span></span><span class="line"><span class="cl">K10fa8d62310e361852c7607ba12b9667cd05f52122df80ca928448200295bb0969::server:c421b343a4f042a2a3511156664a76b1
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ubuntu@k3s:~$ exit
+</span></span><span class="line"><span class="cl">ubuntu@k3s-server:~$ exit
 </span></span><span class="line"><span class="cl">logout</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass launch --name k3s-worker --cpus 1 --memory 1G --disk 10G
-</span></span><span class="line"><span class="cl">Launched: k3s-worker</span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass launch --name k3s-agent --cpus 1 --memory 1G --disk 10G
+</span></span><span class="line"><span class="cl">Launched: k3s-agent</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -810,18 +820,18 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass list
 </span></span><span class="line"><span class="cl">Name                    State             IPv4             Image
-</span></span><span class="line"><span class="cl">k3s                     Running           192.168.64.2     Ubuntu 22.04 LTS
+</span></span><span class="line"><span class="cl">k3s-server              Running           192.168.64.2     Ubuntu 22.04 LTS
 </span></span><span class="line"><span class="cl">                                          10.42.0.0
 </span></span><span class="line"><span class="cl">                                          10.42.0.1
-</span></span><span class="line"><span class="cl">k3s-worker              Running           192.168.64.3     Ubuntu 22.04 LTS</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">k3s-agent               Running           192.168.64.3     Ubuntu 22.04 LTS</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass shell k3s-worker
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass shell k3s-agent
 </span></span><span class="line"><span class="cl">Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-89-generic aarch64)
-</span></span><span class="line"><span class="cl">ubuntu@k3s-worker:~$ curl -sfL https://get.k3s.io | K3S_URL=https://192.168.64.2:6443 K3S_TOKEN=&#34;K10fa8d62310e361852c7607ba12b9667cd05f52122df80ca928448200295bb0969::server:c421b343a4f042a2a3511156664a76b1&#34; sh -
+</span></span><span class="line"><span class="cl">ubuntu@k3s-agent:~$ curl -sfL https://get.k3s.io | K3S_URL=https://192.168.64.2:6443 K3S_TOKEN=&#34;K10fa8d62310e361852c7607ba12b9667cd05f52122df80ca928448200295bb0969::server:c421b343a4f042a2a3511156664a76b1&#34; sh -
 </span></span><span class="line"><span class="cl">[INFO]  Finding release for channel stable
 </span></span><span class="line"><span class="cl">[INFO]  Using v1.27.7+k3s2 as release
 </span></span><span class="line"><span class="cl">[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.7+k3s2/sha256sum-arm64.txt
@@ -840,7 +850,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">Created symlink /etc/systemd/system/multi-user.target.wants/k3s-agent.service → /etc/systemd/system/k3s-agent.service.
 </span></span><span class="line"><span class="cl">[INFO]  systemd: Starting k3s-agent
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ubuntu@k3s-worker:~$ exit
+</span></span><span class="line"><span class="cl">ubuntu@k3s-agent:~$ exit
 </span></span><span class="line"><span class="cl">logout</span></span></code></pre></div></div>
 <h3 id="部署测试-nginx-service-2">部署测试 Nginx Service</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -848,18 +858,18 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass shell k3s
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass shell k3s-server
 </span></span><span class="line"><span class="cl">Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-89-generic aarch64)
-</span></span><span class="line"><span class="cl">ubuntu@k3s:~$ sudo k3s kubectl get nodes
+</span></span><span class="line"><span class="cl">ubuntu@k3s-server:~$ sudo k3s kubectl get nodes
 </span></span><span class="line"><span class="cl">NAME         STATUS   ROLES                  AGE     VERSION
-</span></span><span class="line"><span class="cl">k3s          Ready    control-plane,master   9m26s   v1.27.7+k3s2
-</span></span><span class="line"><span class="cl">k3s-worker   Ready    &lt;none&gt;                 71s     v1.27.7+k3s2</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">k3s-server   Ready    control-plane,master   9m26s   v1.27.7+k3s2
+</span></span><span class="line"><span class="cl">k3s-agent    Ready    &lt;none&gt;                 71s     v1.27.7+k3s2</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">ubuntu@k3s:~$ vim nginx-deploy-svc.yaml </span><span class="w">
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">ubuntu@k3s-server:~$ vim nginx-deploy-svc.yaml </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
@@ -897,7 +907,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">ubuntu@k3s:~$ sudo k3s kubectl apply -f nginx-deploy-svc.yaml 
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">ubuntu@k3s-server:~$ sudo k3s kubectl apply -f nginx-deploy-svc.yaml 
 </span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
 </span></span><span class="line"><span class="cl">service/nginx-svc created</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -905,7 +915,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">ubuntu@k3s:~$ sudo k3s kubectl get all
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">ubuntu@k3s-server:~$ sudo k3s kubectl get all
 </span></span><span class="line"><span class="cl">NAME                               READY   STATUS    RESTARTS   AGE
 </span></span><span class="line"><span class="cl">pod/nginx-deploy-55f598f8d-pzr6n   1/1     Running   0          20m
 </span></span><span class="line"><span class="cl">pod/nginx-deploy-55f598f8d-z55ng   1/1     Running   0          20m
@@ -920,7 +930,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">NAME                                     DESIRED   CURRENT   READY   AGE
 </span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-55f598f8d   2         2         2       20m
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ubuntu@k3s:~$ exit
+</span></span><span class="line"><span class="cl">ubuntu@k3s-server:~$ exit
 </span></span><span class="line"><span class="cl">logout </span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
@@ -929,12 +939,13 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass list
 </span></span><span class="line"><span class="cl">Name                    State             IPv4             Image
-</span></span><span class="line"><span class="cl">k3s                     Running           192.168.64.2     Ubuntu 22.04 LTS
+</span></span><span class="line"><span class="cl">k3s-server              Running           192.168.64.2     Ubuntu 22.04 LTS
 </span></span><span class="line"><span class="cl">                                          10.42.0.0
 </span></span><span class="line"><span class="cl">                                          10.42.0.1
-</span></span><span class="line"><span class="cl">k3s-worker              Running           192.168.64.3     Ubuntu 22.04 LTS
+</span></span><span class="line"><span class="cl">k3s-agent               Running           192.168.64.3     Ubuntu 22.04 LTS
 </span></span><span class="line"><span class="cl">                                          10.42.1.0
 </span></span><span class="line"><span class="cl">                                          10.42.1.1</span></span></code></pre></div></div>
+<p>通过 NodePort 访问 Nginx: http://192.168.64.2:32711</p>
 <a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/k3s_nginx_svc_web.jpg" title="k3s_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/k3s_nginx_svc_web.jpg">
         <img
             class="lazyload"
@@ -950,12 +961,12 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass delete k3s k3s-worker
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass delete k3s-server k3s-agent
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ multipass list
 </span></span><span class="line"><span class="cl">Name                    State             IPv4             Image
-</span></span><span class="line"><span class="cl">k3s                     Deleted           --               Not Available
-</span></span><span class="line"><span class="cl">k3s-worker              Deleted           --               Not Available
+</span></span><span class="line"><span class="cl">k3s-server              Deleted           --               Not Available
+</span></span><span class="line"><span class="cl">k3s-agent               Deleted           --               Not Available
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ multipass purge
 </span></span><span class="line"><span class="cl">
@@ -1423,6 +1434,10 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">➜ brew uninstall ubuntu/microk8s/microk8s
 </span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/microk8s/2.3.4... (1,023 files, 9.2MB)
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew untap ubuntu/microk8s
+</span></span><span class="line"><span class="cl">Untapping ubuntu/microk8s...
+</span></span><span class="line"><span class="cl">Untapped 1 formula (16 files, 60.8KB).
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ rm -rf ~/.microk8s
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ multipass delete microk8s-vm
@@ -1448,7 +1463,364 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">/Library/Logs/Multipass
 </span></span><span class="line"><span class="cl">/usr/local/bin/multipass
 </span></span><span class="line"><span class="cl">/usr/local/etc/bash_completion.d/multipass
-</span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.16.0 of Cask multipass</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
+</span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.16.0 of Cask multipass</span></span></code></pre></div></div>
+<h2 id="k0s-结合-multipass-实践">K0S 结合 Multipass 实践</h2>
+<p>K0S 是简单、稳固且经过认证的 Kubernetes 发行版。<br>
+Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
+<h3 id="基础环境-5">基础环境</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">macOS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l">ARM64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Virtualization</span><span class="p">:</span><span class="w"> </span><span class="l">Multipass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">CPUs</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Memory</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Disk</span><span class="p">:</span><span class="w"> </span><span class="l">10GiB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span></span></span></code></pre></div></div>
+<h3 id="安装使用-multipass-2">安装使用 Multipass</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install --cask multipass
+</span></span><span class="line"><span class="cl">==&gt; Downloading https://github.com/canonical/multipass/releases/download/v1.16.0/multipass-1.16.0+mac-Darwin.pkg
+</span></span><span class="line"><span class="cl">==&gt; Installing Cask multipass
+</span></span><span class="line"><span class="cl">installer: Package name is multipass
+</span></span><span class="line"><span class="cl">installer: Installing at base path /
+</span></span><span class="line"><span class="cl">installer: The install was successful.
+</span></span><span class="line"><span class="cl">multipass was successfully installed!</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass launch --name k0s-controller --cpus 1 --mem 1G --disk 10G
+</span></span><span class="line"><span class="cl">Launched: k0s-controller
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass launch --name k0s-worker --cpus 1 --mem 1G --disk 10G
+</span></span><span class="line"><span class="cl">Launched: k0s-worker</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass info k0s-controller
+</span></span><span class="line"><span class="cl">Name:           k0s-controller
+</span></span><span class="line"><span class="cl">State:          Running
+</span></span><span class="line"><span class="cl">Snapshots:      0
+</span></span><span class="line"><span class="cl">IPv4:           192.168.64.7
+</span></span><span class="line"><span class="cl">Release:        Ubuntu 24.04.2 LTS
+</span></span><span class="line"><span class="cl">Image hash:     bbecbb88100e (Ubuntu 24.04 LTS)
+</span></span><span class="line"><span class="cl">CPU(s):         1
+</span></span><span class="line"><span class="cl">Load:           0.04 0.03 0.01
+</span></span><span class="line"><span class="cl">Disk usage:     2.0GiB out of 9.6GiB
+</span></span><span class="line"><span class="cl">Memory usage:   222.6MiB out of 952.9MiB
+</span></span><span class="line"><span class="cl">Mounts:         --
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass info k0s-worker
+</span></span><span class="line"><span class="cl">Name:           k0s-worker
+</span></span><span class="line"><span class="cl">State:          Running
+</span></span><span class="line"><span class="cl">Snapshots:      0
+</span></span><span class="line"><span class="cl">IPv4:           192.168.64.8
+</span></span><span class="line"><span class="cl">Release:        Ubuntu 24.04.2 LTS
+</span></span><span class="line"><span class="cl">Image hash:     bbecbb88100e (Ubuntu 24.04 LTS)
+</span></span><span class="line"><span class="cl">CPU(s):         1
+</span></span><span class="line"><span class="cl">Load:           0.04 0.01 0.00
+</span></span><span class="line"><span class="cl">Disk usage:     2.0GiB out of 9.6GiB
+</span></span><span class="line"><span class="cl">Memory usage:   222.4MiB out of 952.9MiB
+</span></span><span class="line"><span class="cl">Mounts:         --</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass exec k0s-controller -- bash -c &#34;mkdir -p ~/.ssh &amp;&amp; echo &#39;$(cat ~/.ssh/id_rsa.pub)&#39; &gt;&gt; ~/.ssh/authorized_keys&#34;
+</span></span><span class="line"><span class="cl">➜ multipass exec k0s-worker -- bash -c &#34;mkdir -p ~/.ssh &amp;&amp; echo &#39;$(cat ~/.ssh/id_rsa.pub)&#39; &gt;&gt; ~/.ssh/authorized_keys&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ ssh ubuntu@192.168.64.7
+</span></span><span class="line"><span class="cl">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+</span></span><span class="line"><span class="cl">ubuntu@k0s-worker:~$ exit
+</span></span><span class="line"><span class="cl">logout
+</span></span><span class="line"><span class="cl">Connection to 192.168.64.7 closed.
+</span></span><span class="line"><span class="cl">➜ ssh ubuntu@192.168.64.8
+</span></span><span class="line"><span class="cl">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+</span></span><span class="line"><span class="cl">ubuntu@k0s-worker:~$ exit
+</span></span><span class="line"><span class="cl">logout
+</span></span><span class="line"><span class="cl">Connection to 192.168.64.8 closed.</span></span></code></pre></div></div>
+<h3 id="安装使用-k0s">安装使用 K0S</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install k0sproject/tap/k0sctl
+</span></span><span class="line"><span class="cl">==&gt; Tapping k0sproject/tap
+</span></span><span class="line"><span class="cl">Cloning into &#39;/opt/homebrew/Library/Taps/k0sproject/homebrew-tap&#39;...
+</span></span><span class="line"><span class="cl">Tapped 2 formulae (17 files, 98KB).
+</span></span><span class="line"><span class="cl">==&gt; Fetching k0sproject/tap/k0sctl
+</span></span><span class="line"><span class="cl">==&gt; Downloading https://github.com/k0sproject/homebrew-tap/releases/download/k0sctl-0.25.1/k0sctl-0.25.1.arm64_sonoma.bottle.tar.gz
+</span></span><span class="line"><span class="cl">==&gt; Installing k0sctl from k0sproject/tap
+</span></span><span class="line"><span class="cl">==&gt; Pouring k0sctl-0.25.1.arm64_sonoma.bottle.tar.gz
+</span></span><span class="line"><span class="cl">/opt/homebrew/Cellar/k0sctl/0.25.1: 9 files, 18.6MB</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ k0sctl init &gt; k0sctl.yaml</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim k0sctl.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">k0sctl.k0sproject.io/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">k0s-cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">ssh</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="m">192.168.64.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">keyPath</span><span class="p">:</span><span class="w"> </span><span class="l">~/.ssh/id_rsa</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l">controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">ssh</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="m">192.168.64.8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">keyPath</span><span class="p">:</span><span class="w"> </span><span class="l">~/.ssh/id_rsa</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l">worker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">wait</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">drain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">gracePeriod</span><span class="p">:</span><span class="w"> </span><span class="l">2m0s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l">5m0s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ignoreDaemonSets</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">deleteEmptyDirData</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">podSelector</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">skipWaitForDeleteTimeout</span><span class="p">:</span><span class="w"> </span><span class="l">0s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">concurrency</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">workerDisruptionPercent</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">uploads</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">evictTaint</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">taint</span><span class="p">:</span><span class="w"> </span><span class="l">k0sctl.k0sproject.io/evict=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">effect</span><span class="p">:</span><span class="w"> </span><span class="l">NoExecute</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">controllerWorkers</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ k0sctl apply --config k0sctl.yaml
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Set k0s version
+</span></span><span class="line"><span class="cl">INFO Looking up latest stable k0s version
+</span></span><span class="line"><span class="cl">INFO Using k0s version v1.33.2+k0s.0
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Connect to hosts
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: connected
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: connected
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Detect host operating systems
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: is running Ubuntu 24.04.2 LTS
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: is running Ubuntu 24.04.2 LTS
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Acquire exclusive host lock
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Prepare hosts
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Gather host facts
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: using k0s-controller as hostname
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: using k0s-worker as hostname
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: discovered enp0s1 as private interface
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: discovered enp0s1 as private interface
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Validate hosts
+</span></span><span class="line"><span class="cl">INFO validating clock skew
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Validate facts
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Download k0s on hosts
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: downloading k0s v1.33.2+k0s.0
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: downloading k0s v1.33.2+k0s.0
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Install k0s binaries on hosts
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: validating configuration
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Configure k0s
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: installing new configuration
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Initialize the k0s cluster
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: installing k0s controller
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: waiting for the k0s service to start
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: wait for kubernetes to reach ready state
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Install workers
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.7:22: generating a join token for worker 1
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: validating api connection to https://192.168.64.7:6443 using join token
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: writing join token to /etc/k0s/k0stoken
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: installing k0s worker
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: starting service
+</span></span><span class="line"><span class="cl">INFO [ssh] 192.168.64.8:22: waiting for node to become ready
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Release exclusive host lock
+</span></span><span class="line"><span class="cl">INFO ==&gt; Running phase: Disconnect from hosts
+</span></span><span class="line"><span class="cl">INFO ==&gt; Finished in 1m18s
+</span></span><span class="line"><span class="cl">INFO k0s cluster version v1.33.2+k0s.0 is now installed
+</span></span><span class="line"><span class="cl">INFO Tip: To access the cluster you can now fetch the admin kubeconfig using:
+</span></span><span class="line"><span class="cl">INFO      k0sctl kubeconfig</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl --kubeconfig=k0s.kubeconfig get all --all-namespaces
+</span></span><span class="line"><span class="cl">NAMESPACE     NAME                                 READY   STATUS    RESTARTS   AGE
+</span></span><span class="line"><span class="cl">kube-system   pod/coredns-5c8cb48c4-rr9k2          1/1     Running   0          8m54s
+</span></span><span class="line"><span class="cl">kube-system   pod/konnectivity-agent-sndm9         1/1     Running   0          8m50s
+</span></span><span class="line"><span class="cl">kube-system   pod/kube-proxy-csvw7                 1/1     Running   0          8m53s
+</span></span><span class="line"><span class="cl">kube-system   pod/kube-router-5nn4t                1/1     Running   0          8m53s
+</span></span><span class="line"><span class="cl">kube-system   pod/metrics-server-7db8586f5-d7p8h   1/1     Running   0          8m50s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAMESPACE     NAME                     TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                  AGE
+</span></span><span class="line"><span class="cl">default       service/kubernetes       ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP                  9m5s
+</span></span><span class="line"><span class="cl">kube-system   service/kube-dns         ClusterIP   10.96.0.10    &lt;none&gt;        53/UDP,53/TCP,9153/TCP   8m55s
+</span></span><span class="line"><span class="cl">kube-system   service/metrics-server   ClusterIP   10.98.32.18   &lt;none&gt;        443/TCP                  8m50s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAMESPACE     NAME                                DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+</span></span><span class="line"><span class="cl">kube-system   daemonset.apps/konnectivity-agent   1         1         1       1            1           kubernetes.io/os=linux   8m59s
+</span></span><span class="line"><span class="cl">kube-system   daemonset.apps/kube-proxy           1         1         1       1            1           kubernetes.io/os=linux   8m55s
+</span></span><span class="line"><span class="cl">kube-system   daemonset.apps/kube-router          1         1         1       1            1           &lt;none&gt;                   8m56s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAMESPACE     NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span class="line"><span class="cl">kube-system   deployment.apps/coredns          1/1     1            1           8m56s
+</span></span><span class="line"><span class="cl">kube-system   deployment.apps/metrics-server   1/1     1            1           8m50s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAMESPACE     NAME                                       DESIRED   CURRENT   READY   AGE
+</span></span><span class="line"><span class="cl">kube-system   replicaset.apps/coredns-5c8cb48c4          1         1         1       8m55s
+</span></span><span class="line"><span class="cl">kube-system   replicaset.apps/metrics-server-7db8586f5   1         1         1       8m50s</span></span></code></pre></div></div>
+<h3 id="部署测试-nginx-service-5">部署测试 Nginx Service</h3>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim nginx-deploy-svc.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl --kubeconfig=k0s.kubeconfig apply -f nginx-deploy-svc.yaml
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
+</span></span><span class="line"><span class="cl">service/nginx-svc created
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl --kubeconfig=k0s.kubeconfig get all
+</span></span><span class="line"><span class="cl">NAME                                READY   STATUS    RESTARTS   AGE
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-86c57bc6b8-pm68d   1/1     Running   0          22s
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-86c57bc6b8-tchhj   1/1     Running   0          22s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP        33m
+</span></span><span class="line"><span class="cl">service/nginx-svc    NodePort    10.104.182.55   &lt;none&gt;        80:32110/TCP   22s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy   2/2     2            2           22s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                                      DESIRED   CURRENT   READY   AGE
+</span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-86c57bc6b8   2         2         2       22s</span></span></code></pre></div></div>
+<p>通过 NodePort 访问 Nginx: http://192.168.64.8:32110</p>
+<a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg" title="k3s_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg"
+            data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg 2x"
+            data-sizes="auto"
+            alt="k3s_nginx_svc_web" width="800" height="562" />
+    </a>
+<h3 id="清理-multipass-和-k0s">清理 Multipass 和 K0S</h3>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass shell k0s-controller
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ubuntu@k0s-controller:~$ sudo k0s status
+</span></span><span class="line"><span class="cl">Version: v1.33.2+k0s.0
+</span></span><span class="line"><span class="cl">Process ID: 2213
+</span></span><span class="line"><span class="cl">Role: controller
+</span></span><span class="line"><span class="cl">Workloads: false
+</span></span><span class="line"><span class="cl">SingleNode: false
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ubuntu@k0s-controller:~$ sudo k0s kubectl get nodes
+</span></span><span class="line"><span class="cl">NAME         STATUS   ROLES    AGE   VERSION
+</span></span><span class="line"><span class="cl">k0s-worker   Ready    &lt;none&gt;   40m   v1.33.2+k0s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ubuntu@k0s-controller:~$ sudo k0s stop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ubuntu@k0s-controller:~$ exit
+</span></span><span class="line"><span class="cl">logout</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ multipass delete k0s-controller k0s-worker
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass list
+</span></span><span class="line"><span class="cl">Name                    State             IPv4             Image
+</span></span><span class="line"><span class="cl">k0s-controller          Deleted           --               Ubuntu 24.04 LTS
+</span></span><span class="line"><span class="cl">k0s-worker              Deleted           --               Ubuntu 24.04 LTS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass purge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ multipass list
+</span></span><span class="line"><span class="cl">No instances found.</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall k0sctl
+</span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/k0sctl/0.25.1... (9 files, 18.6MB)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew untap k0sproject/tap
+</span></span><span class="line"><span class="cl">Untapping k0sproject/tap...
+</span></span><span class="line"><span class="cl">Untapped 2 formulae (17 files, 98KB).</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
