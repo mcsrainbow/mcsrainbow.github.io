@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4443 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4921 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,8 +126,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4443 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4921 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -192,6 +192,14 @@
         <li><a href="#安装使用-k0s">安装使用 K0S</a></li>
         <li><a href="#部署测试-nginx-service-5">部署测试 Nginx Service</a></li>
         <li><a href="#清理-multipass-和-k0s">清理 Multipass 和 K0S</a></li>
+      </ul>
+    </li>
+    <li><a href="#talos-实践">Talos 实践</a>
+      <ul>
+        <li><a href="#基础环境-6">基础环境</a></li>
+        <li><a href="#安装使用-talos">安装使用 Talos</a></li>
+        <li><a href="#部署测试-nginx-service-6">部署测试 Nginx Service</a></li>
+        <li><a href="#清理-talos">清理 Talos</a></li>
       </ul>
     </li>
   </ul>
@@ -422,7 +430,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
             data-src="/2023/12/lightweight-kubernetes-distributions-practices/minikube_nginx_svc_web.jpg"
             data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/minikube_nginx_svc_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/minikube_nginx_svc_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/minikube_nginx_svc_web.jpg 2x"
             data-sizes="auto"
-            alt="minikube_nginx_svc_web" width="800" height="560" />
+            alt="minikube_nginx_svc_web" width="600" height="560" />
     </a>
 <h3 id="清理-minikube-和-podman">清理 Minikube 和 Podman</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -499,10 +507,8 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span><span class="line"><span class="cl">Successfully purged minikube directory located at - [/Users/damonguo/.minikube]
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ brew uninstall minikube
-</span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/minikube/1.32.0... (9 files, 87.5MB)
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">➜ brew uninstall podman
-</span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/podman/5.4.2... (201 files, 80.3MB)</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">➜ brew uninstall podman</span></span></code></pre></div></div>
 <h2 id="kind-实践">KinD 实践</h2>
 <p>KinD 是轻量级的工具，用于在 Docker 中运行本地 Kubernetes 集群。</p>
 <h3 id="基础环境-1">基础环境</h3>
@@ -683,7 +689,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">NAME                                     DESIRED   CURRENT   READY   AGE
 </span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-55f598f8d   2         2         2       35s</span></span></code></pre></div></div>
-<p>通过 NodePort 访问 Nginx: http://localhost:30080</p>
+<p>通过 NodePort 本地端口映射访问 Nginx: http://localhost:30080</p>
 <a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg" title="kind_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg">
         <img
             class="lazyload"
@@ -691,7 +697,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
             data-src="/2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg"
             data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/kind_nginx_svc_web.jpg 2x"
             data-sizes="auto"
-            alt="kind_nginx_svc_web" width="800" height="614" />
+            alt="kind_nginx_svc_web" width="600" height="614" />
     </a>
 <h3 id="清理-kind">清理 KinD</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -704,7 +710,9 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span><span class="line"><span class="cl">Deleted nodes: [&#34;mycluster-control-plane&#34;]
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ kind get clusters
-</span></span><span class="line"><span class="cl">No kind clusters found.</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">No kind clusters found.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew uninstall kind</span></span></code></pre></div></div>
 <h2 id="k3s-结合-multipass-实践">K3S 结合 Multipass 实践</h2>
 <p>K3S 是轻量级、易于安装的 Kubernetes 发行版。<br>
 Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
@@ -953,7 +961,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
             data-src="/2023/12/lightweight-kubernetes-distributions-practices/k3s_nginx_svc_web.jpg"
             data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/k3s_nginx_svc_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/k3s_nginx_svc_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/k3s_nginx_svc_web.jpg 2x"
             data-sizes="auto"
-            alt="k3s_nginx_svc_web" width="800" height="620" />
+            alt="k3s_nginx_svc_web" width="600" height="620" />
     </a>
 <h3 id="清理-multipass-和-k3s">清理 Multipass 和 K3S</h3>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -971,27 +979,9 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">➜ multipass purge
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ multipass list
-</span></span><span class="line"><span class="cl">No instances found.</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
-    <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall --cask multipass
-</span></span><span class="line"><span class="cl">==&gt; Uninstalling Cask multipass
-</span></span><span class="line"><span class="cl">==&gt; Removing launchctl service com.canonical.multipassd
-</span></span><span class="line"><span class="cl">==&gt; Uninstalling packages:
-</span></span><span class="line"><span class="cl">com.canonical.multipass.multipassd
-</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass
-</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass_gui
-</span></span><span class="line"><span class="cl">==&gt; Removing files:
-</span></span><span class="line"><span class="cl">/opt/homebrew/etc/bash_completion.d/multipass
-</span></span><span class="line"><span class="cl">/Applications/Multipass.app
-</span></span><span class="line"><span class="cl">/Library/Application Support/com.canonical.multipass
-</span></span><span class="line"><span class="cl">/Library/Logs/Multipass
-</span></span><span class="line"><span class="cl">/usr/local/bin/multipass
-</span></span><span class="line"><span class="cl">/usr/local/etc/bash_completion.d/multipass
-</span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.12.2 of Cask multipass</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">No instances found.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew uninstall --cask multipass</span></span></code></pre></div></div>
 <h2 id="k3d-实践">K3D 实践</h2>
 <p>K3D 是轻量级的工具，用于在 Docker 中运行 K3S。</p>
 <h3 id="基础环境-3">基础环境</h3>
@@ -1170,7 +1160,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
             data-src="/2023/12/lightweight-kubernetes-distributions-practices/k3d_nginx_ingress_web.jpg"
             data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/k3d_nginx_ingress_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/k3d_nginx_ingress_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/k3d_nginx_ingress_web.jpg 2x"
             data-sizes="auto"
-            alt="k3d_nginx_ingress_web" width="800" height="612" />
+            alt="k3d_nginx_ingress_web" width="600" height="612" />
     </a>
 <h3 id="清理-k3d">清理 K3D</h3>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -1420,7 +1410,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
             data-src="/2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg"
             data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/microk8s_nginx_ingress_web.jpg 2x"
             data-sizes="auto"
-            alt="microk8s_nginx_ingress_web" width="800" height="580" />
+            alt="microk8s_nginx_ingress_web" width="600" height="580" />
     </a>
 <h3 id="清理-multipass-和-microk8s">清理 Multipass 和 MicroK8s</h3>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -1432,11 +1422,8 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">Stopped.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ brew uninstall ubuntu/microk8s/microk8s
-</span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/microk8s/2.3.4... (1,023 files, 9.2MB)
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ brew untap ubuntu/microk8s
-</span></span><span class="line"><span class="cl">Untapping ubuntu/microk8s...
-</span></span><span class="line"><span class="cl">Untapped 1 formula (16 files, 60.8KB).
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ rm -rf ~/.microk8s
 </span></span><span class="line"><span class="cl">
@@ -1444,26 +1431,9 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">➜ multipass purge
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ multipass list
-</span></span><span class="line"><span class="cl">No instances found.</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
-    <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall --cask multipass
-</span></span><span class="line"><span class="cl">==&gt; Uninstalling Cask multipass
-</span></span><span class="line"><span class="cl">==&gt; Removing launchctl service com.canonical.multipassd
-</span></span><span class="line"><span class="cl">com.canonical.multipass.multipassd
-</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass
-</span></span><span class="line"><span class="cl">com.canonical.multipass.multipass_gui
-</span></span><span class="line"><span class="cl">==&gt; Removing files:
-</span></span><span class="line"><span class="cl">/opt/homebrew/etc/bash_completion.d/multipass
-</span></span><span class="line"><span class="cl">/Applications/Multipass.app
-</span></span><span class="line"><span class="cl">/Library/Application Support/com.canonical.multipass
-</span></span><span class="line"><span class="cl">/Library/Logs/Multipass
-</span></span><span class="line"><span class="cl">/usr/local/bin/multipass
-</span></span><span class="line"><span class="cl">/usr/local/etc/bash_completion.d/multipass
-</span></span><span class="line"><span class="cl">==&gt; Purging files for version 1.16.0 of Cask multipass</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">No instances found.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew uninstall --cask multipass</span></span></code></pre></div></div>
 <h2 id="k0s-结合-multipass-实践">K0S 结合 Multipass 实践</h2>
 <p>K0S 是简单、稳固且经过认证的 Kubernetes 发行版。<br>
 Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
@@ -1762,14 +1732,14 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">NAME                                      DESIRED   CURRENT   READY   AGE
 </span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-86c57bc6b8   2         2         2       22s</span></span></code></pre></div></div>
 <p>通过 NodePort 访问 Nginx: http://192.168.64.8:32110</p>
-<a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg" title="k3s_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg">
+<a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg" title="k0s_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
             data-src="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg"
             data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/k0s_nginx_svc_web.jpg 2x"
             data-sizes="auto"
-            alt="k3s_nginx_svc_web" width="800" height="562" />
+            alt="k0s_nginx_svc_web" width="600" height="562" />
     </a>
 <h3 id="清理-multipass-和-k0s">清理 Multipass 和 K0S</h3>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -1816,11 +1786,207 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall k0sctl
-</span></span><span class="line"><span class="cl">Uninstalling /opt/homebrew/Cellar/k0sctl/0.25.1... (9 files, 18.6MB)
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">➜ brew untap k0sproject/tap
-</span></span><span class="line"><span class="cl">Untapping k0sproject/tap...
-</span></span><span class="line"><span class="cl">Untapped 2 formulae (17 files, 98KB).</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
+</span></span><span class="line"><span class="cl">➜ brew untap k0sproject/tap</span></span></code></pre></div></div>
+<h2 id="talos-实践">Talos 实践</h2>
+<p>Talos 是为 Kubernetes 环境设计的安全、最小化且只读的容器化 Linux 操作系统。</p>
+<h3 id="基础环境-6">基础环境</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">OS</span><span class="p">:</span><span class="w"> </span><span class="l">macOS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l">ARM64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Driver</span><span class="p">:</span><span class="w"> </span><span class="l">Docker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Installer</span><span class="p">:</span><span class="w"> </span><span class="l">Homebrew</span></span></span></code></pre></div></div>
+<h3 id="安装使用-talos">安装使用 Talos</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew install siderolabs/tap/talosctl
+</span></span><span class="line"><span class="cl">==&gt; Tapping siderolabs/tap
+</span></span><span class="line"><span class="cl">Cloning into &#39;/opt/homebrew/Library/Taps/siderolabs/homebrew-tap&#39;...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==&gt; Fetching siderolabs/tap/talosctl
+</span></span><span class="line"><span class="cl">==&gt; Downloading https://github.com/siderolabs/talos/releases/download/v1.10.5/talosctl-darwin-arm64
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==&gt; Installing talosctl from siderolabs/tap
+</span></span><span class="line"><span class="cl">/opt/homebrew/Cellar/talosctl/1.10.5: 7 files, 85.6MB, built in 4 seconds</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ talosctl cluster create
+</span></span><span class="line"><span class="cl">validating CIDR and reserving IPs
+</span></span><span class="line"><span class="cl">generating PKI and tokens
+</span></span><span class="line"><span class="cl">creating state directory in &#34;/Users/damonguo/.talos/clusters/talos-default&#34;
+</span></span><span class="line"><span class="cl">downloading ghcr.io/siderolabs/talos:v1.10.5
+</span></span><span class="line"><span class="cl">creating network talos-default
+</span></span><span class="line"><span class="cl">creating controlplane nodes
+</span></span><span class="line"><span class="cl">creating worker nodes
+</span></span><span class="line"><span class="cl">waiting for API
+</span></span><span class="line"><span class="cl">bootstrapping cluster
+</span></span><span class="line"><span class="cl">waiting for etcd to be healthy: OK
+</span></span><span class="line"><span class="cl">waiting for etcd members to be consistent across nodes: OK
+</span></span><span class="line"><span class="cl">waiting for etcd members to be control plane nodes: OK
+</span></span><span class="line"><span class="cl">waiting for apid to be ready: OK
+</span></span><span class="line"><span class="cl">waiting for all nodes memory sizes: OK
+</span></span><span class="line"><span class="cl">waiting for all nodes disk sizes: OK
+</span></span><span class="line"><span class="cl">waiting for no diagnostics: OK
+</span></span><span class="line"><span class="cl">waiting for kubelet to be healthy: OK
+</span></span><span class="line"><span class="cl">waiting for all nodes to finish boot sequence: OK
+</span></span><span class="line"><span class="cl">waiting for all k8s nodes to report: OK
+</span></span><span class="line"><span class="cl">waiting for all control plane static pods to be running: OK
+</span></span><span class="line"><span class="cl">waiting for all control plane components to be ready: OK
+</span></span><span class="line"><span class="cl">waiting for all k8s nodes to report ready: OK
+</span></span><span class="line"><span class="cl">waiting for kube-proxy to report ready: OK
+</span></span><span class="line"><span class="cl">waiting for coredns to report ready: OK
+</span></span><span class="line"><span class="cl">waiting for all k8s nodes to report schedulable: OK
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">merging kubeconfig into &#34;/Users/damonguo/.kube/config&#34;
+</span></span><span class="line"><span class="cl">PROVISIONER           docker
+</span></span><span class="line"><span class="cl">NAME                  talos-default
+</span></span><span class="line"><span class="cl">NETWORK NAME          talos-default
+</span></span><span class="line"><span class="cl">NETWORK CIDR          10.5.0.0/24
+</span></span><span class="line"><span class="cl">NETWORK GATEWAY       10.5.0.1
+</span></span><span class="line"><span class="cl">NETWORK MTU           1500
+</span></span><span class="line"><span class="cl">KUBERNETES ENDPOINT   https://127.0.0.1:60132
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NODES:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                            TYPE           IP         CPU    RAM      DISK
+</span></span><span class="line"><span class="cl">/talos-default-controlplane-1   controlplane   10.5.0.2   2.00   2.1 GB   -
+</span></span><span class="line"><span class="cl">/talos-default-worker-1         worker         10.5.0.3   2.00   2.1 GB   -</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get nodes -o wide
+</span></span><span class="line"><span class="cl">NAME                           STATUS   ROLES           AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE          KERNEL-VERSION                         CONTAINER-RUNTIME
+</span></span><span class="line"><span class="cl">talos-default-controlplane-1   Ready    control-plane   108s   v1.33.2   10.5.0.2      &lt;none&gt;        Talos (v1.10.5)   6.14.10-orbstack-00291-g1b252bd3edea   containerd://2.0.5
+</span></span><span class="line"><span class="cl">talos-default-worker-1         Ready    &lt;none&gt;          102s   v1.33.2   10.5.0.3      &lt;none&gt;        Talos (v1.10.5)   6.14.10-orbstack-00291-g1b252bd3edea   containerd://2.0.5</span></span></code></pre></div></div>
+<h3 id="部署测试-nginx-service-6">部署测试 Nginx Service</h3>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">➜ vim nginx-deploy-svc.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl apply -f nginx-deploy-svc.yaml
+</span></span><span class="line"><span class="cl">Warning: would violate PodSecurity &#34;restricted:latest&#34;: allowPrivilegeEscalation != false (container &#34;nginx&#34; must set securityContext.allowPrivilegeEscalation=false), unrestricted capabilities (container &#34;nginx&#34; must set securityContext.capabilities.drop=[&#34;ALL&#34;]), runAsNonRoot != true (pod or container &#34;nginx&#34; must set securityContext.runAsNonRoot=true), seccompProfile (pod or container &#34;nginx&#34; must set securityContext.seccompProfile.type to &#34;RuntimeDefault&#34; or &#34;Localhost&#34;)
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
+</span></span><span class="line"><span class="cl">service/nginx-svc created</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get all
+</span></span><span class="line"><span class="cl">NAME                                READY   STATUS    RESTARTS   AGE
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-86c57bc6b8-dk5fh   1/1     Running   0          33s
+</span></span><span class="line"><span class="cl">pod/nginx-deploy-86c57bc6b8-hb44f   1/1     Running   0          33s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+</span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.96.0.1        &lt;none&gt;        443/TCP        8m7s
+</span></span><span class="line"><span class="cl">service/nginx-svc    NodePort    10.109.129.119   &lt;none&gt;        80:32659/TCP   33s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy   2/2     2            2           33s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                                      DESIRED   CURRENT   READY   AGE
+</span></span><span class="line"><span class="cl">replicaset.apps/nginx-deploy-86c57bc6b8   2         2         2       33s</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl port-forward svc/nginx-svc 30081:80
+</span></span><span class="line"><span class="cl">Forwarding from 127.0.0.1:30081 -&gt; 80
+</span></span><span class="line"><span class="cl">Forwarding from [::1]:30081 -&gt; 80</span></span></code></pre></div></div>
+<p>通过 NodePort 本地端口映射访问 Nginx: http://127.0.0.1:30081</p>
+<a class="lightgallery" href="/2023/12/lightweight-kubernetes-distributions-practices/talos_nginx_svc_web.jpg" title="talos_nginx_svc_web" data-thumbnail="/2023/12/lightweight-kubernetes-distributions-practices/talos_nginx_svc_web.jpg">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/12/lightweight-kubernetes-distributions-practices/talos_nginx_svc_web.jpg"
+            data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/talos_nginx_svc_web.jpg, /2023/12/lightweight-kubernetes-distributions-practices/talos_nginx_svc_web.jpg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/talos_nginx_svc_web.jpg 2x"
+            data-sizes="auto"
+            alt="talos_nginx_svc_web" width="600" height="542" />
+    </a>
+<h3 id="清理-talos">清理 Talos</h3>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ talosctl cluster destroy
+</span></span><span class="line"><span class="cl">destroying node talos-default-controlplane-1
+</span></span><span class="line"><span class="cl">destroying node talos-default-worker-1
+</span></span><span class="line"><span class="cl">destroying network talos-default
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ talosctl cluster show
+</span></span><span class="line"><span class="cl">PROVISIONER           docker
+</span></span><span class="line"><span class="cl">NAME                  talos-default
+</span></span><span class="line"><span class="cl">NETWORK NAME
+</span></span><span class="line"><span class="cl">NETWORK CIDR
+</span></span><span class="line"><span class="cl">NETWORK GATEWAY
+</span></span><span class="line"><span class="cl">NETWORK MTU           0
+</span></span><span class="line"><span class="cl">KUBERNETES ENDPOINT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NODES:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME   TYPE   IP   CPU   RAM   DISK</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall talosctl
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew untap siderolabs/tap</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
