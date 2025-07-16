@@ -1,7 +1,7 @@
 # Lightweight Kubernetes Distributions Practices
 
 
-Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.
+Deploying and managing native Kubernetes clusters is a complex task. But the community has provided lightweight Kubernetes distributions as a solution.
 
 <!--more-->
 
