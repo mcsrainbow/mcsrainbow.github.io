@@ -1618,7 +1618,7 @@ Lightweight Kubernetes differ in cluster mode, storage, runtime, requirements, s
 | KinD         | Single-node  | etcd                               | containerd                   | Docker        | Easy     | Poor    | Dev, CI/CD |
 | K3S          | Multi-node   | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Linux         | Moderate | Fair    | Edge, Prod |
 | K3D          | Single-node  | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Docker        | Easy     | Fair    | Dev, CI/CD |
-| MicroK8s     | Multi-node   | etcd / dqlite (distributed SQLite) | containerd / Kata            | Linux         | Moderate | Great   | Dev, Prod  |
+| MicroK8s     | Multi-node   | etcd / dqlite (distributed SQLite) | containerd / Kata            | Linux         | Moderate | Good    | Dev, Prod  |
 | K0S          | Multi-node   | etcd / SQLite / MySQL / PostgreSQL | containerd                   | Linux         | Moderate | Average | Edge, Prod |
 | Talos        | Multi-node   | etcd                               | containerd                   | Docker        | Easy     | Poor    | Dev, Prod  |
 
