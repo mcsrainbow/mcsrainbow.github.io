@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4613 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  4735 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,8 +126,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Lightweight Kubernetes Distributions Practices</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4613 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;22 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4735 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;23 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -202,6 +202,7 @@
         <li><a href="#cleanup-talos">Cleanup Talos</a></li>
       </ul>
     </li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution.</p>
@@ -835,7 +836,7 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 </span></span><span class="line"><span class="cl">                                          10.42.0.0
 </span></span><span class="line"><span class="cl">                                          10.42.0.1
 </span></span><span class="line"><span class="cl">k3s-agent               Running           192.168.64.3     Ubuntu 22.04 LTS</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -1992,7 +1993,95 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall talosctl
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">➜ brew untap siderolabs/tap</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
+</span></span><span class="line"><span class="cl">➜ brew untap siderolabs/tap</span></span></code></pre></div></div>
+<h2 id="summary">Summary</h2>
+<p>Lightweight Kubernetes differ in cluster mode, storage, runtime, requirements, setup, and plugins. Choose based on your use case and technical preferences.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Distribution</th>
+          <th>Cluster Mode</th>
+          <th>Storage</th>
+          <th>Runtime</th>
+          <th>Requirements</th>
+          <th>Setup</th>
+          <th>Plugins</th>
+          <th>Use Case</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Minikube</td>
+          <td>Single-node</td>
+          <td>etcd</td>
+          <td>Podman / Docker / containerd</td>
+          <td>Docker/Podman</td>
+          <td>Easy</td>
+          <td>Good</td>
+          <td>Dev</td>
+      </tr>
+      <tr>
+          <td>KinD</td>
+          <td>Single-node</td>
+          <td>etcd</td>
+          <td>containerd</td>
+          <td>Docker</td>
+          <td>Easy</td>
+          <td>Poor</td>
+          <td>Dev, CI/CD</td>
+      </tr>
+      <tr>
+          <td>K3S</td>
+          <td>Multi-node</td>
+          <td>SQLite / etcd / MySQL / PostgreSQL</td>
+          <td>containerd</td>
+          <td>Linux</td>
+          <td>Moderate</td>
+          <td>Fair</td>
+          <td>Edge, Prod</td>
+      </tr>
+      <tr>
+          <td>K3D</td>
+          <td>Single-node</td>
+          <td>SQLite / etcd / MySQL / PostgreSQL</td>
+          <td>containerd</td>
+          <td>Docker</td>
+          <td>Easy</td>
+          <td>Fair</td>
+          <td>Dev, CI/CD</td>
+      </tr>
+      <tr>
+          <td>MicroK8s</td>
+          <td>Multi-node</td>
+          <td>etcd / dqlite (distributed SQLite)</td>
+          <td>containerd / Kata</td>
+          <td>Linux</td>
+          <td>Moderate</td>
+          <td>Great</td>
+          <td>Dev, Prod</td>
+      </tr>
+      <tr>
+          <td>K0S</td>
+          <td>Multi-node</td>
+          <td>etcd / SQLite / MySQL / PostgreSQL</td>
+          <td>containerd</td>
+          <td>Linux</td>
+          <td>Moderate</td>
+          <td>Average</td>
+          <td>Edge, Prod</td>
+      </tr>
+      <tr>
+          <td>Talos</td>
+          <td>Multi-node</td>
+          <td>etcd</td>
+          <td>containerd</td>
+          <td>Docker</td>
+          <td>Easy</td>
+          <td>Poor</td>
+          <td>Dev, Prod</td>
+      </tr>
+  </tbody>
+</table></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

@@ -1607,3 +1607,18 @@ deleted context admin@talos-default from /Users/damonguo/.kube/config
 
 ➜ brew untap siderolabs/tap
 ```
+
+## Summary
+
+Lightweight Kubernetes differ in cluster mode, storage, runtime, requirements, setup, and plugins. Choose based on your use case and technical preferences.
+
+| Distribution | Cluster Mode | Storage                            | Runtime                      | Requirements  | Setup    | Plugins | Use Case   |
+| ------------ | ------------ | ---------------------------------- | ---------------------------- | ------------- | -------- | ------- | ---------- |
+| Minikube     | Single-node  | etcd                               | Podman / Docker / containerd | Docker/Podman | Easy     | Good    | Dev        |
+| KinD         | Single-node  | etcd                               | containerd                   | Docker        | Easy     | Poor    | Dev, CI/CD |
+| K3S          | Multi-node   | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Linux         | Moderate | Fair    | Edge, Prod |
+| K3D          | Single-node  | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Docker        | Easy     | Fair    | Dev, CI/CD |
+| MicroK8s     | Multi-node   | etcd / dqlite (distributed SQLite) | containerd / Kata            | Linux         | Moderate | Great   | Dev, Prod  |
+| K0S          | Multi-node   | etcd / SQLite / MySQL / PostgreSQL | containerd                   | Linux         | Moderate | Average | Edge, Prod |
+| Talos        | Multi-node   | etcd                               | containerd                   | Docker        | Easy     | Poor    | Dev, Prod  |
+

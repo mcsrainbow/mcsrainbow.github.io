@@ -1607,3 +1607,18 @@ deleted context admin@talos-default from /Users/damonguo/.kube/config
 
 ➜ brew untap siderolabs/tap
 ```
+
+## 总结
+
+针对不同的使用需求，轻量级 Kubernetes 发行版在架构、数据存储、容器运行时、部署依赖、部署难度、插件等方面各具特点，选择时可结合实际场景和技术偏好进行权衡。
+
+| 发行版   | 架构         | 数据存储                           | 容器运行时                   | 部署依赖        | 部署难度 | 插件 | 适用场景           |
+| -------- | ------------ | ---------------------------------- | ---------------------------- | --------------- | -------- | ---- | ------------------ |
+| Minikube | 单节点伪集群 | etcd                               | Podman / Docker / containerd | Podman / Docker | 简单     | 优   | 本地开发           |
+| KinD     | 单节点伪集群 | etcd                               | containerd                   | Docker          | 简单     | 差   | 本地开发、CI/CD    |
+| K3S      | 多节点真集群 | SQLite / etcd /MySQL / PostgreSQL  | containerd                   | Linux           | 适中     | 良   | 边缘计算、生产运营 |
+| K3D      | 单节点伪集群 | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Docker          | 简单     | 良   | 本地开发、CI/CD    |
+| MicroK8s | 多节点真集群 | etcd / dqlite (distributed SQLite) | containerd / Kata            | Linux           | 适中     | 优   | 本地开发、生产运营 |
+| K0S      | 多节点真集群 | etcd / SQLite / MySQL / PostgreSQL | containerd                   | Linux           | 适中     | 中   | 边缘计算、生产运营 |
+| Talos    | 多节点真集群 | etcd                               | containerd                   | Docker          | 简单     | 差   | 本地开发、生产运营 |
+
