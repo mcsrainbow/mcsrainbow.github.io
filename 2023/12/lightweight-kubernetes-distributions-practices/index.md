@@ -1,7 +1,7 @@
 # 轻量级 Kubernetes 发行版实践
 
 
-部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。
+部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。
 
 <!--more-->
 

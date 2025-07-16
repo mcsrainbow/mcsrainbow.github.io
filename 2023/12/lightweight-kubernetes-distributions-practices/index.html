@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>轻量级 Kubernetes 发行版实践 - Hey! Linux</title><meta name="Description" content="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。"><meta property="og:url" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/">
+        <title>轻量级 Kubernetes 发行版实践 - Hey! Linux</title><meta name="Description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。"><meta property="og:url" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/">
   <meta property="og:site_name" content="Hey! Linux">
   <meta property="og:title" content="轻量级 Kubernetes 发行版实践">
-  <meta property="og:description" content="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。">
+  <meta property="og:description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
   <meta name="twitter:title" content="轻量级 Kubernetes 发行版实践">
-  <meta name="twitter:description" content="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。">
+  <meta name="twitter:description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。">
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  5226 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  5223 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -52,7 +52,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "郭冬"
-            },"description": "部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。"
+            },"description": "部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -126,7 +126,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5226 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5223 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -135,7 +135,7 @@
         data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg, /2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg 2x"
         data-sizes="auto"
         alt="/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg"
-        title="部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。" /></div><div class="details toc" id="toc-static"  data-kept="">
+        title="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -205,7 +205,7 @@
     <li><a href="#总结">总结</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。</p>
+            </div><div class="content" id="content"><p>部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。</p>
 <hr>
 <h2 id="minikube-结合-podman-实践">Minikube 结合 Podman 实践</h2>
 <p>Minikube 是轻量级的 Kubernetes 实现，可在本地计算机上创建虚拟机并部署仅包含节点的简单集群。<br>

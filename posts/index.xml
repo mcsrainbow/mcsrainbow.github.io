@@ -50,7 +50,7 @@
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-    <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项复杂的任务，为了解决这个问题，社区提供了轻量级 Kubernetes 发行版作为解决方案。</p>]]></description>
+    <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。</p>]]></description>
 </item>
 <item>
     <title>私有 IP 地址包括哪些</title>
