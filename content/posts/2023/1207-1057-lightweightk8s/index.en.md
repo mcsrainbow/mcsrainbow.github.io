@@ -3,7 +3,7 @@ title: "Lightweight Kubernetes Distributions Practices"
 slug: "lightweight-kubernetes-distributions-practices"
 date: 2023-12-07T10:57:19+08:00
 author: "Damon"
-description: "Deploying and managing native Kubernetes clusters is a complex task. To address this issue, the community has provided lightweight Kubernetes distributions as a solution."
+description: "Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier."
 categories: ["Skills"]
 tags: ["Kubernetes","Podman"]
 resources:
@@ -14,7 +14,7 @@ toc: true
 lightgallery: true
 ---
 
-Deploying and managing native Kubernetes clusters is a complex task. But the community has provided lightweight Kubernetes distributions as a solution.
+Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.
 
 <!--more-->
 
