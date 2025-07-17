@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/featured-image.jpeg",
                             "width":  1536 ,
                             "height":  546 
-                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  5223 ,
+                        }],"genre": "posts","keywords": "Kubernetes, Podman","wordcount":  5237 ,
         "url": "https:\/\/blog.heylinux.com\/2023\/12\/lightweight-kubernetes-distributions-practices\/","datePublished": "2023-12-07T10:57:19+08:00","dateModified": "2023-12-07T10:57:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -126,7 +126,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">轻量级 Kubernetes 发行版实践</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5223 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5237 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -1185,7 +1185,9 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 </span></span><span class="line"><span class="cl">INFO[0000] Successfully deleted cluster mycluster!      
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ k3d cluster list
-</span></span><span class="line"><span class="cl">NAME   SERVERS   AGENTS   LOADBALANCER</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">NAME   SERVERS   AGENTS   LOADBALANCER
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew uninstall k3d</span></span></code></pre></div></div>
 <h2 id="microk8s-结合-multipass-实践">MicroK8s 结合 Multipass 实践</h2>
 <p>MicroK8s 是 Ubuntu 公司 Canonical 开发的轻运维、最小化生产级 Kubernetes。<br>
 Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操作 Ubuntu 虚拟机的工具。</p>
@@ -1648,7 +1650,9 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl --kubeconfig=k0s.kubeconfig get all --all-namespaces
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ k0sctl kubeconfig &gt; k0s.kubeconfig
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ kubectl --kubeconfig=k0s.kubeconfig get all --all-namespaces
 </span></span><span class="line"><span class="cl">NAMESPACE     NAME                                 READY   STATUS    RESTARTS   AGE
 </span></span><span class="line"><span class="cl">kube-system   pod/coredns-5c8cb48c4-rr9k2          1/1     Running   0          8m54s
 </span></span><span class="line"><span class="cl">kube-system   pod/konnectivity-agent-sndm9         1/1     Running   0          8m50s
@@ -1789,7 +1793,9 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall k0sctl
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ brew uninstall --cask multipass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜ brew uninstall k0sctl
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">➜ brew untap k0sproject/tap</span></span></code></pre></div></div>
 <h2 id="talos-实践">Talos 实践</h2>

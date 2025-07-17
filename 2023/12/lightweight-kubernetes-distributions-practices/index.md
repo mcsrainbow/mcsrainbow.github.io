@@ -869,6 +869,8 @@ INFO[0000] Successfully deleted cluster mycluster!
 
 ➜ k3d cluster list
 NAME   SERVERS   AGENTS   LOADBALANCER
+
+➜ brew uninstall k3d
 ```
 
 ## MicroK8s 结合 Multipass 实践
@@ -1294,6 +1296,8 @@ INFO      k0sctl kubeconfig
 ```
 
 ```plain
+➜ k0sctl kubeconfig > k0s.kubeconfig
+
 ➜ kubectl --kubeconfig=k0s.kubeconfig get all --all-namespaces
 NAMESPACE     NAME                                 READY   STATUS    RESTARTS   AGE
 kube-system   pod/coredns-5c8cb48c4-rr9k2          1/1     Running   0          8m54s
@@ -1421,6 +1425,8 @@ No instances found.
 ```
 
 ```plain
+➜ brew uninstall --cask multipass
+
 ➜ brew uninstall k0sctl
 
 ➜ brew untap k0sproject/tap
