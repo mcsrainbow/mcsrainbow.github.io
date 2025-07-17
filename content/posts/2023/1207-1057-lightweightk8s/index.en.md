@@ -882,6 +882,8 @@ INFO[0000] Successfully deleted cluster mycluster!
 
 ➜ k3d cluster list
 NAME   SERVERS   AGENTS   LOADBALANCER
+
+➜ brew uninstall k3d
 ```
 
 ## Using MicroK8s with Multipass
@@ -1307,6 +1309,8 @@ INFO      k0sctl kubeconfig
 ```
 
 ```plain
+➜ k0sctl kubeconfig > k0s.kubeconfig
+
 ➜ kubectl --kubeconfig=k0s.kubeconfig get all --all-namespaces
 NAMESPACE     NAME                                 READY   STATUS    RESTARTS   AGE
 kube-system   pod/coredns-5c8cb48c4-rr9k2          1/1     Running   0          8m54s
@@ -1434,6 +1438,8 @@ No instances found.
 ```
 
 ```plain
+➜ brew uninstall --cask multipass
+
 ➜ brew uninstall k0sctl
 
 ➜ brew untap k0sproject/tap
@@ -1625,12 +1631,12 @@ deleted context admin@talos-default from /Users/damonguo/.kube/config
 
 Lightweight Kubernetes differ in cluster mode, storage, runtime, requirements, setup, and plugins. Choose based on your use case and technical preferences.
 
-| Distribution | Cluster Mode | Storage                            | Runtime                      | Requirements  | Setup    | Plugins | Use Case   |
-| ------------ | ------------ | ---------------------------------- | ---------------------------- | ------------- | -------- | ------- | ---------- |
-| Minikube     | Single-node  | etcd                               | Podman / Docker / containerd | Docker/Podman | Easy     | Good    | Dev        |
-| KinD         | Single-node  | etcd                               | containerd                   | Docker        | Easy     | Poor    | Dev, CI/CD |
-| K3S          | Multi-node   | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Linux         | Moderate | Fair    | Edge, Prod |
-| K3D          | Single-node  | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Docker        | Easy     | Fair    | Dev, CI/CD |
-| MicroK8s     | Multi-node   | etcd / dqlite (distributed SQLite) | containerd / Kata            | Linux         | Moderate | Good    | Dev, Prod  |
-| K0S          | Multi-node   | etcd / SQLite / MySQL / PostgreSQL | containerd                   | Linux         | Moderate | Average | Edge, Prod |
-| Talos        | Multi-node   | etcd                               | containerd                   | Docker        | Easy     | Poor    | Dev, Prod  |
+| Distribution | Cluster Mode | Storage                            | Runtime                      | Requirements    | Setup    | Plugins | Use Case   |
+| ------------ | ------------ | ---------------------------------- | ---------------------------- | --------------- | -------- | ------- | ---------- |
+| Minikube     | Single-node  | etcd                               | Podman / Docker / containerd | Podman / Docker | Easy     | Good    | Dev        |
+| KinD         | Single-node  | etcd                               | containerd                   | Docker          | Easy     | Poor    | Dev, CI/CD |
+| K3S          | Multi-node   | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Linux           | Moderate | Fair    | Edge, Prod |
+| K3D          | Single-node  | SQLite / etcd / MySQL / PostgreSQL | containerd                   | Docker          | Easy     | Fair    | Dev, CI/CD |
+| MicroK8s     | Multi-node   | etcd / dqlite (distributed SQLite) | containerd / Kata            | Linux           | Moderate | Good    | Dev, Prod  |
+| K0S          | Multi-node   | etcd / SQLite / MySQL / PostgreSQL | containerd                   | Linux           | Moderate | Average | Edge, Prod |
+| Talos        | Multi-node   | etcd                               | containerd                   | Docker          | Easy     | Poor    | Dev, Prod  |
