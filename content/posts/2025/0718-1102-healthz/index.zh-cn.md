@@ -2,7 +2,7 @@
 title: "健康检查端点 /healthz 设计实践"
 slug: "health-check-endpoint-healthz-design-practice"
 date: 2025-07-18T11:02:05+08:00
-author: "Damon"
+author: "郭冬"
 description: "设计一个具有关键检查和独立外部监控的健康检查端点。"
 categories: ["技能矩阵"]
 tags: ["Kubernetes"]
