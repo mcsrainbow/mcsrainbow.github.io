@@ -38,17 +38,17 @@ Health check endpoint with dependency-aware critical checks and isolated externa
 
 ### 1. Install dependencies
 
-```bash
+```plain
 pip install bottle
 ```
 
 ### 2. Run the script
 
-```bash
+```plain
 python mock-healthz-metrics.py
 ```
 
-```text
+```plain
 Service endpoints available:
   Healthcheck (Text):  http://0.0.0.0:8080/healthz
   Healthcheck (JSON):  http://0.0.0.0:8080/healthz?format=json
@@ -64,7 +64,7 @@ http://127.0.0.1:8080/healthz?format=text
 
 **Healthy**
 
-```
+```plain
 CHECK                   STATUS  MESSAGE
 ----- Critical -----
 db_connection           PASS    Database is connected
@@ -78,7 +78,7 @@ external_api/sms        FAIL    external_api/sms timed out
 
 **Unhealthy**
 
-```
+```plain
 CHECK                   STATUS  MESSAGE
 ----- Critical -----
 db_connection           PASS    Database is connected
@@ -207,7 +207,7 @@ Scrape `http://127.0.0.1:8080/metrics` by default.
 
 **Healthy**
 
-```
+```plain
 # HELP healthcheck_status Health check status (1=ok,0=error)
 # TYPE healthcheck_status gauge
 healthcheck_status{check="db_connection",type="critical"} 1
@@ -221,7 +221,7 @@ healthcheck_status{check="external_api/sms",type="external"} 0
 
 **Unhealthy**
 
-```
+```plain
 # HELP healthcheck_status Health check status (1=ok,0=error)
 # TYPE healthcheck_status gauge
 healthcheck_status{check="db_connection",type="critical"} 1

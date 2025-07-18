@@ -213,24 +213,24 @@
 <h2 id="-开始使用">🚀 开始使用</h2>
 <h3 id="1-安装依赖">1. 安装依赖</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-bash">
+    <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install bottle</span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">pip install bottle</span></span></code></pre></div></div>
 <h3 id="2-运行脚本">2. 运行脚本</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-bash">
+    <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python mock-healthz-metrics.py</span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">python mock-healthz-metrics.py</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-text">
+    <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Service endpoints available:
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Service endpoints available:
 </span></span><span class="line"><span class="cl">  Healthcheck (Text):  http://0.0.0.0:8080/healthz
 </span></span><span class="line"><span class="cl">  Healthcheck (JSON):  http://0.0.0.0:8080/healthz?format=json
 </span></span><span class="line"><span class="cl">  Prometheus metrics:  http://0.0.0.0:8080/metrics</span></span></code></pre></div></div>
@@ -240,34 +240,34 @@
 http://127.0.0.1:8080/healthz?format=text</p>
 <p><strong>健康状态</strong></p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-">
+    <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><pre tabindex="0"><code>CHECK                   STATUS  MESSAGE
------ Critical -----
-db_connection           PASS    Database is connected
-config_service          PASS    Config service is reachable
-internal_api/billing    PASS    internal_api/billing OK (392ms)
-internal_api/usage      PASS    internal_api/usage OK (348ms)
------ External -----
-external_api/alipay     PASS    external_api/alipay OK (308ms)
-external_api/sms        FAIL    external_api/sms timed out</code></pre></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">CHECK                   STATUS  MESSAGE
+</span></span><span class="line"><span class="cl">----- Critical -----
+</span></span><span class="line"><span class="cl">db_connection           PASS    Database is connected
+</span></span><span class="line"><span class="cl">config_service          PASS    Config service is reachable
+</span></span><span class="line"><span class="cl">internal_api/billing    PASS    internal_api/billing OK (392ms)
+</span></span><span class="line"><span class="cl">internal_api/usage      PASS    internal_api/usage OK (348ms)
+</span></span><span class="line"><span class="cl">----- External -----
+</span></span><span class="line"><span class="cl">external_api/alipay     PASS    external_api/alipay OK (308ms)
+</span></span><span class="line"><span class="cl">external_api/sms        FAIL    external_api/sms timed out</span></span></code></pre></div></div>
 <p><strong>异常状态</strong></p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-">
+    <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><pre tabindex="0"><code>CHECK                   STATUS  MESSAGE
------ Critical -----
-db_connection           PASS    Database is connected
-config_service          PASS    Config service is reachable
-internal_api/billing    PASS    internal_api/billing OK (253ms)
-internal_api/usage      FAIL    internal_api/usage returned error
------ External -----
-external_api/alipay     PASS    external_api/alipay OK (101ms)
-external_api/sms        PASS    external_api/sms OK (183ms)</code></pre></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">CHECK                   STATUS  MESSAGE
+</span></span><span class="line"><span class="cl">----- Critical -----
+</span></span><span class="line"><span class="cl">db_connection           PASS    Database is connected
+</span></span><span class="line"><span class="cl">config_service          PASS    Config service is reachable
+</span></span><span class="line"><span class="cl">internal_api/billing    PASS    internal_api/billing OK (253ms)
+</span></span><span class="line"><span class="cl">internal_api/usage      FAIL    internal_api/usage returned error
+</span></span><span class="line"><span class="cl">----- External -----
+</span></span><span class="line"><span class="cl">external_api/alipay     PASS    external_api/alipay OK (101ms)
+</span></span><span class="line"><span class="cl">external_api/sms        PASS    external_api/sms OK (183ms)</span></span></code></pre></div></div>
 <h3 id="json-格式">JSON 格式</h3>
 <p>http://127.0.0.1:8080/healthz?format=json</p>
 <p><strong>健康状态</strong></p>
@@ -382,32 +382,32 @@ external_api/sms        PASS    external_api/sms OK (183ms)</code></pre></div>
 <h3 id="指标">指标</h3>
 <p><strong>健康状态</strong></p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-">
+    <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><pre tabindex="0"><code># HELP healthcheck_status Health check status (1=ok,0=error)
-# TYPE healthcheck_status gauge
-healthcheck_status{check=&#34;db_connection&#34;,type=&#34;critical&#34;} 1
-healthcheck_status{check=&#34;config_service&#34;,type=&#34;critical&#34;} 1
-healthcheck_status{check=&#34;internal_api/billing&#34;,type=&#34;critical&#34;} 1
-healthcheck_status{check=&#34;internal_api/usage&#34;,type=&#34;critical&#34;} 1
-healthcheck_status{check=&#34;external_api/alipay&#34;,type=&#34;external&#34;} 1
-healthcheck_status{check=&#34;external_api/sms&#34;,type=&#34;external&#34;} 0</code></pre></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># HELP healthcheck_status Health check status (1=ok,0=error)
+</span></span><span class="line"><span class="cl"># TYPE healthcheck_status gauge
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;db_connection&#34;,type=&#34;critical&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;config_service&#34;,type=&#34;critical&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;internal_api/billing&#34;,type=&#34;critical&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;internal_api/usage&#34;,type=&#34;critical&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;external_api/alipay&#34;,type=&#34;external&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;external_api/sms&#34;,type=&#34;external&#34;} 0</span></span></code></pre></div></div>
 <p><strong>异常状态</strong></p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-">
+    <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><pre tabindex="0"><code># HELP healthcheck_status Health check status (1=ok,0=error)
-# TYPE healthcheck_status gauge
-healthcheck_status{check=&#34;db_connection&#34;,type=&#34;critical&#34;} 1
-healthcheck_status{check=&#34;config_service&#34;,type=&#34;critical&#34;} 1
-healthcheck_status{check=&#34;internal_api/billing&#34;,type=&#34;critical&#34;} 0
-healthcheck_status{check=&#34;internal_api/usage&#34;,type=&#34;critical&#34;} 1
-healthcheck_status{check=&#34;external_api/alipay&#34;,type=&#34;external&#34;} 1
-healthcheck_status{check=&#34;external_api/sms&#34;,type=&#34;external&#34;} 1</code></pre></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># HELP healthcheck_status Health check status (1=ok,0=error)
+</span></span><span class="line"><span class="cl"># TYPE healthcheck_status gauge
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;db_connection&#34;,type=&#34;critical&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;config_service&#34;,type=&#34;critical&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;internal_api/billing&#34;,type=&#34;critical&#34;} 0
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;internal_api/usage&#34;,type=&#34;critical&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;external_api/alipay&#34;,type=&#34;external&#34;} 1
+</span></span><span class="line"><span class="cl">healthcheck_status{check=&#34;external_api/sms&#34;,type=&#34;external&#34;} 1</span></span></code></pre></div></div>
 <h2 id="-kubernetes">🐳 Kubernetes</h2>
 <p>对于 Kubernetes livenessProbe 和 readinessProbe:</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
