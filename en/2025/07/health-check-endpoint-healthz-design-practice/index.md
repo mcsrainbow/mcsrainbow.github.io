@@ -1,7 +1,7 @@
 # Health Check Endpoint /healthz Design Practice
 
 
-Health check endpoint with dependency-aware critical checks and isolated external monitoring.
+Health check endpoint with dependency-aware critical checks and independent external monitoring.
 
 <!--more-->
 
