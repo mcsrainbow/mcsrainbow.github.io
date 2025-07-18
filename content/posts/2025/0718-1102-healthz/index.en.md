@@ -3,7 +3,7 @@ title: "Health Check Endpoint /healthz Design Practice"
 slug: "health-check-endpoint-healthz-design-practice"
 date: 2025-07-18T11:02:05+08:00
 author: "Damon"
-description: "Health check endpoint with dependency-aware critical checks and isolated external monitoring."
+description: "Health check endpoint with dependency-aware critical checks and independent external monitoring."
 categories: ["Skills"]
 tags: ["Kubernetes"]
 resources:
@@ -14,7 +14,7 @@ toc: true
 lightgallery: true
 ---
 
-Health check endpoint with dependency-aware critical checks and isolated external monitoring.
+Health check endpoint with dependency-aware critical checks and independent external monitoring.
 
 <!--more-->
 
