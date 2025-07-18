@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/categories/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/categories/</loc><lastmod>2025-07-18T11:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/categories/"
@@ -11,7 +11,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/categories/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/</loc><lastmod>2025-07-18T11:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/"
@@ -20,7 +20,16 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/posts/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/tags/kubernetes/</loc><lastmod>2025-07-18T11:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/tags/kubernetes/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/tags/kubernetes/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/posts/</loc><lastmod>2025-07-18T11:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/posts/"
@@ -29,7 +38,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/posts/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/tags/</loc><lastmod>2025-07-18T11:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/tags/"
@@ -37,6 +46,16 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/tags/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</loc><lastmod>2025-07-18T11:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/</loc><lastmod>2025-07-18T11:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/"
                     /></url><url>
             <loc>https://blog.heylinux.com/tags/%E6%88%90%E9%95%BF/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/2025/01/work-mindsets/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
@@ -59,15 +78,6 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/tags/helm/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/kubernetes/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://blog.heylinux.com/en/tags/kubernetes/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://blog.heylinux.com/tags/kubernetes/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -86,7 +96,6 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/tags/kustomize/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</loc><lastmod>2024-09-10T18:37:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</loc><lastmod>2024-07-03T17:27:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
