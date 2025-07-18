@@ -161,6 +161,8 @@ Kubernetes 默认配置:
 1. 对于 Web 类应用，通过应用代码判断自身业务状态，生成 `/healthz` 健康检查页面
 2. 将基于 `tcpSocket` 的健康检查升级为基于 `httpGet`，通过获取健康检查页面的返回结果进行精准判断
 
+详细的健康检查端点 `/healthz` 设计请参考: [健康检查端点 /healthz 设计实践](https://blog.heylinux.com/zh-cn/2025/07/health-check-endpoint-healthz-design-practice/)。
+
 启用 `/healthz` 健康检查页面的 Kubernetes Deployment 实践配置示例:
 
 ```yaml
