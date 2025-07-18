@@ -757,3 +757,17 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
+
+# server config for development
+# 开发服务器配置
+[server]
+  # Disable HTTP cache to ensure real-time content updates
+  # 禁用HTTP缓存，确保内容实时更新
+  [server.headers]
+    # Disable cache for all pages
+    # 为所有页面禁用缓存
+    for = "/*"
+    [server.headers.values]
+      Cache-Control = "no-cache, no-store, must-revalidate"
+      Pragma = "no-cache"
+      Expires = "0"
