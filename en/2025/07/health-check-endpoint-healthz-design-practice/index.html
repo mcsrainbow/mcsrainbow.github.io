@@ -190,12 +190,12 @@
 <ul>
 <li>🔌 Database connection: Core dependency, must be healthy</li>
 <li>⚙️ Config service: Core dependency, must be healthy</li>
-<li>🔁 Internal APIs (<code>billing</code>, <code>usage</code>): Depend on upstream services (DB + Config), skipped if upstream fails</li>
+<li>🔁 Internal APIs <code>billing</code>, <code>usage</code>: Depend on upstream services (DB + Config), skipped if upstream fails</li>
 </ul>
 </li>
 <li>🟡 <strong>External checks</strong> Independent:
 <ul>
-<li>🌍 External APIs (<code>alipay</code>, <code>sms</code>): Run independently, don&rsquo;t affect overall health status</li>
+<li>🌍 External APIs <code>alipay</code>, <code>sms</code>: Run independently, don&rsquo;t affect overall health status</li>
 </ul>
 </li>
 </ul>
