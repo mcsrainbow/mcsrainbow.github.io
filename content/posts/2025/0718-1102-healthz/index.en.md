@@ -286,7 +286,7 @@ readinessProbe:
   timeoutSeconds: 2
 ```
 
-For more detailed probe design, please refer to the article: [Kubernetes Container Healthcheck and Graceful Termination](https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/).
+For more detailed probe design, please refer to the article: [Kubernetes Container Healthcheck and Graceful Termination](/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/).
 
 ## 📌 Notes
 
