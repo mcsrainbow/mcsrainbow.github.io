@@ -173,7 +173,7 @@ Solution:
 1. Create a `/healthz` endpoint for accurate health checks.
 2. Upgrade from `tcpSocket` to `httpGet` health checks for precise assessments.
 
-For more detailed health check endpoint `/healthz` design, please refer to the article: [Health Check Endpoint /healthz Design Practice](https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/).
+For more detailed health check endpoint `/healthz` design, please refer to the article: [Health Check Endpoint /healthz Design Practice](/en/2025/07/health-check-endpoint-healthz-design-practice/).
 
 Kubernetes deployment configurations enables the `/healthz` endpoint:
 
