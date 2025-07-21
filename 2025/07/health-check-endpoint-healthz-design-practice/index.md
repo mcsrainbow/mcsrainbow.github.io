@@ -272,7 +272,7 @@ readinessProbe:
   timeoutSeconds: 2
 ```
 
-关于更详细的探针设计，请参考文章: [Kubernetes 容器健康检查和优雅终止](https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/)。
+关于更详细的探针设计，请参考文章: [Kubernetes 容器健康检查和优雅终止](/2024/07/kubernetes-container-healthcheck-and-graceful-termination/)。
 
 ## 📌 注意事项
 
