@@ -89,7 +89,7 @@ kustomize/apps-overlays
         └── kustomization.yaml
 ```
 
-通过 `kustomize build` 命令可以预览渲染出原生 YAML。
+通过 `kustomize build` 命令可以预览渲染出的原生 YAML。
 
 ```bash
 cd kustomize/apps-overlays
@@ -137,7 +137,7 @@ helm/apps-overlays
 └── values.yaml
 ```
 
-通过 `helm template` 命令可以预览渲染出原生 YAML。
+通过 `helm template` 命令可以预览渲染出的原生 YAML。
 
 ```bash
 cd helm/apps-overlays
