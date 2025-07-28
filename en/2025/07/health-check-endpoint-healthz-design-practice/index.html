@@ -11,8 +11,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-07-18T11:02:05+08:00">
-    <meta property="article:modified_time" content="2025-07-18T11:02:05+08:00">
+    <meta property="article:published_time" content="2025-07-18T12:02:05+08:00">
+    <meta property="article:modified_time" content="2025-07-18T12:02:05+08:00">
     <meta property="article:tag" content="Kubernetes">
     <meta property="og:image" content="https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/featured-image.jpeg">
 
@@ -41,7 +41,7 @@
                             "width":  2560 ,
                             "height":  1040 
                         }],"genre": "posts","keywords": "Kubernetes","wordcount":  625 ,
-        "url": "https:\/\/blog.heylinux.com\/en\/2025\/07\/health-check-endpoint-healthz-design-practice\/","datePublished": "2025-07-18T11:02:05+08:00","dateModified": "2025-07-18T11:02:05+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "https:\/\/blog.heylinux.com\/en\/2025\/07\/health-check-endpoint-healthz-design-practice\/","datePublished": "2025-07-18T12:02:05+08:00","dateModified": "2025-07-18T12:02:05+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
                     "@type": "ImageObject",
@@ -244,7 +244,7 @@ http://127.0.0.1:8080/healthz?format=text</p>
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">HEALTH CHECK SNAPSHOT [2025-07-25 19:03:15]
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">HEALTH CHECK SNAPSHOT [2025-07-18 11:03:15]
 </span></span><span class="line"><span class="cl">-------------------------------------------
 </span></span><span class="line"><span class="cl">CHECK                   STATUS  MESSAGE
 </span></span><span class="line"><span class="cl">----- CRITICAL -----
@@ -253,24 +253,24 @@ http://127.0.0.1:8080/healthz?format=text</p>
 </span></span><span class="line"><span class="cl">internal_api/billing    ✔       internal_api/billing OK (392ms)
 </span></span><span class="line"><span class="cl">internal_api/usage      ✔       internal_api/usage OK (348ms)
 </span></span><span class="line"><span class="cl">----- EXTERNAL -----
-</span></span><span class="line"><span class="cl">external_api/alipay     ✖       external_api/alipay OK (308ms)
-</span></span><span class="line"><span class="cl">external_api/sms        ✔       external_api/sms timed out</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">external_api/alipay     ✔       external_api/alipay OK (308ms)
+</span></span><span class="line"><span class="cl">external_api/sms        ✖       external_api/sms timed out</span></span></code></pre></div></div>
 <p><strong>Unhealthy</strong></p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">HEALTH CHECK SNAPSHOT [2025-07-25 19:03:27]
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">HEALTH CHECK SNAPSHOT [2025-07-18 11:05:27]
 </span></span><span class="line"><span class="cl">-------------------------------------------
 </span></span><span class="line"><span class="cl">CHECK                   STATUS  MESSAGE
 </span></span><span class="line"><span class="cl">----- CRITICAL -----
 </span></span><span class="line"><span class="cl">db_connection           ✔       Database is connected
 </span></span><span class="line"><span class="cl">config_service          ✔       Config service is reachable
 </span></span><span class="line"><span class="cl">internal_api/billing    ✔       internal_api/billing OK (253ms)
-</span></span><span class="line"><span class="cl">internal_api/usage      ✔       internal_api/usage returned error
+</span></span><span class="line"><span class="cl">internal_api/usage      ✖       internal_api/usage returned error
 </span></span><span class="line"><span class="cl">----- EXTERNAL -----
-</span></span><span class="line"><span class="cl">external_api/alipay     ✖       external_api/alipay OK (101ms)
+</span></span><span class="line"><span class="cl">external_api/alipay     ✔       external_api/alipay OK (101ms)
 </span></span><span class="line"><span class="cl">external_api/sms        ✔       external_api/sms OK (183ms)</span></span></code></pre></div></div>
 <h3 id="json-format">JSON Format</h3>
 <p>http://127.0.0.1:8080/healthz?format=json</p>
@@ -284,7 +284,7 @@ http://127.0.0.1:8080/healthz?format=text</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;ok&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;data&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;All critical checks passed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;snapshot_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-07-25 19:03:15&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;snapshot_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-07-18 11:03:15&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;checks&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;critical&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
@@ -333,7 +333,7 @@ http://127.0.0.1:8080/healthz?format=text</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;error&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;data&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;Some critical checks failed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;snapshot_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-07-25 19:03:27&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;snapshot_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-07-18 11:05:27&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;checks&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;critical&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
@@ -423,14 +423,14 @@ http://127.0.0.1:8080/healthz?format=text</p>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ curl -I http://127.0.0.1:8080/healthz
 </span></span><span class="line"><span class="cl">HTTP/1.0 200 OK
-</span></span><span class="line"><span class="cl">Date: Fri, 18 Jul 2025 03:43:31 GMT
+</span></span><span class="line"><span class="cl">Date: Fri, 18 Jul 2025 03:03:31 GMT
 </span></span><span class="line"><span class="cl">Server: WSGIServer/0.2 CPython/3.11.11
 </span></span><span class="line"><span class="cl">Content-Type: text/plain
 </span></span><span class="line"><span class="cl">Content-Length: 444
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ curl -I http://127.0.0.1:8080/healthz
 </span></span><span class="line"><span class="cl">HTTP/1.0 500 Internal Server Error
-</span></span><span class="line"><span class="cl">Date: Fri, 18 Jul 2025 03:43:36 GMT
+</span></span><span class="line"><span class="cl">Date: Fri, 18 Jul 2025 03:05:36 GMT
 </span></span><span class="line"><span class="cl">Server: WSGIServer/0.2 CPython/3.11.11
 </span></span><span class="line"><span class="cl">Content-Type: text/plain
 </span></span><span class="line"><span class="cl">Content-Length: 438</span></span></code></pre></div></div>

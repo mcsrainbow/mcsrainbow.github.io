@@ -4,10 +4,10 @@
         <link>https://blog.heylinux.com/en/posts/</link>
         <description>All Posts | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 18 Jul 2025 11:02:05 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Health Check Endpoint /healthz Design Practice</title>
     <link>https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/</link>
-    <pubDate>Fri, 18 Jul 2025 11:02:05 &#43;0800</pubDate>
+    <pubDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</pubDate>
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/</guid>
     <description><![CDATA[<p>Health check endpoint with dependency-aware critical checks and independent external monitoring.</p>]]></description>

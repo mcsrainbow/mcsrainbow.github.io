@@ -65,7 +65,7 @@ http://127.0.0.1:8080/healthz?format=text
 **Healthy**
 
 ```plain
-HEALTH CHECK SNAPSHOT [2025-07-25 19:03:15]
+HEALTH CHECK SNAPSHOT [2025-07-18 11:03:15]
 -------------------------------------------
 CHECK                   STATUS  MESSAGE
 ----- CRITICAL -----
@@ -74,23 +74,23 @@ config_service          ✔       Config service is reachable
 internal_api/billing    ✔       internal_api/billing OK (392ms)
 internal_api/usage      ✔       internal_api/usage OK (348ms)
 ----- EXTERNAL -----
-external_api/alipay     ✖       external_api/alipay OK (308ms)
-external_api/sms        ✔       external_api/sms timed out
+external_api/alipay     ✔       external_api/alipay OK (308ms)
+external_api/sms        ✖       external_api/sms timed out
 ```
 
 **Unhealthy**
 
 ```plain
-HEALTH CHECK SNAPSHOT [2025-07-25 19:03:27]
+HEALTH CHECK SNAPSHOT [2025-07-18 11:05:27]
 -------------------------------------------
 CHECK                   STATUS  MESSAGE
 ----- CRITICAL -----
 db_connection           ✔       Database is connected
 config_service          ✔       Config service is reachable
 internal_api/billing    ✔       internal_api/billing OK (253ms)
-internal_api/usage      ✔       internal_api/usage returned error
+internal_api/usage      ✖       internal_api/usage returned error
 ----- EXTERNAL -----
-external_api/alipay     ✖       external_api/alipay OK (101ms)
+external_api/alipay     ✔       external_api/alipay OK (101ms)
 external_api/sms        ✔       external_api/sms OK (183ms)
 ```
 
@@ -105,7 +105,7 @@ http://127.0.0.1:8080/healthz?format=json
   "status": "ok",
   "data": {
     "message": "All critical checks passed",
-    "snapshot_time": "2025-07-25 19:03:15",
+    "snapshot_time": "2025-07-18 11:03:15",
     "checks": {
       "critical": [
         {
@@ -153,7 +153,7 @@ http://127.0.0.1:8080/healthz?format=json
   "status": "error",
   "data": {
     "message": "Some critical checks failed",
-    "snapshot_time": "2025-07-25 19:03:27",
+    "snapshot_time": "2025-07-18 11:05:27",
     "checks": {
       "critical": [
         {
@@ -245,14 +245,14 @@ For Kubernetes livenessProbe and readinessProbe:
 ```plain
 ❯ curl -I http://127.0.0.1:8080/healthz
 HTTP/1.0 200 OK
-Date: Fri, 18 Jul 2025 03:43:31 GMT
+Date: Fri, 18 Jul 2025 03:03:31 GMT
 Server: WSGIServer/0.2 CPython/3.11.11
 Content-Type: text/plain
 Content-Length: 444
 
 ❯ curl -I http://127.0.0.1:8080/healthz
 HTTP/1.0 500 Internal Server Error
-Date: Fri, 18 Jul 2025 03:43:36 GMT
+Date: Fri, 18 Jul 2025 03:05:36 GMT
 Server: WSGIServer/0.2 CPython/3.11.11
 Content-Type: text/plain
 Content-Length: 438
