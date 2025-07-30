@@ -15,6 +15,14 @@
     <description><![CDATA[<p>Presenting conventional commits, branching models, semantic versioning, and source-based versioning in YAML format.</p>]]></description>
 </item>
 <item>
+    <title>Cloud Native Glossary Lite</title>
+    <link>https://blog.heylinux.com/en/2025/07/cloud-native-glossary-lite/</link>
+    <pubDate>Mon, 28 Jul 2025 15:12:51 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2025/07/cloud-native-glossary-lite/</guid>
+    <description><![CDATA[<p>Reference: <a href="https://glossary.cncf.io/" target="_blank" rel="noopener noreffer ">https://glossary.cncf.io/</a></p>]]></description>
+</item>
+<item>
     <title>Health Check Endpoint /healthz Design Practice</title>
     <link>https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/</link>
     <pubDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</guid>
     <description><![CDATA[<p>In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.</p>]]></description>
-</item>
-<item>
-    <title>Enhance AWS S3 Data Security with Bucket Level Policy</title>
-    <link>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
-    <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
-    <description><![CDATA[<p>After restricting the source of S3 Bucket access requests through Bucket Level Policy, the data in AWS S3 Bucket can still be secured even if AKSK is compromised.</p>]]></description>
 </item>
 </channel>
 </rss>

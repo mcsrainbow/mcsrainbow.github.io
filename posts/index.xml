@@ -13,6 +13,14 @@
     <description><![CDATA[<p>以更契合工程师习惯的 YAML 文档格式，展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。</p>]]></description>
 </item>
 <item>
+    <title>云原生词汇表之精简版</title>
+    <link>https://blog.heylinux.com/2025/07/cloud-native-glossary-lite/</link>
+    <pubDate>Mon, 28 Jul 2025 15:12:51 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2025/07/cloud-native-glossary-lite/</guid>
+    <description><![CDATA[<p>参考: <a href="https://glossary.cncf.io/zh-cn/" target="_blank" rel="noopener noreffer ">https://glossary.cncf.io/zh-cn/</a></p>]]></description>
+</item>
+<item>
     <title>健康检查端点 /healthz 设计实践</title>
     <link>https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/</link>
     <pubDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</guid>
     <description><![CDATA[<p>在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>]]></description>
-</item>
-<item>
-    <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
-    <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
-    <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
-    <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
 </item>
 </channel>
 </rss>
