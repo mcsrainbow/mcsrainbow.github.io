@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</link>
         <description>技能矩阵 - 分类 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+    <title>代码提交&#43;分支管理&#43;版本管理最佳实践</title>
+    <link>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</link>
+    <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</guid>
+    <description><![CDATA[<p>以更契合工程师习惯的 YAML 文档格式，展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。</p>]]></description>
+</item>
+<item>
     <title>健康检查端点 /healthz 设计实践</title>
     <link>https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/</link>
     <pubDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2022/05/punctuation-marks/</guid>
     <description><![CDATA[<p>正确表示常用标点符号的中英文名称。</p>]]></description>
-</item>
-<item>
-    <title>使用 kubeadm 快速部署 Kubernetes 集群</title>
-    <link>https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/</link>
-    <pubDate>Tue, 21 Dec 2021 21:58:24 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2021/12/setup-kubernetes-cluster-using-kubeadm/</guid>
-    <description><![CDATA[<p>kubeadm 是 Kubernetes 官方提供的用于快速部署集群的工具。</p>]]></description>
 </item>
 </channel>
 </rss>
