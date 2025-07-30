@@ -222,7 +222,7 @@ GitLabFlow:
 
 ## Version Management
 
-### Tag Naming
+### Label Naming
 
 ```yaml
 version_label:
