@@ -381,7 +381,7 @@ version_branch:
   rules:
     - if: $CI_COMMIT_BRANCH           # 当基于 分支 构建时运行
   script:
-    # 生成时间戳, 格式为 YYYYMMDDHHmm, 例如 202507301906
+    # 生成日期时间, 格式为 YYYYMMDDHHmm, 例如 202507301906
     - VERSION_DATETIME=$(date +'%Y%m%d%H%M')
     # 拼接版本号：<branch>-YYYYMMDDHHmm-<commit_hash>
     # 例如：main-202507301906-3f9a7c1d

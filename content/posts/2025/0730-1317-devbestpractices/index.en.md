@@ -208,10 +208,10 @@ GitLabFlow:
   website: https://about.gitlab.com/blog/gitlab-flow-duo/
   description: GitLab's officially recommended workflow, combines trunk development with environment branches, suitable for multi-environment CI/CD deployment
   branches:
-    feature/*:   feature development branches, derived from main, merge back to main through Merge Request
-    main:        main branch, for integration and testing, always in mergeable state
-    staging:     pre-release environment branch, for pre-launch validation
-    production:  production environment branch, tracks current online deployment version
+    feature/*:  feature development branches, derived from main, merge back to main through Merge Request
+    main:       main branch, for integration and testing, always in mergeable state
+    staging:    pre-release environment branch, for pre-launch validation
+    production: production environment branch, tracks current online deployment version
   workflow:
     # Feature development: feature branches from main, merge back to main after completion
     # Deployment process: main merge to staging triggers pre-release, main merge to production triggers production deployment
@@ -366,7 +366,7 @@ version_branch:
   rules:
     - if: $CI_COMMIT_BRANCH           # Run when building based on branch
   script:
-    # Generate timestamp in YYYYMMDDHHmm format, e.g., 202507301906
+    # Generate datetime in YYYYMMDDHHmm format, e.g., 202507301906
     - VERSION_DATETIME=$(date +'%Y%m%d%H%M')
     # Concatenate version number: <branch>-YYYYMMDDHHmm-<commit_hash>
     # Example: main-202507301906-3f9a7c1d
