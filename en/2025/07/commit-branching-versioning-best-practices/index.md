@@ -179,7 +179,7 @@ TrunkBasedDevelopment:
     # Continuous release: each main merge can trigger build and release
     main → feature → main → tag(vX.Y.Z)[optional]
   notes:
-    - Due to frequent merges, usually use `datetime + commit_hash` as version number, e.g., 2025.07.30.19.06.3f9a7c1d
+    - Due to frequent merges, usually use `datetime + commit_hash` as version number, e.g., 2025.07.30.1906.3f9a7c1d
     - Semantic versioning (vX.Y.Z) only for important milestone tags
   advantages:
     - Supports high-frequency releases, automation CI/CD friendly
