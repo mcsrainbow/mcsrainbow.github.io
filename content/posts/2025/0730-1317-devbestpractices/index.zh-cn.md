@@ -204,7 +204,7 @@ structure: <type>(scope): <subject>
       # 持续发布: 每次 main 合并都可触发构建和发布
       main → feature → main → tag(vX.Y.Z)[可选]
     说明:
-      - 由于合并频繁, 通常使用 `datetime + commit_hash` 作为版本号, 例如 2025.07.30.19.06.3f9a7c1d
+      - 由于合并频繁, 通常使用 `datetime + commit_hash` 作为版本号, 例如 2025.07.30.1906.3f9a7c1d
       - 语义化版本 (vX.Y.Z) 仅用于重要的里程碑 tag
     优点:
       - 支持高频率发布, 自动化 CI/CD 友好
