@@ -588,7 +588,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         # 为空时自动适配当前主题 i18n 配置
         lang = ""
         mapping = "pathname"
-        reactionsEnabled = "1"
+        reactionsEnabled = "0"
         emitMetadata = "0"
         inputPosition = "bottom"
         lazyLoading = false
