@@ -11,7 +11,7 @@ Good work mindsets develop professional behaviors.
   Focus on the "why" behind things, not just "how".  
   This helps enhance problem-solving skills and makes decisions more forward-looking and adaptable.  
 
-2. **Reliability-minded**  
+2. **Resilience-minded**  
   Back up all data, and ensure every change has a rollback plan.  
   This minimizes the risk of unexpected failures and prevents irreversible damage.  
 
