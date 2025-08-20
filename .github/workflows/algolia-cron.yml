@@ -13,7 +13,7 @@ jobs:
       contents: read  # minimal permissions
     env:
       APP_ID: "T37NSH4YYY"
-      API_KEY: "2b7d83ac63406ccc989a0857442fef17" # search-only
+      API_KEY: "2b7d83ac63406ccc989a0857442fef17"  # search-only
       INDICES: "index.zh-cn index.en"
     steps:
       - name: run algolia queries
