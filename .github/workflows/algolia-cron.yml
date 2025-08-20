@@ -1,4 +1,4 @@
-name: Algolia scheduled query
+name: algolia-scheduled-query
 
 on:
   schedule:
