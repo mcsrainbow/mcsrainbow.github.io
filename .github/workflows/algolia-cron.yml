@@ -18,7 +18,7 @@ jobs:
       INDICES: "index.zh-cn index.en"
 
     steps:
-      - name: Run Algolia queries (quiet, print HTTP code, fail on error)
+      - name: run algolia queries
         shell: bash
         run: |
           set -euo pipefail
