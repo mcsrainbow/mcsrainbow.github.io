@@ -1,4 +1,4 @@
-# Notes from "The Willpower Instinct"
+# Notes from "The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It"
 
 
 The lack of self-control is not only a psychological problem, but also influenced by physiology, psychological traps and various social factors.

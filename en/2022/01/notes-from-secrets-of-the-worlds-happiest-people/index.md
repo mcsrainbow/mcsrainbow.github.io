@@ -1,4 +1,4 @@
-# Notes from "Secrets of the World's Happiest People"
+# Notes from "The Little Book of Lykke: Secrets of the World's Happiest People"
 
 
 The six ingredients of happiness are togetherness, money, health, freedom, trust and kindness.

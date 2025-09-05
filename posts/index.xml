@@ -53,7 +53,7 @@
     <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
 <item>
-    <title>读书笔记之《福格行为模型》</title>
+    <title>读书笔记之《福格行为模型：微习惯改变一切》</title>
     <link>https://blog.heylinux.com/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</link>
     <pubDate>Fri, 01 Mar 2024 17:47:52 &#43;0800</pubDate>
     <author>郭冬</author>

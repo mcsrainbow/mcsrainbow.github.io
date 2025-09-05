@@ -1,4 +1,4 @@
-# Notes from "Pomodoro Technique Illustrated"
+# Notes from "Pomodoro Technique Illustrated: The Easy Way to Do More in Less Time"
 
 
 The Pomodoro Technique is designed to maintain focus and prevent burnout.
