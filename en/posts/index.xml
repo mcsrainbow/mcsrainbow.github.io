@@ -53,6 +53,14 @@
     <description><![CDATA[<p>Kubernetes container health checks and graceful termination enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
 </item>
 <item>
+    <title>Notes from &#34;Tiny Habits: The Small Changes That Change Everything&#34;</title>
+    <link>https://blog.heylinux.com/en/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</link>
+    <pubDate>Fri, 01 Mar 2024 17:47:52 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</guid>
+    <description><![CDATA[<p>B=MAP, which means &ldquo;Behavior = Motivation + Ability + Prompt&rdquo;. By breaking down a goal into multiple small habits, it makes what seems to be an impossible goal achievable.</p>]]></description>
+</item>
+<item>
     <title>Alibaba Cloud Official Vector Icons and draw.io Custom Libraries</title>
     <link>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
     <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
     <description><![CDATA[<p>Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.</p>]]></description>
-</item>
-<item>
-    <title>What are Private IP Addresses</title>
-    <link>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</link>
-    <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</guid>
-    <description><![CDATA[<p>In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.</p>]]></description>
 </item>
 </channel>
 </rss>

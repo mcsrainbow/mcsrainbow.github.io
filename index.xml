@@ -55,6 +55,14 @@
     <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
 <item>
+    <title>读书笔记之《福格行为模型》</title>
+    <link>https://blog.heylinux.com/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</link>
+    <pubDate>Fri, 01 Mar 2024 17:47:52 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</guid>
+    <description><![CDATA[<p>B=MAP，即「行为=动机+能力+提示」。把目标切分成多个细小的习惯，让看似不可能实现的目标变得容易。</p>]]></description>
+</item>
+<item>
     <title>阿里云官方矢量图标和 draw.io 自定义图标库</title>
     <link>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
     <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
     <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。</p>]]></description>
-</item>
-<item>
-    <title>私有 IP 地址包括哪些</title>
-    <link>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</link>
-    <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</guid>
-    <description><![CDATA[<p>在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>]]></description>
 </item>
 </channel>
 </rss>
