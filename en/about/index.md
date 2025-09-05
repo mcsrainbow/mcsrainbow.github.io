@@ -30,7 +30,6 @@
 - [x] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** - Project Management Professional
 - [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
 - [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Overall Band Score: 7
-- [ ] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 MP** - ITIL 4 Managing Professional
 
 <i class="fa-solid fa-book-open fa-fw"></i> **Book Notes**
 

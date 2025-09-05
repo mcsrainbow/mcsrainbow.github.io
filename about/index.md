@@ -29,7 +29,6 @@
 - [x] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** - 项目管理专业人士
 - [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - 数据管理专业人士认证
 - [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - 雅思7分
-- [ ] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 MP** - IT 服务管理专家级
 
 <i class="fa-solid fa-book-open fa-fw"></i> **读书笔记**
 
