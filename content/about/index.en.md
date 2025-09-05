@@ -41,7 +41,7 @@ comment:
 - [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
 - [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS** - International English Language Testing System - Overall Band Score: 7
 
-<i class="fa-solid fa-book-open fa-fw"></i> **Books**
+<i class="fa-solid fa-book-open fa-fw"></i> **Booklist**
 
 - [x] [Live for Death: My Experience on Dying](/en/2021/10/notes-from-live-for-death-my-experience-on-dying/)
 - [x] [The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It](/en/2021/11/notes-from-the-willpower-instinct/)
