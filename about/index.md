@@ -18,8 +18,8 @@
 
 <i class="fa-solid fa-tasks fa-fw"></i> **专业资质**
 
-- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS SAP** - AWS 解决方案架构师专家级
-- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT 服务管理基础级
+- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** - AWS 解决方案架构师专家级
+- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** - ITIL® 4 Foundation - IT 服务管理基础级
 - [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** - Kubernetes 管理员认证
 - [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** - 英语六级
 - [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** - 工程管理硕士
@@ -28,7 +28,7 @@
 - [x] <i class="fa-solid fa-user-shield fa-fw"></i> **CISSP** - 信息系统安全认证专家
 - [x] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** - 项目管理专业人士
 - [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - 数据管理专业人士认证
-- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - 雅思7分
+- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS** - 雅思7分
 
 <i class="fa-solid fa-book-open fa-fw"></i> **读书笔记**
 
