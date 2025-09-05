@@ -26,7 +26,7 @@ comment:
 
 ### [待办清单]^(始于2021年2月)
 
-<i class="fa-solid fa-tasks fa-fw"></i> **核心任务**
+<i class="fa-solid fa-tasks fa-fw"></i> **专业资质**
 
 - [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS SAP** - AWS 解决方案架构师专家级
 - [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT 服务管理基础级
@@ -41,7 +41,7 @@ comment:
 - [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - 雅思7分
 - [ ] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 MP** - IT 服务管理专家级
 
-<i class="fa-solid fa-book-open fa-fw"></i> **私藏书单**
+<i class="fa-solid fa-book-open fa-fw"></i> **读书笔记**
 
 - [x] [向死而生：我修的死亡学分](/2021/10/notes-from-live-for-death-my-experience-on-dying/)
 - [x] [自控力：自我控制如何运作、为什么重要以及你可以做什么来增强它](/2021/11/notes-from-the-willpower-instinct/)
@@ -52,17 +52,7 @@ comment:
 - [x] [非暴力沟通：爱的语言](/2022/03/notes-from-nonviolent-communication-a-language-of-life/)
 - [x] [小岛经济学：鱼、美元和经济的故事](/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/)
 - [x] [富爸爸穷爸爸：富人教孩子的理财智慧，而穷人和中产阶级却不知道](/2022/05/notes-from-rich-dad-poor-dad/)
-- [x] 福格行为模型：微习惯改变一切
+- [x] [福格行为模型：微习惯改变一切](/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/)
 - [ ] 精益创业：新创企业的成长思维
 - [ ] 如何阅读一本书
 - [ ] 乌合之众：大众心理研究
-- [ ] 时间简史：从大爆炸到黑洞
-- [ ] 人体简史：你的身体30亿岁了
-- [ ] 人类与大地母亲：一部叙事体世界历史
-- [ ] 纳瓦尔宝典：财富与幸福指南
-- [ ] 热锅上的家庭：家庭问题背后的心理真相
-- [ ] 被讨厌的勇气：自我启发之父阿德勒的哲学课
-- [ ] 亲密关系（罗兰·米勒）
-- [ ] 社会心理学（戴维·迈尔斯）
-- [ ] 正面管教：如何不惩罚、不娇纵地有效管教孩子
-- [ ] 幸福之路：哲学家罗素的幸福生活建言

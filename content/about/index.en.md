@@ -27,7 +27,7 @@ comment:
 
 ### [TO DO LIST]^(Since Feburary 2021)
 
-<i class="fa-solid fa-tasks fa-fw"></i> **Core Missions**
+<i class="fa-solid fa-tasks fa-fw"></i> **Professional Credentials**
 
 - [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS SAP** - AWS Certified Solutions Architect - Professional
 - [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 Foundation** - IT Service Management
@@ -42,7 +42,7 @@ comment:
 - [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS 7** - International English Language Testing System Overall Band Score: 7
 - [ ] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL 4 MP** - ITIL 4 Managing Professional
 
-<i class="fa-solid fa-book-open fa-fw"></i> **Private Booklist**
+<i class="fa-solid fa-book-open fa-fw"></i> **Book Notes**
 
 - [x] [Live for Death: My Experience on Dying](/en/2021/10/notes-from-live-for-death-my-experience-on-dying/)
 - [x] [The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It](/en/2021/11/notes-from-the-willpower-instinct/)
@@ -53,17 +53,7 @@ comment:
 - [x] [Nonviolent Communication: A Language of Life](/en/2022/03/notes-from-nonviolent-communication-a-language-of-life/)
 - [x] [How an Economy Grows and Why It Crashes](/en/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/)
 - [x] [Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not](/en/2022/05/notes-from-rich-dad-poor-dad/)
-- [x] Tiny Habits: The Small Changes That Change Everything
+- [x] [Tiny Habits: The Small Changes That Change Everything](/en/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/)
 - [ ] The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses
 - [ ] How to Read a Book: The Classic Guide to Intelligent Reading
 - [ ] The Crowd: A Study of the Popular Mind
-- [ ] A Brief History of Time: From the Big Bang to Black Holes
-- [ ] The Body: A Guide for Occupants
-- [ ] Mankind and Mother Earth: A Narrative History of the World
-- [ ] The Almanack of Naval Ravikant: A Guide to Wealth and Happiness
-- [ ] The Family Crucible: The Intense Experience of Family Therapy
-- [ ] The Courage to Be Disliked: How to Free Yourself, Change Your Life and Achieve Real Happiness
-- [ ] Intimate Relationships (by Rowland S. Miller)
-- [ ] Social Psychology (by David G. Myers)
-- [ ] Positive Discipline: The Classic Guide to Helping Children Develop Self-Discipline, Responsibility, Cooperation, and Problem-Solving Skills
-- [ ] The Conquest of Happiness
