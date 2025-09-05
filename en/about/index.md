@@ -17,7 +17,7 @@
 
 ### [TO DO LIST]^(Since Feburary 2021)
 
-<i class="fa-solid fa-tasks fa-fw"></i> **Professional Credentials**
+<i class="fa-solid fa-tasks fa-fw"></i> **Credentials**
 
 - [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** - AWS Certified Solutions Architect - Professional
 - [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** - ITIL 4 Foundation Certificate in IT Service Management
@@ -31,7 +31,7 @@
 - [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
 - [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS** - International English Language Testing System - Overall Band Score: 7
 
-<i class="fa-solid fa-book-open fa-fw"></i> **Book Notes**
+<i class="fa-solid fa-book-open fa-fw"></i> **Books**
 
 - [x] [Live for Death: My Experience on Dying](/en/2021/10/notes-from-live-for-death-my-experience-on-dying/)
 - [x] [The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It](/en/2021/11/notes-from-the-willpower-instinct/)
