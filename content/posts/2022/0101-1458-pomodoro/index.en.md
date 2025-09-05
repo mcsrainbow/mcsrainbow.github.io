@@ -1,5 +1,5 @@
 ---
-title: "Notes from \"Pomodoro Technique Illustrated\""
+title: "Notes from \"Pomodoro Technique Illustrated: The Easy Way to Do More in Less Time\""
 slug: "notes-from-pomodoro-technique-illustrated"
 date: 2022-01-01T14:58:41+08:00
 author: "Damon"

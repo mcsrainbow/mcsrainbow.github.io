@@ -1,5 +1,5 @@
 ---
-title: "读书笔记之《小岛经济学》"
+title: "读书笔记之《小岛经济学：鱼、美元和经济的故事》"
 slug: "notes-from-how-an-economy-grows-and-why-it-crashes"
 date: 2022-04-08T21:54:47+08:00
 author: "郭冬"

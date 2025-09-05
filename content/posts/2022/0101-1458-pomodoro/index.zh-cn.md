@@ -1,5 +1,5 @@
 ---
-title: "读书笔记之《番茄工作法图解》"
+title: "读书笔记之《番茄工作法图解：简单易行的时间管理方法》"
 slug: "notes-from-pomodoro-technique-illustrated"
 date: 2022-01-01T14:58:41+08:00
 author: "郭冬"

@@ -1,5 +1,5 @@
 ---
-title: "读书笔记之《福格行为模型》"
+title: "读书笔记之《福格行为模型：微习惯改变一切》"
 slug: "notes-from-tiny-habits-the-small-changes-that-change-everything"
 date: 2024-03-01T17:47:52+08:00
 author: "郭冬"

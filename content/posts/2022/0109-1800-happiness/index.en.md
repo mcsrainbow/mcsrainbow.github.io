@@ -1,5 +1,5 @@
 ---
-title: "Notes from \"Secrets of the World's Happiest People\""
+title: "Notes from \"The Little Book of Lykke: Secrets of the World's Happiest People\""
 slug: "notes-from-secrets-of-the-worlds-happiest-people"
 date: 2022-01-09T18:00:37+08:00
 author: "Damon"

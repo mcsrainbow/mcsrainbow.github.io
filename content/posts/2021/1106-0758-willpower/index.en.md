@@ -1,5 +1,5 @@
 ---
-title: "Notes from \"The Willpower Instinct\""
+title: "Notes from \"The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It\""
 slug: "notes-from-the-willpower-instinct"
 date: 2021-11-06T07:58:24+08:00
 author: "Damon"

@@ -1,5 +1,5 @@
 ---
-title: "读书笔记之《自控力》"
+title: "读书笔记之《自控力：自我控制如何运作、为什么重要以及你可以做什么来增强它》"
 slug: "notes-from-the-willpower-instinct"
 date: 2021-11-06T07:58:24+08:00
 author: "郭冬"

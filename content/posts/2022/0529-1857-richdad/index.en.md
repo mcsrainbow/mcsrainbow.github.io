@@ -1,5 +1,5 @@
 ---
-title: "Notes from \"Rich Dad Poor Dad\""
+title: "Notes from \"Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not\""
 slug: "notes-from-rich-dad-poor-dad"
 date: 2022-05-29T18:57:58+08:00
 author: "Damon"

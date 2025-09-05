@@ -1,5 +1,5 @@
 ---
-title: "读书笔记之《刻意练习》"
+title: "读书笔记之《刻意练习：如何从新手到大师》"
 slug: "notes-from-peak-secrets-from-the-new-science-of-expertise"
 date: 2021-12-11T21:05:17+08:00
 author: "郭冬"
