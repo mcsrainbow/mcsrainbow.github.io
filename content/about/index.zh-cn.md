@@ -28,8 +28,8 @@ comment:
 
 <i class="fa-solid fa-tasks fa-fw"></i> **专业资质**
 
-- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** - AWS 解决方案架构师专家级
-- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** - ITIL® 4 Foundation - IT 服务管理基础级
+- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** - AWS 认证解决方案架构师 - 专业级
+- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** - ITIL 4 Foundation - IT 服务管理认证
 - [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** - Kubernetes 管理员认证
 - [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** - 英语六级
 - [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** - 工程管理硕士
