@@ -43,7 +43,7 @@
 - [x] [How an Economy Grows and Why It Crashes](/en/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/)
 - [x] [Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not](/en/2022/05/notes-from-rich-dad-poor-dad/)
 - [x] [Tiny Habits: The Small Changes That Change Everything](/en/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/)
-- [ ] The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses
-- [ ] How to Read a Book: The Classic Guide to Intelligent Reading
+- [x] [The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses](/en/2025/09/notes-from-the-lean-startup/)
+- [x] How to Read a Book: The Classic Guide to Intelligent Reading
 - [ ] The Crowd: A Study of the Popular Mind
 

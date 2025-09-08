@@ -42,7 +42,7 @@
 - [x] [小岛经济学：鱼、美元和经济的故事](/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/)
 - [x] [富爸爸穷爸爸：富人教孩子的理财智慧，而穷人和中产阶级却不知道](/2022/05/notes-from-rich-dad-poor-dad/)
 - [x] [福格行为模型：微习惯改变一切](/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/)
-- [ ] 精益创业：新创企业的成长思维
-- [ ] 如何阅读一本书：智慧阅读的经典指南
+- [x] [精益创业：新创企业的成长思维](/2025/09/notes-from-the-lean-startup/)
+- [x] 如何阅读一本书：智慧阅读的经典指南
 - [ ] 乌合之众：大众心理研究
 

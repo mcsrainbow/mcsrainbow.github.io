@@ -4,9 +4,17 @@
         <link>https://blog.heylinux.com/</link>
         <description>郭冬的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>读书笔记之《精益创业：新创企业的成长思维》</title>
+    <link>https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/</link>
+    <pubDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/</guid>
+    <description><![CDATA[<p>精益创业强调快速把构想落地成简化版本，用真实用户进行测试，从结果中学习，并迅速改进，从而减少时间和资源的浪费。</p>]]></description>
+</item>
+<item>
     <title>代码提交&#43;分支管理&#43;版本管理最佳实践</title>
     <link>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</link>
     <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
     <description><![CDATA[<p>git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
-</item>
-<item>
-    <title>轻量级 Kubernetes 发行版实践</title>
-    <link>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</link>
-    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-    <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。</p>]]></description>
 </item>
 </channel>
 </rss>

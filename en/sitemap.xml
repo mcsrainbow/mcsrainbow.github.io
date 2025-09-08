@@ -2,6 +2,54 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://blog.heylinux.com/en/tags/business/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/categories/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/categories/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/categories/notes/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/2025/09/notes-from-the-lean-startup/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/2025/09/notes-from-the-lean-startup/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/posts/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/posts/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/startup/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/"
+                    /></url><url>
             <loc>https://blog.heylinux.com/en/2025/07/commit-branching-versioning-best-practices/</loc><lastmod>2025-07-30T13:17:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -10,15 +58,6 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2025/07/commit-branching-versioning-best-practices/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2025-07-30T13:17:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/categories/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/categories/"
                     /></url><url>
             <loc>https://blog.heylinux.com/en/tags/cicd/</loc><lastmod>2025-07-30T13:17:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
@@ -47,34 +86,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/git/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/</loc><lastmod>2025-07-30T13:17:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2025-07-30T13:17:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/posts/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2025-07-30T13:17:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2025-07-30T13:17:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/tags/"
-                    /></url><url>
             <loc>https://blog.heylinux.com/en/tags/cloud-native/</loc><lastmod>2025-07-28T15:12:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2025/07/cloud-native-glossary-lite/</loc><lastmod>2025-07-28T15:12:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
@@ -85,7 +97,6 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2025/07/cloud-native-glossary-lite/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/categories/notes/</loc><lastmod>2025-07-28T15:12:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/</loc><lastmod>2025-07-18T12:02:05&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"

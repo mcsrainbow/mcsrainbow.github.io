@@ -4,9 +4,17 @@
         <link>https://blog.heylinux.com/en/</link>
         <description>Damon Guo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Notes from &#34;The Lean Startup: How Today’s Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses&#34;</title>
+    <link>https://blog.heylinux.com/en/2025/09/notes-from-the-lean-startup/</link>
+    <pubDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2025/09/notes-from-the-lean-startup/</guid>
+    <description><![CDATA[<p>Lean Startup is about quickly building a simple version of a concept, testing it with real users, learning from the results, and improving quickly to reduce the wastage of time and resources.</p>]]></description>
+</item>
+<item>
     <title>Best Practices for Commits, Branching and Versioning</title>
     <link>https://blog.heylinux.com/en/2025/07/commit-branching-versioning-best-practices/</link>
     <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
     <description><![CDATA[<p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>]]></description>
-</item>
-<item>
-    <title>Lightweight Kubernetes Distributions Practices</title>
-    <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
-    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-    <description><![CDATA[<p>Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.</p>]]></description>
 </item>
 </channel>
 </rss>
