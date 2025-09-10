@@ -226,11 +226,11 @@ lightgallery: true
 
 网友[佐依｜理想生活設計](https://www.pinterest.at/zoeykco/)根据书中的内容，绘制了精美的番茄工作法的每日周期，整个流程如下：
 
-![pomodoro_process](pomodoro_process.png)
+{{< image src="pomodoro_process.png" alt="pomodoro_process" >}}
 
 我将每日周期进一步按照 PDCA 流程归纳分解后，思维导图如下：
 
-![pomodoro_pdca](pomodoro_pdca.png)
+{{< image src="pomodoro_pdca.png" alt="pomodoro_pdca" >}}
 
 ## 思考
 

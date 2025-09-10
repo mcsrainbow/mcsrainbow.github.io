@@ -856,7 +856,7 @@ lightgallery: true
 - 精益创业用于将创意转化为可行的商业模式；
 - 敏捷开发则通过快速迭代和持续交付，将想法高效落地为产品。
 
-![design-leanstartup-agile_cn](design-leanstartup-agile_cn.webp)
+{{< image src="design-leanstartup-agile_cn.webp" alt="design-leanstartup-agile_cn" >}}
 
 ## 思考
 
