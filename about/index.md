@@ -8,7 +8,7 @@
 ### 作者
 
 <i class="fa-solid fa-tags fa-fw"></i> 姓名 [郭冬]^(Guō Dōng)  
-<i class="fa-solid fa-tags fa-fw" style="opacity: 0"></i> 英文名 [Damon]^(/ˈdeɪmən/ DAY-mən)，灵感来自 Linux 操作系统中的 [[daemon]^(/ˈdiːmən/ DEE-mən)](https://man7.org/linux/man-pages/man7/daemon.7.html) 守护进程和喜欢的好莱坞演员 [**`Matt Damon`**](https://en.wikipedia.org/wiki/Matt_Damon)
+<i class="fa-solid fa-tags fa-fw" style="opacity: 0"></i> 英文名 [Damon]^(/ˈdeɪmən/ DAY-mən)，灵感来自 Linux 操作系统中的 [[daemon]^(/ˈdiːmən/ DEE-mən)](https:⋄man7.org/linux/man-pages/man7/daemon.7.html) 守护进程和喜欢的好莱坞演员 [**`Matt Damon`**](https:⋄en.wikipedia.org/wiki/Matt_Damon)
 
 <i class="fa-solid fa-seedling fa-fw"></i> **简介**：实操型解决方案架构师、运维负责人、终身学习者
 
@@ -18,17 +18,17 @@
 
 <i class="fa-solid fa-tasks fa-fw"></i> **专业资质**
 
-- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** - AWS 认证解决方案架构师 - 专业级
-- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** - ITIL 4 Foundation - IT 服务管理认证
-- [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** - Kubernetes 管理员认证
-- [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** - 英语六级
-- [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** - 工程管理硕士
-- [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** - 极狐 GitLab DevOps 高级专家
-- [x] <i class="fa-solid fa-cloud fa-fw"></i> **ACP** - 阿里云云计算高级工程师认证
-- [x] <i class="fa-solid fa-user-shield fa-fw"></i> **CISSP** - 信息系统安全认证专家
-- [x] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** - 项目管理专业人士
-- [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - 数据管理专业人士认证
-- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS** - 雅思7分
+- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** ⋄ AWS 认证解决方案架构师 - 专业级
+- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** ⋄ ITIL 4 Foundation - IT 服务管理认证
+- [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** ⋄ Kubernetes 管理员认证
+- [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** ⋄ 英语六级
+- [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** ⋄ 工程管理硕士
+- [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** ⋄ 极狐 GitLab DevOps 高级专家
+- [x] <i class="fa-solid fa-cloud fa-fw"></i> **ACP** ⋄ 阿里云云计算高级工程师认证
+- [x] <i class="fa-solid fa-user-shield fa-fw"></i> **CISSP** ⋄ 信息系统安全认证专家
+- [x] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** ⋄ 项目管理专业人士
+- [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** ⋄ 数据管理专业人士认证
+- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS** ⋄ 雅思7分
 
 <i class="fa-solid fa-book-open fa-fw"></i> **读书笔记**
 
