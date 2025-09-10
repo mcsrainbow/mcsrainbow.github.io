@@ -7,7 +7,7 @@ Four levels of reading: Elementary(Basic), Inspectional(Review), Analytical, and
 
 ---
 
-## Introduction
+## Preface
 
 "How to Read a Book: The Classic Guide to Intelligent Reading" was published by American philosopher Mortimer J. Adler in 1940, advocating for the improvement of personal thinking and learning abilities through systematic reading.
 
@@ -19,7 +19,7 @@ This book covers a very broad topic. The gap from Elementary(Basic) reading to S
 
 {{< image src="mindmap_how_to_read_a_book.png" alt="mindmap_how_to_read_a_book" >}}
 
-## Reflections
+## Thinking
 
 The four levels of reading from "How to Read a Book: The Classic Guide to Intelligent Reading" offer real practical value. These are Elementary(Basic) reading, Inspectional(Review) reading, Analytical reading, and Syntopical(Subject) reading. Inspectional(Review) reading helps quickly decide if a book deserves deeper attention, saving time on low-value books. Analytical reading helps understand and absorb key ideas from important books more thoroughly.
 
