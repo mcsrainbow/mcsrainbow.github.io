@@ -4,9 +4,17 @@
         <link>https://blog.heylinux.com/en/</link>
         <description>Damon Guo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Notes from &#34;How to Read a Book: The Classic Guide to Intelligent Reading&#34;</title>
+    <link>https://blog.heylinux.com/en/2025/09/notes-from-how-to-read-a-book/</link>
+    <pubDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2025/09/notes-from-how-to-read-a-book/</guid>
+    <description><![CDATA[<p>Four levels of reading: Elementary(Basic), Inspectional(Review), Analytical, and Syntopical(Subject).</p>]]></description>
+</item>
+<item>
     <title>Notes from &#34;The Lean Startup: How Today’s Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses&#34;</title>
     <link>https://blog.heylinux.com/en/2025/09/notes-from-the-lean-startup/</link>
     <pubDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
     <description><![CDATA[<p>I collected a complete set of Alibaba Cloud vector icons and generated the draw.io icon library.</p>]]></description>
-</item>
-<item>
-    <title>Use git-crypt to Encrypt Files in Git</title>
-    <link>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
-    <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
-    <description><![CDATA[<p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>]]></description>
 </item>
 </channel>
 </rss>

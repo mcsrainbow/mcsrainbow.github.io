@@ -27,7 +27,7 @@ In modern product development practices, Lean Startup can integrate with advance
 - Lean Startup is used to transform creativity into viable business models;
 - Agile development efficiently implements ideas into products through rapid iteration and continuous delivery.
 
-![design-leanstartup-agile](design-leanstartup-agile.webp)
+{{< image src="design-leanstartup-agile.webp" alt="design-leanstartup-agile" >}}
 
 ## Thinking
 

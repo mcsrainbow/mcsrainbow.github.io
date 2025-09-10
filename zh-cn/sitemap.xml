@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/categories/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://blog.heylinux.com/categories/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/categories/"
@@ -11,7 +11,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/categories/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://blog.heylinux.com/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/"
@@ -20,7 +20,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/posts/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://blog.heylinux.com/posts/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/posts/"
@@ -29,7 +29,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/posts/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://blog.heylinux.com/tags/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/tags/"
@@ -38,8 +38,18 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/tags/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/2025/09/notes-from-how-to-read-a-book/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://blog.heylinux.com/tags/%E5%88%9B%E4%B8%9A/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/</loc><lastmod>2025-09-08T12:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"

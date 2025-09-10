@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
         <description>读书笔记 - 分类 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>读书笔记之《如何阅读一本书：智慧阅读的经典指南》</title>
+    <link>https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/</link>
+    <pubDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/</guid>
+    <description><![CDATA[<p>阅读的四个层次：基础阅读、检视阅读、分析阅读和主题阅读。</p>]]></description>
+</item>
+<item>
     <title>读书笔记之《精益创业：新创企业的成长思维》</title>
     <link>https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/</link>
     <pubDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2022/01/notes-from-secrets-of-the-worlds-happiest-people/</guid>
     <description><![CDATA[<p>影响幸福感的六个维度有凝聚感、金钱、健康、自由、信任和与人为善。</p>]]></description>
-</item>
-<item>
-    <title>读书笔记之《番茄工作法图解：简单易行的时间管理方法》</title>
-    <link>https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/</link>
-    <pubDate>Sat, 01 Jan 2022 14:58:41 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2022/01/notes-from-pomodoro-technique-illustrated/</guid>
-    <description><![CDATA[<p>番茄工作法是一种简单易行的时间管理方法，有张有弛，能够减轻时间焦虑、提升专注力和减少中断。</p>]]></description>
 </item>
 </channel>
 </rss>

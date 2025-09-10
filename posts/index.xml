@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/posts/</link>
         <description>所有文章 | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>读书笔记之《如何阅读一本书：智慧阅读的经典指南》</title>
+    <link>https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/</link>
+    <pubDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</pubDate>
+    <author>郭冬</author>
+    <guid>https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/</guid>
+    <description><![CDATA[<p>阅读的四个层次：基础阅读、检视阅读、分析阅读和主题阅读。</p>]]></description>
+</item>
+<item>
     <title>读书笔记之《精益创业：新创企业的成长思维》</title>
     <link>https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/</link>
     <pubDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>郭冬</author>
     <guid>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
     <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。</p>]]></description>
-</item>
-<item>
-    <title>使用 git-crypt 加解密 Git 中的文件</title>
-    <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
-    <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
-    <author>郭冬</author>
-    <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
-    <description><![CDATA[<p>git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
 </item>
 </channel>
 </rss>

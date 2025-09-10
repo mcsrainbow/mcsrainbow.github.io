@@ -409,7 +409,7 @@ Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code>
 <p>To avoid interrupting in-flight user requests, the Ingress should be configured with a graceful connection drain timeout that aligns with the container <code>lifecycle.preStop</code>.</p>
 <p>This ensures the Ingress keeps connections alive until the timeout expires.</p>
 <p>Alibaba Cloud Kubernetes graceful draining configuration:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
