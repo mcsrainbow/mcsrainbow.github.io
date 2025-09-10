@@ -29,17 +29,17 @@ comment:
 
 <i class="fa-solid fa-tasks fa-fw"></i> **Credentials**
 
-- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** - AWS Certified Solutions Architect - Professional
-- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** - ITIL 4 Foundation Certificate in IT Service Management
-- [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** - Certified Kubernetes Administrator
-- [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** - National College English Test Band 6
-- [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** - Master of Engineering Management
-- [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** - JiHu GitLab DevOps Expert
-- [x] <i class="fa-solid fa-cloud fa-fw"></i> **ACP** - Alibaba Cloud Certified Professional - Cloud Computing
-- [x] <i class="fa-solid fa-user-shield fa-fw"></i> **CISSP** - Certified Information Systems Security Professional
-- [x] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** - Project Management Professional
-- [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** - Certified Data Management Professional
-- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS** - International English Language Testing System - Overall Band Score: 7
+- [x] <i class="fa-brands fa-aws fa-fw"></i> **AWS** ⋄ AWS Certified Solutions Architect - Professional
+- [x] <i class="fa-solid fa-cogs fa-fw"></i> **ITIL** ⋄ ITIL 4 Foundation Certificate in IT Service Management
+- [x] <i class="fa-solid fa-dharmachakra fa-fw"></i> **CKA** ⋄ Certified Kubernetes Administrator
+- [x] <i class="fa-solid fa-language fa-fw"></i> **CET6** ⋄ National College English Test Band 6
+- [x] <i class="fa-solid fa-graduation-cap fa-fw"></i> **Degree** ⋄ Master of Engineering Management
+- [x] <i class="fa-brands fa-gitlab fa-fw"></i> **GitLab** ⋄ JiHu GitLab DevOps Expert
+- [x] <i class="fa-solid fa-cloud fa-fw"></i> **ACP** ⋄ Alibaba Cloud Certified Professional - Cloud Computing
+- [x] <i class="fa-solid fa-user-shield fa-fw"></i> **CISSP** ⋄ Certified Information Systems Security Professional
+- [x] <i class="fa-solid fa-users-cog fa-fw"></i> **PMP** ⋄ Project Management Professional
+- [ ] <i class="fa-solid fa-user-tag fa-fw"></i> **CDMP** ⋄ Certified Data Management Professional
+- [ ] <i class="fa-solid fa-language fa-fw"></i> **IELTS** ⋄ International English Language Testing System - Overall Band Score: 7
 
 <i class="fa-solid fa-book-open fa-fw"></i> **Booklist**
 
