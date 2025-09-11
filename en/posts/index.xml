@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/en/posts/</link>
         <description>All Posts | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 11 Sep 2025 20:30:04 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Notes from &#34;The Crowd: A Study of the Popular Mind&#34;</title>
+    <link>https://blog.heylinux.com/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/</link>
+    <pubDate>Thu, 11 Sep 2025 20:30:04 &#43;0800</pubDate>
+    <author>Damon</author>
+    <guid>https://blog.heylinux.com/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/</guid>
+    <description><![CDATA[<p>In a crowd, the individual loses conscious personality and rational judgment, becoming dominated by emotion, suggestion, and the collective unconscious, which leads to impulsive, credulous, and irrational behavior.</p>]]></description>
+</item>
+<item>
     <title>Notes from &#34;How to Read a Book: The Classic Guide to Intelligent Reading&#34;</title>
     <link>https://blog.heylinux.com/en/2025/09/notes-from-how-to-read-a-book/</link>
     <pubDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>Damon</author>
     <guid>https://blog.heylinux.com/en/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</guid>
     <description><![CDATA[<p>B=MAP, which means &ldquo;Behavior = Motivation + Ability + Prompt&rdquo;. By breaking down a goal into multiple small habits, it makes what seems to be an impossible goal achievable.</p>]]></description>
-</item>
-<item>
-    <title>Alibaba Cloud Official Vector Icons and draw.io Custom Libraries</title>
-    <link>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
-    <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
-    <author>Damon</author>
-    <guid>https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
-    <description><![CDATA[<p>I collected a complete set of Alibaba Cloud vector icons and generated the draw.io icon library.</p>]]></description>
 </item>
 </channel>
 </rss>

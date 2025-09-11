@@ -45,5 +45,5 @@
 - [x] [Tiny Habits: The Small Changes That Change Everything](/en/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/)
 - [x] [The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses](/en/2025/09/notes-from-the-lean-startup/)
 - [x] [How to Read a Book: The Classic Guide to Intelligent Reading](/en/2025/09/notes-from-how-to-read-a-book/)
-- [ ] The Crowd: A Study of the Popular Mind
+- [x] [The Crowd: A Study of the Popular Mind](/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind)
 
