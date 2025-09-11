@@ -161,7 +161,7 @@
 <p><strong>Code Sharing:</strong> <a href="https://github.com/mcsrainbow/k8s-apps" target="_blank" rel="noopener noreffer ">https://github.com/mcsrainbow/k8s-apps</a></p>
 <h2 id="manifests">Manifests</h2>
 <p>Native YAML (Manifests) is the most straightforward and simple method for configuring Kubernetes resources. For multi-environment and multi-application orchestration, the approach is direct: create directories for different environments and separate resources into different YAML files based on common and application-specific configurations.</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -184,7 +184,7 @@ Cons: Repeated configuration code and difficulty modifying parameters, as change
 <h2 id="kustomize">Kustomize</h2>
 <p>Kustomize is a resource configuration method that sits between YAML and Helm, enhancing YAML by introducing built-in plugins for code reuse and parameter modification.</p>
 <p>Kustomize reads from the kustomization.yaml file by default, and a layered design can be achieved by referencing kustomization.yaml files in different directories.</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
