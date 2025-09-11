@@ -54,4 +54,4 @@ comment:
 - [x] [福格行为模型：微习惯改变一切](/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/)
 - [x] [精益创业：新创企业的成长思维](/2025/09/notes-from-the-lean-startup/)
 - [x] [如何阅读一本书：智慧阅读的经典指南](/2025/09/notes-from-how-to-read-a-book/)
-- [ ] 乌合之众：大众心理研究
+- [x] [乌合之众：大众心理研究](/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind)
