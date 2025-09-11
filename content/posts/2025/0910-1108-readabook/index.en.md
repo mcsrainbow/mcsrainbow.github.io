@@ -10,7 +10,7 @@ resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
 
-toc: false
+toc: true
 lightgallery: true
 ---
 
