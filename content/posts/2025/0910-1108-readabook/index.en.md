@@ -28,9 +28,7 @@ The book proposes four levels of reading: Elementary(Basic) reading, Inspectiona
 
 ## Summary
 
-This book covers a very broad topic. The gap from Elementary(Basic) reading to Syntopical(Subject) reading is like the difference between a middle school student and a graduate student. Syntopical(Subject) reading goes beyond just "reading a book" and belongs more to research methods rather than reading techniques. 
-
-The writing can be quite wordy, so the book may not be worth reading cover to cover. Checking out mind maps might be enough.
+This book covers a very broad topic. The gap from Elementary(Basic) reading to Syntopical(Subject) reading is like the difference between a middle school student and a graduate student. Syntopical(Subject) reading goes beyond just "reading a book" and belongs more to research methods rather than reading techniques. And the writing can be quite wordy, so the book may not be worth reading cover to cover. Checking out mind maps might be enough.
 
 {{< image src="mindmap_how_to_read_a_book.png" alt="mindmap_how_to_read_a_book" >}}
 
