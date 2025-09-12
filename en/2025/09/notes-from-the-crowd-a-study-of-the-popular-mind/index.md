@@ -9,7 +9,7 @@ In a crowd, the individual loses conscious personality and rational judgment, be
 
 ## Preface
 
-The Crowd: A Study of the Popular Mind is a work of social psychology by the French scholar Gustave Le Bon, first published in 1895. Le Bon wrote in the decades following the French Revolution: from the storming of the Bastille to the Thermidorian Reaction, France had entered an era of consolidating the Revolution’s legacy, in which the voice of the multitude gained ascendancy and ordinary people entered political life. A century and more later, the background he depicts still resonates—and in some respects has only grown more salient.
+The Crowd: A Study of the Popular Mind is a work of social psychology by the French scholar Gustave Le Bon, first published in 1895. Le Bon wrote in the decades following the French Revolution: from the storming of the Bastille to the Thermidorian Reaction, France had entered an era of consolidating the Revolution's legacy, in which the voice of the multitude gained ascendancy and ordinary people entered political life. A century and more later, the background he depicts still resonates—and in some respects has only grown more salient.
 
 The term “crowd” here conveys the image of people gathered like a flock of crows—an assemblage without order or discipline, easily swayed and lacking independent thought. The central thesis of the book is that in a crowd, the individual loses conscious personality and rational judgment, becoming dominated by emotion, suggestion, and the collective unconscious, which leads to impulsive, credulous, and irrational behavior.
 
@@ -20,7 +20,7 @@ Le Bon, through observation and reflection on crowd behavior, argues that the ps
 1. Basic traits of crowd psychology  
    
    Once immersed in a crowd, the individual undergoes a profound psychological change.  
-   Rational deliberation gives way to the collective mind’s unconscious; independent judgment rapidly declines, and distinct crowd traits emerge: emotionality, suggestibility, extremity, and simplification.  
+   Rational deliberation gives way to the collective mind's unconscious; independent judgment rapidly declines, and distinct crowd traits emerge: emotionality, suggestibility, extremity, and simplification.  
    A person in a crowd is like a grain of sand carried by the wind—divested of independent thought.  
 
 2. The dual nature of crowd conduct  
@@ -41,12 +41,12 @@ Le Bon, through observation and reflection on crowd behavior, argues that the ps
 
 5. Historical import and present cautions  
    
-   Writing at the close of the nineteenth century, amid Europe’s accelerating democratization, Le Bon questioned the sovereignty of crowd power and leaned toward elite governance—an attitude typical of many intellectuals of his time.  
-   In today’s age of information deluge and ubiquitous social media, his observations feel newly pertinent: polarization, echo-chambers, and online mob action all find ready explanation in his framework.  
+   Writing at the close of the nineteenth century, amid Europe's accelerating democratization, Le Bon questioned the sovereignty of crowd power and leaned toward elite governance—an attitude typical of many intellectuals of his time.  
+   In today's age of information deluge and ubiquitous social media, his observations feel newly pertinent: polarization, echo-chambers, and online mob action all find ready explanation in his framework.  
 
 6. Value and limits of the theory  
    
-   The book’s value lies in providing a basic framework for understanding crowd behavior and revealing the psychological mechanisms behind crowd phenomena.  
+   The book's value lies in providing a basic framework for understanding crowd behavior and revealing the psychological mechanisms behind crowd phenomena.  
    At the same time, its historical limitations must also be acknowledged:  
    
    Le Bon largely advances theses rather than systematic, quantitative research;  
@@ -59,5 +59,5 @@ Le Bon, through observation and reflection on crowd behavior, argues that the ps
 
 Reading is not only for acquiring information but for transforming how one thinks and lives. Every work deserves to be approached with care and discernment.
 
-The Crowd: A Study of the Popular Mind serves as a reminder to remain alert in everyday life: Am I presently part of a crowd? What traits does this crowd exhibit? Within it, collective strength can be harnessed, but blindness and fanaticism must be guarded against. By keeping a clear head and cultivating independent judgment, it becomes possible to preserve the integrity of one’s own character while, at the same time, joining with others in harmony without surrendering individuality.
+The Crowd: A Study of the Popular Mind serves as a reminder to remain alert in everyday life: Am I presently part of a crowd? What traits does this crowd exhibit? Within it, collective strength can be harnessed, but blindness and fanaticism must be guarded against. By keeping a clear head and cultivating independent judgment, it becomes possible to preserve the integrity of one's own character while, at the same time, joining with others in harmony without surrendering individuality.
 
