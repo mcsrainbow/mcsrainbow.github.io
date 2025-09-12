@@ -11,7 +11,7 @@ In a crowd, the individual loses conscious personality and rational judgment, be
 
 The Crowd: A Study of the Popular Mind is a work of social psychology by the French scholar Gustave Le Bon, first published in 1895. Le Bon wrote in the decades following the French Revolution: from the storming of the Bastille to the Thermidorian Reaction, France had entered an era of consolidating the Revolution's legacy, in which the voice of the multitude gained ascendancy and ordinary people entered political life. A century and more later, the background he depicts still resonates—and in some respects has only grown more salient.
 
-The term “crowd” here conveys the image of people gathered like a flock of crows—an assemblage without order or discipline, easily swayed and lacking independent thought. The central thesis of the book is that in a crowd, the individual loses conscious personality and rational judgment, becoming dominated by emotion, suggestion, and the collective unconscious, which leads to impulsive, credulous, and irrational behavior.
+The term "crowd" here conveys the image of people gathered like a flock of crows—an assemblage without order or discipline, easily swayed and lacking independent thought. The central thesis of the book is that in a crowd, the individual loses conscious personality and rational judgment, becoming dominated by emotion, suggestion, and the collective unconscious, which leads to impulsive, credulous, and irrational behavior.
 
 ## Summary
 
