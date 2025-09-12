@@ -330,7 +330,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span><span class="line"><span class="cl">kubelet: Running
 </span></span><span class="line"><span class="cl">apiserver: Running
 </span></span><span class="line"><span class="cl">kubeconfig: Configured</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -350,7 +350,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span><span class="line"><span class="cl">NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 </span></span><span class="line"><span class="cl">kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   16m</span></span></code></pre></div></div>
 <h3 id="部署测试-nginx-service">部署测试 Nginx Service</h3>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -396,7 +396,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl apply -f nginx-deploy-svc.yaml 
 </span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
 </span></span><span class="line"><span class="cl">service/nginx-svc created</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -481,7 +481,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ podman machine stop podman-machine-default
 </span></span><span class="line"><span class="cl">Waiting for VM to exit...
 </span></span><span class="line"><span class="cl">Machine &#34;podman-machine-default&#34; stopped successfully</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -554,7 +554,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">extraPortMappings</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">30080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hostPort</span><span class="p">:</span><span class="w"> </span><span class="m">30080</span></span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -588,7 +588,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kind get clusters
 </span></span><span class="line"><span class="cl">mycluster</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -624,7 +624,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl get all
 </span></span><span class="line"><span class="cl">NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 </span></span><span class="line"><span class="cl">service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   119s</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -671,7 +671,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">➜ kubectl apply -f nginx-deploy-svc-portmapping.yaml
 </span></span><span class="line"><span class="cl">deployment.apps/nginx-deploy created
 </span></span><span class="line"><span class="cl">service/nginx-svc created</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -701,7 +701,7 @@ Podman 是开源的容器运行时工具，它提供与 Docker 相似的功能�
             alt="kind_nginx_svc_web" width="600" height="614" />
     </a>
 <h3 id="清理-kind">清理 KinD</h3>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
