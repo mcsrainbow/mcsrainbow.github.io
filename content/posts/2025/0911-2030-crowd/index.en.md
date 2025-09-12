@@ -33,7 +33,6 @@ Le Bon, through observation and reflection on crowd behavior, argues that the ps
    
    Once immersed in a crowd, the individual undergoes a profound psychological change.  
    Rational deliberation gives way to the collective mind's unconscious; independent judgment rapidly declines, and distinct crowd traits emerge: emotionality, suggestibility, extremity, and simplification.  
-   A person in a crowd is like a grain of sand carried by the wind—divested of independent thought.  
 
 2. The dual nature of crowd conduct  
    
