@@ -15,7 +15,7 @@ The term “crowd” here conveys the image of people gathered like a flock of c
 
 ## Summary
 
-Le Bon, through observation and reflection on crowd behavior, argues that the psychology of crowds differs fundamentally from that of individuals. In a crowd, the individual loses conscious personality and rational judgment, becoming dominated by emotion, suggestion, and the collective unconscious, which leads to impulsive, credulous, and irrational behavior.
+Le Bon, through observation and reflection on crowd behavior, argues that the psychology of crowds differs fundamentally from that of individuals.
 
 1. Basic traits of crowd psychology  
    
