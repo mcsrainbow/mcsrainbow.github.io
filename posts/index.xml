@@ -8,7 +8,7 @@
     <title>读书笔记之《乌合之众：大众心理研究》</title>
     <link>https://blog.heylinux.com/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/</link>
     <pubDate>Thu, 11 Sep 2025 20:30:04 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/</guid>
     <description><![CDATA[<p>个体在群体中会丧失理性与独立性，被情绪、暗示和集体无意识支配，从而表现出盲目、冲动与非理性的行为。</p>]]></description>
 </item>
@@ -16,7 +16,7 @@
     <title>读书笔记之《如何阅读一本书：智慧阅读的经典指南》</title>
     <link>https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/</link>
     <pubDate>Wed, 10 Sep 2025 11:08:00 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/09/notes-from-how-to-read-a-book/</guid>
     <description><![CDATA[<p>阅读的四个层次：基础阅读、检视阅读、分析阅读和主题阅读。</p>]]></description>
 </item>
@@ -24,7 +24,7 @@
     <title>读书笔记之《精益创业：新创企业的成长思维》</title>
     <link>https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/</link>
     <pubDate>Mon, 08 Sep 2025 12:35:53 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/09/notes-from-the-lean-startup/</guid>
     <description><![CDATA[<p>精益创业强调快速把构想落地成简化版本，用真实用户进行测试，从结果中学习，并迅速改进，从而减少时间和资源的浪费。</p>]]></description>
 </item>
@@ -32,7 +32,7 @@
     <title>代码提交&#43;分支管理&#43;版本管理最佳实践</title>
     <link>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</link>
     <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</guid>
     <description><![CDATA[<p>以更契合工程师习惯的 YAML 文档格式，展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。</p>]]></description>
 </item>
@@ -40,7 +40,7 @@
     <title>云原生词汇表之精简版</title>
     <link>https://blog.heylinux.com/2025/07/cloud-native-glossary-lite/</link>
     <pubDate>Mon, 28 Jul 2025 15:12:51 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/07/cloud-native-glossary-lite/</guid>
     <description><![CDATA[<p>参考: <a href="https://glossary.cncf.io/zh-cn/" target="_blank" rel="noopener noreffer ">https://glossary.cncf.io/zh-cn/</a></p>]]></description>
 </item>
@@ -48,7 +48,7 @@
     <title>健康检查端点 /healthz 设计实践</title>
     <link>https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/</link>
     <pubDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/</guid>
     <description><![CDATA[<p>设计一个具有关键检查和独立外部监控的健康检查端点。</p>]]></description>
 </item>
@@ -56,7 +56,7 @@
     <title>工作思维倾向</title>
     <link>https://blog.heylinux.com/2025/01/work-mindsets/</link>
     <pubDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/01/work-mindsets/</guid>
     <description><![CDATA[<p>良好的工作思维倾向有助于养成专业化的行为。</p>]]></description>
 </item>
@@ -64,7 +64,7 @@
     <title>Kubernetes 多环境多应用编排实践</title>
     <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
     <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
     <description><![CDATA[<p>通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。</p>]]></description>
 </item>
@@ -72,7 +72,7 @@
     <title>Kubernetes 容器健康检查和优雅终止</title>
     <link>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
     <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
@@ -80,7 +80,7 @@
     <title>读书笔记之《福格行为模型：微习惯改变一切》</title>
     <link>https://blog.heylinux.com/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</link>
     <pubDate>Fri, 01 Mar 2024 17:47:52 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</guid>
     <description><![CDATA[<p>B=MAP，即「行为=动机+能力+提示」。把目标切分成多个细小的习惯，让看似不可能实现的目标变得容易。</p>]]></description>
 </item>

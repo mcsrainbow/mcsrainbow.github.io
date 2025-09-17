@@ -8,7 +8,7 @@
     <title>代码提交&#43;分支管理&#43;版本管理最佳实践</title>
     <link>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</link>
     <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</guid>
     <description><![CDATA[<p>以更契合工程师习惯的 YAML 文档格式，展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。</p>]]></description>
 </item>
@@ -16,7 +16,7 @@
     <title>健康检查端点 /healthz 设计实践</title>
     <link>https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/</link>
     <pubDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/</guid>
     <description><![CDATA[<p>设计一个具有关键检查和独立外部监控的健康检查端点。</p>]]></description>
 </item>
@@ -24,7 +24,7 @@
     <title>Kubernetes 多环境多应用编排实践</title>
     <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
     <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
     <description><![CDATA[<p>通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。</p>]]></description>
 </item>
@@ -32,7 +32,7 @@
     <title>Kubernetes 容器健康检查和优雅终止</title>
     <link>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
     <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
     <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
@@ -40,7 +40,7 @@
     <title>阿里云官方矢量图标和 draw.io 自定义图标库</title>
     <link>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</link>
     <pubDate>Thu, 04 Jan 2024 16:39:06 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/</guid>
     <description><![CDATA[<p>我收集整理了一套完整的阿里云矢量图标，分别标注了中英文名称，并生成了相应的 draw.io 图标库。</p>]]></description>
 </item>
@@ -48,7 +48,7 @@
     <title>使用 git-crypt 加解密 Git 中的文件</title>
     <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
     <description><![CDATA[<p>git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
 </item>
@@ -56,7 +56,7 @@
     <title>轻量级 Kubernetes 发行版实践</title>
     <link>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
     <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。</p>]]></description>
 </item>
@@ -64,7 +64,7 @@
     <title>私有 IP 地址包括哪些</title>
     <link>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</link>
     <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</guid>
     <description><![CDATA[<p>在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>]]></description>
 </item>
@@ -72,7 +72,7 @@
     <title>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</title>
     <link>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</link>
     <pubDate>Sun, 20 Nov 2022 22:31:30 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
     <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
 </item>
@@ -80,7 +80,7 @@
     <title>常用标点符号中英文名称对照</title>
     <link>https://blog.heylinux.com/2022/05/punctuation-marks/</link>
     <pubDate>Tue, 31 May 2022 20:11:52 &#43;0800</pubDate>
-    <author>郭冬</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2022/05/punctuation-marks/</guid>
     <description><![CDATA[<p>正确表示常用标点符号的中英文名称。</p>]]></description>
 </item>

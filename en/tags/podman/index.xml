@@ -8,7 +8,7 @@
     <title>Lightweight Kubernetes Distributions Practices</title>
     <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
     <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>Damon</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
     <description><![CDATA[<p>Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.</p>]]></description>
 </item>

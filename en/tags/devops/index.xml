@@ -8,7 +8,7 @@
     <title>Best Practices for Commits, Branching and Versioning</title>
     <link>https://blog.heylinux.com/en/2025/07/commit-branching-versioning-best-practices/</link>
     <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
-    <author>Damon</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2025/07/commit-branching-versioning-best-practices/</guid>
     <description><![CDATA[<p>Presenting conventional commits, branching models, semantic versioning, and source-based versioning in YAML format.</p>]]></description>
 </item>
@@ -16,7 +16,7 @@
     <title>DevOps CI/CD Pipeline in Action</title>
     <link>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</link>
     <pubDate>Sun, 21 Nov 2021 12:18:14 &#43;0800</pubDate>
-    <author>Damon</author>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2021/11/devops-cicd-pipeline-in-action/</guid>
     <description><![CDATA[<p>There are differences in the most appropriate CI/CD pipelines in different environments, especially the toolchains, but the general process and thinking should be similar.</p>]]></description>
 </item>
