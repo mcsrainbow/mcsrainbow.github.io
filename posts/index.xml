@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/posts/</link>
         <description>所有文章 | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 11 Sep 2025 20:30:04 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>分钟级快速实践 Debezium MySQL-to-Kafka CDC</title>
+    <link>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</link>
+    <pubDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</guid>
+    <description><![CDATA[<p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC (Change Data Capture)。</p>]]></description>
+</item>
+<item>
     <title>读书笔记之《乌合之众：大众心理研究》</title>
     <link>https://blog.heylinux.com/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/</link>
     <pubDate>Thu, 11 Sep 2025 20:30:04 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
     <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
-</item>
-<item>
-    <title>读书笔记之《福格行为模型：微习惯改变一切》</title>
-    <link>https://blog.heylinux.com/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</link>
-    <pubDate>Fri, 01 Mar 2024 17:47:52 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/</guid>
-    <description><![CDATA[<p>B=MAP，即「行为=动机+能力+提示」。把目标切分成多个细小的习惯，让看似不可能实现的目标变得容易。</p>]]></description>
 </item>
 </channel>
 </rss>

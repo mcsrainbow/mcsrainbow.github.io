@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CDC - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/cdc/</link>
+        <description>CDC - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/cdc/" rel="self" type="application/rss+xml" /><item>
+    <title>分钟级快速实践 Debezium MySQL-to-Kafka CDC</title>
+    <link>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</link>
+    <pubDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</guid>
+    <description><![CDATA[<p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC (Change Data Capture)。</p>]]></description>
+</item>
+</channel>
+</rss>

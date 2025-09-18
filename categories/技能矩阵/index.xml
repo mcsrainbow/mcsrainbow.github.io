@@ -4,7 +4,15 @@
         <link>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</link>
         <description>技能矩阵 - 分类 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+    <title>分钟级快速实践 Debezium MySQL-to-Kafka CDC</title>
+    <link>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</link>
+    <pubDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</guid>
+    <description><![CDATA[<p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC (Change Data Capture)。</p>]]></description>
+</item>
+<item>
     <title>代码提交&#43;分支管理&#43;版本管理最佳实践</title>
     <link>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</link>
     <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/</guid>
     <description><![CDATA[<p>通过 Bucket Level Policy 合理限制 S3 Bucket 访问请求来源后，能够在 AKSK 泄露的情况下仍然保障 AWS S3 Bucket 的数据安全。</p>]]></description>
-</item>
-<item>
-    <title>常用标点符号中英文名称对照</title>
-    <link>https://blog.heylinux.com/2022/05/punctuation-marks/</link>
-    <pubDate>Tue, 31 May 2022 20:11:52 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2022/05/punctuation-marks/</guid>
-    <description><![CDATA[<p>正确表示常用标点符号的中英文名称。</p>]]></description>
 </item>
 </channel>
 </rss>
