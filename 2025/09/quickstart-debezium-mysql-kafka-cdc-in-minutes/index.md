@@ -1,11 +1,13 @@
-# 分钟级快速实践 Debezium MySQL-to-Kafka CDC
+# 分钟级快速实践 Debezium MySQL Kafka CDC
 
 
-使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC (Change Data Capture)。
+使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。
 
 <!--more-->
 
 ---
+
+## 搭建基础服务
 
 1. 创建 docker-compose 文件
    
@@ -169,7 +171,9 @@
     ✔ Container debezium-amd64-connect-1  Started
     ```
 
-3. 授权 Debezium connector 访问 MySQL
+## 配置 Debezium Source Connector
+
+1. 授权 Source Connector 访问 MySQL
 
     ```bash
     docker-compose exec -T mysql mysql -uroot -pdebezium -e "
@@ -177,7 +181,7 @@
     FLUSH PRIVILEGES;"
     ```
 
-4. 注册 Debezium connector
+2. 注册 Source Connector
 
     ```bash
     curl -s -X POST http://localhost:8083/connectors \
@@ -185,7 +189,7 @@
       -d @register-mysql.json
     ```
 
-5. 更新 Debezium connector 配置（可选）
+3. 更新 Source Connector 配置（可选）
 
     ```bash
     jq '.config' register-mysql.json | \
@@ -194,7 +198,7 @@
       -d @- | jq .
     ```
 
-6. 检查 Debezium connector 状态
+4. 检查 Source Connector 状态
 
     ```bash
     curl -s localhost:8083/connectors/mysql-inventory-connector/status | jq .
@@ -205,20 +209,20 @@
       "name": "mysql-inventory-connector",
       "connector": {
         "state": "RUNNING",
-        "worker_id": "192.168.107.5:8083"
+        "worker_id": "192.168.97.5:8083"
       },
       "tasks": [
         {
           "id": 0,
           "state": "RUNNING",
-          "worker_id": "192.168.107.5:8083"
+          "worker_id": "192.168.97.5:8083"
         }
       ],
       "type": "source"
     }
     ```
 
-7. 触发 CDC 事件
+5. 触发 CDC 事件
 
     `插入`/`更新`/`删除`一些数据行来查看`增`/`改`/`删`事件
 
@@ -229,7 +233,7 @@
     DELETE FROM customers WHERE first_name='Bob';"
     ```
 
-8. 在 Kafdrop 上查看主题
+6. 在 Kafdrop 上查看主题
 
     访问 `http://localhost:9000`
 
@@ -238,5 +242,111 @@
     查看新事件 `"op":"c"` / `"op":"u"` / `"op":"d"`
 
     ![kafdrop_topic_msg_c_u_d](kafdrop_topic_msg_c_u_d.png)
+
+## 配置 Debezium Sink Connector
+
+1. 授权 Sink Connector 访问 MySQL
+
+    ```bash
+    docker-compose exec -T mysql mysql -uroot -pdebezium -e "
+    CREATE USER IF NOT EXISTS 'sink'@'%' IDENTIFIED BY 'sinkpw';
+    GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER ON inventory.* TO 'sink'@'%';
+    FLUSH PRIVILEGES;"
+    ```
+
+    ```bash
+    vim register-jdbc-sink.json
+    ```
+
+    ```json
+    {
+      "name": "jdbc-sink-mysql",
+      "config": {
+        "connector.class": "io.debezium.connector.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "mysql_server.inventory.customers",
+
+        "connection.url": "jdbc:mysql://mysql:3306/inventory",
+        "connection.username": "sink",
+        "connection.password": "sinkpw",
+
+        "insert.mode": "upsert",
+        "delete.enabled": "true",
+        "primary.key.mode": "record_key",
+        "primary.key.fields": "id",
+
+        "schema.evolution": "basic",
+        "collection.name.format": "customers_mirror",
+        "consumer.override.auto.offset.reset": "earliest"
+      }
+    }
+    ```
+
+2. 注册 Sink Connector
+
+    ```bash
+    curl -s -X POST http://localhost:8083/connectors \
+      -H "Content-Type: application/json" \
+      -d @register-jdbc-sink.json
+    ```
+
+3. 更新 Sink Connector（可选）
+
+    ```bash
+    jq '.config' register-jdbc-sink.json | \
+    curl -s -X PUT http://localhost:8083/connectors/mysql-inventory-connector/config \
+      -H "Content-Type: application/json" \
+      -d @- | jq .
+    ```
+
+4. 检查 Sink Connector 状态
+
+    ```bash
+    curl -s http://localhost:8083/connectors/jdbc-sink-mysql/status | jq .
+    ```
+
+    ```json
+    {
+      "name": "jdbc-sink-mysql",
+      "connector": {
+        "state": "RUNNING",
+        "worker_id": "192.168.97.5:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "RUNNING",
+          "worker_id": "192.168.97.5:8083"
+        }
+      ],
+      "type": "sink"
+    }
+    ```
+
+## 验证端到端数据同步
+
+1. 检查源表
+
+    ```bash
+    docker-compose exec -T mysql mysql -usink -psinkpw -e "SELECT * FROM inventory.customers;"
+    ```
+
+    ```plain
+    id  first_name  last_name  email                  created_at
+    1   Alice       Smith      alice_new@example.com  2025-09-19 01:50:16
+    3   Charlie     Wang       charlie@example.com    2025-09-19 01:58:59
+    ```
+
+2. 检查镜像表
+
+    ```bash
+    docker-compose exec -T mysql mysql -usink -psinkpw -e "SELECT * FROM inventory.customers_mirror;"
+    ```
+
+    ```plain
+    id  first_name  last_name  email                  created_at
+    1   Alice       Smith      alice_new@example.com  2025-09-19 01:50:16
+    3   Charlie     Wang       charlie@example.com    2025-09-19 01:58:59
+    ```
 
 

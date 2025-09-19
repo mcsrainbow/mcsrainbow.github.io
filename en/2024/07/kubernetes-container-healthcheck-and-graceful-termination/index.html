@@ -179,7 +179,7 @@
     </a>
 <h2 id="practice">Practice</h2>
 <p>Kubernetes deployment configurations with health checks and graceful termination:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -320,7 +320,7 @@ Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code>
 </ol>
 <p>For more detailed health check endpoint <code>/healthz</code> design, please refer to the article: <a href="/en/2025/07/health-check-endpoint-healthz-design-practice/" rel="">Health Check Endpoint /healthz Design Practice</a>.</p>
 <p>Kubernetes deployment configurations enables the <code>/healthz</code> endpoint:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -419,7 +419,7 @@ Maximum <code>120</code> seconds <code>terminationGracePeriodSeconds(120)</code>
 <p>To avoid interrupting in-flight user requests, the Ingress should be configured with a graceful connection drain timeout that aligns with the container <code>lifecycle.preStop</code>.</p>
 <p>This ensures the Ingress keeps connections alive until the timeout expires.</p>
 <p>Alibaba Cloud Kubernetes graceful draining configuration:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>

@@ -7,12 +7,12 @@
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Quickstart Debezium MySQL to Kafka CDC in Minutes</title>
-    <link>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</link>
+    <title>Quickstart Debezium MySQL Kafka CDC in Minutes</title>
+    <link>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</link>
     <pubDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</guid>
-    <description><![CDATA[<p>Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using Docker, KRaft, and Kafdrop.</p>]]></description>
+    <guid>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</guid>
+    <description><![CDATA[<p>Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Docker, KRaft, and Kafdrop.</p>]]></description>
 </item>
 <item>
     <title>Notes from &#34;The Crowd: A Study of the Popular Mind&#34;</title>

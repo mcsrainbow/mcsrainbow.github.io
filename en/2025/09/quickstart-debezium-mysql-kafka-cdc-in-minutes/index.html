@@ -1,47 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>分钟级快速实践 Debezium MySQL-to-Kafka CDC - Hey! Linux</title><meta name="Description" content="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC。"><meta property="og:url" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/">
+        <title>Quickstart Debezium MySQL Kafka CDC in Minutes - Hey! Linux</title><meta name="Description" content="Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop."><meta property="og:url" content="https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/">
   <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="分钟级快速实践 Debezium MySQL-to-Kafka CDC">
-  <meta property="og:description" content="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC。">
-  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Quickstart Debezium MySQL Kafka CDC in Minutes">
+  <meta property="og:description" content="Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop.">
+  <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-09-18T16:55:00+08:00">
     <meta property="article:modified_time" content="2025-09-18T16:55:00+08:00">
     <meta property="article:tag" content="CDC">
-    <meta property="og:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/featured-image.jpeg">
+    <meta property="og:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/featured-image.jpeg">
-  <meta name="twitter:title" content="分钟级快速实践 Debezium MySQL-to-Kafka CDC">
-  <meta name="twitter:description" content="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC。">
+  <meta name="twitter:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg">
+  <meta name="twitter:title" content="Quickstart Debezium MySQL Kafka CDC in Minutes">
+  <meta name="twitter:description" content="Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop.">
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/" /><link rel="prev" href="https://blog.heylinux.com/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" /><link rel="prev" href="https://blog.heylinux.com/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "分钟级快速实践 Debezium MySQL-to-Kafka CDC",
-        "inLanguage": "zh-CN",
+        "headline": "Quickstart Debezium MySQL Kafka CDC in Minutes",
+        "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-to-kafka-cdc-in-minutes\/"
+            "@id": "https:\/\/blog.heylinux.com\/en\/2025\/09\/quickstart-debezium-mysql-kafka-cdc-in-minutes\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-to-kafka-cdc-in-minutes\/featured-image.jpeg",
-                            "width":  1280 ,
-                            "height":  364 
-                        }],"genre": "posts","keywords": "CDC","wordcount":  497 ,
-        "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-to-kafka-cdc-in-minutes\/","datePublished": "2025-09-18T16:55:00+08:00","dateModified": "2025-09-18T16:55:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                            "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc-in-minutes\/featured-image.jpeg",
+                            "width":  1170 ,
+                            "height":  455 
+                        }],"genre": "posts","keywords": "CDC","wordcount":  668 ,
+        "url": "https:\/\/blog.heylinux.com\/en\/2025\/09\/quickstart-debezium-mysql-kafka-cdc-in-minutes\/","datePublished": "2025-09-18T16:55:00+08:00","dateModified": "2025-09-18T16:55:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
                     "@type": "ImageObject",
@@ -50,8 +50,8 @@
                     "height":  800 
                 }},"author": {
                 "@type": "Person",
-                "name": "郭冬"
-            },"description": "使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC。"
+                "name": "Damon"
+            },"description": "Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script>
@@ -69,25 +69,25 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="Hey! Linux">Hey! Linux</a>
+            <a href="/en/" title="Hey! Linux">Hey! Linux</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/en/"> English </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/"> 简体中文 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/" selected>简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/">English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/">简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" selected>English</option></select>
                 </a></div>
         </div>
     </div>
@@ -95,7 +95,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="Hey! Linux">Hey! Linux</a>
+                <a href="/en/" title="Hey! Linux">Hey! Linux</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -103,11 +103,11 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
@@ -115,13 +115,13 @@
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/" title="">简体中文</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/" selected>简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/">English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/">简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" selected>English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -130,40 +130,57 @@
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
-                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">分钟级快速实践 Debezium MySQL-to-Kafka CDC</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-18">2025-09-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 497 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Quickstart Debezium MySQL Kafka CDC in Minutes</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-18">2025-09-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;668 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/featured-image.jpeg"
-        data-srcset="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/featured-image.jpeg, /2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/featured-image.jpeg 1.5x, /2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/featured-image.jpeg 2x"
+        data-src="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg"
+        data-srcset="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg 1.5x, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg 2x"
         data-sizes="auto"
-        alt="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/featured-image.jpeg"
-        title="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC。" /></div><div class="content" id="content"><p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC (Change Data Capture)。</p>
+        alt="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg"
+        title="Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop." /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup-base-services">Setup Base Services</a></li>
+    <li><a href="#configure-debezium-source-connector">Configure Debezium Source Connector</a></li>
+    <li><a href="#configure-debezium-sink-connector">Configure Debezium Sink Connector</a></li>
+    <li><a href="#verify-end-to-end-data-sync">Verify End-to-End Data Sync</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Docker, KRaft, and Kafdrop.</p>
 <hr>
+<h2 id="setup-base-services">Setup Base Services</h2>
 <ol>
 <li>
-<p>创建 docker-compose 文件</p>
+<p>Create docker-compose files</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir debezium-amd64
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> debezium-amd64</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim docker-compose.yml</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">kafka</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">bitnami/kafka:3.7</span><span class="w">
@@ -234,13 +251,13 @@
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim mysql-init.sql</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-sql">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- ensure the database exists and is selected
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">inventory</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">USE</span><span class="w"> </span><span class="n">inventory</span><span class="p">;</span><span class="w">
@@ -262,13 +279,13 @@
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim register-mysql.json</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;mysql-inventory-connector&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -299,30 +316,30 @@
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -1</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">docker-compose.yml
 </span></span><span class="line"><span class="cl">mysql-init.sql
 </span></span><span class="line"><span class="cl">register-mysql.json</span></span></code></pre></div></div>
 </li>
 <li>
-<p>启动服务</p>
+<p>Start services</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose up -d</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">[+] Running 5/5
 </span></span><span class="line"><span class="cl">✔ Network debezium-amd64_default      Created
 </span></span><span class="line"><span class="cl">✔ Container debezium-amd64-mysql-1    Started
@@ -330,137 +347,276 @@
 </span></span><span class="line"><span class="cl">✔ Container debezium-amd64-kafdrop-1  Started
 </span></span><span class="line"><span class="cl">✔ Container debezium-amd64-connect-1  Started</span></span></code></pre></div></div>
 </li>
+</ol>
+<h2 id="configure-debezium-source-connector">Configure Debezium Source Connector</h2>
+<ol>
 <li>
-<p>授权 Debezium connector 访问 MySQL</p>
+<p>Grant MySQL access to Source Connector</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> -T mysql mysql -uroot -pdebezium -e <span class="s2">&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT, LOCK TABLES ON *.* TO &#39;debezium&#39;@&#39;%&#39;;
 </span></span></span><span class="line"><span class="cl"><span class="s2">FLUSH PRIVILEGES;&#34;</span></span></span></code></pre></div></div>
 </li>
 <li>
-<p>注册 Debezium connector</p>
+<p>Register Source Connector</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s -X POST http://localhost:8083/connectors <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d @register-mysql.json</span></span></code></pre></div></div>
 </li>
 <li>
-<p>更新 Debezium connector 配置（可选）</p>
+<p>Update Source Connector config (optional)</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">jq <span class="s1">&#39;.config&#39;</span> register-mysql.json <span class="p">|</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>curl -s -X PUT http://localhost:8083/connectors/mysql-inventory-connector/config <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d @- <span class="p">|</span> jq .</span></span></code></pre></div></div>
 </li>
 <li>
-<p>检查 Debezium connector 状态</p>
+<p>Check Source Connector status</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s localhost:8083/connectors/mysql-inventory-connector/status <span class="p">|</span> jq .</span></span></code></pre></div></div>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;mysql-inventory-connector&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;connector&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;state&#34;</span><span class="p">:</span> <span class="s2">&#34;RUNNING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;worker_id&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.107.5:8083&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;worker_id&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.97.5:8083&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tasks&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;state&#34;</span><span class="p">:</span> <span class="s2">&#34;RUNNING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;worker_id&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.107.5:8083&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;worker_id&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.97.5:8083&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;source&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
 </li>
 <li>
-<p>触发 CDC 事件</p>
-<p><code>插入</code>/<code>更新</code>/<code>删除</code>一些数据行来查看<code>增</code>/<code>改</code>/<code>删</code>事件</p>
+<p>Trigger CDC events</p>
+<p><code>INSERT</code> / <code>UPDATE</code> / <code>DELETE</code> some rows to see <code>c</code> / <code>u</code> / <code>d</code> events</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> -T mysql mysql -udebezium -pdbz -e <span class="s2">&#34;USE inventory;
 </span></span></span><span class="line"><span class="cl"><span class="s2">INSERT INTO customers (first_name,last_name,email) VALUES (&#39;Charlie&#39;,&#39;Wang&#39;,&#39;charlie@example.com&#39;);
 </span></span></span><span class="line"><span class="cl"><span class="s2">UPDATE customers SET email=&#39;alice_new@example.com&#39; WHERE first_name=&#39;Alice&#39;;
 </span></span></span><span class="line"><span class="cl"><span class="s2">DELETE FROM customers WHERE first_name=&#39;Bob&#39;;&#34;</span></span></span></code></pre></div></div>
 </li>
 <li>
-<p>在 Kafdrop 上查看主题</p>
-<p>访问 <code>http://localhost:9000</code></p>
-<p>查看主题 <code>mysql_server.inventory.customers</code></p>
-<p>查看新事件 <code>&quot;op&quot;:&quot;c&quot;</code> / <code>&quot;op&quot;:&quot;u&quot;</code> / <code>&quot;op&quot;:&quot;d&quot;</code></p>
+<p>Check the topic on Kafdrop</p>
+<p>Visit <code>http://localhost:9000</code></p>
+<p>Check the topic <code>mysql_server.inventory.customers</code></p>
+<p>See new events <code>&quot;op&quot;:&quot;c&quot;</code> / <code>&quot;op&quot;:&quot;u&quot;</code> / <code>&quot;op&quot;:&quot;d&quot;</code></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png"
-        data-srcset="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png, /2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png 1.5x, /2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png 2x"
+        data-src="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png"
+        data-srcset="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png 1.5x, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png 2x"
         data-sizes="auto"
-        alt="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png"
+        alt="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png"
         title="kafdrop_topic_msg_c_u_d" width="2466" height="2012" /></p>
+</li>
+</ol>
+<h2 id="configure-debezium-sink-connector">Configure Debezium Sink Connector</h2>
+<ol>
+<li>
+<p>Grant MySQL access to Sink Connector</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> -T mysql mysql -uroot -pdebezium -e <span class="s2">&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">CREATE USER IF NOT EXISTS &#39;sink&#39;@&#39;%&#39; IDENTIFIED BY &#39;sinkpw&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="s2">GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER ON inventory.* TO &#39;sink&#39;@&#39;%&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="s2">FLUSH PRIVILEGES;&#34;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim register-jdbc-sink.json</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;jdbc-sink-mysql&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;connector.class&#34;</span><span class="p">:</span> <span class="s2">&#34;io.debezium.connector.jdbc.JdbcSinkConnector&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tasks.max&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;topics&#34;</span><span class="p">:</span> <span class="s2">&#34;mysql_server.inventory.customers&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;connection.url&#34;</span><span class="p">:</span> <span class="s2">&#34;jdbc:mysql://mysql:3306/inventory&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;connection.username&#34;</span><span class="p">:</span> <span class="s2">&#34;sink&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;connection.password&#34;</span><span class="p">:</span> <span class="s2">&#34;sinkpw&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;insert.mode&#34;</span><span class="p">:</span> <span class="s2">&#34;upsert&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;delete.enabled&#34;</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;primary.key.mode&#34;</span><span class="p">:</span> <span class="s2">&#34;record_key&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;primary.key.fields&#34;</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;schema.evolution&#34;</span><span class="p">:</span> <span class="s2">&#34;basic&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;collection.name.format&#34;</span><span class="p">:</span> <span class="s2">&#34;customers_mirror&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;consumer.override.auto.offset.reset&#34;</span><span class="p">:</span> <span class="s2">&#34;earliest&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+</li>
+<li>
+<p>Register Sink Connector</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s -X POST http://localhost:8083/connectors <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d @register-jdbc-sink.json</span></span></code></pre></div></div>
+</li>
+<li>
+<p>Update Sink Connector (optional)</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">jq <span class="s1">&#39;.config&#39;</span> register-jdbc-sink.json <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>curl -s -X PUT http://localhost:8083/connectors/mysql-inventory-connector/config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d @- <span class="p">|</span> jq .</span></span></code></pre></div></div>
+</li>
+<li>
+<p>Check Sink Connector status</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s http://localhost:8083/connectors/jdbc-sink-mysql/status <span class="p">|</span> jq .</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;jdbc-sink-mysql&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;connector&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;state&#34;</span><span class="p">:</span> <span class="s2">&#34;RUNNING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;worker_id&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.97.5:8083&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tasks&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;state&#34;</span><span class="p">:</span> <span class="s2">&#34;RUNNING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;worker_id&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.97.5:8083&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;sink&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+</li>
+</ol>
+<h2 id="verify-end-to-end-data-sync">Verify End-to-End Data Sync</h2>
+<ol>
+<li>
+<p>Check source table</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> -T mysql mysql -usink -psinkpw -e <span class="s2">&#34;SELECT * FROM inventory.customers;&#34;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">id  first_name  last_name  email                  created_at
+</span></span><span class="line"><span class="cl">1   Alice       Smith      alice_new@example.com  2025-09-19 01:50:16
+</span></span><span class="line"><span class="cl">3   Charlie     Wang       charlie@example.com    2025-09-19 01:58:59</span></span></code></pre></div></div>
+</li>
+<li>
+<p>Check mirror table</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> -T mysql mysql -usink -psinkpw -e <span class="s2">&#34;SELECT * FROM inventory.customers_mirror;&#34;</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">id  first_name  last_name  email                  created_at
+</span></span><span class="line"><span class="cl">1   Alice       Smith      alice_new@example.com  2025-09-19 01:50:16
+</span></span><span class="line"><span class="cl">3   Charlie     Wang       charlie@example.com    2025-09-19 01:58:59</span></span></code></pre></div></div>
 </li>
 </ol></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2025-09-18</span>
+                <span>Updated on 2025-09-18</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/" data-title="分钟级快速实践 Debezium MySQL-to-Kafka CDC" data-hashtags="CDC"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/" data-title="分钟级快速实践 Debezium MySQL-to-Kafka CDC" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2025%2f09%2fquickstart-debezium-mysql-to-kafka-cdc-in-minutes%2f&amp;text=%e5%88%86%e9%92%9f%e7%ba%a7%e5%bf%ab%e9%80%9f%e5%ae%9e%e8%b7%b5%20Debezium%20MySQL-to-Kafka%20CDC" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" data-title="Quickstart Debezium MySQL Kafka CDC in Minutes" data-hashtags="CDC"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" data-title="Quickstart Debezium MySQL Kafka CDC in Minutes" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2fen%2f2025%2f09%2fquickstart-debezium-mysql-kafka-cdc-in-minutes%2f&amp;text=Quickstart%20Debezium%20MySQL%20Kafka%20CDC%20in%20Minutes" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/cdc/">CDC</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/cdc/">CDC</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" class="prev" rel="prev" title="读书笔记之《乌合之众：大众心理研究》"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>读书笔记之《乌合之众：大众心理研究》</a></div>
+    <div class="post-nav"><a href="/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" class="prev" rel="prev" title="Notes from &#34;The Crowd: A Study of the Popular Mind&#34;"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Notes from "The Crowd: A Study of the Popular Mind"</a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
         </div>
 
-        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"code":{"maxShownLines":100},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"code":{"maxShownLines":100},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

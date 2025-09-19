@@ -7,12 +7,12 @@
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>分钟级快速实践 Debezium MySQL-to-Kafka CDC</title>
-    <link>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</link>
+    <title>分钟级快速实践 Debezium MySQL Kafka CDC</title>
+    <link>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</link>
     <pubDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-to-kafka-cdc-in-minutes/</guid>
-    <description><![CDATA[<p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL-to-Kafka CDC (Change Data Capture)。</p>]]></description>
+    <guid>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</guid>
+    <description><![CDATA[<p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。</p>]]></description>
 </item>
 <item>
     <title>读书笔记之《乌合之众：大众心理研究》</title>
