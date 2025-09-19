@@ -1,27 +1,29 @@
 ---
-title: "Quickstart Debezium MySQL to Kafka CDC in Minutes"
-slug: "quickstart-debezium-mysql-to-kafka-cdc-in-minutes"
+title: "Quickstart Debezium MySQL Kafka CDC in Minutes"
+slug: "quickstart-debezium-mysql-kafka-cdc-in-minutes"
 date: 2025-09-18T16:55:00+08:00
 author: "Damon"
-description: "Set up a minimal Debezium MySQL-to-Kafka CDC stack using Docker, KRaft, and Kafdrop."
+description: "Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop."
 categories: ["Skills"]
 tags: ["CDC"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
 
-toc: false
+toc: true
 lightgallery: true
 ---
 
-Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using Docker, KRaft, and Kafdrop.
+Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Docker, KRaft, and Kafdrop.
 
 <!--more-->
 
 ---
 
+## Setup Base Services
+
 1. Create docker-compose files
-   
+
     ```bash
     mkdir debezium-amd64
     cd debezium-amd64
@@ -182,7 +184,9 @@ Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using D
     ✔ Container debezium-amd64-connect-1  Started
     ```
 
-3. Grant MySQL access to Debezium connector
+## Configure Debezium Source Connector
+
+1. Grant MySQL access to Source Connector
 
     ```bash
     docker-compose exec -T mysql mysql -uroot -pdebezium -e "
@@ -190,7 +194,7 @@ Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using D
     FLUSH PRIVILEGES;"
     ```
 
-4. Register Debezium connector
+2. Register Source Connector
 
     ```bash
     curl -s -X POST http://localhost:8083/connectors \
@@ -198,7 +202,7 @@ Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using D
       -d @register-mysql.json
     ```
 
-5. Update Debezium connector config (optional)
+3. Update Source Connector config (optional)
 
     ```bash
     jq '.config' register-mysql.json | \
@@ -207,7 +211,7 @@ Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using D
       -d @- | jq .
     ```
 
-6. Check Debezium connector status
+4. Check Source Connector status
 
     ```bash
     curl -s localhost:8083/connectors/mysql-inventory-connector/status | jq .
@@ -218,20 +222,20 @@ Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using D
       "name": "mysql-inventory-connector",
       "connector": {
         "state": "RUNNING",
-        "worker_id": "192.168.107.5:8083"
+        "worker_id": "192.168.97.5:8083"
       },
       "tasks": [
         {
           "id": 0,
           "state": "RUNNING",
-          "worker_id": "192.168.107.5:8083"
+          "worker_id": "192.168.97.5:8083"
         }
       ],
       "type": "source"
     }
     ```
 
-7. Trigger CDC events
+5. Trigger CDC events
 
     `INSERT` / `UPDATE` / `DELETE` some rows to see `c` / `u` / `d` events
 
@@ -242,7 +246,7 @@ Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using D
     DELETE FROM customers WHERE first_name='Bob';"
     ```
 
-8. Check the topic on Kafdrop
+6. Check the topic on Kafdrop
 
     Visit `http://localhost:9000`
 
@@ -251,3 +255,109 @@ Set up a minimal Debezium MySQL-to-Kafka CDC (Change Data Capture) stack using D
     See new events `"op":"c"` / `"op":"u"` / `"op":"d"`
 
     ![kafdrop_topic_msg_c_u_d](kafdrop_topic_msg_c_u_d.png)
+
+## Configure Debezium Sink Connector
+
+1. Grant MySQL access to Sink Connector
+
+    ```bash
+    docker-compose exec -T mysql mysql -uroot -pdebezium -e "
+    CREATE USER IF NOT EXISTS 'sink'@'%' IDENTIFIED BY 'sinkpw';
+    GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER ON inventory.* TO 'sink'@'%';
+    FLUSH PRIVILEGES;"
+    ```
+
+    ```bash
+    vim register-jdbc-sink.json
+    ```
+
+    ```json
+    {
+      "name": "jdbc-sink-mysql",
+      "config": {
+        "connector.class": "io.debezium.connector.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "mysql_server.inventory.customers",
+
+        "connection.url": "jdbc:mysql://mysql:3306/inventory",
+        "connection.username": "sink",
+        "connection.password": "sinkpw",
+
+        "insert.mode": "upsert",
+        "delete.enabled": "true",
+        "primary.key.mode": "record_key",
+        "primary.key.fields": "id",
+
+        "schema.evolution": "basic",
+        "collection.name.format": "customers_mirror",
+        "consumer.override.auto.offset.reset": "earliest"
+      }
+    }
+    ```
+
+2. Register Sink Connector
+
+    ```bash
+    curl -s -X POST http://localhost:8083/connectors \
+      -H "Content-Type: application/json" \
+      -d @register-jdbc-sink.json
+    ```
+
+3. Update Sink Connector (optional)
+
+    ```bash
+    jq '.config' register-jdbc-sink.json | \
+    curl -s -X PUT http://localhost:8083/connectors/mysql-inventory-connector/config \
+      -H "Content-Type: application/json" \
+      -d @- | jq .
+    ```
+
+4. Check Sink Connector status
+
+    ```bash
+    curl -s http://localhost:8083/connectors/jdbc-sink-mysql/status | jq .
+    ```
+
+    ```json
+    {
+      "name": "jdbc-sink-mysql",
+      "connector": {
+        "state": "RUNNING",
+        "worker_id": "192.168.97.5:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "RUNNING",
+          "worker_id": "192.168.97.5:8083"
+        }
+      ],
+      "type": "sink"
+    }
+    ```
+
+## Verify End-to-End Data Sync
+
+1. Check source table
+
+    ```bash
+    docker-compose exec -T mysql mysql -usink -psinkpw -e "SELECT * FROM inventory.customers;"
+    ```
+
+    ```plain
+    id  first_name  last_name  email                  created_at
+    1   Alice       Smith      alice_new@example.com  2025-09-19 01:50:16
+    3   Charlie     Wang       charlie@example.com    2025-09-19 01:58:59
+    ```
+
+2. Check mirror table
+
+    ```bash
+    docker-compose exec -T mysql mysql -usink -psinkpw -e "SELECT * FROM inventory.customers_mirror;"
+    ```
+
+    ```plain
+    id  first_name  last_name  email                  created_at
+    1   Alice       Smith      alice_new@example.com  2025-09-19 01:50:16
+    3   Charlie     Wang       charlie@example.com    2025-09-19 01:58:59
+    ```
