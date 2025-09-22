@@ -24,7 +24,7 @@ This article demonstrates how to quickly set up a minimal CDC (Change Data Captu
 
 - The entire process requires no Java/Scala code, only Flink SQL
 - Flink CDC captures MySQL data changes
-- Flink streaming processing writes to Kafka + Paimon
+- Flink streaming processing writes to Kafka + Paimon (Lakehouse Storage Engine)
 - Flink batch processing writes statistics to CSV
 - Visualization tools: Adminer (MySQL) and Kafdrop (Kafka)
 
