@@ -71,7 +71,7 @@ lightgallery: true
           - kafka
 
       kafdrop:
-        image: obsidiandynamics/kafdrop:latest
+        image: obsidiandynamics/kafdrop:4.2.0
         platform: linux/amd64
         ports:
           - "9000:9000"
