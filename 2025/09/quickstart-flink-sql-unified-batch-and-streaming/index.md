@@ -426,7 +426,7 @@ SELECT * FROM orders_paimon;
 
 ## 流批一体分析
 
-### 运行 docker-compose 服务
+### 运行 docker-compose
 
 ```bash
 docker-compose pull
@@ -546,7 +546,7 @@ done.
 
     {{< image src="flink_kafdrop_cdc_orders_topic.jpg" alt="flink_kafdrop_cdc_orders_topic" width=1000 >}}
 
-### 验证批处理 Job
+### 验证 Batch Job
 
 ```bash
 docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/03_topn_batch.sql
