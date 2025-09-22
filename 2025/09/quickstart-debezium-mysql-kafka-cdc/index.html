@@ -4,44 +4,44 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>分钟级快速实践 Debezium MySQL Kafka CDC - Hey! Linux</title><meta name="Description" content="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC。"><meta property="og:url" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/">
+        <title>快速实践 Debezium MySQL Kafka CDC - Hey! Linux</title><meta name="Description" content="使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC。"><meta property="og:url" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/">
   <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="分钟级快速实践 Debezium MySQL Kafka CDC">
-  <meta property="og:description" content="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC。">
+  <meta property="og:title" content="快速实践 Debezium MySQL Kafka CDC">
+  <meta property="og:description" content="使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-09-18T16:55:00+08:00">
     <meta property="article:modified_time" content="2025-09-18T16:55:00+08:00">
     <meta property="article:tag" content="CDC">
-    <meta property="og:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg">
+    <meta property="og:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/featured-image.jpeg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg">
-  <meta name="twitter:title" content="分钟级快速实践 Debezium MySQL Kafka CDC">
-  <meta name="twitter:description" content="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC。">
+  <meta name="twitter:image" content="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/featured-image.jpeg">
+  <meta name="twitter:title" content="快速实践 Debezium MySQL Kafka CDC">
+  <meta name="twitter:description" content="使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC。">
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" /><link rel="prev" href="https://blog.heylinux.com/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/" /><link rel="prev" href="https://blog.heylinux.com/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" /><link rel="next" href="https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "分钟级快速实践 Debezium MySQL Kafka CDC",
+        "headline": "快速实践 Debezium MySQL Kafka CDC",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc-in-minutes\/"
+            "@id": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc-in-minutes\/featured-image.jpeg",
+                            "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc\/featured-image.jpeg",
                             "width":  1170 ,
                             "height":  455 
-                        }],"genre": "posts","keywords": "CDC","wordcount":  751 ,
-        "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc-in-minutes\/","datePublished": "2025-09-18T16:55:00+08:00","dateModified": "2025-09-18T16:55:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "CDC","wordcount":  748 ,
+        "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc\/","datePublished": "2025-09-18T16:55:00+08:00","dateModified": "2025-09-18T16:55:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
                     "@type": "ImageObject",
@@ -51,7 +51,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "郭冬"
-            },"description": "使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC。"
+            },"description": "使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC。"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script>
@@ -87,7 +87,7 @@
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" selected>简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/">English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-kafka-cdc/" selected>简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-kafka-cdc/">English</option></select>
                 </a></div>
         </div>
     </div>
@@ -121,7 +121,7 @@
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" selected>简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/">English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2025/09/quickstart-debezium-mysql-kafka-cdc/" selected>简体中文</option><option value="/en/2025/09/quickstart-debezium-mysql-kafka-cdc/">English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -133,18 +133,18 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">分钟级快速实践 Debezium MySQL Kafka CDC</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">快速实践 Debezium MySQL Kafka CDC</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-18">2025-09-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 751 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-18">2025-09-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 748 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg"
-        data-srcset="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg 1.5x, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg 2x"
+        data-src="/2025/09/quickstart-debezium-mysql-kafka-cdc/featured-image.jpeg"
+        data-srcset="/2025/09/quickstart-debezium-mysql-kafka-cdc/featured-image.jpeg, /2025/09/quickstart-debezium-mysql-kafka-cdc/featured-image.jpeg 1.5x, /2025/09/quickstart-debezium-mysql-kafka-cdc/featured-image.jpeg 2x"
         data-sizes="auto"
-        alt="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/featured-image.jpeg"
-        title="使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC。" /></div><div class="details toc" id="toc-static"  data-kept="">
+        alt="/2025/09/quickstart-debezium-mysql-kafka-cdc/featured-image.jpeg"
+        title="使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC。" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -157,7 +157,7 @@
     <li><a href="#验证端到端数据同步">验证端到端数据同步</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。</p>
+            </div><div class="content" id="content"><p>使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。</p>
 <hr>
 <h2 id="搭建基础服务">搭建基础服务</h2>
 <ol>
@@ -434,10 +434,10 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png"
-        data-srcset="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png 1.5x, /2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png 2x"
+        data-src="/2025/09/quickstart-debezium-mysql-kafka-cdc/kafdrop_topic_msg_c_u_d.png"
+        data-srcset="/2025/09/quickstart-debezium-mysql-kafka-cdc/kafdrop_topic_msg_c_u_d.png, /2025/09/quickstart-debezium-mysql-kafka-cdc/kafdrop_topic_msg_c_u_d.png 1.5x, /2025/09/quickstart-debezium-mysql-kafka-cdc/kafdrop_topic_msg_c_u_d.png 2x"
         data-sizes="auto"
-        alt="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/kafdrop_topic_msg_c_u_d.png"
+        alt="/2025/09/quickstart-debezium-mysql-kafka-cdc/kafdrop_topic_msg_c_u_d.png"
         title="kafdrop_topic_msg_c_u_d" width="2466" height="2012" /></p>
 </li>
 </ol>
@@ -584,10 +584,10 @@
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/2025/09/quickstart-debezium-mysql-kafka-cdc/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" data-title="分钟级快速实践 Debezium MySQL Kafka CDC" data-hashtags="CDC"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/" data-title="分钟级快速实践 Debezium MySQL Kafka CDC" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2025%2f09%2fquickstart-debezium-mysql-kafka-cdc-in-minutes%2f&amp;text=%e5%88%86%e9%92%9f%e7%ba%a7%e5%bf%ab%e9%80%9f%e5%ae%9e%e8%b7%b5%20Debezium%20MySQL%20Kafka%20CDC" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/" data-title="快速实践 Debezium MySQL Kafka CDC" data-hashtags="CDC"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/" data-title="快速实践 Debezium MySQL Kafka CDC" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2025%2f09%2fquickstart-debezium-mysql-kafka-cdc%2f&amp;text=%e5%bf%ab%e9%80%9f%e5%ae%9e%e8%b7%b5%20Debezium%20MySQL%20Kafka%20CDC" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -599,7 +599,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" class="prev" rel="prev" title="读书笔记之《乌合之众：大众心理研究》"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>读书笔记之《乌合之众：大众心理研究》</a></div>
+    <div class="post-nav"><a href="/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/" class="prev" rel="prev" title="读书笔记之《乌合之众：大众心理研究》"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>读书笔记之《乌合之众：大众心理研究》</a>
+            <a href="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/" class="next" rel="next" title="快速实践 Flink SQL 流批一体">快速实践 Flink SQL 流批一体<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.

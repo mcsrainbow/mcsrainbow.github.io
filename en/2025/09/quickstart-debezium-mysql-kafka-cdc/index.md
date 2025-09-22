@@ -1,4 +1,4 @@
-# Quickstart Debezium MySQL Kafka CDC in Minutes
+# Quickstart Debezium MySQL Kafka CDC
 
 
 Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Docker, KRaft, and Kafdrop.

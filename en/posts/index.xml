@@ -4,12 +4,20 @@
         <link>https://blog.heylinux.com/en/posts/</link>
         <description>All Posts | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Quickstart Debezium MySQL Kafka CDC in Minutes</title>
-    <link>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</link>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Quickstart Flink SQL Unified Batch and Streaming</title>
+    <link>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</link>
+    <pubDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</guid>
+    <description><![CDATA[<p>Set up a minimal CDC (Change Data Capture) and Unified Batch and Streaming processing using Docker, MySQL, and Flink SQL.</p>]]></description>
+</item>
+<item>
+    <title>Quickstart Debezium MySQL Kafka CDC</title>
+    <link>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc/</link>
     <pubDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</guid>
+    <guid>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc/</guid>
     <description><![CDATA[<p>Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Docker, KRaft, and Kafdrop.</p>]]></description>
 </item>
 <item>
@@ -75,14 +83,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
     <description><![CDATA[<p>By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes Container Healthcheck and Graceful Termination</title>
-    <link>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
-    <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
-    <description><![CDATA[<p>Kubernetes container health checks and graceful termination enhances production stability, reduces deployment incidents and false alarms.</p>]]></description>
 </item>
 </channel>
 </rss>

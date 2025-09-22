@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Flink - Tag - Hey! Linux</title>
+        <link>https://blog.heylinux.com/en/tags/flink/</link>
+        <description>Flink - Tag - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/flink/" rel="self" type="application/rss+xml" /><item>
+    <title>Quickstart Flink SQL Unified Batch and Streaming</title>
+    <link>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</link>
+    <pubDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</guid>
+    <description><![CDATA[<p>Set up a minimal CDC (Change Data Capture) and Unified Batch and Streaming processing using Docker, MySQL, and Flink SQL.</p>]]></description>
+</item>
+</channel>
+</rss>

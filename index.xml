@@ -4,15 +4,23 @@
         <link>https://blog.heylinux.com/</link>
         <description>郭冬的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>分钟级快速实践 Debezium MySQL Kafka CDC</title>
-    <link>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</link>
+    <title>快速实践 Flink SQL 流批一体</title>
+    <link>https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</link>
+    <pubDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</guid>
+    <description><![CDATA[<p>使用 Docker、MySQL 和 Flink 快速实践最小化的实时数据采集与流批一体分析。</p>]]></description>
+</item>
+<item>
+    <title>快速实践 Debezium MySQL Kafka CDC</title>
+    <link>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/</link>
     <pubDate>Thu, 18 Sep 2025 16:55:00 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc-in-minutes/</guid>
-    <description><![CDATA[<p>使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。</p>]]></description>
+    <guid>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/</guid>
+    <description><![CDATA[<p>使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。</p>]]></description>
 </item>
 <item>
     <title>读书笔记之《乌合之众：大众心理研究》</title>
@@ -77,14 +85,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
     <description><![CDATA[<p>通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes 容器健康检查和优雅终止</title>
-    <link>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</link>
-    <pubDate>Wed, 03 Jul 2024 17:27:44 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/</guid>
-    <description><![CDATA[<p>在 Kubernetes 中启用容器健康检查和优雅终止，并结合应用自身特点进行配置，可以提升生产环境的应用稳定性，减少上线事故和误报。</p>]]></description>
 </item>
 </channel>
 </rss>

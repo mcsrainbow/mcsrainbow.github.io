@@ -1,7 +1,7 @@
-# 分钟级快速实践 Debezium MySQL Kafka CDC
+# 快速实践 Debezium MySQL Kafka CDC
 
 
-使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。
+使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。
 
 <!--more-->
 
