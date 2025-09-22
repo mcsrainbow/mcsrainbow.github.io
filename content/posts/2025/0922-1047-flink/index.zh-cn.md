@@ -26,7 +26,7 @@ lightgallery: true
 - Flink CDC 捕获 MySQL 数据变更
 - Flink 流处理写入 Kafka + Paimon
 - Flink 批处理统计写入 CSV
-- 配套可视化工具 Adminer(MySQL) 和 Kafdrop(Kafka)
+- 配套可视化工具 Adminer (MySQL) 和 Kafdrop (Kafka)
 
 适合运维开发与数据分析人员快速上手体验 Flink 从 `数据源 → CDC 捕获 → 流批分析 → 下游结果` 的全链路实践。
 
