@@ -11,7 +11,7 @@
 
 - 整个过程无需 Java / Scala 代码，仅用 Flink SQL 完成
 - Flink CDC 捕获 MySQL 数据变更
-- Flink 流处理写入 Kafka + Paimon
+- Flink 流处理写入 Kafka + Paimon (湖仓存储引擎)
 - Flink 批处理统计写入 CSV
 - 配套可视化工具 Adminer (MySQL) 和 Kafdrop (Kafka)
 
