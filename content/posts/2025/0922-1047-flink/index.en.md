@@ -481,7 +481,8 @@ docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/01_ka
 ```plain
 ...
 
-Flink SQL> [INFO] Submitting SQL update statement to the cluster...
+Flink SQL> 
+[INFO] Submitting SQL update statement to the cluster...
 [INFO] SQL update statement has been successfully submitted to the cluster:
 Job ID: e75d332470a1b23cfeb73f36ef585c3b
 
@@ -499,9 +500,11 @@ docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/02_pa
 ```plain
 ...
 
-Flink SQL> [INFO] Execute statement succeed.
+Flink SQL> 
+[INFO] Execute statement succeed.
 
-Flink SQL> [INFO] Submitting SQL update statement to the cluster...
+Flink SQL> 
+[INFO] Submitting SQL update statement to the cluster...
 [INFO] SQL update statement has been successfully submitted to the cluster:
 Job ID: c3471aacb54e24dbcccc0a461bb5ce98
 
@@ -566,13 +569,14 @@ docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/03_to
 Flink SQL>
 > INSERT OVERWRITE top_customers
 > SELECT customer_id,
->        CAST(SUM(amount) AS DOUBLE)[INFO] Submitting SQL update statement to the cluster...
+>        CAST(SUM(amount) AS DOUBLE)
+[INFO] Submitting SQL update statement to the cluster...
 [INFO] SQL update statement has been successfully submitted to the cluster:
 Job ID: 6693a0bee3f0558c43e21b890d797662
 
 Flink SQL>
-> SELECT customer_id,
->        CAST(SUM(amount) AS DOUBLE)+-------------+--------------+
+> SELECT *
++-------------+--------------+
 | customer_id | total_amount |
 +-------------+--------------+
 |           3 |         66.6 |
@@ -616,17 +620,20 @@ docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/04_pa
 ```plain
 ...
 
-Flink SQL> [INFO] Execute statement succeed.
+Flink SQL> 
+[INFO] Execute statement succeed.
 
 Flink SQL>
-> SELECT COUNT(*)+-----+
+> SELECT COUNT(*)
++-----+
 | cnt |
 +-----+
 |   9 |
 +-----+
 1 row in set (7.81 seconds)
 
-Flink SQL> +----------+-------------+--------+--------+--------+-------------------------+
+Flink SQL> 
++----------+-------------+--------+--------+--------+-------------------------+
 | order_id | customer_id | region | amount | status |              order_time |
 +----------+-------------+--------+--------+--------+-------------------------+
 |     1001 |           1 |     US |   20.5 |    NEW | 2025-09-22 10:51:08.000 |
