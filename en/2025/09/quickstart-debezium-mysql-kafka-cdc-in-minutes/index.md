@@ -58,7 +58,7 @@ Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Dock
           - kafka
 
       kafdrop:
-        image: obsidiandynamics/kafdrop:latest
+        image: obsidiandynamics/kafdrop:4.2.0
         platform: linux/amd64
         ports:
           - "9000:9000"

@@ -171,7 +171,7 @@
 <p><strong>代码分享:</strong> <a href="https://github.com/mcsrainbow/k8s-apps" target="_blank" rel="noopener noreffer ">https://github.com/mcsrainbow/k8s-apps</a></p>
 <h2 id="manifests">Manifests</h2>
 <p>原生 YAML(Manifests) 是最直观和最简单的 Kubernetes 资源配置方式，对于多环境多应用的编排方式也简单粗暴，直接创建不同环境名称的目录，将资源按照公共和应用维度分别写入不同的 YAML 文件即可。</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -194,7 +194,7 @@
 <h2 id="kustomize">Kustomize</h2>
 <p>Kustomize 是介于 YAML 和 Helm 之间的资源配置方式，在兼容 YAML 的基础上通过内置的插件实现配置代码的复用和参数的修改。</p>
 <p>Kustomize 默认读取 kustomization.yaml 文件中的配置，可通过引用不同目录下的 kustomization.yaml 文件实现分层设计。</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -247,7 +247,7 @@
 <p>Helm 是 Kubernetes 包管理器和部署工具，类似 Linux 上的 配置管理工具 Ansible + 包管理器 Yum。</p>
 <p>Helm 默认读取 values.yaml 文件中定义的变量，和 templates 目录下的模板文件、函数和代码块，可以高度自由地复用代码、修改参数和读取文件生成配置。</p>
 <p>Helm 可以创建不同环境的 values 文件，将默认参数和公共参数放到 values.yaml 文件中，通过不同环境的 values 文件中的参数补充和覆盖，实现多环境多应用编排。</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
