@@ -515,7 +515,7 @@ Shutting down the session...
 done.
 ```
 
-### 验证 streaming_cdc
+### 验证 Streaming CDC
 
 1. 插入新数据
 
@@ -593,7 +593,7 @@ Shutting down the session...
 done.
 ```
 
-### 验证 Paimon table
+### 验证 Paimon Table
 
 ```bash
 docker-compose exec -T mysql mysql -uroot -prootpw -e "
