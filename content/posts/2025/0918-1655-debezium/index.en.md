@@ -1,6 +1,6 @@
 ---
-title: "Quickstart Debezium MySQL Kafka CDC in Minutes"
-slug: "quickstart-debezium-mysql-kafka-cdc-in-minutes"
+title: "Quickstart Debezium MySQL Kafka CDC"
+slug: "quickstart-debezium-mysql-kafka-cdc"
 date: 2025-09-18T16:55:00+08:00
 author: "Damon"
 description: "Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop."

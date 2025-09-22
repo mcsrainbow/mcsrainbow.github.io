@@ -1,9 +1,9 @@
 ---
-title: "分钟级快速实践 Debezium MySQL Kafka CDC"
-slug: "quickstart-debezium-mysql-kafka-cdc-in-minutes"
+title: "快速实践 Debezium MySQL Kafka CDC"
+slug: "quickstart-debezium-mysql-kafka-cdc"
 date: 2025-09-18T16:55:00+08:00
 author: "郭冬"
-description: "使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC。"
+description: "使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC。"
 categories: ["技能矩阵"]
 tags: ["CDC"]
 resources:
@@ -14,7 +14,7 @@ toc: true
 lightgallery: true
 ---
 
-使用 Docker、KRaft 和 Kafdrop 分钟级快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。
+使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC (Change Data Capture)。
 
 <!--more-->
 
