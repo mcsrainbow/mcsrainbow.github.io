@@ -134,7 +134,7 @@ services:
       - kafka
 
   adminer:
-    image: adminer
+    image: adminer:5.4.0
     platform: linux/amd64
     ports:
       - "8080:8080"
