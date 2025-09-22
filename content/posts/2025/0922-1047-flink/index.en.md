@@ -405,12 +405,7 @@ GROUP BY customer_id
 ORDER BY total_amount DESC
 LIMIT 5;
 
-SELECT customer_id,
-       CAST(SUM(amount) AS DOUBLE) AS total_amount
-FROM orders_jdbc
-GROUP BY customer_id
-ORDER BY total_amount DESC
-LIMIT 5;
+SELECT * FROM top_customers;
 ```
 
 ### Create paimon_read SQL
