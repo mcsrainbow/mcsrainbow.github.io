@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-flink-sql-unified-batch-and-streaming\/featured-image.png",
                             "width":  1276 ,
                             "height":  593 
-                        }],"genre": "posts","keywords": "Flink, CDC","wordcount":  1567 ,
+                        }],"genre": "posts","keywords": "Flink, CDC","wordcount":  1568 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2025\/09\/quickstart-flink-sql-unified-batch-and-streaming\/","datePublished": "2025-09-22T10:47:19+08:00","dateModified": "2025-09-22T10:47:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -136,7 +136,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Quickstart Flink SQL Unified Batch and Streaming</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-22">2025-09-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1567 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-22">2025-09-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1568 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -158,7 +158,7 @@
         <li><a href="#download-jars">Download JARs</a></li>
         <li><a href="#create-docker-composeyml">Create docker-compose.yml</a></li>
         <li><a href="#create-mysql-initsql">Create mysql-init.sql</a></li>
-        <li><a href="#create-flink-configuration">Create Flink configuration</a></li>
+        <li><a href="#create-flink-configuration">Create Flink Configuration</a></li>
         <li><a href="#create-kafka_cdc-sql">Create kafka_cdc SQL</a></li>
         <li><a href="#create-paimon_cdc-sql">Create paimon_cdc SQL</a></li>
         <li><a href="#create-topn_batch-sql">Create topn_batch SQL</a></li>
@@ -167,12 +167,12 @@
     </li>
     <li><a href="#launch-batch-and-streaming-jobs">Launch Batch and Streaming Jobs</a>
       <ul>
-        <li><a href="#run-docker-compose-services">Run docker-compose services</a></li>
+        <li><a href="#run-docker-compose-services">Run docker-compose Services</a></li>
         <li><a href="#run-kafka_cdc-sql">Run kafka_cdc SQL</a></li>
         <li><a href="#run-paimon_cdc-sql">Run paimon_cdc SQL</a></li>
-        <li><a href="#verify-streaming_cdc">Verify streaming_cdc</a></li>
-        <li><a href="#verify-batch-job">Verify batch job</a></li>
-        <li><a href="#verify-paimon-table">Verify Paimon table</a></li>
+        <li><a href="#verify-streaming-cdc">Verify Streaming CDC</a></li>
+        <li><a href="#verify-batch-job">Verify Batch Job</a></li>
+        <li><a href="#verify-paimon-table">Verify Paimon Table</a></li>
       </ul>
     </li>
   </ul>
@@ -381,7 +381,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;flink&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;flinkpw&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="n">RELOAD</span><span class="p">,</span><span class="w"> </span><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">,</span><span class="w"> </span><span class="n">REPLICATION</span><span class="w"> </span><span class="n">SLAVE</span><span class="p">,</span><span class="w"> </span><span class="n">REPLICATION</span><span class="w"> </span><span class="n">CLIENT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;flink&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span></span></span></code></pre></div></div>
-<h3 id="create-flink-configuration">Create Flink configuration</h3>
+<h3 id="create-flink-configuration">Create Flink Configuration</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -620,7 +620,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders_paimon</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders_paimon</span><span class="p">;</span></span></span></code></pre></div></div>
 <h2 id="launch-batch-and-streaming-jobs">Launch Batch and Streaming Jobs</h2>
-<h3 id="run-docker-compose-services">Run docker-compose services</h3>
+<h3 id="run-docker-compose-services">Run docker-compose Services</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -709,7 +709,7 @@
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">Shutting down the session...
 </span></span><span class="line"><span class="cl">done.</span></span></code></pre></div></div>
-<h3 id="verify-streaming_cdc">Verify streaming_cdc</h3>
+<h3 id="verify-streaming-cdc">Verify Streaming CDC</h3>
 <ol>
 <li>
 <p>Insert a new data</p>
@@ -783,7 +783,7 @@
         </a>
 </li>
 </ol>
-<h3 id="verify-batch-job">Verify batch job</h3>
+<h3 id="verify-batch-job">Verify Batch Job</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -820,7 +820,7 @@
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">Shutting down the session...
 </span></span><span class="line"><span class="cl">done.</span></span></code></pre></div></div>
-<h3 id="verify-paimon-table">Verify Paimon table</h3>
+<h3 id="verify-paimon-table">Verify Paimon Table</h3>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>

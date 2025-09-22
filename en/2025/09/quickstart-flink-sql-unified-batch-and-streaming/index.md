@@ -201,7 +201,7 @@ GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *
 FLUSH PRIVILEGES;
 ```
 
-### Create Flink configuration
+### Create Flink Configuration
 
 ```bash
 mkdir -p flink/conf
@@ -426,7 +426,7 @@ SELECT * FROM orders_paimon;
 
 ## Launch Batch and Streaming Jobs
 
-### Run docker-compose services
+### Run docker-compose Services
 
 ```bash
 docker-compose pull
@@ -502,7 +502,7 @@ Shutting down the session...
 done.
 ```
 
-### Verify streaming_cdc
+### Verify Streaming CDC
 
 1. Insert a new data
 
@@ -546,7 +546,7 @@ done.
 
     {{< image src="flink_kafdrop_cdc_orders_topic.jpg" alt="flink_kafdrop_cdc_orders_topic" width=1000 >}}
 
-### Verify batch job
+### Verify Batch Job
 
 ```bash
 docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/03_topn_batch.sql
@@ -580,7 +580,7 @@ Shutting down the session...
 done.
 ```
 
-### Verify Paimon table
+### Verify Paimon Table
 
 ```bash
 docker-compose exec -T mysql mysql -uroot -prootpw -e "
