@@ -5,7 +5,7 @@ date: 2025-09-18T16:55:00+08:00
 author: "郭冬"
 description: "使用 Docker、KRaft 和 Kafdrop 快速实践最小化的 Debezium MySQL Kafka CDC。"
 categories: ["技能矩阵"]
-tags: ["CDC"]
+tags: ["Debezium","CDC"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"

@@ -5,7 +5,7 @@ date: 2025-09-18T16:55:00+08:00
 author: "Damon"
 description: "Set up a minimal Debezium MySQL Kafka CDC stack using Docker, KRaft, and Kafdrop."
 categories: ["Skills"]
-tags: ["CDC"]
+tags: ["Debezium","CDC"]
 resources:
 - name: "featured-image"
   src: "featured-image.jpeg"
