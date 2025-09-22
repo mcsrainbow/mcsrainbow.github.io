@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-flink-sql-unified-batch-and-streaming\/featured-image.png",
                             "width":  1276 ,
                             "height":  593 
-                        }],"genre": "posts","keywords": "Flink, CDC","wordcount":  1557 ,
+                        }],"genre": "posts","keywords": "Flink, CDC","wordcount":  1556 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2025\/09\/quickstart-flink-sql-unified-batch-and-streaming\/","datePublished": "2025-09-22T10:47:19+08:00","dateModified": "2025-09-22T10:47:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -136,7 +136,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Quickstart Flink SQL Unified Batch and Streaming</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-22">2025-09-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1557 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-22">2025-09-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1556 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -674,7 +674,8 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; [INFO] Submitting SQL update statement to the cluster...
+</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">[INFO] Submitting SQL update statement to the cluster...
 </span></span><span class="line"><span class="cl">[INFO] SQL update statement has been successfully submitted to the cluster:
 </span></span><span class="line"><span class="cl">Job ID: e75d332470a1b23cfeb73f36ef585c3b
 </span></span><span class="line"><span class="cl">
@@ -695,9 +696,11 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; [INFO] Execute statement succeed.
+</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">[INFO] Execute statement succeed.
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; [INFO] Submitting SQL update statement to the cluster...
+</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">[INFO] Submitting SQL update statement to the cluster...
 </span></span><span class="line"><span class="cl">[INFO] SQL update statement has been successfully submitted to the cluster:
 </span></span><span class="line"><span class="cl">Job ID: c3471aacb54e24dbcccc0a461bb5ce98
 </span></span><span class="line"><span class="cl">
@@ -795,13 +798,14 @@
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">&gt; INSERT OVERWRITE top_customers
 </span></span><span class="line"><span class="cl">&gt; SELECT customer_id,
-</span></span><span class="line"><span class="cl">&gt;        CAST(SUM(amount) AS DOUBLE)[INFO] Submitting SQL update statement to the cluster...
+</span></span><span class="line"><span class="cl">&gt;        CAST(SUM(amount) AS DOUBLE)
+</span></span><span class="line"><span class="cl">[INFO] Submitting SQL update statement to the cluster...
 </span></span><span class="line"><span class="cl">[INFO] SQL update statement has been successfully submitted to the cluster:
 </span></span><span class="line"><span class="cl">Job ID: 6693a0bee3f0558c43e21b890d797662
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
-</span></span><span class="line"><span class="cl">&gt; SELECT customer_id,
-</span></span><span class="line"><span class="cl">&gt;        CAST(SUM(amount) AS DOUBLE)+-------------+--------------+
+</span></span><span class="line"><span class="cl">&gt; SELECT *
+</span></span><span class="line"><span class="cl">+-------------+--------------+
 </span></span><span class="line"><span class="cl">| customer_id | total_amount |
 </span></span><span class="line"><span class="cl">+-------------+--------------+
 </span></span><span class="line"><span class="cl">|           3 |         66.6 |
@@ -850,17 +854,20 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; [INFO] Execute statement succeed.
+</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">[INFO] Execute statement succeed.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
-</span></span><span class="line"><span class="cl">&gt; SELECT COUNT(*)+-----+
+</span></span><span class="line"><span class="cl">&gt; SELECT COUNT(*)
+</span></span><span class="line"><span class="cl">+-----+
 </span></span><span class="line"><span class="cl">| cnt |
 </span></span><span class="line"><span class="cl">+-----+
 </span></span><span class="line"><span class="cl">|   9 |
 </span></span><span class="line"><span class="cl">+-----+
 </span></span><span class="line"><span class="cl">1 row in set (7.81 seconds)
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; +----------+-------------+--------+--------+--------+-------------------------+
+</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">+----------+-------------+--------+--------+--------+-------------------------+
 </span></span><span class="line"><span class="cl">| order_id | customer_id | region | amount | status |              order_time |
 </span></span><span class="line"><span class="cl">+----------+-------------+--------+--------+--------+-------------------------+
 </span></span><span class="line"><span class="cl">|     1001 |           1 |     US |   20.5 |    NEW | 2025-09-22 10:51:08.000 |
