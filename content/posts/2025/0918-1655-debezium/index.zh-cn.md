@@ -184,7 +184,7 @@ lightgallery: true
     ✔ Container debezium-amd64-connect-1  Started
     ```
 
-## 配置 Debezium Source Connector
+## 配置 Source Connector
 
 1. 授权 Source Connector 访问 MySQL
 
@@ -256,7 +256,7 @@ lightgallery: true
 
     ![kafdrop_topic_msg_c_u_d](kafdrop_topic_msg_c_u_d.png)
 
-## 配置 Debezium Sink Connector
+## 配置 Sink Connector
 
 1. 授权 Sink Connector 访问 MySQL
 
