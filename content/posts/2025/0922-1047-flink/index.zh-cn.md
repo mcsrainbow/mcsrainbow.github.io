@@ -439,7 +439,7 @@ SELECT * FROM orders_paimon;
 
 ## 流批一体分析
 
-### 运行 docker-compose 服务
+### 运行 docker-compose
 
 ```bash
 docker-compose pull
