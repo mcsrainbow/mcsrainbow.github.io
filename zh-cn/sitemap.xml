@@ -66,6 +66,15 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/tags/debezium/</loc><lastmod>2025-09-18T16:55:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/tags/debezium/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/tags/debezium/"
+                    /></url><url>
             <loc>https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/</loc><lastmod>2025-09-18T16:55:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
