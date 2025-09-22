@@ -171,7 +171,7 @@ Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Dock
     ✔ Container debezium-amd64-connect-1  Started
     ```
 
-## Configure Debezium Source Connector
+## Configure Source Connector
 
 1. Grant MySQL access to Source Connector
 
@@ -243,7 +243,7 @@ Set up a minimal Debezium MySQL Kafka CDC (Change Data Capture) stack using Dock
 
     ![kafdrop_topic_msg_c_u_d](kafdrop_topic_msg_c_u_d.png)
 
-## Configure Debezium Sink Connector
+## Configure Sink Connector
 
 1. Grant MySQL access to Sink Connector
 

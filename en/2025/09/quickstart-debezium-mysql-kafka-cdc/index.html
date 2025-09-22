@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-debezium-mysql-kafka-cdc\/featured-image.jpeg",
                             "width":  1170 ,
                             "height":  455 
-                        }],"genre": "posts","keywords": "CDC","wordcount":  668 ,
+                        }],"genre": "posts","keywords": "CDC","wordcount":  666 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2025\/09\/quickstart-debezium-mysql-kafka-cdc\/","datePublished": "2025-09-18T16:55:00+08:00","dateModified": "2025-09-18T16:55:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -135,7 +135,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Quickstart Debezium MySQL Kafka CDC</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-18">2025-09-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;668 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-18">2025-09-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;666 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -152,8 +152,8 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#setup-base-services">Setup Base Services</a></li>
-    <li><a href="#configure-debezium-source-connector">Configure Debezium Source Connector</a></li>
-    <li><a href="#configure-debezium-sink-connector">Configure Debezium Sink Connector</a></li>
+    <li><a href="#configure-source-connector">Configure Source Connector</a></li>
+    <li><a href="#configure-sink-connector">Configure Sink Connector</a></li>
     <li><a href="#verify-end-to-end-data-sync">Verify End-to-End Data Sync</a></li>
   </ul>
 </nav></div>
@@ -348,7 +348,7 @@
 </span></span><span class="line"><span class="cl">✔ Container debezium-amd64-connect-1  Started</span></span></code></pre></div></div>
 </li>
 </ol>
-<h2 id="configure-debezium-source-connector">Configure Debezium Source Connector</h2>
+<h2 id="configure-source-connector">Configure Source Connector</h2>
 <ol>
 <li>
 <p>Grant MySQL access to Source Connector</p>
@@ -441,7 +441,7 @@
         title="kafdrop_topic_msg_c_u_d" width="2466" height="2012" /></p>
 </li>
 </ol>
-<h2 id="configure-debezium-sink-connector">Configure Debezium Sink Connector</h2>
+<h2 id="configure-sink-connector">Configure Sink Connector</h2>
 <ol>
 <li>
 <p>Grant MySQL access to Sink Connector</p>
@@ -460,7 +460,7 @@
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim register-jdbc-sink.json</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -518,7 +518,7 @@
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s http://localhost:8083/connectors/jdbc-sink-mysql/status <span class="p">|</span> jq .</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
