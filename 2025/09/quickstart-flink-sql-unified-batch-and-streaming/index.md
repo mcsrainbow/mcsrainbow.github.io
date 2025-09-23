@@ -234,7 +234,7 @@ deployment:
   response-timeout: 10000
 ```
 
-### 创建 kafka_cdc SQL
+### 创建 01_kafka_cdc.sql
 
 ```bash
 mkdir -p sql
@@ -284,7 +284,7 @@ INSERT INTO orders_kafka
 SELECT * FROM orders_cdc;
 ```
 
-### 创建 paimon_cdc SQL
+### 创建 02_paimon_cdc.sql
 
 ```bash
 vim sql/02_paimon_cdc.sql
@@ -347,7 +347,7 @@ USE CATALOG default_catalog;
 INSERT INTO paimon_catalog.dwd.orders_paimon SELECT * FROM orders_cdc;
 ```
 
-### 创建 topn_batch SQL
+### 创建 03_topn_batch.sql
 
 ```bash
 vim sql/03_topn_batch.sql
@@ -358,6 +358,7 @@ vim sql/03_topn_batch.sql
 
 SET 'execution.runtime-mode' = 'batch';
 SET 'sql-client.execution.result-mode' = 'TABLEAU';
+SET 'table.dml-sync' = 'true';
 
 CREATE TABLE orders_jdbc (
   order_id INT,
@@ -395,7 +396,7 @@ LIMIT 5;
 SELECT * FROM top_customers;
 ```
 
-### 创建 paimon_read SQL
+### 创建 04_paimon_read.sql
 
 ```bash
 vim sql/04_paimon_read.sql
@@ -406,6 +407,7 @@ vim sql/04_paimon_read.sql
 
 SET 'sql-client.execution.result-mode' = 'TABLEAU';
 SET 'execution.runtime-mode' = 'batch';
+SET 'table.dml-sync' = 'true';
 
 CREATE CATALOG paimon_catalog WITH (
   'type' = 'paimon',
@@ -459,7 +461,7 @@ flink-amd64-taskmanager-3   taskmanager   Up 3 minutes
 flink-amd64-taskmanager-4   taskmanager   Up 3 minutes
 ```
 
-### 运行 kafka_cdc SQL
+### 运行 01_kafka_cdc.sql
 
 ```bash
 docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/01_kafka_cdc.sql
@@ -471,14 +473,14 @@ docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/01_ka
 Flink SQL>
 [INFO] Submitting SQL update statement to the cluster...
 [INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: e75d332470a1b23cfeb73f36ef585c3b
+Job ID: 7537135a66b3ead1213fcdbc334fa192
 
 Flink SQL>
 Shutting down the session...
 done.
 ```
 
-### 运行 paimon_cdc SQL
+### 运行 02_paimon_cdc.sql
 
 ```bash
 docker-compose exec -T jobmanager /opt/flink/bin/sql-client.sh -f /opt/sql/02_paimon_cdc.sql
@@ -493,7 +495,7 @@ Flink SQL>
 Flink SQL>
 [INFO] Submitting SQL update statement to the cluster...
 [INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: c3471aacb54e24dbcccc0a461bb5ce98
+Job ID: 852a7286763bdf109cdf36aa1b9c3627
 
 Flink SQL>
 Shutting down the session...
@@ -557,12 +559,9 @@ Flink SQL>
 > INSERT OVERWRITE top_customers
 > SELECT customer_id,
 >        CAST(SUM(amount) AS DOUBLE)
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: 6693a0bee3f0558c43e21b890d797662
+[INFO] Complete execution of the SQL update statement.
 
 Flink SQL>
-> SELECT *
 +-------------+--------------+
 | customer_id | total_amount |
 +-------------+--------------+
@@ -572,7 +571,7 @@ Flink SQL>
 |           6 |         33.8 |
 |           5 |         25.3 |
 +-------------+--------------+
-5 rows in set (4.50 seconds)
+5 rows in set (0.94 seconds)
 
 Flink SQL>
 Shutting down the session...
@@ -589,13 +588,7 @@ VALUES
   (6001, 61, 'US',  18.5, 'NEW',  NOW()),
   (6002, 62, 'EU',  27.0, 'PAID', NOW()),
   (6003, 63, 'APAC',33.3, 'NEW',  NOW());
-"
-
-docker-compose exec -T mysql mysql -uroot -prootpw -e "
 UPDATE sales.orders SET amount = amount + 5, status='PAID' WHERE order_id IN (6001, 6002);
-"
-
-docker-compose exec -T mysql mysql -uroot -prootpw -e "
 DELETE FROM sales.orders WHERE order_id = 6003;
 "
 ```
@@ -617,23 +610,23 @@ Flink SQL>
 +-----+
 |   9 |
 +-----+
-1 row in set (7.81 seconds)
+1 row in set (7.52 seconds)
 
-Flink SQL> 
+Flink SQL>
 +----------+-------------+--------+--------+--------+-------------------------+
 | order_id | customer_id | region | amount | status |              order_time |
 +----------+-------------+--------+--------+--------+-------------------------+
-|     1001 |           1 |     US |   20.5 |    NEW | 2025-09-22 10:51:08.000 |
-|     1002 |           2 |     EU |   35.2 |    NEW | 2025-09-22 10:51:08.000 |
-|     1003 |           3 |     CN |   66.6 |    NEW | 2025-09-22 10:51:08.000 |
-|     1004 |           4 |     UK |   38.9 |    NEW | 2025-09-22 10:51:08.000 |
-|     1005 |           5 |     AU |   25.3 |    NEW | 2025-09-22 10:51:08.000 |
-|     1006 |           6 |     JP |   33.8 |    NEW | 2025-09-22 10:51:08.000 |
-|     3001 |          31 |     US |   12.3 |   PAID | 2025-09-22 10:53:59.000 |
-|     6001 |          61 |     US |   23.5 |   PAID | 2025-09-22 10:56:48.000 |
-|     6002 |          62 |     EU |   32.0 |   PAID | 2025-09-22 10:56:48.000 |
+|     1001 |           1 |     US |   20.5 |    NEW | 2025-09-23 02:23:53.000 |
+|     1002 |           2 |     EU |   35.2 |    NEW | 2025-09-23 02:23:53.000 |
+|     1003 |           3 |     CN |   66.6 |    NEW | 2025-09-23 02:23:53.000 |
+|     1004 |           4 |     UK |   38.9 |    NEW | 2025-09-23 02:23:53.000 |
+|     1005 |           5 |     AU |   25.3 |    NEW | 2025-09-23 02:23:53.000 |
+|     1006 |           6 |     JP |   33.8 |    NEW | 2025-09-23 02:23:53.000 |
+|     3001 |          31 |     US |   12.3 |   PAID | 2025-09-23 02:27:03.000 |
+|     6001 |          61 |     US |   23.5 |   PAID | 2025-09-23 02:30:49.000 |
+|     6002 |          62 |     EU |   32.0 |   PAID | 2025-09-23 02:30:49.000 |
 +----------+-------------+--------+--------+--------+-------------------------+
-9 rows in set (1.23 seconds)
+9 rows in set (0.92 seconds)
 
 Flink SQL>
 Shutting down the session...
@@ -643,4 +636,70 @@ done.
 检查 Flink finished jobs
 
 {{< image src="flink_finished_jobs.jpg" alt="flink_finished_jobs" >}}
+
+查看 Output 产物
+
+```bash
+tree output
+```
+
+```plain
+output
+├── checkpoints
+├── top_customers
+│   └── part-b36f808b-b393-4359-bfb0-05eaf732ee2f-task-0-file-0
+└── warehouse
+    ├── default.db
+    └── dwd.db
+        └── orders_paimon
+            ├── bucket-0
+            │   ├── changelog-1e5892ad-7d3b-4dbb-8801-deb523e8bb9c-0.parquet
+            │   ├── changelog-49f7184f-cbd9-4ecb-bc93-6479fe5dd88d-0.parquet
+            │   ├── changelog-7a66b3ac-64bf-454a-8ca8-3185e281d5d0-0.parquet
+            │   ├── data-1e5892ad-7d3b-4dbb-8801-deb523e8bb9c-1.parquet
+            │   ├── data-49f7184f-cbd9-4ecb-bc93-6479fe5dd88d-1.parquet
+            │   └── data-7a66b3ac-64bf-454a-8ca8-3185e281d5d0-1.parquet
+            ├── manifest
+            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-0
+            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-1
+            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-2
+            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-3
+            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-4
+            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-5
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-0
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-1
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-10
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-11
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-12
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-13
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-14
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-15
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-16
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-17
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-18
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-19
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-2
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-20
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-3
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-4
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-5
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-6
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-7
+            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-8
+            │   └── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-9
+            ├── schema
+            │   └── schema-0
+            └── snapshot
+                ├── EARLIEST
+                ├── LATEST
+                ├── snapshot-1
+                ├── snapshot-2
+                ├── snapshot-3
+                ├── snapshot-4
+                ├── snapshot-5
+                ├── snapshot-6
+                ├── snapshot-7
+                ├── snapshot-8
+                └── snapshot-9
+```
 

@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/09\/quickstart-flink-sql-unified-batch-and-streaming\/featured-image.png",
                             "width":  1276 ,
                             "height":  593 
-                        }],"genre": "posts","keywords": "Flink, CDC","wordcount":  1556 ,
+                        }],"genre": "posts","keywords": "Flink, CDC","wordcount":  1673 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2025\/09\/quickstart-flink-sql-unified-batch-and-streaming\/","datePublished": "2025-09-22T10:47:19+08:00","dateModified": "2025-09-22T10:47:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -136,7 +136,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Quickstart Flink SQL Unified Batch and Streaming</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-22">2025-09-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1556 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-22">2025-09-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1673 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -159,17 +159,17 @@
         <li><a href="#create-docker-composeyml">Create docker-compose.yml</a></li>
         <li><a href="#create-mysql-initsql">Create mysql-init.sql</a></li>
         <li><a href="#create-flink-configuration">Create Flink Configuration</a></li>
-        <li><a href="#create-kafka_cdc-sql">Create kafka_cdc SQL</a></li>
-        <li><a href="#create-paimon_cdc-sql">Create paimon_cdc SQL</a></li>
-        <li><a href="#create-topn_batch-sql">Create topn_batch SQL</a></li>
-        <li><a href="#create-paimon_read-sql">Create paimon_read SQL</a></li>
+        <li><a href="#create-01_kafka_cdcsql">Create 01_kafka_cdc.sql</a></li>
+        <li><a href="#create-02_paimon_cdcsql">Create 02_paimon_cdc.sql</a></li>
+        <li><a href="#create-03_topn_batchsql">Create 03_topn_batch.sql</a></li>
+        <li><a href="#create-04_paimon_readsql">Create 04_paimon_read.sql</a></li>
       </ul>
     </li>
     <li><a href="#launch-batch-and-streaming-jobs">Launch Batch and Streaming Jobs</a>
       <ul>
-        <li><a href="#run-docker-compose-services">Run docker-compose Services</a></li>
-        <li><a href="#run-kafka_cdc-sql">Run kafka_cdc SQL</a></li>
-        <li><a href="#run-paimon_cdc-sql">Run paimon_cdc SQL</a></li>
+        <li><a href="#run-docker-compose">Run docker-compose</a></li>
+        <li><a href="#run-01_kafka_cdcsql">Run 01_kafka_cdc.sql</a></li>
+        <li><a href="#run-02_paimon_cdcsql">Run 02_paimon_cdc.sql</a></li>
         <li><a href="#verify-streaming-cdc">Verify Streaming CDC</a></li>
         <li><a href="#verify-batch-job">Verify Batch Job</a></li>
         <li><a href="#verify-paimon-table">Verify Paimon Table</a></li>
@@ -417,7 +417,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">deployment</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">response-timeout</span><span class="p">:</span><span class="w"> </span><span class="m">10000</span></span></span></code></pre></div></div>
-<h3 id="create-kafka_cdc-sql">Create kafka_cdc SQL</h3>
+<h3 id="create-01_kafka_cdcsql">Create 01_kafka_cdc.sql</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -470,7 +470,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">orders_kafka</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders_cdc</span><span class="p">;</span></span></span></code></pre></div></div>
-<h3 id="create-paimon_cdc-sql">Create paimon_cdc SQL</h3>
+<h3 id="create-02_paimon_cdcsql">Create 02_paimon_cdc.sql</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -536,7 +536,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">USE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">default_catalog</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="n">dwd</span><span class="p">.</span><span class="n">orders_paimon</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders_cdc</span><span class="p">;</span></span></span></code></pre></div></div>
-<h3 id="create-topn_batch-sql">Create topn_batch SQL</h3>
+<h3 id="create-03_topn_batchsql">Create 03_topn_batch.sql</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -552,6 +552,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;execution.runtime-mode&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;batch&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;sql-client.execution.result-mode&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TABLEAU&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;table.dml-sync&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders_jdbc</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
@@ -587,7 +588,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">top_customers</span><span class="p">;</span></span></span></code></pre></div></div>
-<h3 id="create-paimon_read-sql">Create paimon_read SQL</h3>
+<h3 id="create-04_paimon_readsql">Create 04_paimon_read.sql</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -603,6 +604,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;sql-client.execution.result-mode&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TABLEAU&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;execution.runtime-mode&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;batch&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;table.dml-sync&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s1">&#39;type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;paimon&#39;</span><span class="p">,</span><span class="w">
@@ -615,7 +617,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders_paimon</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders_paimon</span><span class="p">;</span></span></span></code></pre></div></div>
 <h2 id="launch-batch-and-streaming-jobs">Launch Batch and Streaming Jobs</h2>
-<h3 id="run-docker-compose-services">Run docker-compose Services</h3>
+<h3 id="run-docker-compose">Run docker-compose</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -660,7 +662,7 @@
 </span></span><span class="line"><span class="cl">flink-amd64-taskmanager-2   taskmanager   Up 3 minutes
 </span></span><span class="line"><span class="cl">flink-amd64-taskmanager-3   taskmanager   Up 3 minutes
 </span></span><span class="line"><span class="cl">flink-amd64-taskmanager-4   taskmanager   Up 3 minutes</span></span></code></pre></div></div>
-<h3 id="run-kafka_cdc-sql">Run kafka_cdc SQL</h3>
+<h3 id="run-01_kafka_cdcsql">Run 01_kafka_cdc.sql</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -674,15 +676,15 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">[INFO] Submitting SQL update statement to the cluster...
 </span></span><span class="line"><span class="cl">[INFO] SQL update statement has been successfully submitted to the cluster:
-</span></span><span class="line"><span class="cl">Job ID: e75d332470a1b23cfeb73f36ef585c3b
+</span></span><span class="line"><span class="cl">Job ID: 7537135a66b3ead1213fcdbc334fa192
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">Shutting down the session...
 </span></span><span class="line"><span class="cl">done.</span></span></code></pre></div></div>
-<h3 id="run-paimon_cdc-sql">Run paimon_cdc SQL</h3>
+<h3 id="run-02_paimon_cdcsql">Run 02_paimon_cdc.sql</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -696,13 +698,13 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">[INFO] Execute statement succeed.
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">[INFO] Submitting SQL update statement to the cluster...
 </span></span><span class="line"><span class="cl">[INFO] SQL update statement has been successfully submitted to the cluster:
-</span></span><span class="line"><span class="cl">Job ID: c3471aacb54e24dbcccc0a461bb5ce98
+</span></span><span class="line"><span class="cl">Job ID: 852a7286763bdf109cdf36aa1b9c3627
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">Shutting down the session...
@@ -730,7 +732,7 @@
                 data-src="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_running_jobs.jpg"
                 data-srcset="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_running_jobs.jpg, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_running_jobs.jpg 1.5x, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_running_jobs.jpg 2x"
                 data-sizes="auto"
-                alt="flink_running_jobs" width="2660" height="1628" />
+                alt="flink_running_jobs" width="2902" height="1620" />
         </a>
 </li>
 <li>
@@ -753,7 +755,7 @@
                 data-src="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_login.jpg"
                 data-srcset="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_login.jpg, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_login.jpg 1.5x, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_login.jpg 2x"
                 data-sizes="auto"
-                alt="flink_mysql_adminer_login" width="600" height="644" />
+                alt="flink_mysql_adminer_login" width="600" height="634" />
         </a>
 <p>Check the table <code>sales.orders</code></p>
 <a class="lightgallery" href="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_sales_orders.jpg" title="flink_mysql_adminer_sales_orders" data-thumbnail="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_sales_orders.jpg">
@@ -763,7 +765,7 @@
                 data-src="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_sales_orders.jpg"
                 data-srcset="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_sales_orders.jpg, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_sales_orders.jpg 1.5x, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_mysql_adminer_sales_orders.jpg 2x"
                 data-sizes="auto"
-                alt="flink_mysql_adminer_sales_orders" width="800" height="1170" />
+                alt="flink_mysql_adminer_sales_orders" width="800" height="1180" />
         </a>
 </li>
 <li>
@@ -777,7 +779,7 @@
                 data-src="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_kafdrop_cdc_orders_topic.jpg"
                 data-srcset="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_kafdrop_cdc_orders_topic.jpg, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_kafdrop_cdc_orders_topic.jpg 1.5x, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_kafdrop_cdc_orders_topic.jpg 2x"
                 data-sizes="auto"
-                alt="flink_kafdrop_cdc_orders_topic" width="1000" height="1236" />
+                alt="flink_kafdrop_cdc_orders_topic" width="1000" height="1244" />
         </a>
 </li>
 </ol>
@@ -799,12 +801,9 @@
 </span></span><span class="line"><span class="cl">&gt; INSERT OVERWRITE top_customers
 </span></span><span class="line"><span class="cl">&gt; SELECT customer_id,
 </span></span><span class="line"><span class="cl">&gt;        CAST(SUM(amount) AS DOUBLE)
-</span></span><span class="line"><span class="cl">[INFO] Submitting SQL update statement to the cluster...
-</span></span><span class="line"><span class="cl">[INFO] SQL update statement has been successfully submitted to the cluster:
-</span></span><span class="line"><span class="cl">Job ID: 6693a0bee3f0558c43e21b890d797662
+</span></span><span class="line"><span class="cl">[INFO] Complete execution of the SQL update statement.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
-</span></span><span class="line"><span class="cl">&gt; SELECT *
 </span></span><span class="line"><span class="cl">+-------------+--------------+
 </span></span><span class="line"><span class="cl">| customer_id | total_amount |
 </span></span><span class="line"><span class="cl">+-------------+--------------+
@@ -814,13 +813,13 @@
 </span></span><span class="line"><span class="cl">|           6 |         33.8 |
 </span></span><span class="line"><span class="cl">|           5 |         25.3 |
 </span></span><span class="line"><span class="cl">+-------------+--------------+
-</span></span><span class="line"><span class="cl">5 rows in set (4.50 seconds)
+</span></span><span class="line"><span class="cl">5 rows in set (0.94 seconds)
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">Shutting down the session...
 </span></span><span class="line"><span class="cl">done.</span></span></code></pre></div></div>
 <h3 id="verify-paimon-table">Verify Paimon Table</h3>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -832,13 +831,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="s2">  (6001, 61, &#39;US&#39;,  18.5, &#39;NEW&#39;,  NOW()),
 </span></span></span><span class="line"><span class="cl"><span class="s2">  (6002, 62, &#39;EU&#39;,  27.0, &#39;PAID&#39;, NOW()),
 </span></span></span><span class="line"><span class="cl"><span class="s2">  (6003, 63, &#39;APAC&#39;,33.3, &#39;NEW&#39;,  NOW());
-</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> -T mysql mysql -uroot -prootpw -e <span class="s2">&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">UPDATE sales.orders SET amount = amount + 5, status=&#39;PAID&#39; WHERE order_id IN (6001, 6002);
-</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> -T mysql mysql -uroot -prootpw -e <span class="s2">&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">DELETE FROM sales.orders WHERE order_id = 6003;
 </span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span></span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -854,7 +847,7 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">[INFO] Execute statement succeed.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
@@ -864,23 +857,23 @@
 </span></span><span class="line"><span class="cl">+-----+
 </span></span><span class="line"><span class="cl">|   9 |
 </span></span><span class="line"><span class="cl">+-----+
-</span></span><span class="line"><span class="cl">1 row in set (7.81 seconds)
+</span></span><span class="line"><span class="cl">1 row in set (7.52 seconds)
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Flink SQL&gt; 
+</span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">+----------+-------------+--------+--------+--------+-------------------------+
 </span></span><span class="line"><span class="cl">| order_id | customer_id | region | amount | status |              order_time |
 </span></span><span class="line"><span class="cl">+----------+-------------+--------+--------+--------+-------------------------+
-</span></span><span class="line"><span class="cl">|     1001 |           1 |     US |   20.5 |    NEW | 2025-09-22 10:51:08.000 |
-</span></span><span class="line"><span class="cl">|     1002 |           2 |     EU |   35.2 |    NEW | 2025-09-22 10:51:08.000 |
-</span></span><span class="line"><span class="cl">|     1003 |           3 |     CN |   66.6 |    NEW | 2025-09-22 10:51:08.000 |
-</span></span><span class="line"><span class="cl">|     1004 |           4 |     UK |   38.9 |    NEW | 2025-09-22 10:51:08.000 |
-</span></span><span class="line"><span class="cl">|     1005 |           5 |     AU |   25.3 |    NEW | 2025-09-22 10:51:08.000 |
-</span></span><span class="line"><span class="cl">|     1006 |           6 |     JP |   33.8 |    NEW | 2025-09-22 10:51:08.000 |
-</span></span><span class="line"><span class="cl">|     3001 |          31 |     US |   12.3 |   PAID | 2025-09-22 10:53:59.000 |
-</span></span><span class="line"><span class="cl">|     6001 |          61 |     US |   23.5 |   PAID | 2025-09-22 10:56:48.000 |
-</span></span><span class="line"><span class="cl">|     6002 |          62 |     EU |   32.0 |   PAID | 2025-09-22 10:56:48.000 |
+</span></span><span class="line"><span class="cl">|     1001 |           1 |     US |   20.5 |    NEW | 2025-09-23 02:23:53.000 |
+</span></span><span class="line"><span class="cl">|     1002 |           2 |     EU |   35.2 |    NEW | 2025-09-23 02:23:53.000 |
+</span></span><span class="line"><span class="cl">|     1003 |           3 |     CN |   66.6 |    NEW | 2025-09-23 02:23:53.000 |
+</span></span><span class="line"><span class="cl">|     1004 |           4 |     UK |   38.9 |    NEW | 2025-09-23 02:23:53.000 |
+</span></span><span class="line"><span class="cl">|     1005 |           5 |     AU |   25.3 |    NEW | 2025-09-23 02:23:53.000 |
+</span></span><span class="line"><span class="cl">|     1006 |           6 |     JP |   33.8 |    NEW | 2025-09-23 02:23:53.000 |
+</span></span><span class="line"><span class="cl">|     3001 |          31 |     US |   12.3 |   PAID | 2025-09-23 02:27:03.000 |
+</span></span><span class="line"><span class="cl">|     6001 |          61 |     US |   23.5 |   PAID | 2025-09-23 02:30:49.000 |
+</span></span><span class="line"><span class="cl">|     6002 |          62 |     EU |   32.0 |   PAID | 2025-09-23 02:30:49.000 |
 </span></span><span class="line"><span class="cl">+----------+-------------+--------+--------+--------+-------------------------+
-</span></span><span class="line"><span class="cl">9 rows in set (1.23 seconds)
+</span></span><span class="line"><span class="cl">9 rows in set (0.92 seconds)
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Flink SQL&gt;
 </span></span><span class="line"><span class="cl">Shutting down the session...
@@ -893,8 +886,77 @@
             data-src="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_finished_jobs.jpg"
             data-srcset="/2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_finished_jobs.jpg, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_finished_jobs.jpg 1.5x, /2025/09/quickstart-flink-sql-unified-batch-and-streaming/flink_finished_jobs.jpg 2x"
             data-sizes="auto"
-            alt="flink_finished_jobs" width="2746" height="1636" />
-    </a></div><div class="post-footer" id="post-footer">
+            alt="flink_finished_jobs" width="2884" height="1632" />
+    </a>
+<p>Check Output artifacts</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tree output</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">output
+</span></span><span class="line"><span class="cl">├── checkpoints
+</span></span><span class="line"><span class="cl">├── top_customers
+</span></span><span class="line"><span class="cl">│   └── part-b36f808b-b393-4359-bfb0-05eaf732ee2f-task-0-file-0
+</span></span><span class="line"><span class="cl">└── warehouse
+</span></span><span class="line"><span class="cl">    ├── default.db
+</span></span><span class="line"><span class="cl">    └── dwd.db
+</span></span><span class="line"><span class="cl">        └── orders_paimon
+</span></span><span class="line"><span class="cl">            ├── bucket-0
+</span></span><span class="line"><span class="cl">            │   ├── changelog-1e5892ad-7d3b-4dbb-8801-deb523e8bb9c-0.parquet
+</span></span><span class="line"><span class="cl">            │   ├── changelog-49f7184f-cbd9-4ecb-bc93-6479fe5dd88d-0.parquet
+</span></span><span class="line"><span class="cl">            │   ├── changelog-7a66b3ac-64bf-454a-8ca8-3185e281d5d0-0.parquet
+</span></span><span class="line"><span class="cl">            │   ├── data-1e5892ad-7d3b-4dbb-8801-deb523e8bb9c-1.parquet
+</span></span><span class="line"><span class="cl">            │   ├── data-49f7184f-cbd9-4ecb-bc93-6479fe5dd88d-1.parquet
+</span></span><span class="line"><span class="cl">            │   └── data-7a66b3ac-64bf-454a-8ca8-3185e281d5d0-1.parquet
+</span></span><span class="line"><span class="cl">            ├── manifest
+</span></span><span class="line"><span class="cl">            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-0
+</span></span><span class="line"><span class="cl">            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-1
+</span></span><span class="line"><span class="cl">            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-2
+</span></span><span class="line"><span class="cl">            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-3
+</span></span><span class="line"><span class="cl">            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-4
+</span></span><span class="line"><span class="cl">            │   ├── manifest-18b7fa7b-7b72-48cf-93e9-3bc50d57dd3b-5
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-0
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-1
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-10
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-11
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-12
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-13
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-14
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-15
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-16
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-17
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-18
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-19
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-2
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-20
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-3
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-4
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-5
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-6
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-7
+</span></span><span class="line"><span class="cl">            │   ├── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-8
+</span></span><span class="line"><span class="cl">            │   └── manifest-list-770c3f24-9fbe-48b4-b29f-c3eabe5c8d35-9
+</span></span><span class="line"><span class="cl">            ├── schema
+</span></span><span class="line"><span class="cl">            │   └── schema-0
+</span></span><span class="line"><span class="cl">            └── snapshot
+</span></span><span class="line"><span class="cl">                ├── EARLIEST
+</span></span><span class="line"><span class="cl">                ├── LATEST
+</span></span><span class="line"><span class="cl">                ├── snapshot-1
+</span></span><span class="line"><span class="cl">                ├── snapshot-2
+</span></span><span class="line"><span class="cl">                ├── snapshot-3
+</span></span><span class="line"><span class="cl">                ├── snapshot-4
+</span></span><span class="line"><span class="cl">                ├── snapshot-5
+</span></span><span class="line"><span class="cl">                ├── snapshot-6
+</span></span><span class="line"><span class="cl">                ├── snapshot-7
+</span></span><span class="line"><span class="cl">                ├── snapshot-8
+</span></span><span class="line"><span class="cl">                └── snapshot-9</span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
