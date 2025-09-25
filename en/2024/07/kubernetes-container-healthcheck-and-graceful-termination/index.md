@@ -49,6 +49,16 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: 500m
+              memory: 1Gi
+          env:
+            - name: TZ
+              value: Asia/Shanghai
           startupProbe:
             tcpSocket:
               port: 8080
@@ -99,16 +109,6 @@ spec:
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]
-          env:
-            - name: TZ
-              value: Asia/Shanghai
-          resources:
-            requests:
-              cpu: 500m
-              memory: 1Gi
-            limits:
-              cpu: 500m
-              memory: 1Gi
 ```
 
 Default Kubernetes configurations:
@@ -191,6 +191,16 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: 500m
+              memory: 1Gi
+          env:
+            - name: TZ
+              value: Asia/Shanghai
           startupProbe:
             tcpSocket:
               port: 8080
@@ -243,16 +253,6 @@ spec:
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "sleep 60"]
-          env:
-            - name: TZ
-              value: Asia/Shanghai
-          resources:
-            requests:
-              cpu: 500m
-              memory: 1Gi
-            limits:
-              cpu: 500m
-              memory: 1Gi
 ```
 
 
