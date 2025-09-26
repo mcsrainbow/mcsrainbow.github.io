@@ -168,7 +168,7 @@
 <h2 id="-architecture--applications">🧱 Architecture &amp; Applications</h2>
 <ul>
 <li>
-<p><strong>Monolithic Apps</strong>: A monolithic application contains all functionality in a single deployable program</p>
+<p><strong>Monolithic Apps</strong>: A monolithic application contains all functionality in a single deployable program.</p>
 <blockquote>
 <p>Devolving an application into microservices increases its operational overhead — there are more things to test, deploy, and keep running.<br>
 Early in a product&rsquo;s lifecycle, it may be advantageous to defer this complexity and build a monolithic application until the product is determined successful.<br>
@@ -178,122 +178,122 @@ Crafting a microservices-based app before it has proven valuable may be prematur
 If the application yields no value, that effort becomes wasted.</p></blockquote>
 </li>
 <li>
-<p><strong>Microservices</strong>: Separating functionality into different microservices, making them easier to deploy, update, and scale independently</p>
+<p><strong>Microservices</strong>: Separating functionality into different microservices, making them easier to deploy, update, and scale independently.</p>
 </li>
 <li>
-<p><strong>Distributed Apps</strong>: Functionality broken down into multiple smaller independent parts that can run simultaneously in multiple locations, tolerate more failures, and have scaling capabilities that individual application instances don&rsquo;t possess</p>
+<p><strong>Distributed Apps</strong>: Functionality broken down into multiple smaller independent parts that can run simultaneously in multiple locations, tolerate more failures, and have scaling capabilities that individual application instances don&rsquo;t possess.</p>
 </li>
 <li>
-<p><strong>Distributed Systems</strong>: A collection of autonomous computing elements connected by a network, appearing as a single coherent system to users</p>
+<p><strong>Distributed Systems</strong>: A collection of autonomous computing elements connected by a network, appearing as a single coherent system to users.</p>
 </li>
 <li>
-<p><strong>Client Server Architecture</strong>: Application logic implemented in remote servers, allowing application updates without modifying client logic</p>
+<p><strong>Client Server Architecture</strong>: Application logic implemented in remote servers, allowing application updates without modifying client logic.</p>
 </li>
 <li>
-<p><strong>Loosely Coupled Architecture</strong>: Application components built independently, each designed to perform specific functions for use by any number of other services</p>
+<p><strong>Loosely Coupled Architecture</strong>: Application components built independently, each designed to perform specific functions for use by any number of other services.</p>
 </li>
 <li>
-<p><strong>Tightly Coupled Architecture</strong>: Many application components depend on each other, where changes to one component may affect others, potentially speeding up initial development cycles</p>
+<p><strong>Tightly Coupled Architecture</strong>: Many application components depend on each other, where changes to one component may affect others, potentially speeding up initial development cycles.</p>
 </li>
 <li>
-<p><strong>Event Driven Architecture</strong>: Events are any changes to application state, defining event producers (sources) and consumers (receivers), with central event hubs (like Kafka) ensuring event flow</p>
+<p><strong>Event Driven Architecture</strong>: Events are any changes to application state, defining event producers (sources) and consumers (receivers), with central event hubs (like Kafka) ensuring event flow.</p>
 </li>
 <li>
-<p><strong>Stateless Apps</strong>: State refers to any data an application needs to store to run as designed; these apps don&rsquo;t save any client session state data, with each session executing as if it&rsquo;s the first time, responses not depending on previous session data (like search engines)</p>
+<p><strong>Stateless Apps</strong>: State refers to any data an application needs to store to run as designed; these apps don&rsquo;t save any client session state data, with each session executing as if it&rsquo;s the first time, responses not depending on previous session data (like search engines).</p>
 </li>
 <li>
-<p><strong>Stateful Apps</strong>: Client session state temporarily stored in memory or persistently in local disk or database systems</p>
+<p><strong>Stateful Apps</strong>: Client session state temporarily stored in memory or persistently in local disk or database systems.</p>
 </li>
 <li>
-<p><strong>Vertical Scaling</strong>: Technique to increase system capacity by adding CPU and memory to a single node when workload increases</p>
+<p><strong>Vertical Scaling</strong>: Technique to increase system capacity by adding CPU and memory to a single node when workload increases.</p>
 </li>
 <li>
-<p><strong>Horizontal Scaling</strong>: Technique to increase system capacity by adding more nodes rather than adding more computing resources to a single node</p>
+<p><strong>Horizontal Scaling</strong>: Technique to increase system capacity by adding more nodes rather than adding more computing resources to a single node.</p>
 </li>
 </ul>
 <h2 id="-containers--orchestration">🚢 Containers &amp; Orchestration</h2>
 <ul>
-<li><strong>Container</strong>: Provides an isolated runtime environment, allowing different applications to run in independent environments with separate file systems, networks, and process spaces</li>
-<li><strong>Container Image</strong>: Immutable static files containing applications with their runtime dependencies</li>
-<li><strong>Containerization</strong>: Process of bundling applications with their runtime dependencies into container images</li>
-<li><strong>Container Orchestration</strong>: Container orchestration tools act like conductors directing numerous containers (musicians), ensuring each container performs its role</li>
-<li><strong>Kubernetes</strong>: Often abbreviated as K8S, a popular open-source container orchestration tool</li>
-<li><strong>Pod</strong>: The most basic deployable unit in Kubernetes environment, can contain one or more containers</li>
-<li><strong>Cluster</strong>: A group of computers or applications connected by a network working together for a common goal, eliminating single points of failure</li>
-<li><strong>Nodes</strong>: A computer that can work with other computers (or nodes) to accomplish a common task</li>
+<li><strong>Container</strong>: Provides an isolated runtime environment, allowing different applications to run in independent environments with separate file systems, networks, and process spaces.</li>
+<li><strong>Container Image</strong>: Immutable static files containing applications with their runtime dependencies.</li>
+<li><strong>Containerization</strong>: Process of bundling applications with their runtime dependencies into container images.</li>
+<li><strong>Container Orchestration</strong>: Container orchestration tools act like conductors directing numerous containers (musicians), ensuring each container performs its role.</li>
+<li><strong>Kubernetes</strong>: Often abbreviated as K8S, a popular open-source container orchestration tool.</li>
+<li><strong>Pod</strong>: The most basic deployable unit in Kubernetes environment, can contain one or more containers.</li>
+<li><strong>Cluster</strong>: A group of computers or applications connected by a network working together for a common goal, eliminating single points of failure.</li>
+<li><strong>Nodes</strong>: A computer that can work with other computers (or nodes) to accomplish a common task.</li>
 </ul>
 <h2 id="-service-governance">🧩 Service Governance</h2>
 <ul>
-<li><strong>API Application Programming Interface</strong>: A clear, understandable way for computer programs to interact and share information</li>
-<li><strong>API Gateway</strong>: Tools that aggregate APIs from multiple applications for one-stop management</li>
-<li><strong>Load Balancer</strong>: Acts as a traffic proxy, distributing network traffic across multiple servers, improving application reliability during traffic peaks</li>
-<li><strong>Service</strong>: Specific definitions vary by context; in microservices architecture, typically refers to independently deployable functional modules</li>
-<li><strong>Service Proxy</strong>: Acts as a &ldquo;middleman&rdquo; intercepting and forwarding service traffic, collecting traffic information and applying rules for traffic management and security control</li>
-<li><strong>Service Discovery</strong>: Continuously tracks applications in the network, providing a common place to find and identify different services so applications can find each other</li>
-<li><strong>Service Mesh</strong>: Unified management of inter-service communication, adding reliability, observability, and security features without code changes</li>
+<li><strong>API Application Programming Interface</strong>: A clear, understandable way for computer programs to interact and share information.</li>
+<li><strong>API Gateway</strong>: Tools that aggregate APIs from multiple applications for one-stop management.</li>
+<li><strong>Load Balancer</strong>: Acts as a traffic proxy, distributing network traffic across multiple servers, improving application reliability during traffic peaks.</li>
+<li><strong>Service</strong>: Specific definitions vary by context; in microservices architecture, typically refers to independently deployable functional modules.</li>
+<li><strong>Service Proxy</strong>: Acts as a &ldquo;middleman&rdquo; intercepting and forwarding service traffic, collecting traffic information and applying rules for traffic management and security control.</li>
+<li><strong>Service Discovery</strong>: Continuously tracks applications in the network, providing a common place to find and identify different services so applications can find each other.</li>
+<li><strong>Service Mesh</strong>: Unified management of inter-service communication, adding reliability, observability, and security features without code changes.</li>
 </ul>
 <h2 id="-service-models">☁️ Service Models</h2>
 <ul>
-<li><strong>Cloud Computing</strong>: On-demand provision of computing resources (like CPU, network, and disk capabilities) via the internet, divided into private and public clouds depending on whether cloud infrastructure is dedicated to an organization or shared as a public service</li>
-<li><strong>IaaS Infrastructure-as-a-Service</strong>: Cloud providers offer physical or virtual computing, storage, and network resources with on-demand, pay-as-you-go billing</li>
-<li><strong>PaaS Platform-as-a-Service</strong>: Provides general infrastructure to application developers in a fully automated manner, allowing developers to focus more time and effort on writing application code</li>
-<li><strong>CaaS Container-as-a-Service</strong>: No need to manage underlying infrastructure for container operation, automating container deployment and management</li>
-<li><strong>DBaaS Database-as-a-Service</strong>: Cloud providers manage database configuration, backup, patching, upgrades, monitoring, etc., while developers only use the database</li>
-<li><strong>SaaS Software-as-a-Service</strong>: Software installed, maintained, upgraded, and secured by vendors, handling scaling, availability, and capacity issues; users access software via the internet with pay-as-you-go models</li>
-<li><strong>Serverless</strong>: Cloud-native development model where developers build and run applications without managing servers, with cloud providers handling configuration, maintenance, and scaling of server infrastructure</li>
-<li><strong>Managed Services</strong>: Software services operated and managed by third parties, allowing users to focus on core business and reduce operational burden</li>
+<li><strong>Cloud Computing</strong>: On-demand provision of computing resources (like CPU, network, and disk capabilities) via the internet, divided into private and public clouds depending on whether cloud infrastructure is dedicated to an organization or shared as a public service.</li>
+<li><strong>IaaS Infrastructure-as-a-Service</strong>: Cloud providers offer physical or virtual computing, storage, and network resources with on-demand, pay-as-you-go billing.</li>
+<li><strong>PaaS Platform-as-a-Service</strong>: Provides general infrastructure to application developers in a fully automated manner, allowing developers to focus more time and effort on writing application code.</li>
+<li><strong>CaaS Container-as-a-Service</strong>: No need to manage underlying infrastructure for container operation, automating container deployment and management.</li>
+<li><strong>DBaaS Database-as-a-Service</strong>: Cloud providers manage database configuration, backup, patching, upgrades, monitoring, etc., while developers only use the database.</li>
+<li><strong>SaaS Software-as-a-Service</strong>: Software installed, maintained, upgraded, and secured by vendors, handling scaling, availability, and capacity issues; users access software via the internet with pay-as-you-go models.</li>
+<li><strong>Serverless</strong>: Cloud-native development model where developers build and run applications without managing servers, with cloud providers handling configuration, maintenance, and scaling of server infrastructure.</li>
+<li><strong>Managed Services</strong>: Software services operated and managed by third parties, allowing users to focus on core business and reduce operational burden.</li>
 </ul>
 <h2 id="-devops">🛠 DevOps</h2>
 <ul>
-<li><strong>DevOps</strong>: Integration of development and operations, emphasizing collaboration, automation, and continuous delivery/deployment, giving teams ownership of the entire application lifecycle, minimizing handoffs, improving code quality, and reducing deployment risks</li>
-<li><strong>CI Continuous Integration</strong>: Regular integration of code changes with automated testing, improving collaboration efficiency and code quality</li>
-<li><strong>CD Continuous Delivery</strong>: Automatic deployment of code changes to acceptance environments, ensuring software is fully tested before production deployment</li>
-<li><strong>CD Continuous Deployment</strong>: Automatic deployment of tested environment code changes to production, going one step further than continuous delivery</li>
-<li><strong>Canary Deployment</strong>: Gradually shifting traffic from old to new versions, testing on a small scale first, allowing quick rollback if issues arise, reducing deployment risks; named after miners using canaries&rsquo; sensitivity to harmful gases for safety warnings</li>
-<li><strong>Blue-Green Deployment</strong>: Maintaining two environments simultaneously, &ldquo;blue&rdquo; as current production and &ldquo;green&rdquo; as new production, achieving zero-downtime deployment through rapid traffic switching, suitable for scenarios requiring complete synchronous changes due to lack of backward compatibility</li>
-<li><strong>Auto Scaling</strong>: System automatically increases or decreases resources based on demand, improving elasticity and efficiency</li>
-<li><strong>Self Healing</strong>: Recovery from failures without any human intervention</li>
+<li><strong>DevOps</strong>: Integration of development and operations, emphasizing collaboration, automation, and continuous delivery/deployment, giving teams ownership of the entire application lifecycle, minimizing handoffs, improving code quality, and reducing deployment risks.</li>
+<li><strong>CI Continuous Integration</strong>: Regular integration of code changes with automated testing, improving collaboration efficiency and code quality.</li>
+<li><strong>CD Continuous Delivery</strong>: Automatic deployment of code changes to acceptance environments, ensuring software is fully tested before production deployment.</li>
+<li><strong>CD Continuous Deployment</strong>: Automatic deployment of tested environment code changes to production, going one step further than continuous delivery.</li>
+<li><strong>Canary Deployment</strong>: Gradually shifting traffic from old to new versions, testing on a small scale first, allowing quick rollback if issues arise, reducing deployment risks; named after miners using canaries&rsquo; sensitivity to harmful gases for safety warnings.</li>
+<li><strong>Blue-Green Deployment</strong>: Maintaining two environments simultaneously, &ldquo;blue&rdquo; as current production and &ldquo;green&rdquo; as new production, achieving zero-downtime deployment through rapid traffic switching, suitable for scenarios requiring complete synchronous changes due to lack of backward compatibility.</li>
+<li><strong>Auto Scaling</strong>: System automatically increases or decreases resources based on demand, improving elasticity and efficiency.</li>
+<li><strong>Self Healing</strong>: Recovery from failures without any human intervention.</li>
 </ul>
 <h2 id="-reliability--security">🔐 Reliability &amp; Security</h2>
 <ul>
-<li><strong>SRE Site Reliability Engineering</strong>: Discipline combining operations and software engineering; DevOps focuses on getting code into production, SRE ensures code runs properly in production</li>
-<li><strong>CE Chaos Engineering</strong>: Actively injecting failures in production to validate system resilience and self-healing capabilities, building confidence in system ability to withstand turbulence and unexpected conditions</li>
-<li><strong>Security Chaos Engineering</strong>: Executing proactive security experiments on distributed systems, building confidence in system ability to resist turbulence and malicious conditions</li>
-<li><strong>Cloud Native Security</strong>: Integrating security throughout the cloud-native application lifecycle, adapting to cloud-native environment characteristics of rapid code changes and highly ephemeral infrastructure</li>
-<li><strong>Zero Trust Architecture</strong>: Never trust, always verify; a method of IT system design and implementation that completely eliminates trust</li>
-<li><strong>Firewall</strong>: Systems that filter network traffic based on specific rules; firewalls can be hardware, software, or a combination</li>
-<li><strong>TLS Transport Layer Security</strong>: Protocol designed to provide higher security for network communications, preventing data eavesdropping and tampering</li>
-<li><strong>mTLS mutual Transport Layer Security</strong>: Ensures bidirectional traffic between clients and servers is secure and trusted, with no unauthorized parties eavesdropping or impersonating legitimate requests</li>
+<li><strong>SRE Site Reliability Engineering</strong>: Discipline combining operations and software engineering; DevOps focuses on getting code into production, SRE ensures code runs properly in production.</li>
+<li><strong>CE Chaos Engineering</strong>: Actively injecting failures in production to validate system resilience and self-healing capabilities, building confidence in system ability to withstand turbulence and unexpected conditions.</li>
+<li><strong>Security Chaos Engineering</strong>: Executing proactive security experiments on distributed systems, building confidence in system ability to resist turbulence and malicious conditions.</li>
+<li><strong>Cloud Native Security</strong>: Integrating security throughout the cloud-native application lifecycle, adapting to cloud-native environment characteristics of rapid code changes and highly ephemeral infrastructure.</li>
+<li><strong>Zero Trust Architecture</strong>: Never trust, always verify; a method of IT system design and implementation that completely eliminates trust.</li>
+<li><strong>Firewall</strong>: Systems that filter network traffic based on specific rules; firewalls can be hardware, software, or a combination.</li>
+<li><strong>TLS Transport Layer Security</strong>: Protocol designed to provide higher security for network communications, preventing data eavesdropping and tampering.</li>
+<li><strong>mTLS mutual Transport Layer Security</strong>: Ensures bidirectional traffic between clients and servers is secure and trusted, with no unauthorized parties eavesdropping or impersonating legitimate requests.</li>
 </ul>
 <h2 id="-infrastructure">🔄 Infrastructure</h2>
 <ul>
-<li><strong>IaC Infrastructure-as-Code</strong>: Defining and managing infrastructure with code, achieving automation, reproducibility, and version control, reducing human configuration errors</li>
-<li><strong>PaC Policy-as-Code</strong>: Defining and automatically executing policies with machine-readable files, improving compliance and automation, reducing human errors</li>
-<li><strong>Immutable Infrastructure</strong>: Computer infrastructure (like VMs, containers, network devices) that cannot be changed once deployed, making it easier to identify and mitigate security risks</li>
-<li><strong>Bare Metal Machine</strong>: Physical servers running operating systems and applications directly, without virtualization layer, with exclusive resources and optimal performance</li>
-<li><strong>Data Center</strong>: Buildings or facilities designed specifically to house servers, ensuring secure, stable, and efficient operation of computing resources</li>
-<li><strong>Edge Computing</strong>: Moving computing and storage resources from the center to near data sources, improving real-time performance and efficiency, reducing latency</li>
+<li><strong>IaC Infrastructure-as-Code</strong>: Defining and managing infrastructure with code, achieving automation, reproducibility, and version control, reducing human configuration errors.</li>
+<li><strong>PaC Policy-as-Code</strong>: Defining and automatically executing policies with machine-readable files, improving compliance and automation, reducing human errors.</li>
+<li><strong>Immutable Infrastructure</strong>: Computer infrastructure (like VMs, containers, network devices) that cannot be changed once deployed, making it easier to identify and mitigate security risks.</li>
+<li><strong>Bare Metal Machine</strong>: Physical servers running operating systems and applications directly, without virtualization layer, with exclusive resources and optimal performance.</li>
+<li><strong>Data Center</strong>: Buildings or facilities designed specifically to house servers, ensuring secure, stable, and efficient operation of computing resources.</li>
+<li><strong>Edge Computing</strong>: Moving computing and storage resources from the center to near data sources, improving real-time performance and efficiency, reducing latency.</li>
 </ul>
 <h2 id="-system-characteristics">🧠 System Characteristics</h2>
 <ul>
-<li><strong>Scalability</strong>: System can easily expand capacity by adding nodes or resources to meet growing business demands</li>
-<li><strong>Portability</strong>: Software can run across different operating systems or cloud environments, reducing dependency on specific platforms, facilitating migration and reuse</li>
-<li><strong>Observability</strong>: Gaining insights into system state and taking corrective measures through collection and analysis of system information</li>
-<li><strong>Reliability</strong>: System&rsquo;s ability to respond to failures, continuing to operate when components fail</li>
-<li><strong>Idempotence</strong>: Producing the same result regardless of how many times executed; if parameters are the same, an idempotent operation won&rsquo;t affect the application it calls</li>
+<li><strong>Scalability</strong>: System can easily expand capacity by adding nodes or resources to meet growing business demands.</li>
+<li><strong>Portability</strong>: Software can run across different operating systems or cloud environments, reducing dependency on specific platforms, facilitating migration and reuse.</li>
+<li><strong>Observability</strong>: Gaining insights into system state and taking corrective measures through collection and analysis of system information.</li>
+<li><strong>Reliability</strong>: System&rsquo;s ability to respond to failures, continuing to operate when components fail.</li>
+<li><strong>Idempotence</strong>: Producing the same result regardless of how many times executed; if parameters are the same, an idempotent operation won&rsquo;t affect the application it calls.</li>
 </ul>
 <h2 id="-development--collaboration">📁 Development &amp; Collaboration</h2>
 <ul>
-<li><strong>Version Control</strong>: System that continuously records changes to individual files or groups of files, helping developers act quickly and maintain efficiency while storing change records and providing conflict resolution tools</li>
-<li><strong>Agile Software Development</strong>: Emphasizing iterative development and team self-organization, continuously delivering value, responding quickly to changes, adapting to complex requirements</li>
-<li><strong>Debugging</strong>: Faults are defects or problems causing incorrect or unexpected results; software development is complex, and writing code without introducing faults is nearly impossible; debugging is the process of finding and resolving faults to achieve expected results</li>
-<li><strong>Shift Left</strong>: Implementing testing, security, or other development practices in early stages of the software development lifecycle (viewing the lifecycle as a left-to-right execution timeline), discovering and solving problems early, reducing later repair costs</li>
+<li><strong>Version Control</strong>: System that continuously records changes to individual files or groups of files, helping developers act quickly and maintain efficiency while storing change records and providing conflict resolution tools.</li>
+<li><strong>Agile Software Development</strong>: Emphasizing iterative development and team self-organization, continuously delivering value, responding quickly to changes, adapting to complex requirements.</li>
+<li><strong>Debugging</strong>: Faults are defects or problems causing incorrect or unexpected results; software development is complex, and writing code without introducing faults is nearly impossible; debugging is the process of finding and resolving faults to achieve expected results.</li>
+<li><strong>Shift Left</strong>: Implementing testing, security, or other development practices in early stages of the software development lifecycle (viewing the lifecycle as a left-to-right execution timeline), discovering and solving problems early, reducing later repair costs.</li>
 </ul>
 <h2 id="-cloud-native-philosophy">🧬 Cloud Native Philosophy</h2>
 <ul>
-<li><strong>Cloud Native Apps</strong>: Applications specifically designed to leverage cloud computing innovations, easily integrating with cloud architecture and fully utilizing cloud resources and scalability features</li>
-<li><strong>Cloud Native Tech</strong>: Also called cloud-native technology stack, enabling organizations to build and run scalable applications in modern dynamic environments like public, private, and hybrid clouds, fully leveraging cloud computing advantages</li>
-<li><strong>Multitenancy</strong>: Sharing the same software while providing each tenant with an isolated environment (work data, settings, credential lists, etc.), serving multiple tenants simultaneously</li>
+<li><strong>Cloud Native Apps</strong>: Applications specifically designed to leverage cloud computing innovations, easily integrating with cloud architecture and fully utilizing cloud resources and scalability features.</li>
+<li><strong>Cloud Native Tech</strong>: Also called cloud-native technology stack, enabling organizations to build and run scalable applications in modern dynamic environments like public, private, and hybrid clouds, fully leveraging cloud computing advantages.</li>
+<li><strong>Multitenancy</strong>: Sharing the same software while providing each tenant with an isolated environment (work data, settings, credential lists, etc.), serving multiple tenants simultaneously.</li>
 </ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
