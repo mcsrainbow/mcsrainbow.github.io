@@ -22,12 +22,12 @@ Reference: https://glossary.cncf.io/
 ## 🧱 Architecture & Applications
 
 - **Monolithic Apps**: A monolithic application contains all functionality in a single deployable program  
-    > Devolving an application into microservices increases its operational overhead — there are more things to test, deploy, and keep running  
-    > Early in a product's lifecycle, it may be advantageous to defer this complexity and build a monolithic application until the product is determined successful  
-    > A well-designed monolith can uphold lean principles by being the simplest way to get an application up and running  
-    > When the business value of the monolithic application proves successful, it can be decomposed into microservices  
-    > Crafting a microservices-based app before it has proven valuable may be premature spending of engineering effort  
-    > If the application yields no value, that effort becomes wasted  
+    > Devolving an application into microservices increases its operational overhead — there are more things to test, deploy, and keep running.  
+    > Early in a product's lifecycle, it may be advantageous to defer this complexity and build a monolithic application until the product is determined successful.  
+    > A well-designed monolith can uphold lean principles by being the simplest way to get an application up and running.  
+    > When the business value of the monolithic application proves successful, it can be decomposed into microservices.  
+    > Crafting a microservices-based app before it has proven valuable may be premature spending of engineering effort.  
+    > If the application yields no value, that effort becomes wasted.  
 
 - **Microservices**: Separating functionality into different microservices, making them easier to deploy, update, and scale independently
 - **Distributed Apps**: Functionality broken down into multiple smaller independent parts that can run simultaneously in multiple locations, tolerate more failures, and have scaling capabilities that individual application instances don't possess
