@@ -319,8 +319,8 @@ version_label:
   英文: Source-based Versioning
   格式: YYYY.mm.dd.HHMM-<branch>-<commit_hash>
   说明:
-    branch: 分支
     YYYY.mm.dd.HHMM: 构建日期时间
+    branch: 分支
     commit_hash: 短哈希值(前8位字符)
   示例:
     - 2025.07.28.1802-feature-login-c4d8b21e
