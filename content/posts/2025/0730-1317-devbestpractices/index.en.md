@@ -316,8 +316,8 @@ semantic_versioning:
 source_based_versioning:
   format: YYYY.mm.dd.HHMM-<branch>-<commit_hash>
   description:
-    branch: branch name
     YYYY.mm.dd.HHMM: build date and time
+    branch: branch name
     commit_hash: short hash value (first 8 characters)
   examples:
     - 2025.07.28.1802-feature-login-c4d8b21e
