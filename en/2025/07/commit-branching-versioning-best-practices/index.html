@@ -181,7 +181,7 @@
 <hr>
 <h2 id="conventional-commits">Conventional Commits</h2>
 <h3 id="specification">Specification</h3>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -304,7 +304,7 @@
 </ul>
 <h2 id="branching-models">Branching Models</h2>
 <h3 id="gitflow">Gitflow</h3>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -506,28 +506,28 @@
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">source_based_versioning</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;branch&gt;-YYYYMMDDHHmm-&lt;commit_hash&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l">YYYY.mm.dd.HHMM-&lt;branch&gt;-&lt;commit_hash&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">branch name</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">YYYYMMDDHHmm</span><span class="p">:</span><span class="w"> </span><span class="l">build date and time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">YYYY.mm.dd.HHMM</span><span class="p">:</span><span class="w"> </span><span class="l">build date and time</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">commit_hash</span><span class="p">:</span><span class="w"> </span><span class="l">short hash value (first 8 characters)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">examples</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">feature-login-202507281802-c4d8b21e</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">develop-202507291752-b17e5a9f</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">main-202507301906-3f9a7c1d</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">2025.07.28.1802</span>-<span class="l">feature-login-c4d8b21e</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">2025.07.29.1752</span>-<span class="l">develop-b17e5a9f</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">2025.07.30.1906</span>-<span class="l">main-3f9a7c1d</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">advantages</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">Directly shows build source branch</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">Each version is unique and traceable to specific commit</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">Suitable for automated continuous integration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">extended_rules</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">with_release_labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;branch&gt;-YYYYMMDDHHmm-&lt;commit_hash&gt;-&lt;label&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l">YYYY.mm.dd.HHMM-&lt;branch&gt;-&lt;commit_hash&gt;-&lt;label&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">alpha</span><span class="p">:</span><span class="w"> </span><span class="l">internal testing version</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">beta</span><span class="p">:</span><span class="w">  </span><span class="l">public testing version</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">rc</span><span class="p">:</span><span class="w">    </span><span class="l">release candidate</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">examples</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">main-202507301906-3f9a7c1d-alpha</span></span></span></code></pre></div></div>
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="m">2025.07.30.1906</span>-<span class="l">main-3f9a7c1d-alpha</span></span></span></code></pre></div></div>
 <h3 id="gitlab-ci-version-generation">GitLab CI Version Generation</h3>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
@@ -559,14 +559,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">$CI_COMMIT_BRANCH          </span><span class="w"> </span><span class="c"># Run when building based on branch</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Generate datetime in YYYYMMDDHHmm format, e.g., 202507301906</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">VERSION_DATETIME=$(date +&#39;%Y%m%d%H%M&#39;)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Concatenate version number: &lt;branch&gt;-YYYYMMDDHHmm-&lt;commit_hash&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Example: main-202507301906-3f9a7c1d</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Generate datetime in YYYY.mm.dd.HHMM format, e.g., 2025.07.30.1906</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">VERSION_DATETIME=$(date +&#39;%Y.%m.%d.%H%M&#39;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Concatenate version number: YYYY.mm.dd.HHMM-&lt;branch&gt;-&lt;commit_hash&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Example: 2025.07.30.1906-main-3f9a7c1d</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Variable descriptions:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#   $CI_COMMIT_REF_SLUG  -&gt; branch name slug, e.g., feature-login / main</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#   $CI_COMMIT_SHORT_SHA -&gt; current commit short hash (first 8 characters)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">export MAGIC_VERSION=${CI_COMMIT_REF_SLUG}-${VERSION_DATETIME}-${CI_COMMIT_SHORT_SHA}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">export MAGIC_VERSION=${VERSION_DATETIME}-${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Write version number to build.env for subsequent Jobs</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">echo &#34;MAGIC_VERSION=$MAGIC_VERSION&#34; &gt;&gt; build.env</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span><span class="w">

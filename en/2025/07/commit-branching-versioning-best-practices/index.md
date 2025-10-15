@@ -302,28 +302,28 @@ semantic_versioning:
 
 ```yaml
 source_based_versioning:
-  format: <branch>-YYYYMMDDHHmm-<commit_hash>
+  format: YYYY.mm.dd.HHMM-<branch>-<commit_hash>
   description:
     branch: branch name
-    YYYYMMDDHHmm: build date and time
+    YYYY.mm.dd.HHMM: build date and time
     commit_hash: short hash value (first 8 characters)
   examples:
-    - feature-login-202507281802-c4d8b21e
-    - develop-202507291752-b17e5a9f
-    - main-202507301906-3f9a7c1d
+    - 2025.07.28.1802-feature-login-c4d8b21e
+    - 2025.07.29.1752-develop-b17e5a9f
+    - 2025.07.30.1906-main-3f9a7c1d
   advantages:
     - Directly shows build source branch
     - Each version is unique and traceable to specific commit
     - Suitable for automated continuous integration
   extended_rules:
     with_release_labels:
-      format: <branch>-YYYYMMDDHHmm-<commit_hash>-<label>
+      format: YYYY.mm.dd.HHMM-<branch>-<commit_hash>-<label>
       labels:
         alpha: internal testing version
         beta:  public testing version
         rc:    release candidate
       examples:
-        - main-202507301906-3f9a7c1d-alpha
+        - 2025.07.30.1906-main-3f9a7c1d-alpha
 ```
 
 ### GitLab CI Version Generation
@@ -354,14 +354,14 @@ version_branch:
   rules:
     - if: $CI_COMMIT_BRANCH           # Run when building based on branch
   script:
-    # Generate datetime in YYYYMMDDHHmm format, e.g., 202507301906
-    - VERSION_DATETIME=$(date +'%Y%m%d%H%M')
-    # Concatenate version number: <branch>-YYYYMMDDHHmm-<commit_hash>
-    # Example: main-202507301906-3f9a7c1d
+    # Generate datetime in YYYY.mm.dd.HHMM format, e.g., 2025.07.30.1906
+    - VERSION_DATETIME=$(date +'%Y.%m.%d.%H%M')
+    # Concatenate version number: YYYY.mm.dd.HHMM-<branch>-<commit_hash>
+    # Example: 2025.07.30.1906-main-3f9a7c1d
     # Variable descriptions:
     #   $CI_COMMIT_REF_SLUG  -> branch name slug, e.g., feature-login / main
     #   $CI_COMMIT_SHORT_SHA -> current commit short hash (first 8 characters)
-    - export MAGIC_VERSION=${CI_COMMIT_REF_SLUG}-${VERSION_DATETIME}-${CI_COMMIT_SHORT_SHA}
+    - export MAGIC_VERSION=${VERSION_DATETIME}-${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}
     # Write version number to build.env for subsequent Jobs
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
   artifacts:

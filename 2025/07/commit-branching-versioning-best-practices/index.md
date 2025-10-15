@@ -317,28 +317,28 @@ version_label:
 ```yaml
 基于源代码的版本:
   英文: Source-based Versioning
-  格式: <branch>-YYYYMMDDHHmm-<commit_hash>
+  格式: YYYY.mm.dd.HHMM-<branch>-<commit_hash>
   说明:
     branch: 分支
-    YYYYMMDDHHmm: 构建日期时间
+    YYYY.mm.dd.HHMM: 构建日期时间
     commit_hash: 短哈希值(前8位字符)
   示例:
-    - feature-login-202507281802-c4d8b21e
-    - develop-202507291752-b17e5a9f
-    - main-202507301906-3f9a7c1d
+    - 2025.07.28.1802-feature-login-c4d8b21e
+    - 2025.07.29.1752-develop-b17e5a9f
+    - 2025.07.30.1906-main-3f9a7c1d
   优点:
     - 直接显示构建来源分支
     - 每个版本唯一且可追溯到具体提交
     - 适合自动化持续集成
   扩展规则:
     带发布标签:
-      格式: <branch>-YYYYMMDDHHmm-<commit_hash>-<label>
+      格式: YYYY.mm.dd.HHMM-<branch>-<commit_hash>-<label>
       标签:
         alpha: 内部测试版
         beta:  公开测试版
         rc:    候选发布版  # Release Candidate
       示例:
-        - main-202507301906-3f9a7c1d-alpha
+        - 2025.07.30.1906-main-3f9a7c1d-alpha
 ```
 
 ### GitLab CI 版本号生成
@@ -369,14 +369,14 @@ version_branch:
   rules:
     - if: $CI_COMMIT_BRANCH           # 当基于 分支 构建时运行
   script:
-    # 生成日期时间, 格式为 YYYYMMDDHHmm, 例如 202507301906
-    - VERSION_DATETIME=$(date +'%Y%m%d%H%M')
-    # 拼接版本号：<branch>-YYYYMMDDHHmm-<commit_hash>
-    # 例如：main-202507301906-3f9a7c1d
+    # 生成日期时间, 格式为 YYYY.mm.dd.HHMM, 例如 2025.07.30.1906
+    - VERSION_DATETIME=$(date +'%Y.%m.%d.%H%M')
+    # 拼接版本号：YYYY.mm.dd.HHMM-<branch>-<commit_hash>
+    # 例如：2025.07.30.1906-main-3f9a7c1d
     # 变量说明：
     #   $CI_COMMIT_REF_SLUG  -> 分支名 slug, 例如 feature-login / main
     #   $CI_COMMIT_SHORT_SHA -> 当前提交的短哈希值(前8位字符)
-    - export MAGIC_VERSION=${CI_COMMIT_REF_SLUG}-${VERSION_DATETIME}-${CI_COMMIT_SHORT_SHA}
+    - export MAGIC_VERSION=${VERSION_DATETIME}-${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}
     # 把版本号写入 build.env, 供后续 Job 使用
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
   artifacts:
