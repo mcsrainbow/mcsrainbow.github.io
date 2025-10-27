@@ -50,8 +50,6 @@ Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 ```
 
-Configure Aliyun PyPI mirror source to accelerate package downloads
-
 ```toml
 ❯ cat pyproject.toml
 [project]
@@ -61,32 +59,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
-```
-
-```toml
-❯ cat <<'EOT' >> pyproject.toml
-
-[[tool.uv.index]]
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-default = true
-EOT
-```
-
-```toml
-❯ cat pyproject.toml
-[project]
-name = "myapp"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = []
-
-[[tool.uv.index]]
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-default = true
 ```
 
 Install dependencies
