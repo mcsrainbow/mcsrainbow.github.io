@@ -50,8 +50,6 @@ Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 ```
 
-指定阿里云 PyPI 镜像源，加速依赖包下载
-
 ```toml
 ❯ cat pyproject.toml
 [project]
@@ -61,32 +59,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
-```
-
-```toml
-❯ cat <<'EOT' >> pyproject.toml
-
-[[tool.uv.index]]
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-default = true
-EOT
-```
-
-```toml
-❯ cat pyproject.toml
-[project]
-name = "myapp"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = []
-
-[[tool.uv.index]]
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-default = true
 ```
 
 安装依赖包
