@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/featured-image.jpg",
                             "width":  960 ,
                             "height":  359 
-                        }],"genre": "posts","keywords": "Python","wordcount":  473 ,
+                        }],"genre": "posts","keywords": "Python","wordcount":  413 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2025\/10\/using-uv-to-create-and-manage-python-project\/","datePublished": "2025-10-27T15:35:29+08:00","dateModified": "2025-10-27T15:35:29+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -135,8 +135,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Using uv to create and manage Python project</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;473 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;413 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -192,7 +192,6 @@ uv provides performance 10 to 100 times faster than existing tools while maintai
 </span></span><span class="line"><span class="cl">Using CPython 3.12.12 interpreter at: /opt/homebrew/opt/python@3.12/bin/python3.12
 </span></span><span class="line"><span class="cl">Creating virtual environment at: .venv
 </span></span><span class="line"><span class="cl">Activate with: <span class="nb">source</span> .venv/bin/activate</span></span></code></pre></div></div>
-<p>Configure Aliyun PyPI mirror source to accelerate package downloads</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -206,36 +205,6 @@ uv provides performance 10 to 100 times faster than existing tools while maintai
 </span></span><span class="line"><span class="cl"><span class="nx">readme</span> <span class="p">=</span> <span class="s2">&#34;README.md&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.12&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[]</span></span></span></code></pre></div></div>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-toml">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">❯</span> <span class="nx">cat</span> <span class="err">&lt;&lt;</span><span class="s1">&#39;EOT&#39;</span> <span class="err">&gt;&gt;</span> <span class="nx">pyproject</span><span class="p">.</span><span class="nx">toml</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;aliyun&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirrors.aliyun.com/pypi/simple/&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">default</span> <span class="p">=</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl"><span class="nx">EOT</span></span></span></code></pre></div></div>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
-    <div class="code-header language-toml">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">❯</span> <span class="nx">cat</span> <span class="nx">pyproject</span><span class="p">.</span><span class="nx">toml</span>
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;myapp&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">description</span> <span class="p">=</span> <span class="s2">&#34;Add your description here&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">readme</span> <span class="p">=</span> <span class="s2">&#34;README.md&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.12&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;aliyun&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirrors.aliyun.com/pypi/simple/&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">default</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div></div>
 <p>Install dependencies</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
