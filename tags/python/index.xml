@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python - 标签 - Hey! Linux</title>
+        <link>https://blog.heylinux.com/tags/python/</link>
+        <description>Python - 标签 - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 uv 创建和管理 Python 项目</title>
+    <link>https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/</link>
+    <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/</guid>
+    <description><![CDATA[<p>uv 是一个 Python 包和项目管理器，由 Astral 开发，它使用 Rust 编写，旨在替代 pip 和 virtualenv 等工具。<br>
+uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirements.txt 和 pyproject.toml 文件的兼容性。</p>]]></description>
+</item>
+</channel>
+</rss>

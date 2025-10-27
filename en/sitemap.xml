@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/categories/"
@@ -11,25 +11,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/categories/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/cdc/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/tags/cdc/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/tags/cdc/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/flink/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://blog.heylinux.com/tags/flink/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://blog.heylinux.com/en/tags/flink/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/en/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/"
@@ -38,7 +20,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/posts/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/posts/"
@@ -47,17 +29,17 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/posts/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/tags/python/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/"
+                        href="https://blog.heylinux.com/tags/python/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/"
+                    href="https://blog.heylinux.com/en/tags/python/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/skills/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/en/tags/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/tags/"
@@ -66,7 +48,43 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/debezium/</loc><lastmod>2025-09-18T16:55:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/cdc/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/cdc/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/cdc/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/flink/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/tags/flink/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/tags/flink/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</loc><lastmod>2025-09-22T10:47:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/en/tags/debezium/</loc><lastmod>2025-09-18T16:55:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/tags/debezium/"
@@ -75,7 +93,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/debezium/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc/</loc><lastmod>2025-09-18T16:55:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc/</loc><lastmod>2025-09-18T16:55:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/2025/09/quickstart-debezium-mysql-kafka-cdc/"
@@ -84,8 +102,8 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2025/09/quickstart-debezium-mysql-kafka-cdc/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/categories/notes/</loc><lastmod>2025-09-11T20:30:04&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://blog.heylinux.com/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/</loc><lastmod>2025-09-11T20:30:04&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority><xhtml:link
+            <loc>https://blog.heylinux.com/en/categories/notes/</loc><lastmod>2025-09-11T20:30:04&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://blog.heylinux.com/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/</loc><lastmod>2025-09-11T20:30:04&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://blog.heylinux.com/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/"
@@ -94,7 +112,7 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/en/tags/psychology/</loc><lastmod>2025-09-11T20:30:04&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://blog.heylinux.com/en/tags/psychology/</loc><lastmod>2025-09-11T20:30:04&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/method/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2025/09/notes-from-how-to-read-a-book/</loc><lastmod>2025-09-10T11:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"

@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python - Tag - Hey! Linux</title>
+        <link>https://blog.heylinux.com/en/tags/python/</link>
+        <description>Python - Tag - Hey! Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>Using uv to create and manage Python project</title>
+    <link>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</link>
+    <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</guid>
+    <description><![CDATA[<p>uv is a Python package and project manager developed by Astral, written in Rust and designed to replace tools such as pip and virtualenv.<br>
+uv provides performance 10 to 100 times faster than existing tools while maintaining compatibility with requirements.txt and pyproject.toml files.</p>]]></description>
+</item>
+</channel>
+</rss>

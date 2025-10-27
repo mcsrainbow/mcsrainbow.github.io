@@ -4,9 +4,18 @@
         <link>https://blog.heylinux.com/en/</link>
         <description>Damon Guo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Using uv to create and manage Python project</title>
+    <link>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</link>
+    <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</guid>
+    <description><![CDATA[<p>uv is a Python package and project manager developed by Astral, written in Rust and designed to replace tools such as pip and virtualenv.<br>
+uv provides performance 10 to 100 times faster than existing tools while maintaining compatibility with requirements.txt and pyproject.toml files.</p>]]></description>
+</item>
+<item>
     <title>Quickstart Flink SQL Unified Batch and Streaming</title>
     <link>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</link>
     <pubDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</pubDate>
@@ -77,14 +86,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2025/01/work-mindsets/</guid>
     <description><![CDATA[<p>Good work mindsets develop professional behaviors.</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes Multi-environment and Multi-application Orchestration Practice</title>
-    <link>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
-    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
-    <description><![CDATA[<p>By implementing a Kubernetes multi-environment and multi-application orchestration with the same configuration by YAML(Manifests), Kustomize and Helm, we can quickly get started with Kustomize and Helm and understand the differences between them.</p>]]></description>
 </item>
 </channel>
 </rss>

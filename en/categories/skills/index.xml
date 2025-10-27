@@ -4,7 +4,16 @@
         <link>https://blog.heylinux.com/en/categories/skills/</link>
         <description>Skills - Category - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+    <title>Using uv to create and manage Python project</title>
+    <link>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</link>
+    <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</guid>
+    <description><![CDATA[<p>uv is a Python package and project manager developed by Astral, written in Rust and designed to replace tools such as pip and virtualenv.<br>
+uv provides performance 10 to 100 times faster than existing tools while maintaining compatibility with requirements.txt and pyproject.toml files.</p>]]></description>
+</item>
+<item>
     <title>Quickstart Flink SQL Unified Batch and Streaming</title>
     <link>https://blog.heylinux.com/en/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</link>
     <pubDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</pubDate>
@@ -75,14 +84,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
     <description><![CDATA[<p>Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.</p>]]></description>
-</item>
-<item>
-    <title>What are Private IP Addresses</title>
-    <link>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</link>
-    <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2023/03/what-are-private-ip-addresses/</guid>
-    <description><![CDATA[<p>In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.</p>]]></description>
 </item>
 </channel>
 </rss>

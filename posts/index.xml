@@ -4,7 +4,16 @@
         <link>https://blog.heylinux.com/posts/</link>
         <description>所有文章 | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 uv 创建和管理 Python 项目</title>
+    <link>https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/</link>
+    <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/</guid>
+    <description><![CDATA[<p>uv 是一个 Python 包和项目管理器，由 Astral 开发，它使用 Rust 编写，旨在替代 pip 和 virtualenv 等工具。<br>
+uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirements.txt 和 pyproject.toml 文件的兼容性。</p>]]></description>
+</item>
+<item>
     <title>快速实践 Flink SQL 流批一体</title>
     <link>https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</link>
     <pubDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</pubDate>
@@ -75,14 +84,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/01/work-mindsets/</guid>
     <description><![CDATA[<p>良好的工作思维倾向有助于养成专业化的行为。</p>]]></description>
-</item>
-<item>
-    <title>Kubernetes 多环境多应用编排实践</title>
-    <link>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</link>
-    <pubDate>Tue, 10 Sep 2024 18:37:39 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/</guid>
-    <description><![CDATA[<p>通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -4,7 +4,16 @@
         <link>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</link>
         <description>技能矩阵 - 分类 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 uv 创建和管理 Python 项目</title>
+    <link>https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/</link>
+    <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/</guid>
+    <description><![CDATA[<p>uv 是一个 Python 包和项目管理器，由 Astral 开发，它使用 Rust 编写，旨在替代 pip 和 virtualenv 等工具。<br>
+uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirements.txt 和 pyproject.toml 文件的兼容性。</p>]]></description>
+</item>
+<item>
     <title>快速实践 Flink SQL 流批一体</title>
     <link>https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/</link>
     <pubDate>Mon, 22 Sep 2025 10:47:19 &#43;0800</pubDate>
@@ -75,14 +84,6 @@
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/</guid>
     <description><![CDATA[<p>部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。</p>]]></description>
-</item>
-<item>
-    <title>私有 IP 地址包括哪些</title>
-    <link>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</link>
-    <pubDate>Wed, 29 Mar 2023 20:41:35 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2023/03/what-are-private-ip-addresses/</guid>
-    <description><![CDATA[<p>在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>]]></description>
 </item>
 </channel>
 </rss>
