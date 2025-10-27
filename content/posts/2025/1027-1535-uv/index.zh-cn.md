@@ -3,7 +3,7 @@ title: "使用 uv 创建和管理 Python 项目"
 slug: "using-uv-to-create-and-manage-python-project"
 date: 2025-10-27T15:35:29+08:00
 author: "郭冬"
-description: "uv 是一个 Python 包和项目管理器，由 Astral 开发，它使用 Rust 编写，旨在替代 pip 和 virtualenv 等工具。"
+description: "uv 是一个 Python 包和项目管理器，它使用 Rust 编写，旨在替代 pip 和 virtualenv 等工具。"
 categories: ["技能矩阵"]
 tags: ["Python"]
 resources:

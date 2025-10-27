@@ -3,7 +3,7 @@ title: "Using uv to create and manage Python project"
 slug: "using-uv-to-create-and-manage-python-project"
 date: 2025-10-27T15:35:29+08:00
 author: "Damon"
-description: "uv is a Python package and project manager developed by Astral, written in Rust and designed to replace tools such as pip and virtualenv."
+description: "uv is a Python package and project manager written in Rust and designed to replace tools such as pip and virtualenv."
 categories: ["Skills"]
 tags: ["Python"]
 resources:
