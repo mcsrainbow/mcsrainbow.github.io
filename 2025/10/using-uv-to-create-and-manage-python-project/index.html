@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/featured-image.jpg",
                             "width":  960 ,
                             "height":  359 
-                        }],"genre": "posts","keywords": "Python","wordcount":  1509 ,
+                        }],"genre": "posts","keywords": "Python","wordcount":  1440 ,
         "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/","datePublished": "2025-10-27T15:35:29+08:00","dateModified": "2025-10-27T15:35:29+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -135,8 +135,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 uv 创建和管理 Python 项目</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1509 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1440 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -389,15 +389,8 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv tree
-</span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 13ms
+</span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 18ms
 </span></span><span class="line"><span class="cl">myapp v0.1.0
-</span></span><span class="line"><span class="cl">├── annotated-doc v0.0.3
-</span></span><span class="line"><span class="cl">├── annotated-types v0.7.0
-</span></span><span class="line"><span class="cl">├── anyio v4.11.0
-</span></span><span class="line"><span class="cl">│   ├── idna v3.11
-</span></span><span class="line"><span class="cl">│   ├── sniffio v1.3.1
-</span></span><span class="line"><span class="cl">│   └── typing-extensions v4.15.0
-</span></span><span class="line"><span class="cl">├── click v8.3.0
 </span></span><span class="line"><span class="cl">├── fastapi v0.120.0
 </span></span><span class="line"><span class="cl">│   ├── annotated-doc v0.0.3
 </span></span><span class="line"><span class="cl">│   ├── pydantic v2.12.3
@@ -408,21 +401,14 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
 </span></span><span class="line"><span class="cl">│   │   └── typing-inspection v0.4.2
 </span></span><span class="line"><span class="cl">│   │       └── typing-extensions v4.15.0
 </span></span><span class="line"><span class="cl">│   ├── starlette v0.48.0
-</span></span><span class="line"><span class="cl">│   │   ├── anyio v4.11.0 <span class="o">(</span>*<span class="o">)</span>
+</span></span><span class="line"><span class="cl">│   │   ├── anyio v4.11.0
+</span></span><span class="line"><span class="cl">│   │   │   ├── idna v3.11
+</span></span><span class="line"><span class="cl">│   │   │   ├── sniffio v1.3.1
+</span></span><span class="line"><span class="cl">│   │   │   └── typing-extensions v4.15.0
 </span></span><span class="line"><span class="cl">│   │   └── typing-extensions v4.15.0
 </span></span><span class="line"><span class="cl">│   └── typing-extensions v4.15.0
-</span></span><span class="line"><span class="cl">├── h11 v0.16.0
-</span></span><span class="line"><span class="cl">├── idna v3.11
-</span></span><span class="line"><span class="cl">├── pydantic v2.12.3 <span class="o">(</span>*<span class="o">)</span>
-</span></span><span class="line"><span class="cl">├── pydantic-core v2.41.4 <span class="o">(</span>*<span class="o">)</span>
-</span></span><span class="line"><span class="cl">├── sniffio v1.3.1
-</span></span><span class="line"><span class="cl">├── starlette v0.48.0 <span class="o">(</span>*<span class="o">)</span>
-</span></span><span class="line"><span class="cl">├── typing-extensions v4.15.0
-</span></span><span class="line"><span class="cl">├── typing-inspection v0.4.2 <span class="o">(</span>*<span class="o">)</span>
 </span></span><span class="line"><span class="cl">└── uvicorn v0.38.0
-</span></span><span class="line"><span class="cl">    ├── click v8.3.0
-</span></span><span class="line"><span class="cl">    └── h11 v0.16.0
-</span></span><span class="line"><span class="cl"><span class="o">(</span>*<span class="o">)</span> Package tree already displayed</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">    ├── click v8.3.0</span></span></code></pre></div></div>
 <h2 id="从-pip-迁移到-uv-项目">从 pip 迁移到 uv 项目</h2>
 <p>删除 uv 相关的目录和文件</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
