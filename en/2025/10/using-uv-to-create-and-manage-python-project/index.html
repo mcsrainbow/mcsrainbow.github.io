@@ -536,7 +536,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ docker build -f ./Dockerfile --platform linux/amd64 -t myapp:2015.10.28_1 .
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ docker build -f ./Dockerfile --platform linux/amd64 -t myapp:2015.10.27_1 .
 </span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Building 5.3s <span class="o">(</span>15/15<span class="o">)</span> FINISHED                                       docker:orbstack
 </span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load build definition from Dockerfile                     0.0s
 </span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring dockerfile: 1.15kB                                   0.0s
@@ -562,7 +562,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
 </span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; exporting to image                                                   0.1s
 </span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; exporting layers                                                  0.0s
 </span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; writing image                                                     0.0s
-</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/library/myapp:2015.10.28_1                    0.0s</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/library/myapp:2015.10.27_1                    0.0s</span></span></code></pre></div></div>
 <p>Run Docker container via docker-compose</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
@@ -572,7 +572,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ cat <span class="s">&lt;&lt;&#39;EOT&#39; &gt; docker-compose.yml
 </span></span></span><span class="line"><span class="cl"><span class="s">services:
 </span></span></span><span class="line"><span class="cl"><span class="s">  myapp:
-</span></span></span><span class="line"><span class="cl"><span class="s">    image: myapp:2015.10.28_1
+</span></span></span><span class="line"><span class="cl"><span class="s">    image: myapp:2015.10.27_1
 </span></span></span><span class="line"><span class="cl"><span class="s">    platform: linux/amd64
 </span></span></span><span class="line"><span class="cl"><span class="s">    ports:
 </span></span></span><span class="line"><span class="cl"><span class="s">      - &#34;8000:8000&#34;
@@ -587,7 +587,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ docker-compose ps
 </span></span><span class="line"><span class="cl">NAME            IMAGE                COMMAND                  SERVICE   CREATED         STATUS         PORTS
-</span></span><span class="line"><span class="cl">myapp-myapp-1   myapp:2015.10.28_1   <span class="s2">&#34;/bin/sh -c &#39;/app/.v…&#34;</span>   myapp     <span class="m">5</span> minutes ago   Up <span class="m">5</span> minutes   0.0.0.0:8000-&gt;8000/tcp
+</span></span><span class="line"><span class="cl">myapp-myapp-1   myapp:2015.10.27_1   <span class="s2">&#34;/bin/sh -c &#39;/app/.v…&#34;</span>   myapp     <span class="m">5</span> minutes ago   Up <span class="m">5</span> minutes   0.0.0.0:8000-&gt;8000/tcp
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ curl http://127.0.0.1:8000
 </span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;ok&#34;</span>:true<span class="o">}</span></span></span></code></pre></div></div>
