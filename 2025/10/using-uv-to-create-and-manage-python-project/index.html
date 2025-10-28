@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/featured-image.jpg",
                             "width":  960 ,
                             "height":  359 
-                        }],"genre": "posts","keywords": "Python","wordcount":  594 ,
+                        }],"genre": "posts","keywords": "Python","wordcount":  1509 ,
         "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/","datePublished": "2025-10-27T15:35:29+08:00","dateModified": "2025-10-27T15:35:29+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -135,8 +135,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 uv 创建和管理 Python 项目</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 594 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1509 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -153,6 +153,8 @@
   <ul>
     <li><a href="#初始化项目环境">初始化项目环境</a></li>
     <li><a href="#加载项目环境">加载项目环境</a></li>
+    <li><a href="#从-pip-迁移到-uv-项目">从 pip 迁移到 uv 项目</a></li>
+    <li><a href="#适用于生产环境的-dockerfile">适用于生产环境的 Dockerfile</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
@@ -167,7 +169,7 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ brew install uv</span></span></code></pre></div></div>
-<p>初始化项目(指定 Python 版本)</p>
+<p>初始化项目 (指定 Python 版本，自动生成 .python-version 和 pyproject.toml 文件)</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -182,13 +184,13 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ <span class="nb">cd</span> myapp</span></span></code></pre></div></div>
-<p>创建虚拟环境(指定 Python 版本)</p>
+<p>创建虚拟环境 (自动读取 .python-version)</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv venv --python 3.12
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv venv
 </span></span><span class="line"><span class="cl">Using CPython 3.12.12 interpreter at: /opt/homebrew/opt/python@3.12/bin/python3.12
 </span></span><span class="line"><span class="cl">Creating virtual environment at: .venv
 </span></span><span class="line"><span class="cl">Activate with: <span class="nb">source</span> .venv/bin/activate</span></span></code></pre></div></div>
@@ -321,7 +323,7 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv pip freeze &gt; requirements.txt</span></span></code></pre></div></div>
-<p>项目文件列表(.venv 已自动添加到 .gitignore 文件中)</p>
+<p>项目文件列表 (.venv 已自动添加到 .gitignore 文件中)</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -340,6 +342,14 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
 </span></span><span class="line"><span class="cl">requirements.txt
 </span></span><span class="line"><span class="cl">src
 </span></span><span class="line"><span class="cl">uv.lock</span></span></code></pre></div></div>
+<p>更新 uv.lock (支持生产环境 <code>uv sync --locked</code> 的依赖锁定)</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv lock
+</span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 1.05s</span></span></code></pre></div></div>
 <h2 id="加载项目环境">加载项目环境</h2>
 <p>删除 .venv 目录</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -348,23 +358,16 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -r .venv</span></span></code></pre></div></div>
-<p>创建虚拟环境(自动读取 .python-version)</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-bash">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv venv
-</span></span><span class="line"><span class="cl">Using CPython 3.12.12 interpreter at: /opt/homebrew/opt/python@3.12/bin/python3.12
-</span></span><span class="line"><span class="cl">Creating virtual environment at: .venv
-</span></span><span class="line"><span class="cl">Activate with: <span class="nb">source</span> .venv/bin/activate</span></span></code></pre></div></div>
-<p>安装完全一致的依赖版本(自动读取 pyproject.toml 与 uv.lock)</p>
+<p>创建虚拟环境 (自动读取 .python-version)<br>
+带有 <code>--locked</code> 参数，安装完全一致的依赖版本 (自动读取 pyproject.toml 与 uv.lock，不检查最新版本，不更新 pyproject.toml 与 uv.lock)</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv sync
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv sync --locked
+</span></span><span class="line"><span class="cl">Using CPython 3.12.12 interpreter at: /opt/homebrew/opt/python@3.12/bin/python3.12
+</span></span><span class="line"><span class="cl">Creating virtual environment at: .venv
 </span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 10ms
 </span></span><span class="line"><span class="cl">Installed <span class="m">14</span> packages in 18ms
 </span></span><span class="line"><span class="cl"> + annotated-doc<span class="o">==</span>0.0.3
@@ -381,8 +384,275 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
 </span></span><span class="line"><span class="cl"> + typing-extensions<span class="o">==</span>4.15.0
 </span></span><span class="line"><span class="cl"> + typing-inspection<span class="o">==</span>0.4.2
 </span></span><span class="line"><span class="cl"> + <span class="nv">uvicorn</span><span class="o">==</span>0.38.0</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv tree
+</span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 13ms
+</span></span><span class="line"><span class="cl">myapp v0.1.0
+</span></span><span class="line"><span class="cl">├── annotated-doc v0.0.3
+</span></span><span class="line"><span class="cl">├── annotated-types v0.7.0
+</span></span><span class="line"><span class="cl">├── anyio v4.11.0
+</span></span><span class="line"><span class="cl">│   ├── idna v3.11
+</span></span><span class="line"><span class="cl">│   ├── sniffio v1.3.1
+</span></span><span class="line"><span class="cl">│   └── typing-extensions v4.15.0
+</span></span><span class="line"><span class="cl">├── click v8.3.0
+</span></span><span class="line"><span class="cl">├── fastapi v0.120.0
+</span></span><span class="line"><span class="cl">│   ├── annotated-doc v0.0.3
+</span></span><span class="line"><span class="cl">│   ├── pydantic v2.12.3
+</span></span><span class="line"><span class="cl">│   │   ├── annotated-types v0.7.0
+</span></span><span class="line"><span class="cl">│   │   ├── pydantic-core v2.41.4
+</span></span><span class="line"><span class="cl">│   │   │   └── typing-extensions v4.15.0
+</span></span><span class="line"><span class="cl">│   │   ├── typing-extensions v4.15.0
+</span></span><span class="line"><span class="cl">│   │   └── typing-inspection v0.4.2
+</span></span><span class="line"><span class="cl">│   │       └── typing-extensions v4.15.0
+</span></span><span class="line"><span class="cl">│   ├── starlette v0.48.0
+</span></span><span class="line"><span class="cl">│   │   ├── anyio v4.11.0 <span class="o">(</span>*<span class="o">)</span>
+</span></span><span class="line"><span class="cl">│   │   └── typing-extensions v4.15.0
+</span></span><span class="line"><span class="cl">│   └── typing-extensions v4.15.0
+</span></span><span class="line"><span class="cl">├── h11 v0.16.0
+</span></span><span class="line"><span class="cl">├── idna v3.11
+</span></span><span class="line"><span class="cl">├── pydantic v2.12.3 <span class="o">(</span>*<span class="o">)</span>
+</span></span><span class="line"><span class="cl">├── pydantic-core v2.41.4 <span class="o">(</span>*<span class="o">)</span>
+</span></span><span class="line"><span class="cl">├── sniffio v1.3.1
+</span></span><span class="line"><span class="cl">├── starlette v0.48.0 <span class="o">(</span>*<span class="o">)</span>
+</span></span><span class="line"><span class="cl">├── typing-extensions v4.15.0
+</span></span><span class="line"><span class="cl">├── typing-inspection v0.4.2 <span class="o">(</span>*<span class="o">)</span>
+</span></span><span class="line"><span class="cl">└── uvicorn v0.38.0
+</span></span><span class="line"><span class="cl">    ├── click v8.3.0
+</span></span><span class="line"><span class="cl">    └── h11 v0.16.0
+</span></span><span class="line"><span class="cl"><span class="o">(</span>*<span class="o">)</span> Package tree already displayed</span></span></code></pre></div></div>
+<h2 id="从-pip-迁移到-uv-项目">从 pip 迁移到 uv 项目</h2>
+<p>删除 uv 相关的目录和文件</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ rm -r .venv
+</span></span><span class="line"><span class="cl">❯ rm .python-version
+</span></span><span class="line"><span class="cl">❯ rm pyproject.toml
+</span></span><span class="line"><span class="cl">❯ rm uv.lock
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ ls -a1
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">..
+</span></span><span class="line"><span class="cl">.git
+</span></span><span class="line"><span class="cl">.gitignore
+</span></span><span class="line"><span class="cl">main.py
+</span></span><span class="line"><span class="cl">README.md
+</span></span><span class="line"><span class="cl">requirements.txt
+</span></span><span class="line"><span class="cl">src</span></span></code></pre></div></div>
+<p>初始化项目 (指定 Python 版本，自动生成 .python-version 和 pyproject.toml 文件)</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv init --python 3.12
+</span></span><span class="line"><span class="cl">Initialized project <span class="sb">`</span>myapp<span class="sb">`</span></span></span></code></pre></div></div>
+<p>指定阿里云 PyPI 镜像源，加速依赖包下载</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-toml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">❯</span> <span class="nx">cat</span> <span class="err">&lt;&lt;</span><span class="s1">&#39;EOT&#39;</span> <span class="err">&gt;&gt;</span> <span class="nx">pyproject</span><span class="p">.</span><span class="nx">toml</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;aliyun&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirrors.aliyun.com/pypi/simple/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">default</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">EOT</span></span></span></code></pre></div></div>
+<p>解析已经存在的 requirements.txt
+安装完全一致的依赖版本 (自动生成 uv.lock)</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv add -r requirements.txt
+</span></span><span class="line"><span class="cl">Using CPython 3.12.12 interpreter at: /opt/homebrew/opt/python@3.12/bin/python3.12
+</span></span><span class="line"><span class="cl">Creating virtual environment at: .venv
+</span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 2.46s
+</span></span><span class="line"><span class="cl">Installed <span class="m">14</span> packages in 29ms
+</span></span><span class="line"><span class="cl"> + annotated-doc<span class="o">==</span>0.0.3
+</span></span><span class="line"><span class="cl"> + annotated-types<span class="o">==</span>0.7.0
+</span></span><span class="line"><span class="cl"> + <span class="nv">anyio</span><span class="o">==</span>4.11.0
+</span></span><span class="line"><span class="cl"> + <span class="nv">click</span><span class="o">==</span>8.3.0
+</span></span><span class="line"><span class="cl"> + <span class="nv">fastapi</span><span class="o">==</span>0.120.0
+</span></span><span class="line"><span class="cl"> + <span class="nv">h11</span><span class="o">==</span>0.16.0
+</span></span><span class="line"><span class="cl"> + <span class="nv">idna</span><span class="o">==</span>3.11
+</span></span><span class="line"><span class="cl"> + <span class="nv">pydantic</span><span class="o">==</span>2.12.3
+</span></span><span class="line"><span class="cl"> + pydantic-core<span class="o">==</span>2.41.4
+</span></span><span class="line"><span class="cl"> + <span class="nv">sniffio</span><span class="o">==</span>1.3.1
+</span></span><span class="line"><span class="cl"> + <span class="nv">starlette</span><span class="o">==</span>0.48.0
+</span></span><span class="line"><span class="cl"> + typing-extensions<span class="o">==</span>4.15.0
+</span></span><span class="line"><span class="cl"> + typing-inspection<span class="o">==</span>0.4.2
+</span></span><span class="line"><span class="cl"> + <span class="nv">uvicorn</span><span class="o">==</span>0.38.0</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ls -a1
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">..
+</span></span><span class="line"><span class="cl">.git
+</span></span><span class="line"><span class="cl">.gitignore
+</span></span><span class="line"><span class="cl">.python-version
+</span></span><span class="line"><span class="cl">.venv
+</span></span><span class="line"><span class="cl">main.py
+</span></span><span class="line"><span class="cl">pyproject.toml
+</span></span><span class="line"><span class="cl">README.md
+</span></span><span class="line"><span class="cl">requirements.txt
+</span></span><span class="line"><span class="cl">src
+</span></span><span class="line"><span class="cl">uv.lock</span></span></code></pre></div></div>
+<p>更新 uv.lock (支持生产环境 <code>uv sync --locked</code> 的依赖锁定)</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv lock
+</span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 1.05s</span></span></code></pre></div></div>
+<h2 id="适用于生产环境的-dockerfile">适用于生产环境的 Dockerfile</h2>
+<p>创建 .dockerignore</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ cat <span class="s">&lt;&lt;&#39;EOT&#39; &gt; .dockerignore
+</span></span></span><span class="line"><span class="cl"><span class="s"># macOS
+</span></span></span><span class="line"><span class="cl"><span class="s">.DS_Store
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"># Git
+</span></span></span><span class="line"><span class="cl"><span class="s">.git/
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"># Python
+</span></span></span><span class="line"><span class="cl"><span class="s">__pycache__/
+</span></span></span><span class="line"><span class="cl"><span class="s">*.py[cod]
+</span></span></span><span class="line"><span class="cl"><span class="s">*$py.class
+</span></span></span><span class="line"><span class="cl"><span class="s">EOT</span></span></span></code></pre></div></div>
+<p>创建 Dockerfile</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl">❯ cat &lt;&lt;<span class="s1">&#39;EOT&#39;</span> &gt; Dockerfile<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># use uv to build dependencies</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> ghcr.io/astral-sh/uv:python3.12-alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># set working directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># install dependencies using uv (only lockfile deps first)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>uv.lock,target<span class="o">=</span>uv.lock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>pyproject.toml,target<span class="o">=</span>pyproject.toml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    uv sync --locked --no-install-project --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># copy source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ADD</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># install project itself into .venv</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    uv sync --locked --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># final runtime image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.12-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># set working directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># create non-root user</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -S app <span class="o">&amp;&amp;</span> adduser -S app -G app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># copy project and virtual environment from builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder --chown<span class="o">=</span>app:app /app /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># add /app/src to Python module search path</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>/app/src<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># exposed port</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># run as non-root user</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># start uvicorn app (expand WORKERS_NUM env)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="s2">&#34;/app/.venv/bin/uvicorn myapp.app:app --host 0.0.0.0 --port 8000 --workers ${WORKERS_NUM:-1}&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>EOT</span></span></code></pre></div></div>
+<p>构建 Docker image</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ docker build -f ./Dockerfile --platform linux/amd64 -t myapp:2015.10.28_1 .
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Building 5.3s <span class="o">(</span>15/15<span class="o">)</span> FINISHED                                       docker:orbstack
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load build definition from Dockerfile                     0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring dockerfile: 1.15kB                                   0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load metadata <span class="k">for</span> docker.io/library/python:3.12-alpine    0.3s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load metadata <span class="k">for</span> ghcr.io/astral-sh/uv:python3.12-alpine  1.6s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load .dockerignore                                        0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring context: 115B                                        0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>builder 1/5<span class="o">]</span> FROM ghcr.io/astral-sh/uv:python3.12-alpine            0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load build context                                        0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring context: 94.47kB                                     0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>stage-1 1/4<span class="o">]</span> FROM docker.io/library/python:3.12-alpine              0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; CACHED <span class="o">[</span>builder 2/5<span class="o">]</span> WORKDIR /app                                    0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; CACHED <span class="o">[</span>stage-1 2/4<span class="o">]</span> WORKDIR /app                                    0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; CACHED <span class="o">[</span>stage-1 3/4<span class="o">]</span> RUN addgroup -S app <span class="o">&amp;&amp;</span> adduser -S app -G app    0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>builder 3/5<span class="o">]</span> RUN --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>uv.lock,target<span class="o">=</span>uv.lock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>pyproject.toml,target<span class="o">=</span>pyproject.toml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    uv sync --locked --no-install-project --no-editable                  2.3s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>builder 4/5<span class="o">]</span> ADD . /app                                             0.2s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>builder 5/5<span class="o">]</span> RUN --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     uv sync --locked --no-editable                                      0.8s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>stage-1 4/4<span class="o">]</span> COPY --from<span class="o">=</span>builder --chown<span class="o">=</span>app:app /app /app          0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; exporting to image                                                   0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; exporting layers                                                  0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; writing image                                                     0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/library/myapp:2015.10.28_1                    0.0s</span></span></code></pre></div></div>
+<p>通过 docker-compose 运行 Docker 容器</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ cat <span class="s">&lt;&lt;&#39;EOT&#39; &gt; docker-compose.yml
+</span></span></span><span class="line"><span class="cl"><span class="s">services:
+</span></span></span><span class="line"><span class="cl"><span class="s">  myapp:
+</span></span></span><span class="line"><span class="cl"><span class="s">    image: myapp:2015.10.28_1
+</span></span></span><span class="line"><span class="cl"><span class="s">    platform: linux/amd64
+</span></span></span><span class="line"><span class="cl"><span class="s">    ports:
+</span></span></span><span class="line"><span class="cl"><span class="s">      - &#34;8000:8000&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">    environment:
+</span></span></span><span class="line"><span class="cl"><span class="s">      - WORKERS_NUM=2
+</span></span></span><span class="line"><span class="cl"><span class="s">EOT</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ docker-compose up -d
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Running 2/2
+</span></span><span class="line"><span class="cl"> ✔ Network myapp_default    Created  0.0s
+</span></span><span class="line"><span class="cl"> ✔ Container myapp-myapp-1  Started  0.3s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ docker-compose ps
+</span></span><span class="line"><span class="cl">NAME            IMAGE                COMMAND                  SERVICE   CREATED         STATUS         PORTS
+</span></span><span class="line"><span class="cl">myapp-myapp-1   myapp:2015.10.28_1   <span class="s2">&#34;/bin/sh -c &#39;/app/.v…&#34;</span>   myapp     <span class="m">5</span> minutes ago   Up <span class="m">5</span> minutes   0.0.0.0:8000-&gt;8000/tcp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ curl http://127.0.0.1:8000
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;ok&#34;</span>:true<span class="o">}</span></span></span></code></pre></div></div>
 <h2 id="参考">参考</h2>
-<p><a href="https://docs.astral.sh/uv/guides/projects/" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/guides/projects/</a></p></div><div class="post-footer" id="post-footer">
+<p><a href="https://docs.astral.sh/uv/guides/projects/" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/guides/projects/</a><br>
+<a href="https://docs.astral.sh/uv/guides/migration/pip-to-project/" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/guides/migration/pip-to-project/</a><br>
+<a href="https://docs.astral.sh/uv/guides/integration/docker/#non-editable-installs" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/guides/integration/docker/#non-editable-installs</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
