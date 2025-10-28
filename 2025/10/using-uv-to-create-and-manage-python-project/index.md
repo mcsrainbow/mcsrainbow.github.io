@@ -233,6 +233,7 @@ myapp v0.1.0
 │   └── typing-extensions v4.15.0
 └── uvicorn v0.38.0
     ├── click v8.3.0
+    └── h11 v0.16.0
 ```
 
 ## 从 pip 迁移到 uv 项目
