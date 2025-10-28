@@ -276,7 +276,7 @@ default = true
 EOT
 ```
 
-解析已经存在的 requirements.txt
+解析已经存在的 requirements.txt  
 安装完全一致的依赖版本 (自动生成 uv.lock)
 
 ```bash
