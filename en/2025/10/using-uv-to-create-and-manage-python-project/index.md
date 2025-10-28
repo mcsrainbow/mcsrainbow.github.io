@@ -80,8 +80,6 @@ Write a minimal FastAPI example
 import sys
 from pathlib import Path
 
-sys.path.append(str(Path(__file__).resolve().parent / "src"))
-
 from myapp.app import app
 
 if __name__ == "__main__":
@@ -105,6 +103,7 @@ EOT
 Run the minimal FastAPI example
 
 ```bash
+❯ export PYTHONPATH=src
 ❯ uv run python main.py
 INFO:     Will watch for changes in these directories: ['/Users/damonguo/Workspace/demo/myapp']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
