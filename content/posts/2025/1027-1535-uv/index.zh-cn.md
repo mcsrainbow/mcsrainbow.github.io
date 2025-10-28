@@ -225,15 +225,8 @@ Installed 14 packages in 18ms
 
 ```bash
 ❯ uv tree
-Resolved 16 packages in 13ms
+Resolved 16 packages in 18ms
 myapp v0.1.0
-├── annotated-doc v0.0.3
-├── annotated-types v0.7.0
-├── anyio v4.11.0
-│   ├── idna v3.11
-│   ├── sniffio v1.3.1
-│   └── typing-extensions v4.15.0
-├── click v8.3.0
 ├── fastapi v0.120.0
 │   ├── annotated-doc v0.0.3
 │   ├── pydantic v2.12.3
@@ -244,21 +237,14 @@ myapp v0.1.0
 │   │   └── typing-inspection v0.4.2
 │   │       └── typing-extensions v4.15.0
 │   ├── starlette v0.48.0
-│   │   ├── anyio v4.11.0 (*)
+│   │   ├── anyio v4.11.0
+│   │   │   ├── idna v3.11
+│   │   │   ├── sniffio v1.3.1
+│   │   │   └── typing-extensions v4.15.0
 │   │   └── typing-extensions v4.15.0
 │   └── typing-extensions v4.15.0
-├── h11 v0.16.0
-├── idna v3.11
-├── pydantic v2.12.3 (*)
-├── pydantic-core v2.41.4 (*)
-├── sniffio v1.3.1
-├── starlette v0.48.0 (*)
-├── typing-extensions v4.15.0
-├── typing-inspection v0.4.2 (*)
 └── uvicorn v0.38.0
     ├── click v8.3.0
-    └── h11 v0.16.0
-(*) Package tree already displayed
 ```
 
 ## 从 pip 迁移到 uv 项目
