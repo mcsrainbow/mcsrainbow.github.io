@@ -105,9 +105,6 @@ Installed 14 packages in 20ms
 ```python
 ❯ mkdir -p src/myapp
 ❯ cat <<'EOT' > main.py
-import sys
-from pathlib import Path
-
 from myapp.app import app
 
 if __name__ == "__main__":
