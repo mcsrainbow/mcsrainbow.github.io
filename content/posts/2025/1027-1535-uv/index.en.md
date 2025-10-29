@@ -89,9 +89,6 @@ Write a minimal FastAPI example
 ```python
 ❯ mkdir -p src/myapp
 ❯ cat <<'EOT' > main.py
-import sys
-from pathlib import Path
-
 from myapp.app import app
 
 if __name__ == "__main__":
@@ -368,7 +365,7 @@ EOT
 Build Docker image
 
 ```bash
-❯ docker build -f ./Dockerfile --platform linux/amd64 -t myapp:2015.10.27_1 .
+❯ docker build -f ./Dockerfile --platform linux/amd64 -t myapp:2025.10.27_1 .
 [+] Building 5.3s (15/15) FINISHED                                       docker:orbstack
  => [internal] load build definition from Dockerfile                     0.0s
  => => transferring dockerfile: 1.15kB                                   0.0s
@@ -394,7 +391,7 @@ Build Docker image
  => exporting to image                                                   0.1s
  => => exporting layers                                                  0.0s
  => => writing image                                                     0.0s
- => => naming to docker.io/library/myapp:2015.10.27_1                    0.0s
+ => => naming to docker.io/library/myapp:2025.10.27_1                    0.0s
 ```
 
 Run Docker container via docker-compose
@@ -403,7 +400,7 @@ Run Docker container via docker-compose
 ❯ cat <<'EOT' > docker-compose.yml
 services:
   myapp:
-    image: myapp:2015.10.27_1
+    image: myapp:2025.10.27_1
     platform: linux/amd64
     ports:
       - "8000:8000"
@@ -418,7 +415,7 @@ EOT
 
 ❯ docker-compose ps
 NAME            IMAGE                COMMAND                  SERVICE   CREATED         STATUS         PORTS
-myapp-myapp-1   myapp:2015.10.27_1   "/bin/sh -c '/app/.v…"   myapp     5 minutes ago   Up 5 minutes   0.0.0.0:8000->8000/tcp
+myapp-myapp-1   myapp:2025.10.27_1   "/bin/sh -c '/app/.v…"   myapp     5 minutes ago   Up 5 minutes   0.0.0.0:8000->8000/tcp
 
 ❯ curl http://127.0.0.1:8000
 {"ok":true}
