@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/featured-image.jpg",
                             "width":  960 ,
                             "height":  359 
-                        }],"genre": "posts","keywords": "Python","wordcount":  1439 ,
+                        }],"genre": "posts","keywords": "Python","wordcount":  1451 ,
         "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/","datePublished": "2025-10-27T15:35:29+08:00","dateModified": "2025-10-27T15:35:29+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -135,7 +135,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 uv 创建和管理 Python 项目</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1439 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-10-27">2025-10-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1451 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -215,6 +215,9 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">❯</span> <span class="nx">cat</span> <span class="err">&lt;&lt;</span><span class="s1">&#39;EOT&#39;</span> <span class="err">&gt;&gt;</span> <span class="nx">pyproject</span><span class="p">.</span><span class="nx">toml</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">managed</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;aliyun&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirrors.aliyun.com/pypi/simple/&#34;</span>
@@ -233,6 +236,9 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
 </span></span><span class="line"><span class="cl"><span class="nx">readme</span> <span class="p">=</span> <span class="s2">&#34;README.md&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.12&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">managed</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;aliyun&#34;</span>
@@ -443,6 +449,9 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">❯</span> <span class="nx">cat</span> <span class="err">&lt;&lt;</span><span class="s1">&#39;EOT&#39;</span> <span class="err">&gt;&gt;</span> <span class="nx">pyproject</span><span class="p">.</span><span class="nx">toml</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">managed</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;aliyun&#34;</span>

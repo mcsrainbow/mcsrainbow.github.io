@@ -54,6 +54,9 @@ dependencies = []
 ```toml
 ❯ cat <<'EOT' >> pyproject.toml
 
+[tool.uv]
+managed = true
+
 [[tool.uv.index]]
 name = "aliyun"
 url = "https://mirrors.aliyun.com/pypi/simple/"
@@ -70,6 +73,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
+
+[tool.uv]
+managed = true
 
 [[tool.uv.index]]
 name = "aliyun"
@@ -265,6 +271,9 @@ Initialized project `myapp`
 
 ```toml
 ❯ cat <<'EOT' >> pyproject.toml
+
+[tool.uv]
+managed = true
 
 [[tool.uv.index]]
 name = "aliyun"
