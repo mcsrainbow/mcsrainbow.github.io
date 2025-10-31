@@ -340,43 +340,90 @@ source_based_versioning:
 
 ### GitLab CI Version Generation
 
+Generate MAGIC_VERSION variable
+
 ```yaml
 # .gitlab-ci.magic-version.yml
 
-variables:
-  TAG_PREFIX: "v"                     # Define tag prefix, used to remove 'v' from tags like v1.2.3
+# Use GitLab's reserved stage `.pre` to ensure the version is generated before all custom stages
+# The artifacts.reports.dotenv exported in `.pre` will be automatically injected into all later jobs
+# Later jobs can directly use $MAGIC_VERSION without `dependencies:` or `needs:`
+stages:
+  - .pre
 
 # Version based on tag
-version_tag:
-  stage: magic_version
+gen_magic_version_tag:
+  stage: .pre
   rules:
-    - if: $CI_COMMIT_TAG =~ /^.+/     # Only run when tag exists, /^.+/ means return true if there's any non-empty character
+    - if: $CI_COMMIT_TAG         # When building from a tag
   script:
-    # Get current tag, remove TAG_PREFIX, e.g., v1.2.3 -> 1.2.3
-    - export MAGIC_VERSION=${CI_COMMIT_TAG#*"$TAG_PREFIX"}
-    # Write version number to build.env for subsequent Jobs
+    # Get the current $CI_COMMIT_TAG, e.g. v1.2.3
+    - export MAGIC_VERSION="$CI_COMMIT_TAG"
+    # Write the version to build.env
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
+    # Print build.env for debugging
+    - cat build.env
+  # Export build.env as artifacts.reports.dotenv
+  # GitLab will inject it into later stages automatically
   artifacts:
     reports:
-      dotenv: build.env               # Export build.env as dotenv for subsequent Jobs to use $MAGIC_VERSION variable
+      dotenv: build.env
 
 # Version based on branch
-version_branch:
-  stage: magic_version
+gen_magic_version_branch:
+  stage: .pre
   rules:
-    - if: $CI_COMMIT_BRANCH           # Run when building based on branch
+    - if: $CI_COMMIT_BRANCH      # When building from a branch
   script:
-    # Generate datetime in YYYY.mm.dd.HHMM format, e.g., 2025.07.30.1906
+    # Generate datetime in format YYYY.mm.dd.HHMM, e.g. 2025.07.30.1906
     - VERSION_DATETIME=$(date +'%Y.%m.%d.%H%M')
-    # Concatenate version number: YYYY.mm.dd.HHMM-<branch>-<commit_hash>
+    # Combine version: YYYY.mm.dd.HHMM-<branch>-<commit_hash>
     # Example: 2025.07.30.1906-main-3f9a7c1d
-    # Variable descriptions:
-    #   $CI_COMMIT_REF_SLUG  -> branch name slug, e.g., feature-login / main
-    #   $CI_COMMIT_SHORT_SHA -> current commit short hash (first 8 characters)
+    # Variable notes:
+    #   $CI_COMMIT_REF_SLUG  -> branch slug, e.g. feature-login / main
+    #   $CI_COMMIT_SHORT_SHA -> short commit hash (first 8 chars)
     - export MAGIC_VERSION=${VERSION_DATETIME}-${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}
-    # Write version number to build.env for subsequent Jobs
+    # Write the version to build.env
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
+    # Print build.env for debugging
+    - cat build.env
+  # Export build.env as artifacts.reports.dotenv
+  # GitLab will inject it into later stages automatically
   artifacts:
     reports:
-      dotenv: build.env               # Export build.env as dotenv for subsequent Jobs to use $MAGIC_VERSION variable
+      dotenv: build.env
+```
+
+Reference the MAGIC_VERSION variable directly in the subsequent stage Jobs
+
+```yaml
+# .gitlab-ci.delivery.yml
+
+# Build and publish Docker image
+publish_dockerimage:
+  stage: delivery
+  cache: []
+  image: docker:24.0.5-cli
+  services:
+    - docker:24.0.5-dind
+  variables:
+    # CS_IMAGE is the default Docker image variable recognized by GitLab Container Scanning
+    # https://docs.gitlab.com/user/application_security/container_scanning/
+    CS_IMAGE: $CI_REGISTRY_IMAGE:$MAGIC_VERSION
+  script:
+    # Login to GitLab Docker Registry
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    # Build image using $CS_IMAGE
+    - docker build -t $CS_IMAGE .
+    # Push image to GitLab Docker Registry
+    - docker push $CS_IMAGE
+    # Write the image to build.env
+    - echo "CS_IMAGE=$CS_IMAGE" >> build.env
+    # Print build.env for debugging
+    - cat build.env
+  # Export build.env as artifacts.reports.dotenv
+  # For later use in container scan or deploy stages
+  artifacts:
+    reports:
+      dotenv: build.env
 ```
