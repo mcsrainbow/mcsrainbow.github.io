@@ -559,7 +559,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">.pre</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 基于 tag 的版本</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">gen_magic_version_tag</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">generate-magic-version-tag</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l">.pre</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">$CI_COMMIT_TAG        </span><span class="w"> </span><span class="c"># 当基于 tag 构建时运行</span><span class="w">
@@ -577,7 +577,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">dotenv</span><span class="p">:</span><span class="w"> </span><span class="l">build.env</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 基于 分支 的版本</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">gen_magic_version_branch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">generate-magic-version-branch</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l">.pre</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">$CI_COMMIT_BRANCH     </span><span class="w"> </span><span class="c"># 当基于 分支 构建时运行</span><span class="w">
@@ -608,7 +608,7 @@
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># .gitlab-ci.delivery.yml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 构建并发布 Docker 镜像</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">publish_dockerimage</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">publish-dockerimage</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l">delivery</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">docker:24.0.5-cli</span><span class="w">

@@ -340,7 +340,7 @@ stages:
   - .pre
 
 # Version based on tag
-gen_magic_version_tag:
+generate-magic-version-tag:
   stage: .pre
   rules:
     - if: $CI_COMMIT_TAG         # When building from a tag
@@ -358,7 +358,7 @@ gen_magic_version_tag:
       dotenv: build.env
 
 # Version based on branch
-gen_magic_version_branch:
+generate-magic-version-branch:
   stage: .pre
   rules:
     - if: $CI_COMMIT_BRANCH      # When building from a branch
@@ -388,7 +388,7 @@ Reference the MAGIC_VERSION variable directly in the subsequent stage Jobs
 # .gitlab-ci.delivery.yml
 
 # Build and publish Docker image
-publish_dockerimage:
+publish-dockerimage:
   stage: delivery
   cache: []
   image: docker:24.0.5-cli
