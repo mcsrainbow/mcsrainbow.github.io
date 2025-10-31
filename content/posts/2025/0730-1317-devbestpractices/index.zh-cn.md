@@ -367,7 +367,7 @@ stages:
   - .pre
 
 # 基于 tag 的版本
-gen_magic_version_tag:
+generate-magic-version-tag:
   stage: .pre
   rules:
     - if: $CI_COMMIT_TAG         # 当基于 tag 构建时运行
@@ -385,7 +385,7 @@ gen_magic_version_tag:
       dotenv: build.env
 
 # 基于 分支 的版本
-gen_magic_version_branch:
+generate-magic-version-branch:
   stage: .pre
   rules:
     - if: $CI_COMMIT_BRANCH      # 当基于 分支 构建时运行
@@ -415,7 +415,7 @@ gen_magic_version_branch:
 # .gitlab-ci.delivery.yml
 
 # 构建并发布 Docker 镜像
-publish_dockerimage:
+publish-dockerimage:
   stage: delivery
   cache: []
   image: docker:24.0.5-cli
