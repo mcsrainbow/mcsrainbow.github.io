@@ -61,7 +61,7 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
     <pubDate>Wed, 30 Jul 2025 13:17:40 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/07/commit-branching-versioning-best-practices/</guid>
-    <description><![CDATA[<p>以更契合工程师习惯的 YAML 文档格式，展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。</p>]]></description>
+    <description><![CDATA[<p>以更契合工程师习惯的 YAML 文档格式, 展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。</p>]]></description>
 </item>
 <item>
     <title>云原生词汇表之精简版</title>

@@ -1,7 +1,7 @@
 # 代码提交+分支管理+版本管理最佳实践
 
 
-以更契合工程师习惯的 YAML 文档格式，展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。
+以更契合工程师习惯的 YAML 文档格式, 展示约定式提交、分支管理模型、语义化版本与基于源代码的版本等最佳实践。
 
 <!--more-->
 
@@ -343,31 +343,40 @@ version_label:
 
 ### GitLab CI 版本号生成
 
+生成 MAGIC_VERSION 变量
+
 ```yaml
 # .gitlab-ci.magic-version.yml
 
-variables:
-  TAG_PREFIX: "v"                     # 定义 tag 前缀, 用于去掉类似 v1.2.3 的 v
+# 使用 GitLab 的保留阶段 .pre, 确保版本号在所有自定义阶段之前生成
+# 在 .pre 阶段导出的 artifacts.reports.dotenv 会被 GitLab 自动注入到所有后续阶段的 Job 环境
+# 后续 Job 可以直接使用 $MAGIC_VERSION, 无需显式 dependencies: 或 needs:
+stages:
+  - .pre
 
 # 基于 tag 的版本
-version_tag:
-  stage: magic_version
+gen_magic_version_tag:
+  stage: .pre
   rules:
-    - if: $CI_COMMIT_TAG =~ /^.+/     # 仅在有 tag 的情况下运行, /^.+/ 即只要有一个非空字符就返回 true
+    - if: $CI_COMMIT_TAG         # 当基于 tag 构建时运行
   script:
-    # 取当前 tag, 去掉 TAG_PREFIX 前缀, 例如 v1.2.3 -> 1.2.3
-    - export MAGIC_VERSION=${CI_COMMIT_TAG#*"$TAG_PREFIX"}
+    # 取当前 $CI_COMMIT_TAG 值, 例如 v1.2.3
+    - export MAGIC_VERSION="$CI_COMMIT_TAG"
     # 把版本号写入 build.env, 供后续 Job 使用
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
+    # 打印 build.env 便于调试
+    - cat build.env
+  # 导出 build.env 作为 artifacts.reports.dotenv
+  # GitLab 会自动注入到后续阶段
   artifacts:
     reports:
-      dotenv: build.env               # 把 build.env 导出为 dotenv, 供后续 Job 使用 $MAGIC_VERSION 变量
+      dotenv: build.env
 
 # 基于 分支 的版本
-version_branch:
-  stage: magic_version
+gen_magic_version_branch:
+  stage: .pre
   rules:
-    - if: $CI_COMMIT_BRANCH           # 当基于 分支 构建时运行
+    - if: $CI_COMMIT_BRANCH      # 当基于 分支 构建时运行
   script:
     # 生成日期时间, 格式为 YYYY.mm.dd.HHMM, 例如 2025.07.30.1906
     - VERSION_DATETIME=$(date +'%Y.%m.%d.%H%M')
@@ -379,8 +388,46 @@ version_branch:
     - export MAGIC_VERSION=${VERSION_DATETIME}-${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}
     # 把版本号写入 build.env, 供后续 Job 使用
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
+    # 打印 build.env 便于调试
+    - cat build.env
+  # 导出 build.env 作为 artifacts.reports.dotenv
+  # GitLab 会自动注入到后续阶段
   artifacts:
     reports:
-      dotenv: build.env               # 把 build.env 导出为 dotenv, 供后续 Job 使用 $MAGIC_VERSION 变量
+      dotenv: build.env
+```
+
+在后续阶段的 Job 中直接引用 MAGIC_VERSION 变量
+
+```yaml
+# .gitlab-ci.delivery.yml
+
+# 构建并发布 Docker 镜像
+publish_dockerimage:
+  stage: delivery
+  cache: []
+  image: docker:24.0.5-cli
+  services:
+    - docker:24.0.5-dind
+  variables:
+    # CS_IMAGE 是 GitLab Container Scanning 默认识别的镜像变量
+    # https://docs.gitlab.com/user/application_security/container_scanning/
+    CS_IMAGE: $CI_REGISTRY_IMAGE:$MAGIC_VERSION
+  script:
+    # 登录 GitLab Docker Registry
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    # 使用 $CS_IMAGE 构建镜像
+    - docker build -t $CS_IMAGE .
+    # 推送镜像到 GitLab Docker Registry
+    - docker push $CS_IMAGE
+    # 将构建的镜像写入 build.env
+    - echo "CS_IMAGE=$CS_IMAGE" >> build.env
+    # 打印 build.env 便于调试
+    - cat build.env
+  # 导出 build.env 作为 artifacts.reports.dotenv
+  # 便于后续容器扫描或部署阶段使用
+  artifacts:
+    reports:
+      dotenv: build.env
 ```
 
