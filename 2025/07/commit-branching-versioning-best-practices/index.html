@@ -565,7 +565,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">$CI_COMMIT_TAG        </span><span class="w"> </span><span class="c"># 当基于 tag 构建时运行</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 取当前 $CI_COMMIT_TAG 值, 例如 v1.2.3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">export MAGIC_VERSION=&#34;$CI_COMMIT_TAG&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">export MAGIC_VERSION=$CI_COMMIT_TAG</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 把版本号写入 build.env, 供后续 Job 使用</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">echo &#34;MAGIC_VERSION=$MAGIC_VERSION&#34; &gt;&gt; build.env</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 打印 build.env 便于调试</span><span class="w">

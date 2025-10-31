@@ -361,7 +361,7 @@ gen_magic_version_tag:
     - if: $CI_COMMIT_TAG         # 当基于 tag 构建时运行
   script:
     # 取当前 $CI_COMMIT_TAG 值, 例如 v1.2.3
-    - export MAGIC_VERSION="$CI_COMMIT_TAG"
+    - export MAGIC_VERSION=$CI_COMMIT_TAG
     # 把版本号写入 build.env, 供后续 Job 使用
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
     # 打印 build.env 便于调试

@@ -346,7 +346,7 @@ gen_magic_version_tag:
     - if: $CI_COMMIT_TAG         # When building from a tag
   script:
     # Get the current $CI_COMMIT_TAG, e.g. v1.2.3
-    - export MAGIC_VERSION="$CI_COMMIT_TAG"
+    - export MAGIC_VERSION=$CI_COMMIT_TAG
     # Write the version to build.env
     - echo "MAGIC_VERSION=$MAGIC_VERSION" >> build.env
     # Print build.env for debugging
