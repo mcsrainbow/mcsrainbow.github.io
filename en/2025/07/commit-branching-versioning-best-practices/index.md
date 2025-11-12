@@ -336,8 +336,6 @@ Generate MAGIC_VERSION variable
 # Use GitLab's reserved stage `.pre` to ensure the version is generated before all custom stages
 # The artifacts.reports.dotenv exported in `.pre` will be automatically injected into all later jobs
 # Later jobs can directly use $MAGIC_VERSION without `dependencies:` or `needs:`
-stages:
-  - .pre
 
 # Version based on tag
 generate-magic-version-tag:

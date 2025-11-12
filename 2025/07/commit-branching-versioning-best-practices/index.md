@@ -351,8 +351,6 @@ version_label:
 # 使用 GitLab 的保留阶段 .pre, 确保版本号在所有自定义阶段之前生成
 # 在 .pre 阶段导出的 artifacts.reports.dotenv 会被 GitLab 自动注入到所有后续阶段的 Job 环境
 # 后续 Job 可以直接使用 $MAGIC_VERSION, 无需显式 dependencies: 或 needs:
-stages:
-  - .pre
 
 # 基于 tag 的版本
 generate-magic-version-tag:
