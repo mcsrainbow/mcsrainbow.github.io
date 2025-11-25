@@ -19,7 +19,7 @@ comment:
 
 <i class="fa-solid fa-tags fa-fw"></i> [Dong Guo]^(Dōng Guō) based on Mandarin Pinyin  
 
-<i class="fa-solid fa-tags fa-fw" style="opacity: 0"></i> [Damon]^(/ˈdeɪmən/ DAY-mən) inspired by the Linux [[daemon]^(/ˈdiːmən/ DEE-mən)](https://man7.org/linux/man-pages/man7/daemon.7.html) process and a favored Hollywood actor [**`Matt Damon`**](https://en.wikipedia.org/wiki/Matt_Damon)
+<i class="fa-solid fa-tags fa-fw" style="opacity: 0"></i> [Damon]^(/ˈdeɪmən/) inspired by the Linux [[daemon]^(/ˈdiːmən/)](https://man7.org/linux/man-pages/man7/daemon.7.html) process and a favored Hollywood actor [**`Matt Damon`**](https://en.wikipedia.org/wiki/Matt_Damon)
 
 <i class="fa-solid fa-seedling fa-fw"></i> **Bio**: A Hands-On Solutions Architect, a DevOps Manager, and a Lifelong Learner
 
