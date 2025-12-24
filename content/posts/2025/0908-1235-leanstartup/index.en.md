@@ -8,7 +8,7 @@ categories: ["Notes"]
 tags: ["Business","Startup"]
 resources:
 - name: "featured-image"
-  src: "featured-image.webp"
+  src: "featured-image.jpeg"
 
 lightgallery: true
 ---

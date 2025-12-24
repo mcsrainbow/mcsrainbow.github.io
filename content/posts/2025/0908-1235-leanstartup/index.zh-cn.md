@@ -8,7 +8,7 @@ categories: ["读书笔记"]
 tags: ["商业","创业"]
 resources:
 - name: "featured-image"
-  src: "featured-image.webp"
+  src: "featured-image.jpeg"
 
 lightgallery: true
 ---
