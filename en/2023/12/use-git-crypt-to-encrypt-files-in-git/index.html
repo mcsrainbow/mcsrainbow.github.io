@@ -41,7 +41,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2023\/12\/use-git-crypt-to-encrypt-files-in-git\/featured-image.jpeg",
                             "width":  1920 ,
                             "height":  640 
-                        }],"genre": "posts","keywords": "Git, Security","wordcount":  323 ,
+                        }],"genre": "posts","keywords": "Git, Security","wordcount":  1152 ,
         "url": "https:\/\/blog.heylinux.com\/en\/2023\/12\/use-git-crypt-to-encrypt-files-in-git\/","datePublished": "2023-12-18T17:50:15+08:00","dateModified": "2023-12-18T17:50:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -136,8 +136,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Use git-crypt to Encrypt Files in Git</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;323 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1152 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -152,114 +152,345 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#install-git-crypt">Install git-crypt</a></li>
-    <li><a href="#initialize-git-crypt-and-back-up-the-encryption-key">Initialize git-crypt and back up the encryption key</a></li>
-    <li><a href="#create-git-crypt-demo-files">Create git-crypt demo files</a></li>
-    <li><a href="#verify-encryption-and-decryption-status">Verify encryption and decryption status</a></li>
-    <li><a href="#working-in-team-with-git-crypt">Working in team with git-crypt</a></li>
-    <li><a href="#renew-the-git-crypt-encryption-key">Renew the git-crypt encryption key</a></li>
+    <li><a href="#install-packages">Install packages</a></li>
+    <li><a href="#create-directories">Create directories</a></li>
+    <li><a href="#clone-git-repository">Clone Git repository</a></li>
+    <li><a href="#generate-gpg-keys">Generate GPG keys</a></li>
+    <li><a href="#grant-permissions">Grant permissions</a></li>
+    <li><a href="#view-encrypted-file">View encrypted file</a></li>
+    <li><a href="#verify-permissions">Verify permissions</a></li>
+    <li><a href="#remove-permissions">Remove permissions</a></li>
+    <li><a href="#complete-journey">Complete journey</a></li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>
 <hr>
-<h2 id="install-git-crypt">Install git-crypt</h2>
+<h2 id="install-packages">Install packages</h2>
+<p>Install git-crypt and gnupg</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt</span></span></code></pre></div></div>
-<h2 id="initialize-git-crypt-and-back-up-the-encryption-key">Initialize git-crypt and back up the encryption key</h2>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt gnupg</span></span></code></pre></div></div>
+<h2 id="create-directories">Create directories</h2>
+<p>Create required directories to simulate multi-user collaboration</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt init
-</span></span><span class="line"><span class="cl">Generating key...
-</span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v1.key
-</span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v1.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir -p /Users/damonguo/Workspace/demo/{repo,gnupg_keys,tmp}
+</span></span><span class="line"><span class="cl">❯ cd /Users/damonguo/Workspace/demo/
+</span></span><span class="line"><span class="cl">❯ ls -1
+</span></span><span class="line"><span class="cl">gnupg_keys
+</span></span><span class="line"><span class="cl">repo
+</span></span><span class="line"><span class="cl">tmp
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ echo &#34;git-crypt/api.key filter=git-crypt diff=git-crypt&#34; &gt; .gitattributes
+</span></span><span class="line"><span class="cl">❯ mkdir -p /Users/damonguo/Workspace/demo/gnupg_keys/{alice,bob,jack}
+</span></span><span class="line"><span class="cl">❯ chmod 700 /Users/damonguo/Workspace/demo/gnupg_keys/{alice,bob,jack}
+</span></span><span class="line"><span class="cl">❯ ls -l /Users/damonguo/Workspace/demo/gnupg_keys/
+</span></span><span class="line"><span class="cl">total 0
+</span></span><span class="line"><span class="cl">drwx------@ 2 damonguo  staff  64 Jan 28 11:28 alice
+</span></span><span class="line"><span class="cl">drwx------@ 2 damonguo  staff  64 Jan 28 11:28 bob
+</span></span><span class="line"><span class="cl">drwx------@ 2 damonguo  staff  64 Jan 28 11:28 jack</span></span></code></pre></div></div>
+<h2 id="clone-git-repository">Clone Git repository</h2>
+<p>Clone the demo repo for user Alice and initialize the git-crypt and secret.txt</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd repo
+</span></span><span class="line"><span class="cl">❯ git clone git@github.com:mcsrainbow/git-crypt-demo.git
+</span></span><span class="line"><span class="cl">❯ mv git-crypt-demo git-crypt-demo_alice
+</span></span><span class="line"><span class="cl">❯ cd git-crypt-demo_alice
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ git-crypt init
+</span></span><span class="line"><span class="cl">Generating key...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ echo &#34;secret.txt filter=git-crypt diff=git-crypt&#34; &gt; .gitattributes
+</span></span><span class="line"><span class="cl">❯ cat .gitattributes
+</span></span><span class="line"><span class="cl">secret.txt filter=git-crypt diff=git-crypt
 </span></span><span class="line"><span class="cl">❯ git add .gitattributes
-</span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: tell git-crypt to encrypt git-crypt/api.key&#34;
-</span></span><span class="line"><span class="cl">❯ git push</span></span></code></pre></div></div>
-<h2 id="create-git-crypt-demo-files">Create git-crypt demo files</h2>
+</span></span><span class="line"><span class="cl">❯ git commit -m &#34;chore: configure git-crypt&#34;
+</span></span><span class="line"><span class="cl">[main f50794d] chore: configure git-crypt
+</span></span><span class="line"><span class="cl"> 1 file changed, 1 insertion(+)
+</span></span><span class="line"><span class="cl"> create mode 100644 .gitattributes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ echo &#34;TOP SECRET from Alice&#34; &gt; secret.txt
+</span></span><span class="line"><span class="cl">❯ cat secret.txt
+</span></span><span class="line"><span class="cl">TOP SECRET from Alice
+</span></span><span class="line"><span class="cl">❯ git add secret.txt
+</span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: add encrypted secret&#34;
+</span></span><span class="line"><span class="cl">[main e7f174b] feat: add encrypted secret
+</span></span><span class="line"><span class="cl"> 1 file changed, 0 insertions(+), 0 deletions(-)
+</span></span><span class="line"><span class="cl"> create mode 100644 secret.txt</span></span></code></pre></div></div>
+<h2 id="generate-gpg-keys">Generate GPG keys</h2>
+<p>Generate GPG keys for Alice, Bob and Jack</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir git-crypt
-</span></span><span class="line"><span class="cl">❯ echo &#34;This is some text&#34; &gt; git-crypt/file.txt
-</span></span><span class="line"><span class="cl">❯ echo &#34;dummy value&#34; &gt; git-crypt/api.key
-</span></span><span class="line"><span class="cl">❯ git add git-crypt
-</span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: add git-crypt demo files&#34;
-</span></span><span class="line"><span class="cl">❯ git push</span></span></code></pre></div></div>
-<h2 id="verify-encryption-and-decryption-status">Verify encryption and decryption status</h2>
-<p>Use the <code>git-crypt status</code> command to view the server side encryption and decryption status</p>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/alice
+</span></span><span class="line"><span class="cl">❯ gpg --batch --passphrase &#39;&#39; --quick-generate-key &#34;Alice &lt;alice@example.com&gt;&#34; rsa4096 sign,encrypt 10y
+</span></span><span class="line"><span class="cl">gpg: keybox &#39;/Users/damonguo/Workspace/demo/gnupg_keys/alice/pubring.kbx&#39; created
+</span></span><span class="line"><span class="cl">gpg: /Users/damonguo/Workspace/demo/gnupg_keys/alice/trustdb.gpg: trustdb created
+</span></span><span class="line"><span class="cl">gpg: directory &#39;/Users/damonguo/Workspace/demo/gnupg_keys/alice/openpgp-revocs.d&#39; created
+</span></span><span class="line"><span class="cl">gpg: revocation certificate stored as &#39;/Users/damonguo/Workspace/demo/gnupg_keys/alice/openpgp-revocs.d/4EC36059B196849885E438499BAF6C28C32813A4.rev&#39;
+</span></span><span class="line"><span class="cl">❯ ls /Users/damonguo/Workspace/demo/gnupg_keys/alice
+</span></span><span class="line"><span class="cl">openpgp-revocs.d    pubring.kbx    S.gpg-agent           S.gpg-agent.extra   trustdb.gpg
+</span></span><span class="line"><span class="cl">private-keys-v1.d   pubring.kbx~   S.gpg-agent.browser   S.gpg-agent.ssh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/bob
+</span></span><span class="line"><span class="cl">❯ gpg --batch --passphrase &#39;&#39; --quick-generate-key &#34;Bob &lt;bob@example.com&gt;&#34; rsa4096 sign,encrypt 10y
+</span></span><span class="line"><span class="cl">gpg: keybox &#39;/Users/damonguo/Workspace/demo/gnupg_keys/bob/pubring.kbx&#39; created
+</span></span><span class="line"><span class="cl">gpg: /Users/damonguo/Workspace/demo/gnupg_keys/bob/trustdb.gpg: trustdb created
+</span></span><span class="line"><span class="cl">gpg: directory &#39;/Users/damonguo/Workspace/demo/gnupg_keys/bob/openpgp-revocs.d&#39; created
+</span></span><span class="line"><span class="cl">gpg: revocation certificate stored as &#39;/Users/damonguo/Workspace/demo/gnupg_keys/bob/openpgp-revocs.d/B2E7F419BACD36339E1FECE34636D98424360512.rev&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ mkdir GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/jack
+</span></span><span class="line"><span class="cl">❯ gpg --batch --passphrase &#39;&#39; --quick-generate-key &#34;Jack &lt;jack@example.com&gt;&#34; rsa4096 sign,encrypt 10y
+</span></span><span class="line"><span class="cl">gpg: keybox &#39;/Users/damonguo/Workspace/demo/gnupg_keys/jack/pubring.kbx&#39; created
+</span></span><span class="line"><span class="cl">gpg: /Users/damonguo/Workspace/demo/gnupg_keys/jack/trustdb.gpg: trustdb created
+</span></span><span class="line"><span class="cl">gpg: directory &#39;/Users/damonguo/Workspace/demo/gnupg_keys/jack/openpgp-revocs.d&#39; created
+</span></span><span class="line"><span class="cl">gpg: revocation certificate stored as &#39;/Users/damonguo/Workspace/demo/gnupg_keys/jack/openpgp-revocs.d/4D1DED527513BE77A3546955107E34937CCFEA8E.rev&#39;</span></span></code></pre></div></div>
+<h2 id="grant-permissions">Grant permissions</h2>
+<p>Export the GPG public key of Bob for Alice to import</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt status git-crypt
-</span></span><span class="line"><span class="cl">    encrypted: git-crypt/api.key
-</span></span><span class="line"><span class="cl">not encrypted: git-crypt/file.txt</span></span></code></pre></div></div>
-<p>View the server side encryption and decryption status on the <code>GitLab Web</code></p>
-<a class="lightgallery" href="/2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg" title="git_crypt_encrypted_file" data-thumbnail="/2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg">
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/bob
+</span></span><span class="line"><span class="cl">❯ gpg --armor --export bob@example.com &gt; /Users/damonguo/Workspace/demo/tmp/bob.pub
+</span></span><span class="line"><span class="cl">❯ file /Users/damonguo/Workspace/demo/tmp/bob.pub
+</span></span><span class="line"><span class="cl">/Users/damonguo/Workspace/demo/tmp/bob.pub: PGP public key block Public-Key</span></span></code></pre></div></div>
+<p>Add Alice and Bob as git-crypt collaborators and push to GitHub</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/alice
+</span></span><span class="line"><span class="cl">❯ git-crypt add-gpg-user alice@example.com
+</span></span><span class="line"><span class="cl">gpg: checking the trustdb
+</span></span><span class="line"><span class="cl">gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+</span></span><span class="line"><span class="cl">gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+</span></span><span class="line"><span class="cl">gpg: next trustdb check due at 2036-01-26
+</span></span><span class="line"><span class="cl">[main 46edf42] Add 1 git-crypt collaborator
+</span></span><span class="line"><span class="cl"> 2 files changed, 4 insertions(+)
+</span></span><span class="line"><span class="cl"> create mode 100644 .git-crypt/.gitattributes
+</span></span><span class="line"><span class="cl"> create mode 100644 .git-crypt/keys/default/0/4EC36059B196849885E438499BAF6C28C32813A4.gpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ gpg --import /Users/damonguo/Workspace/demo/tmp/bob.pub
+</span></span><span class="line"><span class="cl">gpg: key 4636D98424360512: public key &#34;Bob &lt;bob@example.com&gt;&#34; imported
+</span></span><span class="line"><span class="cl">gpg: Total number processed: 1
+</span></span><span class="line"><span class="cl">gpg:               imported: 1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ gpg --batch --yes --lsign-key bob@example.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pub  rsa4096/4636D98424360512
+</span></span><span class="line"><span class="cl">     created: 2026-01-28  expires: 2036-01-26  usage: SCE
+</span></span><span class="line"><span class="cl">     trust: unknown       validity: unknown
+</span></span><span class="line"><span class="cl">[ unknown] (1). Bob &lt;bob@example.com&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pub  rsa4096/4636D98424360512
+</span></span><span class="line"><span class="cl">     created: 2026-01-28  expires: 2036-01-26  usage: SCE
+</span></span><span class="line"><span class="cl">     trust: unknown       validity: unknown
+</span></span><span class="line"><span class="cl"> Primary key fingerprint: B2E7 F419 BACD 3633 9E1F  ECE3 4636 D984 2436 0512
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     Bob &lt;bob@example.com&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This key is due to expire on 2036-01-26.
+</span></span><span class="line"><span class="cl">Are you sure that you want to sign this key with your
+</span></span><span class="line"><span class="cl">key &#34;Alice &lt;alice@example.com&gt;&#34; (9BAF6C28C32813A4)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The signature will be marked as non-exportable.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ git-crypt add-gpg-user bob@example.com
+</span></span><span class="line"><span class="cl">gpg: checking the trustdb
+</span></span><span class="line"><span class="cl">gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+</span></span><span class="line"><span class="cl">gpg: depth: 0  valid:   1  signed:   1  trust: 0-, 0q, 0n, 0m, 0f, 1u
+</span></span><span class="line"><span class="cl">gpg: depth: 1  valid:   1  signed:   0  trust: 1-, 0q, 0n, 0m, 0f, 0u
+</span></span><span class="line"><span class="cl">gpg: next trustdb check due at 2036-01-26
+</span></span><span class="line"><span class="cl">[main c09d72d] Add 1 git-crypt collaborator
+</span></span><span class="line"><span class="cl"> 1 file changed, 0 insertions(+), 0 deletions(-)
+</span></span><span class="line"><span class="cl"> create mode 100644 .git-crypt/keys/default/0/B2E7F419BACD36339E1FECE34636D98424360512.gpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ git-crypt status
+</span></span><span class="line"><span class="cl">not encrypted: .git-crypt/.gitattributes
+</span></span><span class="line"><span class="cl">not encrypted: .git-crypt/keys/default/0/4EC36059B196849885E438499BAF6C28C32813A4.gpg
+</span></span><span class="line"><span class="cl">not encrypted: .git-crypt/keys/default/0/B2E7F419BACD36339E1FECE34636D98424360512.gpg
+</span></span><span class="line"><span class="cl">not encrypted: .gitattributes
+</span></span><span class="line"><span class="cl">not encrypted: README.md
+</span></span><span class="line"><span class="cl">    encrypted: secret.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ git push origin main
+</span></span><span class="line"><span class="cl">Enumerating objects: 22, done.
+</span></span><span class="line"><span class="cl">Counting objects: 100% (22/22), done.
+</span></span><span class="line"><span class="cl">Delta compression using up to 10 threads
+</span></span><span class="line"><span class="cl">Compressing objects: 100% (15/15), done.
+</span></span><span class="line"><span class="cl">Writing objects: 100% (21/21), 3.28 KiB | 1.64 MiB/s, done.
+</span></span><span class="line"><span class="cl">Total 21 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+</span></span><span class="line"><span class="cl">remote: Resolving deltas: 100% (3/3), done.
+</span></span><span class="line"><span class="cl">To github.com:mcsrainbow/git-crypt-demo.git
+</span></span><span class="line"><span class="cl">   3beff32..c09d72d  main -&gt; main</span></span></code></pre></div></div>
+<h2 id="view-encrypted-file">View encrypted file</h2>
+<p>View encrypted secret.txt as <code>View raw</code> on <a href="https://github.com/mcsrainbow/git-crypt-demo/blob/main/secret.txt" target="_blank" rel="noopener noreffer ">GitHub</a></p>
+<a class="lightgallery" href="/2023/12/use-git-crypt-to-encrypt-files-in-git/encrypted_secret_txt.png" title="encrypted_secret_txt" data-thumbnail="/2023/12/use-git-crypt-to-encrypt-files-in-git/encrypted_secret_txt.png">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg"
-            data-srcset="/2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg, /2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg 1.5x, /2023/12/use-git-crypt-to-encrypt-files-in-git/git_crypt_encrypted_file.jpg 2x"
+            data-src="/2023/12/use-git-crypt-to-encrypt-files-in-git/encrypted_secret_txt.png"
+            data-srcset="/2023/12/use-git-crypt-to-encrypt-files-in-git/encrypted_secret_txt.png, /2023/12/use-git-crypt-to-encrypt-files-in-git/encrypted_secret_txt.png 1.5x, /2023/12/use-git-crypt-to-encrypt-files-in-git/encrypted_secret_txt.png 2x"
             data-sizes="auto"
-            alt="git_crypt_encrypted_file" width="800" height="790" />
+            alt="encrypted_secret_txt" width="800" height="510" />
     </a>
-<p>Encrypt and decrypt the <code>git-crypt/api.key</code> locally with <code>git-crypt lock/unlock</code> commands</p>
+<h2 id="verify-permissions">Verify permissions</h2>
+<p>Bob cannot view the encrypted secret.txt without unlock</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt lock
-</span></span><span class="line"><span class="cl">❯ file git-crypt/api.key
-</span></span><span class="line"><span class="cl">git-crypt/api.key: data
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd ..
+</span></span><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/bob
+</span></span><span class="line"><span class="cl">❯ git clone git@github.com:mcsrainbow/git-crypt-demo.git
+</span></span><span class="line"><span class="cl">❯ mv git-crypt-demo git-crypt-demo_bob
+</span></span><span class="line"><span class="cl">❯ cd git-crypt-demo_bob
+</span></span><span class="line"><span class="cl">❯ file secret.txt
+</span></span><span class="line"><span class="cl">secret.txt: data
+</span></span><span class="line"><span class="cl">❯ cat secret.txt
+</span></span><span class="line"><span class="cl">GITCRYPT</span></span></code></pre></div></div>
+<p>Jack cannot unlock the encrypted secret.txt without being granted</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/jack
+</span></span><span class="line"><span class="cl">❯ git-crypt unlock
+</span></span><span class="line"><span class="cl">gpg: checking the trustdb
+</span></span><span class="line"><span class="cl">gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+</span></span><span class="line"><span class="cl">gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+</span></span><span class="line"><span class="cl">gpg: next trustdb check due at 2036-01-26
+</span></span><span class="line"><span class="cl">Error: no GPG secret key available to unlock this repository.
+</span></span><span class="line"><span class="cl">To unlock with a shared symmetric key instead, specify the path to the symmetric key as an argument to &#39;git-crypt unlock&#39;.</span></span></code></pre></div></div>
+<p>Bob can unlock and lock the secret.txt</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/bob
+</span></span><span class="line"><span class="cl">❯ git-crypt unlock
+</span></span><span class="line"><span class="cl">gpg: checking the trustdb
+</span></span><span class="line"><span class="cl">gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+</span></span><span class="line"><span class="cl">gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+</span></span><span class="line"><span class="cl">gpg: next trustdb check due at 2036-01-26
+</span></span><span class="line"><span class="cl">❯ cat secret.txt
+</span></span><span class="line"><span class="cl">TOP SECRET from Alice
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
-</span></span><span class="line"><span class="cl">❯ file git-crypt/api.key
-</span></span><span class="line"><span class="cl">git-crypt/api.key: ASCII text
-</span></span><span class="line"><span class="cl">❯ cat git-crypt/api.key
-</span></span><span class="line"><span class="cl">dummy value</span></span></code></pre></div></div>
-<h2 id="working-in-team-with-git-crypt">Working in team with git-crypt</h2>
-<p>Share the exported encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v1.key</code> with team members in a secure way.</p>
-<p>Then they can import encryption key and decrypt the repository by command: <code>git-crypt unlock /path/to/git-crypt-v1.key</code>.</p>
-<h2 id="renew-the-git-crypt-encryption-key">Renew the git-crypt encryption key</h2>
-<p>Create a new git-crypt encryption key</p>
+</span></span><span class="line"><span class="cl">❯ git-crypt lock
+</span></span><span class="line"><span class="cl">❯ cat secret.txt
+</span></span><span class="line"><span class="cl">GITCRYPT</span></span></code></pre></div></div>
+<h2 id="remove-permissions">Remove permissions</h2>
+<p>Bob can remove the Alice GPG key from repo</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git-crypt unlock /Users/damonguo/Workspace/keys/git-crypt-v1.key
-</span></span><span class="line"><span class="cl">❯ rm -rf .git/git-crypt/keys
-</span></span><span class="line"><span class="cl">❯ git-crypt init
-</span></span><span class="line"><span class="cl">Generating key...
-</span></span><span class="line"><span class="cl">❯ git-crypt export-key /Users/damonguo/Workspace/keys/git-crypt-v2.key
-</span></span><span class="line"><span class="cl">❯ diff .git/git-crypt/keys/default /Users/damonguo/Workspace/keys/git-crypt-v2.key</span></span></code></pre></div></div>
-<p>Trigger an update and apply the new git-crypt encryption key.</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ echo &#34;new dummy value&#34; &gt; git-crypt/api.key
-</span></span><span class="line"><span class="cl">❯ git add git-crypt/api.key
-</span></span><span class="line"><span class="cl">❯ git commit -m &#34;feat: update api.key with new git-crypt encryption key&#34;
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git log | grep &#39;Add 1 git-crypt collaborator&#39; -A5 | grep -B1 alice@example.com
+</span></span><span class="line"><span class="cl">        4EC36059B196849885E438499BAF6C28C32813A4
+</span></span><span class="line"><span class="cl">            Alice &lt;alice@example.com&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ rm .git-crypt/keys/default/0/4EC36059B196849885E438499BAF6C28C32813A4.gpg
+</span></span><span class="line"><span class="cl">❯ git add -u
+</span></span><span class="line"><span class="cl">❯ git commit -m &#34;chore: remove git-crypt access for Alice&#34;
+</span></span><span class="line"><span class="cl">[main bf48d82] chore: remove git-crypt access for Alice
+</span></span><span class="line"><span class="cl"> 1 file changed, 0 insertions(+), 0 deletions(-)
+</span></span><span class="line"><span class="cl"> delete mode 100644 .git-crypt/keys/default/0/4EC36059B196849885E438499BAF6C28C32813A4.gpg
 </span></span><span class="line"><span class="cl">❯ git push</span></span></code></pre></div></div>
-<p>Share the new git-crypt encryption key <code>/Users/damonguo/Workspace/keys/git-crypt-v2.key</code> with team members in a secure way.</p>
-<p>Then ask them to hold on the git push and pull actions, import the new encryption key first: <code>git-crypt unlock /path/to/git-crypt-v2.key</code>.</p>
+<p>Alice cannot unlock the secret.txt after re-cloning the repository</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd ..
+</span></span><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/alice
+</span></span><span class="line"><span class="cl">❯ git clone git@github.com:mcsrainbow/git-crypt-demo.git
+</span></span><span class="line"><span class="cl">❯ mv git-crypt-demo git-crypt-demo_noalice
+</span></span><span class="line"><span class="cl">❯ cd git-crypt-demo_noalice
+</span></span><span class="line"><span class="cl">❯ git-crypt status
+</span></span><span class="line"><span class="cl">not encrypted: .git-crypt/.gitattributes
+</span></span><span class="line"><span class="cl">not encrypted: .git-crypt/keys/default/0/B2E7F419BACD36339E1FECE34636D98424360512.gpg
+</span></span><span class="line"><span class="cl">not encrypted: .gitattributes
+</span></span><span class="line"><span class="cl">not encrypted: README.md
+</span></span><span class="line"><span class="cl">    encrypted: secret.txt
+</span></span><span class="line"><span class="cl">❯ cat secret.txt
+</span></span><span class="line"><span class="cl">GITCRYPT
+</span></span><span class="line"><span class="cl">❯ git-crypt unlock
+</span></span><span class="line"><span class="cl">Error: no GPG secret key available to unlock this repository.
+</span></span><span class="line"><span class="cl">To unlock with a shared symmetric key instead, specify the path to the symmetric key as an argument to &#39;git-crypt unlock&#39;.</span></span></code></pre></div></div>
+<h2 id="complete-journey">Complete journey</h2>
+<p>View the complete git commits</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git log
+</span></span><span class="line"><span class="cl">commit bf48d82e3ce40e237465e2af608b0ff990eb6735 (HEAD -&gt; main, origin/main, origin/HEAD)
+</span></span><span class="line"><span class="cl">Author: mcsrainbow &lt;guosuiyu@gmail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Wed Jan 28 11:44:31 2026 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    chore: remove git-crypt access for Alice
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit c09d72da79784054ebf2b2b8c5d5bb0a878c02c0
+</span></span><span class="line"><span class="cl">Author: mcsrainbow &lt;guosuiyu@gmail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Wed Jan 28 11:39:44 2026 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Add 1 git-crypt collaborator
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    New collaborators:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        B2E7F419BACD36339E1FECE34636D98424360512
+</span></span><span class="line"><span class="cl">            Bob &lt;bob@example.com&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit 46edf42fc7ca6a658c874ae196ba4f75ac2d2aff
+</span></span><span class="line"><span class="cl">Author: mcsrainbow &lt;guosuiyu@gmail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Wed Jan 28 11:36:25 2026 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Add 1 git-crypt collaborator
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    New collaborators:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        4EC36059B196849885E438499BAF6C28C32813A4
+</span></span><span class="line"><span class="cl">            Alice &lt;alice@example.com&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit e7f174b8cd6b10fc5837b89892481ed08b139398
+</span></span><span class="line"><span class="cl">Author: mcsrainbow &lt;guosuiyu@gmail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Wed Jan 28 11:31:56 2026 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    feat: add encrypted secret
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit f50794db3651b72ee56c91bbdb25a021a768c691
+</span></span><span class="line"><span class="cl">Author: mcsrainbow &lt;guosuiyu@gmail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Wed Jan 28 11:31:40 2026 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    chore: configure git-crypt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit 3beff32096f2b50d2f012c6ba5e68cba1a0af5fb
+</span></span><span class="line"><span class="cl">Author: Dong Guo / Damon &lt;guosuiyu@gmail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Wed Jan 28 11:23:25 2026 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Initial commit</span></span></code></pre></div></div>
 <h2 id="references">References</h2>
 <p><a href="https://buddy.works/guides/git-crypt" target="_blank" rel="noopener noreffer ">https://buddy.works/guides/git-crypt</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -292,7 +523,7 @@
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
