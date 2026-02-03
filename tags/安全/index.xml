@@ -4,12 +4,21 @@
         <link>https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/</link>
         <description>安全 - 标签 - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 SOPS &#43; AGE 加解密文件</title>
+    <link>https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/</link>
+    <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/</guid>
+    <description><![CDATA[<p>SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
+与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>]]></description>
+</item>
+<item>
     <title>使用 git-crypt 加解密 Git 中的文件</title>
-    <link>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
+    <link>https://blog.heylinux.com/2023/12/using-git-crypt-to-encrypt-files-in-git/</link>
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
+    <guid>https://blog.heylinux.com/2023/12/using-git-crypt-to-encrypt-files-in-git/</guid>
     <description><![CDATA[<p>git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。</p>]]></description>
 </item>
 <item>

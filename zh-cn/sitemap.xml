@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://blog.heylinux.com/categories/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/categories/</loc><lastmod>2026-02-03T18:51:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/categories/"
@@ -11,7 +11,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/categories/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/</loc><lastmod>2026-02-03T18:51:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/"
@@ -20,7 +20,7 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/posts/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/posts/</loc><lastmod>2026-02-03T18:51:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://blog.heylinux.com/en/posts/"
@@ -28,6 +28,26 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/posts/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/tags/</loc><lastmod>2026-02-03T18:51:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/tags/"
+                    /></url><url>
+            <loc>https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/</loc><lastmod>2026-02-03T18:51:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</loc><lastmod>2026-02-03T18:51:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/</loc><lastmod>2026-02-03T18:51:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/"
                     /></url><url>
             <loc>https://blog.heylinux.com/tags/python/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
@@ -38,16 +58,6 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/tags/python/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://blog.heylinux.com/en/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://blog.heylinux.com/tags/"
-                    /></url><url>
-            <loc>https://blog.heylinux.com/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/</loc><lastmod>2025-10-27T15:35:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -265,15 +275,14 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/"
                     /></url><url>
-            <loc>https://blog.heylinux.com/tags/%E5%AE%89%E5%85%A8/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://blog.heylinux.com/2023/12/using-git-crypt-to-encrypt-files-in-git/</loc><lastmod>2023-12-18T17:50:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/"
+                        href="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="zh-cn"
-                    href="https://blog.heylinux.com/2023/12/use-git-crypt-to-encrypt-files-in-git/"
+                    href="https://blog.heylinux.com/2023/12/using-git-crypt-to-encrypt-files-in-git/"
                     /></url><url>
             <loc>https://blog.heylinux.com/tags/podman/</loc><lastmod>2023-12-07T10:57:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"

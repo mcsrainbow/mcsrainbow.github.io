@@ -4,7 +4,16 @@
         <link>https://blog.heylinux.com/en/posts/</link>
         <description>All Posts | Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Using SOPS &#43; AGE to Encrypt Files</title>
+    <link>https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/</link>
+    <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/</guid>
+    <description><![CDATA[<p>SOPS stands for Secrets OPerationS, with an official description as &ldquo;Simple and flexible tool for managing secrets&rdquo;.<br>
+With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.</p>]]></description>
+</item>
+<item>
     <title>Using uv to create and manage Python project</title>
     <link>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</link>
     <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
@@ -76,14 +85,6 @@ uv provides performance 10 to 100 times faster than existing tools while maintai
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/</guid>
     <description><![CDATA[<p>Health check endpoint with dependency-aware critical checks and independent external monitoring.</p>]]></description>
-</item>
-<item>
-    <title>Work Mindsets</title>
-    <link>https://blog.heylinux.com/en/2025/01/work-mindsets/</link>
-    <pubDate>Tue, 21 Jan 2025 16:25:37 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2025/01/work-mindsets/</guid>
-    <description><![CDATA[<p>Good work mindsets develop professional behaviors.</p>]]></description>
 </item>
 </channel>
 </rss>

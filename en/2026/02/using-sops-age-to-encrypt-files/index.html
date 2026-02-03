@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Using SOPS &#43; AGE to Encrypt Files - Hey! Linux</title><meta name="Description" content="SOPS stands for Secrets OPerationS, with an official description as &#34;Simple and flexible tool for managing secrets&#34;. With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt."><meta property="og:url" content="https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/">
+  <meta property="og:site_name" content="Hey! Linux">
+  <meta property="og:title" content="Using SOPS &#43; AGE to Encrypt Files">
+  <meta property="og:description" content="SOPS stands for Secrets OPerationS, with an official description as &#34;Simple and flexible tool for managing secrets&#34;. With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-03T18:51:44+08:00">
+    <meta property="article:modified_time" content="2026-02-03T18:51:44+08:00">
+    <meta property="article:tag" content="Security">
+    <meta property="og:image" content="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/featured-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/featured-image.png">
+  <meta name="twitter:title" content="Using SOPS &#43; AGE to Encrypt Files">
+  <meta name="twitter:description" content="SOPS stands for Secrets OPerationS, with an official description as &#34;Simple and flexible tool for managing secrets&#34;. With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.">
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/" /><link rel="prev" href="https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Using SOPS + AGE to Encrypt Files",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.heylinux.com\/en\/2026\/02\/using-sops-age-to-encrypt-files\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/blog.heylinux.com\/2026\/02\/using-sops-age-to-encrypt-files\/featured-image.png",
+                            "width":  1768 ,
+                            "height":  553 
+                        }],"genre": "posts","keywords": "Security","wordcount":  712 ,
+        "url": "https:\/\/blog.heylinux.com\/en\/2026\/02\/using-sops-age-to-encrypt-files\/","datePublished": "2026-02-03T18:51:44+08:00","dateModified": "2026-02-03T18:51:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "mcsrainbow","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/blog.heylinux.com\/images\/avatar.jpg",
+                    "width":  800 ,
+                    "height":  800 
+                }},"author": {
+                "@type": "Person",
+                "name": "Damon"
+            },"description": "SOPS stands for Secrets OPerationS, with an official description as \"Simple and flexible tool for managing secrets\". With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="Hey! Linux">Hey! Linux</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/"> 简体中文 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2026/02/using-sops-age-to-encrypt-files/">简体中文</option><option value="/en/2026/02/using-sops-age-to-encrypt-files/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="Hey! Linux">Hey! Linux</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/" title="">简体中文</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2026/02/using-sops-age-to-encrypt-files/">简体中文</option><option value="/en/2026/02/using-sops-age-to-encrypt-files/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Using SOPS + AGE to Encrypt Files</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-02-03">2026-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;712 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2026/02/using-sops-age-to-encrypt-files/featured-image.png"
+        data-srcset="/2026/02/using-sops-age-to-encrypt-files/featured-image.png, /2026/02/using-sops-age-to-encrypt-files/featured-image.png 1.5x, /2026/02/using-sops-age-to-encrypt-files/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2026/02/using-sops-age-to-encrypt-files/featured-image.png"
+        title="SOPS stands for Secrets OPerationS, with an official description as &#34;Simple and flexible tool for managing secrets&#34;. With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt." /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-packages">Install packages</a></li>
+    <li><a href="#create-directories-and-file">Create directories and file</a></li>
+    <li><a href="#generate-age-keys">Generate AGE Keys</a></li>
+    <li><a href="#authorize-and-verify">Authorize and verify</a></li>
+    <li><a href="#remove-authorization-and-verify">Remove authorization and verify</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>SOPS stands for Secrets OPerationS, with an official description as &ldquo;Simple and flexible tool for managing secrets&rdquo;.<br>
+With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.</p>
+<hr>
+<h2 id="install-packages">Install packages</h2>
+<p>Install SOPS and AGE</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install sops age</span></span></code></pre></div></div>
+<h2 id="create-directories-and-file">Create directories and file</h2>
+<p>Create required directories to simulate multi-user collaboration</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir -p /Users/damonguo/Workspace/demo/{repo,sops_keys}
+</span></span><span class="line"><span class="cl">❯ cd /Users/damonguo/Workspace/demo/
+</span></span><span class="line"><span class="cl">❯ ls -1
+</span></span><span class="line"><span class="cl">repo
+</span></span><span class="line"><span class="cl">sops_keys</span></span></code></pre></div></div>
+<p>As user Alice, create secrets.yml</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd repo
+</span></span><span class="line"><span class="cl">❯ mkdir sops-demo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ cd sops-demo
+</span></span><span class="line"><span class="cl">❯ cat &gt; secrets.yml &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">  username: super-secret
+</span></span><span class="line"><span class="cl">  password: ultra-secret
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">❯ cat secrets.yml
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">  username: super-secret
+</span></span><span class="line"><span class="cl">  password: ultra-secret</span></span></code></pre></div></div>
+<h2 id="generate-age-keys">Generate AGE Keys</h2>
+<p>For users Alice, Bob, and Jack, generate AGE Keys</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ touch /Users/damonguo/Workspace/demo/sops_keys/{alice,bob,jack}.key
+</span></span><span class="line"><span class="cl">❯ chmod 600 /Users/damonguo/Workspace/demo/sops_keys/*.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+</span></span><span class="line"><span class="cl">❯ age-keygen &gt; $SOPS_AGE_KEY_FILE
+</span></span><span class="line"><span class="cl">Public key: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+</span></span><span class="line"><span class="cl">❯ age-keygen &gt; $SOPS_AGE_KEY_FILE
+</span></span><span class="line"><span class="cl">Public key: age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/jack.key
+</span></span><span class="line"><span class="cl">❯ age-keygen &gt; $SOPS_AGE_KEY_FILE
+</span></span><span class="line"><span class="cl">Public key: age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ cat /Users/damonguo/Workspace/demo/sops_keys/alice.key
+</span></span><span class="line"><span class="cl"># created: 2026-02-03T17:41:06+08:00
+</span></span><span class="line"><span class="cl"># public key: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">AGE-SECRET-KEY-1ZU2XLLK73TEAY4Z4JQFDJH4VUA796QTN3GJ246YJKV2C5N7Z7TUSM24TWZ</span></span></code></pre></div></div>
+<h2 id="authorize-and-verify">Authorize and verify</h2>
+<p>As user Alice, encrypt secrets.yml and decrypt to verify</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops --encrypt --in-place --age age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9 secrets.yml
+</span></span><span class="line"><span class="cl">❯ cat secrets.yml
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">    username: ENC[AES256_GCM,data:K4o7b88VYy1fiIRK,iv:WMPXoFF0aaxktEjaFxliYpsDgb77MVvbwviuwmYCRsk=,tag:qM3PzdjkyqYL2U+Ryhw/+Q==,type:str]
+</span></span><span class="line"><span class="cl">    password: ENC[AES256_GCM,data:SBIn28H5hlTNb0Xg,iv:BouoeNldrph5vph1ti2Y5Xny/qI5dQaFHCbsAFy/Ezo=,tag:X6SYXPgDU0R+WIVO0da+cA==,type:str]
+</span></span><span class="line"><span class="cl">sops:
+</span></span><span class="line"><span class="cl">    age:
+</span></span><span class="line"><span class="cl">        - recipient: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">          enc: |
+</span></span><span class="line"><span class="cl">            -----BEGIN AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBkSkNRLzYrUjFNRTNQdHAr
+</span></span><span class="line"><span class="cl">            YitPZXNPZk8xdXZ3ZWNsRkdqaE1RSUpkVXc0Cll1TDJ5SFI2ckdIR0FNay9HWjFm
+</span></span><span class="line"><span class="cl">            QmJXSk8rdm9vQXltL3ZBbVVldGxZVU0KLS0tIFJRRlBsZmVtRW4yVStxUVFobjRo
+</span></span><span class="line"><span class="cl">            bmxUS2xPWlMydlFlTm1IZWp5OWdERncKkU/H0ovZpSCjrBRlitwp0iXiKB2VesL7
+</span></span><span class="line"><span class="cl">            BeYvdfvC0DeNZOyUYeAageEnYdm4z5Su7EmievmiYADVB20v/37Qog==
+</span></span><span class="line"><span class="cl">            -----END AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">    lastmodified: &#34;2026-02-03T10:00:15Z&#34;
+</span></span><span class="line"><span class="cl">    mac: ENC[AES256_GCM,data:5rbslKqxuIVbsilV3BFvlKw6BV2mUjGV0dmizTAXJgW5iC6n3I4ByGanc40lU/OjE02upvNo11NuoUtbDv7h1K+/XxFU7DlwMEJ7BGVdWU9Dq5fhf4eF2tcV5Q+Dw4JawUiMbBE25T3J0m+CMRx/Fb9KSRryYF7jb07l+QlTSrI=,iv:PasAhpZQI8h95vBu4szxxTyENYDgUimsYykS540svF8=,tag:/uHDwWrvqY6OYVjullgwhA==,type:str]
+</span></span><span class="line"><span class="cl">    unencrypted_suffix: _unencrypted
+</span></span><span class="line"><span class="cl">    version: 3.11.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">  username: super-secret
+</span></span><span class="line"><span class="cl">  password: ultra-secret</span></span></code></pre></div></div>
+<p>As user Bob, try to decrypt in unauthorized state</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">Failed to get the data key required to decrypt the SOPS file.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Group 0: FAILED
+</span></span><span class="line"><span class="cl">  age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9: FAILED
+</span></span><span class="line"><span class="cl">    - | failed to create reader for decrypting sops data key with
+</span></span><span class="line"><span class="cl">      | age: no identity matched any of the recipients. Did not find
+</span></span><span class="line"><span class="cl">      | keys in locations &#39;SOPS_AGE_SSH_PRIVATE_KEY_FILE&#39;,
+</span></span><span class="line"><span class="cl">      | &#39;/Users/damonguo/.ssh/id_ed25519&#39;, &#39;SOPS_AGE_KEY&#39;, and
+</span></span><span class="line"><span class="cl">      | &#39;SOPS_AGE_KEY_CMD&#39;.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Recovery failed because no master key was able to decrypt the file. In
+</span></span><span class="line"><span class="cl">order for SOPS to recover the file, at least one key has to be successful,
+</span></span><span class="line"><span class="cl">but none were.</span></span></code></pre></div></div>
+<p>As user Alice, authorize Bob</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ vim .sops.yaml
+</span></span><span class="line"><span class="cl">creation_rules:
+</span></span><span class="line"><span class="cl">  - path_regex: ^secrets\.yml$
+</span></span><span class="line"><span class="cl">    age:
+</span></span><span class="line"><span class="cl">      - age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">      - age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops updatekeys secrets.yml
+</span></span><span class="line"><span class="cl">2026/02/03 18:16:58 Syncing keys for file /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml
+</span></span><span class="line"><span class="cl">The following changes will be made to the file&#39;s groups:
+</span></span><span class="line"><span class="cl">Group 1
+</span></span><span class="line"><span class="cl">    age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">+++ age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
+</span></span><span class="line"><span class="cl">Is this okay? (y/n):y
+</span></span><span class="line"><span class="cl">2026/02/03 18:17:10 File /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml synced with new keys</span></span></code></pre></div></div>
+<p>As user Bob, try to decrypt in authorized state</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">    username: super-secret
+</span></span><span class="line"><span class="cl">    password: ultra-secret</span></span></code></pre></div></div>
+<h2 id="remove-authorization-and-verify">Remove authorization and verify</h2>
+<p>The authorized user Bob can remove Alice&rsquo;s key and add Jack&rsquo;s authorization</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ vim .sops.yaml
+</span></span><span class="line"><span class="cl">creation_rules:
+</span></span><span class="line"><span class="cl">  - path_regex: ^secrets\.yml$
+</span></span><span class="line"><span class="cl">    age:
+</span></span><span class="line"><span class="cl">      - age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
+</span></span><span class="line"><span class="cl">      - age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops updatekeys secrets.yml
+</span></span><span class="line"><span class="cl">2026/02/03 18:23:11 Syncing keys for file /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml
+</span></span><span class="line"><span class="cl">The following changes will be made to the file&#39;s groups:
+</span></span><span class="line"><span class="cl">Group 1
+</span></span><span class="line"><span class="cl">    age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
+</span></span><span class="line"><span class="cl">+++ age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
+</span></span><span class="line"><span class="cl">--- age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">Is this okay? (y/n):y
+</span></span><span class="line"><span class="cl">2026/02/03 18:23:28 File /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml synced with new keys</span></span></code></pre></div></div>
+<p>User Alice cannot decrypt secrets.yml anymore</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">Failed to get the data key required to decrypt the SOPS file.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Group 0: FAILED
+</span></span><span class="line"><span class="cl">  age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m: FAILED
+</span></span><span class="line"><span class="cl">    - | failed to create reader for decrypting sops data key with
+</span></span><span class="line"><span class="cl">      | age: no identity matched any of the recipients. Did not find
+</span></span><span class="line"><span class="cl">      | keys in locations &#39;SOPS_AGE_SSH_PRIVATE_KEY_FILE&#39;,
+</span></span><span class="line"><span class="cl">      | &#39;/Users/damonguo/.ssh/id_ed25519&#39;, &#39;SOPS_AGE_KEY&#39;, and
+</span></span><span class="line"><span class="cl">      | &#39;SOPS_AGE_KEY_CMD&#39;.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal: FAILED
+</span></span><span class="line"><span class="cl">    - | failed to create reader for decrypting sops data key with
+</span></span><span class="line"><span class="cl">      | age: no identity matched any of the recipients. Did not find
+</span></span><span class="line"><span class="cl">      | keys in locations &#39;SOPS_AGE_SSH_PRIVATE_KEY_FILE&#39;,
+</span></span><span class="line"><span class="cl">      | &#39;/Users/damonguo/.ssh/id_ed25519&#39;, &#39;SOPS_AGE_KEY&#39;, and
+</span></span><span class="line"><span class="cl">      | &#39;SOPS_AGE_KEY_CMD&#39;.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Recovery failed because no master key was able to decrypt the file. In
+</span></span><span class="line"><span class="cl">order for SOPS to recover the file, at least one key has to be successful,
+</span></span><span class="line"><span class="cl">but none were.</span></span></code></pre></div></div>
+<p>Users Bob and Jack can decrypt secrets.yml</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/jack.key
+</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">    username: super-secret
+</span></span><span class="line"><span class="cl">    password: ultra-secret
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/jack.key
+</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">    username: super-secret
+</span></span><span class="line"><span class="cl">    password: ultra-secret</span></span></code></pre></div></div>
+<p>View the contents of the encrypted secrets.yml file</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cat secrets.yml
+</span></span><span class="line"><span class="cl">db:
+</span></span><span class="line"><span class="cl">    username: ENC[AES256_GCM,data:K4o7b88VYy1fiIRK,iv:WMPXoFF0aaxktEjaFxliYpsDgb77MVvbwviuwmYCRsk=,tag:qM3PzdjkyqYL2U+Ryhw/+Q==,type:str]
+</span></span><span class="line"><span class="cl">    password: ENC[AES256_GCM,data:SBIn28H5hlTNb0Xg,iv:BouoeNldrph5vph1ti2Y5Xny/qI5dQaFHCbsAFy/Ezo=,tag:X6SYXPgDU0R+WIVO0da+cA==,type:str]
+</span></span><span class="line"><span class="cl">sops:
+</span></span><span class="line"><span class="cl">    age:
+</span></span><span class="line"><span class="cl">        - recipient: age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
+</span></span><span class="line"><span class="cl">          enc: |
+</span></span><span class="line"><span class="cl">            -----BEGIN AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBhV04ydEp2SENrTk8xN01r
+</span></span><span class="line"><span class="cl">            MjFMZHREWDZydDc2dlM2V1FoUXEzMGFQY3hrCjdkeGVyNi9xRzBscllsU21jMHRh
+</span></span><span class="line"><span class="cl">            OCtMcXNRUFZXbHN2TXFtb0ZmQ0pXVkEKLS0tIHVGOSswWExyRThCWElVYi9Sa2hV
+</span></span><span class="line"><span class="cl">            cmM2NlRhRDAzYTcyRktPVU1abzBib3cKxevxN88yTfShd8+7TdrLYfY53krYOYtk
+</span></span><span class="line"><span class="cl">            rnJbrrH0+owJhyyiAFgzyphvzfbC1IwJA4gNR3OMc+R1vwngtfS+hg==
+</span></span><span class="line"><span class="cl">            -----END AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">        - recipient: age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
+</span></span><span class="line"><span class="cl">          enc: |
+</span></span><span class="line"><span class="cl">            -----BEGIN AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2bGFjeXQwc2hvcGE5c3pW
+</span></span><span class="line"><span class="cl">            ejgreFEzRVdhS2hqKzJ4M1BLdFJPLzlDSXpjCldrTTZSNUxtdk5BbXJYTHg5UHNw
+</span></span><span class="line"><span class="cl">            RWxpQURuZ0pWVDFxUGhYZnhPdCs3K00KLS0tIG8ybXVqT3QwQW85MmdENllQZU0z
+</span></span><span class="line"><span class="cl">            aW5NSEZBUWwrZDZBaHBRTUlBRExhQ00KV8F3UnarwNmFdNRdmYfMjgOha5yqYzvM
+</span></span><span class="line"><span class="cl">            b7AdSIKiVpZ92WgGDS7RJ4ouKYYkBQEmsaMFZwjqG9xGRRBkrI8YlA==
+</span></span><span class="line"><span class="cl">            -----END AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">    lastmodified: &#34;2026-02-03T10:00:15Z&#34;
+</span></span><span class="line"><span class="cl">    mac: ENC[AES256_GCM,data:5rbslKqxuIVbsilV3BFvlKw6BV2mUjGV0dmizTAXJgW5iC6n3I4ByGanc40lU/OjE02upvNo11NuoUtbDv7h1K+/XxFU7DlwMEJ7BGVdWU9Dq5fhf4eF2tcV5Q+Dw4JawUiMbBE25T3J0m+CMRx/Fb9KSRryYF7jb07l+QlTSrI=,iv:PasAhpZQI8h95vBu4szxxTyENYDgUimsYykS540svF8=,tag:/uHDwWrvqY6OYVjullgwhA==,type:str]
+</span></span><span class="line"><span class="cl">    unencrypted_suffix: _unencrypted
+</span></span><span class="line"><span class="cl">    version: 3.11.0</span></span></code></pre></div></div>
+<h2 id="references">References</h2>
+<p><a href="https://blog.gitguardian.com/a-comprehensive-guide-to-sops/" target="_blank" rel="noopener noreffer ">https://blog.gitguardian.com/a-comprehensive-guide-to-sops/</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2026-02-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/2026/02/using-sops-age-to-encrypt-files/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/" data-title="Using SOPS &#43; AGE to Encrypt Files" data-hashtags="Security"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/" data-title="Using SOPS &#43; AGE to Encrypt Files" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2fen%2f2026%2f02%2fusing-sops-age-to-encrypt-files%2f&amp;text=Using%20SOPS%20%2b%20AGE%20to%20Encrypt%20Files" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/security/">Security</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/2025/10/using-uv-to-create-and-manage-python-project/" class="prev" rel="prev" title="Using uv to create and manage Python project"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Using uv to create and manage Python project</a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"code":{"maxShownLines":100},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

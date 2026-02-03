@@ -4,7 +4,16 @@
         <link>https://blog.heylinux.com/en/categories/skills/</link>
         <description>Skills - Category - Hey! Linux</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</lastBuildDate><atom:link href="https://blog.heylinux.com/en/categories/skills/" rel="self" type="application/rss+xml" /><item>
+    <title>Using SOPS &#43; AGE to Encrypt Files</title>
+    <link>https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/</link>
+    <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/</guid>
+    <description><![CDATA[<p>SOPS stands for Secrets OPerationS, with an official description as &ldquo;Simple and flexible tool for managing secrets&rdquo;.<br>
+With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.</p>]]></description>
+</item>
+<item>
     <title>Using uv to create and manage Python project</title>
     <link>https://blog.heylinux.com/en/2025/10/using-uv-to-create-and-manage-python-project/</link>
     <pubDate>Mon, 27 Oct 2025 15:35:29 &#43;0800</pubDate>
@@ -70,20 +79,12 @@ uv provides performance 10 to 100 times faster than existing tools while maintai
     <description><![CDATA[<p>I collected a complete set of Alibaba Cloud vector icons and generated the draw.io icon library.</p>]]></description>
 </item>
 <item>
-    <title>Use git-crypt to Encrypt Files in Git</title>
-    <link>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</link>
+    <title>Using git-crypt to Encrypt Files in Git</title>
+    <link>https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/</link>
     <pubDate>Mon, 18 Dec 2023 17:50:15 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2023/12/use-git-crypt-to-encrypt-files-in-git/</guid>
+    <guid>https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/</guid>
     <description><![CDATA[<p>git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data.</p>]]></description>
-</item>
-<item>
-    <title>Lightweight Kubernetes Distributions Practices</title>
-    <link>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</link>
-    <pubDate>Thu, 07 Dec 2023 10:57:19 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/</guid>
-    <description><![CDATA[<p>Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.</p>]]></description>
 </item>
 </channel>
 </rss>
