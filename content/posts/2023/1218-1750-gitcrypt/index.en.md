@@ -341,4 +341,4 @@ https://buddy.works/guides/git-crypt
 
 ## Recommended
 
-A solution with more convenient private key management, more intuitive operations, and easier integration with CI: [Using SOPS + AGE to Encrypt Files](/en/2026/02/using-sops-age-to-encrypt-files/)
+A solution with more convenient private key management, more intuitive operations, and easier integration with CI: [Using SOPS + age to Encrypt Files](/en/2026/02/using-sops-age-to-encrypt-files/)
