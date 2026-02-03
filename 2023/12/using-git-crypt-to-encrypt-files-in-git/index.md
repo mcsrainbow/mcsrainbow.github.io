@@ -330,5 +330,5 @@ https://buddy.works/guides/git-crypt
 
 ## 推荐
 
-管理私钥更方便、操作更直观、更容易与 CI 集成的方案：[使用 SOPS + AGE 加解密文件](/2026/02/using-sops-age-to-encrypt-files/)
+管理私钥更方便、操作更直观、更容易与 CI 集成的方案：[使用 SOPS + age 加解密文件](/2026/02/using-sops-age-to-encrypt-files/)
 
