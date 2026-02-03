@@ -241,7 +241,7 @@ db:
     password: ultra-secret
 ```
 
-View the contents of the encrypted secrets.yml file
+View the encrypted secrets.yml
 
 ```plain
 ❯ cat secrets.yml
