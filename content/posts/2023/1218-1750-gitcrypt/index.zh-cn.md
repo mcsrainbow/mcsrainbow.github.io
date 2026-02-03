@@ -1,6 +1,6 @@
 ---
 title: "使用 git-crypt 加解密 Git 中的文件"
-slug: "use-git-crypt-to-encrypt-files-in-git"
+slug: "using-git-crypt-to-encrypt-files-in-git"
 date: 2023-12-18T17:50:15+08:00
 author: "郭冬"
 description: "git-crypt 是一个用于加密和解密文件的工具，可以与 Git 仓库无缝集成，允许用户安全地存储和共享敏感数据。"
@@ -339,3 +339,7 @@ Date:   Wed Jan 28 11:23:25 2026 +0800
 
 https://buddy.works/guides/git-crypt
 
+
+## 推荐
+
+管理私钥更方便、操作更直观、更容易与 CI 集成的方案：[使用 SOPS + AGE 加解密文件](/2026/02/using-sops-age-to-encrypt-files/)

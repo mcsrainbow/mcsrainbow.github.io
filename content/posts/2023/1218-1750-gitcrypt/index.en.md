@@ -1,6 +1,6 @@
 ---
-title: "Use git-crypt to Encrypt Files in Git"
-slug: "use-git-crypt-to-encrypt-files-in-git"
+title: "Using git-crypt to Encrypt Files in Git"
+slug: "using-git-crypt-to-encrypt-files-in-git"
 date: 2023-12-18T17:50:15+08:00
 author: "Damon"
 description: "git-crypt is a tool for encrypting and decrypting files that integrates seamlessly with Git repositories, allowing users to securely store and share sensitive data."
@@ -339,3 +339,6 @@ Date:   Wed Jan 28 11:23:25 2026 +0800
 
 https://buddy.works/guides/git-crypt
 
+## Recommended
+
+A solution with more convenient private key management, more intuitive operations, and easier integration with CI: [Using SOPS + AGE to Encrypt Files](/en/2026/02/using-sops-age-to-encrypt-files/)
