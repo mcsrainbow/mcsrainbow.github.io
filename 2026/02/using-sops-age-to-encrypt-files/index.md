@@ -1,8 +1,8 @@
-# 使用 SOPS + AGE 加解密文件
+# 使用 SOPS + age 加解密文件
 
 
-SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。  
-与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。
+[SOPS](https://github.com/getsops/sops) 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。  
+与 [age](https://github.com/FiloSottile/age) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。
 
 <!--more-->
 
@@ -10,7 +10,7 @@ SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool 
 
 ## 安装工具
 
-安装 SOPS 和 AGE
+安装 SOPS 和 age
 
 ```plain
 ❯ brew install sops age
@@ -46,9 +46,9 @@ db:
   password: ultra-secret
 ```
 
-## 生成 AGE Keys
+## 生成 age keys
 
-为用户 Alice，Bob 和 Jack 生成 AGE Keys
+为用户 Alice，Bob 和 Jack 生成 age keys
 
 ```plain
 ❯ touch /Users/damonguo/Workspace/demo/sops_keys/{alice,bob,jack}.key

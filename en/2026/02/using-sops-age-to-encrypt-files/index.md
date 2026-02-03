@@ -1,8 +1,8 @@
-# Using SOPS + AGE to Encrypt Files
+# Using SOPS + age to Encrypt Files
 
 
-SOPS stands for Secrets OPerationS, with an official description as "Simple and flexible tool for managing secrets".   
-With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.
+[SOPS](https://github.com/getsops/sops) stands for Secrets OPerationS, with an official description as "Simple and flexible tool for managing secrets".  
+With the [age](https://github.com/FiloSottile/age), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.
 
 <!--more-->
 
@@ -46,7 +46,7 @@ db:
   password: ultra-secret
 ```
 
-## Generate AGE Keys
+## Generate age keys
 
 For users Alice, Bob, and Jack, generate AGE Keys
 

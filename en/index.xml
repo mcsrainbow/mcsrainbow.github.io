@@ -7,13 +7,13 @@
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Using SOPS &#43; AGE to Encrypt Files</title>
+    <title>Using SOPS &#43; age to Encrypt Files</title>
     <link>https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/</link>
     <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/</guid>
-    <description><![CDATA[<p>SOPS stands for Secrets OPerationS, with an official description as &ldquo;Simple and flexible tool for managing secrets&rdquo;.<br>
-With the AGE (Actual Good Encryption), it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.</p>]]></description>
+    <description><![CDATA[<p><a href="https://github.com/getsops/sops" target="_blank" rel="noopener noreffer ">SOPS</a> stands for Secrets OPerationS, with an official description as &ldquo;Simple and flexible tool for managing secrets&rdquo;.<br>
+With the <a href="https://github.com/FiloSottile/age" target="_blank" rel="noopener noreffer ">age</a>, it offers more convenient private key management, more intuitive operations, and easier integration with CI compared to git-crypt.</p>]]></description>
 </item>
 <item>
     <title>Using uv to create and manage Python project</title>

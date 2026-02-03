@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>使用 SOPS &#43; AGE 加解密文件 - Hey! Linux</title><meta name="Description" content="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。"><meta property="og:url" content="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/">
+        <title>使用 SOPS &#43; age 加解密文件 - Hey! Linux</title><meta name="Description" content="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 age 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。"><meta property="og:url" content="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/">
   <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="使用 SOPS &#43; AGE 加解密文件">
-  <meta property="og:description" content="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。">
+  <meta property="og:title" content="使用 SOPS &#43; age 加解密文件">
+  <meta property="og:description" content="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 age 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -18,8 +18,8 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/featured-image.png">
-  <meta name="twitter:title" content="使用 SOPS &#43; AGE 加解密文件">
-  <meta name="twitter:description" content="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。">
+  <meta name="twitter:title" content="使用 SOPS &#43; age 加解密文件">
+  <meta name="twitter:description" content="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 age 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。">
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -30,7 +30,7 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "使用 SOPS + AGE 加解密文件",
+        "headline": "使用 SOPS + age 加解密文件",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2026\/02\/using-sops-age-to-encrypt-files\/featured-image.png",
                             "width":  1768 ,
                             "height":  553 
-                        }],"genre": "posts","keywords": "安全","wordcount":  865 ,
+                        }],"genre": "posts","keywords": "安全","wordcount":  862 ,
         "url": "https:\/\/blog.heylinux.com\/2026\/02\/using-sops-age-to-encrypt-files\/","datePublished": "2026-02-03T18:51:44+08:00","dateModified": "2026-02-03T18:51:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -51,7 +51,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "郭冬"
-            },"description": "SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。"
+            },"description": "SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 age 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script>
@@ -133,9 +133,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 SOPS + AGE 加解密文件</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 SOPS + age 加解密文件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-02-03">2026-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 865 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-02-03">2026-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 862 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -144,7 +144,7 @@
         data-srcset="/2026/02/using-sops-age-to-encrypt-files/featured-image.png, /2026/02/using-sops-age-to-encrypt-files/featured-image.png 1.5x, /2026/02/using-sops-age-to-encrypt-files/featured-image.png 2x"
         data-sizes="auto"
         alt="/2026/02/using-sops-age-to-encrypt-files/featured-image.png"
-        title="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。" /></div><div class="details toc" id="toc-static"  data-kept="">
+        title="SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。与 age 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -153,17 +153,17 @@
   <ul>
     <li><a href="#安装工具">安装工具</a></li>
     <li><a href="#创建目录和文件">创建目录和文件</a></li>
-    <li><a href="#生成-age-keys">生成 AGE Keys</a></li>
+    <li><a href="#生成-age-keys">生成 age keys</a></li>
     <li><a href="#授权并校验">授权并校验</a></li>
     <li><a href="#移除授权并校验">移除授权并校验</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
-与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>
+            </div><div class="content" id="content"><p><a href="https://github.com/getsops/sops" target="_blank" rel="noopener noreffer ">SOPS</a> 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
+与 <a href="https://github.com/FiloSottile/age" target="_blank" rel="noopener noreffer ">age</a> 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>
 <hr>
 <h2 id="安装工具">安装工具</h2>
-<p>安装 SOPS 和 AGE</p>
+<p>安装 SOPS 和 age</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -201,8 +201,8 @@
 </span></span><span class="line"><span class="cl">db:
 </span></span><span class="line"><span class="cl">  username: super-secret
 </span></span><span class="line"><span class="cl">  password: ultra-secret</span></span></code></pre></div></div>
-<h2 id="生成-age-keys">生成 AGE Keys</h2>
-<p>为用户 Alice，Bob 和 Jack 生成 AGE Keys</p>
+<h2 id="生成-age-keys">生成 age keys</h2>
+<p>为用户 Alice，Bob 和 Jack 生成 age keys</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -435,7 +435,7 @@
                             <a class="link-to-markdown" href="/2026/02/using-sops-age-to-encrypt-files/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/" data-title="使用 SOPS &#43; AGE 加解密文件" data-hashtags="安全"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/" data-title="使用 SOPS &#43; AGE 加解密文件" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2026%2f02%2fusing-sops-age-to-encrypt-files%2f&amp;text=%e4%bd%bf%e7%94%a8%20SOPS%20%2b%20AGE%20%e5%8a%a0%e8%a7%a3%e5%af%86%e6%96%87%e4%bb%b6" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/" data-title="使用 SOPS &#43; age 加解密文件" data-hashtags="安全"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/" data-title="使用 SOPS &#43; age 加解密文件" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2026%2f02%2fusing-sops-age-to-encrypt-files%2f&amp;text=%e4%bd%bf%e7%94%a8%20SOPS%20%2b%20age%20%e5%8a%a0%e8%a7%a3%e5%af%86%e6%96%87%e4%bb%b6" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

@@ -7,13 +7,13 @@
             <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>使用 SOPS &#43; AGE 加解密文件</title>
+    <title>使用 SOPS &#43; age 加解密文件</title>
     <link>https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/</link>
     <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/</guid>
-    <description><![CDATA[<p>SOPS 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
-与 AGE (Actual Good Encryption) 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>]]></description>
+    <description><![CDATA[<p><a href="https://github.com/getsops/sops" target="_blank" rel="noopener noreffer ">SOPS</a> 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
+与 <a href="https://github.com/FiloSottile/age" target="_blank" rel="noopener noreffer ">age</a> 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>]]></description>
 </item>
 <item>
     <title>使用 uv 创建和管理 Python 项目</title>
