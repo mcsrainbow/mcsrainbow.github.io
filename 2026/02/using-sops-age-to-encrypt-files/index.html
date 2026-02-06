@@ -40,7 +40,7 @@
                             "url": "https:\/\/blog.heylinux.com\/2026\/02\/using-sops-age-to-encrypt-files\/featured-image.png",
                             "width":  1768 ,
                             "height":  553 
-                        }],"genre": "posts","keywords": "安全","wordcount":  862 ,
+                        }],"genre": "posts","keywords": "安全","wordcount":  1236 ,
         "url": "https:\/\/blog.heylinux.com\/2026\/02\/using-sops-age-to-encrypt-files\/","datePublished": "2026-02-03T18:51:44+08:00","dateModified": "2026-02-03T18:51:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "mcsrainbow","logo": {
@@ -135,8 +135,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用 SOPS + age 加解密文件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技能矩阵</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-02-03">2026-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 862 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-02-03">2026-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1236 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -177,30 +177,34 @@
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir -p /Users/damonguo/Workspace/demo/{repo,sops_keys}
-</span></span><span class="line"><span class="cl">❯ cd /Users/damonguo/Workspace/demo/
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir -p /Users/damonguo/Workspace/demo/sops-age/{age_keys,repo}
+</span></span><span class="line"><span class="cl">❯ cd /Users/damonguo/Workspace/demo/sops-age/
 </span></span><span class="line"><span class="cl">❯ ls -1
-</span></span><span class="line"><span class="cl">repo
-</span></span><span class="line"><span class="cl">sops_keys</span></span></code></pre></div></div>
-<p>以用户 Alice 的身份新建 secrets.yml</p>
+</span></span><span class="line"><span class="cl">age_keys
+</span></span><span class="line"><span class="cl">repo</span></span></code></pre></div></div>
+<p>以用户 Alice 的身份新建 config.yaml</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd repo
-</span></span><span class="line"><span class="cl">❯ mkdir sops-demo
+</span></span><span class="line"><span class="cl">❯ cat &gt; config.yaml &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: abcd_1234
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ cd sops-demo
-</span></span><span class="line"><span class="cl">❯ cat &gt; secrets.yml &lt;&lt;EOF
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">  username: super-secret
-</span></span><span class="line"><span class="cl">  password: ultra-secret
-</span></span><span class="line"><span class="cl">EOF
-</span></span><span class="line"><span class="cl">❯ cat secrets.yml
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">  username: super-secret
-</span></span><span class="line"><span class="cl">  password: ultra-secret</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: dummy12345
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: abcdef123456
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: uvwxyz456789
+</span></span><span class="line"><span class="cl">EOF</span></span></code></pre></div></div>
 <h2 id="生成-age-keys">生成 age keys</h2>
 <p>为用户 Alice，Bob 和 Jack 生成 age keys</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -208,68 +212,112 @@
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ touch /Users/damonguo/Workspace/demo/sops_keys/{alice,bob,jack}.key
-</span></span><span class="line"><span class="cl">❯ chmod 600 /Users/damonguo/Workspace/demo/sops_keys/*.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ touch /Users/damonguo/Workspace/demo/sops-age/age_keys/{alice,bob,jack}.key
+</span></span><span class="line"><span class="cl">❯ chmod 600 /Users/damonguo/Workspace/demo/sops-age/age_keys/*.key
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/alice.key
 </span></span><span class="line"><span class="cl">❯ age-keygen &gt; $SOPS_AGE_KEY_FILE
 </span></span><span class="line"><span class="cl">Public key: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/bob.key
 </span></span><span class="line"><span class="cl">❯ age-keygen &gt; $SOPS_AGE_KEY_FILE
 </span></span><span class="line"><span class="cl">Public key: age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/jack.key
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/jack.key
 </span></span><span class="line"><span class="cl">❯ age-keygen &gt; $SOPS_AGE_KEY_FILE
 </span></span><span class="line"><span class="cl">Public key: age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ cat /Users/damonguo/Workspace/demo/sops_keys/alice.key
+</span></span><span class="line"><span class="cl">❯ cat /Users/damonguo/Workspace/demo/sops-age/age_keys/alice.key
 </span></span><span class="line"><span class="cl"># created: 2026-02-03T17:41:06+08:00
 </span></span><span class="line"><span class="cl"># public key: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 </span></span><span class="line"><span class="cl">AGE-SECRET-KEY-1ZU2XLLK73TEAY4Z4JQFDJH4VUA796QTN3GJ246YJKV2C5N7Z7TUSM24TWZ</span></span></code></pre></div></div>
 <h2 id="授权并校验">授权并校验</h2>
-<p>以用户 Alice 的身份加密 secrets.yml，并解密验证</p>
+<p>创建 .sops.yaml 文件，定义加密规则</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">❯ vim .sops.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">stores</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># YAML 文件默认采用 2 空格缩进</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">yaml</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">indent</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">creation_rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 匹配 config.yaml 文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">path_regex</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;config\.yaml$&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># key 名包含 password/secret/token (不区分大小写) 就加密</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">encrypted_regex</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;(?i)(password|secret|token)&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 解密者公钥</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">age</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9</span></span></span></code></pre></div></div>
+<p>以用户 Alice 的身份加密 config.yaml</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/alice.key
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ sops --encrypt --in-place --age age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9 secrets.yml
-</span></span><span class="line"><span class="cl">❯ cat secrets.yml
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">    username: ENC[AES256_GCM,data:K4o7b88VYy1fiIRK,iv:WMPXoFF0aaxktEjaFxliYpsDgb77MVvbwviuwmYCRsk=,tag:qM3PzdjkyqYL2U+Ryhw/+Q==,type:str]
-</span></span><span class="line"><span class="cl">    password: ENC[AES256_GCM,data:SBIn28H5hlTNb0Xg,iv:BouoeNldrph5vph1ti2Y5Xny/qI5dQaFHCbsAFy/Ezo=,tag:X6SYXPgDU0R+WIVO0da+cA==,type:str]
+</span></span><span class="line"><span class="cl">❯ sops --encrypt --in-place config.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ cat config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: ENC[AES256_GCM,data:KSNypavbjvcY,iv:QG7DLWflC9ledyPegIN2pFRhC9Qv/C0aEPOBilOg710=,tag:qYBqXAYnskV9i6Dk0VqvOA==,type:str]
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: ENC[AES256_GCM,data:3rYCpMxrBwpIcQ==,iv:vgwFe+Xha6BUiMsQpFhqG/g82kWkvtUY2Q88YPRR3qY=,tag:9U1C1WK14vamwBcCgDi6KA==,type:str]
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: ENC[AES256_GCM,data:W7pCfqvdKpIj72Ww,iv:zEjNCwkO38uiSEyuS3kIbYewFNg4ey7EbN1x/feowz4=,tag:WI5Uh5CdxhQVaECmTjNV8g==,type:str]
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: ENC[AES256_GCM,data:gpZhOBKH2OnPAh1c,iv:MZWYUCBHNZ+oM7ev6gEcIC860OsWh+GKVrKiyhILTrw=,tag:PyP50EsJXRPMwPRUnPuDbA==,type:str]
 </span></span><span class="line"><span class="cl">sops:
-</span></span><span class="line"><span class="cl">    age:
-</span></span><span class="line"><span class="cl">        - recipient: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
-</span></span><span class="line"><span class="cl">          enc: |
-</span></span><span class="line"><span class="cl">            -----BEGIN AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBkSkNRLzYrUjFNRTNQdHAr
-</span></span><span class="line"><span class="cl">            YitPZXNPZk8xdXZ3ZWNsRkdqaE1RSUpkVXc0Cll1TDJ5SFI2ckdIR0FNay9HWjFm
-</span></span><span class="line"><span class="cl">            QmJXSk8rdm9vQXltL3ZBbVVldGxZVU0KLS0tIFJRRlBsZmVtRW4yVStxUVFobjRo
-</span></span><span class="line"><span class="cl">            bmxUS2xPWlMydlFlTm1IZWp5OWdERncKkU/H0ovZpSCjrBRlitwp0iXiKB2VesL7
-</span></span><span class="line"><span class="cl">            BeYvdfvC0DeNZOyUYeAageEnYdm4z5Su7EmievmiYADVB20v/37Qog==
-</span></span><span class="line"><span class="cl">            -----END AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">    lastmodified: &#34;2026-02-03T10:00:15Z&#34;
-</span></span><span class="line"><span class="cl">    mac: ENC[AES256_GCM,data:5rbslKqxuIVbsilV3BFvlKw6BV2mUjGV0dmizTAXJgW5iC6n3I4ByGanc40lU/OjE02upvNo11NuoUtbDv7h1K+/XxFU7DlwMEJ7BGVdWU9Dq5fhf4eF2tcV5Q+Dw4JawUiMbBE25T3J0m+CMRx/Fb9KSRryYF7jb07l+QlTSrI=,iv:PasAhpZQI8h95vBu4szxxTyENYDgUimsYykS540svF8=,tag:/uHDwWrvqY6OYVjullgwhA==,type:str]
-</span></span><span class="line"><span class="cl">    unencrypted_suffix: _unencrypted
-</span></span><span class="line"><span class="cl">    version: 3.11.0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">  username: super-secret
-</span></span><span class="line"><span class="cl">  password: ultra-secret</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">  age:
+</span></span><span class="line"><span class="cl">    - recipient: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">      enc: |
+</span></span><span class="line"><span class="cl">        -----BEGIN AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA1dk1HM0JVeGVBNkhPUmxy
+</span></span><span class="line"><span class="cl">        VFZYUTNIN3ViTktXaDB2emNidWxLenVqYjBVCmtVTnFwcjhCNUFUZk85d2lUbzhM
+</span></span><span class="line"><span class="cl">        WmFSYU1HSmhPUG4rUHdpa1RqeG5hYjAKLS0tIE9RRHFWa0JnMXZZV0dTU1JPM1VL
+</span></span><span class="line"><span class="cl">        TWUwWVpzVEd6b1FQOEdtOERwZGlFdmcK3qRblOKDUEyokw8DmOZ/rQILrKcU3ESM
+</span></span><span class="line"><span class="cl">        9Uddh0KLn/N37KCdEJc+NVXa+lCR9WbbNnNVPCh4ZcyxKGzY1f3Uvw==
+</span></span><span class="line"><span class="cl">        -----END AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">  lastmodified: &#34;2026-02-06T03:59:28Z&#34;
+</span></span><span class="line"><span class="cl">  mac: ENC[AES256_GCM,data:qmw//bM0Kxo7KtTa1Ac955qzNnzsGpqd9/yhmQcq2q+mIvDj4YBPGkBg2hAhp7y3JYPGOdgCPgzJV41MvZe4Mwab1mdPU+EWTY+fDpaMll67rB28oO1XT3/W3MLSruWMTCMyeGApwFRRSP8KNzIXLMje/cz1rAbt4pPCsD8X6eM=,iv:VunSwYXgB70WpnbYB22bls8INj5bZ8VrNPMSA1XsLQ8=,tag:jOUQsg9YZZ52ylbvNp6PCw==,type:str]
+</span></span><span class="line"><span class="cl">  encrypted_regex: (?i)(password|secret|token)
+</span></span><span class="line"><span class="cl">  version: 3.11.0</span></span></code></pre></div></div>
+<p>解密验证</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ sops --decrypt config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: abcd_1234
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: dummy12345
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: abcdef123456
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: uvwxyz456789</span></span></code></pre></div></div>
 <p>以用户 Bob 的身份尝试未授权状态下解密</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/bob.key
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">❯ sops --decrypt config.yaml
 </span></span><span class="line"><span class="cl">Failed to get the data key required to decrypt the SOPS file.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Group 0: FAILED
@@ -289,35 +337,53 @@
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/alice.key
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ vim .sops.yaml
+</span></span><span class="line"><span class="cl">stores:
+</span></span><span class="line"><span class="cl">  # YAML 文件默认采用 2 空格缩进
+</span></span><span class="line"><span class="cl">  yaml:
+</span></span><span class="line"><span class="cl">    indent: 2
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">creation_rules:
-</span></span><span class="line"><span class="cl">  - path_regex: ^secrets\.yml$
+</span></span><span class="line"><span class="cl">    # 匹配 config.yaml 文件
+</span></span><span class="line"><span class="cl">  - path_regex: &#39;config\.yaml$&#39;
+</span></span><span class="line"><span class="cl">    # key 名包含 password/secret/token (不区分大小写) 就加密
+</span></span><span class="line"><span class="cl">    encrypted_regex: &#39;(?i)(password|secret|token)&#39;
+</span></span><span class="line"><span class="cl">    # 解密者公钥
 </span></span><span class="line"><span class="cl">    age:
 </span></span><span class="line"><span class="cl">      - age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 </span></span><span class="line"><span class="cl">      - age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ sops updatekeys secrets.yml
-</span></span><span class="line"><span class="cl">2026/02/03 18:16:58 Syncing keys for file /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml
+</span></span><span class="line"><span class="cl">❯ sops updatekeys config.yaml
+</span></span><span class="line"><span class="cl">2026/02/06 11:00:11 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
 </span></span><span class="line"><span class="cl">The following changes will be made to the file&#39;s groups:
 </span></span><span class="line"><span class="cl">Group 1
 </span></span><span class="line"><span class="cl">    age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 </span></span><span class="line"><span class="cl">+++ age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">Is this okay? (y/n):y
-</span></span><span class="line"><span class="cl">2026/02/03 18:17:10 File /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml synced with new keys</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">2026/02/06 11:00:13 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys</span></span></code></pre></div></div>
 <p>以用户 Bob 的身份尝试已授权状态下解密</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/bob.key
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">    username: super-secret
-</span></span><span class="line"><span class="cl">    password: ultra-secret</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">❯ sops --decrypt config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: abcd_1234
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: dummy12345
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: abcdef123456
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: uvwxyz456789</span></span></code></pre></div></div>
 <h2 id="移除授权并校验">移除授权并校验</h2>
 <p>已授权的用户 Bob 可以将 Alice 的密钥移除，并添加 Jack 的授权</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -325,33 +391,42 @@
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/bob.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/bob.key
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ vim .sops.yaml
+</span></span><span class="line"><span class="cl">stores:
+</span></span><span class="line"><span class="cl">  # YAML 文件默认采用 2 空格缩进
+</span></span><span class="line"><span class="cl">  yaml:
+</span></span><span class="line"><span class="cl">    indent: 2
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">creation_rules:
-</span></span><span class="line"><span class="cl">  - path_regex: ^secrets\.yml$
+</span></span><span class="line"><span class="cl">    # 匹配 config.yaml 文件
+</span></span><span class="line"><span class="cl">  - path_regex: &#39;config\.yaml$&#39;
+</span></span><span class="line"><span class="cl">    # key 名包含 password/secret/token (不区分大小写) 就加密
+</span></span><span class="line"><span class="cl">    encrypted_regex: &#39;(?i)(password|secret|token)&#39;
+</span></span><span class="line"><span class="cl">    # 解密者公钥
 </span></span><span class="line"><span class="cl">    age:
 </span></span><span class="line"><span class="cl">      - age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">      - age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ sops updatekeys secrets.yml
-</span></span><span class="line"><span class="cl">2026/02/03 18:23:11 Syncing keys for file /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml
+</span></span><span class="line"><span class="cl">❯ sops updatekeys config.yaml
+</span></span><span class="line"><span class="cl">2026/02/06 11:01:56 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
 </span></span><span class="line"><span class="cl">The following changes will be made to the file&#39;s groups:
 </span></span><span class="line"><span class="cl">Group 1
 </span></span><span class="line"><span class="cl">    age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">+++ age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
 </span></span><span class="line"><span class="cl">--- age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 </span></span><span class="line"><span class="cl">Is this okay? (y/n):y
-</span></span><span class="line"><span class="cl">2026/02/03 18:23:28 File /Users/damonguo/Workspace/demo/repo/sops-demo/secrets.yml synced with new keys</span></span></code></pre></div></div>
-<p>用户 Alice 无法再解密 secrets.yml</p>
+</span></span><span class="line"><span class="cl">2026/02/06 11:01:58 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys</span></span></code></pre></div></div>
+<p>用户 Alice 无法再解密 config.yaml</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/alice.key
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/alice.key
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
+</span></span><span class="line"><span class="cl">❯ sops --decrypt config.yaml
 </span></span><span class="line"><span class="cl">Failed to get the data key required to decrypt the SOPS file.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Group 0: FAILED
@@ -372,57 +447,127 @@
 </span></span><span class="line"><span class="cl">Recovery failed because no master key was able to decrypt the file. In
 </span></span><span class="line"><span class="cl">order for SOPS to recover the file, at least one key has to be successful,
 </span></span><span class="line"><span class="cl">but none were.</span></span></code></pre></div></div>
-<p>用户 Bob 和 Jack 可以解密 secrets.yml</p>
+<p>用户 Bob 和 Jack 可以解密 config.yaml</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/jack.key
-</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">    username: super-secret
-</span></span><span class="line"><span class="cl">    password: ultra-secret
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/jack.key
+</span></span><span class="line"><span class="cl">❯ sops --decrypt config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: abcd_1234
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: dummy12345
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: abcdef123456
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: uvwxyz456789
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops_keys/jack.key
-</span></span><span class="line"><span class="cl">❯ sops --decrypt secrets.yml
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">    username: super-secret
-</span></span><span class="line"><span class="cl">    password: ultra-secret</span></span></code></pre></div></div>
-<p>查看加密后的 secrets.yml 文件内容</p>
+</span></span><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/jack.key
+</span></span><span class="line"><span class="cl">❯ sops --decrypt config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: abcd_1234
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: dummy12345
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: abcdef123456
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: uvwxyz456789</span></span></code></pre></div></div>
+<p>用户 Jack 可以用命令 <code>sops</code> 自动解密编辑 config.yaml，编辑完成后自动加密</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cat secrets.yml
-</span></span><span class="line"><span class="cl">db:
-</span></span><span class="line"><span class="cl">    username: ENC[AES256_GCM,data:K4o7b88VYy1fiIRK,iv:WMPXoFF0aaxktEjaFxliYpsDgb77MVvbwviuwmYCRsk=,tag:qM3PzdjkyqYL2U+Ryhw/+Q==,type:str]
-</span></span><span class="line"><span class="cl">    password: ENC[AES256_GCM,data:SBIn28H5hlTNb0Xg,iv:BouoeNldrph5vph1ti2Y5Xny/qI5dQaFHCbsAFy/Ezo=,tag:X6SYXPgDU0R+WIVO0da+cA==,type:str]
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export SOPS_AGE_KEY_FILE=/Users/damonguo/Workspace/demo/sops-age/age_keys/jack.key
+</span></span><span class="line"><span class="cl">❯ sops config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: abcd_1234
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: dummy56789
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: abcdef123456
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: uvwxyz456789
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ sops --decrypt config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: abcd_1234
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: dummy56789
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: abcdef123456
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: uvwxyz456789</span></span></code></pre></div></div>
+<p>查看加密后的 config.yaml 文件内容</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-plain">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cat config.yaml
+</span></span><span class="line"><span class="cl">database:
+</span></span><span class="line"><span class="cl">  host: localhost
+</span></span><span class="line"><span class="cl">  username: app
+</span></span><span class="line"><span class="cl">  password: ENC[AES256_GCM,data:y88DSJ5vXkyA,iv:sROb0UYccXYjEfDQD7fnF14Sr55Zj7djSnKQoARZjAA=,tag:Ykt6b8+YkvrGmoU9JpdRAw==,type:str]
+</span></span><span class="line"><span class="cl">api:
+</span></span><span class="line"><span class="cl">  timeout: 30
+</span></span><span class="line"><span class="cl">  access_token: ENC[AES256_GCM,data:Jgj2jkxhZAEhiQ==,iv:u/uf7VAK0MbySLS06X7dW3cX3K1S4B+VIzCtDgwOZ5o=,tag:q0otHUXfHyctxZiz2QRnQQ==,type:str]
+</span></span><span class="line"><span class="cl">service:
+</span></span><span class="line"><span class="cl">  - name: foo
+</span></span><span class="line"><span class="cl">    client_secret: ENC[AES256_GCM,data:0PCLP7VXe7u5Pmb6,iv:ExUPwsa8JYpoTQhVdXVApEALc4b1dmX0f+2mf1zJ30Q=,tag:eeLLULLpVLXz3PXPVmrjiw==,type:str]
+</span></span><span class="line"><span class="cl">  - name: bar
+</span></span><span class="line"><span class="cl">    client_secret: ENC[AES256_GCM,data:aSFxII+/Rc6ma+zw,iv:/nhi1giX9rx1wr/qvYeX1cBj6FoADZfwD1Xs4taBClQ=,tag:Fwk4aLNECrszQ97coK1FnA==,type:str]
 </span></span><span class="line"><span class="cl">sops:
-</span></span><span class="line"><span class="cl">    age:
-</span></span><span class="line"><span class="cl">        - recipient: age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
-</span></span><span class="line"><span class="cl">          enc: |
-</span></span><span class="line"><span class="cl">            -----BEGIN AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBhV04ydEp2SENrTk8xN01r
-</span></span><span class="line"><span class="cl">            MjFMZHREWDZydDc2dlM2V1FoUXEzMGFQY3hrCjdkeGVyNi9xRzBscllsU21jMHRh
-</span></span><span class="line"><span class="cl">            OCtMcXNRUFZXbHN2TXFtb0ZmQ0pXVkEKLS0tIHVGOSswWExyRThCWElVYi9Sa2hV
-</span></span><span class="line"><span class="cl">            cmM2NlRhRDAzYTcyRktPVU1abzBib3cKxevxN88yTfShd8+7TdrLYfY53krYOYtk
-</span></span><span class="line"><span class="cl">            rnJbrrH0+owJhyyiAFgzyphvzfbC1IwJA4gNR3OMc+R1vwngtfS+hg==
-</span></span><span class="line"><span class="cl">            -----END AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">        - recipient: age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
-</span></span><span class="line"><span class="cl">          enc: |
-</span></span><span class="line"><span class="cl">            -----BEGIN AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2bGFjeXQwc2hvcGE5c3pW
-</span></span><span class="line"><span class="cl">            ejgreFEzRVdhS2hqKzJ4M1BLdFJPLzlDSXpjCldrTTZSNUxtdk5BbXJYTHg5UHNw
-</span></span><span class="line"><span class="cl">            RWxpQURuZ0pWVDFxUGhYZnhPdCs3K00KLS0tIG8ybXVqT3QwQW85MmdENllQZU0z
-</span></span><span class="line"><span class="cl">            aW5NSEZBUWwrZDZBaHBRTUlBRExhQ00KV8F3UnarwNmFdNRdmYfMjgOha5yqYzvM
-</span></span><span class="line"><span class="cl">            b7AdSIKiVpZ92WgGDS7RJ4ouKYYkBQEmsaMFZwjqG9xGRRBkrI8YlA==
-</span></span><span class="line"><span class="cl">            -----END AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">    lastmodified: &#34;2026-02-03T10:00:15Z&#34;
-</span></span><span class="line"><span class="cl">    mac: ENC[AES256_GCM,data:5rbslKqxuIVbsilV3BFvlKw6BV2mUjGV0dmizTAXJgW5iC6n3I4ByGanc40lU/OjE02upvNo11NuoUtbDv7h1K+/XxFU7DlwMEJ7BGVdWU9Dq5fhf4eF2tcV5Q+Dw4JawUiMbBE25T3J0m+CMRx/Fb9KSRryYF7jb07l+QlTSrI=,iv:PasAhpZQI8h95vBu4szxxTyENYDgUimsYykS540svF8=,tag:/uHDwWrvqY6OYVjullgwhA==,type:str]
-</span></span><span class="line"><span class="cl">    unencrypted_suffix: _unencrypted
-</span></span><span class="line"><span class="cl">    version: 3.11.0</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">  age:
+</span></span><span class="line"><span class="cl">    - recipient: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
+</span></span><span class="line"><span class="cl">      enc: |
+</span></span><span class="line"><span class="cl">        -----BEGIN AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzbFBEV29zMWxCbUwwWVBt
+</span></span><span class="line"><span class="cl">        MGU3cEoyYnVpYW0xM0JjaUdpcUhoR2pkVXpnCk45eHNqMDhuY3VoVUZkSnRWcUVN
+</span></span><span class="line"><span class="cl">        SXB5RC9XTUdMYjJMYXI0aS9CZzZ5UWcKLS0tIGZLalJ3Q2lkTlNiZmwvT053U1Zy
+</span></span><span class="line"><span class="cl">        dEhqODRla3pmKzV4L0Zxb3BDV045R1EKdK4DBoeF4QeywyZOFJw9M34bY4ZN0G51
+</span></span><span class="line"><span class="cl">        fRefdvyMGE5l5On4aolBCS1Hft9wSD77By0JRF3pdYxwoYd5E4ZwBg==
+</span></span><span class="line"><span class="cl">        -----END AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">    - recipient: age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
+</span></span><span class="line"><span class="cl">      enc: |
+</span></span><span class="line"><span class="cl">        -----BEGIN AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSByanlTVkJSU3FSTUFFaVRV
+</span></span><span class="line"><span class="cl">        NXRJSStwZHRVbGVQUjZ1NVU0RFIvUlhGQkdnCjh2VzlUN3NVK3Y1UHRIblYyWU5r
+</span></span><span class="line"><span class="cl">        czdZbkNkRERwc1I0WmVvajZ1MFZ3YncKLS0tIGt1MzMrdlRrSlpBNllvNUFYUzE5
+</span></span><span class="line"><span class="cl">        TTdQa3NOanM0OFFaeGcvNHBHbk1Ba3cKdroSdS8pChvjREYTP+O42VWV5+WcS+UU
+</span></span><span class="line"><span class="cl">        Sd7oxkBqYc/fHgG45pcHNdOvddPGSsKPr+mk1quO8dtofJWvXnyRVw==
+</span></span><span class="line"><span class="cl">        -----END AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">    - recipient: age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
+</span></span><span class="line"><span class="cl">      enc: |
+</span></span><span class="line"><span class="cl">        -----BEGIN AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVTWQ2R2ZSQ01GaE5nRmRi
+</span></span><span class="line"><span class="cl">        S3V0aHU3aEhDcDlhOFJ3akFCbE1kSXc3UHlVCld4UEU1VXIxMm01RFhlVWVVMThO
+</span></span><span class="line"><span class="cl">        aXpZS01IWjlzLyswY2FSMFBlZDNNbUkKLS0tIExEdmpWdkxPWlpiQjlnMi9tMXUv
+</span></span><span class="line"><span class="cl">        VXorMy9XamtUM3JTSlFxQ045bjBBdkEKlHLnr8XMOJHxXACIl7MSfgcpE2HxCDRm
+</span></span><span class="line"><span class="cl">        Y3jTPxNlZXzy44q1q/tf2oHvp40VmLyQ4fB8tDj/0p/eyfVZWtCRjQ==
+</span></span><span class="line"><span class="cl">        -----END AGE ENCRYPTED FILE-----
+</span></span><span class="line"><span class="cl">  lastmodified: &#34;2026-02-06T04:04:01Z&#34;
+</span></span><span class="line"><span class="cl">  mac: ENC[AES256_GCM,data:Q7qv3BOUjtJ2PRE6+Ucdy1tNeKOGs3X0hNzzDruq/bInR50jo4aiY7u25XQmVLQBwQmDjIgeF83KMDx0g/f1n1AxCTP5gxQfyR2HI2rjMiy16WlvrYNyFZsXJto4ce07wJEoECiYO5VDjGPo0qa1N3RCg2w7yy4P7TKcWk//vos=,iv:L87g5UMWTmC7F+SXimxcbqVu8cVg5LMrXCpfNSfzKlE=,tag:iPgMNJ0KhZ4J+Pk0d51Kxg==,type:str]
+</span></span><span class="line"><span class="cl">  encrypted_regex: (?i)(password|secret|token)
+</span></span><span class="line"><span class="cl">  version: 3.11.0</span></span></code></pre></div></div>
 <h2 id="参考">参考</h2>
 <p><a href="https://blog.gitguardian.com/a-comprehensive-guide-to-sops/" target="_blank" rel="noopener noreffer ">https://blog.gitguardian.com/a-comprehensive-guide-to-sops/</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
