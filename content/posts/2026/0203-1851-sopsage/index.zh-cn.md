@@ -383,15 +383,6 @@ service:
     client_secret: ENC[AES256_GCM,data:aSFxII+/Rc6ma+zw,iv:/nhi1giX9rx1wr/qvYeX1cBj6FoADZfwD1Xs4taBClQ=,tag:Fwk4aLNECrszQ97coK1FnA==,type:str]
 sops:
   age:
-    - recipient: age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
-      enc: |
-        -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzbFBEV29zMWxCbUwwWVBt
-        MGU3cEoyYnVpYW0xM0JjaUdpcUhoR2pkVXpnCk45eHNqMDhuY3VoVUZkSnRWcUVN
-        SXB5RC9XTUdMYjJMYXI0aS9CZzZ5UWcKLS0tIGZLalJ3Q2lkTlNiZmwvT053U1Zy
-        dEhqODRla3pmKzV4L0Zxb3BDV045R1EKdK4DBoeF4QeywyZOFJw9M34bY4ZN0G51
-        fRefdvyMGE5l5On4aolBCS1Hft9wSD77By0JRF3pdYxwoYd5E4ZwBg==
-        -----END AGE ENCRYPTED FILE-----
     - recipient: age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
       enc: |
         -----BEGIN AGE ENCRYPTED FILE-----
