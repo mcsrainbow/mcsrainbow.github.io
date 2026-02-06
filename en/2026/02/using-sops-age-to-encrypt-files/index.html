@@ -286,7 +286,7 @@ With the <a href="https://github.com/FiloSottile/age" target="_blank" rel="noope
 </span></span><span class="line"><span class="cl">        TWUwWVpzVEd6b1FQOEdtOERwZGlFdmcK3qRblOKDUEyokw8DmOZ/rQILrKcU3ESM
 </span></span><span class="line"><span class="cl">        9Uddh0KLn/N37KCdEJc+NVXa+lCR9WbbNnNVPCh4ZcyxKGzY1f3Uvw==
 </span></span><span class="line"><span class="cl">        -----END AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">  lastmodified: &#34;2026-02-06T03:59:28Z&#34;
+</span></span><span class="line"><span class="cl">  lastmodified: &#34;2026-02-03T09:59:28Z&#34;
 </span></span><span class="line"><span class="cl">  mac: ENC[AES256_GCM,data:qmw//bM0Kxo7KtTa1Ac955qzNnzsGpqd9/yhmQcq2q+mIvDj4YBPGkBg2hAhp7y3JYPGOdgCPgzJV41MvZe4Mwab1mdPU+EWTY+fDpaMll67rB28oO1XT3/W3MLSruWMTCMyeGApwFRRSP8KNzIXLMje/cz1rAbt4pPCsD8X6eM=,iv:VunSwYXgB70WpnbYB22bls8INj5bZ8VrNPMSA1XsLQ8=,tag:jOUQsg9YZZ52ylbvNp6PCw==,type:str]
 </span></span><span class="line"><span class="cl">  encrypted_regex: (?i)(password|secret|token)
 </span></span><span class="line"><span class="cl">  version: 3.11.0</span></span></code></pre></div></div>
@@ -356,13 +356,13 @@ With the <a href="https://github.com/FiloSottile/age" target="_blank" rel="noope
 </span></span><span class="line"><span class="cl">      - age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ sops updatekeys config.yaml
-</span></span><span class="line"><span class="cl">2026/02/06 11:00:11 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
+</span></span><span class="line"><span class="cl">2026/02/03 18:00:11 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
 </span></span><span class="line"><span class="cl">The following changes will be made to the file&#39;s groups:
 </span></span><span class="line"><span class="cl">Group 1
 </span></span><span class="line"><span class="cl">    age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 </span></span><span class="line"><span class="cl">+++ age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">Is this okay? (y/n):y
-</span></span><span class="line"><span class="cl">2026/02/06 11:00:13 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">2026/02/03 18:00:13 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys</span></span></code></pre></div></div>
 <p>As user Bob, try to decrypt with authorization</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
@@ -410,14 +410,14 @@ With the <a href="https://github.com/FiloSottile/age" target="_blank" rel="noope
 </span></span><span class="line"><span class="cl">      - age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">❯ sops updatekeys config.yaml
-</span></span><span class="line"><span class="cl">2026/02/06 11:01:56 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
+</span></span><span class="line"><span class="cl">2026/02/03 18:01:56 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
 </span></span><span class="line"><span class="cl">The following changes will be made to the file&#39;s groups:
 </span></span><span class="line"><span class="cl">Group 1
 </span></span><span class="line"><span class="cl">    age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 </span></span><span class="line"><span class="cl">+++ age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
 </span></span><span class="line"><span class="cl">--- age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 </span></span><span class="line"><span class="cl">Is this okay? (y/n):y
-</span></span><span class="line"><span class="cl">2026/02/06 11:01:58 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">2026/02/03 18:01:58 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys</span></span></code></pre></div></div>
 <p>User Alice cannot decrypt config.yaml anymore</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
@@ -555,7 +555,7 @@ With the <a href="https://github.com/FiloSottile/age" target="_blank" rel="noope
 </span></span><span class="line"><span class="cl">        VXorMy9XamtUM3JTSlFxQ045bjBBdkEKlHLnr8XMOJHxXACIl7MSfgcpE2HxCDRm
 </span></span><span class="line"><span class="cl">        Y3jTPxNlZXzy44q1q/tf2oHvp40VmLyQ4fB8tDj/0p/eyfVZWtCRjQ==
 </span></span><span class="line"><span class="cl">        -----END AGE ENCRYPTED FILE-----
-</span></span><span class="line"><span class="cl">  lastmodified: &#34;2026-02-06T04:04:01Z&#34;
+</span></span><span class="line"><span class="cl">  lastmodified: &#34;2026-02-03T10:04:01Z&#34;
 </span></span><span class="line"><span class="cl">  mac: ENC[AES256_GCM,data:Q7qv3BOUjtJ2PRE6+Ucdy1tNeKOGs3X0hNzzDruq/bInR50jo4aiY7u25XQmVLQBwQmDjIgeF83KMDx0g/f1n1AxCTP5gxQfyR2HI2rjMiy16WlvrYNyFZsXJto4ce07wJEoECiYO5VDjGPo0qa1N3RCg2w7yy4P7TKcWk//vos=,iv:L87g5UMWTmC7F+SXimxcbqVu8cVg5LMrXCpfNSfzKlE=,tag:iPgMNJ0KhZ4J+Pk0d51Kxg==,type:str]
 </span></span><span class="line"><span class="cl">  encrypted_regex: (?i)(password|secret|token)
 </span></span><span class="line"><span class="cl">  version: 3.11.0</span></span></code></pre></div></div>

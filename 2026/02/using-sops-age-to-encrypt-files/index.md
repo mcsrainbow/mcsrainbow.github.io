@@ -128,7 +128,7 @@ sops:
         TWUwWVpzVEd6b1FQOEdtOERwZGlFdmcK3qRblOKDUEyokw8DmOZ/rQILrKcU3ESM
         9Uddh0KLn/N37KCdEJc+NVXa+lCR9WbbNnNVPCh4ZcyxKGzY1f3Uvw==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2026-02-06T03:59:28Z"
+  lastmodified: "2026-02-03T09:59:28Z"
   mac: ENC[AES256_GCM,data:qmw//bM0Kxo7KtTa1Ac955qzNnzsGpqd9/yhmQcq2q+mIvDj4YBPGkBg2hAhp7y3JYPGOdgCPgzJV41MvZe4Mwab1mdPU+EWTY+fDpaMll67rB28oO1XT3/W3MLSruWMTCMyeGApwFRRSP8KNzIXLMje/cz1rAbt4pPCsD8X6eM=,iv:VunSwYXgB70WpnbYB22bls8INj5bZ8VrNPMSA1XsLQ8=,tag:jOUQsg9YZZ52ylbvNp6PCw==,type:str]
   encrypted_regex: (?i)(password|secret|token)
   version: 3.11.0
@@ -195,13 +195,13 @@ creation_rules:
       - age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 
 ❯ sops updatekeys config.yaml
-2026/02/06 11:00:11 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
+2026/02/03 18:00:11 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
 The following changes will be made to the file's groups:
 Group 1
     age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 +++ age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 Is this okay? (y/n):y
-2026/02/06 11:00:13 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys
+2026/02/03 18:00:13 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys
 ```
 
 以用户 Bob 的身份尝试已授权状态下解密
@@ -248,14 +248,14 @@ creation_rules:
       - age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
 
 ❯ sops updatekeys config.yaml
-2026/02/06 11:01:56 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
+2026/02/03 18:01:56 Syncing keys for file /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml
 The following changes will be made to the file's groups:
 Group 1
     age1ckhckhz2jpzu574u83vcx88twfu2zqx9t42lf9623ysqx3h23c7s2gwj7m
 +++ age1h0ufdryerkpy39xkun9zd2hrece3g7nu9l63ws927cngwk633dcspuvgal
 --- age1lz4xs2z4rwcd9t4g3ek7vlj49x7uqzjnug3l8996tac40y4saatsw0ezx9
 Is this okay? (y/n):y
-2026/02/06 11:01:58 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys
+2026/02/03 18:01:58 File /Users/damonguo/Workspace/demo/sops-age/repo/config.yaml synced with new keys
 ```
 
 用户 Alice 无法再解密 config.yaml
@@ -389,7 +389,7 @@ sops:
         VXorMy9XamtUM3JTSlFxQ045bjBBdkEKlHLnr8XMOJHxXACIl7MSfgcpE2HxCDRm
         Y3jTPxNlZXzy44q1q/tf2oHvp40VmLyQ4fB8tDj/0p/eyfVZWtCRjQ==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2026-02-06T04:04:01Z"
+  lastmodified: "2026-02-03T10:04:01Z"
   mac: ENC[AES256_GCM,data:Q7qv3BOUjtJ2PRE6+Ucdy1tNeKOGs3X0hNzzDruq/bInR50jo4aiY7u25XQmVLQBwQmDjIgeF83KMDx0g/f1n1AxCTP5gxQfyR2HI2rjMiy16WlvrYNyFZsXJto4ce07wJEoECiYO5VDjGPo0qa1N3RCg2w7yy4P7TKcWk//vos=,iv:L87g5UMWTmC7F+SXimxcbqVu8cVg5LMrXCpfNSfzKlE=,tag:iPgMNJ0KhZ4J+Pk0d51Kxg==,type:str]
   encrypted_regex: (?i)(password|secret|token)
   version: 3.11.0
