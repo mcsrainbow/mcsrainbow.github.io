@@ -25,8 +25,8 @@
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" /><link rel="prev" href="https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/" /><link rel="next" href="https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" /><link rel="prev" href="https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/" /><link rel="next" href="https://blog.heylinux.com/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -67,6 +67,7 @@
           applyTheme();
           query.addEventListener('change', applyTheme);
         </script>
+
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
@@ -76,18 +77,18 @@
             <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/"> 简体中文 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-search" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
+                    <i class="fa fa-globe" aria-hidden="true"></i>
                     <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023/12/using-git-crypt-to-encrypt-files-in-git/">简体中文</option><option value="/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" selected>English</option></select>
                 </a></div>
         </div>
@@ -106,22 +107,22 @@
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-search" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
                 </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/" title="">简体中文</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-adjust" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <i class="fa fa-globe" aria-hidden="true"></i>
                     <select class="language-select" onchange="location = this.value;"><option value="/2023/12/using-git-crypt-to-encrypt-files-in-git/">简体中文</option><option value="/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" selected>English</option></select>
                 </a></div>
     </div>
@@ -135,9 +136,9 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Using git-crypt to Encrypt Files in Git</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Skills</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1176 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+            <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder" aria-hidden="true"></i>Skills</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-18">2023-12-18</time>&nbsp;<i class="fas fa-pencil-alt" aria-hidden="true"></i>&nbsp;1176 words&nbsp;
+                <i class="far fa-clock" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -171,17 +172,17 @@
 <p>Install git-crypt and gnupg</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt gnupg</span></span></code></pre></div></div>
 <h2 id="create-directories">Create directories</h2>
 <p>Create required directories to simulate multi-user collaboration</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ mkdir -p /Users/damonguo/Workspace/demo/{repo,gnupg_keys,tmp}
 </span></span><span class="line"><span class="cl">❯ cd /Users/damonguo/Workspace/demo/
 </span></span><span class="line"><span class="cl">❯ ls -1
@@ -200,9 +201,9 @@
 <p>Clone the demo repo for user Alice and initialize the git-crypt and secret.txt</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd repo
 </span></span><span class="line"><span class="cl">❯ git clone git@github.com:mcsrainbow/git-crypt-demo.git
 </span></span><span class="line"><span class="cl">❯ mv git-crypt-demo git-crypt-demo_alice
@@ -232,9 +233,9 @@
 <p>Generate GPG keys for Alice, Bob and Jack</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/alice
 </span></span><span class="line"><span class="cl">❯ gpg --batch --passphrase &#39;&#39; --quick-generate-key &#34;Alice &lt;alice@example.com&gt;&#34; rsa4096 sign,encrypt 10y
 </span></span><span class="line"><span class="cl">gpg: keybox &#39;/Users/damonguo/Workspace/demo/gnupg_keys/alice/pubring.kbx&#39; created
@@ -262,9 +263,9 @@
 <p>Export the GPG public key of Bob for Alice to import</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/bob
 </span></span><span class="line"><span class="cl">❯ gpg --armor --export bob@example.com &gt; /Users/damonguo/Workspace/demo/tmp/bob.pub
 </span></span><span class="line"><span class="cl">❯ file /Users/damonguo/Workspace/demo/tmp/bob.pub
@@ -272,9 +273,9 @@
 <p>Add Alice and Bob as git-crypt collaborators and push to GitHub</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/alice
 </span></span><span class="line"><span class="cl">❯ git-crypt add-gpg-user alice@example.com
 </span></span><span class="line"><span class="cl">gpg: checking the trustdb
@@ -355,9 +356,9 @@
 <p>Bob cannot view the encrypted secret.txt without unlock</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd ..
 </span></span><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/bob
 </span></span><span class="line"><span class="cl">❯ git clone git@github.com:mcsrainbow/git-crypt-demo.git
@@ -370,9 +371,9 @@
 <p>Jack cannot unlock the encrypted secret.txt without being granted</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/jack
 </span></span><span class="line"><span class="cl">❯ git-crypt unlock
 </span></span><span class="line"><span class="cl">gpg: checking the trustdb
@@ -384,9 +385,9 @@
 <p>Bob can unlock and lock the secret.txt</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/bob
 </span></span><span class="line"><span class="cl">❯ git-crypt unlock
 </span></span><span class="line"><span class="cl">gpg: checking the trustdb
@@ -403,9 +404,9 @@
 <p>Bob can remove the Alice GPG key from repo</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git log | grep &#39;Add 1 git-crypt collaborator&#39; -A5 | grep -B1 alice@example.com
 </span></span><span class="line"><span class="cl">        4EC36059B196849885E438499BAF6C28C32813A4
 </span></span><span class="line"><span class="cl">            Alice &lt;alice@example.com&gt;
@@ -420,9 +421,9 @@
 <p>Alice cannot unlock the secret.txt after re-cloning the repository</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ cd ..
 </span></span><span class="line"><span class="cl">❯ export GNUPGHOME=/Users/damonguo/Workspace/demo/gnupg_keys/alice
 </span></span><span class="line"><span class="cl">❯ git clone git@github.com:mcsrainbow/git-crypt-demo.git
@@ -443,9 +444,9 @@
 <p>View the complete git commits</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ git log
 </span></span><span class="line"><span class="cl">commit bf48d82e3ce40e237465e2af608b0ff990eb6735 (HEAD -&gt; main, origin/main, origin/HEAD)
 </span></span><span class="line"><span class="cl">Author: mcsrainbow &lt;guosuiyu@gmail.com&gt;
@@ -506,37 +507,37 @@
                             <a class="link-to-markdown" href="/en/2023/12/using-git-crypt-to-encrypt-files-in-git/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" data-title="Using git-crypt to Encrypt Files in Git" data-hashtags="Git,Security"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" data-title="Using git-crypt to Encrypt Files in Git" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2fen%2f2023%2f12%2fusing-git-crypt-to-encrypt-files-in-git%2f&amp;text=Using%20git-crypt%20to%20Encrypt%20Files%20in%20Git" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" data-title="Using git-crypt to Encrypt Files in Git" data-hashtags="Git,Security"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-linkedin" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" data-title="Using git-crypt to Encrypt Files in Git" data-web><i class="fab fa-whatsapp" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/en/2023/12/using-git-crypt-to-encrypt-files-in-git/"><i class="fab fa-reddit" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2fen%2f2023%2f12%2fusing-git-crypt-to-encrypt-files-in-git%2f&amp;text=Using%20git-crypt%20to%20Encrypt%20Files%20in%20Git" target="_blank" title="Share on Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/git/">Git</a>,&nbsp;<a href="/en/tags/security/">Security</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/en/tags/git/">Git</a>,&nbsp;<a href="/en/tags/security/">Security</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/en/2023/12/lightweight-kubernetes-distributions-practices/" class="prev" rel="prev" title="Lightweight Kubernetes Distributions Practices"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Lightweight Kubernetes Distributions Practices</a>
-            <a href="/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/" class="next" rel="next" title="Alibaba Cloud Official Vector Icons and draw.io Custom Libraries">Alibaba Cloud Official Vector Icons and draw.io Custom Libraries<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/en/2023/12/lightweight-kubernetes-distributions-practices/" class="prev" rel="prev" title="Lightweight Kubernetes Distributions Practices"><i class="fas fa-angle-left" aria-hidden="true"></i>Lightweight Kubernetes Distributions Practices</a>
+            <a href="/en/2024/01/alibaba-cloud-official-vector-icons-and-drawio-custom-libraries/" class="next" rel="next" title="Alibaba Cloud Official Vector Icons and draw.io Custom Libraries">Alibaba Cloud Official Vector Icons and draw.io Custom Libraries<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.157.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
         </div>
 
         <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-comment" aria-hidden="true"></i>
             </a>
         </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"code":{"maxShownLines":100},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

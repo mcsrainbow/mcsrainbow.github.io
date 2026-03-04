@@ -24,8 +24,8 @@
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/about/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/about/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -61,6 +61,7 @@
           applyTheme();
           query.addEventListener('change', applyTheme);
         </script>
+
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
@@ -70,18 +71,18 @@
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item active" href="/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/en/"> English </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-search" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
+                    <i class="fa fa-globe" aria-hidden="true"></i>
                     <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/about/" selected>简体中文</option><option value="/en/about/">English</option></select>
                 </a></div>
         </div>
@@ -100,22 +101,22 @@
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-search" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
                 </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-adjust" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <i class="fa fa-globe" aria-hidden="true"></i>
                     <select class="language-select" onchange="location = this.value;"><option value="/about/" selected>简体中文</option><option value="/en/about/">English</option></select>
                 </a></div>
     </div>
@@ -143,48 +144,48 @@
 <h3 id="待办清单始于2021年2月"><strong><ruby>待办清单<rt>始于2021年2月</rt></ruby></strong></h3>
 <p><i class="fa-solid fa-tasks fa-fw"></i> <strong>专业资质</strong></p>
 <ul>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-brands fa-aws fa-fw"></i> <strong>AWS</strong> ⋄ AWS 认证解决方案架构师 - 专业级</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-cogs fa-fw"></i> <strong>ITIL</strong> ⋄ ITIL 4 Foundation - IT 服务管理认证</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-dharmachakra fa-fw"></i> <strong>CKA</strong> ⋄ Kubernetes 管理员认证</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-language fa-fw"></i> <strong>CET6</strong> ⋄ 英语六级</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-graduation-cap fa-fw"></i> <strong>Degree</strong> ⋄ 工程管理硕士</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-brands fa-gitlab fa-fw"></i> <strong>GitLab</strong> ⋄ 极狐 GitLab DevOps 高级专家</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-cloud fa-fw"></i> <strong>ACP</strong> ⋄ 阿里云云计算高级工程师认证</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-user-shield fa-fw"></i> <strong>CISSP</strong> ⋄ 信息系统安全认证专家</li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-users-cog fa-fw"></i> <strong>PMP</strong> ⋄ 项目管理专业人士</li>
-<li><i class="far fa-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-user-tag fa-fw"></i> <strong>CDMP</strong> ⋄ 数据管理专业人士认证</li>
-<li><i class="far fa-square fa-fw" aria-hidden="true"></i> <i class="fa-solid fa-language fa-fw"></i> <strong>IELTS</strong> ⋄ 雅思7分</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-brands fa-aws fa-fw"></i> <strong>AWS</strong> ⋄ AWS 认证解决方案架构师 - 专业级</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-solid fa-cogs fa-fw"></i> <strong>ITIL</strong> ⋄ ITIL 4 Foundation - IT 服务管理认证</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-solid fa-dharmachakra fa-fw"></i> <strong>CKA</strong> ⋄ Kubernetes 管理员认证</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-solid fa-language fa-fw"></i> <strong>CET6</strong> ⋄ 英语六级</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-solid fa-graduation-cap fa-fw"></i> <strong>Degree</strong> ⋄ 工程管理硕士</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-brands fa-gitlab fa-fw"></i> <strong>GitLab</strong> ⋄ 极狐 GitLab DevOps 高级专家</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-solid fa-cloud fa-fw"></i> <strong>ACP</strong> ⋄ 阿里云云计算高级工程师认证</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-solid fa-user-shield fa-fw"></i> <strong>CISSP</strong> ⋄ 信息系统安全认证专家</li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <i class="fa-solid fa-users-cog fa-fw"></i> <strong>PMP</strong> ⋄ 项目管理专业人士</li>
+<li><i class="far fa-square" aria-hidden="true"></i> <i class="fa-solid fa-user-tag fa-fw"></i> <strong>CDMP</strong> ⋄ 数据管理专业人士认证</li>
+<li><i class="far fa-square" aria-hidden="true"></i> <i class="fa-solid fa-language fa-fw"></i> <strong>IELTS</strong> ⋄ 雅思7分</li>
 </ul>
 <p><i class="fa-solid fa-book-open fa-fw"></i> <strong>读书笔记</strong></p>
 <ul>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2021/10/notes-from-live-for-death-my-experience-on-dying/" rel="">向死而生：我修的死亡学分</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2021/11/notes-from-the-willpower-instinct/" rel="">自控力：自我控制如何运作、为什么重要以及你可以做什么来增强它</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/" rel="">刻意练习：如何从新手到大师</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2022/01/notes-from-pomodoro-technique-illustrated/" rel="">番茄工作法图解：简单易行的时间管理方法</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2022/01/notes-from-secrets-of-the-worlds-happiest-people/" rel="">刻意放手：向最幸福的人学习幸福</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2022/03/notes-from-influence-the-psychology-of-persuasion/" rel="">影响力：让人乖乖听话的说服术</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2022/03/notes-from-nonviolent-communication-a-language-of-life/" rel="">非暴力沟通：爱的语言</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/" rel="">小岛经济学：鱼、美元和经济的故事</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2022/05/notes-from-rich-dad-poor-dad/" rel="">富爸爸穷爸爸：富人教孩子的理财智慧，而穷人和中产阶级却不知道</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/" rel="">福格行为模型：微习惯改变一切</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2025/09/notes-from-the-lean-startup/" rel="">精益创业：新创企业的成长思维</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2025/09/notes-from-how-to-read-a-book/" rel="">如何阅读一本书：智慧阅读的经典指南</a></li>
-<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> <a href="/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind" rel="">乌合之众：大众心理研究</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2021/10/notes-from-live-for-death-my-experience-on-dying/" rel="">向死而生：我修的死亡学分</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2021/11/notes-from-the-willpower-instinct/" rel="">自控力：自我控制如何运作、为什么重要以及你可以做什么来增强它</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2021/12/notes-from-peak-secrets-from-the-new-science-of-expertise/" rel="">刻意练习：如何从新手到大师</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2022/01/notes-from-pomodoro-technique-illustrated/" rel="">番茄工作法图解：简单易行的时间管理方法</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2022/01/notes-from-secrets-of-the-worlds-happiest-people/" rel="">刻意放手：向最幸福的人学习幸福</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2022/03/notes-from-influence-the-psychology-of-persuasion/" rel="">影响力：让人乖乖听话的说服术</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2022/03/notes-from-nonviolent-communication-a-language-of-life/" rel="">非暴力沟通：爱的语言</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2022/04/notes-from-how-an-economy-grows-and-why-it-crashes/" rel="">小岛经济学：鱼、美元和经济的故事</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2022/05/notes-from-rich-dad-poor-dad/" rel="">富爸爸穷爸爸：富人教孩子的理财智慧，而穷人和中产阶级却不知道</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2024/03/notes-from-tiny-habits-the-small-changes-that-change-everything/" rel="">福格行为模型：微习惯改变一切</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2025/09/notes-from-the-lean-startup/" rel="">精益创业：新创企业的成长思维</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2025/09/notes-from-how-to-read-a-book/" rel="">如何阅读一本书：智慧阅读的经典指南</a></li>
+<li><i class="far fa-check-square" aria-hidden="true"></i> <a href="/2025/09/notes-from-the-crowd-a-study-of-the-popular-mind" rel="">乌合之众：大众心理研究</a></li>
 </ul>
 </div></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.157.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
         </div>
 
         <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-comment" aria-hidden="true"></i>
             </a>
         </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"><link rel="stylesheet" href="/css/e23429.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/mhchem.min.js"></script><script>window.config={"code":{"maxShownLines":100},"comment":{},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>
