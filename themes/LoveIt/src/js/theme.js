@@ -289,7 +289,7 @@ class Theme {
                     footer: ({}) => {
                         const { searchType, icon, href } = searchConfig.type === 'algolia' ? {
                             searchType: 'algolia',
-                            icon: '<i class="fab fa-algolia" aria-hidden="true"></i>',
+                            icon: '<i class="fab fa-algolia fa-fw" aria-hidden="true"></i>',
                             href: 'https://www.algolia.com/',
                         } : {
                             searchType: 'Lunr.js',
@@ -368,7 +368,7 @@ class Theme {
             const $copy = $codeBlock.querySelector('.code-header .copy');
             if ($copy) {
                 const $code = $codeBlock.querySelector('code');
-                $copy.setAttribute('data-clipboard-text', $code.innerText);
+                $copy.setAttribute('data-clipboard-text', $code.textContent);
                 const clipboard = new ClipboardJS($copy);
                 const $codeLines = $code.querySelectorAll('span.cl');
                 clipboard.on('success', _e => {
