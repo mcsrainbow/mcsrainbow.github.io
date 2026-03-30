@@ -449,6 +449,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # windows v8-11 磁贴颜色
     tileColor = "#da532c"
 
+  # Security config
+  # 安全配置
+  [params.security]
+    # Content-Security-Policy meta tag for when HTTP headers cannot be set
+    # https://content-security-policy.com/examples/meta/
+    # 当无法设置 HTTP 响应头时使用的 Content-Security-Policy meta 标签
+    # contentSecurityPolicy = "default-src 'self'"
+
   # page global config
   # 文章页面全局配置
   [params.page]
