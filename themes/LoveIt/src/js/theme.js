@@ -281,21 +281,106 @@ class Theme {
                                 console.error(err);
                                 finish([]);
                             });
+                    } else if (searchConfig.type === 'fuse') {
+                        const search = () => {
+                            const results = {};
+                            this._fuse.search(query).forEach(({ item, matches }) => {
+                                let { uri, title, content: context, date } = item;
+                                if (results[uri]) return;
+                                let position = 0;
+                                if (matches) {
+                                    for (const match of matches) {
+                                        if (match.key === 'content' && match.indices.length > 0) {
+                                            position = match.indices[0][0];
+                                            break;
+                                        }
+                                    }
+                                }
+                                position -= snippetLength / 5;
+                                if (position > 0) {
+                                    position += context.slice(position, position + 20).lastIndexOf(' ') + 1;
+                                    context = '...' + context.slice(position, position + snippetLength);
+                                } else {
+                                    context = context.slice(0, snippetLength);
+                                }
+                                const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                                title = title.replace(new RegExp(`(${escapedQuery})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                                context = context.replace(new RegExp(`(${escapedQuery})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                                results[uri] = { uri, title, date, context };
+                            });
+                            return Object.values(results).slice(0, maxResultLength);
+                        };
+                        if (!this._fuse) {
+                            fetch(searchConfig.fuseIndexURL)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const fuseOpts = Object.assign({
+                                        isCaseSensitive: false,
+                                        findAllMatches: false,
+                                        minMatchCharLength: 2,
+                                        location: 0,
+                                        threshold: 0.3,
+                                        distance: 100,
+                                        ignoreLocation: false,
+                                        includeMatches: true,
+                                        keys: [
+                                            { name: 'title', weight: 5 },
+                                            { name: 'tags', weight: 2 },
+                                            { name: 'categories', weight: 2 },
+                                            { name: 'content', weight: 1 },
+                                        ],
+                                    }, searchConfig.fuseOpts || {}, { includeMatches: true });
+                                    this._fuse = new Fuse(data, fuseOpts);
+                                    finish(search());
+                                }).catch(err => {
+                                    console.error(err);
+                                    finish([]);
+                                });
+                        } else finish(search());
+                    } else if (searchConfig.type === 'pagefind') {
+                        const search = async () => {
+                            try {
+                                if (!this._pagefind) {
+                                    const basePath = searchConfig.pagefindBasePath || '/_pagefind/';
+                                    this._pagefind = await import(`${basePath}pagefind.js`);
+                                    await this._pagefind.init();
+                                }
+                                const searchResult = await this._pagefind.search(query);
+                                const results = {};
+                                const loaded = await Promise.all(
+                                    searchResult.results.slice(0, maxResultLength).map(r => r.data())
+                                );
+                                loaded.forEach(item => {
+                                    const uri = item.url;
+                                    if (results[uri]) return;
+                                    let title = item.meta?.title || '';
+                                    let context = item.excerpt || item.content || '';
+                                    context = context.slice(0, snippetLength);
+                                    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                                    title = title.replace(new RegExp(`(${escapedQuery})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                                    context = context.replace(new RegExp(`(${escapedQuery})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                                    results[uri] = { uri, title, date: '', context };
+                                });
+                                finish(Object.values(results));
+                            } catch (err) {
+                                console.error(err);
+                                finish([]);
+                            }
+                        };
+                        search();
                     }
                 },
                 templates: {
                     suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
                     empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
                     footer: ({}) => {
-                        const { searchType, icon, href } = searchConfig.type === 'algolia' ? {
-                            searchType: 'algolia',
-                            icon: '<i class="fab fa-algolia fa-fw" aria-hidden="true"></i>',
-                            href: 'https://www.algolia.com/',
-                        } : {
-                            searchType: 'Lunr.js',
-                            icon: '',
-                            href: 'https://lunrjs.com/',
+                        const searchTypes = {
+                            algolia: { searchType: 'algolia', icon: '<i class="fab fa-algolia" aria-hidden="true"></i>', href: 'https://www.algolia.com/' },
+                            lunr: { searchType: 'Lunr.js', icon: '', href: 'https://lunrjs.com/' },
+                            fuse: { searchType: 'Fuse.js', icon: '', href: 'https://www.fusejs.io/' },
+                            pagefind: { searchType: 'Pagefind', icon: '', href: 'https://pagefind.app/' },
                         };
+                        const { searchType, icon, href } = searchTypes[searchConfig.type] || searchTypes.lunr;
                         return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
                 },
             });
