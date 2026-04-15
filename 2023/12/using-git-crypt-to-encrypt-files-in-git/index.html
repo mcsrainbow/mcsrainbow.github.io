@@ -178,7 +178,7 @@
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">❯ brew install git-crypt gnupg</span></span></code></pre></div></div>
 <h2 id="创建目录">创建目录</h2>
 <p>创建所需的目录以模拟多用户协作</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -199,7 +199,7 @@
 </span></span><span class="line"><span class="cl">drwx------@ 2 damonguo  staff  64 Jan 28 11:28 jack</span></span></code></pre></div></div>
 <h2 id="克隆-git-仓库">克隆 Git 仓库</h2>
 <p>以用户 Alice 的身份克隆 Git 仓库并初始化 git-crypt 和 secret.txt</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -231,7 +231,7 @@
 </span></span><span class="line"><span class="cl"> create mode 100644 secret.txt</span></span></code></pre></div></div>
 <h2 id="生成-gpg-keys">生成 GPG keys</h2>
 <p>为用户 Alice，Bob 和 Jack 生成 GPG keys</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -271,7 +271,7 @@
 </span></span><span class="line"><span class="cl">❯ file /Users/damonguo/Workspace/demo/tmp/bob.pub
 </span></span><span class="line"><span class="cl">/Users/damonguo/Workspace/demo/tmp/bob.pub: PGP public key block Public-Key</span></span></code></pre></div></div>
 <p>将 Alice 和 Bob 添加为 git-crypt 协作者，并推送到 GitHub</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -383,7 +383,7 @@
 </span></span><span class="line"><span class="cl">Error: no GPG secret key available to unlock this repository.
 </span></span><span class="line"><span class="cl">To unlock with a shared symmetric key instead, specify the path to the symmetric key as an argument to &#39;git-crypt unlock&#39;.</span></span></code></pre></div></div>
 <p>Bob 可以解锁和锁定 secret.txt</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -402,7 +402,7 @@
 </span></span><span class="line"><span class="cl">GITCRYPT</span></span></code></pre></div></div>
 <h2 id="移除权限">移除权限</h2>
 <p>Bob 可以从仓库中移除 Alice 的 GPG 密钥</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -419,7 +419,7 @@
 </span></span><span class="line"><span class="cl"> delete mode 100644 .git-crypt/keys/default/0/4EC36059B196849885E438499BAF6C28C32813A4.gpg
 </span></span><span class="line"><span class="cl">❯ git push</span></span></code></pre></div></div>
 <p>Alice 在重新克隆仓库后无法解锁 secret.txt</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -442,7 +442,7 @@
 </span></span><span class="line"><span class="cl">To unlock with a shared symmetric key instead, specify the path to the symmetric key as an argument to &#39;git-crypt unlock&#39;.</span></span></code></pre></div></div>
 <h2 id="完整旅程">完整旅程</h2>
 <p>查看完整的 Git 提交</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-plain">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
