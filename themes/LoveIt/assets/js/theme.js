@@ -437,7 +437,6 @@ class Theme {
     }
 
     initHighlight() {
-        var maxShownLines = this.config.code && this.config.code.maxShownLines ? this.config.code.maxShownLines : 10;
         Util.forEach(document.querySelectorAll('.code-block'), $codeBlock => {
             const $codeTitle = $codeBlock.querySelector('.code-header > .code-title');
             if ($codeTitle) {
@@ -450,15 +449,6 @@ class Theme {
                 $ellipses.addEventListener('click', () => {
                     $codeBlock.classList.toggle('open');
                 }, false);
-            }
-
-            // 检查代码行数，如果小于maxShownLines则自动展开
-            var $code = $codeBlock.querySelector('code');
-            if ($code) {
-              var $codeLines = $code.querySelectorAll('span.cl');
-              if ($codeLines && $codeLines.length > 10 && $codeLines.length <= maxShownLines) {
-                $codeBlock.classList.add('open');
-              }
             }
 
             const $copy = $codeBlock.querySelector('.code-header .copy');
