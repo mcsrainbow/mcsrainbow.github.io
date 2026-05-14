@@ -19,7 +19,7 @@ lightgallery: true
 
 ---
 
-## 序
+## 简介
 
 李开复曾在 Apple，Microsoft 和 Google 这样的顶级科技公司担任过高管，堪称人生胜利组的他，对八零后这一代人有着显著的影响力。
 

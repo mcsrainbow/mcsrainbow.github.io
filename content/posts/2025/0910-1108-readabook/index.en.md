@@ -20,7 +20,7 @@ Four levels of reading: Elementary(Basic), Inspectional(Review), Analytical, and
 
 ---
 
-## Preface
+## Intro
 
 "How to Read a Book: The Classic Guide to Intelligent Reading" was published by American philosopher Mortimer J. Adler in 1940, advocating for the improvement of personal thinking and learning abilities through systematic reading.
 
