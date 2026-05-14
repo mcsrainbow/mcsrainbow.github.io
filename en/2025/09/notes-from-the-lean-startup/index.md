@@ -7,7 +7,7 @@ Lean Startup is about quickly building a simple version of a concept, testing it
 
 ---
 
-## Preface
+## Intro
 
 Eric Ries, author of "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses", co-founded IMVU, a 3D avatar virtual social platform, where he also served as CTO. His background includes roles as Entrepreneur-in-Residence at Harvard Business School and providing business and product strategy consulting to startups, large companies, and venture capital firms.
 

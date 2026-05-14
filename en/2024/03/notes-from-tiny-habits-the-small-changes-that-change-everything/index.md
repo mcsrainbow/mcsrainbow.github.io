@@ -7,7 +7,7 @@ B=MAP, which means "Behavior = Motivation + Ability + Prompt". By breaking down 
 
 ---
 
-## Preface
+## Intro
 
 Dr. B.J. Fogg runs Stanford University's Behavior Design Lab and created the field of behavior design. He has been studying how people behave for over 20 years.
 

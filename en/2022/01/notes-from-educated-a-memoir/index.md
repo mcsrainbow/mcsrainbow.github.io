@@ -7,7 +7,7 @@ Flee as a bird to your mountain.
 
 ---
 
-## Preface
+## Intro
 
 This book is a true story of how a young woman grew up living off-the-grid, with no birth certificate or education, in a violent, mentally unstable, survivalist family, and found her own way, step by jagged step, to a Ph.D. at Cambridge University.
 
