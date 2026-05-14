@@ -209,7 +209,7 @@ uv provides performance 10 to 100 times faster than existing tools while maintai
 </span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.12&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[]</span></span></span></code></pre></div></div>
 <p>Install dependencies</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -290,7 +290,7 @@ Not required for uv projects, as uv projects use pyproject.toml and uv.lock</p>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ uv pip freeze &gt; requirements.txt</span></span></code></pre></div></div>
 <p>Project file list (.venv is automatically added to .gitignore)</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -326,7 +326,7 @@ Not required for uv projects, as uv projects use pyproject.toml and uv.lock</p>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ rm -r .venv</span></span></code></pre></div></div>
 <p>Create virtual environment (automatically reads .python-version)<br>
 With <code>--locked</code> parameter, install exact dependency versions (automatically reads pyproject.toml and uv.lock, does not check for the latest versions, and does not update pyproject.toml and uv.lock)</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -350,7 +350,7 @@ With <code>--locked</code> parameter, install exact dependency versions (automat
 </span></span><span class="line"><span class="cl"> + typing-extensions<span class="o">==</span>4.15.0
 </span></span><span class="line"><span class="cl"> + typing-inspection<span class="o">==</span>0.4.2
 </span></span><span class="line"><span class="cl"> + <span class="nv">uvicorn</span><span class="o">==</span>0.38.0</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -379,7 +379,7 @@ With <code>--locked</code> parameter, install exact dependency versions (automat
 </span></span><span class="line"><span class="cl">    └── h11 v0.16.0</span></span></code></pre></div></div>
 <h2 id="migrate-from-pip-to-a-uv-project">Migrate from pip to a uv project</h2>
 <p>Remove uv related directories and files</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -408,7 +408,7 @@ With <code>--locked</code> parameter, install exact dependency versions (automat
 </span></span><span class="line"><span class="cl">Initialized project <span class="sb">`</span>myapp<span class="sb">`</span></span></span></code></pre></div></div>
 <p>Parse the existing requirements.txt<br>
 Install exact dependency versions (automatically generate uv.lock)</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -432,7 +432,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
 </span></span><span class="line"><span class="cl"> + typing-extensions<span class="o">==</span>4.15.0
 </span></span><span class="line"><span class="cl"> + typing-inspection<span class="o">==</span>0.4.2
 </span></span><span class="line"><span class="cl"> + <span class="nv">uvicorn</span><span class="o">==</span>0.38.0</span></span></code></pre></div></div>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -460,7 +460,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
 </span></span><span class="line"><span class="cl">Resolved <span class="m">16</span> packages in 1.05s</span></span></code></pre></div></div>
 <h2 id="dockerfile-in-production">Dockerfile in production</h2>
 <p>Create .dockerignore</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -478,7 +478,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
 </span></span></span><span class="line"><span class="cl"><span class="s">*$py.class
 </span></span></span><span class="line"><span class="cl"><span class="s">EOT</span></span></span></code></pre></div></div>
 <p>Create Dockerfile</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-dockerfile">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -529,7 +529,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
 </span></span></span><span class="line"><span class="cl"><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/bin/sh&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="s2">&#34;/app/.venv/bin/uvicorn myapp.app:app --host 0.0.0.0 --port 8000 --workers ${WORKERS_NUM:-1}&#34;</span><span class="p">]</span><span class="err">
 </span></span></span><span class="line"><span class="cl">EOT</span></span></code></pre></div></div>
 <p>Build Docker image</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -562,7 +562,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
 </span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; writing image                                                     0.0s
 </span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/library/myapp:2025.10.27_1                    0.0s</span></span></code></pre></div></div>
 <p>Run Docker container via docker-compose</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -622,7 +622,7 @@ Install exact dependency versions (automatically generate uv.lock)</p>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.160.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.161.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
@@ -635,5 +635,5 @@ Install exact dependency versions (automatically generate uv.lock)</p>
         <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"code":{"maxShownLines":100},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.en","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.js"></script></body>
 </html>
