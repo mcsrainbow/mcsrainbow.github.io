@@ -5,23 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Kubernetes 多环境多应用编排实践 - Hey! Linux</title><meta name="Description" content="通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。"><meta property="og:url" content="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/">
-  <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="Kubernetes 多环境多应用编排实践">
-  <meta property="og:description" content="通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-09-10T18:37:39+08:00">
-    <meta property="article:modified_time" content="2024-09-10T18:37:39+08:00">
-    <meta property="article:tag" content="Kubernetes">
-    <meta property="article:tag" content="Kustomize">
-    <meta property="article:tag" content="Helm">
-    <meta property="og:image" content="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/featured-image.jpeg">
+	<meta property="og:site_name" content="Hey! Linux">
+	<meta property="og:title" content="Kubernetes 多环境多应用编排实践">
+	<meta property="og:description" content="通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2024-09-10T18:37:39+08:00">
+		<meta property="article:modified_time" content="2024-09-10T18:37:39+08:00">
+		<meta property="article:tag" content="Kubernetes">
+		<meta property="article:tag" content="Kustomize">
+		<meta property="article:tag" content="Helm">
+		<meta property="og:image" content="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/featured-image.jpeg">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/featured-image.jpeg">
-  <meta name="twitter:title" content="Kubernetes 多环境多应用编排实践">
-  <meta name="twitter:description" content="通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/featured-image.jpeg">
+	<meta name="twitter:title" content="Kubernetes 多环境多应用编排实践">
+	<meta name="twitter:description" content="通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。">
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -318,7 +318,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.161.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.164.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

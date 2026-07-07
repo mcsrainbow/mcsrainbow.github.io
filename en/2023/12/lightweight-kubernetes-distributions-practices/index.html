@@ -5,22 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Lightweight Kubernetes Distributions Practices - Hey! Linux</title><meta name="Description" content="Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier."><meta property="og:url" content="https://blog.heylinux.com/en/2023/12/lightweight-kubernetes-distributions-practices/">
-  <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="Lightweight Kubernetes Distributions Practices">
-  <meta property="og:description" content="Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-12-07T10:57:19+08:00">
-    <meta property="article:modified_time" content="2023-12-07T10:57:19+08:00">
-    <meta property="article:tag" content="Kubernetes">
-    <meta property="article:tag" content="Podman">
-    <meta property="og:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
+	<meta property="og:site_name" content="Hey! Linux">
+	<meta property="og:title" content="Lightweight Kubernetes Distributions Practices">
+	<meta property="og:description" content="Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-12-07T10:57:19+08:00">
+		<meta property="article:modified_time" content="2023-12-07T10:57:19+08:00">
+		<meta property="article:tag" content="Kubernetes">
+		<meta property="article:tag" content="Podman">
+		<meta property="og:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
-  <meta name="twitter:title" content="Lightweight Kubernetes Distributions Practices">
-  <meta name="twitter:description" content="Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
+	<meta name="twitter:title" content="Lightweight Kubernetes Distributions Practices">
+	<meta name="twitter:description" content="Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier.">
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -2014,90 +2014,90 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 <h2 id="summary">Summary</h2>
 <p>Lightweight Kubernetes differ in cluster mode, storage, runtime, requirements, setup, and plugins. Choose based on your use case and technical preferences.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Distribution</th>
-          <th>Cluster Mode</th>
-          <th>Storage</th>
-          <th>Runtime</th>
-          <th>Requirements</th>
-          <th>Setup</th>
-          <th>Plugins</th>
-          <th>Use Case</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Minikube</td>
-          <td>Single-node</td>
-          <td>etcd</td>
-          <td>Podman / Docker / containerd</td>
-          <td>Podman / Docker</td>
-          <td>Easy</td>
-          <td>Good</td>
-          <td>Dev</td>
-      </tr>
-      <tr>
-          <td>KinD</td>
-          <td>Single-node</td>
-          <td>etcd</td>
-          <td>containerd</td>
-          <td>Docker</td>
-          <td>Easy</td>
-          <td>Poor</td>
-          <td>Dev, CI/CD</td>
-      </tr>
-      <tr>
-          <td>K3S</td>
-          <td>Multi-node</td>
-          <td>SQLite / etcd / MySQL / PostgreSQL</td>
-          <td>containerd</td>
-          <td>Linux</td>
-          <td>Moderate</td>
-          <td>Fair</td>
-          <td>Edge, Prod</td>
-      </tr>
-      <tr>
-          <td>K3D</td>
-          <td>Single-node</td>
-          <td>SQLite / etcd / MySQL / PostgreSQL</td>
-          <td>containerd</td>
-          <td>Docker</td>
-          <td>Easy</td>
-          <td>Fair</td>
-          <td>Dev, CI/CD</td>
-      </tr>
-      <tr>
-          <td>MicroK8s</td>
-          <td>Multi-node</td>
-          <td>etcd / dqlite (distributed SQLite)</td>
-          <td>containerd / Kata</td>
-          <td>Linux</td>
-          <td>Moderate</td>
-          <td>Good</td>
-          <td>Dev, Prod</td>
-      </tr>
-      <tr>
-          <td>K0S</td>
-          <td>Multi-node</td>
-          <td>etcd / SQLite / MySQL / PostgreSQL</td>
-          <td>containerd</td>
-          <td>Linux</td>
-          <td>Moderate</td>
-          <td>Average</td>
-          <td>Edge, Prod</td>
-      </tr>
-      <tr>
-          <td>Talos</td>
-          <td>Multi-node</td>
-          <td>etcd</td>
-          <td>containerd</td>
-          <td>Docker</td>
-          <td>Easy</td>
-          <td>Poor</td>
-          <td>Dev, Prod</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Distribution</th>
+					<th>Cluster Mode</th>
+					<th>Storage</th>
+					<th>Runtime</th>
+					<th>Requirements</th>
+					<th>Setup</th>
+					<th>Plugins</th>
+					<th>Use Case</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Minikube</td>
+					<td>Single-node</td>
+					<td>etcd</td>
+					<td>Podman / Docker / containerd</td>
+					<td>Podman / Docker</td>
+					<td>Easy</td>
+					<td>Good</td>
+					<td>Dev</td>
+			</tr>
+			<tr>
+					<td>KinD</td>
+					<td>Single-node</td>
+					<td>etcd</td>
+					<td>containerd</td>
+					<td>Docker</td>
+					<td>Easy</td>
+					<td>Poor</td>
+					<td>Dev, CI/CD</td>
+			</tr>
+			<tr>
+					<td>K3S</td>
+					<td>Multi-node</td>
+					<td>SQLite / etcd / MySQL / PostgreSQL</td>
+					<td>containerd</td>
+					<td>Linux</td>
+					<td>Moderate</td>
+					<td>Fair</td>
+					<td>Edge, Prod</td>
+			</tr>
+			<tr>
+					<td>K3D</td>
+					<td>Single-node</td>
+					<td>SQLite / etcd / MySQL / PostgreSQL</td>
+					<td>containerd</td>
+					<td>Docker</td>
+					<td>Easy</td>
+					<td>Fair</td>
+					<td>Dev, CI/CD</td>
+			</tr>
+			<tr>
+					<td>MicroK8s</td>
+					<td>Multi-node</td>
+					<td>etcd / dqlite (distributed SQLite)</td>
+					<td>containerd / Kata</td>
+					<td>Linux</td>
+					<td>Moderate</td>
+					<td>Good</td>
+					<td>Dev, Prod</td>
+			</tr>
+			<tr>
+					<td>K0S</td>
+					<td>Multi-node</td>
+					<td>etcd / SQLite / MySQL / PostgreSQL</td>
+					<td>containerd</td>
+					<td>Linux</td>
+					<td>Moderate</td>
+					<td>Average</td>
+					<td>Edge, Prod</td>
+			</tr>
+			<tr>
+					<td>Talos</td>
+					<td>Multi-node</td>
+					<td>etcd</td>
+					<td>containerd</td>
+					<td>Docker</td>
+					<td>Easy</td>
+					<td>Poor</td>
+					<td>Dev, Prod</td>
+			</tr>
+	</tbody>
 </table></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -2128,7 +2128,7 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.161.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.164.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

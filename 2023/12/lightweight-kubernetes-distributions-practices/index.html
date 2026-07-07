@@ -5,22 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>轻量级 Kubernetes 发行版实践 - Hey! Linux</title><meta name="Description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。"><meta property="og:url" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/">
-  <meta property="og:site_name" content="Hey! Linux">
-  <meta property="og:title" content="轻量级 Kubernetes 发行版实践">
-  <meta property="og:description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-12-07T10:57:19+08:00">
-    <meta property="article:modified_time" content="2023-12-07T10:57:19+08:00">
-    <meta property="article:tag" content="Kubernetes">
-    <meta property="article:tag" content="Podman">
-    <meta property="og:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
+	<meta property="og:site_name" content="Hey! Linux">
+	<meta property="og:title" content="轻量级 Kubernetes 发行版实践">
+	<meta property="og:description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-12-07T10:57:19+08:00">
+		<meta property="article:modified_time" content="2023-12-07T10:57:19+08:00">
+		<meta property="article:tag" content="Kubernetes">
+		<meta property="article:tag" content="Podman">
+		<meta property="og:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
-  <meta name="twitter:title" content="轻量级 Kubernetes 发行版实践">
-  <meta name="twitter:description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://blog.heylinux.com/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg">
+	<meta name="twitter:title" content="轻量级 Kubernetes 发行版实践">
+	<meta name="twitter:description" content="部署和管理原生 Kubernetes 集群是一项颇具挑战的工作，社区因此推出了轻量级 Kubernetes 发行版以降低运维复杂度。">
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -2014,90 +2014,90 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
 <h2 id="总结">总结</h2>
 <p>针对不同的使用需求，轻量级 Kubernetes 发行版在架构、数据存储、容器运行时、部署依赖、部署难度、插件等方面各具特点，选择时可结合实际场景和技术偏好进行权衡。</p>
 <table>
-  <thead>
-      <tr>
-          <th>发行版</th>
-          <th>架构</th>
-          <th>数据存储</th>
-          <th>容器运行时</th>
-          <th>部署依赖</th>
-          <th>部署难度</th>
-          <th>插件</th>
-          <th>适用场景</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Minikube</td>
-          <td>单节点伪集群</td>
-          <td>etcd</td>
-          <td>Podman / Docker / containerd</td>
-          <td>Podman / Docker</td>
-          <td>简单</td>
-          <td>优</td>
-          <td>本地开发</td>
-      </tr>
-      <tr>
-          <td>KinD</td>
-          <td>单节点伪集群</td>
-          <td>etcd</td>
-          <td>containerd</td>
-          <td>Docker</td>
-          <td>简单</td>
-          <td>差</td>
-          <td>本地开发、CI/CD</td>
-      </tr>
-      <tr>
-          <td>K3S</td>
-          <td>多节点真集群</td>
-          <td>SQLite / etcd /MySQL / PostgreSQL</td>
-          <td>containerd</td>
-          <td>Linux</td>
-          <td>适中</td>
-          <td>良</td>
-          <td>边缘计算、生产运营</td>
-      </tr>
-      <tr>
-          <td>K3D</td>
-          <td>单节点伪集群</td>
-          <td>SQLite / etcd / MySQL / PostgreSQL</td>
-          <td>containerd</td>
-          <td>Docker</td>
-          <td>简单</td>
-          <td>良</td>
-          <td>本地开发、CI/CD</td>
-      </tr>
-      <tr>
-          <td>MicroK8s</td>
-          <td>多节点真集群</td>
-          <td>etcd / dqlite (distributed SQLite)</td>
-          <td>containerd / Kata</td>
-          <td>Linux</td>
-          <td>适中</td>
-          <td>优</td>
-          <td>本地开发、生产运营</td>
-      </tr>
-      <tr>
-          <td>K0S</td>
-          <td>多节点真集群</td>
-          <td>etcd / SQLite / MySQL / PostgreSQL</td>
-          <td>containerd</td>
-          <td>Linux</td>
-          <td>适中</td>
-          <td>中</td>
-          <td>边缘计算、生产运营</td>
-      </tr>
-      <tr>
-          <td>Talos</td>
-          <td>多节点真集群</td>
-          <td>etcd</td>
-          <td>containerd</td>
-          <td>Docker</td>
-          <td>简单</td>
-          <td>差</td>
-          <td>本地开发、生产运营</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>发行版</th>
+					<th>架构</th>
+					<th>数据存储</th>
+					<th>容器运行时</th>
+					<th>部署依赖</th>
+					<th>部署难度</th>
+					<th>插件</th>
+					<th>适用场景</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Minikube</td>
+					<td>单节点伪集群</td>
+					<td>etcd</td>
+					<td>Podman / Docker / containerd</td>
+					<td>Podman / Docker</td>
+					<td>简单</td>
+					<td>优</td>
+					<td>本地开发</td>
+			</tr>
+			<tr>
+					<td>KinD</td>
+					<td>单节点伪集群</td>
+					<td>etcd</td>
+					<td>containerd</td>
+					<td>Docker</td>
+					<td>简单</td>
+					<td>差</td>
+					<td>本地开发、CI/CD</td>
+			</tr>
+			<tr>
+					<td>K3S</td>
+					<td>多节点真集群</td>
+					<td>SQLite / etcd /MySQL / PostgreSQL</td>
+					<td>containerd</td>
+					<td>Linux</td>
+					<td>适中</td>
+					<td>良</td>
+					<td>边缘计算、生产运营</td>
+			</tr>
+			<tr>
+					<td>K3D</td>
+					<td>单节点伪集群</td>
+					<td>SQLite / etcd / MySQL / PostgreSQL</td>
+					<td>containerd</td>
+					<td>Docker</td>
+					<td>简单</td>
+					<td>良</td>
+					<td>本地开发、CI/CD</td>
+			</tr>
+			<tr>
+					<td>MicroK8s</td>
+					<td>多节点真集群</td>
+					<td>etcd / dqlite (distributed SQLite)</td>
+					<td>containerd / Kata</td>
+					<td>Linux</td>
+					<td>适中</td>
+					<td>优</td>
+					<td>本地开发、生产运营</td>
+			</tr>
+			<tr>
+					<td>K0S</td>
+					<td>多节点真集群</td>
+					<td>etcd / SQLite / MySQL / PostgreSQL</td>
+					<td>containerd</td>
+					<td>Linux</td>
+					<td>适中</td>
+					<td>中</td>
+					<td>边缘计算、生产运营</td>
+			</tr>
+			<tr>
+					<td>Talos</td>
+					<td>多节点真集群</td>
+					<td>etcd</td>
+					<td>containerd</td>
+					<td>Docker</td>
+					<td>简单</td>
+					<td>差</td>
+					<td>本地开发、生产运营</td>
+			</tr>
+	</tbody>
 </table></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -2128,7 +2128,7 @@ Multipass 是 Ubuntu 公司 Canonical 开发的用于快速创建、管理和操
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.161.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.164.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
