@@ -25,4 +25,4 @@ With that thought, his head reappeared. I tried to drop the fear that his person
 
 I woke up in bed, still a fat guy with a big belly. My family life is harmonious, but not as close as the bond the tall coworker persona had in the dream. I gently realized that the dream just projected my unfulfilled real life desires. Yet, its vivid, coherent logic felt precious, so I wrote this down immediately to preserve it.
 
-> Written on July 8, 2026, at 7:12 AM, while lying on the bed using the Notes app on my iPhone 15 Pro Max.
+> Written on July 8, 2026, at 7:12 AM, while lying on bed using the Notes app on my iPhone 15 Pro Max.
