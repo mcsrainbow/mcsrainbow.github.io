@@ -11,7 +11,7 @@ In the dream, I met a tall coworker who often worked the night shift.
 
 In the dream, I occasionally worked the night shift. Leaving work before dawn required walking through a long, dark corridor shaped like an L. It was terrifying, and I could only get through it by constantly psyching myself up.
 
-Then I met a tall coworker who also worked nights. Lacking technical skills, he mainly did it to earn money and worked way more shifts than me. Yet, I was drawn to his positive, street smart, slightly rogue energy. To brave that creepy corridor, he would livestream his walk, turning it into a fast paced parkour run. The experience stacked the thrill with the intense excitement of finally nearing the exit. I watched his streams and was completely fascinated.
+Then I met a tall coworker who also worked nights. Lacking technical skills, he mainly did it to earn money and worked way more shifts than me. But he is very positive, with a street-smart, slightly rogue energy. To brave that creepy corridor, he would livestream his walk, turning it into a fast paced parkour run. The experience stacked the thrill with the intense excitement of finally nearing the exit. I watched his streams and was completely fascinated.
 
 Wanting to know him better, I joined a colleague barbecue and ran into him again. Unlike my lazy, overweight self, he was lean and muscular. I joked that his night shifts must prevent his food from digesting properly and turning into fat, which was why he stayed so thin. Talking further, I realized he excelled in everything except tech skills. He had a great mindset, a fit body, and a close relationship with his wife and kids. He was a truly dedicated family man working grueling night shifts to provide for them.
 
