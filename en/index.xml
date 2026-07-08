@@ -4,9 +4,17 @@
         <link>https://blog.heylinux.com/en/</link>
         <description>Damon Guo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>guosuiyu@gmail.com (mcsrainbow)</managingEditor>
-            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</lastBuildDate>
+            <webMaster>guosuiyu@gmail.com (mcsrainbow)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Jul 2026 09:51:20 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.heylinux.com/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>The Tall Coworker on the Night Shift</title>
+    <link>https://blog.heylinux.com/en/2026/07/the-tall-coworker-on-the-night-shift/</link>
+    <pubDate>Wed, 08 Jul 2026 09:51:20 &#43;0800</pubDate>
+    <author>guosuiyu@gmail.com (mcsrainbow)</author>
+    <guid>https://blog.heylinux.com/en/2026/07/the-tall-coworker-on-the-night-shift/</guid>
+    <description><![CDATA[<p>In the dream, I met a tall coworker who often worked the night shift.</p>]]></description>
+</item>
+<item>
     <title>Using SOPS &#43; age to Encrypt Files</title>
     <link>https://blog.heylinux.com/en/2026/02/using-sops-age-to-encrypt-files/</link>
     <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
@@ -79,14 +87,6 @@ uv provides performance 10 to 100 times faster than existing tools while maintai
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/en/2025/07/cloud-native-glossary-lite/</guid>
     <description><![CDATA[<p>Reference: <a href="https://glossary.cncf.io/" target="_blank" rel="noopener noreffer ">https://glossary.cncf.io/</a></p>]]></description>
-</item>
-<item>
-    <title>Health Check Endpoint /healthz Design Practice</title>
-    <link>https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/</link>
-    <pubDate>Fri, 18 Jul 2025 12:02:05 &#43;0800</pubDate>
-    <author>guosuiyu@gmail.com (mcsrainbow)</author>
-    <guid>https://blog.heylinux.com/en/2025/07/health-check-endpoint-healthz-design-practice/</guid>
-    <description><![CDATA[<p>Health check endpoint with dependency-aware critical checks and independent external monitoring.</p>]]></description>
 </item>
 </channel>
 </rss>
