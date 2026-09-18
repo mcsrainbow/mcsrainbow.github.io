@@ -219,6 +219,15 @@
                     hreflang="en"
                     href="https://blog.heylinux.com/en/tags/kubernetes/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/en/loved/</loc><lastmod>2025-06-16T00:00:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://blog.heylinux.com/loved/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://blog.heylinux.com/en/loved/"
+                    /></url><url>
             <loc>https://blog.heylinux.com/en/tags/growth/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/tags/self-management/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/en/2025/01/work-mindsets/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link

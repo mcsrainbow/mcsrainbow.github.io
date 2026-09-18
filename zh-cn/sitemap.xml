@@ -219,6 +219,15 @@
                     hreflang="zh-cn"
                     href="https://blog.heylinux.com/2025/07/health-check-endpoint-healthz-design-practice/"
                     /></url><url>
+            <loc>https://blog.heylinux.com/loved/</loc><lastmod>2025-06-16T00:00:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://blog.heylinux.com/en/loved/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://blog.heylinux.com/loved/"
+                    /></url><url>
             <loc>https://blog.heylinux.com/tags/%E6%88%90%E9%95%BF/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://blog.heylinux.com/2025/01/work-mindsets/</loc><lastmod>2025-01-21T16:25:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
