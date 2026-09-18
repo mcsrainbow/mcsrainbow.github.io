@@ -11,7 +11,7 @@ comment:
   enable: false
 ---
 
-{{< style "float: right" >}}
+{{< style "float: right; margin-left: 20px; margin-bottom: 20px;" >}}
 {{< image src="/images/avatar.jpg" alt="avatar" width=128 >}}
 {{< /style >}}
 
