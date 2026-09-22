@@ -262,7 +262,7 @@ Container health checks ensure that Pods are running properly, while graceful te
 
 Typically, user requests are routed through an Ingress. However, some Ingress controllers such as Alibaba Cloud Kubernetes may remove Pods from backend pools before the Pod fully Terminated.
 
-To avoid interrupting in-flight user requests, the Ingress should be configured with a graceful connection drain timeout that aligns with the container `lifecycle.preStop`. 
+To avoid interrupting in-flight user requests, the Ingress should be configured with a graceful connection drain timeout that less than the container `lifecycle.preStop`. 
 
 This ensures the Ingress keeps connections alive until the timeout expires.
 
@@ -292,8 +292,8 @@ metadata:
   annotations:
     # enable graceful draining
     alb.ingress.kubernetes.io/connection-drain-enabled: "true"
-    # match lifecycle.preStop
-    alb.ingress.kubernetes.io/connection-drain-timeout: "60"
+    # less than lifecycle.preStop
+    alb.ingress.kubernetes.io/connection-drain-timeout: "45"
 spec:
   ingressClassName: alb
   rules:
@@ -312,4 +312,5 @@ spec:
 ## Reference
 
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/  
+https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/use-prestop-hook-to-implement-smooth-offline-pods-during-the-rolling-upgrade-of-alb-ingress-backend-pods  
 https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/advanced-alb-ingress-settings#c5bf22507239t  

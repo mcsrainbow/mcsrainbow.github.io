@@ -66,7 +66,7 @@ spec:
             # 默认值: 0
             initialDelaySeconds: 10
             # 默认值: 10 
-            # 固定间隔, 不会等待上一次探测完成
+            # 固定间隔, 按周期调度，不会等待上一次探测完成
             periodSeconds: 10
             # 默认值: 3
             failureThreshold: 30
@@ -81,7 +81,7 @@ spec:
             # 默认值: 0
             initialDelaySeconds: 10
             # 默认值: 10 
-            # 固定间隔, 不会等待上一次探测完成
+            # 固定间隔, 按周期调度，不会等待上一次探测完成
             periodSeconds: 30
             # 默认值: 3
             failureThreshold: 5
@@ -96,7 +96,7 @@ spec:
             # 默认值: 0
             initialDelaySeconds: 5
             # 默认值: 10
-            # 固定间隔, 不会等待上一次探测完成
+            # 固定间隔, 按周期调度，不会等待上一次探测完成
             periodSeconds: 20
             # 默认值: 3
             failureThreshold: 3
@@ -116,7 +116,7 @@ Kubernetes 默认配置:
 
 1. **启动:**  
    `无`  
-2. **上线:**  
+2. **存活:**  
    最短: `0` 秒  
    异常判定: `21` 秒 `( failureThreshold(3) - 1 ) * periodSeconds(10) + timeoutSeconds(1)`  
 3. **就绪:**  
@@ -133,7 +133,7 @@ Kubernetes 默认配置:
    最短: `10` 秒 `initialDelaySeconds(10)`  
    异常判定: `302` 秒 `initialDelaySeconds(10) + ( failureThreshold(30) - 1 ) * periodSeconds(10) + timeoutSeconds(2)`  
    注意: 工作原理决定了 `startupProbe.successThreshold` 只能设置为 `1`  
-2. **上线:**  
+2. **存活:**  
    最短: `20` 秒 `启动(10)` + `initialDelaySeconds(10)`  
    异常判定(首次): `135` 秒 `initialDelaySeconds(10) + ( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
    异常判定(持续): `125` 秒 `( failureThreshold(5) - 1 ) * periodSeconds(30) + timeoutSeconds(5)`  
@@ -150,7 +150,7 @@ Kubernetes 默认配置:
 与 Kubernetes 默认配置相比，以上实践配置进行了如下优化:
 
 1. **启动:** 推迟 `10` 秒，异常判定需要 `302` 秒，检查失败会重启容器
-2. **上线:** 推迟 `20` 秒，异常判定需要 `125` 秒，检查失败会重启容器
+2. **存活:** 推迟 `20` 秒，异常判定需要 `125` 秒，检查失败会重启容器
 3. **就绪:** 推迟 `35` 秒，健康检查 `2` 次，避免不稳定的新容器替换正常的旧容器，异常判定需要 `42` 秒，检查失败会阻止入站请求，恢复判定需要 `40` 秒，检查成功会允许入站请求
 4. **终止:** 立即阻止旧容器的入站请求，推迟 `60` 秒终止旧容器，确保旧容器有更多的剩余时间处理用户尚未完成的请求，避免用户尚未完成的请求被异常中断
 
@@ -208,7 +208,7 @@ spec:
             # 默认值: 0
             initialDelaySeconds: 10
             # 默认值: 10
-            # 固定间隔, 不会等待上一次探测完成
+            # 固定间隔, 按周期调度，不会等待上一次探测完成
             periodSeconds: 10
             # 默认值: 3
             failureThreshold: 30
@@ -224,7 +224,7 @@ spec:
             # 默认值: 0
             initialDelaySeconds: 10
             # 默认值: 10
-            # 固定间隔, 不会等待上一次探测完成
+            # 固定间隔, 按周期调度，不会等待上一次探测完成
             periodSeconds: 30
             # 默认值: 3
             failureThreshold: 5
@@ -240,7 +240,7 @@ spec:
             # 默认值: 0
             initialDelaySeconds: 5
             # 默认值: 10
-            # 固定间隔, 不会等待上一次探测完成
+            # 固定间隔, 按周期调度，不会等待上一次探测完成
             periodSeconds: 20
             # 默认值: 3
             failureThreshold: 3
@@ -262,7 +262,7 @@ spec:
 
 通常，用户的请求需要先经过 Ingress 转发，但 Ingress 可能默认不会等待 Pod 的 Terminating 状态完成，就提前将 Pod 从后端移除了，例如阿里云 Kubernetes 容器服务。
 
-这种情况下，为了避免用户尚未完成的请求被 Ingress 异常中断，还需要在 Ingress 上配置与 `lifecycle.preStop` 匹配的优雅中断超时时间。
+这种情况下，为了避免用户尚未完成的请求被 Ingress 异常中断，还需要在 Ingress 上配置小于 `lifecycle.preStop` 的优雅中断超时时间。
 
 这样，在优雅中断时间结束前，Ingress 才不会主动关闭与 Pod 的连接。
 
@@ -292,8 +292,8 @@ metadata:
   annotations:
     # 开启优雅中断
     alb.ingress.kubernetes.io/connection-drain-enabled: "true"
-    # 优雅中断超时时间，与 lifecycle.preStop 匹配
-    alb.ingress.kubernetes.io/connection-drain-timeout: "60"
+    # 优雅中断超时时间，小于 lifecycle.preStop
+    alb.ingress.kubernetes.io/connection-drain-timeout: "45"
 spec:
   ingressClassName: alb
   rules:
@@ -312,5 +312,6 @@ spec:
 ## 参考
 
 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/  
+https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/use-prestop-hook-to-implement-smooth-offline-pods-during-the-rolling-upgrade-of-alb-ingress-backend-pods  
 https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/advanced-alb-ingress-settings#c5bf22507239t  
 
