@@ -1,5 +1,5 @@
 ---
-title: "Beloved"
+title: "心爱的"
 date: 2025-06-16T00:00:00+08:00
 
 lightgallery: true
