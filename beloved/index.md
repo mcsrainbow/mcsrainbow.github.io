@@ -1,4 +1,4 @@
-# Beloved
+# 心爱的
 
 
 {{< style "float: right; margin-left: 20px; margin-bottom: 20px;" >}}
