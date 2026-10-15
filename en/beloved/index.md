@@ -13,5 +13,5 @@ Then I had my son. Watching him grow, from the day he was born, through learning
 
 Now, even when facing those past regrets, I would never want to go back. I am far too afraid that changing the past might mean my son wouldn't be born. With him in my life, those regrets can just drift away in the wind.
 
-I am over forty now, but I would never trade my age for another twenty or thirty years of youth. Nothing is worth missing the most blessed encounter with my son. I love him so much, my precious boy.
+I'm past forty now, but I would never turn back the clock twenty or thirty years if that meant never meeting my son. Meeting him has been the greatest blessing of my life. I love him so much, my precious boy.
 
