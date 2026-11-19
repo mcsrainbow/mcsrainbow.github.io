@@ -8,7 +8,7 @@ categories: ["技能矩阵"]
 tags: ["Python"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.jpeg"
 
 lightgallery: true
 ---

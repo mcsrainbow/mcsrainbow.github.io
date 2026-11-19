@@ -8,7 +8,7 @@ categories: ["Notes"]
 tags: ["Pomodoro Technique","Time Management"]
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "featured-image.jpeg"
 
 lightgallery: true
 ---

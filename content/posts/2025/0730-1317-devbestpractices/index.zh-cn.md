@@ -8,7 +8,7 @@ categories: ["技能矩阵"]
 tags: ["Git","DevOps","CICD"]
 resources:
 - name: "featured-image"
-  src: "featured-image.webp"
+  src: "featured-image.jpeg"
 
 lightgallery: true
 ---

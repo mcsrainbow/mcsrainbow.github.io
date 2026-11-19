@@ -8,7 +8,7 @@ categories: ["技能矩阵"]
 tags: ["Kubernetes"]
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "featured-image.jpeg"
 
 toc: true
 lightgallery: true

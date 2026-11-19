@@ -8,7 +8,7 @@ categories: ["Skills"]
 tags: ["Python"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.jpeg"
 
 lightgallery: true
 ---

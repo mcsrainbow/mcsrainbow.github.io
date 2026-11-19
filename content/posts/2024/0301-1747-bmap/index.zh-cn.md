@@ -8,7 +8,7 @@ categories: ["读书笔记"]
 tags: ["自我管理"]
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.jpeg"
 
 lightgallery: true
 ---

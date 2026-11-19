@@ -8,7 +8,7 @@ categories: ["Skills"]
 tags: ["English"]
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "featured-image.jpeg"
 
 toc: false
 lightgallery: true
