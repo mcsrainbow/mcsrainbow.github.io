@@ -131,16 +131,16 @@
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
-                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">What are Private IP Addresses</h1><div class="post-meta">
+                <div class="container"><article class="page single" data-pagefind-body><h1 class="single-title animate__animated animate__flipInX" data-pagefind-meta="title[data-title]" data-title="What are Private IP Addresses">What are Private IP Addresses</h1><div class="post-meta" data-pagefind-ignore>
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder" aria-hidden="true"></i>Skills</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-29">2023-03-29</time>&nbsp;<i class="fas fa-pencil-alt" aria-hidden="true"></i>&nbsp;407 words&nbsp;
                 <i class="far fa-clock" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/2023/03/what-are-private-ip-addresses/featured-image.jpeg"
-        data-srcset="/2023/03/what-are-private-ip-addresses/featured-image.jpeg, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 1.5x, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 2x"
-        data-sizes="auto"
+        class=""
+        src="/2023/03/what-are-private-ip-addresses/featured-image.jpeg"
+        loading="eager" fetchpriority="high" decoding="async"
+        srcset="/2023/03/what-are-private-ip-addresses/featured-image.jpeg, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 1.5x, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 2x"
+        
         alt="/2023/03/what-are-private-ip-addresses/featured-image.jpeg"
         title="In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes." /></div><div class="content" id="content"><p>In the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.</p>
 <hr>
@@ -155,148 +155,150 @@
 <p>But in fact, private IP addresses are more than these. From the Wikipedia page <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses" target="_blank" rel="noopener noreffer ">Reserved IP addresses</a>, in the Internet addressing architecture, the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA) have reserved various IP addresses for special purposes.</p>
 <h2 id="list-of-reserved-ipv4-addresses">List of Reserved IPv4 Addresses</h2>
 <p>The IPv4 addresses are shown below:</p>
-<table>
-	<thead>
-			<tr>
-					<th>Address block CIDR</th>
-					<th>Address range</th>
-					<th>Number of addresses</th>
-					<th>Scope</th>
-					<th>Description</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>0.0.0.0/8</td>
-					<td>0.0.0.0 – 0.255.255.255</td>
-					<td>16,777,216</td>
-					<td>Software</td>
-					<td>Current network</td>
-			</tr>
-			<tr>
-					<td>10.0.0.0/8</td>
-					<td>10.0.0.0 – 10.255.255.255</td>
-					<td>16,777,216</td>
-					<td>Private network</td>
-					<td>Used for local communications within a private network</td>
-			</tr>
-			<tr>
-					<td>100.64.0.0/10</td>
-					<td>100.64.0.0 – 100.127.255.255</td>
-					<td>4,194,304</td>
-					<td>Private network</td>
-					<td>Shared address space for communications between a service provider and its subscribers when using a carrier-grade NAT</td>
-			</tr>
-			<tr>
-					<td>127.0.0.0/8</td>
-					<td>127.0.0.0 – 127.255.255.255</td>
-					<td>16,777,216</td>
-					<td>Host</td>
-					<td>Used for loopback addresses to the local host</td>
-			</tr>
-			<tr>
-					<td>169.254.0.0/16</td>
-					<td>169.254.0.0 – 169.254.255.255</td>
-					<td>65,536</td>
-					<td>Subnet</td>
-					<td>Used for link-local addresses[5] between two hosts on a single link when no IP address is otherwise specified, such as would have normally been retrieved from a DHCP server</td>
-			</tr>
-			<tr>
-					<td>172.16.0.0/12</td>
-					<td>172.16.0.0 – 172.31.255.255</td>
-					<td>1,048,576</td>
-					<td>Private network</td>
-					<td>Used for local communications within a private network</td>
-			</tr>
-			<tr>
-					<td>192.0.0.0/24</td>
-					<td>192.0.0.0 – 192.0.0.255</td>
-					<td>256</td>
-					<td>Private network</td>
-					<td>IETF Protocol Assignments</td>
-			</tr>
-			<tr>
-					<td>192.0.2.0/24</td>
-					<td>192.0.2.0 – 192.0.2.255</td>
-					<td>256</td>
-					<td>Documentation</td>
-					<td>Assigned as TEST-NET-1, documentation and examples</td>
-			</tr>
-			<tr>
-					<td>192.31.196.0/24</td>
-					<td>192.31.196.0 - 192.31.196.255</td>
-					<td>256</td>
-					<td>Private network</td>
-					<td>AS112-v4</td>
-			</tr>
-			<tr>
-					<td>192.52.193.0/24</td>
-					<td>192.52.193.0 - 192.52.193.255</td>
-					<td>256</td>
-					<td>Private network</td>
-					<td>AMT</td>
-			</tr>
-			<tr>
-					<td>192.88.99.0/24</td>
-					<td>192.88.99.0 – 192.88.99.255</td>
-					<td>256</td>
-					<td>Internet</td>
-					<td>Deprecated (6to4 Relay Anycast)</td>
-			</tr>
-			<tr>
-					<td>192.168.0.0/16</td>
-					<td>192.168.0.0 – 192.168.255.255</td>
-					<td>65,536</td>
-					<td>Private network</td>
-					<td>Used for local communications within a private network</td>
-			</tr>
-			<tr>
-					<td>192.175.48.0/24</td>
-					<td>192.175.48.0 - 192.175.48.255</td>
-					<td>256</td>
-					<td>Private network</td>
-					<td>Direct Delegation AS112 Service</td>
-			</tr>
-			<tr>
-					<td>198.18.0.0/15</td>
-					<td>198.18.0.0 – 198.19.255.255</td>
-					<td>131,072</td>
-					<td>Private network</td>
-					<td>Used for benchmark testing of inter-network communications between two separate subnets</td>
-			</tr>
-			<tr>
-					<td>198.51.100.0/24</td>
-					<td>198.51.100.0 – 198.51.100.255</td>
-					<td>256</td>
-					<td>Documentation</td>
-					<td>Assigned as TEST-NET-2, documentation and examples</td>
-			</tr>
-			<tr>
-					<td>203.0.113.0/24</td>
-					<td>203.0.113.0 – 203.0.113.255</td>
-					<td>256</td>
-					<td>Documentation</td>
-					<td>Assigned as TEST-NET-3, documentation and examples</td>
-			</tr>
-			<tr>
-					<td>240.0.0.0/4</td>
-					<td>240.0.0.0 – 255.255.255.254</td>
-					<td>268,435,455</td>
-					<td>Internet</td>
-					<td>Reserved for future use</td>
-			</tr>
-			<tr>
-					<td>255.255.255.255/32</td>
-					<td>255.255.255.255</td>
-					<td>1</td>
-					<td>Subnet</td>
-					<td>Reserved for the &ldquo;limited broadcast&rdquo; destination address</td>
-			</tr>
-	</tbody>
-</table>
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Address block CIDR</th>
+        <th>Address range</th>
+        <th>Number of addresses</th>
+        <th>Scope</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0.0.0.0/8</td>
+        <td>0.0.0.0 – 0.255.255.255</td>
+        <td>16,777,216</td>
+        <td>Software</td>
+        <td>Current network</td>
+      </tr>
+      <tr>
+        <td>10.0.0.0/8</td>
+        <td>10.0.0.0 – 10.255.255.255</td>
+        <td>16,777,216</td>
+        <td>Private network</td>
+        <td>Used for local communications within a private network</td>
+      </tr>
+      <tr>
+        <td>100.64.0.0/10</td>
+        <td>100.64.0.0 – 100.127.255.255</td>
+        <td>4,194,304</td>
+        <td>Private network</td>
+        <td>Shared address space for communications between a service provider and its subscribers when using a carrier-grade NAT</td>
+      </tr>
+      <tr>
+        <td>127.0.0.0/8</td>
+        <td>127.0.0.0 – 127.255.255.255</td>
+        <td>16,777,216</td>
+        <td>Host</td>
+        <td>Used for loopback addresses to the local host</td>
+      </tr>
+      <tr>
+        <td>169.254.0.0/16</td>
+        <td>169.254.0.0 – 169.254.255.255</td>
+        <td>65,536</td>
+        <td>Subnet</td>
+        <td>Used for link-local addresses[5] between two hosts on a single link when no IP address is otherwise specified, such as would have normally been retrieved from a DHCP server</td>
+      </tr>
+      <tr>
+        <td>172.16.0.0/12</td>
+        <td>172.16.0.0 – 172.31.255.255</td>
+        <td>1,048,576</td>
+        <td>Private network</td>
+        <td>Used for local communications within a private network</td>
+      </tr>
+      <tr>
+        <td>192.0.0.0/24</td>
+        <td>192.0.0.0 – 192.0.0.255</td>
+        <td>256</td>
+        <td>Private network</td>
+        <td>IETF Protocol Assignments</td>
+      </tr>
+      <tr>
+        <td>192.0.2.0/24</td>
+        <td>192.0.2.0 – 192.0.2.255</td>
+        <td>256</td>
+        <td>Documentation</td>
+        <td>Assigned as TEST-NET-1, documentation and examples</td>
+      </tr>
+      <tr>
+        <td>192.31.196.0/24</td>
+        <td>192.31.196.0 - 192.31.196.255</td>
+        <td>256</td>
+        <td>Private network</td>
+        <td>AS112-v4</td>
+      </tr>
+      <tr>
+        <td>192.52.193.0/24</td>
+        <td>192.52.193.0 - 192.52.193.255</td>
+        <td>256</td>
+        <td>Private network</td>
+        <td>AMT</td>
+      </tr>
+      <tr>
+        <td>192.88.99.0/24</td>
+        <td>192.88.99.0 – 192.88.99.255</td>
+        <td>256</td>
+        <td>Internet</td>
+        <td>Deprecated (6to4 Relay Anycast)</td>
+      </tr>
+      <tr>
+        <td>192.168.0.0/16</td>
+        <td>192.168.0.0 – 192.168.255.255</td>
+        <td>65,536</td>
+        <td>Private network</td>
+        <td>Used for local communications within a private network</td>
+      </tr>
+      <tr>
+        <td>192.175.48.0/24</td>
+        <td>192.175.48.0 - 192.175.48.255</td>
+        <td>256</td>
+        <td>Private network</td>
+        <td>Direct Delegation AS112 Service</td>
+      </tr>
+      <tr>
+        <td>198.18.0.0/15</td>
+        <td>198.18.0.0 – 198.19.255.255</td>
+        <td>131,072</td>
+        <td>Private network</td>
+        <td>Used for benchmark testing of inter-network communications between two separate subnets</td>
+      </tr>
+      <tr>
+        <td>198.51.100.0/24</td>
+        <td>198.51.100.0 – 198.51.100.255</td>
+        <td>256</td>
+        <td>Documentation</td>
+        <td>Assigned as TEST-NET-2, documentation and examples</td>
+      </tr>
+      <tr>
+        <td>203.0.113.0/24</td>
+        <td>203.0.113.0 – 203.0.113.255</td>
+        <td>256</td>
+        <td>Documentation</td>
+        <td>Assigned as TEST-NET-3, documentation and examples</td>
+      </tr>
+      <tr>
+        <td>240.0.0.0/4</td>
+        <td>240.0.0.0 – 255.255.255.254</td>
+        <td>268,435,455</td>
+        <td>Internet</td>
+        <td>Reserved for future use</td>
+      </tr>
+      <tr>
+        <td>255.255.255.255/32</td>
+        <td>255.255.255.255</td>
+        <td>1</td>
+        <td>Subnet</td>
+        <td>Reserved for the &ldquo;limited broadcast&rdquo; destination address</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <h2 id="references">References</h2>
 <p><a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Reserved_IP_addresses</a><br>
-<a href="https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml" target="_blank" rel="noopener noreffer ">https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml</a></p></div><div class="post-footer" id="post-footer">
+<a href="https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml" target="_blank" rel="noopener noreffer ">https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml</a></p></div><div data-pagefind-ignore><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -322,11 +324,12 @@
     <div class="post-nav"><a href="/en/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/" class="prev" rel="prev" title="Enhance AWS S3 Data Security with Bucket Level Policy"><i class="fas fa-angle-left" aria-hidden="true"></i>Enhance AWS S3 Data Security with Bucket Level Policy</a>
             <a href="/en/2023/12/lightweight-kubernetes-distributions-practices/" class="next" rel="next" title="Lightweight Kubernetes Distributions Practices">Lightweight Kubernetes Distributions Practices<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="giscus" class="comment"></div><noscript>
+</div><div data-pagefind-ignore><div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
-            </noscript></div></article></div>
+            </noscript></div></div>
+    </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.169.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.170.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.4.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

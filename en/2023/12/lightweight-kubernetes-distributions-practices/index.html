@@ -135,18 +135,18 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Lightweight Kubernetes Distributions Practices</h1><div class="post-meta">
+        </div><article class="page single" data-pagefind-body><h1 class="single-title animate__animated animate__flipInX" data-pagefind-meta="title[data-title]" data-title="Lightweight Kubernetes Distributions Practices">Lightweight Kubernetes Distributions Practices</h1><div class="post-meta" data-pagefind-ignore>
             <div class="post-meta-line"><span class="post-author"><a href="/en/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle" aria-hidden="true"></i>Damon</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/skills/"><i class="far fa-folder" aria-hidden="true"></i>Skills</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-07">2023-12-07</time>&nbsp;<i class="fas fa-pencil-alt" aria-hidden="true"></i>&nbsp;4747 words&nbsp;
                 <i class="far fa-clock" aria-hidden="true"></i>&nbsp;23 minutes&nbsp;</div>
         </div><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg"
-        data-srcset="/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg, /2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg 2x"
-        data-sizes="auto"
+        class=""
+        src="/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg"
+        loading="eager" fetchpriority="high" decoding="async"
+        srcset="/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg, /2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg 1.5x, /2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg 2x"
+        
         alt="/2023/12/lightweight-kubernetes-distributions-practices/featured-image.jpeg"
-        title="Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier." /></div><div class="details toc" id="toc-static"  data-kept="">
+        title="Deploying and managing native Kubernetes clusters could be challenging, so the community developed lightweight Kubernetes distributions to make operations easier." /></div><div class="details toc" id="toc-static" data-pagefind-ignore data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -2013,92 +2013,94 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
 </span></span><span class="line"><span class="cl">➜ brew untap siderolabs/tap</span></span></code></pre></div></div>
 <h2 id="summary">Summary</h2>
 <p>Lightweight Kubernetes differ in cluster mode, storage, runtime, requirements, setup, and plugins. Choose based on your use case and technical preferences.</p>
-<table>
-	<thead>
-			<tr>
-					<th>Distribution</th>
-					<th>Cluster Mode</th>
-					<th>Storage</th>
-					<th>Runtime</th>
-					<th>Requirements</th>
-					<th>Setup</th>
-					<th>Plugins</th>
-					<th>Use Case</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Minikube</td>
-					<td>Single-node</td>
-					<td>etcd</td>
-					<td>Podman / Docker / containerd</td>
-					<td>Podman / Docker</td>
-					<td>Easy</td>
-					<td>Good</td>
-					<td>Dev</td>
-			</tr>
-			<tr>
-					<td>KinD</td>
-					<td>Single-node</td>
-					<td>etcd</td>
-					<td>containerd</td>
-					<td>Docker</td>
-					<td>Easy</td>
-					<td>Poor</td>
-					<td>Dev, CI/CD</td>
-			</tr>
-			<tr>
-					<td>K3S</td>
-					<td>Multi-node</td>
-					<td>SQLite / etcd / MySQL / PostgreSQL</td>
-					<td>containerd</td>
-					<td>Linux</td>
-					<td>Moderate</td>
-					<td>Fair</td>
-					<td>Edge, Prod</td>
-			</tr>
-			<tr>
-					<td>K3D</td>
-					<td>Single-node</td>
-					<td>SQLite / etcd / MySQL / PostgreSQL</td>
-					<td>containerd</td>
-					<td>Docker</td>
-					<td>Easy</td>
-					<td>Fair</td>
-					<td>Dev, CI/CD</td>
-			</tr>
-			<tr>
-					<td>MicroK8s</td>
-					<td>Multi-node</td>
-					<td>etcd / dqlite (distributed SQLite)</td>
-					<td>containerd / Kata</td>
-					<td>Linux</td>
-					<td>Moderate</td>
-					<td>Good</td>
-					<td>Dev, Prod</td>
-			</tr>
-			<tr>
-					<td>K0S</td>
-					<td>Multi-node</td>
-					<td>etcd / SQLite / MySQL / PostgreSQL</td>
-					<td>containerd</td>
-					<td>Linux</td>
-					<td>Moderate</td>
-					<td>Average</td>
-					<td>Edge, Prod</td>
-			</tr>
-			<tr>
-					<td>Talos</td>
-					<td>Multi-node</td>
-					<td>etcd</td>
-					<td>containerd</td>
-					<td>Docker</td>
-					<td>Easy</td>
-					<td>Poor</td>
-					<td>Dev, Prod</td>
-			</tr>
-	</tbody>
-</table></div><div class="post-footer" id="post-footer">
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Distribution</th>
+        <th>Cluster Mode</th>
+        <th>Storage</th>
+        <th>Runtime</th>
+        <th>Requirements</th>
+        <th>Setup</th>
+        <th>Plugins</th>
+        <th>Use Case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Minikube</td>
+        <td>Single-node</td>
+        <td>etcd</td>
+        <td>Podman / Docker / containerd</td>
+        <td>Podman / Docker</td>
+        <td>Easy</td>
+        <td>Good</td>
+        <td>Dev</td>
+      </tr>
+      <tr>
+        <td>KinD</td>
+        <td>Single-node</td>
+        <td>etcd</td>
+        <td>containerd</td>
+        <td>Docker</td>
+        <td>Easy</td>
+        <td>Poor</td>
+        <td>Dev, CI/CD</td>
+      </tr>
+      <tr>
+        <td>K3S</td>
+        <td>Multi-node</td>
+        <td>SQLite / etcd / MySQL / PostgreSQL</td>
+        <td>containerd</td>
+        <td>Linux</td>
+        <td>Moderate</td>
+        <td>Fair</td>
+        <td>Edge, Prod</td>
+      </tr>
+      <tr>
+        <td>K3D</td>
+        <td>Single-node</td>
+        <td>SQLite / etcd / MySQL / PostgreSQL</td>
+        <td>containerd</td>
+        <td>Docker</td>
+        <td>Easy</td>
+        <td>Fair</td>
+        <td>Dev, CI/CD</td>
+      </tr>
+      <tr>
+        <td>MicroK8s</td>
+        <td>Multi-node</td>
+        <td>etcd / dqlite (distributed SQLite)</td>
+        <td>containerd / Kata</td>
+        <td>Linux</td>
+        <td>Moderate</td>
+        <td>Good</td>
+        <td>Dev, Prod</td>
+      </tr>
+      <tr>
+        <td>K0S</td>
+        <td>Multi-node</td>
+        <td>etcd / SQLite / MySQL / PostgreSQL</td>
+        <td>containerd</td>
+        <td>Linux</td>
+        <td>Moderate</td>
+        <td>Average</td>
+        <td>Edge, Prod</td>
+      </tr>
+      <tr>
+        <td>Talos</td>
+        <td>Multi-node</td>
+        <td>etcd</td>
+        <td>containerd</td>
+        <td>Docker</td>
+        <td>Easy</td>
+        <td>Poor</td>
+        <td>Dev, Prod</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div><div data-pagefind-ignore><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -2124,11 +2126,12 @@ Multipass is a tool for quickly creating, managing, and operating Ubuntu virtual
     <div class="post-nav"><a href="/en/2023/03/what-are-private-ip-addresses/" class="prev" rel="prev" title="What are Private IP Addresses"><i class="fas fa-angle-left" aria-hidden="true"></i>What are Private IP Addresses</a>
             <a href="/en/2023/12/using-git-crypt-to-encrypt-files-in-git/" class="next" rel="next" title="Using git-crypt to Encrypt Files in Git">Using git-crypt to Encrypt Files in Git<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="giscus" class="comment"></div><noscript>
+</div><div data-pagefind-ignore><div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
-            </noscript></div></article></div>
+            </noscript></div></div>
+    </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.169.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.170.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.4.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

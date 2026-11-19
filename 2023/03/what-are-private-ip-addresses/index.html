@@ -131,16 +131,16 @@
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
-                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">私有 IP 地址包括哪些</h1><div class="post-meta">
+                <div class="container"><article class="page single" data-pagefind-body><h1 class="single-title animate__animated animate__flipInX" data-pagefind-meta="title[data-title]" data-title="私有 IP 地址包括哪些">私有 IP 地址包括哪些</h1><div class="post-meta" data-pagefind-ignore>
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle" aria-hidden="true"></i>郭冬</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E8%83%BD%E7%9F%A9%E9%98%B5/"><i class="far fa-folder" aria-hidden="true"></i>技能矩阵</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-29">2023-03-29</time>&nbsp;<i class="fas fa-pencil-alt" aria-hidden="true"></i>&nbsp;约 750 字&nbsp;
                 <i class="far fa-clock" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/2023/03/what-are-private-ip-addresses/featured-image.jpeg"
-        data-srcset="/2023/03/what-are-private-ip-addresses/featured-image.jpeg, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 1.5x, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 2x"
-        data-sizes="auto"
+        class=""
+        src="/2023/03/what-are-private-ip-addresses/featured-image.jpeg"
+        loading="eager" fetchpriority="high" decoding="async"
+        srcset="/2023/03/what-are-private-ip-addresses/featured-image.jpeg, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 1.5x, /2023/03/what-are-private-ip-addresses/featured-image.jpeg 2x"
+        
         alt="/2023/03/what-are-private-ip-addresses/featured-image.jpeg"
         title="在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。" /></div><div class="content" id="content"><p>在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>
 <hr>
@@ -155,148 +155,150 @@
 <p>但事实上不止这些，从 Wikipedia 的 <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses" target="_blank" rel="noopener noreffer ">Reserved IP addresses</a> 页面可以了解到在互联网寻址结构中，互联网工程任务组 IETF 和互联网号码分配局 IANA 保留了许多用于特殊目的的 IP 地址。</p>
 <h2 id="ipv4保留地址列表">IPv4保留地址列表</h2>
 <p>其中 IPv4部分如下所示：</p>
-<table>
-	<thead>
-			<tr>
-					<th>地址块 CIDR</th>
-					<th>范围</th>
-					<th>地址数</th>
-					<th>效用域</th>
-					<th>用途</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>0.0.0.0/8</td>
-					<td>0.0.0.0 – 0.255.255.255</td>
-					<td>16,777,216</td>
-					<td>软件</td>
-					<td>用于广播信息到当前主机</td>
-			</tr>
-			<tr>
-					<td>10.0.0.0/8</td>
-					<td>10.0.0.0 – 10.255.255.255</td>
-					<td>16,777,216</td>
-					<td>专用网络</td>
-					<td>用于专用网络中的本地通信</td>
-			</tr>
-			<tr>
-					<td>100.64.0.0/10</td>
-					<td>100.64.0.0 – 100.127.255.255</td>
-					<td>4,194,304</td>
-					<td>专用网络</td>
-					<td>用于在电信级 NAT 环境中服务提供商与其用户通信</td>
-			</tr>
-			<tr>
-					<td>127.0.0.0/8</td>
-					<td>127.0.0.0 – 127.255.255.255</td>
-					<td>16,777,216</td>
-					<td>主机</td>
-					<td>用于到本地主机的环回地址</td>
-			</tr>
-			<tr>
-					<td>169.254.0.0/16</td>
-					<td>169.254.0.0 – 169.254.255.255</td>
-					<td>65,536</td>
-					<td>链路</td>
-					<td>用于单链路的两个主机之间的链路本地地址</td>
-			</tr>
-			<tr>
-					<td>172.16.0.0/12</td>
-					<td>172.16.0.0 – 172.31.255.255</td>
-					<td>1,048,576</td>
-					<td>专用网络</td>
-					<td>用于专用网络中的本地通信</td>
-			</tr>
-			<tr>
-					<td>192.0.0.0/24</td>
-					<td>192.0.0.0 – 192.0.0.255</td>
-					<td>256</td>
-					<td>专用网络</td>
-					<td>用于 IANA 的 IPv4特殊用途地址表</td>
-			</tr>
-			<tr>
-					<td>192.0.2.0/24</td>
-					<td>192.0.2.0 – 192.0.2.255</td>
-					<td>256</td>
-					<td>文档</td>
-					<td>分配为用于文档和示例中的 TEST-NET，不应该被公开使用</td>
-			</tr>
-			<tr>
-					<td>192.31.196.0/24</td>
-					<td>192.31.196.0 - 192.31.196.255</td>
-					<td>256</td>
-					<td>专用网络</td>
-					<td>旨在处理私有使用地址的反向 DNS 查询，不会出现在公共 DNS 系统中</td>
-			</tr>
-			<tr>
-					<td>192.52.193.0/24</td>
-					<td>192.52.193.0 - 192.52.193.255</td>
-					<td>256</td>
-					<td>专用网络</td>
-					<td>用于自动组播隧道 AMT</td>
-			</tr>
-			<tr>
-					<td>192.88.99.0/24</td>
-					<td>192.88.99.0 – 192.88.99.255</td>
-					<td>256</td>
-					<td>互联网</td>
-					<td>用于 6to4 任播中继，已废弃</td>
-			</tr>
-			<tr>
-					<td>192.168.0.0/16</td>
-					<td>192.168.0.0 – 192.168.255.255</td>
-					<td>65,536</td>
-					<td>专用网络</td>
-					<td>用于专用网络中的本地通信</td>
-			</tr>
-			<tr>
-					<td>192.175.48.0/24</td>
-					<td>192.175.48.0 - 192.175.48.255</td>
-					<td>256</td>
-					<td>专用网络</td>
-					<td>旨在处理私有使用地址的反向 DNS 查询，不会出现在公共 DNS 系统中</td>
-			</tr>
-			<tr>
-					<td>198.18.0.0/15</td>
-					<td>198.18.0.0 – 198.19.255.255</td>
-					<td>131,072</td>
-					<td>专用网络</td>
-					<td>用于测试两个不同的子网的网间通信</td>
-			</tr>
-			<tr>
-					<td>198.51.100.0/24</td>
-					<td>198.51.100.0 – 198.51.100.255</td>
-					<td>256</td>
-					<td>文档</td>
-					<td>分配为用于文档和示例中的 TEST-NET-2，不应该被公开使用</td>
-			</tr>
-			<tr>
-					<td>203.0.113.0/24</td>
-					<td>203.0.113.0 – 203.0.113.255</td>
-					<td>256</td>
-					<td>文档</td>
-					<td>分配为用于文档和示例中的 TEST-NET-3，不应该被公开使用</td>
-			</tr>
-			<tr>
-					<td>240.0.0.0/4</td>
-					<td>240.0.0.0 – 255.255.255.254</td>
-					<td>268,435,455</td>
-					<td>互联网</td>
-					<td>用于将来使用</td>
-			</tr>
-			<tr>
-					<td>255.255.255.255/32</td>
-					<td>255.255.255.255</td>
-					<td>1</td>
-					<td>子网</td>
-					<td>用于受限广播地址</td>
-			</tr>
-	</tbody>
-</table>
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>地址块 CIDR</th>
+        <th>范围</th>
+        <th>地址数</th>
+        <th>效用域</th>
+        <th>用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0.0.0.0/8</td>
+        <td>0.0.0.0 – 0.255.255.255</td>
+        <td>16,777,216</td>
+        <td>软件</td>
+        <td>用于广播信息到当前主机</td>
+      </tr>
+      <tr>
+        <td>10.0.0.0/8</td>
+        <td>10.0.0.0 – 10.255.255.255</td>
+        <td>16,777,216</td>
+        <td>专用网络</td>
+        <td>用于专用网络中的本地通信</td>
+      </tr>
+      <tr>
+        <td>100.64.0.0/10</td>
+        <td>100.64.0.0 – 100.127.255.255</td>
+        <td>4,194,304</td>
+        <td>专用网络</td>
+        <td>用于在电信级 NAT 环境中服务提供商与其用户通信</td>
+      </tr>
+      <tr>
+        <td>127.0.0.0/8</td>
+        <td>127.0.0.0 – 127.255.255.255</td>
+        <td>16,777,216</td>
+        <td>主机</td>
+        <td>用于到本地主机的环回地址</td>
+      </tr>
+      <tr>
+        <td>169.254.0.0/16</td>
+        <td>169.254.0.0 – 169.254.255.255</td>
+        <td>65,536</td>
+        <td>链路</td>
+        <td>用于单链路的两个主机之间的链路本地地址</td>
+      </tr>
+      <tr>
+        <td>172.16.0.0/12</td>
+        <td>172.16.0.0 – 172.31.255.255</td>
+        <td>1,048,576</td>
+        <td>专用网络</td>
+        <td>用于专用网络中的本地通信</td>
+      </tr>
+      <tr>
+        <td>192.0.0.0/24</td>
+        <td>192.0.0.0 – 192.0.0.255</td>
+        <td>256</td>
+        <td>专用网络</td>
+        <td>用于 IANA 的 IPv4特殊用途地址表</td>
+      </tr>
+      <tr>
+        <td>192.0.2.0/24</td>
+        <td>192.0.2.0 – 192.0.2.255</td>
+        <td>256</td>
+        <td>文档</td>
+        <td>分配为用于文档和示例中的 TEST-NET，不应该被公开使用</td>
+      </tr>
+      <tr>
+        <td>192.31.196.0/24</td>
+        <td>192.31.196.0 - 192.31.196.255</td>
+        <td>256</td>
+        <td>专用网络</td>
+        <td>旨在处理私有使用地址的反向 DNS 查询，不会出现在公共 DNS 系统中</td>
+      </tr>
+      <tr>
+        <td>192.52.193.0/24</td>
+        <td>192.52.193.0 - 192.52.193.255</td>
+        <td>256</td>
+        <td>专用网络</td>
+        <td>用于自动组播隧道 AMT</td>
+      </tr>
+      <tr>
+        <td>192.88.99.0/24</td>
+        <td>192.88.99.0 – 192.88.99.255</td>
+        <td>256</td>
+        <td>互联网</td>
+        <td>用于 6to4 任播中继，已废弃</td>
+      </tr>
+      <tr>
+        <td>192.168.0.0/16</td>
+        <td>192.168.0.0 – 192.168.255.255</td>
+        <td>65,536</td>
+        <td>专用网络</td>
+        <td>用于专用网络中的本地通信</td>
+      </tr>
+      <tr>
+        <td>192.175.48.0/24</td>
+        <td>192.175.48.0 - 192.175.48.255</td>
+        <td>256</td>
+        <td>专用网络</td>
+        <td>旨在处理私有使用地址的反向 DNS 查询，不会出现在公共 DNS 系统中</td>
+      </tr>
+      <tr>
+        <td>198.18.0.0/15</td>
+        <td>198.18.0.0 – 198.19.255.255</td>
+        <td>131,072</td>
+        <td>专用网络</td>
+        <td>用于测试两个不同的子网的网间通信</td>
+      </tr>
+      <tr>
+        <td>198.51.100.0/24</td>
+        <td>198.51.100.0 – 198.51.100.255</td>
+        <td>256</td>
+        <td>文档</td>
+        <td>分配为用于文档和示例中的 TEST-NET-2，不应该被公开使用</td>
+      </tr>
+      <tr>
+        <td>203.0.113.0/24</td>
+        <td>203.0.113.0 – 203.0.113.255</td>
+        <td>256</td>
+        <td>文档</td>
+        <td>分配为用于文档和示例中的 TEST-NET-3，不应该被公开使用</td>
+      </tr>
+      <tr>
+        <td>240.0.0.0/4</td>
+        <td>240.0.0.0 – 255.255.255.254</td>
+        <td>268,435,455</td>
+        <td>互联网</td>
+        <td>用于将来使用</td>
+      </tr>
+      <tr>
+        <td>255.255.255.255/32</td>
+        <td>255.255.255.255</td>
+        <td>1</td>
+        <td>子网</td>
+        <td>用于受限广播地址</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <h2 id="参考">参考</h2>
 <p><a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Reserved_IP_addresses</a><br>
-<a href="https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml" target="_blank" rel="noopener noreffer ">https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml</a></p></div><div class="post-footer" id="post-footer">
+<a href="https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml" target="_blank" rel="noopener noreffer ">https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml</a></p></div><div data-pagefind-ignore><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -322,11 +324,12 @@
     <div class="post-nav"><a href="/2022/11/enhance-aws-s3-data-security-with-bucket-level-policy/" class="prev" rel="prev" title="通过 Bucket Level Policy 加强 AWS S3 数据安全防护"><i class="fas fa-angle-left" aria-hidden="true"></i>通过 Bucket Level Policy 加强 AWS S3 数据安全防护</a>
             <a href="/2023/12/lightweight-kubernetes-distributions-practices/" class="next" rel="next" title="轻量级 Kubernetes 发行版实践">轻量级 Kubernetes 发行版实践<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="giscus" class="comment"></div><noscript>
+</div><div data-pagefind-ignore><div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
-            </noscript></div></article></div>
+            </noscript></div></div>
+    </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.169.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.170.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.4.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
