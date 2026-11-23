@@ -18,8 +18,8 @@
     <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/</guid>
-    <description><![CDATA[<p><a href="https://github.com/getsops/sops" target="_blank" rel="noopener noreffer ">SOPS</a> 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
-与 <a href="https://github.com/FiloSottile/age" target="_blank" rel="noopener noreffer ">age</a> 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>]]></description>
+    <description><![CDATA[<p><a href="https://github.com/getsops/sops" target="_blank" rel="noopener noreferrer ">SOPS</a> 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
+与 <a href="https://github.com/FiloSottile/age" target="_blank" rel="noopener noreferrer ">age</a> 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>]]></description>
 </item>
 <item>
     <title>使用 uv 创建和管理 Python 项目</title>
@@ -84,7 +84,7 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
     <pubDate>Mon, 28 Jul 2025 15:12:51 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2025/07/cloud-native-glossary-lite/</guid>
-    <description><![CDATA[<p>参考: <a href="https://glossary.cncf.io/zh-cn/" target="_blank" rel="noopener noreffer ">https://glossary.cncf.io/zh-cn/</a></p>]]></description>
+    <description><![CDATA[<p>参考: <a href="https://glossary.cncf.io/zh-cn/" target="_blank" rel="noopener noreferrer ">https://glossary.cncf.io/zh-cn/</a></p>]]></description>
 </item>
 </channel>
 </rss>

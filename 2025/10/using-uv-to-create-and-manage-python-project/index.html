@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,36 +24,9 @@
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/" /><link rel="prev" href="https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/" /><link rel="next" href="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "使用 uv 创建和管理 Python 项目",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/"
-        },"image": [{
-                            "@type": "ImageObject",
-                            "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/featured-image.jpeg",
-                            "width":  2200 ,
-                            "height":  1062 
-                        }],"genre": "posts","keywords": "Python","wordcount":  1451 ,
-        "url": "https:\/\/blog.heylinux.com\/2025\/10\/using-uv-to-create-and-manage-python-project\/","datePublished": "2025-10-27T15:35:29+08:00","dateModified": "2025-10-27T15:35:29+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "mcsrainbow","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/blog.heylinux.com\/images\/avatar.jpg",
-                    "width":  800 ,
-                    "height":  800 
-                }},"author": {
-                "@type": "Person",
-                "name": "郭冬"
-            },"description": "uv 是一个 Python 包和项目管理器，它使用 Rust 编写，旨在替代 pip 和 virtualenv 等工具。"
-    }
-    </script></head>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/" /><link rel="prev" href="https://blog.heylinux.com/2025/09/quickstart-flink-sql-unified-batch-and-streaming/" /><link rel="next" href="https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"郭冬"},"dateModified":"2025-10-27T15:35:29+08:00","datePublished":"2025-10-27T15:35:29+08:00","description":"uv 是一个 Python 包和项目管理器，它使用 Rust 编写，旨在替代 pip 和 virtualenv 等工具。","genre":"posts","headline":"使用 uv 创建和管理 Python 项目","image":[{"@type":"ImageObject","height":1062,"url":"https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/featured-image.jpeg","width":2200}],"inLanguage":"zh-CN","keywords":"Python","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","mainEntityOfPage":{"@id":"https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/","@type":"WebPage"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","height":800,"url":"https://blog.heylinux.com/images/avatar.jpg","width":800},"name":"mcsrainbow"},"url":"https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/","wordCount":1451}</script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script>
           const query = window.matchMedia('(prefers-color-scheme: dark)');
           function applyTheme() {
@@ -67,6 +40,8 @@
           query.addEventListener('change', applyTheme);
         </script>
 
+        <a href="#main-content" class="skip-link">跳到正文</a>
+
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
@@ -74,22 +49,23 @@
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/en/"> English </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop" aria-label="搜索">
+                        <button type="button" class="search-button search-toggle link-like" id="search-toggle-desktop" title="搜索" aria-label="搜索">
                             <i class="fas fa-search" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                        </button>
+                        <button type="button" class="search-button search-clear link-like" id="search-clear-desktop" title="清空" aria-label="清空">
                             <i class="fas fa-times-circle" aria-hidden="true"></i>
-                        </a>
+                        </button>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    </span><button type="button" class="menu-item theme-switch link-like" title="切换主题" aria-label="切换主题" data-label="切换主题" data-label-auto="跟随系统" data-label-light="浅色" data-label-dark="深色">
+    <i class="fas fa-adjust" aria-hidden="true"></i>
+</button>
+<span class="menu-item language link-like" title="选择语言">
                     <i class="fa fa-globe" aria-hidden="true"></i>
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2025/10/using-uv-to-create-and-manage-python-project/" selected>简体中文</option><option value="/en/2025/10/using-uv-to-create-and-manage-python-project/">English</option></select>
-                </a></div>
+                    <select class="language-select" id="language-select-desktop" aria-label="选择语言" onchange="location = this.value;"><option value="/2025/10/using-uv-to-create-and-manage-python-project/" selected>简体中文</option><option value="/en/2025/10/using-uv-to-create-and-manage-python-project/">English</option></select>
+                </span></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -98,39 +74,40 @@
             <div class="header-title">
                 <a href="/" title="Hey! Linux">Hey! Linux</a>
             </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
+            <button type="button" class="menu-toggle" id="menu-toggle-mobile" title="菜单" aria-label="菜单" aria-controls="menu-mobile" aria-expanded="false">
                 <span></span><span></span><span></span>
-            </div>
+            </button>
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile" aria-label="搜索">
+                        <button type="button" class="search-button search-toggle link-like" id="search-toggle-mobile" title="搜索" aria-label="搜索">
                             <i class="fas fa-search" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                        </button>
+                        <button type="button" class="search-button search-clear link-like" id="search-clear-mobile" title="清空" aria-label="清空">
                             <i class="fas fa-times-circle" aria-hidden="true"></i>
-                        </a>
+                        </button>
                         <span class="search-button search-loading" id="search-loading-mobile">
                             <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                    <button type="button" class="search-cancel link-like" id="search-cancel-mobile">
                         取消
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    </button>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><button type="button" class="menu-item theme-switch link-like" title="切换主题" aria-label="切换主题" data-label="切换主题" data-label-auto="跟随系统" data-label-light="浅色" data-label-dark="深色">
+    <i class="fas fa-adjust" aria-hidden="true"></i>
+</button>
+<span class="menu-item language link-like" title="选择语言">
                     <i class="fa fa-globe" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/2025/10/using-uv-to-create-and-manage-python-project/" selected>简体中文</option><option value="/en/2025/10/using-uv-to-create-and-manage-python-project/">English</option></select>
-                </a></div>
+                    <select class="language-select" id="language-select-mobile" aria-label="选择语言" onchange="location = this.value;"><option value="/2025/10/using-uv-to-create-and-manage-python-project/" selected>简体中文</option><option value="/en/2025/10/using-uv-to-create-and-manage-python-project/">English</option></select>
+                </span></div>
     </div>
 </header><div class="search-dropdown desktop">
         <div id="search-dropdown-desktop"></div>
     </div>
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
+    </div><main class="main" id="main-content" tabindex="-1">
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
@@ -643,9 +620,9 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
 </span></span><span class="line"><span class="cl">❯ curl http://127.0.0.1:8000
 </span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;ok&#34;</span>:true<span class="o">}</span></span></span></code></pre></div></div>
 <h2 id="参考">参考</h2>
-<p><a href="https://docs.astral.sh/uv/guides/projects/" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/guides/projects/</a><br>
-<a href="https://docs.astral.sh/uv/guides/migration/pip-to-project/" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/guides/migration/pip-to-project/</a><br>
-<a href="https://docs.astral.sh/uv/guides/integration/docker/#non-editable-installs" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/guides/integration/docker/#non-editable-installs</a></p></div><div data-pagefind-ignore><div class="post-footer" id="post-footer">
+<p><a href="https://docs.astral.sh/uv/guides/projects/" target="_blank" rel="noopener noreferrer ">https://docs.astral.sh/uv/guides/projects/</a><br>
+<a href="https://docs.astral.sh/uv/guides/migration/pip-to-project/" target="_blank" rel="noopener noreferrer ">https://docs.astral.sh/uv/guides/migration/pip-to-project/</a><br>
+<a href="https://docs.astral.sh/uv/guides/integration/docker/#non-editable-installs" target="_blank" rel="noopener noreferrer ">https://docs.astral.sh/uv/guides/integration/docker/#non-editable-installs</a></p></div><div data-pagefind-ignore><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -656,7 +633,7 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
                             <a class="link-to-markdown" href="/2025/10/using-uv-to-create-and-manage-python-project/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/" data-title="使用 uv 创建和管理 Python 项目" data-hashtags="Python"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/"><i class="fab fa-linkedin" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/" data-title="使用 uv 创建和管理 Python 项目" data-web><i class="fab fa-whatsapp" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/"><i class="fab fa-reddit" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2025%2f10%2fusing-uv-to-create-and-manage-python-project%2f&amp;text=%e4%bd%bf%e7%94%a8%20uv%20%e5%88%9b%e5%bb%ba%e5%92%8c%e7%ae%a1%e7%90%86%20Python%20%e9%a1%b9%e7%9b%ae" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
+                <span><button type="button" class="link-like" title="分享到 X" aria-label="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/" data-title="使用 uv 创建和管理 Python 项目" data-hashtags="Python"><i class="fab fa-x-twitter" aria-hidden="true"></i></button><button type="button" class="link-like" title="分享到 Linkedin" aria-label="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/"><i class="fab fa-linkedin" aria-hidden="true"></i></button><button type="button" class="link-like" title="分享到 WhatsApp" aria-label="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/" data-title="使用 uv 创建和管理 Python 项目" data-web><i class="fab fa-whatsapp" aria-hidden="true"></i></button><button type="button" class="link-like" title="分享到 Reddit" aria-label="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2025/10/using-uv-to-create-and-manage-python-project/"><i class="fab fa-reddit" aria-hidden="true"></i></button><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2025%2f10%2fusing-uv-to-create-and-manage-python-project%2f&amp;text=%e4%bd%bf%e7%94%a8%20uv%20%e5%88%9b%e5%bb%ba%e5%92%8c%e7%ae%a1%e7%90%86%20Python%20%e9%a1%b9%e7%9b%ae" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -664,7 +641,7 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
     <div class="post-info-more">
         <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><button type="button" class="link-like" onclick="window.history.back();">返回</button></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
@@ -676,7 +653,7 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
             </noscript></div></div>
     </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.170.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.4.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.170.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.4.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
@@ -689,5 +666,5 @@ uv 提供了比现有工具快10到100倍的性能，同时保持了对 requirem
         <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.65.0/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.4/sharer.min.js"></script><script>window.config={"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.js"></script></body>
 </html>

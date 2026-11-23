@@ -10,8 +10,8 @@
     <pubDate>Tue, 03 Feb 2026 18:51:44 &#43;0800</pubDate>
     <author>guosuiyu@gmail.com (mcsrainbow)</author>
     <guid>https://blog.heylinux.com/2026/02/using-sops-age-to-encrypt-files/</guid>
-    <description><![CDATA[<p><a href="https://github.com/getsops/sops" target="_blank" rel="noopener noreffer ">SOPS</a> 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
-与 <a href="https://github.com/FiloSottile/age" target="_blank" rel="noopener noreffer ">age</a> 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>]]></description>
+    <description><![CDATA[<p><a href="https://github.com/getsops/sops" target="_blank" rel="noopener noreferrer ">SOPS</a> 的全称是 Secrets OPerationS，官方简介为 Simple and flexible tool for managing secrets，定位是简单灵活的密钥管理工具。<br>
+与 <a href="https://github.com/FiloSottile/age" target="_blank" rel="noopener noreferrer ">age</a> 加解密工具配合后，相比 git-crypt，管理私钥更方便、操作更直观、更容易与 CI 集成。</p>]]></description>
 </item>
 <item>
     <title>使用 git-crypt 加解密 Git 中的文件</title>

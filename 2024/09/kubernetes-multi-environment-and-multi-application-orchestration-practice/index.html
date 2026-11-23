@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,36 +26,9 @@
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" /><link rel="prev" href="https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/" /><link rel="next" href="https://blog.heylinux.com/2025/01/work-mindsets/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Kubernetes 多环境多应用编排实践",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/blog.heylinux.com\/2024\/09\/kubernetes-multi-environment-and-multi-application-orchestration-practice\/"
-        },"image": [{
-                            "@type": "ImageObject",
-                            "url": "https:\/\/blog.heylinux.com\/2024\/09\/kubernetes-multi-environment-and-multi-application-orchestration-practice\/featured-image.jpeg",
-                            "width":  2200 ,
-                            "height":  550 
-                        }],"genre": "posts","keywords": "Kubernetes, Kustomize, Helm","wordcount":  1144 ,
-        "url": "https:\/\/blog.heylinux.com\/2024\/09\/kubernetes-multi-environment-and-multi-application-orchestration-practice\/","datePublished": "2024-09-10T18:37:39+08:00","dateModified": "2024-09-10T18:37:39+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "mcsrainbow","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/blog.heylinux.com\/images\/avatar.jpg",
-                    "width":  800 ,
-                    "height":  800 
-                }},"author": {
-                "@type": "Person",
-                "name": "郭冬"
-            },"description": "通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。"
-    }
-    </script></head>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" /><link rel="prev" href="https://blog.heylinux.com/2024/07/kubernetes-container-healthcheck-and-graceful-termination/" /><link rel="next" href="https://blog.heylinux.com/2025/01/work-mindsets/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"郭冬"},"dateModified":"2024-09-10T18:37:39+08:00","datePublished":"2024-09-10T18:37:39+08:00","description":"通过 YAML(Manifests)、Kustomize 和 Helm 各自实现一套相同配置的 Kubernetes 多环境多应用编排，可以快速的上手 Kustomize 和 Helm，并了解到它们之间的差异。","genre":"posts","headline":"Kubernetes 多环境多应用编排实践","image":[{"@type":"ImageObject","height":550,"url":"https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/featured-image.jpeg","width":2200}],"inLanguage":"zh-CN","keywords":"Kubernetes, Kustomize, Helm","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","mainEntityOfPage":{"@id":"https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/","@type":"WebPage"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","height":800,"url":"https://blog.heylinux.com/images/avatar.jpg","width":800},"name":"mcsrainbow"},"url":"https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/","wordCount":1144}</script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script>
           const query = window.matchMedia('(prefers-color-scheme: dark)');
           function applyTheme() {
@@ -69,6 +42,8 @@
           query.addEventListener('change', applyTheme);
         </script>
 
+        <a href="#main-content" class="skip-link">跳到正文</a>
+
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
@@ -76,22 +51,23 @@
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"><i class='fas fa-user-circle fa-fw'></i>  </a><a class="menu-item" href="/en/"> English </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop" aria-label="搜索">
+                        <button type="button" class="search-button search-toggle link-like" id="search-toggle-desktop" title="搜索" aria-label="搜索">
                             <i class="fas fa-search" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                        </button>
+                        <button type="button" class="search-button search-clear link-like" id="search-clear-desktop" title="清空" aria-label="清空">
                             <i class="fas fa-times-circle" aria-hidden="true"></i>
-                        </a>
+                        </button>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    </span><button type="button" class="menu-item theme-switch link-like" title="切换主题" aria-label="切换主题" data-label="切换主题" data-label-auto="跟随系统" data-label-light="浅色" data-label-dark="深色">
+    <i class="fas fa-adjust" aria-hidden="true"></i>
+</button>
+<span class="menu-item language link-like" title="选择语言">
                     <i class="fa fa-globe" aria-hidden="true"></i>
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" selected>简体中文</option><option value="/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/">English</option></select>
-                </a></div>
+                    <select class="language-select" id="language-select-desktop" aria-label="选择语言" onchange="location = this.value;"><option value="/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" selected>简体中文</option><option value="/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/">English</option></select>
+                </span></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -100,39 +76,40 @@
             <div class="header-title">
                 <a href="/" title="Hey! Linux">Hey! Linux</a>
             </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
+            <button type="button" class="menu-toggle" id="menu-toggle-mobile" title="菜单" aria-label="菜单" aria-controls="menu-mobile" aria-expanded="false">
                 <span></span><span></span><span></span>
-            </div>
+            </button>
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile" aria-label="搜索">
+                        <button type="button" class="search-button search-toggle link-like" id="search-toggle-mobile" title="搜索" aria-label="搜索">
                             <i class="fas fa-search" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                        </button>
+                        <button type="button" class="search-button search-clear link-like" id="search-clear-mobile" title="清空" aria-label="清空">
                             <i class="fas fa-times-circle" aria-hidden="true"></i>
-                        </a>
+                        </button>
                         <span class="search-button search-loading" id="search-loading-mobile">
                             <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                    <button type="button" class="search-cancel link-like" id="search-cancel-mobile">
                         取消
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    </button>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title=""><i class='fas fa-user-circle fa-fw'></i></a><a class="menu-item" href="/en/" title="">English</a><button type="button" class="menu-item theme-switch link-like" title="切换主题" aria-label="切换主题" data-label="切换主题" data-label-auto="跟随系统" data-label-light="浅色" data-label-dark="深色">
+    <i class="fas fa-adjust" aria-hidden="true"></i>
+</button>
+<span class="menu-item language link-like" title="选择语言">
                     <i class="fa fa-globe" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" selected>简体中文</option><option value="/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/">English</option></select>
-                </a></div>
+                    <select class="language-select" id="language-select-mobile" aria-label="选择语言" onchange="location = this.value;"><option value="/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" selected>简体中文</option><option value="/en/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/">English</option></select>
+                </span></div>
     </div>
 </header><div class="search-dropdown desktop">
         <div id="search-dropdown-desktop"></div>
     </div>
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
+    </div><main class="main" id="main-content" tabindex="-1">
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
@@ -169,7 +146,7 @@
         <div class="admonition-content">&ldquo;Talk is cheap. Show me the code.&rdquo; - Linus Torvalds</div>
     </div>
 </div>
-<p><strong>代码分享:</strong> <a href="https://github.com/mcsrainbow/k8s-apps" target="_blank" rel="noopener noreffer ">https://github.com/mcsrainbow/k8s-apps</a></p>
+<p><strong>代码分享:</strong> <a href="https://github.com/mcsrainbow/k8s-apps" target="_blank" rel="noopener noreferrer ">https://github.com/mcsrainbow/k8s-apps</a></p>
 <h2 id="manifests">Manifests</h2>
 <p>原生 YAML(Manifests) 是最直观和最简单的 Kubernetes 资源配置方式，对于多环境多应用的编排方式也简单粗暴，直接创建不同环境名称的目录，将资源按照公共和应用维度分别写入不同的 YAML 文件即可。</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -243,7 +220,7 @@
 </span></span><span class="line"><span class="cl">kustomize build overlays/production</span></span></code></pre></div></div>
 <p>优点: 兼容原生 YAML，可复用配置代码，可通过内置的插件读取文件生成 Secret 和 ConfigMap，以及修改参数（例如: 增加标签、增加资源名称前缀、修改 CPU 和内存等）；<br>
 缺点: 复用配置代码后也导致了耦合，配置失误时影响范围增大，内置的插件功能有限，无法高度自由地复用配置代码和修改参数。</p>
-<p>Kustomize 内置插件: <a href="https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/" target="_blank" rel="noopener noreffer ">https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/</a></p>
+<p>Kustomize 内置插件: <a href="https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/" target="_blank" rel="noopener noreferrer ">https://kubectl.docs.kubernetes.io/zh/guides/plugins/builtins/</a></p>
 <h2 id="helm">Helm</h2>
 <p>Helm 是 Kubernetes 包管理器和部署工具，类似 Linux 上的 配置管理工具 Ansible + 包管理器 Yum。</p>
 <p>Helm 默认读取 values.yaml 文件中定义的变量，和 templates 目录下的模板文件、函数和代码块，可以高度自由地复用代码、修改参数和读取文件生成配置。</p>
@@ -288,7 +265,7 @@
 </span></span><span class="line"><span class="cl">helm template . -f values/production.yaml</span></span></code></pre></div></div>
 <p>优点: 模板功能强大，可以高度自由地复用代码、修改参数和读取文件生成配置，可将配置按应用打包发布到 Helm Repo 中进行包管理；<br>
 缺点: 高度自由的定制能力也导致了高耦合，模板化的配置代码不够直观，配置失误时影响范围增大且调试难度增加。</p>
-<p>Helm 模板函数和流水线: <a href="https://helm.sh/zh/docs/chart_template_guide/functions_and_pipelines/" target="_blank" rel="noopener noreffer ">https://helm.sh/zh/docs/chart_template_guide/functions_and_pipelines/</a></p></div><div data-pagefind-ignore><div class="post-footer" id="post-footer">
+<p>Helm 模板函数和流水线: <a href="https://helm.sh/zh/docs/chart_template_guide/functions_and_pipelines/" target="_blank" rel="noopener noreferrer ">https://helm.sh/zh/docs/chart_template_guide/functions_and_pipelines/</a></p></div><div data-pagefind-ignore><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -299,7 +276,7 @@
                             <a class="link-to-markdown" href="/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" data-title="Kubernetes 多环境多应用编排实践" data-hashtags="Kubernetes,Kustomize,Helm"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/"><i class="fab fa-linkedin" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" data-title="Kubernetes 多环境多应用编排实践" data-web><i class="fab fa-whatsapp" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/"><i class="fab fa-reddit" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2024%2f09%2fkubernetes-multi-environment-and-multi-application-orchestration-practice%2f&amp;text=Kubernetes%20%e5%a4%9a%e7%8e%af%e5%a2%83%e5%a4%9a%e5%ba%94%e7%94%a8%e7%bc%96%e6%8e%92%e5%ae%9e%e8%b7%b5" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
+                <span><button type="button" class="link-like" title="分享到 X" aria-label="分享到 X" data-sharer="x" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" data-title="Kubernetes 多环境多应用编排实践" data-hashtags="Kubernetes,Kustomize,Helm"><i class="fab fa-x-twitter" aria-hidden="true"></i></button><button type="button" class="link-like" title="分享到 Linkedin" aria-label="分享到 Linkedin" data-sharer="linkedin" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/"><i class="fab fa-linkedin" aria-hidden="true"></i></button><button type="button" class="link-like" title="分享到 WhatsApp" aria-label="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/" data-title="Kubernetes 多环境多应用编排实践" data-web><i class="fab fa-whatsapp" aria-hidden="true"></i></button><button type="button" class="link-like" title="分享到 Reddit" aria-label="分享到 Reddit" data-sharer="reddit" data-url="https://blog.heylinux.com/2024/09/kubernetes-multi-environment-and-multi-application-orchestration-practice/"><i class="fab fa-reddit" aria-hidden="true"></i></button><a href="https://t.me/share/url?url=https%3a%2f%2fblog.heylinux.com%2f2024%2f09%2fkubernetes-multi-environment-and-multi-application-orchestration-practice%2f&amp;text=Kubernetes%20%e5%a4%9a%e7%8e%af%e5%a2%83%e5%a4%9a%e5%ba%94%e7%94%a8%e7%bc%96%e6%8e%92%e5%ae%9e%e8%b7%b5" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -307,7 +284,7 @@
     <div class="post-info-more">
         <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/tags/kubernetes/">Kubernetes</a>,&nbsp;<a href="/tags/kustomize/">Kustomize</a>,&nbsp;<a href="/tags/helm/">Helm</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><button type="button" class="link-like" onclick="window.history.back();">返回</button></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
@@ -319,7 +296,7 @@
             </noscript></div></div>
     </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.170.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.4.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.170.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.4.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">mcsrainbow</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
@@ -332,5 +309,5 @@
         <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.20.2/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@5.65.0/dist/lite/builds/browser.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@3.0.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.4/sharer.min.js"></script><script>window.config={"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOJ24LIc4CtzPW","darkTheme":"dark","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"0","repo":"mcsrainbow/mcsrainbow.github.io","repoId":"R_kgDOJ24LIQ"}},"lightgallery":true,"search":{"algoliaAppID":"T37NSH4YYY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"2b7d83ac63406ccc989a0857442fef17","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.js"></script></body>
 </html>
